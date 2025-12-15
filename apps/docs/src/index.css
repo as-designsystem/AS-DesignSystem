@@ -11,8 +11,8 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text-main, var(--cool-grey-100, #14171d));
-  background-color: var(--background-secondary, var(--warm-grey-10, #fafafa));
+  color: var(--text-main);
+  background-color: var(--background-secondary);
 }
 
 #root {

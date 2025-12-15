@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .code-modal-header h3 {
@@ -67,7 +67,7 @@
 
 .code-modal-footer {
   padding: 16px 20px;
-  border-top: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-top: 1px solid var(--border-minimal);
   display: flex;
   justify-content: flex-end;
 }

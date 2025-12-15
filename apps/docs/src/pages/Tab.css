@@ -2,9 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--background-secondary, var(--warm-grey-10, #fafafa));
+  background-color: var(--background-secondary);
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .tab-examples {
@@ -14,7 +14,7 @@
   padding: 24px;
   background-color: var(--background-main, #ffffff);
   border-radius: 8px;
-  border: 1px solid var(--border-subtle, #e5e7eb);
+  border: 1px solid var(--border-minimal);
 }
 
 .tab-examples--container {

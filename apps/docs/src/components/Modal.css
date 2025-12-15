@@ -27,7 +27,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border-bottom: 1px solid var(--cool-grey-20, #e5e8ed);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .modal-close {
@@ -35,7 +35,7 @@
   border: none;
   font-size: 32px;
   cursor: pointer;
-  color: var(--cool-grey-60, #63728a);
+  color: var(--text-secondary);
   padding: 0;
   width: 32px;
   height: 32px;
@@ -47,7 +47,7 @@
 }
 
 .modal-close:hover {
-  background: var(--cool-grey-10, #f5f6f8);
+  background: var(--background-tertiary);
 }
 
 .modal-body {
@@ -55,7 +55,7 @@
 }
 
 .modal-code-block {
-  background: var(--cool-grey-10, #f5f6f8);
+  background: var(--background-tertiary);
   border-radius: 4px;
   padding: 16px;
   margin-bottom: 16px;
@@ -71,7 +71,7 @@
   font-family: 'Courier New', monospace;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--text-main, var(--cool-grey-90, #1d2433));
+  color: var(--text-main);
 }
 
 .modal-copy-button {
@@ -79,7 +79,7 @@
   top: 12px;
   right: 12px;
   background: white;
-  border: 1px solid var(--cool-grey-30, #c9ced6);
+  border: 1px solid var(--border-moderate);
   border-radius: 4px;
   padding: 4px 8px;
   font-size: 12px;
@@ -88,12 +88,12 @@
 }
 
 .modal-copy-button:hover {
-  background: var(--cool-grey-10, #f5f6f8);
+  background: var(--background-tertiary);
 }
 
 .modal-section-title {
   margin-top: 16px;
   margin-bottom: 8px;
-  color: var(--cool-grey-60, #63728a);
+  color: var(--text-secondary);
   font-weight: 600;
 }

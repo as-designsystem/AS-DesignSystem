@@ -246,7 +246,7 @@ const tools = [
               {allTools.map(tool => (
                 <code key={tool} style={{
                   padding: '4px 8px',
-                  backgroundColor: 'var(--cool-grey-10, #f2f4f7)',
+                  backgroundColor: 'var(--background-tertiary)',
                   borderRadius: '4px',
                   fontSize: '12px'
                 }}>

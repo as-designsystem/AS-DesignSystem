@@ -149,7 +149,7 @@ export default function Icons() {
               <div
                 style={{
                   padding: '32px',
-                  background: 'var(--cool-grey-10, #f5f6f8)',
+                  background: 'var(--background-tertiary)',
                   borderRadius: '8px',
                 }}
               >

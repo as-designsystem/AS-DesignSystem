@@ -7,7 +7,7 @@
   padding: 24px;
   background-color: var(--background-main, #ffffff);
   border-radius: 8px;
-  border: 1px solid var(--border-subtle, #e5e7eb);
+  border: 1px solid var(--border-minimal);
 }
 
 .select-examples > * {
@@ -29,7 +29,7 @@
 
 .comparison-box {
   background-color: var(--background-tertiary, #eff1f4);
-  border: 1px solid var(--border-default, #d1d7e0);
+  border: 1px solid var(--border-default);
   border-radius: 3px;
   padding: 16px;
   margin-top: 16px;

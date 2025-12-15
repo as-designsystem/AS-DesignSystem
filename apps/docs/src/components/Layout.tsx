@@ -1,7 +1,8 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import { Icon } from '@as-design-system/core';
+import { Icon, IconButton } from '@as-design-system/core';
+import '@as-design-system/core/IconButton.css';
 import './Layout.css';
 
 interface LayoutProps {
@@ -42,6 +43,15 @@ function NavSection({ title, children, defaultOpen = true, icon }: NavSectionPro
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Initialize dark mode from localStorage (default to light mode)
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark';
+    setIsDarkMode(isDark);
+    document.documentElement.classList.toggle('dark', isDark);
+  }, []);
 
   return (
     <div className="layout">
@@ -169,6 +179,20 @@ export default function Layout({ children }: LayoutProps) {
             </Link>
           </NavSection>
         </nav>
+        <div className="sidebar-footer">
+          <IconButton
+            icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+            size="XS"
+            variant="Ghost"
+            onClick={() => {
+              const newMode = !isDarkMode;
+              setIsDarkMode(newMode);
+              document.documentElement.classList.toggle('dark', newMode);
+              localStorage.setItem('theme', newMode ? 'dark' : 'light');
+            }}
+            alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          />
+        </div>
       </aside>
       <main className="content">{children}</main>
     </div>

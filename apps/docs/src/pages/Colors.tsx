@@ -135,6 +135,12 @@ function getSemanticVariableName(groupTitle: string, key: string): string {
   return `--${prefix}-${formattedKey}`;
 }
 
+// Get CSS variable reference for semantic colors
+function getSemanticCssVariable(groupTitle: string, key: string): string {
+  const varName = getSemanticVariableName(groupTitle, key);
+  return `var(${varName})`;
+}
+
 // Helper component to display a color palette
 function ColorPalette({
   name,
@@ -157,7 +163,7 @@ function ColorPalette({
     <div className="color-category">
       <h3
         className="label-bold-m"
-        style={{ marginBottom: '12px', color: 'var(--cool-grey-60)' }}
+        style={{ marginBottom: '12px', color: 'var(--text-secondary)' }}
       >
         {name}
       </h3>
@@ -245,7 +251,7 @@ function SemanticColorGroup({
     <div className="semantic-color-group">
       <h3
         className="label-bold-m"
-        style={{ marginBottom: '12px', color: 'var(--cool-grey-60)' }}
+        style={{ marginBottom: '12px', color: 'var(--text-secondary)' }}
       >
         {title}
         {reference && (
@@ -256,23 +262,28 @@ function SemanticColorGroup({
       </h3>
       <div className="semantic-colors-grid">
         {flattenColors.map(({ key, value, fullKey }) => {
-          // For Success and Error: Default, Hover, Active -> white text
-          const isFeedbackState =
-            (title === 'Success' || title === 'Error') &&
-            (key === 'default' || key === 'hover' || key === 'active');
-          // For Primary: Default, Hover, Active -> white text
-          const isPrimaryState =
-            title === 'Primary' &&
-            (key === 'default' || key === 'hover' || key === 'active');
-          // For Text: Main, Secondary, Tertiary -> white text
-          const isTextState =
-            title === 'Text' &&
-            (key === 'main' || key === 'secondary' || key === 'tertiary');
+          // Use CSS variable for background so it changes with theme
+          const cssVariable = getSemanticCssVariable(title, key);
 
-          const textColor =
-            isFeedbackState || isPrimaryState || isTextState
-              ? '#fff'
-              : getTextColor(value);
+          // Determine text color based on the semantic color type
+          // Colors that are dark in light mode but light in dark mode need dynamic text
+          const isTextColor = title === 'Text';
+          const isPrimaryState = title === 'Primary' && (key === 'default' || key === 'hover' || key === 'active');
+          const isFeedbackState = (title === 'Success' || title === 'Error') && (key === 'default' || key === 'hover' || key === 'active');
+
+          // Corporate background is always dark in both modes
+          const isAlwaysDark = title === 'Background' && key === 'corporate';
+
+          // For colors that flip (dark in light mode, light in dark mode),
+          // use --background-main which is white in light mode and dark in dark mode
+          let textColor: string;
+          if (isAlwaysDark) {
+            textColor = '#fff'; // Always white on corporate
+          } else if (isPrimaryState || isFeedbackState || isTextColor) {
+            textColor = 'var(--background-main)'; // Flips with theme
+          } else {
+            textColor = 'var(--text-main)';
+          }
 
           const variableName = getSemanticVariableName(title, key);
           const displayValue = formatColor(value, variableName, format);
@@ -282,7 +293,7 @@ function SemanticColorGroup({
               <div
                 className="semantic-color-tile clickable"
                 style={{
-                  backgroundColor: value,
+                  backgroundColor: cssVariable,
                   color: textColor,
                   cursor: 'pointer',
                 }}
@@ -354,7 +365,7 @@ export default function Colors() {
         </h1>
         <p
           className="label-regular-m"
-          style={{ marginTop: '12px', color: 'var(--cool-grey-60, #63728a)' }}
+          style={{ marginTop: '12px', color: 'var(--text-secondary)' }}
         >
           Color tokens generated from Figma.
         </p>
@@ -397,7 +408,7 @@ export default function Colors() {
               <div className="color-category">
                 <h3
                   className="label-bold-m"
-                  style={{ marginBottom: '12px', color: 'var(--cool-grey-60)' }}
+                  style={{ marginBottom: '12px', color: 'var(--text-secondary)' }}
                 >
                   White & Black
                 </h3>
@@ -489,7 +500,7 @@ export default function Colors() {
               <div>
                 <h3
                   className="label-bold-l"
-                  style={{ marginBottom: '12px', color: 'var(--cool-grey-60)' }}
+                  style={{ marginBottom: '12px', color: 'var(--text-secondary)' }}
                 >
                   Feedback
                 </h3>

@@ -6,9 +6,9 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--background-secondary, var(--warm-grey-10, #fafafa));
+  background-color: var(--background-secondary);
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .component-section {
@@ -57,7 +57,7 @@
   padding: 24px;
   background-color: var(--background-main, #ffffff);
   border-radius: 8px;
-  border: 1px solid var(--border-subtle, #e5e7eb);
+  border: 1px solid var(--border-minimal);
 }
 
 .props-table {
@@ -69,13 +69,13 @@
   width: 100%;
   border-collapse: collapse;
   background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--cool-grey-20, #e0e3e9);
+  border: 1px solid var(--border-minimal);
   border-radius: 6px;
   overflow: hidden;
 }
 
 .props-table thead {
-  background-color: var(--background-tertiary, var(--cool-grey-10, #eff1f4));
+  background-color: var(--background-tertiary);
 }
 
 .props-table th {
@@ -85,7 +85,7 @@
   font-size: 14px;
   font-weight: 700;
   color: var(--text-main, #14171d);
-  border-bottom: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .props-table td {
@@ -93,7 +93,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: var(--text-main, #14171d);
-  border-bottom: 1px solid var(--cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal);
 }
 
 .props-table tr:last-child td {
@@ -101,7 +101,7 @@
 }
 
 .props-table code {
-  background-color: var(--background-tertiary, var(--cool-grey-10, #eff1f4));
+  background-color: var(--background-tertiary);
   padding: 2px 6px;
   border-radius: 3px;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
