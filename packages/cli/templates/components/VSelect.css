@@ -33,19 +33,19 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  color: var(--text-secondary, #63728a);
+  color: var(--text-secondary);
 }
 
 .vselect-optional {
   font-weight: 400;
-  color: var(--text-secondary, #63728a);
+  color: var(--text-secondary);
 }
 
 .vselect-info-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-default, #063b9e);
+  color: var(--primary-default);
   cursor: pointer;
   position: relative;
 }
@@ -57,8 +57,8 @@
   transform: translateX(-50%);
   margin-bottom: 8px;
   padding: 8px 12px;
-  background-color: var(--background-inverse, #14171d);
-  color: var(--text-negative, #ffffff);
+  background-color: var(--background-inverse);
+  color: var(--text-negative);
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   line-height: 16px;
@@ -83,7 +83,7 @@
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: var(--background-inverse, #14171d);
+  border-top-color: var(--background-inverse);
 }
 
 .vselect-info-icon:hover .vselect-tooltip {
@@ -111,9 +111,9 @@
   gap: 8px;
   border-radius: 0;
   padding: 0 8px;
-  background-color: var(--surface-component-background-minimal, #fafafa);
-  border-bottom: 1px solid var(--border-neutral-default, #919cb0);
-  color: var(--text-main, #14171d);
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-moderate);
+  color: var(--text-main);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   cursor: pointer;
@@ -123,19 +123,19 @@
 }
 
 .vselect-trigger:hover {
-  background-color: var(--surface-interaction-hover, #f1f1f1);
-  border-bottom-color: var(--border-neutral-default, #919cb0);
+  background-color: var(--t-hover);
+  border-bottom-color: var(--border-moderate);
 }
 
 .vselect-trigger:focus {
   outline: none;
-  border-bottom-color: var(--primary-default, #063b9e);
-  background-color: var(--surface-interaction-active, #e5ecf7);
+  border-bottom-color: var(--primary-default);
+  background-color: var(--t-active);
 }
 
 .vselect-trigger--open {
-  border-bottom-color: var(--primary-default, #063b9e);
-  background-color: var(--surface-interaction-active, #e5ecf7);
+  border-bottom-color: var(--primary-default);
+  background-color: var(--t-active);
 }
 
 .vselect-container--disabled .vselect-trigger {
@@ -145,7 +145,7 @@
 }
 
 .vselect-trigger--placeholder {
-  color: var(--text-secondary, #63728a);
+  color: var(--text-secondary);
 }
 
 /* ============================================================================
@@ -189,28 +189,28 @@
    ============================================================================ */
 
 .vselect-trigger--error {
-  border-bottom-color: var(--border-feedback-error, #e4002b);
+  border-bottom-color: var(--feedback-error-default);
 }
 
 .vselect-trigger--error:hover,
 .vselect-trigger--error:focus {
-  border-bottom-color: var(--border-feedback-error, #e4002b);
+  border-bottom-color: var(--feedback-error-default);
 }
 
 .vselect-trigger--valid {
-  border-bottom-color: var(--border-feedback-success, #08875b);
+  border-bottom-color: var(--feedback-success-default);
 }
 
 .vselect-trigger--valid:hover,
 .vselect-trigger--valid:focus {
-  border-bottom-color: var(--border-feedback-success, #08875b);
+  border-bottom-color: var(--feedback-success-default);
 }
 
 /* Read-only state */
 .vselect-container--read-only .vselect-trigger {
   background-color: transparent;
-  border-bottom-color: var(--border-minimal, #eff1f4);
-  color: var(--text-main, #14171d);
+  border-bottom-color: var(--border-minimal);
+  color: var(--text-main);
   cursor: default;
   pointer-events: none;
 }
@@ -239,7 +239,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--primary-default, #063b9e);
+  color: var(--primary-default);
 }
 
 .vselect-icon--left {
@@ -266,7 +266,7 @@
   right: 0;
   max-height: 0;
   overflow: hidden;
-  background-color: var(--background-secondary, #ffffff);
+  background-color: var(--background-main);
   border-radius: 0;
   border: none;
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.2);
@@ -288,17 +288,17 @@
 }
 
 .vselect-dropdown--open::-webkit-scrollbar-track {
-  background: var(--background-tertiary, #eff1f4);
+  background: var(--background-tertiary);
   border-radius: 3px;
 }
 
 .vselect-dropdown--open::-webkit-scrollbar-thumb {
-  background: var(--border-default, #d1d7e0);
+  background: var(--border-moderate);
   border-radius: 3px;
 }
 
 .vselect-dropdown--open::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover, #c0c9d6);
+  background: var(--border-moderate);
 }
 
 /* ============================================================================
@@ -314,18 +314,18 @@
   border-radius: 0;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  color: var(--text-main, #14171d);
+  color: var(--text-main);
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s ease;
 }
 
 .vselect-item:hover {
-  background-color: var(--primary-t-hover, rgba(6, 59, 158, 0.1));
+  background-color: var(--t-hover);
 }
 
 .vselect-item--selected {
-  background-color: var(--primary-t-active, rgba(6, 59, 158, 0.2));
+  background-color: var(--t-active);
   font-weight: 700;
 }
 
@@ -373,7 +373,7 @@
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  color: var(--primary-default, #063b9e);
+  color: var(--primary-default);
 }
 
 /* ============================================================================
@@ -385,13 +385,13 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: var(--text-secondary, #63728a);
+  color: var(--text-secondary);
 }
 
 .vselect-container--error .vselect-legend {
-  color: var(--feedback-error-default, #e4002b);
+  color: var(--feedback-error-default);
 }
 
 .vselect-container--valid .vselect-legend {
-  color: var(--feedback-success-default, #08875b);
+  color: var(--feedback-success-default);
 }
