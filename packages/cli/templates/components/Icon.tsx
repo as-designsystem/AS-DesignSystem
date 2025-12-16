@@ -27,6 +27,7 @@ import airSideIcon from '../assets/svg/icons/AIR_side.svg?raw';
 import airSpinnerIcon from '../assets/svg/icons/AIR_spinner.svg?raw';
 import airTailIcon from '../assets/svg/icons/AIR_tail.svg?raw';
 import addIcon from '../assets/svg/icons/add.svg?raw';
+import checkIcon from '../assets/svg/icons/check.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
@@ -40,6 +41,7 @@ import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
+import removeIcon from '../assets/svg/icons/remove.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -71,6 +73,7 @@ const iconMap: Record<string, string> = {
   'AIR_spinner': airSpinnerIcon,
   'AIR_tail': airTailIcon,
   'add': addIcon,
+  'check': checkIcon,
   'close': closeIcon,
   'code': codeIcon,
   'construction': constructionIcon,
@@ -84,6 +87,7 @@ const iconMap: Record<string, string> = {
   'light_mode': lightModeIcon,
   'menu': menuIcon,
   'play': playIcon,
+  'remove': removeIcon,
 };
 
 export const availableIcons = [
@@ -115,6 +119,7 @@ export const availableIcons = [
   'AIR_spinner',
   'AIR_tail',
   'add',
+  'check',
   'close',
   'code',
   'construction',
@@ -128,6 +133,7 @@ export const availableIcons = [
   'light_mode',
   'menu',
   'play',
+  'remove',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

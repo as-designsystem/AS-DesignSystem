@@ -7,6 +7,8 @@ export { Tab, type TabProps, type TabSize, type TabStatus, type TabState, type T
 export { ToolIcons, type ToolIconsProps, type ToolName, type ToolIconMode } from './components/ToolIcons';
 export { Select, type SelectProps, type SelectSize, type SelectState, type SelectOption } from './components/Select';
 export { VSelect, type VSelectProps, type VSelectSize, type VSelectState, type VSelectOption } from './components/VSelect';
+export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, type CheckboxStatus } from './components/Checkbox';
+export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState, type VCheckboxStatus } from './components/VCheckbox';
 
 // Tokens
 export * from './tokens/colors';

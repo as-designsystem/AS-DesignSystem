@@ -177,6 +177,12 @@ export default function Layout({ children }: LayoutProps) {
             >
               Select
             </Link>
+            <Link
+              to="/components/checkbox"
+              className={`nav-link nav-link-sub ${location.pathname === '/components/checkbox' ? 'active' : ''}`}
+            >
+              Checkbox
+            </Link>
           </NavSection>
         </nav>
         <div className="sidebar-footer">

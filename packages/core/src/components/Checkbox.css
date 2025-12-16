@@ -1,0 +1,146 @@
+/**
+ * Checkbox Component Styles (Radix UI)
+ * Uses design system tokens
+ */
+
+/* Tokens are exported from the package root */
+/* Users should import: @as-design-system/core/colors.css and @as-design-system/core/typography.css */
+
+/* ============================================================================
+   CONTAINER
+   ============================================================================ */
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-container--disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.checkbox-container--read-only {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   CHECKBOX BOX
+   ============================================================================ */
+
+.checkbox {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-moderate);
+  border-radius: 3px;
+  background-color: var(--background-main);
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Sizes */
+.checkbox--s {
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox--m {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox--l {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hover state */
+.checkbox:not([data-disabled]):hover {
+  border-color: var(--primary-default);
+  background-color: var(--t-hover);
+}
+
+/* Focus state */
+.checkbox:focus-visible {
+  outline: 2px solid var(--primary-default);
+  outline-offset: 2px;
+}
+
+/* Checked state */
+.checkbox[data-state='checked'],
+.checkbox[data-state='indeterminate'] {
+  background-color: var(--primary-default);
+  border-color: var(--primary-default);
+}
+
+.checkbox[data-state='checked']:hover,
+.checkbox[data-state='indeterminate']:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Disabled state */
+.checkbox[data-disabled] {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   INDICATOR (Check/Indeterminate Icon)
+   ============================================================================ */
+
+.checkbox-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-negative);
+}
+
+/* ============================================================================
+   LABEL
+   ============================================================================ */
+
+.checkbox-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container--disabled .checkbox-label {
+  cursor: default;
+}
+
+.checkbox-container--read-only .checkbox-label {
+  cursor: default;
+}
+
+/* ============================================================================
+   SIZE VARIATIONS FOR LABEL
+   ============================================================================ */
+
+.checkbox-container--s .checkbox-label {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.checkbox-container--m .checkbox-label {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.checkbox-container--l .checkbox-label {
+  font-size: 16px;
+  line-height: 24px;
+}

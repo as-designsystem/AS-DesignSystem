@@ -19,6 +19,8 @@
     "./ToolIcons.css": "./dist/ToolIcons.css",
     "./Select.css": "./dist/Select.css",
     "./VSelect.css": "./dist/VSelect.css",
+    "./Checkbox.css": "./dist/Checkbox.css",
+    "./VCheckbox.css": "./dist/VCheckbox.css",
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css"
   },
@@ -42,6 +44,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-select": "^2.2.6"
   }
 }
