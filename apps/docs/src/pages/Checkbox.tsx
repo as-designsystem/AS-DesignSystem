@@ -24,15 +24,13 @@ export default function CheckboxPage() {
   const [checked2, setChecked2] = useState(true);
   const [checked3, setChecked3] = useState(false);
 
-  const sizesCode = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const sizesCode = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 <Checkbox label="Size S" size="S" />
 <Checkbox label="Size M" size="M" />
 <Checkbox label="Size L" size="L" />`;
 
-  const statusCode = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const statusCode = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 // Default (unchecked)
 <Checkbox label="Default" status="Default" />
@@ -43,8 +41,7 @@ import '@as-design-system/core/Checkbox.css';
 // Indeterminate
 <Checkbox label="Indeterminate" status="Indeterminate" />`;
 
-  const statesCode = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const statesCode = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 <Checkbox label="Default" state="Default" />
 <Checkbox label="Disabled" state="Disabled" />
@@ -52,8 +49,7 @@ import '@as-design-system/core/Checkbox.css';
 <Checkbox label="Read-only" state="Read-only" status="Checked" />`;
 
   const controlledCode = `import { useState } from 'react';
-import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+import { Checkbox } from '@/design-system/components/Checkbox';
 
 function MyComponent() {
   const [checked, setChecked] = useState(false);
@@ -67,8 +63,7 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCode = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const withoutLabelCode = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 // Checkbox without visible label
 <Checkbox showLabel={false} size="S" />

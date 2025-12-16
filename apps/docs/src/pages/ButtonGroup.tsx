@@ -25,7 +25,7 @@ export default function ButtonGroupPage() {
   const [disabledValue, setDisabledValue] = useState('option1');
 
   const horizontalCode = `import { useState } from 'react';
-import { ButtonGroup } from '@as-design-system/core';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
 
 function Example() {
   const [value, setValue] = useState('option1');
@@ -71,7 +71,7 @@ function Example() {
 }`;
 
   const verticalCode = `import { useState } from 'react';
-import { ButtonGroup } from '@as-design-system/core';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
 
 function Example() {
   const [value, setValue] = useState('option1');
@@ -117,7 +117,7 @@ function Example() {
 }`;
 
   const sizesCode = `import { useState } from 'react';
-import { ButtonGroup } from '@as-design-system/core';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
 
 function Example() {
   const [value, setValue] = useState('option1');
@@ -159,7 +159,7 @@ function Example() {
 }`;
 
   const disabledCode = `import { useState } from 'react';
-import { ButtonGroup } from '@as-design-system/core';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
 
 function Example() {
   const [value, setValue] = useState('option1');
