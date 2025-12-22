@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { IconButton, Tab } from '@as-design-system/core';
+import { IconButton, Button, Tab } from '@as-design-system/core';
 import '@as-design-system/core/IconButton.css';
+import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
 import CodeModal from '../components/CodeModal';
 import './IconButton.css';
@@ -67,8 +68,9 @@ export default function IconButtonPage() {
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
             Variants
           </h2>
-          <IconButton
-            icon="code"
+          <Button
+            label="Code"
+            leftIcon="code"
             size="S"
             variant="Outlined"
             onClick={() => setOpenModal('variants')}
@@ -90,8 +92,9 @@ export default function IconButtonPage() {
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
             Sizes
           </h2>
-          <IconButton
-            icon="code"
+          <Button
+            label="Code"
+            leftIcon="code"
             size="S"
             variant="Outlined"
             onClick={() => setOpenModal('sizes')}
