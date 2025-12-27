@@ -21,6 +21,7 @@
     "./VSelect.css": "./dist/VSelect.css",
     "./Checkbox.css": "./dist/Checkbox.css",
     "./VCheckbox.css": "./dist/VCheckbox.css",
+    "./Toggle.css": "./dist/Toggle.css",
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css"
   },

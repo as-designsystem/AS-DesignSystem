@@ -11,6 +11,7 @@ import ToolIcons from './pages/ToolIcons';
 import Tab from './pages/Tab';
 import Select from './pages/Select';
 import Checkbox from './pages/Checkbox';
+import Toggle from './pages/Toggle';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -36,6 +37,7 @@ function App() {
           <Route path="/components/tab" element={<Tab />} />
           <Route path="/components/select" element={<Select />} />
           <Route path="/components/checkbox" element={<Checkbox />} />
+          <Route path="/components/toggle" element={<Toggle />} />
         </Routes>
       </Layout>
     </BrowserRouter>

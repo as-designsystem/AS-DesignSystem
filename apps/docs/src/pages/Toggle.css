@@ -1,0 +1,17 @@
+.toggle-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--background-secondary, #f7f8fa);
+  border-radius: 8px;
+}
+
+.toggle-examples--no-label {
+  gap: 32px;
+}
+
+:root.dark .toggle-examples {
+  background-color: var(--background-secondary, #2a2a2a);
+}

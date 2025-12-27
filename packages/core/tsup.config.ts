@@ -35,7 +35,7 @@ export default defineConfig({
   },
   onSuccess: () => {
     // Copy component CSS files to dist
-    const componentCssFiles = ['Icon.css', 'Button.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'VSelect.css', 'Checkbox.css', 'VCheckbox.css'];
+    const componentCssFiles = ['Icon.css', 'Button.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'VSelect.css', 'Checkbox.css', 'VCheckbox.css', 'Toggle.css'];
     componentCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'components', file);
       const distCss = join(process.cwd(), 'dist', file);

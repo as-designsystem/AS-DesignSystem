@@ -435,4 +435,76 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'checkbox',
+    type: 'component',
+    displayName: 'Checkbox',
+    description: 'Accessible checkbox component based on Radix UI with sizes and states',
+    files: [
+      {
+        path: 'templates/components/Checkbox.tsx',
+        target: 'components/Checkbox.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Checkbox.css',
+        target: 'components/Checkbox.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    externalDependencies: {
+      '@radix-ui/react-checkbox': '^1.3.3',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'vcheckbox',
+    type: 'component',
+    displayName: 'VCheckbox',
+    description: 'Vanilla checkbox component (pure React) with sizes and states',
+    files: [
+      {
+        path: 'templates/components/VCheckbox.tsx',
+        target: 'components/VCheckbox.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/VCheckbox.css',
+        target: 'components/VCheckbox.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'toggle',
+    type: 'component',
+    displayName: 'Toggle',
+    description: 'Toggle switch component for boolean selections',
+    files: [
+      {
+        path: 'templates/components/Toggle.tsx',
+        target: 'components/Toggle.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Toggle.css',
+        target: 'components/Toggle.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];
