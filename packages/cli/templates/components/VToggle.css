@@ -1,12 +1,12 @@
 /**
- * Toggle Component Styles (Radix UI Switch)
+ * VToggle Component Styles (Vanilla - pure React)
  * Uses design system tokens
  */
 
 /* Tokens are exported from the package root */
 /* Users should import: @as-design-system/core/colors.css and @as-design-system/core/typography.css */
 
-.toggle {
+.vtoggle {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -14,11 +14,10 @@
 }
 
 /* ============================================================================
-   TRACK (The pill-shaped background) - Radix Switch.Root
+   TRACK (The pill-shaped background)
    ============================================================================ */
 
-.toggle__track {
-  all: unset;
+.vtoggle__track {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -27,127 +26,132 @@
   background-color: var(--background-main, #ffffff);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  padding: 0;
   box-sizing: border-box;
-  flex-shrink: 0;
 }
 
-.toggle__track:focus-visible {
+.vtoggle__track:focus {
+  outline: none;
+}
+
+.vtoggle__track:focus-visible {
   outline: 2px solid var(--primary-default, #063b9e);
   outline-offset: 2px;
 }
 
 /* ============================================================================
-   THUMB (The circular knob) - Radix Switch.Thumb
+   THUMB (The circular knob)
    ============================================================================ */
 
-.toggle__thumb {
-  display: block;
+.vtoggle__thumb {
+  position: absolute;
   border-radius: 50%;
   background-color: var(--primary-default, #063b9e);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: left 0.2s ease, background-color 0.2s ease;
 }
 
 /* ============================================================================
    LABEL
    ============================================================================ */
 
-.toggle__label {
+.vtoggle__label {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: var(--text-main, #14171d);
-  cursor: pointer;
-  user-select: none;
 }
 
 /* ============================================================================
    SIZES - Thumb: 12, 18, 24px | Border: 1px inside | Padding: S=2px, M=3px, L=4px
    ============================================================================ */
 
-/* Size L - 64x32px track, 24px thumb, 4px padding */
-.toggle--l .toggle__track {
+/* Size L - 64x32px track, 24px thumb, 4px padding (3px from content edge) */
+.vtoggle--l .vtoggle__track {
   width: 64px;
   height: 32px;
-  padding: 3px; /* 4px from outer - 1px border = 3px */
 }
 
-.toggle--l .toggle__thumb {
+.vtoggle--l .vtoggle__thumb {
   width: 24px;
   height: 24px;
+  top: 3px;   /* 4px from outer - 1px border = 3px */
+  left: 3px;
 }
 
-.toggle--l .toggle__thumb[data-state='checked'] {
-  transform: translateX(32px); /* 64 - 24 - 3*2 - 2 = 32px */
+.vtoggle--l.vtoggle--selected .vtoggle__thumb {
+  left: 35px; /* 62 (content) - 24 (thumb) - 3 (padding) = 35px */
 }
 
-/* Size M - 48x24px track, 18px thumb, 3px padding */
-.toggle--m .toggle__track {
+/* Size M - 48x24px track, 18px thumb, 3px padding (2px from content edge) */
+.vtoggle--m .vtoggle__track {
   width: 48px;
   height: 24px;
-  padding: 2px; /* 3px from outer - 1px border = 2px */
 }
 
-.toggle--m .toggle__thumb {
+.vtoggle--m .vtoggle__thumb {
   width: 18px;
   height: 18px;
+  top: 2px;   /* 3px from outer - 1px border = 2px */
+  left: 2px;
 }
 
-.toggle--m .toggle__thumb[data-state='checked'] {
-  transform: translateX(24px); /* 48 - 18 - 2*2 - 2 = 24px */
+.vtoggle--m.vtoggle--selected .vtoggle__thumb {
+  left: 26px; /* 46 (content) - 18 (thumb) - 2 (padding) = 26px */
 }
 
-/* Size S - 32x16px track, 12px thumb, 2px padding */
-.toggle--s .toggle__track {
+/* Size S - 32x16px track, 12px thumb, 2px padding (1px from content edge) */
+.vtoggle--s .vtoggle__track {
   width: 32px;
   height: 16px;
-  padding: 1px; /* 2px from outer - 1px border = 1px */
 }
 
-.toggle--s .toggle__thumb {
+.vtoggle--s .vtoggle__thumb {
   width: 12px;
   height: 12px;
+  top: 1px;   /* 2px from outer - 1px border = 1px */
+  left: 1px;
 }
 
-.toggle--s .toggle__thumb[data-state='checked'] {
-  transform: translateX(16px); /* 32 - 12 - 1*2 - 2 = 16px */
+.vtoggle--s.vtoggle--selected .vtoggle__thumb {
+  left: 17px; /* 30 (content) - 12 (thumb) - 1 (padding) = 17px */
 }
 
 /* ============================================================================
-   STATES - UNCHECKED
+   STATES - UNSELECTED
    ============================================================================ */
 
-/* Default unchecked */
-.toggle__track[data-state='unchecked'] {
+/* Default unselected */
+.vtoggle:not(.vtoggle--selected) .vtoggle__track {
   background-color: var(--background-main, #ffffff);
 }
 
-.toggle__thumb[data-state='unchecked'] {
+.vtoggle:not(.vtoggle--selected) .vtoggle__thumb {
   background-color: var(--primary-default, #063b9e);
 }
 
-/* Hover unchecked */
-.toggle:not(.toggle--disabled) .toggle__track[data-state='unchecked']:hover {
+/* Hover unselected */
+.vtoggle:not(.vtoggle--selected):not(.vtoggle--disabled) .vtoggle__track:hover {
   background-color: var(--background-secondary, #f1f1f1);
 }
 
 /* ============================================================================
-   STATES - CHECKED
+   STATES - SELECTED
    ============================================================================ */
 
-/* Default checked */
-.toggle__track[data-state='checked'] {
+/* Default selected */
+.vtoggle.vtoggle--selected .vtoggle__track {
   background-color: var(--primary-default, #063b9e);
   border-color: var(--primary-default, #063b9e);
 }
 
-.toggle__thumb[data-state='checked'] {
+.vtoggle.vtoggle--selected .vtoggle__thumb {
   background-color: var(--background-main, #ffffff);
 }
 
-/* Hover checked */
-.toggle:not(.toggle--disabled) .toggle__track[data-state='checked']:hover {
+/* Hover selected */
+.vtoggle.vtoggle--selected:not(.vtoggle--disabled) .vtoggle__track:hover {
   background-color: var(--primary-active, #002d80);
   border-color: var(--primary-active, #002d80);
 }
@@ -156,17 +160,20 @@
    DISABLED STATE
    ============================================================================ */
 
-.toggle--disabled {
+.vtoggle--disabled,
+.vtoggle.vtoggle--disabled {
   opacity: 0.4;
   cursor: default;
 }
 
-.toggle--disabled .toggle__track {
+.vtoggle--disabled .vtoggle__track,
+.vtoggle.vtoggle--disabled .vtoggle__track {
   cursor: default;
   pointer-events: none;
 }
 
-.toggle--disabled .toggle__label {
+.vtoggle--disabled .vtoggle__label,
+.vtoggle.vtoggle--disabled .vtoggle__label {
   cursor: default;
 }
 
@@ -174,33 +181,33 @@
    DARK MODE SUPPORT
    ============================================================================ */
 
-:root.dark .toggle__label {
+:root.dark .vtoggle__label {
   color: var(--text-main, #ffffff);
 }
 
-:root.dark .toggle__track[data-state='unchecked'] {
+:root.dark .vtoggle:not(.vtoggle--selected) .vtoggle__track {
   background-color: var(--background-main, #1a1a1a);
   border-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle__thumb[data-state='unchecked'] {
+:root.dark .vtoggle:not(.vtoggle--selected) .vtoggle__thumb {
   background-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle:not(.toggle--disabled) .toggle__track[data-state='unchecked']:hover {
+:root.dark .vtoggle:not(.vtoggle--selected):not(.vtoggle--disabled) .vtoggle__track:hover {
   background-color: var(--background-secondary, #2a2a2a);
 }
 
-:root.dark .toggle__track[data-state='checked'] {
+:root.dark .vtoggle.vtoggle--selected .vtoggle__track {
   background-color: var(--primary-default, #255fcc);
   border-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle__thumb[data-state='checked'] {
+:root.dark .vtoggle.vtoggle--selected .vtoggle__thumb {
   background-color: var(--background-main, #1a1a1a);
 }
 
-:root.dark .toggle:not(.toggle--disabled) .toggle__track[data-state='checked']:hover {
+:root.dark .vtoggle.vtoggle--selected:not(.vtoggle--disabled) .vtoggle__track:hover {
   background-color: var(--primary-hover, #3d7ae0);
   border-color: var(--primary-hover, #3d7ae0);
 }

@@ -1,5 +1,5 @@
 /**
- * Toggle Component Styles
+ * Toggle Component Styles (Radix UI Switch)
  * Uses design system tokens
  */
 
@@ -14,10 +14,11 @@
 }
 
 /* ============================================================================
-   TRACK (The pill-shaped background)
+   TRACK (The pill-shaped background) - Radix Switch.Root
    ============================================================================ */
 
 .toggle__track {
+  all: unset;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -26,12 +27,8 @@
   background-color: var(--background-main, #ffffff);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-  padding: 0;
   box-sizing: border-box;
-}
-
-.toggle__track:focus {
-  outline: none;
+  flex-shrink: 0;
 }
 
 .toggle__track:focus-visible {
@@ -40,15 +37,15 @@
 }
 
 /* ============================================================================
-   THUMB (The circular knob)
+   THUMB (The circular knob) - Radix Switch.Thumb
    ============================================================================ */
 
 .toggle__thumb {
-  position: absolute;
+  display: block;
   border-radius: 50%;
   background-color: var(--primary-default, #063b9e);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
-  transition: left 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 /* ============================================================================
@@ -61,97 +58,96 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--text-main, #14171d);
+  cursor: pointer;
+  user-select: none;
 }
 
 /* ============================================================================
    SIZES - Thumb: 12, 18, 24px | Border: 1px inside | Padding: S=2px, M=3px, L=4px
    ============================================================================ */
 
-/* Size L - 64x32px track, 24px thumb, 4px padding (3px from content edge) */
+/* Size L - 64x32px track, 24px thumb, 4px padding */
 .toggle--l .toggle__track {
   width: 64px;
   height: 32px;
+  padding: 3px; /* 4px from outer - 1px border = 3px */
 }
 
 .toggle--l .toggle__thumb {
   width: 24px;
   height: 24px;
-  top: 3px;   /* 4px from outer - 1px border = 3px */
-  left: 3px;
 }
 
-.toggle--l.toggle--selected .toggle__thumb {
-  left: 35px; /* 62 (content) - 24 (thumb) - 3 (padding) = 35px */
+.toggle--l .toggle__thumb[data-state='checked'] {
+  transform: translateX(32px); /* 64 - 24 - 3*2 - 2 = 32px */
 }
 
-/* Size M - 48x24px track, 18px thumb, 3px padding (2px from content edge) */
+/* Size M - 48x24px track, 18px thumb, 3px padding */
 .toggle--m .toggle__track {
   width: 48px;
   height: 24px;
+  padding: 2px; /* 3px from outer - 1px border = 2px */
 }
 
 .toggle--m .toggle__thumb {
   width: 18px;
   height: 18px;
-  top: 2px;   /* 3px from outer - 1px border = 2px */
-  left: 2px;
 }
 
-.toggle--m.toggle--selected .toggle__thumb {
-  left: 26px; /* 46 (content) - 18 (thumb) - 2 (padding) = 26px */
+.toggle--m .toggle__thumb[data-state='checked'] {
+  transform: translateX(24px); /* 48 - 18 - 2*2 - 2 = 24px */
 }
 
-/* Size S - 32x16px track, 12px thumb, 2px padding (1px from content edge) */
+/* Size S - 32x16px track, 12px thumb, 2px padding */
 .toggle--s .toggle__track {
   width: 32px;
   height: 16px;
+  padding: 1px; /* 2px from outer - 1px border = 1px */
 }
 
 .toggle--s .toggle__thumb {
   width: 12px;
   height: 12px;
-  top: 1px;   /* 2px from outer - 1px border = 1px */
-  left: 1px;
 }
 
-.toggle--s.toggle--selected .toggle__thumb {
-  left: 17px; /* 30 (content) - 12 (thumb) - 1 (padding) = 17px */
+.toggle--s .toggle__thumb[data-state='checked'] {
+  transform: translateX(16px); /* 32 - 12 - 1*2 - 2 = 16px */
 }
 
 /* ============================================================================
-   STATES - UNSELECTED
+   STATES - UNCHECKED
    ============================================================================ */
 
-/* Default unselected */
-.toggle:not(.toggle--selected) .toggle__track {
+/* Default unchecked */
+.toggle__track[data-state='unchecked'] {
   background-color: var(--background-main, #ffffff);
 }
 
-.toggle:not(.toggle--selected) .toggle__thumb {
+.toggle__thumb[data-state='unchecked'] {
   background-color: var(--primary-default, #063b9e);
 }
 
-/* Hover unselected */
-.toggle:not(.toggle--selected):not(.toggle--disabled) .toggle__track:hover {
+/* Hover unchecked */
+.toggle:not(.toggle--disabled) .toggle__track[data-state='unchecked']:hover {
   background-color: var(--background-secondary, #f1f1f1);
 }
 
 /* ============================================================================
-   STATES - SELECTED
+   STATES - CHECKED
    ============================================================================ */
 
-/* Default selected */
-.toggle.toggle--selected .toggle__track {
+/* Default checked */
+.toggle__track[data-state='checked'] {
   background-color: var(--primary-default, #063b9e);
   border-color: var(--primary-default, #063b9e);
 }
 
-.toggle.toggle--selected .toggle__thumb {
+.toggle__thumb[data-state='checked'] {
   background-color: var(--background-main, #ffffff);
 }
 
-/* Hover selected */
-.toggle.toggle--selected:not(.toggle--disabled) .toggle__track:hover {
+/* Hover checked */
+.toggle:not(.toggle--disabled) .toggle__track[data-state='checked']:hover {
   background-color: var(--primary-active, #002d80);
   border-color: var(--primary-active, #002d80);
 }
@@ -160,20 +156,17 @@
    DISABLED STATE
    ============================================================================ */
 
-.toggle--disabled,
-.toggle.toggle--disabled {
+.toggle--disabled {
   opacity: 0.4;
   cursor: default;
 }
 
-.toggle--disabled .toggle__track,
-.toggle.toggle--disabled .toggle__track {
+.toggle--disabled .toggle__track {
   cursor: default;
   pointer-events: none;
 }
 
-.toggle--disabled .toggle__label,
-.toggle.toggle--disabled .toggle__label {
+.toggle--disabled .toggle__label {
   cursor: default;
 }
 
@@ -185,29 +178,29 @@
   color: var(--text-main, #ffffff);
 }
 
-:root.dark .toggle:not(.toggle--selected) .toggle__track {
+:root.dark .toggle__track[data-state='unchecked'] {
   background-color: var(--background-main, #1a1a1a);
   border-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle:not(.toggle--selected) .toggle__thumb {
+:root.dark .toggle__thumb[data-state='unchecked'] {
   background-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle:not(.toggle--selected):not(.toggle--disabled) .toggle__track:hover {
+:root.dark .toggle:not(.toggle--disabled) .toggle__track[data-state='unchecked']:hover {
   background-color: var(--background-secondary, #2a2a2a);
 }
 
-:root.dark .toggle.toggle--selected .toggle__track {
+:root.dark .toggle__track[data-state='checked'] {
   background-color: var(--primary-default, #255fcc);
   border-color: var(--primary-default, #255fcc);
 }
 
-:root.dark .toggle.toggle--selected .toggle__thumb {
+:root.dark .toggle__thumb[data-state='checked'] {
   background-color: var(--background-main, #1a1a1a);
 }
 
-:root.dark .toggle.toggle--selected:not(.toggle--disabled) .toggle__track:hover {
+:root.dark .toggle:not(.toggle--disabled) .toggle__track[data-state='checked']:hover {
   background-color: var(--primary-hover, #3d7ae0);
   border-color: var(--primary-hover, #3d7ae0);
 }

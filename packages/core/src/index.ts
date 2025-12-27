@@ -10,6 +10,7 @@ export { VSelect, type VSelectProps, type VSelectSize, type VSelectState, type V
 export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, type CheckboxStatus } from './components/Checkbox';
 export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState, type VCheckboxStatus } from './components/VCheckbox';
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
+export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 
 // Tokens
 export * from './tokens/colors';

@@ -488,7 +488,7 @@ export const components: RegistryItem[] = [
     name: 'toggle',
     type: 'component',
     displayName: 'Toggle',
-    description: 'Toggle switch component for boolean selections',
+    description: 'Accessible toggle switch component based on Radix UI Switch',
     files: [
       {
         path: 'templates/components/Toggle.tsx',
@@ -498,6 +498,32 @@ export const components: RegistryItem[] = [
       {
         path: 'templates/components/Toggle.css',
         target: 'components/Toggle.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    externalDependencies: {
+      '@radix-ui/react-switch': '^1.2.6',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'vtoggle',
+    type: 'component',
+    displayName: 'VToggle',
+    description: 'Vanilla toggle switch component (pure React) for boolean selections',
+    files: [
+      {
+        path: 'templates/components/VToggle.tsx',
+        target: 'components/VToggle.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/VToggle.css',
+        target: 'components/VToggle.css',
         type: 'style',
       },
     ],

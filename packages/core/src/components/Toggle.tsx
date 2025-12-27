@@ -1,4 +1,6 @@
-import React from 'react';
+// @ts-ignore - React import needed for JSX in non-TypeScript projects
+import React, { useId } from 'react';
+import * as Switch from '@radix-ui/react-switch';
 import './Toggle.css';
 
 export type ToggleSize = 'S' | 'M' | 'L';
@@ -9,11 +11,11 @@ export interface ToggleProps {
    * Whether the toggle is selected (on)
    * @default false
    */
-  selected?: boolean;
+  checked?: boolean;
   /**
-   * Callback when selected state changes
+   * Callback when checked state changes
    */
-  onChange?: (selected: boolean) => void;
+  onCheckedChange?: (checked: boolean) => void;
   /**
    * Toggle size
    * @default 'M'
@@ -48,25 +50,33 @@ export interface ToggleProps {
    */
   name?: string;
   /**
-   * ID attribute
+   * Value attribute for form submission
    */
-  id?: string;
+  value?: string;
+  /**
+   * Required attribute
+   */
+  required?: boolean;
 }
 
 /**
- * Toggle Component
+ * Toggle Component (based on Radix UI Switch)
  *
- * A toggle switch for boolean selections.
+ * Accessible toggle switch with support for different sizes and states.
  *
  * @example
  * ```tsx
- * <Toggle label="Enable notifications" selected={true} onChange={(v) => console.log(v)} />
+ * <Toggle
+ *   label="Enable notifications"
+ *   checked={isEnabled}
+ *   onCheckedChange={setIsEnabled}
+ * />
  * <Toggle label="Dark mode" size="L" />
  * ```
  */
 export function Toggle({
-  selected = false,
-  onChange,
+  checked = false,
+  onCheckedChange,
   size = 'M',
   state = 'Default',
   label = 'Label',
@@ -74,28 +84,18 @@ export function Toggle({
   disabled,
   className = '',
   name,
-  id,
+  value,
+  required,
 }: ToggleProps) {
+  const uniqueId = useId();
+  const toggleId = `toggle-${uniqueId}`;
+
   const isDisabled = state === 'Disabled' || disabled;
 
-  const handleClick = () => {
-    if (!isDisabled && onChange) {
-      onChange(!selected);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!isDisabled && (e.key === 'Enter' || e.key === ' ')) {
-      e.preventDefault();
-      onChange?.(!selected);
-    }
-  };
-
-  const toggleClasses = [
+  const containerClasses = [
     'toggle',
     `toggle--${size.toLowerCase()}`,
-    `toggle--${state.toLowerCase()}`,
-    selected ? 'toggle--selected' : '',
+    checked ? 'toggle--checked' : '',
     isDisabled ? 'toggle--disabled' : '',
     className,
   ]
@@ -103,25 +103,24 @@ export function Toggle({
     .join(' ');
 
   return (
-    <label className={toggleClasses}>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={selected}
-        aria-label={!showLabel ? label : undefined}
-        disabled={isDisabled}
+    <div className={containerClasses}>
+      <Switch.Root
+        id={toggleId}
         className="toggle__track"
-        onClick={handleClick}
-        onKeyDown={handleKeyDown}
+        checked={checked}
+        onCheckedChange={onCheckedChange}
+        disabled={isDisabled}
         name={name}
-        id={id}
+        value={value}
+        required={required}
       >
-        <span className="toggle__thumb" />
-      </button>
-      {showLabel && (
-        <span className="toggle__label">{label}</span>
+        <Switch.Thumb className="toggle__thumb" />
+      </Switch.Root>
+
+      {showLabel && label && (
+        <label htmlFor={toggleId} className="toggle__label">{label}</label>
       )}
-    </label>
+    </div>
   );
 }
 
