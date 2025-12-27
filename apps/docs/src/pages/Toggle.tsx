@@ -24,13 +24,21 @@ export default function TogglePage() {
   const [darkMode, setDarkMode] = useState(true);
   const [autoSave, setAutoSave] = useState(false);
 
-  const sizesCode = `import { Toggle } from '@/design-system/components/Toggle';
+  // Code examples - Toggle (Radix)
+  const sizesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 <Toggle label="Size S" size="S" />
 <Toggle label="Size M" size="M" />
 <Toggle label="Size L" size="L" />`;
 
-  const selectedCode = `import { Toggle } from '@/design-system/components/Toggle';
+  // Code examples - VToggle (Vanilla)
+  const sizesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+
+<VToggle label="Size S" size="S" />
+<VToggle label="Size M" size="M" />
+<VToggle label="Size L" size="L" />`;
+
+  const selectedCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 // Unchecked
 <Toggle label="Unchecked" checked={false} />
@@ -38,13 +46,27 @@ export default function TogglePage() {
 // Checked
 <Toggle label="Checked" checked={true} />`;
 
-  const statesCode = `import { Toggle } from '@/design-system/components/Toggle';
+  const selectedCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+
+// Unselected
+<VToggle label="Unselected" selected={false} />
+
+// Selected
+<VToggle label="Selected" selected={true} />`;
+
+  const statesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 <Toggle label="Default" state="Default" />
 <Toggle label="Disabled" state="Disabled" />
 <Toggle label="Disabled Checked" state="Disabled" checked />`;
 
-  const controlledCode = `import { useState } from 'react';
+  const statesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+
+<VToggle label="Default" state="Default" />
+<VToggle label="Disabled" state="Disabled" />
+<VToggle label="Disabled Selected" state="Disabled" selected />`;
+
+  const controlledCodeToggle = `import { useState } from 'react';
 import { Toggle } from '@/design-system/components/Toggle';
 
 function MyComponent() {
@@ -59,12 +81,34 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCode = `import { Toggle } from '@/design-system/components/Toggle';
+  const controlledCodeVToggle = `import { useState } from 'react';
+import { VToggle } from '@/design-system/components/VToggle';
+
+function MyComponent() {
+  const [enabled, setEnabled] = useState(false);
+
+  return (
+    <VToggle
+      label="Enable notifications"
+      selected={enabled}
+      onChange={setEnabled}
+    />
+  );
+}`;
+
+  const withoutLabelCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 // Toggle without visible label (label is still used for accessibility)
 <Toggle showLabel={false} size="S" />
 <Toggle showLabel={false} size="M" checked />
 <Toggle showLabel={false} size="L" />`;
+
+  const withoutLabelCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+
+// VToggle without visible label (label is still used for accessibility)
+<VToggle showLabel={false} size="S" />
+<VToggle showLabel={false} size="M" selected />
+<VToggle showLabel={false} size="L" />`;
 
   return (
     <div className="component-page">
@@ -546,31 +590,31 @@ function MyComponent() {
         isOpen={openModal === 'sizes'}
         onClose={() => setOpenModal(null)}
         title="Sizes Implementation"
-        code={sizesCode}
+        code={componentType === 'toggle' ? sizesCodeToggle : sizesCodeVToggle}
       />
       <CodeModal
         isOpen={openModal === 'selected'}
         onClose={() => setOpenModal(null)}
-        title="Checked/Selected States Implementation"
-        code={selectedCode}
+        title={componentType === 'toggle' ? 'Checked States Implementation' : 'Selected States Implementation'}
+        code={componentType === 'toggle' ? selectedCodeToggle : selectedCodeVToggle}
       />
       <CodeModal
         isOpen={openModal === 'states'}
         onClose={() => setOpenModal(null)}
         title="States Implementation"
-        code={statesCode}
+        code={componentType === 'toggle' ? statesCodeToggle : statesCodeVToggle}
       />
       <CodeModal
         isOpen={openModal === 'controlled'}
         onClose={() => setOpenModal(null)}
-        title="Controlled Toggle"
-        code={controlledCode}
+        title={componentType === 'toggle' ? 'Controlled Toggle' : 'Controlled VToggle'}
+        code={componentType === 'toggle' ? controlledCodeToggle : controlledCodeVToggle}
       />
       <CodeModal
         isOpen={openModal === 'withoutLabel'}
         onClose={() => setOpenModal(null)}
         title="Without Label Implementation"
-        code={withoutLabelCode}
+        code={componentType === 'toggle' ? withoutLabelCodeToggle : withoutLabelCodeVToggle}
       />
     </div>
   );
