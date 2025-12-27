@@ -24,6 +24,21 @@ export const list = new Command()
       console.log('');
     }
 
+    // Composites
+    const composites = getRegistryByType('composite');
+    if (composites.length > 0) {
+      console.log(chalk.bold.cyan('Composites:'));
+      for (const comp of composites) {
+        const displayName = comp.displayName || comp.name;
+        const description = comp.description || '';
+        console.log(`  ${chalk.green(comp.name.padEnd(15))} ${displayName}`);
+        if (description) {
+          console.log(`  ${' '.repeat(15)} ${chalk.gray(description)}`);
+        }
+      }
+      console.log('');
+    }
+
     // Tokens
     const tokens = getRegistryByType('token');
     if (tokens.length > 0) {

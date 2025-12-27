@@ -12,11 +12,11 @@ export const registryFileSchema = z.object({
 export type RegistryFile = z.infer<typeof registryFileSchema>;
 
 /**
- * Registry item schema (component, token, or icon)
+ * Registry item schema (component, composite, token, or icon)
  */
 export const registryItemSchema = z.object({
   name: z.string().describe('Unique identifier (e.g., "button", "colors")'),
-  type: z.enum(['component', 'token', 'icon']).describe('Type of registry item'),
+  type: z.enum(['component', 'composite', 'token', 'icon']).describe('Type of registry item'),
   displayName: z.string().optional().describe('Display name for CLI output'),
   description: z.string().optional().describe('Brief description'),
   files: z.array(registryFileSchema).describe('Files to copy'),
@@ -46,11 +46,13 @@ export const configSchema = z.object({
   aliases: z.object({
     designSystem: z.string().default('@/design-system'),
     components: z.string().default('@/design-system/components'),
+    composites: z.string().default('@/design-system/composites'),
     tokens: z.string().default('@/design-system/tokens'),
     icons: z.string().default('@/design-system/icons'),
   }).default({
     designSystem: '@/design-system',
     components: '@/design-system/components',
+    composites: '@/design-system/composites',
     tokens: '@/design-system/tokens',
     icons: '@/design-system/icons',
   }),

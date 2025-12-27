@@ -23,10 +23,25 @@ try {
 
   if (fs.existsSync(componentsSource)) {
     fs.copySync(componentsSource, componentsTarget, { overwrite: true });
-    const componentFiles = fs.readdirSync(componentsTarget);
+    const componentFiles = fs.readdirSync(componentsTarget).filter(f => !f.startsWith('.'));
     console.log(`   ✅ ${componentFiles.length} files synced`);
   } else {
     console.warn('   ⚠️  Components source not found');
+  }
+
+  // Sync composites
+  console.log('🧩 Syncing composites...');
+  const compositesSource = path.join(CORE_SRC, 'composites');
+  const compositesTarget = path.join(CLI_TEMPLATES, 'composites');
+
+  if (fs.existsSync(compositesSource)) {
+    fs.ensureDirSync(compositesTarget);
+    fs.copySync(compositesSource, compositesTarget, { overwrite: true });
+    const compositeFiles = fs.readdirSync(compositesTarget).filter(f => !f.startsWith('.'));
+    console.log(`   ✅ ${compositeFiles.length} files synced`);
+  } else {
+    fs.ensureDirSync(compositesTarget);
+    console.log('   ℹ️  No composites yet (folder created)');
   }
 
   // Sync assets

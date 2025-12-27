@@ -363,7 +363,7 @@ export const add = new Command()
       logger.success('Installation complete!');
       logger.break();
 
-      // Show usage hints only for components that were actually installed
+      // Show usage hints only for items that were actually installed
       const installedComponents = toInstall.filter(
         (i) => i.type === 'component' && installedItems.has(i.name)
       );
@@ -372,6 +372,17 @@ export const add = new Command()
         for (const comp of installedComponents) {
           const componentName = comp.displayName || comp.name;
           logger.info(`  import { ${componentName} } from '${config.aliases.components}/${componentName}';`);
+        }
+      }
+
+      const installedComposites = toInstall.filter(
+        (i) => i.type === 'composite' && installedItems.has(i.name)
+      );
+      if (installedComposites.length > 0) {
+        logger.info('Import composites in your code:');
+        for (const comp of installedComposites) {
+          const compositeName = comp.displayName || comp.name;
+          logger.info(`  import { ${compositeName} } from '${config.aliases.composites}/${compositeName}';`);
         }
       }
     } catch (error: any) {
