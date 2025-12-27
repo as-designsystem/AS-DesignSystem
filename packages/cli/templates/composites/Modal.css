@@ -27,22 +27,9 @@
   max-height: calc(100vh - 48px);
   overflow: hidden;
   position: relative;
-}
-
-/* Size variants */
-.modal--s {
-  width: 100%;
-  max-width: 360px;
-}
-
-.modal--m {
-  width: 100%;
-  max-width: 471px;
-}
-
-.modal--l {
-  width: 100%;
-  max-width: 640px;
+  /* Default size - can be overridden via className */
+  width: 471px;
+  max-width: calc(100vw - 48px);
 }
 
 /* Header */

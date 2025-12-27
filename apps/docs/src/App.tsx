@@ -12,6 +12,7 @@ import Tab from './pages/Tab';
 import Select from './pages/Select';
 import Checkbox from './pages/Checkbox';
 import Toggle from './pages/Toggle';
+import Modal from './pages/Modal';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -38,6 +39,8 @@ function App() {
           <Route path="/components/select" element={<Select />} />
           <Route path="/components/checkbox" element={<Checkbox />} />
           <Route path="/components/toggle" element={<Toggle />} />
+          <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
+          <Route path="/composites/modal" element={<Modal />} />
         </Routes>
       </Layout>
     </BrowserRouter>

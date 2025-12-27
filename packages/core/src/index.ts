@@ -13,7 +13,7 @@ export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './c
 export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 
 // Composites
-export { Modal, type ModalProps, type ModalSize } from './composites/Modal';
+export { Modal, type ModalProps } from './composites/Modal';
 
 // Tokens
 export * from './tokens/colors';

@@ -2,8 +2,6 @@ import React, { useEffect, useCallback } from 'react';
 import { IconButton } from '../components/IconButton';
 import './Modal.css';
 
-export type ModalSize = 'S' | 'M' | 'L';
-
 export interface ModalProps {
   /**
    * Controls the visibility of the modal
@@ -27,11 +25,6 @@ export interface ModalProps {
    */
   footer?: React.ReactNode;
   /**
-   * Size of the modal
-   * @default 'M'
-   */
-  size?: ModalSize;
-  /**
    * Whether clicking the overlay closes the modal
    * @default true
    */
@@ -42,7 +35,8 @@ export interface ModalProps {
    */
   closeOnEscape?: boolean;
   /**
-   * Additional class name for the modal container
+   * Additional class name for the modal container.
+   * Use this to customize the modal size (width, height).
    */
   className?: string;
 }
@@ -76,7 +70,6 @@ export function Modal({
   title,
   children,
   footer,
-  size = 'M',
   closeOnOverlayClick = true,
   closeOnEscape = true,
   className = '',
@@ -115,13 +108,7 @@ export function Modal({
   // Don't render if not open
   if (!isOpen) return null;
 
-  const modalClasses = [
-    'modal',
-    `modal--${size.toLowerCase()}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const modalClasses = ['modal', className].filter(Boolean).join(' ');
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
