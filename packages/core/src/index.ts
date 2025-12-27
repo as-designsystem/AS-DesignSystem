@@ -12,6 +12,9 @@ export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
 export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 
+// Composites
+export { Modal, type ModalProps, type ModalSize } from './composites/Modal';
+
 // Tokens
 export * from './tokens/colors';
 export * from './tokens/typography';

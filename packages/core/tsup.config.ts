@@ -44,6 +44,16 @@ export default defineConfig({
       }
     });
 
+    // Copy composite CSS files to dist
+    const compositeCssFiles = ['Modal.css'];
+    compositeCssFiles.forEach((file) => {
+      const srcCss = join(process.cwd(), 'src', 'composites', file);
+      const distCss = join(process.cwd(), 'dist', file);
+      if (existsSync(srcCss)) {
+        copyFileSync(srcCss, distCss);
+      }
+    });
+
     // Copy token CSS files to dist
     const tokenCssFiles = ['colors.css', 'typography.css'];
     tokenCssFiles.forEach((file) => {
