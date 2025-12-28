@@ -203,16 +203,16 @@ export default function Layout({ children }: LayoutProps) {
             }
           >
             <Link
-              to="/composites/modal"
-              className={`nav-link nav-link-sub ${location.pathname === '/composites/modal' ? 'active' : ''}`}
-            >
-              Modal
-            </Link>
-            <Link
               to="/composites/app-header"
               className={`nav-link nav-link-sub ${location.pathname === '/composites/app-header' ? 'active' : ''}`}
             >
               AppHeader
+            </Link>
+            <Link
+              to="/composites/modal"
+              className={`nav-link nav-link-sub ${location.pathname === '/composites/modal' ? 'active' : ''}`}
+            >
+              Modal
             </Link>
           </NavSection>
         </nav>
