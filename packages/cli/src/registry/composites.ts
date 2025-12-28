@@ -24,4 +24,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'app-header',
+    type: 'composite',
+    displayName: 'AppHeader',
+    description: 'Application header with logo, app name, actions, and user selector',
+    files: [
+      {
+        path: 'templates/composites/AppHeader.tsx',
+        target: 'composites/AppHeader.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/AppHeader.css',
+        target: 'composites/AppHeader.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

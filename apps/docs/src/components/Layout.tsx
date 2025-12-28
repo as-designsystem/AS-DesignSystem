@@ -208,6 +208,12 @@ export default function Layout({ children }: LayoutProps) {
             >
               Modal
             </Link>
+            <Link
+              to="/composites/app-header"
+              className={`nav-link nav-link-sub ${location.pathname === '/composites/app-header' ? 'active' : ''}`}
+            >
+              AppHeader
+            </Link>
           </NavSection>
         </nav>
         <div className="sidebar-footer">
