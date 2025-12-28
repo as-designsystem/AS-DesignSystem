@@ -47,4 +47,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'product-panel',
+    type: 'composite',
+    displayName: 'ProductPanel',
+    description: 'Product/tool information banner with dark overlay, icon, title, description, and action links',
+    files: [
+      {
+        path: 'templates/composites/ProductPanel.tsx',
+        target: 'composites/ProductPanel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/ProductPanel.css',
+        target: 'composites/ProductPanel.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['tool-icons', 'icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

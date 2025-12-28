@@ -45,6 +45,7 @@ import menuIcon from '../assets/svg/icons/menu.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
+import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 
 // Build iconMap from imported icons
@@ -95,6 +96,7 @@ const iconMap: Record<string, string> = {
   'notifications': notificationsIcon,
   'play': playIcon,
   'remove': removeIcon,
+  'search': searchIcon,
   'settings': settingsIcon,
 };
 
@@ -145,6 +147,7 @@ export const availableIcons = [
   'notifications',
   'play',
   'remove',
+  'search',
   'settings',
 ] as const;
 

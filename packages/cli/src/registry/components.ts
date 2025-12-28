@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (47 icons)
+      // SVG icon assets (48 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -64,6 +64,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/notifications.svg', target: 'assets/svg/icons/notifications.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/play.svg', target: 'assets/svg/icons/play.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/remove.svg', target: 'assets/svg/icons/remove.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/search.svg', target: 'assets/svg/icons/search.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/settings.svg', target: 'assets/svg/icons/settings.svg', type: 'component' },
     ],
     cssImports: [],

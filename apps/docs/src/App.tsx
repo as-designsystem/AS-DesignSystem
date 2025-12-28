@@ -14,6 +14,7 @@ import Checkbox from './pages/Checkbox';
 import Toggle from './pages/Toggle';
 import Modal from './pages/Modal';
 import AppHeader from './pages/AppHeader';
+import ProductPanel from './pages/ProductPanel';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
           <Route path="/composites/modal" element={<Modal />} />
           <Route path="/composites/app-header" element={<AppHeader />} />
+          <Route path="/composites/product-panel" element={<ProductPanel />} />
         </Routes>
       </Layout>
     </BrowserRouter>

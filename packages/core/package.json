@@ -26,7 +26,8 @@
     "./Modal.css": "./dist/Modal.css",
     "./AppHeader.css": "./dist/AppHeader.css",
     "./colors.css": "./dist/colors.css",
-    "./typography.css": "./dist/typography.css"
+    "./typography.css": "./dist/typography.css",
+    "./ProductPanel.css": "./dist/ProductPanel.css"
   },
   "scripts": {
     "build": "tsup",

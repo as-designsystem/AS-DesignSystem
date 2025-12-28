@@ -15,6 +15,7 @@ export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';
 export { AppHeader, type AppHeaderProps } from './composites/AppHeader';
+export { ProductPanel, type ProductPanelProps, type ProductPanelLink } from './composites/ProductPanel';
 
 // Tokens
 export * from './tokens/colors';
