@@ -123,19 +123,19 @@
 }
 
 .vselect-trigger:hover {
-  background-color: var(--t-hover);
+  background-color: var(--primary-t-hover);
   border-bottom-color: var(--border-moderate);
 }
 
 .vselect-trigger:focus {
   outline: none;
   border-bottom-color: var(--primary-default);
-  background-color: var(--t-active);
+  background-color: var(--primary-t-active);
 }
 
 .vselect-trigger--open {
   border-bottom-color: var(--primary-default);
-  background-color: var(--t-active);
+  background-color: var(--primary-t-active);
 }
 
 .vselect-container--disabled .vselect-trigger {
@@ -321,12 +321,16 @@
 }
 
 .vselect-item:hover {
-  background-color: var(--t-hover);
+  background-color: var(--primary-t-hover);
 }
 
 .vselect-item--selected {
-  background-color: var(--t-active);
+  background-color: var(--primary-t-active);
   font-weight: 700;
+}
+
+.vselect-item--selected:hover {
+  background-color: var(--primary-t-active);
 }
 
 /* ============================================================================
