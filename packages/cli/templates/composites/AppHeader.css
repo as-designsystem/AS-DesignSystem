@@ -23,6 +23,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 /* Logo */
@@ -56,6 +58,8 @@
 .app-header__titles {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .app-header__app-name {
@@ -64,6 +68,9 @@
   font-weight: 400;
   line-height: 20px;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .app-header__app-subtitle {
@@ -72,6 +79,9 @@
   font-weight: 400;
   line-height: 16px;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Right Section - Actions */
@@ -79,6 +89,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Actions Container */
