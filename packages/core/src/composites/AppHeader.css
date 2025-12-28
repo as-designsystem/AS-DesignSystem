@@ -105,8 +105,24 @@
   color: #ffffff;
 }
 
+.app-header__right .icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-header__right .icon-button:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .app-header__right .button,
 .app-header__right .button .button__label,
 .app-header__right .button .button__icon svg {
   color: #ffffff;
+}
+
+.app-header__right .button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-header__right .button:active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
