@@ -104,7 +104,7 @@
   border-radius: 0;
   padding: 0 8px;
   background-color: var(--background-secondary, #fafafa);
-  border-bottom: 1px solid var(--border-default, #919cb0);
+  box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0);
   color: var(--text-main, #14171d);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -115,7 +115,6 @@
 
 .select-trigger:hover {
   background-color: var(--background-tertiary, #eff1f4);
-  border-bottom-color: var(--border-default, #919cb0);
 }
 
 .select-trigger:focus {
@@ -123,12 +122,12 @@
 }
 
 .select-trigger:focus-visible {
-  border-bottom-color: var(--primary-default, #063b9e);
+  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
 .select-trigger[data-state='open'] {
-  border-bottom-color: var(--primary-default, #063b9e);
+  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
@@ -183,27 +182,27 @@
    ============================================================================ */
 
 .select-trigger--error {
-  border-bottom-color: var(--feedback-error-default, #e4002b);
+  box-shadow: inset 0 -1px 0 0 var(--feedback-error-default, #e4002b);
 }
 
 .select-trigger--error:hover,
 .select-trigger--error:focus {
-  border-bottom-color: var(--feedback-error-default, #e4002b);
+  box-shadow: inset 0 -1px 0 0 var(--feedback-error-default, #e4002b);
 }
 
 .select-trigger--valid {
-  border-bottom-color: var(--feedback-success-default, #08875b);
+  box-shadow: inset 0 -1px 0 0 var(--feedback-success-default, #08875b);
 }
 
 .select-trigger--valid:hover,
 .select-trigger--valid:focus {
-  border-bottom-color: var(--feedback-success-default, #08875b);
+  box-shadow: inset 0 -1px 0 0 var(--feedback-success-default, #08875b);
 }
 
 /* Read-only state */
 .select-container--read-only .select-trigger {
   background-color: transparent;
-  border-bottom-color: var(--border-minimal, #eff1f4);
+  box-shadow: inset 0 -1px 0 0 var(--border-minimal, #eff1f4);
   color: var(--text-main, #14171d);
   cursor: default;
   pointer-events: none;

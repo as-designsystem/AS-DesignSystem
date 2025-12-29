@@ -538,4 +538,27 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'text-input',
+    type: 'component',
+    displayName: 'TextInput',
+    description: 'Text input component with sizes, states, icons and validation',
+    files: [
+      {
+        path: 'templates/components/TextInput.tsx',
+        target: 'components/TextInput.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/TextInput.css',
+        target: 'components/TextInput.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

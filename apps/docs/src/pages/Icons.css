@@ -9,12 +9,12 @@
   gap: 24px;
   margin-bottom: 24px;
   padding: 16px;
-  background-color: var(--background-secondary, #fafafa);
+  background-color: var(--background-main, #ffffff);
   border-radius: 8px;
   border: 1px solid var(--border-moderate, #ced5dd);
 }
 
-.icons-controls .icon-search {
+.icons-controls .icon-search-input {
   flex: 1;
   min-width: 200px;
   max-width: 280px;
@@ -79,4 +79,53 @@
 
 .icons-color-option.active .icons-color-dot {
   border: 2px solid var(--text-negative, #ffffff);
+}
+
+/* ============================================================================
+   ICONS PAGE - Modal Code Blocks
+   ============================================================================ */
+
+.icons-modal-code-block {
+  background: var(--background-tertiary);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.icons-modal-code-block pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+.icons-modal-code-block code {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+.icons-modal-copy-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--background-main);
+  border: 1px solid var(--border-moderate);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icons-modal-copy-button:hover {
+  background: var(--background-secondary);
+}
+
+.icons-modal-section-title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-weight: 600;
 }

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Checkbox, VCheckbox, Tab, Button } from '@as-design-system/core';
+import { Checkbox, VCheckbox, Tab, Button, ButtonGroup } from '@as-design-system/core';
 import '@as-design-system/core/Checkbox.css';
 import '@as-design-system/core/VCheckbox.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/ButtonGroup.css';
 import CodeModal from '../components/CodeModal';
 import './Checkbox.css';
 
@@ -24,13 +25,24 @@ export default function CheckboxPage() {
   const [checked2, setChecked2] = useState(true);
   const [checked3, setChecked3] = useState(false);
 
-  const sizesCode = `import { Checkbox } from '@/design-system/components/Checkbox';
+  // Code examples - Checkbox (Radix)
+  const sizesCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
+import '@as-design-system/core/Checkbox.css';
 
 <Checkbox label="Size S" size="S" />
 <Checkbox label="Size M" size="M" />
 <Checkbox label="Size L" size="L" />`;
 
-  const statusCode = `import { Checkbox } from '@/design-system/components/Checkbox';
+  // Code examples - VCheckbox (Vanilla)
+  const sizesCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
+import '@as-design-system/core/VCheckbox.css';
+
+<VCheckbox label="Size S" size="S" />
+<VCheckbox label="Size M" size="M" />
+<VCheckbox label="Size L" size="L" />`;
+
+  const statusCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
+import '@as-design-system/core/Checkbox.css';
 
 // Default (unchecked)
 <Checkbox label="Default" status="Default" />
@@ -41,15 +53,37 @@ export default function CheckboxPage() {
 // Indeterminate
 <Checkbox label="Indeterminate" status="Indeterminate" />`;
 
-  const statesCode = `import { Checkbox } from '@/design-system/components/Checkbox';
+  const statusCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
+import '@as-design-system/core/VCheckbox.css';
+
+// Default (unchecked)
+<VCheckbox label="Default" status="Default" />
+
+// Checked
+<VCheckbox label="Checked" status="Checked" />
+
+// Indeterminate
+<VCheckbox label="Indeterminate" status="Indeterminate" />`;
+
+  const statesCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
+import '@as-design-system/core/Checkbox.css';
 
 <Checkbox label="Default" state="Default" />
 <Checkbox label="Disabled" state="Disabled" />
 <Checkbox label="Disabled Checked" state="Disabled" status="Checked" />
 <Checkbox label="Read-only" state="Read-only" status="Checked" />`;
 
-  const controlledCode = `import { useState } from 'react';
-import { Checkbox } from '@/design-system/components/Checkbox';
+  const statesCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
+import '@as-design-system/core/VCheckbox.css';
+
+<VCheckbox label="Default" state="Default" />
+<VCheckbox label="Disabled" state="Disabled" />
+<VCheckbox label="Disabled Checked" state="Disabled" status="Checked" />
+<VCheckbox label="Read-only" state="Read-only" status="Checked" />`;
+
+  const controlledCodeCheckbox = `import { useState } from 'react';
+import { Checkbox } from '@as-design-system/core';
+import '@as-design-system/core/Checkbox.css';
 
 function MyComponent() {
   const [checked, setChecked] = useState(false);
@@ -63,21 +97,57 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCode = `import { Checkbox } from '@/design-system/components/Checkbox';
+  const controlledCodeVCheckbox = `import { useState } from 'react';
+import { VCheckbox } from '@as-design-system/core';
+import '@as-design-system/core/VCheckbox.css';
+
+function MyComponent() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <VCheckbox
+      label="Accept terms and conditions"
+      checked={checked}
+      onChange={setChecked}
+    />
+  );
+}`;
+
+  const withoutLabelCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
+import '@as-design-system/core/Checkbox.css';
 
 // Checkbox without visible label
 <Checkbox showLabel={false} size="S" />
 <Checkbox showLabel={false} size="M" status="Checked" />
 <Checkbox showLabel={false} size="L" status="Indeterminate" />`;
 
+  const withoutLabelCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
+import '@as-design-system/core/VCheckbox.css';
+
+// VCheckbox without visible label
+<VCheckbox showLabel={false} size="S" />
+<VCheckbox showLabel={false} size="M" status="Checked" />
+<VCheckbox showLabel={false} size="L" status="Indeterminate" />`;
+
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Checkbox
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Checkbox
+        </h1>
+        <ButtonGroup
+          options={[
+            { label: 'Radix UI', value: 'checkbox' },
+            { label: 'Vanilla', value: 'vcheckbox' },
+          ]}
+          value={componentType}
+          onChange={(value) => setComponentType(value as 'checkbox' | 'vcheckbox')}
+          size="S"
+        />
+      </div>
       <p
         className="label-regular-m"
         style={{
@@ -89,24 +159,6 @@ function MyComponent() {
         Checkbox components with two implementations: Checkbox (Radix UI) and
         VCheckbox (Vanilla React).
       </p>
-
-      {/* Implementation Type Tabs */}
-      <div className="tabs-container" style={{ marginBottom: '24px' }}>
-        <div style={{ display: 'flex', gap: '0', marginBottom: '16px' }}>
-          <Tab
-            label="Checkbox (Radix UI)"
-            size="M"
-            status={componentType === 'checkbox' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('checkbox')}
-          />
-          <Tab
-            label="VCheckbox (Vanilla)"
-            size="M"
-            status={componentType === 'vcheckbox' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('vcheckbox')}
-          />
-        </div>
-      </div>
 
       {/* Main Tabs */}
       <div className="tabs-container">
@@ -592,31 +644,31 @@ function MyComponent() {
         isOpen={openModal === 'sizes'}
         onClose={() => setOpenModal(null)}
         title="Sizes Implementation"
-        code={sizesCode}
+        code={componentType === 'checkbox' ? sizesCodeCheckbox : sizesCodeVCheckbox}
       />
       <CodeModal
         isOpen={openModal === 'status'}
         onClose={() => setOpenModal(null)}
         title="Status Implementation"
-        code={statusCode}
+        code={componentType === 'checkbox' ? statusCodeCheckbox : statusCodeVCheckbox}
       />
       <CodeModal
         isOpen={openModal === 'states'}
         onClose={() => setOpenModal(null)}
         title="States Implementation"
-        code={statesCode}
+        code={componentType === 'checkbox' ? statesCodeCheckbox : statesCodeVCheckbox}
       />
       <CodeModal
         isOpen={openModal === 'controlled'}
         onClose={() => setOpenModal(null)}
-        title="Controlled Checkbox"
-        code={controlledCode}
+        title={componentType === 'checkbox' ? 'Controlled Checkbox' : 'Controlled VCheckbox'}
+        code={componentType === 'checkbox' ? controlledCodeCheckbox : controlledCodeVCheckbox}
       />
       <CodeModal
         isOpen={openModal === 'withoutLabel'}
         onClose={() => setOpenModal(null)}
         title="Without Label Implementation"
-        code={withoutLabelCode}
+        code={componentType === 'checkbox' ? withoutLabelCodeCheckbox : withoutLabelCodeVCheckbox}
       />
     </div>
   );

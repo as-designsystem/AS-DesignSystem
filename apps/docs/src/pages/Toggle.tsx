@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Toggle, VToggle, Tab, Button } from '@as-design-system/core';
+import { Toggle, VToggle, Tab, Button, ButtonGroup } from '@as-design-system/core';
 import '@as-design-system/core/Toggle.css';
 import '@as-design-system/core/VToggle.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/ButtonGroup.css';
 import CodeModal from '../components/CodeModal';
 import './Toggle.css';
 
@@ -25,20 +26,23 @@ export default function TogglePage() {
   const [autoSave, setAutoSave] = useState(false);
 
   // Code examples - Toggle (Radix)
-  const sizesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
+  const sizesCodeToggle = `import { Toggle } from '@as-design-system/core';
+import '@as-design-system/core/Toggle.css';
 
 <Toggle label="Size S" size="S" />
 <Toggle label="Size M" size="M" />
 <Toggle label="Size L" size="L" />`;
 
   // Code examples - VToggle (Vanilla)
-  const sizesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+  const sizesCodeVToggle = `import { VToggle } from '@as-design-system/core';
+import '@as-design-system/core/VToggle.css';
 
 <VToggle label="Size S" size="S" />
 <VToggle label="Size M" size="M" />
 <VToggle label="Size L" size="L" />`;
 
-  const selectedCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
+  const selectedCodeToggle = `import { Toggle } from '@as-design-system/core';
+import '@as-design-system/core/Toggle.css';
 
 // Unchecked
 <Toggle label="Unchecked" checked={false} />
@@ -46,7 +50,8 @@ export default function TogglePage() {
 // Checked
 <Toggle label="Checked" checked={true} />`;
 
-  const selectedCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+  const selectedCodeVToggle = `import { VToggle } from '@as-design-system/core';
+import '@as-design-system/core/VToggle.css';
 
 // Unselected
 <VToggle label="Unselected" selected={false} />
@@ -54,20 +59,23 @@ export default function TogglePage() {
 // Selected
 <VToggle label="Selected" selected={true} />`;
 
-  const statesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
+  const statesCodeToggle = `import { Toggle } from '@as-design-system/core';
+import '@as-design-system/core/Toggle.css';
 
 <Toggle label="Default" state="Default" />
 <Toggle label="Disabled" state="Disabled" />
 <Toggle label="Disabled Checked" state="Disabled" checked />`;
 
-  const statesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+  const statesCodeVToggle = `import { VToggle } from '@as-design-system/core';
+import '@as-design-system/core/VToggle.css';
 
 <VToggle label="Default" state="Default" />
 <VToggle label="Disabled" state="Disabled" />
 <VToggle label="Disabled Selected" state="Disabled" selected />`;
 
   const controlledCodeToggle = `import { useState } from 'react';
-import { Toggle } from '@/design-system/components/Toggle';
+import { Toggle } from '@as-design-system/core';
+import '@as-design-system/core/Toggle.css';
 
 function MyComponent() {
   const [enabled, setEnabled] = useState(false);
@@ -82,7 +90,8 @@ function MyComponent() {
 }`;
 
   const controlledCodeVToggle = `import { useState } from 'react';
-import { VToggle } from '@/design-system/components/VToggle';
+import { VToggle } from '@as-design-system/core';
+import '@as-design-system/core/VToggle.css';
 
 function MyComponent() {
   const [enabled, setEnabled] = useState(false);
@@ -96,14 +105,16 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
+  const withoutLabelCodeToggle = `import { Toggle } from '@as-design-system/core';
+import '@as-design-system/core/Toggle.css';
 
 // Toggle without visible label (label is still used for accessibility)
 <Toggle showLabel={false} size="S" />
 <Toggle showLabel={false} size="M" checked />
 <Toggle showLabel={false} size="L" />`;
 
-  const withoutLabelCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
+  const withoutLabelCodeVToggle = `import { VToggle } from '@as-design-system/core';
+import '@as-design-system/core/VToggle.css';
 
 // VToggle without visible label (label is still used for accessibility)
 <VToggle showLabel={false} size="S" />
@@ -112,12 +123,23 @@ function MyComponent() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Toggle
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Toggle
+        </h1>
+        <ButtonGroup
+          options={[
+            { label: 'Radix UI', value: 'toggle' },
+            { label: 'Vanilla', value: 'vtoggle' },
+          ]}
+          value={componentType}
+          onChange={(value) => setComponentType(value as 'toggle' | 'vtoggle')}
+          size="S"
+        />
+      </div>
       <p
         className="label-regular-m"
         style={{
@@ -129,24 +151,6 @@ function MyComponent() {
         Toggle components with two implementations: Toggle (Radix UI) and
         VToggle (Vanilla React).
       </p>
-
-      {/* Implementation Type Tabs */}
-      <div className="tabs-container" style={{ marginBottom: '24px' }}>
-        <div style={{ display: 'flex', gap: '0', marginBottom: '16px' }}>
-          <Tab
-            label="Toggle (Radix UI)"
-            size="M"
-            status={componentType === 'toggle' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('toggle')}
-          />
-          <Tab
-            label="VToggle (Vanilla)"
-            size="M"
-            status={componentType === 'vtoggle' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('vtoggle')}
-          />
-        </div>
-      </div>
 
       {/* Main Tabs */}
       <div className="tabs-container">

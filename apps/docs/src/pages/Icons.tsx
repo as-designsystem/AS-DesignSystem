@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './Tokens.css';
 import './Icons.css';
-import { Icon, availableIcons, ButtonGroup } from '@as-design-system/core';
+import { Icon, availableIcons, ButtonGroup, Modal, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/ButtonGroup.css';
 import '@as-design-system/core/Button.css';
-import { Modal } from '../components/Modal';
-import '../components/Modal.css';
+import '@as-design-system/core/Modal.css';
+import '@as-design-system/core/IconButton.css';
+import '@as-design-system/core/TextInput.css';
 
 // List of available icons (automatically synced from Icon component)
 const iconNames = [...availableIcons];
@@ -83,12 +84,18 @@ export default function Icons() {
 
       {/* Controls Bar */}
       <div className="icons-controls">
-        <input
-          type="text"
+        <TextInput
           placeholder="Search an icon..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="icon-search"
+          size="S"
+          showLabel={false}
+          showLeftIcon
+          leftIcon="search"
+          showRightIconButton={searchQuery.length > 0}
+          rightIconButton="close"
+          onRightIconButtonClick={() => setSearchQuery('')}
+          className="icon-search-input"
         />
 
         {/* Size Selector */}
@@ -158,10 +165,10 @@ export default function Icons() {
             </div>
 
             {/* Code Example */}
-            <div className="modal-section-title">Code</div>
-            <div className="modal-code-block">
+            <div className="icons-modal-section-title">Code</div>
+            <div className="icons-modal-code-block">
               <button
-                className="modal-copy-button"
+                className="icons-modal-copy-button"
                 onClick={() => copyToClipboard(generateIconCode(selectedIcon))}
               >
                 {copiedCode === generateIconCode(selectedIcon) ? '✓ Copied!' : 'Copy'}
@@ -172,10 +179,10 @@ export default function Icons() {
             </div>
 
             {/* In Button */}
-            <div className="modal-section-title">Used in Button Component</div>
-            <div className="modal-code-block">
+            <div className="icons-modal-section-title">Used in Button Component</div>
+            <div className="icons-modal-code-block">
               <button
-                className="modal-copy-button"
+                className="icons-modal-copy-button"
                 onClick={() =>
                   copyToClipboard(
                     `<Button variant="primary" size="M" leftIcon="${selectedIcon}">\n  Click me\n</Button>`

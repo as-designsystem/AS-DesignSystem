@@ -23,6 +23,7 @@
     "./VCheckbox.css": "./dist/VCheckbox.css",
     "./Toggle.css": "./dist/Toggle.css",
     "./VToggle.css": "./dist/VToggle.css",
+    "./TextInput.css": "./dist/TextInput.css",
     "./Modal.css": "./dist/Modal.css",
     "./AppHeader.css": "./dist/AppHeader.css",
     "./colors.css": "./dist/colors.css",

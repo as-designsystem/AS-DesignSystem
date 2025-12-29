@@ -8,67 +8,42 @@
   width: 240px;
   background-color: var(--background-main);
   border-right: 1px solid var(--border-minimal);
-  padding: 16px;
+  padding: 16px 0 16px 16px;
   position: fixed;
   height: 100vh;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .sidebar-header {
   margin-bottom: 16px;
+  padding-right: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 /* Search Bar */
-.search-container {
+.search-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 8px;
-  background-color: var(--background-secondary);
-  border: 1px solid var(--border-moderate);
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  width: 100%;
 }
 
-.search-container:focus-within {
-  border-color: var(--primary-default);
-  background-color: var(--primary-t-active);
+.sidebar-search {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
-.search-input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--text-main);
-  outline: none;
+.sidebar-search .text-input-wrapper {
+  height: 24px;
 }
 
-.search-input::placeholder {
-  color: var(--text-secondary);
-}
-
-.search-clear {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background-color 0.2s ease;
-}
-
-.search-clear:hover {
-  background-color: var(--background-tertiary);
+.search-row .icon-button {
+  flex-shrink: 0;
 }
 
 .search-no-results {
@@ -85,12 +60,29 @@
   gap: 8px;
   flex: 1;
   overflow-y: auto;
+  padding-right: 16px;
 }
 
-.sidebar-footer {
-  padding-top: 16px;
-  display: flex;
-  justify-content: flex-end;
+/* Minimal scrollbar - hidden by default, visible on sidebar hover */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+.sidebar:hover .sidebar-nav::-webkit-scrollbar-thumb {
+  background-color: var(--border-moderate, #ced5dd);
+}
+
+.sidebar:hover .sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-default, #919cb0);
 }
 
 .nav-section {

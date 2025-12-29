@@ -19,3 +19,11 @@ body {
   min-height: 100vh;
 }
 
+/* Page header with title and implementation switcher */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+

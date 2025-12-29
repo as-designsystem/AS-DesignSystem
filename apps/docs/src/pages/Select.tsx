@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Select, VSelect, Tab, Button } from '@as-design-system/core';
+import { Select, VSelect, Tab, Button, ButtonGroup } from '@as-design-system/core';
 import '@as-design-system/core/Select.css';
 import '@as-design-system/core/VSelect.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/ButtonGroup.css';
 import CodeModal from '../components/CodeModal';
 import './Select.css';
 
@@ -25,7 +26,9 @@ export default function SelectPage() {
     { value: 'es', label: 'Spain' },
   ];
 
-  const sizesCode = `import { Select } from '@/design-system/components/Select';
+  // Code examples - Select (Radix)
+  const sizesCodeSelect = `import { Select } from '@as-design-system/core';
+import '@as-design-system/core/Select.css';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -38,7 +41,23 @@ const options = [
 <Select label="Size M" options={options} size="M" />
 <Select label="Size L" options={options} size="L" />`;
 
-  const statesCode = `import { Select } from '@/design-system/components/Select';
+  // Code examples - VSelect (Vanilla)
+  const sizesCodeVSelect = `import { VSelect } from '@as-design-system/core';
+import '@as-design-system/core/VSelect.css';
+
+const options = [
+  { value: 'fr', label: 'France' },
+  { value: 'us', label: 'United States' },
+  { value: 'uk', label: 'United Kingdom' },
+];
+
+<VSelect label="Size XS" options={options} size="XS" />
+<VSelect label="Size S" options={options} size="S" />
+<VSelect label="Size M" options={options} size="M" />
+<VSelect label="Size L" options={options} size="L" />`;
+
+  const statesCodeSelect = `import { Select } from '@as-design-system/core';
+import '@as-design-system/core/Select.css';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -51,7 +70,22 @@ const options = [
 <Select label="Disabled" options={options} state="Disabled" />
 <Select label="Read-only" options={options} state="Read-only" value="fr" />`;
 
-  const optionsCode = `import { Select } from '@/design-system/components/Select';
+  const statesCodeVSelect = `import { VSelect } from '@as-design-system/core';
+import '@as-design-system/core/VSelect.css';
+
+const options = [
+  { value: 'fr', label: 'France' },
+  { value: 'us', label: 'United States' },
+];
+
+<VSelect label="Default" options={options} state="Default" />
+<VSelect label="Error" options={options} state="Error" legend="This field is required" showLegend />
+<VSelect label="Valid" options={options} state="Valid" legend="Selection confirmed" showLegend />
+<VSelect label="Disabled" options={options} state="Disabled" />
+<VSelect label="Read-only" options={options} state="Read-only" value="fr" />`;
+
+  const optionsCodeSelect = `import { Select } from '@as-design-system/core';
+import '@as-design-system/core/Select.css';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -70,7 +104,28 @@ const options = [
 // With info icon and tooltip
 <Select label="Country" options={options} showInfo infoText="Select your country of residence" />`;
 
-  const vselectCode = `import { VSelect } from '@/design-system/components/VSelect';
+  const optionsCodeVSelect = `import { VSelect } from '@as-design-system/core';
+import '@as-design-system/core/VSelect.css';
+
+const options = [
+  { value: 'fr', label: 'France' },
+  { value: 'us', label: 'United States' },
+];
+
+// With optional text
+<VSelect label="Country" options={options} showOptional />
+
+// With legend
+<VSelect label="Country" options={options} legend="Select your country" showLegend />
+
+// With left icon
+<VSelect label="Country" options={options} showLeftIcon leftIcon="AIR_engine" />
+
+// With info icon and tooltip
+<VSelect label="Country" options={options} showInfo infoText="Select your country of residence" />`;
+
+  const vselectCode = `import { VSelect } from '@as-design-system/core';
+import '@as-design-system/core/VSelect.css';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -82,12 +137,23 @@ const options = [
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Select
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Select
+        </h1>
+        <ButtonGroup
+          options={[
+            { label: 'Radix UI', value: 'select' },
+            { label: 'Vanilla', value: 'vselect' },
+          ]}
+          value={componentType}
+          onChange={(value) => setComponentType(value as 'select' | 'vselect')}
+          size="S"
+        />
+      </div>
       <p
         className="label-regular-m"
         style={{
@@ -99,24 +165,6 @@ const options = [
         Select components with two implementations: Select (Radix UI) and
         VSelect (Vanilla React).
       </p>
-
-      {/* Implementation Type Tabs */}
-      <div className="tabs-container" style={{ marginBottom: '24px' }}>
-        <div style={{ display: 'flex', gap: '0', marginBottom: '16px' }}>
-          <Tab
-            label="Select (Radix UI)"
-            size="M"
-            status={componentType === 'select' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('select')}
-          />
-          <Tab
-            label="VSelect (Vanilla)"
-            size="M"
-            status={componentType === 'vselect' ? 'Active' : 'Default'}
-            onClick={() => setComponentType('vselect')}
-          />
-        </div>
-      </div>
 
       {/* Main Tabs */}
       <div className="tabs-container">
@@ -658,19 +706,19 @@ const options = [
         isOpen={openModal === 'sizes'}
         onClose={() => setOpenModal(null)}
         title="Sizes Implementation"
-        code={sizesCode}
+        code={componentType === 'select' ? sizesCodeSelect : sizesCodeVSelect}
       />
       <CodeModal
         isOpen={openModal === 'states'}
         onClose={() => setOpenModal(null)}
         title="States Implementation"
-        code={statesCode}
+        code={componentType === 'select' ? statesCodeSelect : statesCodeVSelect}
       />
       <CodeModal
         isOpen={openModal === 'options'}
         onClose={() => setOpenModal(null)}
         title="Options Implementation"
-        code={optionsCode}
+        code={componentType === 'select' ? optionsCodeSelect : optionsCodeVSelect}
       />
       <CodeModal
         isOpen={openModal === 'vselect'}
