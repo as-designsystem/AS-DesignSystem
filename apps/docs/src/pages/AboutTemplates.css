@@ -2,26 +2,6 @@
  * Templates Documentation Page Styles
  */
 
-/* Code block */
-.code-block {
-  background-color: var(--background-tertiary, #1e1e1e);
-  border-radius: 8px;
-  padding: 16px 20px;
-  overflow-x: auto;
-}
-
-.code-block pre {
-  margin: 0;
-}
-
-.code-block code {
-  color: var(--text-main, #14171d);
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-  font-size: 13px;
-  line-height: 1.6;
-  white-space: pre;
-}
-
 /* Comparison table */
 .comparison-table {
   overflow-x: auto;

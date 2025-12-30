@@ -3,23 +3,11 @@ import './Tokens.css';
 export default function HowToUse() {
   return (
     <div className="tokens-page">
-      <h1
-        className="heading-5"
-        style={{
-          color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-          marginBottom: '24px',
-        }}
-      >
-        How to Use
-      </h1>
+      <h1>How to Use</h1>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Using Components
-        </h2>
-        <p className="body-medium" style={{ marginBottom: '16px', lineHeight: '1.6' }}>
-          Import components from your local design-system directory:
-        </p>
+        <h2>Using Components</h2>
+        <p>Import components from your local design-system directory:</p>
         <div className="code-block">
           <code>{`import { Button } from '@/design-system/components/Button';
 import { Icon } from '@/design-system/components/Icon';
@@ -39,12 +27,8 @@ function MyComponent() {
       </section>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Using Colors
-        </h2>
-        <p className="body-medium" style={{ marginBottom: '16px', lineHeight: '1.6' }}>
-          Use colors as CSS variables or TypeScript constants:
-        </p>
+        <h2>Using Colors</h2>
+        <p>Use colors as CSS variables or TypeScript constants:</p>
         <div className="code-block">
           <code>{`/* CSS Variables (in your .css files) */
 .my-element {
@@ -64,12 +48,8 @@ const MyComponent = () => (
       </section>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Using Text Styles
-        </h2>
-        <p className="body-medium" style={{ marginBottom: '16px', lineHeight: '1.6' }}>
-          Apply pre-defined text style classes directly in your JSX:
-        </p>
+        <h2>Using Text Styles</h2>
+        <p>Apply pre-defined text style classes directly in your JSX:</p>
         <div className="code-block">
           <code>{`function MyComponent() {
   return (
@@ -81,7 +61,7 @@ const MyComponent = () => (
   );
 }`}</code>
         </div>
-        <p className="body-small" style={{ marginTop: '16px', color: 'var(--text-secondary)' }}>
+        <p className="tokens-note">
           See the <strong>Text Styles</strong> page for all available classes.
         </p>
       </section>

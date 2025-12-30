@@ -3,31 +3,19 @@ import './Tokens.css';
 export default function Installation() {
   return (
     <div className="tokens-page">
-      <h1
-        className="heading-5"
-        style={{
-          color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-          marginBottom: '24px',
-        }}
-      >
-        Installation
-      </h1>
+      <h1>Installation</h1>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Prerequisites
-        </h2>
-        <ul style={{ paddingLeft: '24px', lineHeight: '1.8', marginBottom: '24px' }}>
-          <li className="body-medium">Node.js 18+</li>
-          <li className="body-medium">React 18+ project (Vite, CRA, or Next.js)</li>
-          <li className="body-medium">pnpm, npm, or yarn</li>
+        <h2>Prerequisites</h2>
+        <ul>
+          <li>Node.js 18+</li>
+          <li>React 18+ project (Vite, CRA, or Next.js)</li>
+          <li>pnpm, npm, or yarn</li>
         </ul>
       </section>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Installation Steps
-        </h2>
+        <h2>Installation Steps</h2>
 
         <div className="code-block" style={{ marginBottom: '24px' }}>
           <code>{`# 1. Initialize your project
@@ -41,21 +29,17 @@ asds add button icon-button
 asds list`}</code>
         </div>
 
-        <p className="body-medium" style={{ marginBottom: '16px', lineHeight: '1.6' }}>
-          The CLI will automatically:
-        </p>
-        <ul style={{ paddingLeft: '24px', lineHeight: '1.8' }}>
-          <li className="body-medium">Create <code>src/design-system/</code> directory</li>
-          <li className="body-medium">Copy component files to your project</li>
-          <li className="body-medium">Resolve dependencies automatically</li>
-          <li className="body-medium">Update your global CSS with token imports</li>
+        <p>The CLI will automatically:</p>
+        <ul>
+          <li>Create <code>src/design-system/</code> directory</li>
+          <li>Copy component files to your project</li>
+          <li>Resolve dependencies automatically</li>
+          <li>Update your global CSS with token imports</li>
         </ul>
       </section>
 
       <section className="tokens-section">
-        <h2 className="heading-6" style={{ color: 'var(--text-corporate)', marginBottom: '16px' }}>
-          Project Structure
-        </h2>
+        <h2>Project Structure</h2>
         <div className="code-block">
           <code>{`your-project/
 ├── src/
