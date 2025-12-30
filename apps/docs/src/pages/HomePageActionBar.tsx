@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { HomePageActionBar, Button, Tab, TextInput, VSelect } from '@as-design-system/core';
+import { HomePageActionBar, Button, Tab, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/HomePageActionBar.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/VSelect.css';
 import CodeModal from '../components/CodeModal';
 import './HomePageActionBar.css';
 
@@ -57,19 +56,16 @@ function Example() {
   );
 }`;
 
-  const customActionsCode = `import { HomePageActionBar, Button, TextInput, VSelect } from '@as-design-system/core';
+  const customActionsCode = `import { HomePageActionBar, Button, TextInput } from '@as-design-system/core';
 
 // Mix any components: buttons, selects, inputs, etc.
 <HomePageActionBar>
-  <VSelect
-    options={[
-      { value: 'date', label: 'Date' },
-      { value: 'name', label: 'Name' },
-      { value: 'status', label: 'Status' },
-    ]}
-    placeholder="Sort by"
+  <Button
+    label="SORT BY"
+    leftIcon="filter_row"
+    rightIcon="dropdown"
+    variant="Ghost"
     size="M"
-    showLabel={false}
   />
   <TextInput
     placeholder="Search projects..."
@@ -178,15 +174,12 @@ function Example() {
             </p>
             <div className="homepageactionbar-example">
               <HomePageActionBar>
-                <VSelect
-                  options={[
-                    { value: 'date', label: 'Date' },
-                    { value: 'name', label: 'Name' },
-                    { value: 'status', label: 'Status' },
-                  ]}
-                  placeholder="Sort by"
+                <Button
+                  label="SORT BY"
+                  leftIcon="filter_row"
+                  rightIcon="dropdown"
+                  variant="Ghost"
                   size="M"
-                  showLabel={false}
                 />
                 <TextInput
                   placeholder="Search projects..."
