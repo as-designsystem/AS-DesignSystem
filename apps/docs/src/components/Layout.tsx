@@ -236,7 +236,24 @@ export default function Layout({ children }: LayoutProps) {
           )}
         </nav>
       </aside>
-      <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>{children}</main>
+      <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>
+        {isTemplatePreview ? (
+          <div className="browser-chrome">
+            <div className="browser-chrome__header">
+              <div className="browser-chrome__buttons">
+                <span className="browser-chrome__button browser-chrome__button--close" />
+                <span className="browser-chrome__button browser-chrome__button--minimize" />
+                <span className="browser-chrome__button browser-chrome__button--maximize" />
+              </div>
+            </div>
+            <div className="browser-chrome__content">
+              {children}
+            </div>
+          </div>
+        ) : (
+          children
+        )}
+      </main>
     </div>
   );
 }

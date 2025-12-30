@@ -221,14 +221,60 @@
   justify-content: center;
 }
 
-.content--template-preview > * {
+/* Browser chrome wrapper */
+.browser-chrome {
   width: calc(100% - 32px);
-  height: calc(100vh - 32px) !important;
-  min-height: 0 !important; /* Override template min-height */
+  height: calc(100vh - 32px);
   margin: 16px;
-  padding: 0; /* Override default content padding */
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--background-main, #ffffff);
+}
+
+.browser-chrome__header {
+  height: 32px;
+  background-color: var(--background-secondary, #f5f6f8);
+  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+
+.browser-chrome__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.browser-chrome__button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.browser-chrome__button--close {
+  background-color: #ff5f57;
+}
+
+.browser-chrome__button--minimize {
+  background-color: #ffbd2e;
+}
+
+.browser-chrome__button--maximize {
+  background-color: #28c840;
+}
+
+.browser-chrome__content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.browser-chrome__content > * {
+  min-height: 0 !important;
+  padding: 0 !important;
 }
 
