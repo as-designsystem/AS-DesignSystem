@@ -51,7 +51,14 @@ Files to create:
 - Export from `/packages/core/src/index.ts`
 - Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`
 - Add CSS export in `/packages/core/package.json`
-- Register in CLI: `/packages/cli/src/registry/components.ts`
+- Register in CLI `/packages/cli/src/registry/components.ts`:
+  - `name`: kebab-case (e.g., 'text-input')
+  - `displayName`: PascalCase (e.g., 'TextInput')
+  - `description`: short description
+  - `files`: array of `{ path, target, type }` for .tsx and .css
+  - `dependencies`: other DS components used (e.g., ['icon'])
+  - `externalDependencies`: npm packages if any (e.g., Radix)
+  - `cssImports`: token imports needed
 
 ### 5. Create Documentation
 Follow existing doc pages (e.g., `Button.tsx` in `/apps/docs/src/pages/`):
@@ -75,3 +82,7 @@ The CLI sync copies components from `packages/core/src/` to `packages/cli/templa
 - **Disabled state**: Use `cursor: default`, never `cursor: not-allowed`
 - **Documentation**: Use design system components (Tab, Button) - no custom styled elements
 - **Flexibility**: Adapt to the Figma design - don't force it into a rigid structure
+
+## Feedback
+
+If anything in these instructions is unclear, inconsistent, outdated, or conflicts with the actual codebase patterns, please tell the user so they can update this command.

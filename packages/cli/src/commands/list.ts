@@ -69,7 +69,23 @@ export const list = new Command()
       console.log('');
     }
 
+    // Templates
+    const templates = getRegistryByType('template');
+    if (templates.length > 0) {
+      console.log(chalk.bold.cyan('Templates:'));
+      for (const template of templates) {
+        const displayName = template.displayName || template.name;
+        const description = template.description || '';
+        console.log(`  ${chalk.green(template.name.padEnd(20))} ${displayName}`);
+        if (description) {
+          console.log(`  ${' '.repeat(20)} ${chalk.gray(description)}`);
+        }
+      }
+      console.log('');
+    }
+
     logger.info('Usage:');
     logger.info('  asds add <name>        Add a specific component or token');
     logger.info('  asds add button icon   Add multiple items at once');
+    logger.info('  asds add home-page     Add a page template');
   });

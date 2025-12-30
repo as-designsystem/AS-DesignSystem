@@ -17,6 +17,8 @@ import Modal from './pages/Modal';
 import AppHeader from './pages/AppHeader';
 import ProductPanel from './pages/ProductPanel';
 import HomePageActionBar from './pages/HomePageActionBar';
+import AboutTemplates from './pages/AboutTemplates';
+import HomePageTemplate from './pages/HomePageTemplate';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -49,6 +51,9 @@ function App() {
           <Route path="/composites/app-header" element={<AppHeader />} />
           <Route path="/composites/product-panel" element={<ProductPanel />} />
           <Route path="/composites/home-page-action-bar" element={<HomePageActionBar />} />
+          <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
+          <Route path="/templates/about" element={<AboutTemplates />} />
+          <Route path="/templates/home-page" element={<HomePageTemplate />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -12,11 +12,11 @@ export const registryFileSchema = z.object({
 export type RegistryFile = z.infer<typeof registryFileSchema>;
 
 /**
- * Registry item schema (component, composite, token, or icon)
+ * Registry item schema (component, composite, token, icon, or template)
  */
 export const registryItemSchema = z.object({
   name: z.string().describe('Unique identifier (e.g., "button", "colors")'),
-  type: z.enum(['component', 'composite', 'token', 'icon']).describe('Type of registry item'),
+  type: z.enum(['component', 'composite', 'token', 'icon', 'template']).describe('Type of registry item'),
   displayName: z.string().optional().describe('Display name for CLI output'),
   description: z.string().optional().describe('Brief description'),
   files: z.array(registryFileSchema).describe('Files to copy'),
@@ -24,6 +24,7 @@ export const registryItemSchema = z.object({
   registryDependencies: z.array(z.string()).optional().describe('Special dependencies like icons or tokens'),
   cssImports: z.array(z.string()).optional().describe('CSS imports to add to global CSS'),
   externalDependencies: z.record(z.string()).optional().describe('npm packages to install (name: version)'),
+  targetPath: z.string().optional().describe('Custom target path for templates (relative to project root, e.g., "src/pages")'),
 });
 
 export type RegistryItem = z.infer<typeof registryItemSchema>;
@@ -55,6 +56,11 @@ export const configSchema = z.object({
     composites: '@/design-system/composites',
     tokens: '@/design-system/tokens',
     icons: '@/design-system/icons',
+  }),
+  templates: z.object({
+    targetPath: z.string().default('src/pages'),
+  }).default({
+    targetPath: 'src/pages',
   }),
   css: z.object({
     globalCssFile: z.string().default('src/index.css'),

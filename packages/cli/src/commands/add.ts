@@ -84,12 +84,16 @@ function rewriteImports(content: string, config: any, filePath?: string): string
 async function copyFile(
   file: RegistryFile,
   config: any,
-  cwd: string
+  cwd: string,
+  customTargetPath?: string
 ): Promise<void> {
   // Resolve templates from CLI package location
   // __dirname will be in dist/, templates/ is at package root
   const sourcePath = path.resolve(__dirname, '..', file.path);
-  const targetPath = path.join(cwd, config.designSystemPath, file.target);
+
+  // Use custom target path for templates, design system path for everything else
+  const basePath = customTargetPath || config.designSystemPath;
+  const targetPath = path.join(cwd, basePath, file.target);
 
   // Ensure target directory exists
   await fs.ensureDir(path.dirname(targetPath));
@@ -209,7 +213,11 @@ export const add = new Command()
 
     for (const item of toInstall) {
       for (const file of item.files) {
-        const targetPath = path.join(cwd, config.designSystemPath, file.target);
+        // Templates go to their own target path, everything else to design system
+        const basePath = item.type === 'template'
+          ? (item.targetPath || config.templates?.targetPath || 'src/pages')
+          : config.designSystemPath;
+        const targetPath = path.join(cwd, basePath, file.target);
         const exists = await fs.pathExists(targetPath);
 
         fileMap.set(file.target, { file, item, targetPath });
@@ -282,7 +290,12 @@ export const add = new Command()
         // Apply TypeScript filter
         if (!shouldCopyFile(file)) continue;
 
-        await copyFile(file, config, cwd);
+        // Templates go to their own target path
+        const customTargetPath = item.type === 'template'
+          ? (item.targetPath || config.templates?.targetPath || 'src/pages')
+          : undefined;
+
+        await copyFile(file, config, cwd, customTargetPath);
         filesCopied++;
         installedItems.add(item.name);
       }
@@ -384,6 +397,20 @@ export const add = new Command()
           const compositeName = comp.displayName || comp.name;
           logger.info(`  import { ${compositeName} } from '${config.aliases.composites}/${compositeName}';`);
         }
+      }
+
+      const installedTemplates = toInstall.filter(
+        (i) => i.type === 'template' && installedItems.has(i.name)
+      );
+      if (installedTemplates.length > 0) {
+        logger.break();
+        logger.info('Templates installed:');
+        for (const template of installedTemplates) {
+          const templateName = template.displayName || template.name;
+          const targetPath = template.targetPath || config.templates?.targetPath || 'src/pages';
+          logger.info(`  ${templateName} → ${targetPath}/`);
+        }
+        logger.info('Edit the template files to customize them for your project.');
       }
     } catch (error: any) {
       spinner.fail('Failed to copy files');

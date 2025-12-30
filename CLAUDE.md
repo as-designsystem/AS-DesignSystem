@@ -465,3 +465,8 @@ This ensures CLI users always get the latest component versions when using `asds
 ---
 
 **This workflow ensures consistency across all components in the AS Design System.**
+
+
+## Feedback
+
+If anything in these instructions is unclear, inconsistent, outdated, or conflicts with the actual codebase patterns, please tell the user so they can update this command.

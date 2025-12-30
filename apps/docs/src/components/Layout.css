@@ -212,3 +212,8 @@
   padding: 48px 64px 64px 64px;
 }
 
+/* Template preview pages - no padding for full-width display */
+.content--template-preview > * {
+  padding: 0;
+}
+

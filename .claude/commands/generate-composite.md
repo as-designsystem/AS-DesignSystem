@@ -69,7 +69,14 @@ Consider:
 - Export from `/packages/core/src/index.ts`
 - Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`
 - Add CSS export in `/packages/core/package.json`
-- Register in CLI: `/packages/cli/src/registry/components.ts`
+- Register in CLI `/packages/cli/src/registry/components.ts`:
+  - `name`: kebab-case (e.g., 'filter-panel')
+  - `displayName`: PascalCase (e.g., 'FilterPanel')
+  - `description`: short description
+  - `files`: array of `{ path, target, type }` for .tsx and .css
+  - `dependencies`: other DS components used (e.g., ['icon', 'button'])
+  - `externalDependencies`: npm packages if any (e.g., Radix)
+  - `cssImports`: token imports needed
 
 ### 5. Create Documentation
 Follow existing doc pages pattern:
@@ -96,3 +103,7 @@ The CLI sync copies components from `packages/core/src/` to `packages/cli/templa
 - **Disabled state**: Use `cursor: default`, never `cursor: not-allowed`
 - **Documentation**: Use design system components (Tab, Button)
 - **Flexibility**: Adapt to the Figma design - composites vary widely
+
+## Feedback
+
+If anything in these instructions is unclear, inconsistent, outdated, or conflicts with the actual codebase patterns, please tell the user so they can update this command.
