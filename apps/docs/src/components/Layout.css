@@ -223,7 +223,7 @@
   height: calc(100vh - 32px);
   padding: 0; /* Override default content padding */
   overflow-y: auto;
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid var(--border-minimal, #e0e3e9);
 }
 
