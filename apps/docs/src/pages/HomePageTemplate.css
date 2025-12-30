@@ -12,6 +12,13 @@
   background-color: var(--background-primary, #ffffff);
 }
 
+/* Sticky AppHeader */
+.home-page-template-preview .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
 /* Main content area */
 .home-page-template-preview__content {
   flex: 1;
@@ -26,7 +33,7 @@
   width: 240px;
 }
 
-/* Override HomePageActionBar styles */
+/* Override HomePageActionBar styles - sticky below AppHeader (56px) */
 .home-page-template-preview__content .home-page-action-bar {
   max-width: 1600px;
   width: 100%;
@@ -34,8 +41,8 @@
   height: 48px;
   border-bottom: 1px solid var(--color-cool-grey-20, #e0e3e9);
   position: sticky;
-  top: 0;
-  z-index: 2;
+  top: 56px;
+  z-index: 9;
   background-color: var(--background-main, #ffffff);
 }
 
