@@ -79,7 +79,7 @@ function Example() {
     size="M"
     className="home-page-action-bar__search"
   />
-  <Button label="FILTER" leftIcon="tune" variant="Outlined" size="M" />
+  <Button label="FILTER" leftIcon="filter" variant="Outlined" size="M" />
   <Button label="CREATE" leftIcon="add" size="M" />
 </HomePageActionBar>`;
 
@@ -196,7 +196,7 @@ function Example() {
                   size="M"
                   className="home-page-action-bar__search"
                 />
-                <Button label="FILTER" leftIcon="tune" variant="Outlined" size="M" />
+                <Button label="FILTER" leftIcon="filter" variant="Outlined" size="M" />
                 <Button label="CREATE" leftIcon="add" size="M" />
               </HomePageActionBar>
             </div>
