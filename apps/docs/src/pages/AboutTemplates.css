@@ -2,65 +2,6 @@
  * Templates Documentation Page Styles
  */
 
-/* Template preview card */
-.template-preview {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.template-preview__card {
-  background-color: var(--background-secondary, #f5f7fa);
-  border: 1px solid var(--border-secondary, #e1e6ed);
-  border-radius: 8px;
-  padding: 24px;
-  width: 100%;
-  max-width: 400px;
-}
-
-.template-preview__header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-secondary, #e1e6ed);
-}
-
-.template-preview__icon {
-  font-size: 32px;
-}
-
-.template-preview__content {
-  margin-bottom: 16px;
-}
-
-.template-preview__list {
-  margin: 8px 0 0 0;
-  padding-left: 20px;
-  color: var(--text-secondary, #63728a);
-}
-
-.template-preview__list li {
-  margin-bottom: 4px;
-  font-size: 14px;
-}
-
-.template-preview__footer {
-  padding-top: 16px;
-  border-top: 1px solid var(--border-secondary, #e1e6ed);
-}
-
-.template-preview__command {
-  display: block;
-  background-color: var(--background-tertiary, #ebeef2);
-  padding: 12px 16px;
-  border-radius: 4px;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-  font-size: 13px;
-  color: var(--text-main, #14171d);
-}
-
 /* Code block */
 .code-block {
   background-color: var(--background-tertiary, #1e1e1e);
