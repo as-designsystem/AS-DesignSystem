@@ -45,6 +45,7 @@ import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
+import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
@@ -98,6 +99,7 @@ const iconMap: Record<string, string> = {
   'light_mode': lightModeIcon,
   'menu': menuIcon,
   'notifications': notificationsIcon,
+  'open_in_new': openInNewIcon,
   'play': playIcon,
   'remove': removeIcon,
   'search': searchIcon,
@@ -151,6 +153,7 @@ export const availableIcons = [
   'light_mode',
   'menu',
   'notifications',
+  'open_in_new',
   'play',
   'remove',
   'search',

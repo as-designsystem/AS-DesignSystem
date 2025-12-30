@@ -316,22 +316,26 @@ export default function Layout({ children }: LayoutProps) {
               <div className="browser-chrome__content">
                 {children}
               </div>
-            </div>
-            <div className="template-floating-actions">
-              <IconButton
-                icon="code"
-                size="M"
-                variant="Default"
-                onClick={() => setIsCodeModalOpen(true)}
-                alt="View template code"
-              />
-              <IconButton
-                icon="apps"
-                size="M"
-                variant="Default"
-                onClick={() => window.open(`${location.pathname}/fullscreen`, '_blank')}
-                alt="Open fullscreen"
-              />
+              <div className="template-floating-actions">
+                <span className="tooltip-wrapper" data-tooltip="View code">
+                  <IconButton
+                    icon="code"
+                    size="S"
+                    variant="Ghost"
+                    onClick={() => setIsCodeModalOpen(true)}
+                    alt="View template code"
+                  />
+                </span>
+                <span className="tooltip-wrapper" data-tooltip="Open fullscreen">
+                  <IconButton
+                    icon="open_in_new"
+                    size="S"
+                    variant="Ghost"
+                    onClick={() => window.open(`${location.pathname}/fullscreen`, '_blank')}
+                    alt="Open fullscreen"
+                  />
+                </span>
+              </div>
             </div>
             <CodeModal
               isOpen={isCodeModalOpen}

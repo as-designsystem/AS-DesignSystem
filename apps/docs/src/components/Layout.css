@@ -224,15 +224,15 @@
 
 /* Browser chrome wrapper */
 .browser-chrome {
+  position: relative;
   width: calc(100% - 32px);
   height: calc(100vh - 32px);
   margin: 16px;
   padding: 0; /* Override .content > * padding */
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   background-color: var(--background-main, #ffffff);
 }
 
@@ -240,6 +240,7 @@
   height: 32px;
   background-color: var(--background-secondary, #f5f6f8);
   border-bottom: 1px solid var(--border-moderate, #ced5dd);
+  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -273,6 +274,7 @@
 .browser-chrome__content {
   flex: 1;
   overflow-y: auto;
+  border-radius: 0 0 8px 8px;
 }
 
 .browser-chrome__content > * {
@@ -287,10 +289,8 @@
 
 .template-floating-actions {
   position: absolute;
-  bottom: 32px;
-  right: 32px;
-  left: auto;
-  width: auto;
+  bottom: 12px;
+  right: 12px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -298,6 +298,51 @@
 }
 
 .template-floating-actions .icon-button {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--background-main, #ffffff);
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  opacity: 0.7;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.template-floating-actions .icon-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+/* Tooltip wrapper */
+.template-floating-actions .tooltip-wrapper {
+  position: relative;
+}
+
+.template-floating-actions .tooltip-wrapper::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 6px 10px;
+  background-color: var(--background-inverse, #1a2233);
+  color: var(--text-negative, #ffffff);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+  pointer-events: none;
+}
+
+.template-floating-actions .tooltip-wrapper:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
