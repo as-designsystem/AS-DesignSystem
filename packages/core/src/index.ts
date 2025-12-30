@@ -17,6 +17,7 @@ export { TextInput, type TextInputProps, type TextInputSize, type TextInputState
 export { Modal, type ModalProps } from './composites/Modal';
 export { AppHeader, type AppHeaderProps } from './composites/AppHeader';
 export { ProductPanel, type ProductPanelProps, type ProductPanelLink } from './composites/ProductPanel';
+export { HomePageActionBar, type HomePageActionBarProps, type HomePageTab, type ActionButtonConfig } from './composites/HomePageActionBar';
 
 // Tokens
 export * from './tokens/colors';

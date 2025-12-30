@@ -1,0 +1,9 @@
+/**
+ * HomePageActionBar Documentation Page Styles
+ */
+
+.homepageactionbar-example {
+  background-color: var(--background-secondary, #f5f6f8);
+  border-radius: 8px;
+  overflow: hidden;
+}

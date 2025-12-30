@@ -28,7 +28,8 @@
     "./AppHeader.css": "./dist/AppHeader.css",
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css",
-    "./ProductPanel.css": "./dist/ProductPanel.css"
+    "./ProductPanel.css": "./dist/ProductPanel.css",
+    "./HomePageActionBar.css": "./dist/HomePageActionBar.css"
   },
   "scripts": {
     "build": "tsup",

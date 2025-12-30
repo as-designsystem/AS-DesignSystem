@@ -121,6 +121,7 @@ const navSections: NavSectionData[] = [
     ),
     items: [
       { label: 'AppHeader', path: '/composites/app-header' },
+      { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
       { label: 'Modal', path: '/composites/modal' },
       { label: 'ProductPanel', path: '/composites/product-panel' },
     ],

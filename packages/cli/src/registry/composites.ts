@@ -70,4 +70,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'home-page-action-bar',
+    type: 'composite',
+    displayName: 'HomePageActionBar',
+    description: 'Navigation bar with tabs, sort button, search input, and primary action button',
+    files: [
+      {
+        path: 'templates/composites/HomePageActionBar.tsx',
+        target: 'composites/HomePageActionBar.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/HomePageActionBar.css',
+        target: 'composites/HomePageActionBar.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['tab', 'button', 'text-input'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];
