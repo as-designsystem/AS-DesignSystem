@@ -37,6 +37,8 @@ import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import dropdownIcon from '../assets/svg/icons/dropdown.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
+import filterIcon from '../assets/svg/icons/filter.svg?raw';
+import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
@@ -88,6 +90,8 @@ const iconMap: Record<string, string> = {
   'delete': deleteIcon,
   'dropdown': dropdownIcon,
   'emoji_emotions': emojiEmotionsIcon,
+  'filter': filterIcon,
+  'filter_row': filterRowIcon,
   'info': infoIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
   'keyboard_arrow_up': keyboardArrowUpIcon,
@@ -139,6 +143,8 @@ export const availableIcons = [
   'delete',
   'dropdown',
   'emoji_emotions',
+  'filter',
+  'filter_row',
   'info',
   'keyboard_arrow_down',
   'keyboard_arrow_up',
