@@ -224,6 +224,6 @@
   padding: 0; /* Override default content padding */
   overflow-y: auto;
   border-radius: 16px;
-  border: 1px solid var(--border-minimal, #e0e3e9);
+  border: 1px solid var(--border-default, #919cb0);
 }
 
