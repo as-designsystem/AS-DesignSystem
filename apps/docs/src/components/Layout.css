@@ -216,6 +216,8 @@
 .content--template-preview {
   padding: 16px;
   box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .content--template-preview > * {
