@@ -212,8 +212,17 @@
   padding: 48px 64px 64px 64px;
 }
 
-/* Template preview pages - no padding for full-width display */
+/* Template preview pages - wrapper with 16px padding and full height */
+.content--template-preview {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
 .content--template-preview > * {
-  padding: 0;
+  width: 100%;
+  height: calc(100vh - 32px);
+  padding: 0; /* Override default content padding */
+  overflow-y: auto;
+  border-radius: 8px;
 }
 

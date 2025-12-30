@@ -12,11 +12,17 @@
   background-color: var(--background-main, #ffffff);
 }
 
-/* Sticky AppHeader */
+/* Sticky AppHeader - prevent shrinking */
 .home-page-template-preview .app-header {
   position: sticky;
   top: 0;
   z-index: 10;
+  flex-shrink: 0;
+}
+
+/* Prevent ProductPanel from shrinking */
+.home-page-template-preview .product-panel {
+  flex-shrink: 0;
 }
 
 /* Main content area */
