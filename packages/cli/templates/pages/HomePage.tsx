@@ -56,6 +56,7 @@ export default function HomePage() {
         tool="maintenance"
         productName="Product Name"
         productDescription="Here need to add a long description of the tool to make it understandable by the user. You can put the goal of the tool, the target users and the business. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+        backgroundImage="assets/backgrounds/Maintenance.png"
         links={[
           { label: 'DOCUMENTATION', href: '#documentation' },
           { label: 'APIs', href: '#apis' },

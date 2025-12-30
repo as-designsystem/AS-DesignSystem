@@ -64,7 +64,13 @@ try {
       ? fs.readdirSync(pngIconsPath).length
       : 0;
 
-    console.log(`   ✅ ${svgCount} SVG icons + ${pngCount} PNG icons synced`);
+    // Count backgrounds
+    const backgroundsPath = path.join(assetsTarget, 'backgrounds');
+    const bgCount = fs.existsSync(backgroundsPath)
+      ? fs.readdirSync(backgroundsPath).filter(f => !f.startsWith('.')).length
+      : 0;
+
+    console.log(`   ✅ ${svgCount} SVG icons + ${pngCount} PNG icons + ${bgCount} backgrounds synced`);
   } else {
     console.warn('   ⚠️  Assets source not found');
   }

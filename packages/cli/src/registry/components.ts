@@ -563,4 +563,20 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'backgrounds',
+    type: 'icon',
+    displayName: 'Backgrounds',
+    description: 'Background images for ProductPanel and hero sections',
+    files: [
+      { path: 'templates/assets/backgrounds/Banner Background.png', target: 'assets/backgrounds/Banner Background.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/Demand.png', target: 'assets/backgrounds/Demand.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/Economics.png', target: 'assets/backgrounds/Economics.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/Maintenance.png', target: 'assets/backgrounds/Maintenance.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/Network.png', target: 'assets/backgrounds/Network.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/TrajOpt.png', target: 'assets/backgrounds/TrajOpt.png', type: 'component' },
+      { path: 'templates/assets/backgrounds/image 2.png', target: 'assets/backgrounds/image 2.png', type: 'component' },
+    ],
+    cssImports: [],
+  },
 ];
