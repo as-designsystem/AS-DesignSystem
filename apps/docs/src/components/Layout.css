@@ -219,7 +219,7 @@
 }
 
 .content--template-preview > * {
-  width: 100%;
+  width: auto;
   height: calc(100vh - 32px);
   padding: 0; /* Override default content padding */
   overflow-y: auto;
