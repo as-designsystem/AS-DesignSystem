@@ -69,6 +69,7 @@ function Example() {
     ]}
     placeholder="Sort by"
     size="M"
+    showLabel={false}
   />
   <TextInput
     placeholder="Search projects..."
@@ -185,6 +186,7 @@ function Example() {
                   ]}
                   placeholder="Sort by"
                   size="M"
+                  showLabel={false}
                 />
                 <TextInput
                   placeholder="Search projects..."
