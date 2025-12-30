@@ -1,7 +1,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  background-color: var(--background-secondary);
+  background-color: var(--background-tertiary);
 }
 
 .sidebar {
@@ -212,18 +212,20 @@
   padding: 48px 64px 64px 64px;
 }
 
-/* Template preview pages - wrapper with 16px padding and full height */
+/* Template preview pages - wrapper with 16px margin around and full height */
 .content--template-preview {
-  padding: 16px;
-  box-sizing: border-box;
   height: 100vh;
   overflow: hidden;
   display: flex;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .content--template-preview > * {
-  flex: 1;
-  height: 100%;
+  width: calc(100% - 32px);
+  height: calc(100vh - 32px) !important;
+  min-height: 0 !important; /* Override template min-height */
+  margin: 16px;
   padding: 0; /* Override default content padding */
   overflow-y: auto;
   border-radius: 16px;
