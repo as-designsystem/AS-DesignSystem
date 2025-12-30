@@ -356,7 +356,7 @@ export default function Colors() {
 
   return (
     <ColorFormatContext.Provider value={{ format, setFormat }}>
-      <div className="tokens-page">
+      <div className="tokens-page tokens-page--full-width">
         <h1
           className="heading-5"
           style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}

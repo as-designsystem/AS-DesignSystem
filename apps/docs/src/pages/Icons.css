@@ -11,7 +11,7 @@
   padding: 16px;
   background-color: var(--background-main, #ffffff);
   border-radius: 8px;
-  border: 1px solid var(--border-moderate, #ced5dd);
+  border: 1px solid var(--border-minimal);
 }
 
 .icons-controls .icon-search-input {

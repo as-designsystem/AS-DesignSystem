@@ -11,7 +11,7 @@ export default function TextStyles() {
   };
 
   return (
-    <div className="tokens-page">
+    <div className="tokens-page tokens-page--full-width">
       <h1 className="heading-5">Text Styles</h1>
       <p className="label-regular-m" style={{ marginTop: '12px', color: 'var(--text-secondary)' }}>
         Les styles de texte (typographie) générés depuis Figma.

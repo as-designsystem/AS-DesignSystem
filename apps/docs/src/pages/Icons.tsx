@@ -70,7 +70,7 @@ export default function Icons() {
   };
 
   return (
-    <div className="tokens-page">
+    <div className="tokens-page tokens-page--full-width">
       <div className="icons-header">
         <h1
           className="heading-5"

@@ -1,8 +1,8 @@
 import './Tokens.css';
 import './AboutTemplates.css';
+import { CodeBlock } from '../components/CodeBlock';
 
-export default function AboutTemplatesPage() {
-  const installCode = `# Install a template
+const installCode = `# Install a template
 asds add <template-name>
 
 # Example: Install the HomePage template
@@ -13,6 +13,7 @@ asds add home-page
 # 2. Copy the template files to src/pages/
 # 3. You can then customize the template for your needs`;
 
+export default function AboutTemplatesPage() {
   return (
     <div className="tokens-page">
       <h1>About Templates</h1>
@@ -23,9 +24,7 @@ asds add home-page
       <section className="tokens-section">
         <h2>Installing Templates</h2>
         <p>Use the CLI to install templates into your project:</p>
-        <div className="code-block">
-          <code>{installCode}</code>
-        </div>
+        <CodeBlock code={installCode} language="bash" />
       </section>
 
       <section className="tokens-section">

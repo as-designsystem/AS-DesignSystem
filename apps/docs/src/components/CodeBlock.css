@@ -1,0 +1,19 @@
+/**
+ * CodeBlock Component Styles
+ * Wrapper for syntax-highlighted code blocks
+ */
+
+.code-block--highlighted {
+  background-color: var(--background-tertiary, #eff1f4);
+  border: 1px solid var(--border-minimal, #e1e6ed);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.code-block--highlighted pre {
+  margin: 0 !important;
+}
+
+.code-block--highlighted code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace !important;
+}

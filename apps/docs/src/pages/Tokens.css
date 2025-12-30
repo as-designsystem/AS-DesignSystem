@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+/* Full width for actual token pages (TextStyles, Colors, Icons) */
+.tokens-page--full-width {
+  max-width: 100%;
+}
+
 .tokens-section {
   margin-bottom: 48px;
 }
@@ -273,12 +278,14 @@
   border-radius: 4px;
 }
 
-.icon-name {
+.tokens-page .icon-name {
   font-size: 11px;
   font-family: 'Roboto Mono', monospace;
   color: var(--text-secondary);
   text-align: center;
   word-break: break-word;
+  background: none !important;
+  padding: 0 !important;
 }
 
 .usage-example {
@@ -286,7 +293,7 @@
 }
 
 .code-block {
-  background-color: var(--background-main);
+  background-color: var(--background-tertiary);
   border: 1px solid var(--border-minimal);
   border-radius: 8px;
   padding: 20px;

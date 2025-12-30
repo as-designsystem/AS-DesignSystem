@@ -1,4 +1,25 @@
 import './Tokens.css';
+import { CodeBlock } from '../components/CodeBlock';
+
+const installSteps = `# 1. Initialize your project
+cd your-react-project
+npx @as-design-system/cli init
+
+# 2. Add components
+asds add button icon-button
+
+# 3. List available components
+asds list`;
+
+const projectStructure = `your-project/
+├── src/
+│   ├── design-system/
+│   │   ├── components/    # React components
+│   │   ├── tokens/        # Design tokens (CSS + TS)
+│   │   └── icons/         # Icon components
+│   └── index.css          # Updated with imports
+├── asds.config.json       # CLI configuration
+└── tsconfig.json          # Updated with aliases`;
 
 export default function Installation() {
   return (
@@ -16,20 +37,8 @@ export default function Installation() {
 
       <section className="tokens-section">
         <h2>Installation Steps</h2>
-
-        <div className="code-block" style={{ marginBottom: '24px' }}>
-          <code>{`# 1. Initialize your project
-cd your-react-project
-npx @as-design-system/cli init
-
-# 2. Add components
-asds add button icon-button
-
-# 3. List available components
-asds list`}</code>
-        </div>
-
-        <p>The CLI will automatically:</p>
+        <CodeBlock code={installSteps} language="bash" />
+        <p style={{ marginTop: '24px' }}>The CLI will automatically:</p>
         <ul>
           <li>Create <code>src/design-system/</code> directory</li>
           <li>Copy component files to your project</li>
@@ -40,17 +49,7 @@ asds list`}</code>
 
       <section className="tokens-section">
         <h2>Project Structure</h2>
-        <div className="code-block">
-          <code>{`your-project/
-├── src/
-│   ├── design-system/
-│   │   ├── components/    # React components
-│   │   ├── tokens/        # Design tokens (CSS + TS)
-│   │   └── icons/         # Icon components
-│   └── index.css          # Updated with imports
-├── asds.config.json       # CLI configuration
-└── tsconfig.json          # Updated with aliases`}</code>
-        </div>
+        <CodeBlock code={projectStructure} language="bash" />
       </section>
     </div>
   );
