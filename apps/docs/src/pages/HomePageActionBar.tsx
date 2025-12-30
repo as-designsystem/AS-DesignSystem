@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { HomePageActionBar, Button, Tab } from '@as-design-system/core';
+import { HomePageActionBar, Button, Tab, TextInput, VSelect } from '@as-design-system/core';
 import '@as-design-system/core/HomePageActionBar.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/TextInput.css';
+import '@as-design-system/core/VSelect.css';
 import CodeModal from '../components/CodeModal';
 import './HomePageActionBar.css';
 
@@ -11,76 +12,82 @@ export default function HomePageActionBarPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const basicCode = `import { HomePageActionBar } from '@as-design-system/core';
+  const basicCode = `import { HomePageActionBar, Button, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/HomePageActionBar.css';
 import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/TextInput.css';
 
 function Example() {
   return (
-    <HomePageActionBar
-      onTabChange={(tab) => console.log('Tab changed:', tab)}
-      onSearchChange={(value) => console.log('Search:', value)}
-      primaryButton={{
-        label: 'NEW STUDY',
-        leftIcon: 'add',
-        onClick: () => console.log('New study clicked'),
-      }}
-    />
+    <HomePageActionBar onTabChange={(tab) => console.log(tab)}>
+      <Button
+        label="SORT BY"
+        leftIcon="filter_list"
+        rightIcon="keyboard_arrow_down"
+        variant="Ghost"
+        size="M"
+      />
+      <TextInput
+        placeholder="Search for study"
+        showLabel={false}
+        showLeftIcon
+        leftIcon="search"
+        size="M"
+        className="home-page-action-bar__search"
+      />
+      <Button
+        label="NEW STUDY"
+        leftIcon="add"
+        size="M"
+      />
+    </HomePageActionBar>
   );
 }`;
 
-  const customTabsCode = `import { HomePageActionBar, type HomePageTab } from '@as-design-system/core';
+  const controlledTabsCode = `import { useState } from 'react';
+import { HomePageActionBar, Button, type HomePageTab } from '@as-design-system/core';
 
 function Example() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
 
   return (
-    <HomePageActionBar
-      activeTab={activeTab}
-      onTabChange={setActiveTab}
-    />
+    <HomePageActionBar activeTab={activeTab} onTabChange={setActiveTab}>
+      <Button label="NEW STUDY" leftIcon="add" size="M" />
+    </HomePageActionBar>
   );
 }`;
 
-  const customActionsCode = `import { HomePageActionBar } from '@as-design-system/core';
+  const customActionsCode = `import { HomePageActionBar, Button, TextInput, VSelect } from '@as-design-system/core';
 
-// Custom sort button and primary action
-<HomePageActionBar
-  sortButton={{
-    label: 'FILTER',
-    leftIcon: 'tune',
-    rightIcon: 'keyboard_arrow_down',
-    onClick: () => console.log('Filter clicked'),
-  }}
-  primaryButton={{
-    label: 'CREATE PROJECT',
-    leftIcon: 'add',
-    onClick: () => console.log('Create project'),
-  }}
-  searchPlaceholder="Search projects..."
-/>`;
+// Mix any components: buttons, selects, inputs, etc.
+<HomePageActionBar>
+  <VSelect
+    options={[
+      { value: 'date', label: 'Date' },
+      { value: 'name', label: 'Name' },
+      { value: 'status', label: 'Status' },
+    ]}
+    placeholder="Sort by"
+    size="M"
+  />
+  <TextInput
+    placeholder="Search projects..."
+    showLabel={false}
+    showLeftIcon
+    leftIcon="search"
+    size="M"
+    className="home-page-action-bar__search"
+  />
+  <Button label="FILTER" leftIcon="tune" variant="Outlined" size="M" />
+  <Button label="CREATE" leftIcon="add" size="M" />
+</HomePageActionBar>`;
 
-  const controlledSearchCode = `import { useState } from 'react';
-import { HomePageActionBar } from '@as-design-system/core';
+  const minimalCode = `import { HomePageActionBar, Button } from '@as-design-system/core';
 
-function Example() {
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleSearch = (value: string) => {
-    setSearchValue(value);
-    // Debounce and call API...
-  };
-
-  return (
-    <HomePageActionBar
-      searchValue={searchValue}
-      onSearchChange={handleSearch}
-      showSearchClear={true}
-    />
-  );
-}`;
+// Minimal with just a primary action
+<HomePageActionBar onTabChange={(tab) => console.log(tab)}>
+  <Button label="NEW STUDY" leftIcon="add" size="M" />
+</HomePageActionBar>`;
 
   return (
     <div className="component-page">
@@ -88,7 +95,7 @@ function Example() {
         HomePageActionBar
       </h1>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
-        A navigation bar with tabs, sort button, search input, and primary action button. Used for home page layouts with study/project lists.
+        A navigation bar with tabs on the left and fully customizable actions on the right. Pass any components as children (buttons, inputs, selects, etc.).
       </p>
 
       {/* Tabs */}
@@ -127,15 +134,7 @@ function Example() {
               />
             </div>
             <div className="homepageactionbar-example">
-              <HomePageActionBar
-                onTabChange={(tab) => console.log('Tab changed:', tab)}
-                onSearchChange={(value) => console.log('Search:', value)}
-                primaryButton={{
-                  label: 'NEW STUDY',
-                  leftIcon: 'add',
-                  onClick: () => console.log('New study clicked'),
-                }}
-              />
+              <BasicExample />
             </div>
           </section>
 
@@ -150,7 +149,7 @@ function Example() {
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('customTabs')}
+                onClick={() => setOpenModal('controlledTabs')}
               />
             </div>
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
@@ -174,44 +173,55 @@ function Example() {
               />
             </div>
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
-              Customize the sort button, primary button, and search placeholder.
+              Mix any components: buttons, selects, inputs, icon buttons, etc.
             </p>
             <div className="homepageactionbar-example">
-              <HomePageActionBar
-                sortButton={{
-                  label: 'FILTER',
-                  leftIcon: 'tune',
-                  rightIcon: 'keyboard_arrow_down',
-                  onClick: () => console.log('Filter clicked'),
-                }}
-                primaryButton={{
-                  label: 'CREATE PROJECT',
-                  leftIcon: 'add',
-                  onClick: () => console.log('Create project'),
-                }}
-                searchPlaceholder="Search projects..."
-              />
+              <HomePageActionBar>
+                <VSelect
+                  options={[
+                    { value: 'date', label: 'Date' },
+                    { value: 'name', label: 'Name' },
+                    { value: 'status', label: 'Status' },
+                  ]}
+                  placeholder="Sort by"
+                  size="M"
+                />
+                <TextInput
+                  placeholder="Search projects..."
+                  showLabel={false}
+                  showLeftIcon
+                  leftIcon="search"
+                  size="M"
+                  className="home-page-action-bar__search"
+                />
+                <Button label="FILTER" leftIcon="tune" variant="Outlined" size="M" />
+                <Button label="CREATE" leftIcon="add" size="M" />
+              </HomePageActionBar>
             </div>
           </section>
 
-          {/* Controlled Search */}
+          {/* Minimal */}
           <section className="component-section">
             <div className="section-header">
               <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-                Controlled Search
+                Minimal
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('controlledSearch')}
+                onClick={() => setOpenModal('minimal')}
               />
             </div>
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
-              Control the search input externally with <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>searchValue</code> and <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>onSearchChange</code>.
+              Just tabs and a single action button.
             </p>
-            <ControlledSearchExample />
+            <div className="homepageactionbar-example">
+              <HomePageActionBar>
+                <Button label="NEW STUDY" leftIcon="add" size="M" />
+              </HomePageActionBar>
+            </div>
           </section>
         </>
       )}
@@ -246,40 +256,10 @@ function Example() {
                   <td>Callback when tab changes</td>
                 </tr>
                 <tr>
-                  <td><code>sortButton</code></td>
-                  <td><code>ActionButtonConfig</code></td>
-                  <td><code>{'{ label: "SORT BY", leftIcon: "filter_list", rightIcon: "keyboard_arrow_down" }'}</code></td>
-                  <td>Sort button configuration</td>
-                </tr>
-                <tr>
-                  <td><code>searchPlaceholder</code></td>
-                  <td><code>string</code></td>
-                  <td><code>'Search for study'</code></td>
-                  <td>Search input placeholder text</td>
-                </tr>
-                <tr>
-                  <td><code>searchValue</code></td>
-                  <td><code>string</code></td>
+                  <td><code>children</code></td>
+                  <td><code>ReactNode</code></td>
                   <td><code>-</code></td>
-                  <td>Search input value (controlled mode)</td>
-                </tr>
-                <tr>
-                  <td><code>onSearchChange</code></td>
-                  <td><code>(value: string) =&gt; void</code></td>
-                  <td><code>-</code></td>
-                  <td>Callback when search value changes</td>
-                </tr>
-                <tr>
-                  <td><code>showSearchClear</code></td>
-                  <td><code>boolean</code></td>
-                  <td><code>true</code></td>
-                  <td>Show clear button in search when there's text</td>
-                </tr>
-                <tr>
-                  <td><code>primaryButton</code></td>
-                  <td><code>ActionButtonConfig</code></td>
-                  <td><code>{'{ label: "NEW STUDY", leftIcon: "add" }'}</code></td>
-                  <td>Primary action button configuration</td>
+                  <td>Actions to display on the right side (buttons, inputs, selects, etc.)</td>
                 </tr>
                 <tr>
                   <td><code>className</code></td>
@@ -292,52 +272,17 @@ function Example() {
           </div>
 
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-            ActionButtonConfig Props
-          </h2>
-          <div className="props-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Prop</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>label</code></td>
-                  <td><code>string</code></td>
-                  <td><code>-</code></td>
-                  <td>Button label text (required)</td>
-                </tr>
-                <tr>
-                  <td><code>leftIcon</code></td>
-                  <td><code>string</code></td>
-                  <td><code>-</code></td>
-                  <td>Left icon name</td>
-                </tr>
-                <tr>
-                  <td><code>rightIcon</code></td>
-                  <td><code>string</code></td>
-                  <td><code>-</code></td>
-                  <td>Right icon name</td>
-                </tr>
-                <tr>
-                  <td><code>onClick</code></td>
-                  <td><code>() =&gt; void</code></td>
-                  <td><code>-</code></td>
-                  <td>Click handler</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
             HomePageTab Type
           </h2>
           <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-main, #14171d)' }}>
             <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>'my-studies' | 'all-studies'</code>
+          </p>
+
+          <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+            Styling Tips
+          </h2>
+          <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-main, #14171d)' }}>
+            Use the <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>home-page-action-bar__search</code> class on TextInput components to give them a fixed width of 240px.
           </p>
         </section>
       )}
@@ -350,10 +295,10 @@ function Example() {
         code={basicCode}
       />
       <CodeModal
-        isOpen={openModal === 'customTabs'}
+        isOpen={openModal === 'controlledTabs'}
         onClose={() => setOpenModal(null)}
         title="Controlled Tabs"
-        code={customTabsCode}
+        code={controlledTabsCode}
       />
       <CodeModal
         isOpen={openModal === 'customActions'}
@@ -362,12 +307,47 @@ function Example() {
         code={customActionsCode}
       />
       <CodeModal
-        isOpen={openModal === 'controlledSearch'}
+        isOpen={openModal === 'minimal'}
         onClose={() => setOpenModal(null)}
-        title="Controlled Search"
-        code={controlledSearchCode}
+        title="Minimal"
+        code={minimalCode}
       />
     </div>
+  );
+}
+
+// Helper component for basic example with search state
+function BasicExample() {
+  const [searchValue, setSearchValue] = useState('');
+
+  return (
+    <HomePageActionBar onTabChange={(tab) => console.log(tab)}>
+      <Button
+        label="SORT BY"
+        leftIcon="filter_list"
+        rightIcon="keyboard_arrow_down"
+        variant="Ghost"
+        size="M"
+      />
+      <TextInput
+        placeholder="Search for study"
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+        showLabel={false}
+        showLeftIcon
+        leftIcon="search"
+        showRightIconButton={searchValue.length > 0}
+        rightIconButton="close"
+        onRightIconButtonClick={() => setSearchValue('')}
+        size="M"
+        className="home-page-action-bar__search"
+      />
+      <Button
+        label="NEW STUDY"
+        leftIcon="add"
+        size="M"
+      />
+    </HomePageActionBar>
   );
 }
 
@@ -377,28 +357,9 @@ function ControlledTabsExample() {
 
   return (
     <div className="homepageactionbar-example">
-      <HomePageActionBar
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-      />
-    </div>
-  );
-}
-
-// Helper component for controlled search example
-function ControlledSearchExample() {
-  const [searchValue, setSearchValue] = useState('');
-
-  return (
-    <div className="homepageactionbar-example">
-      <HomePageActionBar
-        searchValue={searchValue}
-        onSearchChange={setSearchValue}
-        showSearchClear={true}
-      />
-      <p className="label-regular-s" style={{ marginTop: '8px', color: 'var(--text-secondary)' }}>
-        Current value: "{searchValue}"
-      </p>
+      <HomePageActionBar activeTab={activeTab} onTabChange={setActiveTab}>
+        <Button label="NEW STUDY" leftIcon="add" size="M" />
+      </HomePageActionBar>
     </div>
   );
 }
