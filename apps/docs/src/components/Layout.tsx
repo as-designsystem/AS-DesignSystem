@@ -5,6 +5,7 @@ import { Icon, IconButton, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/IconButton.css';
 import '@as-design-system/core/TextInput.css';
 import './Layout.css';
+import CodeModal from './CodeModal';
 
 interface LayoutProps {
   children: ReactNode;
@@ -144,10 +145,75 @@ const navSections: NavSectionData[] = [
   },
 ];
 
+// Template code snippets for the code modal
+const templateCodes: Record<string, string> = {
+  '/templates/home-page': `// Install with: asds add home-page
+
+import { useState } from 'react';
+import { AppHeader } from './composites/AppHeader';
+import { ProductPanel } from './composites/ProductPanel';
+import { HomePageActionBar } from './composites/HomePageActionBar';
+import { Button } from './components/Button';
+import { TextInput } from './components/TextInput';
+import type { HomePageTab } from './composites/HomePageActionBar';
+import './HomePage.css';
+
+export default function HomePage() {
+  const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
+  const [searchValue, setSearchValue] = useState('');
+
+  return (
+    <div className="home-page">
+      <AppHeader
+        appName="Tool name here"
+        showNotifications
+        showSettings
+        showApps
+        showUserSelector
+        userName="Mark Thompson"
+      />
+
+      <ProductPanel
+        tool="maintenance"
+        productName="Product Name"
+        productDescription="Your product description here..."
+        backgroundImage="assets/backgrounds/Maintenance.png"
+        links={[
+          { label: 'DOCUMENTATION', href: '#documentation' },
+          { label: 'APIs', href: '#apis' },
+          { label: 'CONTACT & SUPPORT', href: '#support' },
+        ]}
+      />
+
+      <main className="home-page__content">
+        <HomePageActionBar activeTab={activeTab} onTabChange={setActiveTab}>
+          <Button label="SORT BY" leftIcon="filter_row" rightIcon="dropdown" variant="Ghost" size="M" />
+          <TextInput
+            placeholder="Search for study"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            showLabel={false}
+            showLeftIcon
+            leftIcon="search"
+            size="M"
+          />
+          <Button label="NEW STUDY" leftIcon="add" size="M" />
+        </HomePageActionBar>
+
+        <section className="home-page__tab-content">
+          {/* Your content here */}
+        </section>
+      </main>
+    </div>
+  );
+}`,
+};
+
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isCodeModalOpen, setIsCodeModalOpen] = useState(false);
 
   // Check if current page is a template preview (not the "about" page)
   const isTemplatePreview = location.pathname.startsWith('/templates/') && location.pathname !== '/templates/about';
@@ -238,18 +304,42 @@ export default function Layout({ children }: LayoutProps) {
       </aside>
       <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>
         {isTemplatePreview ? (
-          <div className="browser-chrome">
-            <div className="browser-chrome__header">
-              <div className="browser-chrome__buttons">
-                <span className="browser-chrome__button browser-chrome__button--close" />
-                <span className="browser-chrome__button browser-chrome__button--minimize" />
-                <span className="browser-chrome__button browser-chrome__button--maximize" />
+          <>
+            <div className="browser-chrome">
+              <div className="browser-chrome__header">
+                <div className="browser-chrome__buttons">
+                  <span className="browser-chrome__button browser-chrome__button--close" />
+                  <span className="browser-chrome__button browser-chrome__button--minimize" />
+                  <span className="browser-chrome__button browser-chrome__button--maximize" />
+                </div>
+              </div>
+              <div className="browser-chrome__content">
+                {children}
               </div>
             </div>
-            <div className="browser-chrome__content">
-              {children}
+            <div className="template-floating-actions">
+              <IconButton
+                icon="code"
+                size="M"
+                variant="Default"
+                onClick={() => setIsCodeModalOpen(true)}
+                alt="View template code"
+              />
+              <IconButton
+                icon="apps"
+                size="M"
+                variant="Default"
+                onClick={() => window.open(`${location.pathname}/fullscreen`, '_blank')}
+                alt="Open fullscreen"
+              />
             </div>
-          </div>
+            <CodeModal
+              isOpen={isCodeModalOpen}
+              onClose={() => setIsCodeModalOpen(false)}
+              title="HomePage Template"
+              code={templateCodes[location.pathname] || '// Code not available'}
+            />
+          </>
         ) : (
           children
         )}

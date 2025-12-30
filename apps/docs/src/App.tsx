@@ -26,36 +26,44 @@ import Icons from './pages/Icons';
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Navigate to="/getting-started/welcome" replace />} />
-          <Route path="/getting-started/welcome" element={<Welcome />} />
-          <Route path="/getting-started/installation" element={<Installation />} />
-          <Route path="/getting-started/how-to-use" element={<HowToUse />} />
-          <Route path="/getting-started/supported-platforms" element={<SupportedPlatforms />} />
-          <Route path="/tokens/text-styles" element={<TextStyles />} />
-          <Route path="/tokens/colors" element={<Colors />} />
-          <Route path="/tokens/icons" element={<Icons />} />
-          <Route path="/components" element={<Navigate to="/components/button" replace />} />
-          <Route path="/components/button" element={<Button />} />
-          <Route path="/components/button-group" element={<ButtonGroup />} />
-          <Route path="/components/icon-button" element={<IconButton />} />
-          <Route path="/components/tool-icons" element={<ToolIcons />} />
-          <Route path="/components/tab" element={<Tab />} />
-          <Route path="/components/select" element={<Select />} />
-          <Route path="/components/checkbox" element={<Checkbox />} />
-          <Route path="/components/toggle" element={<Toggle />} />
-          <Route path="/components/text-input" element={<TextInput />} />
-          <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
-          <Route path="/composites/modal" element={<Modal />} />
-          <Route path="/composites/app-header" element={<AppHeader />} />
-          <Route path="/composites/product-panel" element={<ProductPanel />} />
-          <Route path="/composites/home-page-action-bar" element={<HomePageActionBar />} />
-          <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
-          <Route path="/templates/about" element={<AboutTemplates />} />
-          <Route path="/templates/home-page" element={<HomePageTemplate />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* Fullscreen routes - outside Layout */}
+        <Route path="/templates/home-page/fullscreen" element={<HomePageTemplate />} />
+
+        {/* Main routes with Layout */}
+        <Route path="/*" element={
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Navigate to="/getting-started/welcome" replace />} />
+              <Route path="/getting-started/welcome" element={<Welcome />} />
+              <Route path="/getting-started/installation" element={<Installation />} />
+              <Route path="/getting-started/how-to-use" element={<HowToUse />} />
+              <Route path="/getting-started/supported-platforms" element={<SupportedPlatforms />} />
+              <Route path="/tokens/text-styles" element={<TextStyles />} />
+              <Route path="/tokens/colors" element={<Colors />} />
+              <Route path="/tokens/icons" element={<Icons />} />
+              <Route path="/components" element={<Navigate to="/components/button" replace />} />
+              <Route path="/components/button" element={<Button />} />
+              <Route path="/components/button-group" element={<ButtonGroup />} />
+              <Route path="/components/icon-button" element={<IconButton />} />
+              <Route path="/components/tool-icons" element={<ToolIcons />} />
+              <Route path="/components/tab" element={<Tab />} />
+              <Route path="/components/select" element={<Select />} />
+              <Route path="/components/checkbox" element={<Checkbox />} />
+              <Route path="/components/toggle" element={<Toggle />} />
+              <Route path="/components/text-input" element={<TextInput />} />
+              <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
+              <Route path="/composites/modal" element={<Modal />} />
+              <Route path="/composites/app-header" element={<AppHeader />} />
+              <Route path="/composites/product-panel" element={<ProductPanel />} />
+              <Route path="/composites/home-page-action-bar" element={<HomePageActionBar />} />
+              <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
+              <Route path="/templates/about" element={<AboutTemplates />} />
+              <Route path="/templates/home-page" element={<HomePageTemplate />} />
+            </Routes>
+          </Layout>
+        } />
+      </Routes>
     </BrowserRouter>
   );
 }
