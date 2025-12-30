@@ -224,6 +224,6 @@
   padding: 0; /* Override default content padding */
   overflow-y: auto;
   border-radius: 16px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
