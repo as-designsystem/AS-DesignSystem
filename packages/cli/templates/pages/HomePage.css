@@ -11,7 +11,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--background-primary, #ffffff);
+  background-color: var(--background-main, #ffffff);
 }
 
 /* Sticky AppHeader */
@@ -41,7 +41,7 @@
   width: 100%;
   padding: 0 8px;
   height: 48px;
-  border-bottom: 1px solid var(--color-cool-grey-20, #e0e3e9);
+  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
   position: sticky;
   top: 56px;
   z-index: 9;
