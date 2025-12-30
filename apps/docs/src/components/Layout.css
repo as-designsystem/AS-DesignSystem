@@ -237,8 +237,8 @@
 
 .browser-chrome__header {
   height: 32px;
-  background-color: var(--background-tertiary, #eff1f4);
-  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
+  background-color: var(--background-secondary, #f5f6f8);
+  border-bottom: 1px solid var(--border-moderate, #ced5dd);
   display: flex;
   align-items: center;
   justify-content: flex-end;
