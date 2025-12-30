@@ -218,11 +218,12 @@
   box-sizing: border-box;
   height: 100vh;
   overflow: hidden;
+  display: flex;
 }
 
 .content--template-preview > * {
-  width: auto;
-  height: calc(100vh - 32px);
+  flex: 1;
+  height: 100%;
   padding: 0; /* Override default content padding */
   overflow-y: auto;
   border-radius: 16px;
