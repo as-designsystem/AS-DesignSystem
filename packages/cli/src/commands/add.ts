@@ -71,6 +71,28 @@ function rewriteImports(content: string, config: any, filePath?: string): string
     config.aliases.tokens
   );
 
+  // Rewrite @/design-system/* imports to use configured aliases
+  // This is used by templates that reference components/composites
+  rewritten = rewritten.replace(
+    /@\/design-system\/composites/g,
+    config.aliases.composites
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/components/g,
+    config.aliases.components
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/tokens/g,
+    config.aliases.tokens
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/icons/g,
+    config.aliases.icons
+  );
+
   // Don't transform relative imports - they are already correct in templates
   // Templates use relative imports for same-directory files (e.g., './Icon')
   // and these should be preserved as-is

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { AppHeader } from '../composites/AppHeader';
-import { ProductPanel } from '../composites/ProductPanel';
-import { HomePageActionBar } from '../composites/HomePageActionBar';
-import { Button } from '../components/Button';
-import { TextInput } from '../components/TextInput';
-import type { HomePageTab } from '../composites/HomePageActionBar';
+import { AppHeader } from '@/design-system/composites/AppHeader';
+import { ProductPanel } from '@/design-system/composites/ProductPanel';
+import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
+import { Button } from '@/design-system/components/Button';
+import { TextInput } from '@/design-system/components/TextInput';
+import type { HomePageTab } from '@/design-system/composites/HomePageActionBar';
 import './HomePage.css';
 
 /**
