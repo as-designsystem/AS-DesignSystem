@@ -1,47 +1,81 @@
 # Claude AI Instructions for AS Design System
 
-This file contains instructions for Claude AI (or any AI assistant) to properly implement new components in the AS Design System.
+This file contains instructions for Claude AI (or any AI assistant) to properly implement new components, composites, and templates in the AS Design System.
 
 ---
 
-## 📋 Component Implementation Workflow
-
-### Step 1: Inspect Figma Design with MCP
-
-**Always start by inspecting the Figma design:**
+## Project Architecture
 
 ```
-Use: mcp__local-figma-mcp__get_design_context
+packages/
+├── core/                    # Design system source (single source of truth)
+│   └── src/
+│       ├── components/      # Atomic components (.tsx + .css)
+│       ├── composites/      # Complex container components (.tsx + .css)
+│       ├── tokens/          # Design tokens (colors, typography)
+│       └── assets/          # SVG icons, PNG tool icons, backgrounds
+│
+├── cli/                     # CLI tool for component installation
+│   ├── src/
+│   │   ├── commands/        # CLI commands (init, add, list)
+│   │   ├── registry/        # Component/composite/template definitions
+│   │   │   ├── components.ts
+│   │   │   ├── composites.ts
+│   │   │   ├── templates.ts
+│   │   │   ├── tokens.ts
+│   │   │   └── schema.ts
+│   │   └── utils/
+│   └── templates/           # Synced from core + page templates
+│       ├── components/
+│       ├── composites/
+│       ├── tokens/
+│       ├── assets/
+│       └── pages/           # Page templates (CLI-only)
+│
+└── apps/
+    └── docs/                # Documentation site
+        └── src/
+            ├── pages/       # Component/composite documentation
+            └── components/  # Doc site components (Layout, CodeModal)
 ```
-
-- Extract node ID from Figma URL (e.g., `?node-id=1-2` → nodeId is `1:2`)
-- Document all variants, sizes, states, colors, spacing, typography
-- Note design tokens used (especially colors with semantic names)
-
-**Key information to extract:**
-- Variants (Default, Outlined, Ghost, Container, etc.)
-- Sizes (XS, S, M, L, XL)
-- States (Default, Hover, Active, Disabled)
-- Colors, spacing, borders, typography, icon sizes
 
 ---
 
-### Step 2: Create Component in `/packages/core`
+## Component vs Composite vs Template
 
-#### 2.1 Component Files
+| Type | Location | Purpose | User modifies |
+|------|----------|---------|---------------|
+| **Component** | `core/src/components/` | Atomic UI element (Button, Icon, Input) | Rarely |
+| **Composite** | `core/src/composites/` | Complex container combining components (Modal, AppHeader) | Rarely |
+| **Template** | `cli/templates/pages/` | Complete page layout, starting point | Always |
 
-Create two files in the components folder:
-- `/packages/core/src/components/ComponentName.tsx`
-- `/packages/core/src/components/ComponentName.css`
+---
 
-**Reference:** See `Button.tsx`, `Tab.tsx`, or `Icon.tsx` for structure examples.
+## Component Implementation Workflow
+
+### Step 1: Inspect Figma Design
+
+Use MCP tools to extract the complete design:
+- `mcp__figma__get_design_context` - Main design specs
+- `mcp__figma__get_screenshot` - Visual reference
+- `mcp__figma__get_variable_defs` - Design tokens used
+
+Extract: variants, sizes, states, colors, spacing, typography, borders, icons.
+
+### Step 2: Create Component Files
+
+Create in `/packages/core/src/components/`:
+- `ComponentName.tsx`
+- `ComponentName.css`
+
+**Reference:** See `Button.tsx`, `Tab.tsx`, `TextInput.tsx` for examples.
 
 **TypeScript structure:**
 ```typescript
 import './ComponentName.css';
 
-export type ComponentSize = 'S' | 'M' | 'L' | 'XL';
-export type ComponentVariant = 'Default' | 'Outlined';
+export type ComponentSize = 'XS' | 'S' | 'M' | 'L' | 'XL';
+export type ComponentVariant = 'Default' | 'Outlined' | 'Ghost';
 
 export interface ComponentNameProps {
   label: string;
@@ -49,15 +83,13 @@ export interface ComponentNameProps {
   variant?: ComponentVariant;
   disabled?: boolean;
   onClick?: () => void;
-  // ... other props
 }
 
-export function ComponentName({ /* props */ }: ComponentNameProps) {
-  // Build className with BEM-like naming
+export function ComponentName({ size = 'M', variant = 'Default', ...props }: ComponentNameProps) {
   const classes = [
     'component-name',
     `component-name--${size.toLowerCase()}`,
-    // ... add modifiers
+    `component-name--${variant.toLowerCase()}`,
   ].filter(Boolean).join(' ');
 
   return <button className={classes}>{/* ... */}</button>;
@@ -68,405 +100,283 @@ export function ComponentName({ /* props */ }: ComponentNameProps) {
 ```css
 /**
  * ComponentName Component Styles
- * Uses design system tokens
  */
 
-/* Tokens are exported from the package root */
-/* Users should import: @as-design-system/core/colors.css and @as-design-system/core/typography.css */
-
-.component-name { /* base styles */ }
+.component-name {
+  /* base styles */
+}
 
 /* Sizes */
-.component-name--s { height: 32px; /* ... */ }
-.component-name--m { height: 40px; /* ... */ }
+.component-name--xs { height: 24px; }
+.component-name--s { height: 32px; }
+.component-name--m { height: 40px; }
 
 /* Variants */
-.component-name--default { /* ... */ }
+.component-name--default {
+  background-color: var(--primary-default, #063b9e);
+  color: var(--text-negative, #ffffff);
+}
 
-/* States */
-.component-name:disabled,
-.component-name--disabled {
+.component-name--default:not(:disabled):hover {
+  background-color: var(--primary-hover, #255fcc);
+}
+
+/* Disabled */
+.component-name:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
 ```
 
-**⚠️ Important:** Do NOT use `@import` in component CSS files. Users must import token CSS files separately from the package root.
+### Step 3: Register Component
 
-#### 2.2 Export Component
-
-**File:** `/packages/core/src/index.ts`
+**1. Export from `/packages/core/src/index.ts`:**
 ```typescript
 export { ComponentName, type ComponentNameProps } from './components/ComponentName';
 ```
 
-#### 2.3 Configure Build
-
-**File:** `/packages/core/tsup.config.ts`
-
-Add your CSS file to the component CSS copy list:
+**2. Add CSS to `/packages/core/tsup.config.ts`:**
 ```typescript
-const componentCssFiles = ['Icon.css', 'Button.css', 'ComponentName.css'];
+const componentCssFiles = ['Button.css', 'ComponentName.css', /* ... */];
 ```
 
-**File:** `/packages/core/package.json`
-
-Add CSS export:
+**3. Add CSS export in `/packages/core/package.json`:**
 ```json
+"./ComponentName.css": "./dist/ComponentName.css"
+```
+
+**4. Register in `/packages/cli/src/registry/components.ts`:**
+```typescript
 {
-  "exports": {
-    "./ComponentName.css": "./dist/ComponentName.css"
-  }
+  name: 'component-name',           // kebab-case for CLI
+  type: 'component',
+  displayName: 'ComponentName',
+  description: 'Description here',
+  files: [
+    { path: 'templates/components/ComponentName.tsx', target: 'components/ComponentName.tsx', type: 'component' },
+    { path: 'templates/components/ComponentName.css', target: 'components/ComponentName.css', type: 'style' },
+  ],
+  dependencies: ['icon'],           // Other DS components used
+  externalDependencies: {           // npm packages (if any)
+    '@radix-ui/react-select': '^2.1.2',
+  },
+  cssImports: [
+    '@/design-system/tokens/typography.css',
+    '@/design-system/tokens/colors.css',
+  ],
 }
 ```
 
-#### 2.4 Build Core Package
+### Step 4: Create Documentation
 
-```bash
-cd packages/core && pnpm build
-```
+Create in `/apps/docs/src/pages/`:
+- `ComponentName.tsx`
+- `ComponentName.css`
 
-#### 2.5 Sync CLI Templates (Automatic)
+**Reference:** See existing doc pages like `Button.tsx`, `Select.tsx`.
 
-The CLI templates are automatically synced when you build the CLI package. To manually sync:
-
-```bash
-cd packages/cli && pnpm sync
-```
-
-This copies components from `packages/core/src/` to `packages/cli/templates/` for CLI distribution.
-
----
-
-### Step 3: Create Documentation Page in `/apps/docs`
-
-#### 3.1 Documentation Files
-
-Create two files:
-- `/apps/docs/src/pages/ComponentName.tsx`
-- `/apps/docs/src/pages/ComponentName.css`
-
-**Reference:** See `Button.tsx`, `Tab.tsx`, or `ToolIcons.tsx` in `/apps/docs/src/pages/`.
-
-**Page structure:**
+Add route in `/apps/docs/src/App.tsx`:
 ```typescript
-import { useState } from 'react';
-import { ComponentName, Button, Tab } from '@as-design-system/core';
-import '@as-design-system/core/ComponentName.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
-import CodeModal from '../components/CodeModal';
-
-export default function ComponentNamePage() {
-  const [openModal, setOpenModal] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
-
-  return (
-    <div className="component-page">
-      {/* Title */}
-      <h1 className="heading-5">ComponentName</h1>
-      <p className="label-regular-m">Description in English.</p>
-
-      {/* Tabs - Use design system Tab component */}
-      <div style={{ display: 'flex', gap: '0', marginBottom: '32px' }}>
-        <Tab
-          label="Examples"
-          size="M"
-          status={activeTab === 'examples' ? 'Active' : 'Default'}
-          onClick={() => setActiveTab('examples')}
-        />
-        <Tab
-          label="Props"
-          size="M"
-          status={activeTab === 'props' ? 'Active' : 'Default'}
-          onClick={() => setActiveTab('props')}
-        />
-      </div>
-
-      {/* Examples Tab */}
-      {activeTab === 'examples' && (
-        <>
-          <section className="component-section">
-            <div className="section-header">
-              <h2 className="heading-6">Variants</h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('variants')}
-              />
-            </div>
-            <div className="component-examples">
-              {/* Component examples */}
-            </div>
-          </section>
-          {/* More sections: Sizes, States, Icons, etc. */}
-        </>
-      )}
-
-      {/* Props Tab */}
-      {activeTab === 'props' && (
-        <section className="component-section">
-          <h2 className="heading-6">Props</h2>
-          <div className="props-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Prop</th>
-                  <th>Type</th>
-                  <th>Default</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Props rows */}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
-
-      {/* Code Modals */}
-      <CodeModal
-        isOpen={openModal === 'variants'}
-        onClose={() => setOpenModal(null)}
-        title="Variants Implementation"
-        code={variantsCode}
-      />
-    </div>
-  );
-}
-```
-
-#### 3.2 Add Route
-
-**File:** `/apps/docs/src/App.tsx`
-```typescript
-import ComponentName from './pages/ComponentName';
-// ...
 <Route path="/components/component-name" element={<ComponentName />} />
 ```
 
-#### 3.3 Add Navigation Link
+Add nav link in `/apps/docs/src/components/Layout.tsx` under Components section (alphabetical order).
 
-**File:** `/apps/docs/src/components/Layout.tsx`
-```typescript
-<Link
-  to="/components/component-name"
-  className={`nav-link nav-link-sub ${location.pathname === '/components/component-name' ? 'active' : ''}`}
->
-  ComponentName
-</Link>
-```
-
----
-
-### Step 4: Test
+### Step 5: Build & Test
 
 ```bash
 cd packages/core && pnpm build
+cd packages/cli && pnpm build    # This syncs templates automatically
 cd apps/docs && pnpm dev
 ```
 
-Check: variants, sizes, states, icons, accessibility, no console errors.
+---
+
+## Composite Implementation Workflow
+
+Composites are complex components that combine multiple atomic components (Modal, AppHeader, ProductPanel).
+
+### Step 1: Inspect Figma & Check Dependencies
+
+Verify all required components exist in `/packages/core/src/components/`.
+
+### Step 2: Create Composite Files
+
+Create in `/packages/core/src/composites/`:
+- `CompositeName.tsx`
+- `CompositeName.css`
+
+**Reference:** See `Modal.tsx`, `AppHeader.tsx`, `ProductPanel.tsx`.
+
+### Step 3: Register Composite
+
+**1. Export from `/packages/core/src/index.ts`**
+
+**2. Add CSS to `tsup.config.ts` and `package.json`**
+
+**3. Register in `/packages/cli/src/registry/composites.ts`:**
+```typescript
+{
+  name: 'composite-name',
+  type: 'composite',
+  displayName: 'CompositeName',
+  description: 'Description here',
+  files: [
+    { path: 'templates/composites/CompositeName.tsx', target: 'composites/CompositeName.tsx', type: 'component' },
+    { path: 'templates/composites/CompositeName.css', target: 'composites/CompositeName.css', type: 'style' },
+  ],
+  dependencies: ['icon', 'button'],  // Components AND composites used
+  cssImports: [
+    '@/design-system/tokens/typography.css',
+    '@/design-system/tokens/colors.css',
+  ],
+}
+```
+
+### Step 4: Create Documentation
+
+Add doc page under Composites section in navigation.
 
 ---
 
-### Step 5: Commit & Push
+## Template Implementation Workflow
 
-```bash
-git add .
-git commit -m "feat: add ComponentName component with documentation"
-git push
+Templates are complete page layouts installed directly into user's project. They are **CLI-only** (not in core).
+
+### Step 1: Create Template Files
+
+Create in `/packages/cli/templates/pages/`:
+- `TemplateName.tsx`
+- `TemplateName.css`
+
+**Important:** Use `@/design-system/` alias for imports (what users will have):
+```typescript
+import { AppHeader, Button } from '@/design-system/components';
+import { Modal } from '@/design-system/composites';
+import '@/design-system/components/Button.css';
+import './TemplateName.css';
 ```
+
+### Step 2: Register Template
+
+Register in `/packages/cli/src/registry/templates.ts`:
+```typescript
+{
+  name: 'template-name',
+  type: 'template',
+  displayName: 'TemplateName',
+  description: 'Description here',
+  files: [
+    { path: 'templates/pages/TemplateName.tsx', target: 'TemplateName.tsx', type: 'component' },
+    { path: 'templates/pages/TemplateName.css', target: 'TemplateName.css', type: 'style' },
+  ],
+  dependencies: ['app-header', 'button', 'modal'],  // All DS dependencies
+  targetPath: 'src/pages',  // Default install location
+}
+```
+
+### Step 3: Create Documentation Preview
+
+Create preview page in `/apps/docs/src/pages/TemplateNameTemplate.tsx`.
+Add route under `/templates/template-name`.
 
 ---
 
-## 🎨 Design System Best Practices
+## CSS Best Practices
 
-### Use Design System Components in Documentation
-
-**CRITICAL:** Documentation pages **must** use design system components:
-
-✅ **DO:**
-- Use `Tab` component for Examples/Props tabs
-- Use `Button` component for "Code" buttons
-- Use `Icon` component for icons
-- Use design system typography classes (`heading-5`, `label-regular-m`)
-- Use design system color tokens
-
-❌ **DON'T:**
-- Create custom styled buttons/tabs with inline styles
-- Use hard-coded colors or spacing
-
-### CSS Best Practices
-
-**Color Tokens:**
+**Always use tokens with fallbacks:**
 ```css
-/* ✅ Good - Use tokens with fallbacks */
-color: var(--primary-default, var(--sea-blue-70, #063b9e));
-
-/* ❌ Bad - Hard-coded */
-color: #063b9e;
+color: var(--primary-default, #063b9e);
+background-color: var(--background-main, #ffffff);
 ```
 
-**BEM-like Naming:**
+**BEM-like naming:**
 ```css
-.component-name { /* block */ }
-.component-name--modifier { /* modifier */ }
-.component-name__element { /* element */ }
+.component { }
+.component--modifier { }
+.component__element { }
 ```
 
-**Disabled State Pattern:**
+**Disabled state (NEVER use cursor: not-allowed):**
 ```css
-.component:disabled,
-.component--disabled {
+.component:disabled {
   opacity: 0.3;
-  cursor: default;        /* NEVER use cursor: not-allowed */
+  cursor: default;
   pointer-events: none;
 }
 ```
 
-**Hover States:**
+**Hover states (exclude disabled/active):**
 ```css
-/* ✅ Good - Exclude active/disabled states */
-.tab:not(:disabled):not(.tab--active):hover {
-  background-color: var(--t-hover);
-}
-
-/* ❌ Bad - Hovers on active elements */
-.tab:hover {
-  background-color: var(--t-hover);
+.component:not(:disabled):hover {
+  background-color: var(--primary-hover);
 }
 ```
 
-**Focus Styles:**
-```css
-.component:focus-visible {
-  outline: 2px solid var(--primary-default, #063b9e);
-  outline-offset: 2px;
-}
+---
+
+## CLI Commands
+
+```bash
+asds init              # Initialize DS in project
+asds list              # List all available items
+asds add button        # Add a component
+asds add modal         # Add a composite
+asds add home-page     # Add a template
 ```
-
-### Icon Integration
-
-Icons use inline SVG with direct imports for proper bundling:
-
-```typescript
-// Icon component automatically handles color via currentColor
-import { Icon } from './Icon';
-
-// In your component:
-const iconSizeMap: Record<ComponentSize, number> = {
-  S: 12,
-  M: 16,
-  L: 20,
-  XL: 24,
-};
-
-// Icon color is controlled via CSS color property
-const iconColor = variant === 'Default'
-  ? 'var(--text-negative, #ffffff)'
-  : 'var(--primary-default, #063b9e)';
-
-<Icon name="add" size={iconSizeMap[size]} color={iconColor} />
-```
-
-**Available icons:** See `/packages/core/src/assets/svg/icons/` for all available icon files.
-
-**⚠️ Important:** Icons use `?raw` imports and inline SVG rendering for proper color control and bundling.
-
-### Typography
-
-- Font family: `'Inter', sans-serif`
-- Use consistent spacing: 4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px
 
 ---
 
-## 📝 Language & Documentation
+## Build Commands
 
-- **All code and documentation must be in English**
-- Props table must document all properties
-- Code examples must be copy-paste ready
-- Clear, concise component descriptions
+```bash
+# Core package
+cd packages/core && pnpm build
+
+# CLI (syncs templates automatically)
+cd packages/cli && pnpm build
+
+# Manual template sync
+cd packages/cli && pnpm sync
+
+# Docs dev server
+cd apps/docs && pnpm dev
+```
 
 ---
 
-## 🔄 Important Notes
+## Important Notes
 
-### CSS Hot Reload
-
-CSS files in `/packages/core` are **not** hot-reloaded. After modifying CSS:
-1. Run `pnpm build` in `packages/core`
-2. Changes will appear in docs
-
-### Reference Files
-
-When in doubt, refer to existing implementations:
-- **Components:** `Button.tsx`, `Tab.tsx`, `Icon.tsx` in `/packages/core/src/components/`
-- **Documentation:** Same files in `/apps/docs/src/pages/`
-- **CSS patterns:** Check `Button.css`, `Tab.css` for structure
-- **Tokens:** `/packages/core/src/tokens/` for color and typography tokens
-- **Assets:** `/packages/core/src/assets/` for SVG icons and PNG tool icons
-
-### Monorepo Structure
-
-```
-packages/
-├── core/              # Design system components (single source of truth)
-│   ├── src/
-│   │   ├── components/  # All React components (.tsx + .css)
-│   │   ├── tokens/      # Design tokens (colors, typography)
-│   │   └── assets/      # SVG icons, PNG tool icons
-│   └── dist/          # Built package
-│
-├── cli/               # CLI tool for component installation
-│   ├── src/           # CLI source code
-│   ├── templates/     # Component templates (synced from core)
-│   └── scripts/
-│       └── sync-templates.js  # Auto-sync script
-│
-└── apps/
-    └── docs/          # Documentation site
-        └── src/
-            └── pages/ # Component documentation pages
-```
-
-### CLI Template Sync
-
-Templates in `packages/cli/templates/` are automatically synced from `packages/core/src/`:
-
-- **Automatic sync:** Runs before `pnpm build` and `pnpm publish`
-- **Manual sync:** `cd packages/cli && pnpm sync`
-- **Single source:** Only maintain code in `packages/core/src/`
-
-This ensures CLI users always get the latest component versions when using `asds add <component>`.
+- **Single source of truth:** Components/composites live in `packages/core/src/`
+- **CLI templates:** Auto-synced from core on build
+- **Page templates:** CLI-only, in `packages/cli/templates/pages/`
+- **CSS hot reload:** Not available for core. Run `pnpm build` after CSS changes.
+- **Documentation:** Always use DS components (Tab, Button) in doc pages
+- **All text in English**
 
 ---
 
-## ✅ Component Implementation Checklist
+## Checklist
 
-- [ ] Inspect Figma design with MCP
-- [ ] Create `.tsx` and `.css` files in `/packages/core/src/`
-- [ ] Export component from `index.ts`
+### Component
+- [ ] Create `.tsx` + `.css` in `core/src/components/`
+- [ ] Export from `index.ts`
 - [ ] Add CSS to `tsup.config.ts` and `package.json`
-- [ ] Build core package (`pnpm build`)
-- [ ] Create documentation page with Examples/Props tabs
-- [ ] Use design system components (Tab, Button) in documentation
-- [ ] Add route in `App.tsx`
-- [ ] Add navigation link in `Layout.tsx`
-- [ ] All text in English
-- [ ] Test all variants, sizes, states
-- [ ] No console errors
-- [ ] Commit and push
+- [ ] Register in `cli/src/registry/components.ts`
+- [ ] Create doc page, add route and nav link
+- [ ] Build and test
 
----
+### Composite
+- [ ] Create `.tsx` + `.css` in `core/src/composites/`
+- [ ] Export from `index.ts`
+- [ ] Add CSS to `tsup.config.ts` and `package.json`
+- [ ] Register in `cli/src/registry/composites.ts`
+- [ ] Create doc page, add route and nav link
+- [ ] Build and test
 
-**This workflow ensures consistency across all components in the AS Design System.**
-
-
-## Feedback
-
-If anything in these instructions is unclear, inconsistent, outdated, or conflicts with the actual codebase patterns, please tell the user so they can update this command.
+### Template
+- [ ] Create `.tsx` + `.css` in `cli/templates/pages/`
+- [ ] Register in `cli/src/registry/templates.ts`
+- [ ] Create preview page in docs
+- [ ] Build CLI and test installation
