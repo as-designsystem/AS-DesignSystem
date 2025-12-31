@@ -11,8 +11,7 @@ export default function AppHeaderPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const basicCode = `import { AppHeader } from '@/design-system/composites/AppHeader';
-import { IconButton } from '@/design-system/components/IconButton';
+  const basicCode = `import { AppHeader, IconButton, Button } from '@/design-system';
 
 function Example() {
   return (
@@ -23,34 +22,43 @@ function Example() {
           <IconButton icon="notifications" variant="Ghost" />
           <IconButton icon="settings" variant="Ghost" />
           <IconButton icon="apps" variant="Ghost" />
+          <Button
+            label="Mark Thompson"
+            rightIcon="account_circle"
+            variant="Ghost"
+            size="M"
+          />
         </>
       }
-      userName="Mark Thompson"
-      onUserClick={() => console.log('User clicked')}
     />
   );
 }`;
 
-  const minimalCode = `import { AppHeader } from '@/design-system/composites/AppHeader';
+  const minimalCode = `import { AppHeader } from '@/design-system';
 
 // Minimal AppHeader with just app name
 // Logo (Airbus) and subtitle (By Airline Sciences) are always displayed
 <AppHeader appName="My Application" />`;
 
-  const customActionsCode = `import { AppHeader, IconButton } from '@/design-system';
+  const customActionsCode = `import { AppHeader, IconButton, Button } from '@/design-system';
 
 // Custom actions with different buttons
 <AppHeader
   appName="Fleet Manager"
   actions={
     <>
+      <IconButton icon="dark_mode" variant="Ghost" onClick={toggleTheme} />
       <IconButton icon="notifications" variant="Ghost" />
       <IconButton icon="settings" variant="Ghost" />
-      <IconButton icon="apps" variant="Ghost" />
+      <Button
+        label="John Doe"
+        rightIcon="account_circle"
+        variant="Ghost"
+        size="M"
+        onClick={handleUserClick}
+      />
     </>
   }
-  userName="John Doe"
-  onUserClick={() => handleUserClick()}
 />`;
 
   return (
@@ -59,7 +67,7 @@ function Example() {
         AppHeader
       </h1>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
-        Application header component with Airbus logo, app name, action buttons, and user selector.
+        Application header component with Airbus logo, app name, and action buttons.
       </p>
 
       {/* Tabs */}
@@ -105,10 +113,14 @@ function Example() {
                     <IconButton icon="notifications" variant="Ghost" size="M" />
                     <IconButton icon="settings" variant="Ghost" size="M" />
                     <IconButton icon="apps" variant="Ghost" size="M" />
+                    <Button
+                      label="Mark Thompson"
+                      rightIcon="account_circle"
+                      variant="Ghost"
+                      size="M"
+                    />
                   </>
                 }
-                userName="Mark Thompson"
-                onUserClick={() => console.log('User clicked')}
               />
             </div>
           </section>
@@ -132,11 +144,11 @@ function Example() {
             </div>
           </section>
 
-          {/* With User */}
+          {/* With Custom Actions */}
           <section className="component-section">
             <div className="section-header">
               <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-                With Actions & User
+                With Custom Actions
               </h2>
               <Button
                 label="Code"
@@ -151,12 +163,17 @@ function Example() {
                 appName="Fleet Manager"
                 actions={
                   <>
+                    <IconButton icon="dark_mode" variant="Ghost" size="M" />
                     <IconButton icon="notifications" variant="Ghost" size="M" />
                     <IconButton icon="settings" variant="Ghost" size="M" />
-                    <IconButton icon="apps" variant="Ghost" size="M" />
+                    <Button
+                      label="John Doe"
+                      rightIcon="account_circle"
+                      variant="Ghost"
+                      size="M"
+                    />
                   </>
                 }
-                userName="John Doe"
               />
             </div>
           </section>
@@ -196,19 +213,7 @@ function Example() {
                   <td><code>actions</code></td>
                   <td><code>ReactNode</code></td>
                   <td><code>undefined</code></td>
-                  <td>Custom action buttons displayed on the right side (typically IconButtons)</td>
-                </tr>
-                <tr>
-                  <td><code>userName</code></td>
-                  <td><code>string</code></td>
-                  <td><code>undefined</code></td>
-                  <td>User name displayed in the user selector</td>
-                </tr>
-                <tr>
-                  <td><code>onUserClick</code></td>
-                  <td><code>() =&gt; void</code></td>
-                  <td><code>undefined</code></td>
-                  <td>Callback when the user selector is clicked</td>
+                  <td>Action buttons displayed on the right side (IconButtons, Buttons, etc.)</td>
                 </tr>
                 <tr>
                   <td><code>className</code></td>
@@ -233,10 +238,10 @@ function Example() {
           </ul>
 
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-            Styling IconButtons
+            Styling Actions
           </h2>
           <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-main, #14171d)' }}>
-            IconButtons inside <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>actions</code> are automatically styled with light blue color (#CFDDF8) for visibility on the dark background.
+            Components inside <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>actions</code> are automatically styled with light colors for visibility on the dark background. Use <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>variant="Ghost"</code> for IconButtons and Buttons.
           </p>
         </section>
       )}
@@ -257,7 +262,7 @@ function Example() {
       <CodeModal
         isOpen={openModal === 'customActions'}
         onClose={() => setOpenModal(null)}
-        title="With Actions & User"
+        title="With Custom Actions"
         code={customActionsCode}
       />
     </div>

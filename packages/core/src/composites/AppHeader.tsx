@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '../components/Button';
 import './AppHeader.css';
 
 // Airbus logo SVG inline for proper color control
@@ -24,18 +23,20 @@ export interface AppHeaderProps {
    */
   logoHref?: string;
   /**
-   * Custom action buttons displayed on the right side
-   * Typically IconButtons for notifications, settings, etc.
+   * Action buttons displayed on the right side.
+   * Pass IconButtons, Buttons, or any custom components.
+   * @example
+   * ```tsx
+   * actions={
+   *   <>
+   *     <IconButton icon="notifications" variant="Ghost" />
+   *     <IconButton icon="settings" variant="Ghost" />
+   *     <Button label="Mark Thompson" rightIcon="account_circle" variant="Ghost" />
+   *   </>
+   * }
+   * ```
    */
   actions?: React.ReactNode;
-  /**
-   * User name displayed in the user selector
-   */
-  userName?: string;
-  /**
-   * Callback when the user selector is clicked
-   */
-  onUserClick?: () => void;
   /**
    * Additional class name for the header
    */
@@ -45,15 +46,26 @@ export interface AppHeaderProps {
 /**
  * AppHeader Component
  *
- * A header component for Airbus applications with fixed logo, app name, action buttons, and user selector.
+ * A header component for Airbus applications with fixed logo, app name, and action buttons.
  * The header is always in dark mode regardless of the application theme.
+ *
+ * @example
+ * ```tsx
+ * <AppHeader
+ *   appName="Maintenance Scheduler"
+ *   actions={
+ *     <>
+ *       <IconButton icon="dark_mode" variant="Ghost" onClick={toggleTheme} />
+ *       <Button label="Mark Thompson" rightIcon="account_circle" variant="Ghost" />
+ *     </>
+ *   }
+ * />
+ * ```
  */
 export function AppHeader({
   appName,
   logoHref,
   actions,
-  userName,
-  onUserClick,
   className = '',
 }: AppHeaderProps) {
   const headerClasses = ['app-header', className].filter(Boolean).join(' ');
@@ -83,18 +95,11 @@ export function AppHeader({
       </div>
 
       {/* Right Section: Actions */}
-      <div className="app-header__right">
-        {actions && <div className="app-header__actions">{actions}</div>}
-        {userName && (
-          <Button
-            label={userName}
-            rightIcon="account_circle"
-            variant="Ghost"
-            size="M"
-            onClick={onUserClick}
-          />
-        )}
-      </div>
+      {actions && (
+        <div className="app-header__right">
+          <div className="app-header__actions">{actions}</div>
+        </div>
+      )}
     </header>
   );
 }

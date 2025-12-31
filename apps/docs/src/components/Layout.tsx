@@ -153,11 +153,12 @@ const templateCodes: Record<string, CodeSection[]> = {
       language: 'tsx',
       code: `// Install with: asds add home-page
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppHeader } from './composites/AppHeader';
 import { ProductPanel } from './composites/ProductPanel';
 import { HomePageActionBar } from './composites/HomePageActionBar';
 import { Button } from './components/Button';
+import { IconButton } from './components/IconButton';
 import { TextInput } from './components/TextInput';
 import type { HomePageTab } from './composites/HomePageActionBar';
 import './HomePage.css';
@@ -165,16 +166,41 @@ import './HomePage.css';
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
   const [searchValue, setSearchValue] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.documentElement.classList.toggle('dark', newMode);
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+  };
 
   return (
     <div className="home-page">
       <AppHeader
         appName="Tool name here"
-        showNotifications
-        showSettings
-        showApps
-        showUserSelector
-        userName="Mark Thompson"
+        actions={
+          <>
+            <IconButton
+              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+              size="S"
+              variant="Ghost"
+              onClick={toggleDarkMode}
+              alt="Toggle dark mode"
+            />
+            <Button
+              label="Mark Thompson"
+              rightIcon="account_circle"
+              variant="Ghost"
+              size="M"
+            />
+          </>
+        }
       />
 
       <ProductPanel

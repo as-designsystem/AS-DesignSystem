@@ -98,6 +98,7 @@
 .text-input-wrapper {
   display: flex;
   align-items: center;
+  border-radius: 3px 3px 0 0;
   background-color: var(--background-secondary, #fafafa);
   box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0);
   box-sizing: border-box;

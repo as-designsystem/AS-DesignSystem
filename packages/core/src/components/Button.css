@@ -78,21 +78,20 @@
    VARIANT: DEFAULT (Solid)
    ============================================================================ */
 
-.button--default.button--default {
+.button--default {
   background-color: var(--primary-default, #063b9e);
   color: var(--text-negative, #ffffff);
 }
 
-.button--default.button--default:not(:disabled):hover {
+.button--default:not(:disabled):hover {
   background-color: var(--primary-hover, #255fcc);
   cursor: pointer;
 }
 
-.button--default.button--default:not(:disabled):active {
+.button--default:not(:disabled):active {
   background-color: var(--primary-active, #002d80);
 }
 
-.button--default.button--disabled,
 .button--default:disabled {
   opacity: 0.3;
   cursor: default;
@@ -103,24 +102,23 @@
    VARIANT: OUTLINED
    ============================================================================ */
 
-.button--outlined.button--default {
+.button--outlined {
   background-color: transparent;
   border: 1px solid var(--primary-default, #063b9e);
   color: var(--primary-default, #063b9e);
 }
 
-.button--outlined.button--default:not(:disabled):hover {
+.button--outlined:not(:disabled):hover {
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
   border-color: var(--primary-default, #063b9e);
   cursor: pointer;
 }
 
-.button--outlined.button--default:not(:disabled):active {
+.button--outlined:not(:disabled):active {
   background-color: var(--primary-t-active, rgba(0, 45, 128, 0.2));
   border-color: var(--primary-default, #063b9e);
 }
 
-.button--outlined.button--disabled,
 .button--outlined:disabled {
   opacity: 0.3;
   cursor: default;
@@ -131,22 +129,21 @@
    VARIANT: GHOST
    ============================================================================ */
 
-.button--ghost.button--default {
+.button--ghost {
   background-color: transparent;
   border: none;
   color: var(--primary-default, #063b9e);
 }
 
-.button--ghost.button--default:not(:disabled):hover {
+.button--ghost:not(:disabled):hover {
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
   cursor: pointer;
 }
 
-.button--ghost.button--default:not(:disabled):active {
+.button--ghost:not(:disabled):active {
   background-color: var(--primary-t-active, rgba(0, 45, 128, 0.2));
 }
 
-.button--ghost.button--disabled,
 .button--ghost:disabled {
   opacity: 0.3;
   cursor: default;

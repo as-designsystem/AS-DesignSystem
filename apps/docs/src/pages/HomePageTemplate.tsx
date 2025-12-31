@@ -4,8 +4,8 @@ import {
   ProductPanel,
   HomePageActionBar,
   Button,
-  TextInput,
   IconButton,
+  TextInput,
   type HomePageTab,
 } from '@as-design-system/core';
 import '@as-design-system/core/AppHeader.css';
@@ -56,16 +56,23 @@ export default function HomePageTemplatePage() {
       {/* Application Header */}
       <AppHeader
         appName="Tool name here"
-        userName="Mark Thompson"
-        onUserClick={() => console.log('User clicked')}
         actions={
-          <IconButton
-            icon={isDarkMode ? 'light_mode' : 'dark_mode'}
-            size="S"
-            variant="Ghost"
-            onClick={toggleDarkMode}
-            alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          />
+          <>
+            <IconButton
+              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+              size="S"
+              variant="Ghost"
+              onClick={toggleDarkMode}
+              alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            />
+            <Button
+              label="Mark Thompson"
+              rightIcon="account_circle"
+              variant="Ghost"
+              size="M"
+              onClick={() => console.log('User clicked')}
+            />
+          </>
         }
       />
 
