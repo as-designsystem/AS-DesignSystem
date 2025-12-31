@@ -48,6 +48,18 @@ export async function configExists(cwd: string = process.cwd()): Promise<boolean
 }
 
 /**
+ * Load raw config without schema defaults (to check what user explicitly set)
+ */
+export async function loadRawConfig(cwd: string = process.cwd()): Promise<Record<string, unknown> | null> {
+  try {
+    const result = await explorer.search(cwd);
+    return result?.config || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Write config file
  */
 export async function writeConfig(config: Config, cwd: string = process.cwd()): Promise<void> {
