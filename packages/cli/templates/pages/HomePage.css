@@ -69,7 +69,7 @@
 
 /* Placeholder row style - replace with your actual row component */
 .home-page__row--placeholder {
-  background-color: var(--background-tertiary, #eff1f4);
+  background-color: var(--background-secondary, #e0e3e9);
 }
 
 /* Responsive adjustments */

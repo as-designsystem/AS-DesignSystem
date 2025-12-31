@@ -93,6 +93,12 @@ function rewriteImports(content: string, config: any, filePath?: string): string
     config.aliases.icons
   );
 
+  // Rewrite @/design-system/assets to use designSystem alias + /assets
+  rewritten = rewritten.replace(
+    /@\/design-system\/assets/g,
+    config.aliases.designSystem + '/assets'
+  );
+
   // Don't transform relative imports - they are already correct in templates
   // Templates use relative imports for same-directory files (e.g., './Icon')
   // and these should be preserved as-is

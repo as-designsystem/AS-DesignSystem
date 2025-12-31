@@ -60,7 +60,7 @@ export default function HomePageTemplatePage() {
           <>
             <IconButton
               icon={isDarkMode ? 'light_mode' : 'dark_mode'}
-              size="S"
+              size="M"
               variant="Ghost"
               onClick={toggleDarkMode}
               alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}

@@ -68,7 +68,7 @@
   width: 100%;
   min-height: 87px;
   border-radius: 3px;
-  background-color: var(--background-tertiary, #eff1f4);
+  background-color: var(--background-secondary, #e0e3e9);
   box-sizing: border-box;
 }
 

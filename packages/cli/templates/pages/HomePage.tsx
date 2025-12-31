@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppHeader } from '@/design-system/composites/AppHeader';
 import { ProductPanel } from '@/design-system/composites/ProductPanel';
 import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
 import { Button } from '@/design-system/components/Button';
+import { IconButton } from '@/design-system/components/IconButton';
 import { TextInput } from '@/design-system/components/TextInput';
 import type { HomePageTab } from '@/design-system/composites/HomePageActionBar';
+// Background image import - change this to use a different background
+import maintenanceBackground from '@/design-system/assets/backgrounds/Maintenance.png';
 import './HomePage.css';
 
 /**
  * HomePage Template
  *
  * A complete home page layout with:
- * - AppHeader with navigation and user controls
+ * - AppHeader with dark/light mode toggle and user button
  * - ProductPanel hero section
  * - HomePageActionBar with tabs and search
  * - Content area for study/item list
@@ -24,6 +27,20 @@ import './HomePage.css';
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
   const [searchValue, setSearchValue] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Sync with document dark mode state
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.documentElement.classList.toggle('dark', newMode);
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+  };
 
   const handleNewStudy = () => {
     // TODO: Implement new study creation
@@ -41,14 +58,24 @@ export default function HomePage() {
       {/* Application Header */}
       <AppHeader
         appName="Tool name here"
-        showNotifications
-        showSettings
-        showApps
-        showUserSelector
-        userName="Mark Thompson"
-        onNotificationsClick={() => console.log('Notifications clicked')}
-        onSettingsClick={() => console.log('Settings clicked')}
-        onAppsClick={() => console.log('Apps clicked')}
+        actions={
+          <>
+            <IconButton
+              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+              size="M"
+              variant="Ghost"
+              onClick={toggleDarkMode}
+              alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            />
+            <Button
+              label="Mark Thompson"
+              rightIcon="account_circle"
+              variant="Ghost"
+              size="M"
+              onClick={() => console.log('User clicked')}
+            />
+          </>
+        }
       />
 
       {/* Product Panel - Hero section */}
@@ -56,11 +83,11 @@ export default function HomePage() {
         tool="maintenance"
         productName="Product Name"
         productDescription="Here need to add a long description of the tool to make it understandable by the user. You can put the goal of the tool, the target users and the business. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-        backgroundImage="assets/backgrounds/Maintenance.png"
+        backgroundImage={maintenanceBackground}
         links={[
-          { label: 'DOCUMENTATION', href: '#documentation' },
-          { label: 'APIs', href: '#apis' },
-          { label: 'CONTACT & SUPPORT', href: '#support' },
+          { label: 'DOCUMENTATION', href: '#documentation', icon: 'info' },
+          { label: 'APIs', href: '#apis', icon: 'code' },
+          { label: 'CONTACT & SUPPORT', href: '#support', icon: 'notifications' },
         ]}
       />
 

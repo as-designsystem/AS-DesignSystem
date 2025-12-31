@@ -31,6 +31,34 @@ function rewriteImports(content: string, config: any, filePath?: string): string
     config.aliases.tokens
   );
 
+  // Rewrite @/design-system/* imports to use configured aliases
+  // This is used by templates that reference components/composites
+  rewritten = rewritten.replace(
+    /@\/design-system\/composites/g,
+    config.aliases.composites
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/components/g,
+    config.aliases.components
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/tokens/g,
+    config.aliases.tokens
+  );
+
+  rewritten = rewritten.replace(
+    /@\/design-system\/icons/g,
+    config.aliases.icons
+  );
+
+  // Rewrite @/design-system/assets to use designSystem alias + /assets
+  rewritten = rewritten.replace(
+    /@\/design-system\/assets/g,
+    config.aliases.designSystem + '/assets'
+  );
+
   return rewritten;
 }
 
@@ -40,10 +68,12 @@ function rewriteImports(content: string, config: any, filePath?: string): string
 async function copyFile(
   file: RegistryFile,
   config: any,
-  cwd: string
+  cwd: string,
+  customTargetPath?: string
 ): Promise<void> {
   const sourcePath = path.resolve(__dirname, '..', file.path);
-  const targetPath = path.join(cwd, config.designSystemPath, file.target);
+  const basePath = customTargetPath || config.designSystemPath;
+  const targetPath = path.join(cwd, basePath, file.target);
 
   await fs.ensureDir(path.dirname(targetPath));
 
@@ -72,7 +102,11 @@ async function detectInstalledComponents(
     // Check if the main component file exists
     const mainFile = item.files.find(f => f.type === 'component' && f.target.endsWith('.tsx'));
     if (mainFile) {
-      const targetPath = path.join(cwd, config.designSystemPath, mainFile.target);
+      // Templates use their own targetPath, everything else uses designSystemPath
+      const basePath = item.type === 'template'
+        ? (item.targetPath || config.templates?.targetPath || 'src/pages')
+        : config.designSystemPath;
+      const targetPath = path.join(cwd, basePath, mainFile.target);
       if (await fs.pathExists(targetPath)) {
         installed.push(item.name);
       }
@@ -177,9 +211,14 @@ export const update = new Command()
       };
 
       for (const item of toInstall) {
+        // Templates use their own targetPath
+        const customTargetPath = item.type === 'template'
+          ? (item.targetPath || config.templates?.targetPath || 'src/pages')
+          : undefined;
+
         for (const file of item.files) {
           if (!shouldCopyFile(file)) continue;
-          await copyFile(file, config, cwd);
+          await copyFile(file, config, cwd, customTargetPath);
           filesCopied++;
         }
       }
