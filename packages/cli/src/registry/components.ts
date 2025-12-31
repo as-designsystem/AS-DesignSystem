@@ -566,7 +566,7 @@ export const components: RegistryItem[] = [
   },
   {
     name: 'backgrounds',
-    type: 'icon',
+    type: 'asset',
     displayName: 'Backgrounds',
     description: 'Background images for ProductPanel and hero sections',
     files: [
