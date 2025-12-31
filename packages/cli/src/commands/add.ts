@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import { execSync } from 'child_process';
 import { logger } from '../utils/logger';
-import { loadConfig, getResolvedPaths } from '../utils/config';
+import { loadConfig, getResolvedPaths, writeConfig } from '../utils/config';
 import { resolveDependencies, getRegistryItem } from '../utils/registry';
 import type { RegistryItem, RegistryFile } from '../registry/schema';
 
@@ -201,6 +201,23 @@ export const add = new Command()
       logger.info(`  - ${item.displayName || item.name} (${item.type})`);
     }
     logger.break();
+
+    // Check if we're installing templates and need to ask for path
+    const hasTemplates = toInstall.some(item => item.type === 'template');
+    if (hasTemplates && !config.templates?.targetPath) {
+      const { templatesPath } = await prompts({
+        type: 'text',
+        name: 'templatesPath',
+        message: 'Where should we install page templates?',
+        initial: 'src/pages',
+      });
+
+      // Save to config
+      config.templates = { targetPath: templatesPath };
+      await writeConfig(config, cwd);
+      logger.success(`Templates path saved to config: ${templatesPath}`);
+      logger.break();
+    }
 
     // Check for conflicts and build file map
     const paths = getResolvedPaths(config, cwd);
