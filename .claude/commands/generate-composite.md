@@ -51,11 +51,11 @@ Composites typically use MANY components. Verify ALL exist in `/packages/core/sr
 **If missing**: List all missing dependencies and ask whether to generate them first, proceed anyway, or cancel.
 
 ### 3. Create Composite
-Follow patterns in `CLAUDE.md` and reference existing components.
+Follow patterns in `CLAUDE.md` and reference existing composites like `Modal.tsx`, `AppHeader.tsx`.
 
 Files to create:
-- `/packages/core/src/components/[Name].tsx`
-- `/packages/core/src/components/[Name].css`
+- `/packages/core/src/composites/[Name].tsx`
+- `/packages/core/src/composites/[Name].css`
 
 Consider:
 - Flexible content slots (children, header, footer props)
@@ -69,11 +69,11 @@ Consider:
 - Export from `/packages/core/src/index.ts`
 - Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`
 - Add CSS export in `/packages/core/package.json`
-- Register in CLI `/packages/cli/src/registry/components.ts`:
+- Register in CLI `/packages/cli/src/registry/composites.ts`:
   - `name`: kebab-case (e.g., 'filter-panel')
   - `displayName`: PascalCase (e.g., 'FilterPanel')
   - `description`: short description
-  - `files`: array of `{ path, target, type }` for .tsx and .css
+  - `files`: array with paths like `templates/composites/[Name].tsx` and `templates/composites/[Name].css`
   - `dependencies`: other DS components used (e.g., ['icon', 'button'])
   - `externalDependencies`: npm packages if any (e.g., Radix)
   - `cssImports`: token imports needed
