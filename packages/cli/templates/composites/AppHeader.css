@@ -113,10 +113,10 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.app-header__right .icon-button:active,
-.app-header__right .icon-button.icon-button--ghost:active,
-.app-header__right .icon-button.icon-button--outlined:active,
-.app-header__right .icon-button.icon-button--default:active {
+.app-header__right .icon-button:not(:disabled):active,
+.app-header__right .icon-button.icon-button--ghost:not(:disabled):active,
+.app-header__right .icon-button.icon-button--outlined:not(:disabled):active,
+.app-header__right .icon-button.icon-button--default:not(:disabled):active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -134,9 +134,9 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.app-header__right .button:active,
-.app-header__right .button.button--ghost:active,
-.app-header__right .button.button--outlined:active,
-.app-header__right .button.button--default:active {
+.app-header__right .button:not(:disabled):active,
+.app-header__right .button.button--ghost:not(:disabled):active,
+.app-header__right .button.button--outlined:not(:disabled):active,
+.app-header__right .button.button--default:not(:disabled):active {
   background-color: rgba(255, 255, 255, 0.2);
 }
