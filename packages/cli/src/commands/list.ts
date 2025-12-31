@@ -69,21 +69,6 @@ export const list = new Command()
       console.log('');
     }
 
-    // Assets
-    const assets = getRegistryByType('asset');
-    if (assets.length > 0) {
-      console.log(chalk.bold.cyan('Assets:'));
-      for (const asset of assets) {
-        const displayName = asset.displayName || asset.name;
-        const description = asset.description || '';
-        console.log(`  ${chalk.green(asset.name.padEnd(15))} ${displayName}`);
-        if (description) {
-          console.log(`  ${' '.repeat(15)} ${chalk.gray(description)}`);
-        }
-      }
-      console.log('');
-    }
-
     // Templates
     const templates = getRegistryByType('template');
     if (templates.length > 0) {

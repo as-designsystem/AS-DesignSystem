@@ -16,7 +16,7 @@ export type RegistryFile = z.infer<typeof registryFileSchema>;
  */
 export const registryItemSchema = z.object({
   name: z.string().describe('Unique identifier (e.g., "button", "colors")'),
-  type: z.enum(['component', 'composite', 'token', 'icon', 'template', 'asset']).describe('Type of registry item'),
+  type: z.enum(['component', 'composite', 'token', 'icon', 'template']).describe('Type of registry item'),
   displayName: z.string().optional().describe('Display name for CLI output'),
   description: z.string().optional().describe('Brief description'),
   files: z.array(registryFileSchema).describe('Files to copy'),
