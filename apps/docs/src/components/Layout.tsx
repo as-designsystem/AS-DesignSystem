@@ -5,7 +5,7 @@ import { Icon, IconButton, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/IconButton.css';
 import '@as-design-system/core/TextInput.css';
 import './Layout.css';
-import CodeModal from './CodeModal';
+import CodeModal, { CodeSection } from './CodeModal';
 
 interface LayoutProps {
   children: ReactNode;
@@ -146,8 +146,12 @@ const navSections: NavSectionData[] = [
 ];
 
 // Template code snippets for the code modal
-const templateCodes: Record<string, string> = {
-  '/templates/home-page': `// Install with: asds add home-page
+const templateCodes: Record<string, CodeSection[]> = {
+  '/templates/home-page': [
+    {
+      title: 'HomePage.tsx',
+      language: 'tsx',
+      code: `// Install with: asds add home-page
 
 import { useState } from 'react';
 import { AppHeader } from './composites/AppHeader';
@@ -179,9 +183,9 @@ export default function HomePage() {
         productDescription="Your product description here..."
         backgroundImage="assets/backgrounds/Maintenance.png"
         links={[
-          { label: 'DOCUMENTATION', href: '#documentation' },
-          { label: 'APIs', href: '#apis' },
-          { label: 'CONTACT & SUPPORT', href: '#support' },
+          { label: 'DOCUMENTATION', href: '#documentation', icon: 'info' },
+          { label: 'APIs', href: '#apis', icon: 'code' },
+          { label: 'CONTACT & SUPPORT', href: '#support', icon: 'notifications' },
         ]}
       />
 
@@ -207,6 +211,34 @@ export default function HomePage() {
     </div>
   );
 }`,
+    },
+    {
+      title: 'HomePage.css',
+      language: 'css',
+      code: `.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background-secondary, #fafafa);
+}
+
+.home-page__content {
+  flex: 1;
+  padding: 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-page__tab-content {
+  flex: 1;
+  background-color: var(--background-main, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal, #e0e3e9);
+  padding: 24px;
+}`,
+    },
+  ],
 };
 
 export default function Layout({ children }: LayoutProps) {
@@ -341,7 +373,7 @@ export default function Layout({ children }: LayoutProps) {
               isOpen={isCodeModalOpen}
               onClose={() => setIsCodeModalOpen(false)}
               title="HomePage Template"
-              code={templateCodes[location.pathname] || '// Code not available'}
+              sections={templateCodes[location.pathname]}
             />
           </>
         ) : (

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   AppHeader,
   ProductPanel,
   HomePageActionBar,
   Button,
   TextInput,
+  IconButton,
   type HomePageTab,
 } from '@as-design-system/core';
 import '@as-design-system/core/AppHeader.css';
@@ -26,6 +27,20 @@ import './HomePageTemplate.css';
 export default function HomePageTemplatePage() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
   const [searchValue, setSearchValue] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Sync with document dark mode state
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    document.documentElement.classList.toggle('dark', newMode);
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+  };
 
   const handleNewStudy = () => {
     console.log('Create new study');
@@ -41,14 +56,17 @@ export default function HomePageTemplatePage() {
       {/* Application Header */}
       <AppHeader
         appName="Tool name here"
-        showNotifications
-        showSettings
-        showApps
-        showUserSelector
         userName="Mark Thompson"
-        onNotificationsClick={() => console.log('Notifications clicked')}
-        onSettingsClick={() => console.log('Settings clicked')}
-        onAppsClick={() => console.log('Apps clicked')}
+        onUserClick={() => console.log('User clicked')}
+        actions={
+          <IconButton
+            icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+            size="S"
+            variant="Ghost"
+            onClick={toggleDarkMode}
+            alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          />
+        }
       />
 
       {/* Product Panel - Hero section */}
@@ -58,9 +76,9 @@ export default function HomePageTemplatePage() {
         productDescription="Here need to add a long description of the tool to make it understandable by the user. You can put the goal of the tool, the target users and the business. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
         backgroundImage="/backgrounds/Maintenance.png"
         links={[
-          { label: 'DOCUMENTATION', href: '#documentation' },
-          { label: 'APIs', href: '#apis' },
-          { label: 'CONTACT & SUPPORT', href: '#support' },
+          { label: 'DOCUMENTATION', href: '#documentation', icon: 'info' },
+          { label: 'APIs', href: '#apis', icon: 'code' },
+          { label: 'CONTACT & SUPPORT', href: '#support', icon: 'notifications' },
         ]}
       />
 
