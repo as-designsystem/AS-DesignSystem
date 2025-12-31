@@ -64,7 +64,7 @@ export const composites: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['tool-icons', 'icon'],
+    dependencies: ['tool-icons', 'icon', 'backgrounds'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
