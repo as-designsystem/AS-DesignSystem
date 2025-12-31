@@ -18,7 +18,7 @@ export const templates: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['app-header', 'product-panel', 'home-page-action-bar', 'button', 'text-input', 'backgrounds'],
+    dependencies: ['app-header', 'product-panel', 'home-page-action-bar', 'button', 'text-input'],
     targetPath: 'src/pages',
   },
 ];
