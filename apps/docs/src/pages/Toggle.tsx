@@ -26,23 +26,20 @@ export default function TogglePage() {
   const [autoSave, setAutoSave] = useState(false);
 
   // Code examples - Toggle (Radix)
-  const sizesCodeToggle = `import { Toggle } from '@as-design-system/core';
-import '@as-design-system/core/Toggle.css';
+  const sizesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 <Toggle label="Size S" size="S" />
 <Toggle label="Size M" size="M" />
 <Toggle label="Size L" size="L" />`;
 
   // Code examples - VToggle (Vanilla)
-  const sizesCodeVToggle = `import { VToggle } from '@as-design-system/core';
-import '@as-design-system/core/VToggle.css';
+  const sizesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
 
 <VToggle label="Size S" size="S" />
 <VToggle label="Size M" size="M" />
 <VToggle label="Size L" size="L" />`;
 
-  const selectedCodeToggle = `import { Toggle } from '@as-design-system/core';
-import '@as-design-system/core/Toggle.css';
+  const selectedCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 // Unchecked
 <Toggle label="Unchecked" checked={false} />
@@ -50,8 +47,7 @@ import '@as-design-system/core/Toggle.css';
 // Checked
 <Toggle label="Checked" checked={true} />`;
 
-  const selectedCodeVToggle = `import { VToggle } from '@as-design-system/core';
-import '@as-design-system/core/VToggle.css';
+  const selectedCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
 
 // Unselected
 <VToggle label="Unselected" selected={false} />
@@ -59,23 +55,20 @@ import '@as-design-system/core/VToggle.css';
 // Selected
 <VToggle label="Selected" selected={true} />`;
 
-  const statesCodeToggle = `import { Toggle } from '@as-design-system/core';
-import '@as-design-system/core/Toggle.css';
+  const statesCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 <Toggle label="Default" state="Default" />
 <Toggle label="Disabled" state="Disabled" />
 <Toggle label="Disabled Checked" state="Disabled" checked />`;
 
-  const statesCodeVToggle = `import { VToggle } from '@as-design-system/core';
-import '@as-design-system/core/VToggle.css';
+  const statesCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
 
 <VToggle label="Default" state="Default" />
 <VToggle label="Disabled" state="Disabled" />
 <VToggle label="Disabled Selected" state="Disabled" selected />`;
 
   const controlledCodeToggle = `import { useState } from 'react';
-import { Toggle } from '@as-design-system/core';
-import '@as-design-system/core/Toggle.css';
+import { Toggle } from '@/design-system/components/Toggle';
 
 function MyComponent() {
   const [enabled, setEnabled] = useState(false);
@@ -90,8 +83,7 @@ function MyComponent() {
 }`;
 
   const controlledCodeVToggle = `import { useState } from 'react';
-import { VToggle } from '@as-design-system/core';
-import '@as-design-system/core/VToggle.css';
+import { VToggle } from '@/design-system/components/VToggle';
 
 function MyComponent() {
   const [enabled, setEnabled] = useState(false);
@@ -105,16 +97,14 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCodeToggle = `import { Toggle } from '@as-design-system/core';
-import '@as-design-system/core/Toggle.css';
+  const withoutLabelCodeToggle = `import { Toggle } from '@/design-system/components/Toggle';
 
 // Toggle without visible label (label is still used for accessibility)
 <Toggle showLabel={false} size="S" />
 <Toggle showLabel={false} size="M" checked />
 <Toggle showLabel={false} size="L" />`;
 
-  const withoutLabelCodeVToggle = `import { VToggle } from '@as-design-system/core';
-import '@as-design-system/core/VToggle.css';
+  const withoutLabelCodeVToggle = `import { VToggle } from '@/design-system/components/VToggle';
 
 // VToggle without visible label (label is still used for accessibility)
 <VToggle showLabel={false} size="S" />

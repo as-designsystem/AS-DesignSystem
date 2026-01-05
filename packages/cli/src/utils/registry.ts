@@ -2,13 +2,14 @@ import { components } from '../registry/components';
 import { composites } from '../registry/composites';
 import { tokens } from '../registry/tokens';
 import { templates } from '../registry/templates';
+import { assets } from '../registry/assets';
 import type { RegistryItem } from '../registry/schema';
 
 /**
  * Get all registry items
  */
 export function getRegistry(): RegistryItem[] {
-  return [...components, ...composites, ...tokens, ...templates];
+  return [...components, ...composites, ...tokens, ...templates, ...assets];
 }
 
 /**
@@ -74,7 +75,7 @@ export function resolveDependencies(
 /**
  * Get registry items by type
  */
-export function getRegistryByType(type: 'component' | 'composite' | 'token' | 'icon' | 'template'): RegistryItem[] {
+export function getRegistryByType(type: 'component' | 'composite' | 'token' | 'icon' | 'template' | 'asset'): RegistryItem[] {
   const registry = getRegistry();
   return registry.filter((item) => item.type === type);
 }

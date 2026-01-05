@@ -114,7 +114,7 @@ async function copyFile(
   config: any,
   cwd: string,
   customTargetPath?: string
-): Promise<void> {
+): Promise<number> {
   // Resolve templates from CLI package location
   // __dirname will be in dist/, templates/ is at package root
   const sourcePath = path.resolve(__dirname, '..', file.path);
@@ -122,6 +122,12 @@ async function copyFile(
   // Use custom target path for templates, design system path for everything else
   const basePath = customTargetPath || config.designSystemPath;
   const targetPath = path.join(cwd, basePath, file.target);
+
+  // Check if source is a directory (for assets)
+  const stat = await fs.stat(sourcePath);
+  if (stat.isDirectory()) {
+    return await copyDirectory(sourcePath, targetPath);
+  }
 
   // Ensure target directory exists
   await fs.ensureDir(path.dirname(targetPath));
@@ -142,6 +148,32 @@ async function copyFile(
     // Write file
     await fs.writeFile(targetPath, rewritten, 'utf-8');
   }
+
+  return 1;
+}
+
+/**
+ * Recursively copy a directory
+ */
+async function copyDirectory(sourcePath: string, targetPath: string): Promise<number> {
+  await fs.ensureDir(targetPath);
+
+  const entries = await fs.readdir(sourcePath, { withFileTypes: true });
+  let count = 0;
+
+  for (const entry of entries) {
+    const srcPath = path.join(sourcePath, entry.name);
+    const destPath = path.join(targetPath, entry.name);
+
+    if (entry.isDirectory()) {
+      count += await copyDirectory(srcPath, destPath);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+      count++;
+    }
+  }
+
+  return count;
 }
 
 /**
@@ -343,13 +375,13 @@ export const add = new Command()
         // Apply TypeScript filter
         if (!shouldCopyFile(file)) continue;
 
-        // Templates go to their own target path
+        // Templates go to their own target path, assets go to design system path
         const customTargetPath = item.type === 'template'
           ? (item.targetPath || config.templates?.targetPath || 'src/pages')
           : undefined;
 
-        await copyFile(file, config, cwd, customTargetPath);
-        filesCopied++;
+        const copied = await copyFile(file, config, cwd, customTargetPath);
+        filesCopied += copied;
         installedItems.add(item.name);
       }
 
@@ -464,6 +496,18 @@ export const add = new Command()
           logger.info(`  ${templateName} → ${targetPath}/`);
         }
         logger.info('Edit the template files to customize them for your project.');
+      }
+
+      const installedAssets = toInstall.filter(
+        (i) => i.type === 'asset' && installedItems.has(i.name)
+      );
+      if (installedAssets.length > 0) {
+        logger.break();
+        logger.info('Assets installed:');
+        for (const asset of installedAssets) {
+          const assetName = asset.displayName || asset.name;
+          logger.info(`  ${assetName} → ${config.designSystemPath}/${asset.files[0]?.target || 'assets'}/`);
+        }
       }
     } catch (error: any) {
       spinner.fail('Failed to copy files');

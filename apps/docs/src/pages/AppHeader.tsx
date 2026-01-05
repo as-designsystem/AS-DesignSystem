@@ -11,7 +11,9 @@ export default function AppHeaderPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const basicCode = `import { AppHeader, IconButton, Button } from '@/design-system';
+  const basicCode = `import { AppHeader } from '@/design-system/composites/AppHeader';
+import { IconButton } from '@/design-system/components/IconButton';
+import { Button } from '@/design-system/components/Button';
 
 function Example() {
   return (
@@ -34,13 +36,15 @@ function Example() {
   );
 }`;
 
-  const minimalCode = `import { AppHeader } from '@/design-system';
+  const minimalCode = `import { AppHeader } from '@/design-system/composites/AppHeader';
 
 // Minimal AppHeader with just app name
 // Logo (Airbus) and subtitle (By Airline Sciences) are always displayed
 <AppHeader appName="My Application" />`;
 
-  const customActionsCode = `import { AppHeader, IconButton, Button } from '@/design-system';
+  const customActionsCode = `import { AppHeader } from '@/design-system/composites/AppHeader';
+import { IconButton } from '@/design-system/components/IconButton';
+import { Button } from '@/design-system/components/Button';
 
 // Custom actions with different buttons
 <AppHeader

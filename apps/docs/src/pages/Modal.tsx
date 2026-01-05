@@ -55,7 +55,8 @@ function Example() {
   );
 }`;
 
-  const customSizeCode = `import { Modal, Button } from '@/design-system/composites/Modal';
+  const customSizeCode = `import { Modal } from '@/design-system/composites/Modal';
+import { Button } from '@/design-system/components/Button';
 import './my-styles.css';
 
 // Fullscreen modal (with margin)
@@ -94,7 +95,8 @@ import './my-styles.css';
   min-width: 280px;
 }`;
 
-  const customFooterCode = `import { Modal, Button } from '@/design-system/composites/Modal';
+  const customFooterCode = `import { Modal } from '@/design-system/composites/Modal';
+import { Button } from '@/design-system/components/Button';
 
 // Custom footer with different actions
 <Modal

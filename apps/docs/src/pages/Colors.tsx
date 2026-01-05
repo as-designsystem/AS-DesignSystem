@@ -58,44 +58,6 @@ function formatColor(
   }
 }
 
-// Helper function to determine text color based on background luminosity
-function getTextColor(bgColor: string): string {
-  // Handle rgba/rgb colors
-  if (bgColor.includes('rgba') || bgColor.startsWith('rgb')) {
-    const match = bgColor.match(/\d+/g);
-    if (match && match.length >= 3) {
-      const r = parseInt(match[0]);
-      const g = parseInt(match[1]);
-      const b = parseInt(match[2]);
-      const alpha = match[3] ? parseFloat(match[3]) : 1;
-
-      // If transparent, assume white background
-      if (alpha < 0.5) {
-        return '#000';
-      }
-
-      // Calculate relative luminance (WCAG formula)
-      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-      return luminance > 0.179 ? '#000' : '#fff';
-    }
-  }
-
-  // Handle hex colors
-  if (bgColor.startsWith('#')) {
-    const hex = bgColor.replace('#', '');
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    // Calculate relative luminance (WCAG formula)
-    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    return luminance > 0.179 ? '#000' : '#fff';
-  }
-
-  // Default to black for unknown formats
-  return '#000';
-}
-
 // Primitive color variable name mapping
 function getPrimitiveVariableName(paletteName: string, shade: string): string {
   const nameMap: Record<string, string> = {

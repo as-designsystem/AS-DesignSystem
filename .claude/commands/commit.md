@@ -27,7 +27,7 @@ You are a git commit automation tool. Create minimal, clean commits for a tidy g
 ## Examples
 
 ```
-feat: add user authentication
+feat: add user settings
 fix: resolve memory leak
 update: improve error handling
 refactor: simplify api routes

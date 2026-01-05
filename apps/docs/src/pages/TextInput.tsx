@@ -12,16 +12,14 @@ export default function TextInputPage() {
 
   const [inputValue, setInputValue] = useState('');
 
-  const sizesCode = `import { TextInput } from '@as-design-system/core';
-import '@as-design-system/core/TextInput.css';
+  const sizesCode = `import { TextInput } from '@/design-system/components/TextInput';
 
 <TextInput label="Size XS" placeholder="Enter text..." size="XS" />
 <TextInput label="Size S" placeholder="Enter text..." size="S" />
 <TextInput label="Size M" placeholder="Enter text..." size="M" />
 <TextInput label="Size L" placeholder="Enter text..." size="L" />`;
 
-  const statesCode = `import { TextInput } from '@as-design-system/core';
-import '@as-design-system/core/TextInput.css';
+  const statesCode = `import { TextInput } from '@/design-system/components/TextInput';
 
 <TextInput label="Default" placeholder="Enter text..." state="Default" />
 <TextInput label="Error" placeholder="Enter text..." state="Error" legend="This field is required" showLegend />
@@ -29,8 +27,7 @@ import '@as-design-system/core/TextInput.css';
 <TextInput label="Disabled" placeholder="Enter text..." disabled />
 <TextInput label="Read-only" value="Read-only value" readOnly />`;
 
-  const optionsCode = `import { TextInput } from '@as-design-system/core';
-import '@as-design-system/core/TextInput.css';
+  const optionsCode = `import { TextInput } from '@/design-system/components/TextInput';
 
 // With optional text
 <TextInput label="Email" placeholder="Enter your email" showOptional />

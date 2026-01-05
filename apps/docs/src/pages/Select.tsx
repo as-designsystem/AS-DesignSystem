@@ -27,8 +27,7 @@ export default function SelectPage() {
   ];
 
   // Code examples - Select (Radix)
-  const sizesCodeSelect = `import { Select } from '@as-design-system/core';
-import '@as-design-system/core/Select.css';
+  const sizesCodeSelect = `import { Select } from '@/design-system/components/Select';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -42,8 +41,7 @@ const options = [
 <Select label="Size L" options={options} size="L" />`;
 
   // Code examples - VSelect (Vanilla)
-  const sizesCodeVSelect = `import { VSelect } from '@as-design-system/core';
-import '@as-design-system/core/VSelect.css';
+  const sizesCodeVSelect = `import { VSelect } from '@/design-system/components/VSelect';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -56,8 +54,7 @@ const options = [
 <VSelect label="Size M" options={options} size="M" />
 <VSelect label="Size L" options={options} size="L" />`;
 
-  const statesCodeSelect = `import { Select } from '@as-design-system/core';
-import '@as-design-system/core/Select.css';
+  const statesCodeSelect = `import { Select } from '@/design-system/components/Select';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -70,8 +67,7 @@ const options = [
 <Select label="Disabled" options={options} state="Disabled" />
 <Select label="Read-only" options={options} state="Read-only" value="fr" />`;
 
-  const statesCodeVSelect = `import { VSelect } from '@as-design-system/core';
-import '@as-design-system/core/VSelect.css';
+  const statesCodeVSelect = `import { VSelect } from '@/design-system/components/VSelect';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -84,8 +80,7 @@ const options = [
 <VSelect label="Disabled" options={options} state="Disabled" />
 <VSelect label="Read-only" options={options} state="Read-only" value="fr" />`;
 
-  const optionsCodeSelect = `import { Select } from '@as-design-system/core';
-import '@as-design-system/core/Select.css';
+  const optionsCodeSelect = `import { Select } from '@/design-system/components/Select';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -104,8 +99,7 @@ const options = [
 // With info icon and tooltip
 <Select label="Country" options={options} showInfo infoText="Select your country of residence" />`;
 
-  const optionsCodeVSelect = `import { VSelect } from '@as-design-system/core';
-import '@as-design-system/core/VSelect.css';
+  const optionsCodeVSelect = `import { VSelect } from '@/design-system/components/VSelect';
 
 const options = [
   { value: 'fr', label: 'France' },
@@ -124,8 +118,7 @@ const options = [
 // With info icon and tooltip
 <VSelect label="Country" options={options} showInfo infoText="Select your country of residence" />`;
 
-  const vselectCode = `import { VSelect } from '@as-design-system/core';
-import '@as-design-system/core/VSelect.css';
+  const vselectCode = `import { VSelect } from '@/design-system/components/VSelect';
 
 const options = [
   { value: 'fr', label: 'France' },

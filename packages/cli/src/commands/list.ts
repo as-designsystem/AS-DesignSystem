@@ -84,8 +84,25 @@ export const list = new Command()
       console.log('');
     }
 
+    // Assets
+    const assets = getRegistryByType('asset');
+    if (assets.length > 0) {
+      console.log(chalk.bold.cyan('Assets:'));
+      for (const asset of assets) {
+        const displayName = asset.displayName || asset.name;
+        const description = asset.description || '';
+        console.log(`  ${chalk.green(asset.name.padEnd(15))} ${displayName}`);
+        if (description) {
+          console.log(`  ${' '.repeat(15)} ${chalk.gray(description)}`);
+        }
+      }
+      console.log('');
+    }
+
     logger.info('Usage:');
     logger.info('  asds add <name>        Add a specific component or token');
     logger.info('  asds add button icon   Add multiple items at once');
     logger.info('  asds add home-page     Add a page template');
+    logger.info('  asds add svg-icons     Add SVG icons');
+    logger.info('  asds update svg-icons  Update assets to latest version');
   });

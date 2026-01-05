@@ -11,10 +11,9 @@ export default function HomePageActionBarPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const basicCode = `import { HomePageActionBar, Button, TextInput } from '@as-design-system/core';
-import '@as-design-system/core/HomePageActionBar.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/TextInput.css';
+  const basicCode = `import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
+import { Button } from '@/design-system/components/Button';
+import { TextInput } from '@/design-system/components/TextInput';
 
 function Example() {
   return (
@@ -44,7 +43,8 @@ function Example() {
 }`;
 
   const controlledTabsCode = `import { useState } from 'react';
-import { HomePageActionBar, Button, type HomePageTab } from '@as-design-system/core';
+import { HomePageActionBar, type HomePageTab } from '@/design-system/composites/HomePageActionBar';
+import { Button } from '@/design-system/components/Button';
 
 function Example() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
@@ -56,7 +56,9 @@ function Example() {
   );
 }`;
 
-  const customActionsCode = `import { HomePageActionBar, Button, TextInput } from '@as-design-system/core';
+  const customActionsCode = `import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
+import { Button } from '@/design-system/components/Button';
+import { TextInput } from '@/design-system/components/TextInput';
 
 // Mix any components: buttons, selects, inputs, etc.
 <HomePageActionBar>
@@ -79,7 +81,8 @@ function Example() {
   <Button label="CREATE" leftIcon="add" size="M" />
 </HomePageActionBar>`;
 
-  const minimalCode = `import { HomePageActionBar, Button } from '@as-design-system/core';
+  const minimalCode = `import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
+import { Button } from '@/design-system/components/Button';
 
 // Minimal with just a primary action
 <HomePageActionBar onTabChange={(tab) => console.log(tab)}>

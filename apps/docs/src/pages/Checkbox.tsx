@@ -26,23 +26,20 @@ export default function CheckboxPage() {
   const [checked3, setChecked3] = useState(false);
 
   // Code examples - Checkbox (Radix)
-  const sizesCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const sizesCodeCheckbox = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 <Checkbox label="Size S" size="S" />
 <Checkbox label="Size M" size="M" />
 <Checkbox label="Size L" size="L" />`;
 
   // Code examples - VCheckbox (Vanilla)
-  const sizesCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
-import '@as-design-system/core/VCheckbox.css';
+  const sizesCodeVCheckbox = `import { VCheckbox } from '@/design-system/components/VCheckbox';
 
 <VCheckbox label="Size S" size="S" />
 <VCheckbox label="Size M" size="M" />
 <VCheckbox label="Size L" size="L" />`;
 
-  const statusCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const statusCodeCheckbox = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 // Default (unchecked)
 <Checkbox label="Default" status="Default" />
@@ -53,8 +50,7 @@ import '@as-design-system/core/Checkbox.css';
 // Indeterminate
 <Checkbox label="Indeterminate" status="Indeterminate" />`;
 
-  const statusCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
-import '@as-design-system/core/VCheckbox.css';
+  const statusCodeVCheckbox = `import { VCheckbox } from '@/design-system/components/VCheckbox';
 
 // Default (unchecked)
 <VCheckbox label="Default" status="Default" />
@@ -65,16 +61,14 @@ import '@as-design-system/core/VCheckbox.css';
 // Indeterminate
 <VCheckbox label="Indeterminate" status="Indeterminate" />`;
 
-  const statesCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const statesCodeCheckbox = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 <Checkbox label="Default" state="Default" />
 <Checkbox label="Disabled" state="Disabled" />
 <Checkbox label="Disabled Checked" state="Disabled" status="Checked" />
 <Checkbox label="Read-only" state="Read-only" status="Checked" />`;
 
-  const statesCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
-import '@as-design-system/core/VCheckbox.css';
+  const statesCodeVCheckbox = `import { VCheckbox } from '@/design-system/components/VCheckbox';
 
 <VCheckbox label="Default" state="Default" />
 <VCheckbox label="Disabled" state="Disabled" />
@@ -82,8 +76,7 @@ import '@as-design-system/core/VCheckbox.css';
 <VCheckbox label="Read-only" state="Read-only" status="Checked" />`;
 
   const controlledCodeCheckbox = `import { useState } from 'react';
-import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+import { Checkbox } from '@/design-system/components/Checkbox';
 
 function MyComponent() {
   const [checked, setChecked] = useState(false);
@@ -98,8 +91,7 @@ function MyComponent() {
 }`;
 
   const controlledCodeVCheckbox = `import { useState } from 'react';
-import { VCheckbox } from '@as-design-system/core';
-import '@as-design-system/core/VCheckbox.css';
+import { VCheckbox } from '@/design-system/components/VCheckbox';
 
 function MyComponent() {
   const [checked, setChecked] = useState(false);
@@ -113,16 +105,14 @@ function MyComponent() {
   );
 }`;
 
-  const withoutLabelCodeCheckbox = `import { Checkbox } from '@as-design-system/core';
-import '@as-design-system/core/Checkbox.css';
+  const withoutLabelCodeCheckbox = `import { Checkbox } from '@/design-system/components/Checkbox';
 
 // Checkbox without visible label
 <Checkbox showLabel={false} size="S" />
 <Checkbox showLabel={false} size="M" status="Checked" />
 <Checkbox showLabel={false} size="L" status="Indeterminate" />`;
 
-  const withoutLabelCodeVCheckbox = `import { VCheckbox } from '@as-design-system/core';
-import '@as-design-system/core/VCheckbox.css';
+  const withoutLabelCodeVCheckbox = `import { VCheckbox } from '@/design-system/components/VCheckbox';
 
 // VCheckbox without visible label
 <VCheckbox showLabel={false} size="S" />

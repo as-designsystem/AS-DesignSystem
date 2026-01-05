@@ -41,24 +41,6 @@ const ViteIcon = () => (
   </svg>
 );
 
-const ReactIcon = () => (
-  <svg viewBox="-11.5 -10.232 23 20.463" fill="none">
-    <circle r="2.05" fill="#61dafb"/>
-    <g stroke="#61dafb" fill="none">
-      <ellipse rx="11" ry="4.2"/>
-      <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-      <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-    </g>
-  </svg>
-);
-
-const TypeScriptIcon = () => (
-  <svg viewBox="0 0 128 128" fill="none">
-    <rect width="128" height="128" rx="8" fill="#3178c6"/>
-    <path d="M82.5 67.5v-5h-30v5h10v40h10v-40h10zm10 40v-45h-10v50h25v-5h-15z" fill="white"/>
-  </svg>
-);
-
 const CRAIcon = () => (
   <svg viewBox="0 0 100 100" fill="none">
     <circle cx="50" cy="50" r="45" stroke="#61dafb" strokeWidth="3" fill="none"/>
