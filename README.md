@@ -116,12 +116,14 @@ Icons will automatically appear in the documentation!
 ### In a New Project
 
 ```bash
-# Clone the design system repo
+# Clone and build the design system
 git clone https://github.com/nomanocra/AS-DesignSystem.git
+cd AS-DesignSystem
+pnpm install
+pnpm build
 
-# Build and link the CLI locally
-cd AS-DesignSystem/packages/cli
-pnpm install && pnpm build
+# Link the CLI globally
+cd packages/cli
 pnpm link --global
 
 # Now use it in your project
