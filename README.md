@@ -116,13 +116,17 @@ Icons will automatically appear in the documentation!
 ### In a New Project
 
 ```bash
-# Install the CLI globally
-npm install -g @as-design-system/cli
+# Clone the design system repo
+git clone https://github.com/nomanocra/AS-DesignSystem.git
 
-# Initialize in your project
+# Build and link the CLI locally
+cd AS-DesignSystem/packages/cli
+pnpm install && pnpm build
+pnpm link --global
+
+# Now use it in your project
+cd /path/to/your-project
 asds init
-
-# Add components you need
 asds add button icon text-input modal
 ```
 
