@@ -1,33 +1,58 @@
 # AS Design System
 
-Design System React avec composants, tokens, et icônes générés depuis Figma.
+A React Design System with components, composites, tokens, and icons generated from Figma.
 
-## 🏗️ Structure du projet
+## Project Structure
 
 ```
 as-design-system/
 ├── packages/
-│   ├── core/              # Composants React + Tokens + Icônes
-│   └── cli/               # CLI pour installation des composants
+│   ├── core/              # React components, composites, tokens, icons
+│   └── cli/               # CLI for component installation
 ├── apps/
-│   └── docs/              # Application de documentation
-└── Configuration monorepo
+│   └── docs/              # Documentation app
+└── Monorepo configuration
 ```
 
-## 📦 Packages
+## Packages
 
 ### `@as-design-system/core`
-Package principal contenant :
-- **Composants React** : Button, Icon, IconButton, Tab, ToolIcons
-- **Design tokens** : Couleurs, typographie
-- **39 icônes SVG** : Icônes AS + Material Icons
+
+Main package containing:
+
+- **Components**: Button, ButtonGroup, Checkbox, VCheckbox, Icon, IconButton, Select, VSelect, Tab, TextInput, Toggle, VToggle, Tooltip, ToolIcon
+- **Composites**: AppHeader, HomePageActionBar, Modal, ProductPanel
+- **Design tokens**: Colors, typography
+- **51 SVG icons**: AS icons + Material Icons
 
 ### `@as-design-system/cli`
-CLI pour installer rapidement les composants dans votre projet.
 
-## 🚀 Démarrage
+CLI to quickly install components in your project.
 
-### Prérequis
+```bash
+# Initialize design system in your project
+asds init
+
+# List all available items
+asds list
+
+# Add components
+asds add button icon text-input
+
+# Add composites
+asds add modal app-header
+
+# Add page templates
+asds add home-page
+
+# Add assets
+asds add svg-icons
+asds add all-assets
+```
+
+## Getting Started
+
+### Prerequisites
 
 - Node.js >= 18.0.0
 - pnpm >= 8.0.0
@@ -35,62 +60,89 @@ CLI pour installer rapidement les composants dans votre projet.
 ### Installation
 
 ```bash
-# Installer les dépendances
+# Install dependencies
 pnpm install
 
-# Build tous les packages
+# Build all packages
 pnpm build
 ```
 
-### Développement
+### Development
 
 ```bash
-# Lancer l'app de documentation en mode développement
+# Run documentation app in dev mode
 cd apps/docs
 pnpm dev
 
-# Build le package core
+# Build core package
 cd packages/core
 pnpm build
 
-# Vérification TypeScript
+# Build CLI (syncs templates automatically)
+cd packages/cli
+pnpm build
+
+# TypeScript check
 pnpm type-check
 ```
 
-## 📚 Documentation
+## Documentation
 
-L'application de documentation est accessible via `pnpm dev` et permet de :
-- Visualiser tous les composants avec exemples interactifs
-- Explorer les tokens (couleurs, typographie)
-- Consulter les 39 icônes disponibles
-- Voir les exemples d'utilisation avec code
+The documentation app is available via `pnpm dev` and allows you to:
 
-## 🎨 Ajouter de nouvelles icônes
+- View all components with interactive examples
+- Explore tokens (colors, typography)
+- Browse the 51 available icons
+- See usage examples with code
+
+## Adding New Icons
 
 ```bash
-# 1. Ajouter vos fichiers SVG dans:
+# 1. Add your SVG files in:
 packages/core/src/assets/svg/icons/
 
-# 2. Générer les imports automatiquement:
+# 2. Generate imports automatically:
 cd packages/core
 pnpm generate-icons
 
-# 3. Rebuild le package:
+# 3. Rebuild the package:
 pnpm build
 ```
 
-Les icônes apparaîtront automatiquement dans la documentation!
+Icons will automatically appear in the documentation!
 
-## 🛠️ Technologies
+## Using the CLI
 
-- **TypeScript** : Typage statique
-- **React 18** : Framework UI
-- **Vite** : Build tool & dev server
-- **CSS Modules** : Styling avec CSS variables
-- **pnpm workspaces** : Monorepo
-- **tsup** : Build rapide TypeScript
-- **Figma MCP** : Extraction des composants depuis Figma
+### In a New Project
 
-## 📖 Plus d'infos
+```bash
+# Install the CLI globally
+npm install -g @as-design-system/cli
 
-Pour les détails techniques et conventions de développement, voir [CLAUDE.md](./CLAUDE.md).
+# Initialize in your project
+asds init
+
+# Add components you need
+asds add button icon text-input modal
+```
+
+### What Gets Installed
+
+- **Components**: Source files (.tsx + .css) copied to your design system folder
+- **Tokens**: CSS variables for colors and typography
+- **Assets**: SVG icons, logos, backgrounds
+- **Templates**: Complete page layouts as starting points
+
+## Technologies
+
+- **TypeScript**: Static typing
+- **React 18**: UI framework
+- **Vite**: Build tool & dev server
+- **CSS Variables**: Styling with design tokens
+- **pnpm workspaces**: Monorepo
+- **tsup**: Fast TypeScript builds
+- **Figma MCP**: Component extraction from Figma
+
+## More Information
+
+For technical details and development conventions, see [CLAUDE.md](./CLAUDE.md).
