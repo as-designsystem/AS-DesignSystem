@@ -116,8 +116,7 @@ Icons will automatically appear in the documentation!
 ### In a New Project
 
 ```bash
-# Clone and build the design system
-git clone https://github.com/nomanocra/AS-DesignSystem.git
+# Build the design system
 cd AS-DesignSystem
 pnpm install
 pnpm build
