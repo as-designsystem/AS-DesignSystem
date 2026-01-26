@@ -39,4 +39,23 @@ export const tokens: RegistryItem[] = [
     ],
     cssImports: ['@/design-system/tokens/typography.css'],
   },
+  {
+    name: 'radius',
+    type: 'token',
+    displayName: 'Radius',
+    description: 'Border radius tokens',
+    files: [
+      {
+        path: 'templates/tokens/radius.ts',
+        target: 'tokens/radius.ts',
+        type: 'component',
+      },
+      {
+        path: 'templates/tokens/radius.css',
+        target: 'tokens/radius.css',
+        type: 'style',
+      },
+    ],
+    cssImports: ['@/design-system/tokens/radius.css'],
+  },
 ];

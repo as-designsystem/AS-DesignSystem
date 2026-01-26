@@ -24,12 +24,17 @@
     "./Toggle.css": "./dist/Toggle.css",
     "./VToggle.css": "./dist/VToggle.css",
     "./TextInput.css": "./dist/TextInput.css",
+    "./NumberInput.css": "./dist/NumberInput.css",
+    "./Tooltip.css": "./dist/Tooltip.css",
     "./Modal.css": "./dist/Modal.css",
     "./AppHeader.css": "./dist/AppHeader.css",
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css",
+    "./radius.css": "./dist/radius.css",
     "./ProductPanel.css": "./dist/ProductPanel.css",
-    "./HomePageActionBar.css": "./dist/HomePageActionBar.css"
+    "./HomePageActionBar.css": "./dist/HomePageActionBar.css",
+    "./PanelStudyName.css": "./dist/PanelStudyName.css",
+    "./PanelButton.css": "./dist/PanelButton.css"
   },
   "scripts": {
     "build": "tsup",
