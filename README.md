@@ -21,7 +21,7 @@ as-design-system/
 Main package containing:
 
 - **Components**: Button, ButtonGroup, Checkbox, VCheckbox, Icon, IconButton, Select, VSelect, Tab, TextInput, Toggle, VToggle, Tooltip, ToolIcon
-- **Composites**: AppHeader, HomePageActionBar, Modal, ProductPanel
+- **Composites**: AppHeader, HomePageActionBar, Modal, ProductBanner
 - **Design tokens**: Colors, typography
 - **51 SVG icons**: AS icons + Material Icons
 

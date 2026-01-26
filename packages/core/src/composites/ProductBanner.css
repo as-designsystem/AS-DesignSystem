@@ -1,9 +1,9 @@
 /**
- * ProductPanel Component Styles
+ * ProductBanner Component Styles
  * A banner for product/tool information with dark overlay
  */
 
-.product-panel {
+.product-banner {
   position: relative;
   width: 100%;
   display: flex;
@@ -17,13 +17,13 @@
    BACKGROUND
    ============================================================================ */
 
-.product-panel__background {
+.product-banner__background {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.product-panel__background-image {
+.product-banner__background-image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -32,14 +32,14 @@
   object-position: center;
 }
 
-.product-panel__overlay {
+.product-banner__overlay {
   position: absolute;
   inset: 0;
   background-color: color-mix(in srgb, var(--background-corporate) 80%, transparent);
 }
 
 /* Without background image, use solid color */
-.product-panel:not(:has(.product-panel__background-image)) .product-panel__overlay {
+.product-banner:not(:has(.product-banner__background-image)) .product-banner__overlay {
   background-color: var(--background-corporate);
 }
 
@@ -47,7 +47,7 @@
    CONTENT
    ============================================================================ */
 
-.product-panel__content {
+.product-banner__content {
   position: relative;
   width: 100%;
   max-width: 1640px;
@@ -61,13 +61,13 @@
    HEADER (Icon + Title)
    ============================================================================ */
 
-.product-panel__header {
+.product-banner__header {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.product-panel__title {
+.product-banner__title {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 700;
@@ -80,7 +80,7 @@
    DESCRIPTION
    ============================================================================ */
 
-.product-panel__description {
+.product-banner__description {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -94,14 +94,14 @@
    LINKS
    ============================================================================ */
 
-.product-panel__links {
+.product-banner__links {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.product-panel__link {
+.product-banner__link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -113,12 +113,12 @@
   color: var(--primary-light, #cfddf8);
 }
 
-.product-panel__link:hover {
+.product-banner__link:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--white);
 }
 
-.product-panel__link-label {
+.product-banner__link-label {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -131,20 +131,20 @@
    ============================================================================ */
 
 @media (max-width: 768px) {
-  .product-panel__content {
+  .product-banner__content {
     padding: 24px 16px;
   }
 
-  .product-panel__header {
+  .product-banner__header {
     gap: 16px;
   }
 
-  .product-panel__title {
+  .product-banner__title {
     font-size: 18px;
     line-height: 28px;
   }
 
-  .product-panel__description {
+  .product-banner__description {
     font-size: 12px;
     line-height: 18px;
   }

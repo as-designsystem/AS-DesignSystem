@@ -9,7 +9,7 @@ asds add <template-name>
 asds add home-page
 
 # This will:
-# 1. Install all required dependencies (AppHeader, ProductPanel, etc.)
+# 1. Install all required dependencies (AppHeader, ProductBanner, etc.)
 # 2. Copy the template files to src/pages/
 # 3. You can then customize the template for your needs`;
 

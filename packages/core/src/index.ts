@@ -20,8 +20,9 @@ export { PanelButton, type PanelButtonProps, type PanelButtonSize, type PanelBut
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';
 export { AppHeader, type AppHeaderProps } from './composites/AppHeader';
-export { ProductPanel, type ProductPanelProps, type ProductPanelLink } from './composites/ProductPanel';
+export { ProductBanner, type ProductBannerProps, type ProductBannerLink } from './composites/ProductBanner';
 export { HomePageActionBar, type HomePageActionBarProps, type HomePageTab } from './composites/HomePageActionBar';
+export { PanelHeader, type PanelHeaderProps } from './composites/PanelHeader';
 
 // Tokens
 export * from './tokens/colors';

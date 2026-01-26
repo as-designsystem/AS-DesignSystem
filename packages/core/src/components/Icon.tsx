@@ -26,12 +26,14 @@ import airLifeVestIcon from '../assets/svg/icons/AIR_life_vest.svg?raw';
 import airSideIcon from '../assets/svg/icons/AIR_side.svg?raw';
 import airSpinnerIcon from '../assets/svg/icons/AIR_spinner.svg?raw';
 import airTailIcon from '../assets/svg/icons/AIR_tail.svg?raw';
+import arrowBackIcon from '../assets/svg/icons/arrow_back.svg?raw';
 import accountCircleIcon from '../assets/svg/icons/account_circle.svg?raw';
 import addIcon from '../assets/svg/icons/add.svg?raw';
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
+import contentCopyIcon from '../assets/svg/icons/content_copy.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
@@ -82,12 +84,14 @@ const iconMap: Record<string, string> = {
   'AIR_side': airSideIcon,
   'AIR_spinner': airSpinnerIcon,
   'AIR_tail': airTailIcon,
+  'arrow_back': arrowBackIcon,
   'account_circle': accountCircleIcon,
   'add': addIcon,
   'apps': appsIcon,
   'check': checkIcon,
   'close': closeIcon,
   'code': codeIcon,
+  'content_copy': contentCopyIcon,
   'construction': constructionIcon,
   'dark_mode': darkModeIcon,
   'delete': deleteIcon,
@@ -138,12 +142,14 @@ export const availableIcons = [
   'AIR_side',
   'AIR_spinner',
   'AIR_tail',
+  'arrow_back',
   'account_circle',
   'add',
   'apps',
   'check',
   'close',
   'code',
+  'content_copy',
   'construction',
   'dark_mode',
   'delete',

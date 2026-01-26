@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (53 icons)
+      // SVG icon assets (55 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -48,10 +48,12 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/account_circle.svg', target: 'assets/svg/icons/account_circle.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/add.svg', target: 'assets/svg/icons/add.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/apps.svg', target: 'assets/svg/icons/apps.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/arrow_back.svg', target: 'assets/svg/icons/arrow_back.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/check.svg', target: 'assets/svg/icons/check.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/close.svg', target: 'assets/svg/icons/close.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/code.svg', target: 'assets/svg/icons/code.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/construction.svg', target: 'assets/svg/icons/construction.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/content_copy.svg', target: 'assets/svg/icons/content_copy.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/dark_mode.svg', target: 'assets/svg/icons/dark_mode.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/delete.svg', target: 'assets/svg/icons/delete.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/dropdown.svg', target: 'assets/svg/icons/dropdown.svg', type: 'component' },

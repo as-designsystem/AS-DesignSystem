@@ -1,0 +1,13 @@
+.panel-header-demo {
+  width: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--background-main, #ffffff);
+  padding: 16px;
+}
+
+.panel-header-demo-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}

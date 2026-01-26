@@ -31,10 +31,11 @@
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css",
     "./radius.css": "./dist/radius.css",
-    "./ProductPanel.css": "./dist/ProductPanel.css",
+    "./ProductBanner.css": "./dist/ProductBanner.css",
     "./HomePageActionBar.css": "./dist/HomePageActionBar.css",
     "./PanelStudyName.css": "./dist/PanelStudyName.css",
-    "./PanelButton.css": "./dist/PanelButton.css"
+    "./PanelButton.css": "./dist/PanelButton.css",
+    "./PanelHeader.css": "./dist/PanelHeader.css"
   },
   "scripts": {
     "build": "tsup",

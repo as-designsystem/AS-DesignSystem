@@ -20,8 +20,8 @@
   flex-shrink: 0;
 }
 
-/* Prevent ProductPanel from shrinking */
-.home-page-template-preview .product-panel {
+/* Prevent ProductBanner from shrinking */
+.home-page-template-preview .product-banner {
   flex-shrink: 0;
 }
 

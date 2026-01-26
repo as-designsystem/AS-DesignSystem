@@ -195,7 +195,7 @@ cd apps/docs && pnpm dev
 
 ## Composite Implementation Workflow
 
-Composites are complex components that combine multiple atomic components (Modal, AppHeader, ProductPanel).
+Composites are complex components that combine multiple atomic components (Modal, AppHeader, ProductBanner).
 
 ### Step 1: Inspect Figma & Check Dependencies
 
@@ -207,7 +207,7 @@ Create in `/packages/core/src/composites/`:
 - `CompositeName.tsx`
 - `CompositeName.css`
 
-**Reference:** See `Modal.tsx`, `AppHeader.tsx`, `ProductPanel.tsx`.
+**Reference:** See `Modal.tsx`, `AppHeader.tsx`, `ProductBanner.tsx`.
 
 ### Step 3: Register Composite
 

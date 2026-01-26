@@ -19,8 +19,9 @@ import PanelStudyNamePage from './pages/PanelStudyName';
 import PanelButtonPage from './pages/PanelButton';
 import Modal from './pages/Modal';
 import AppHeader from './pages/AppHeader';
-import ProductPanel from './pages/ProductPanel';
+import ProductBanner from './pages/ProductBanner';
 import HomePageActionBar from './pages/HomePageActionBar';
+import PanelHeaderPage from './pages/PanelHeader';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import TextStyles from './pages/TextStyles';
@@ -63,8 +64,9 @@ function App() {
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />
-              <Route path="/composites/product-panel" element={<ProductPanel />} />
+              <Route path="/composites/product-banner" element={<ProductBanner />} />
               <Route path="/composites/home-page-action-bar" element={<HomePageActionBar />} />
+              <Route path="/composites/panel-header" element={<PanelHeaderPage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

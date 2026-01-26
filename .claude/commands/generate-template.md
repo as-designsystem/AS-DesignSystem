@@ -51,7 +51,7 @@ Templates rely heavily on existing components and composites. Verify ALL exist:
 - Button, Icon, TextInput, etc.
 
 **Composites** in `/packages/core/src/composites/`:
-- AppHeader, Modal, ProductPanel, etc.
+- AppHeader, Modal, ProductBanner, etc.
 
 **If missing**: List all missing dependencies and ask whether to generate them first, proceed anyway, or cancel.
 

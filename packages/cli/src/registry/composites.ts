@@ -49,19 +49,19 @@ export const composites: RegistryItem[] = [
     ],
   },
   {
-    name: 'product-panel',
+    name: 'product-banner',
     type: 'composite',
-    displayName: 'ProductPanel',
+    displayName: 'ProductBanner',
     description: 'Product/tool information banner with dark overlay, icon, title, description, and action links',
     files: [
       {
-        path: 'templates/composites/ProductPanel.tsx',
-        target: 'composites/ProductPanel.tsx',
+        path: 'templates/composites/ProductBanner.tsx',
+        target: 'composites/ProductBanner.tsx',
         type: 'component',
       },
       {
-        path: 'templates/composites/ProductPanel.css',
-        target: 'composites/ProductPanel.css',
+        path: 'templates/composites/ProductBanner.css',
+        target: 'composites/ProductBanner.css',
         type: 'style',
       },
       // Background images
@@ -98,6 +98,29 @@ export const composites: RegistryItem[] = [
       },
     ],
     dependencies: ['tab', 'button', 'text-input'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'panel-header',
+    type: 'composite',
+    displayName: 'PanelHeader',
+    description: 'Dark corporate panel header with background image, back navigation, study name, and actions',
+    files: [
+      {
+        path: 'templates/composites/PanelHeader.tsx',
+        target: 'composites/PanelHeader.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/PanelHeader.css',
+        target: 'composites/PanelHeader.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['button', 'panel-study-name', 'icon-button', 'tooltip'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

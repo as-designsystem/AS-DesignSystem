@@ -1,9 +1,9 @@
 import React from 'react';
 import { ToolIcons, type ToolName } from '../components/ToolIcons';
 import { Icon, type IconName } from '../components/Icon';
-import './ProductPanel.css';
+import './ProductBanner.css';
 
-export interface ProductPanelLink {
+export interface ProductBannerLink {
   /**
    * Label displayed on the link button
    */
@@ -22,7 +22,7 @@ export interface ProductPanelLink {
   onClick?: (e: React.MouseEvent) => void;
 }
 
-export interface ProductPanelProps {
+export interface ProductBannerProps {
   /**
    * Product/tool name displayed as title
    */
@@ -38,7 +38,7 @@ export interface ProductPanelProps {
   /**
    * Array of link buttons to display
    */
-  links?: ProductPanelLink[];
+  links?: ProductBannerLink[];
   /**
    * Background image URL (optional)
    * If not provided, a solid dark blue background is used
@@ -51,14 +51,14 @@ export interface ProductPanelProps {
 }
 
 /**
- * ProductPanel Component
+ * ProductBanner Component
  *
  * A banner component for displaying product/tool information with
  * a dark overlay, icon, title, description, and action links.
  *
  * @example
  * ```tsx
- * <ProductPanel
+ * <ProductBanner
  *   productName="Maintenance"
  *   productDescription="Tool for aircraft maintenance management..."
  *   tool="maintenance"
@@ -70,55 +70,55 @@ export interface ProductPanelProps {
  * />
  * ```
  */
-export function ProductPanel({
+export function ProductBanner({
   productName,
   productDescription,
   tool,
   links = [],
   backgroundImage,
   className = '',
-}: ProductPanelProps) {
+}: ProductBannerProps) {
   const containerClasses = [
-    'product-panel',
+    'product-banner',
     className,
   ].filter(Boolean).join(' ');
 
   return (
     <div className={containerClasses}>
       {/* Background with overlay */}
-      <div className="product-panel__background">
+      <div className="product-banner__background">
         {backgroundImage && (
           <img
             src={backgroundImage}
             alt=""
-            className="product-panel__background-image"
+            className="product-banner__background-image"
           />
         )}
-        <div className="product-panel__overlay" />
+        <div className="product-banner__overlay" />
       </div>
 
       {/* Content */}
-      <div className="product-panel__content">
+      <div className="product-banner__content">
         {/* Header with icon and title */}
-        <div className="product-panel__header">
+        <div className="product-banner__header">
           <ToolIcons tool={tool} size={40} mode="dark" />
-          <h2 className="product-panel__title">{productName}</h2>
+          <h2 className="product-banner__title">{productName}</h2>
         </div>
 
         {/* Description */}
-        <p className="product-panel__description">{productDescription}</p>
+        <p className="product-banner__description">{productDescription}</p>
 
         {/* Links */}
         {links.length > 0 && (
-          <div className="product-panel__links">
+          <div className="product-banner__links">
             {links.map((link, index) => (
               <a
                 key={index}
                 href={link.href}
-                className="product-panel__link"
+                className="product-banner__link"
                 onClick={link.onClick}
               >
-                <span className="product-panel__link-label">{link.label}</span>
+                <span className="product-banner__link-label">{link.label}</span>
                 {link.icon && (
                   <Icon
                     name={link.icon}
@@ -135,4 +135,4 @@ export function ProductPanel({
   );
 }
 
-export default ProductPanel;
+export default ProductBanner;

@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { ProductPanel, Button, Tab } from '@as-design-system/core';
-import '@as-design-system/core/ProductPanel.css';
+import { ProductBanner, Button, Tab } from '@as-design-system/core';
+import '@as-design-system/core/ProductBanner.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/ToolIcons.css';
 import CodeModal from '../components/CodeModal';
-import './ProductPanel.css';
+import './ProductBanner.css';
 
-export default function ProductPanelPage() {
+export default function ProductBannerPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const basicCode = `import { ProductPanel } from '@/design-system/composites/ProductPanel';
+  const basicCode = `import { ProductBanner } from '@/design-system/composites/ProductBanner';
 
 function Example() {
   return (
-    <ProductPanel
+    <ProductBanner
       productName="Maintenance"
       productDescription="Tool for aircraft maintenance management and scheduling."
       tool="maintenance"
@@ -28,19 +28,19 @@ function Example() {
   );
 }`;
 
-  const minimalCode = `import { ProductPanel } from '@/design-system/composites/ProductPanel';
+  const minimalCode = `import { ProductBanner } from '@/design-system/composites/ProductBanner';
 
-// Minimal ProductPanel with just name, description and tool icon
-<ProductPanel
+// Minimal ProductBanner with just name, description and tool icon
+<ProductBanner
   productName="TrajOpt"
   productDescription="Comprehensive trajectory optimization solution."
   tool="trajopt"
 />`;
 
-  const backgroundImageCode = `import { ProductPanel } from '@/design-system/composites/ProductPanel';
+  const backgroundImageCode = `import { ProductBanner } from '@/design-system/composites/ProductBanner';
 
-// ProductPanel with custom background image
-<ProductPanel
+// ProductBanner with custom background image
+<ProductBanner
   productName="SkyFinesse"
   productDescription="Data platform for aviation analytics and insights."
   tool="skyfinesse"
@@ -50,14 +50,14 @@ function Example() {
   ]}
 />`;
 
-  const spaNavigationCode = `import { ProductPanel } from '@/design-system/composites/ProductPanel';
+  const spaNavigationCode = `import { ProductBanner } from '@/design-system/composites/ProductBanner';
 import { useNavigate } from 'react-router-dom';
 
 function Example() {
   const navigate = useNavigate();
 
   return (
-    <ProductPanel
+    <ProductBanner
       productName="AirScout"
       productDescription="Real-time flight operations management."
       tool="airscout"
@@ -88,7 +88,7 @@ function Example() {
   return (
     <div className="component-page">
       <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        ProductPanel
+        ProductBanner
       </h1>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A banner component for displaying product/tool information with a dark overlay, icon, title, description, and action links.
@@ -129,8 +129,8 @@ function Example() {
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="productpanel-example">
-              <ProductPanel
+            <div className="productbanner-example">
+              <ProductBanner
                 productName="Maintenance"
                 productDescription="Tool for aircraft maintenance management and scheduling. Provides comprehensive solutions for tracking maintenance tasks, scheduling inspections, and ensuring aircraft safety compliance."
                 tool="maintenance"
@@ -157,8 +157,8 @@ function Example() {
                 onClick={() => setOpenModal('minimal')}
               />
             </div>
-            <div className="productpanel-example">
-              <ProductPanel
+            <div className="productbanner-example">
+              <ProductBanner
                 productName="TrajOpt"
                 productDescription="Comprehensive trajectory optimization solution for flight planning and operations."
                 tool="trajopt"
@@ -180,8 +180,8 @@ function Example() {
                 onClick={() => setOpenModal('backgroundImage')}
               />
             </div>
-            <div className="productpanel-example">
-              <ProductPanel
+            <div className="productbanner-example">
+              <ProductBanner
                 productName="SkyFinesse"
                 productDescription="Data platform for aviation analytics and insights. Transform your data into actionable intelligence."
                 tool="skyfinesse"
@@ -210,8 +210,8 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
               Use the <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>onClick</code> handler on links for SPA navigation with React Router.
             </p>
-            <div className="productpanel-example">
-              <ProductPanel
+            <div className="productbanner-example">
+              <ProductBanner
                 productName="AirScout"
                 productDescription="Real-time flight operations management and monitoring dashboard."
                 tool="airscout"
@@ -245,7 +245,7 @@ function Example() {
       {activeTab === 'props' && (
         <section className="component-section">
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-            ProductPanel Props
+            ProductBanner Props
           </h2>
           <div className="props-table">
             <table>
@@ -278,7 +278,7 @@ function Example() {
                 </tr>
                 <tr>
                   <td><code>links</code></td>
-                  <td><code>ProductPanelLink[]</code></td>
+                  <td><code>ProductBannerLink[]</code></td>
                   <td><code>[]</code></td>
                   <td>Array of link buttons to display</td>
                 </tr>
@@ -299,7 +299,7 @@ function Example() {
           </div>
 
           <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-            ProductPanelLink Props
+            ProductBannerLink Props
           </h2>
           <div className="props-table">
             <table>
@@ -365,7 +365,7 @@ function Example() {
       <CodeModal
         isOpen={openModal === 'minimal'}
         onClose={() => setOpenModal(null)}
-        title="Minimal ProductPanel"
+        title="Minimal ProductBanner"
         code={minimalCode}
       />
       <CodeModal

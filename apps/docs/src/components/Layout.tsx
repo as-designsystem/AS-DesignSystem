@@ -128,7 +128,8 @@ const navSections: NavSectionData[] = [
       { label: 'AppHeader', path: '/composites/app-header' },
       { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
       { label: 'Modal', path: '/composites/modal' },
-      { label: 'ProductPanel', path: '/composites/product-panel' },
+      { label: 'PanelHeader', path: '/composites/panel-header' },
+      { label: 'ProductBanner', path: '/composites/product-banner' },
     ],
   },
   {
@@ -159,7 +160,7 @@ const templateCodes: Record<string, CodeSection[]> = {
 
 import { useState, useEffect } from 'react';
 import { AppHeader } from './composites/AppHeader';
-import { ProductPanel } from './composites/ProductPanel';
+import { ProductBanner } from './composites/ProductBanner';
 import { HomePageActionBar } from './composites/HomePageActionBar';
 import { Button } from './components/Button';
 import { IconButton } from './components/IconButton';
@@ -207,7 +208,7 @@ export default function HomePage() {
         }
       />
 
-      <ProductPanel
+      <ProductBanner
         tool="maintenance"
         productName="Product Name"
         productDescription="Your product description here..."
