@@ -1,0 +1,90 @@
+/**
+ * Tooltip Component Styles
+ */
+
+.tooltip {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.24));
+}
+
+/* ============================================================================
+   CONTENT
+   ============================================================================ */
+
+.tooltip__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  background-color: var(--background-main, #ffffff);
+  border-radius: var(--radius-xs, 3px);
+}
+
+.tooltip__label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-main, #14171d);
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   ARROW
+   ============================================================================ */
+
+.tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Arrow Bottom — arrow points downward (tooltip is above trigger) */
+.tooltip--arrow-bottom {
+  flex-direction: column;
+}
+
+.tooltip--arrow-bottom .tooltip__arrow {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--background-main, #ffffff);
+}
+
+/* Arrow Top — arrow points upward (tooltip is below trigger) */
+.tooltip--arrow-top {
+  flex-direction: column;
+}
+
+.tooltip--arrow-top .tooltip__arrow {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--background-main, #ffffff);
+}
+
+/* Arrow Right — arrow points right (tooltip is to the left of trigger) */
+.tooltip--arrow-right .tooltip__arrow {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid var(--background-main, #ffffff);
+}
+
+/* Arrow Left — arrow points left (tooltip is to the right of trigger) */
+.tooltip--arrow-left .tooltip__arrow {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--background-main, #ffffff);
+}
