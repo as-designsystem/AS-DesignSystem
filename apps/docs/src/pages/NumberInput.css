@@ -1,0 +1,17 @@
+.numberinput-examples {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+  background-color: var(--background-main, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+
+.numberinput-examples > * {
+  min-width: 200px;
+  flex: 1 1 200px;
+  max-width: 300px;
+}

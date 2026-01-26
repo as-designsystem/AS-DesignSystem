@@ -1,0 +1,39 @@
+.panel-button-demo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--background-corporate, #00205b);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+
+.panel-button-demo-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.panel-button-demo-collapsed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.panel-button-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel-button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-button-group h3 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}

@@ -84,9 +84,9 @@ const navSections: NavSectionData[] = [
       </svg>
     ),
     items: [
-      { label: 'Text Styles', path: '/tokens/text-styles' },
       { label: 'Colors', path: '/tokens/colors' },
       { label: 'Icons', path: '/tokens/icons' },
+      { label: 'Text Styles', path: '/tokens/text-styles' },
     ],
   },
   {
@@ -102,13 +102,17 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },
-      { label: 'IconButton', path: '/components/icon-button' },
-      { label: 'ToolIcons', path: '/components/tool-icons' },
-      { label: 'Tab', path: '/components/tab' },
-      { label: 'Select', path: '/components/select' },
       { label: 'Checkbox', path: '/components/checkbox' },
-      { label: 'Toggle', path: '/components/toggle' },
+      { label: 'IconButton', path: '/components/icon-button' },
+      { label: 'NumberInput', path: '/components/number-input' },
+      { label: 'PanelButton', path: '/components/panel-button' },
+      { label: 'PanelStudyName', path: '/components/panel-study-name' },
+      { label: 'Select', path: '/components/select' },
+      { label: 'Tab', path: '/components/tab' },
       { label: 'TextInput', path: '/components/text-input' },
+      { label: 'Toggle', path: '/components/toggle' },
+      { label: 'ToolIcons', path: '/components/tool-icons' },
+      { label: 'Tooltip', path: '/components/tooltip' },
     ],
   },
   {

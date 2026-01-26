@@ -13,6 +13,10 @@ import Select from './pages/Select';
 import Checkbox from './pages/Checkbox';
 import Toggle from './pages/Toggle';
 import TextInput from './pages/TextInput';
+import NumberInput from './pages/NumberInput';
+import TooltipPage from './pages/Tooltip';
+import PanelStudyNamePage from './pages/PanelStudyName';
+import PanelButtonPage from './pages/PanelButton';
 import Modal from './pages/Modal';
 import AppHeader from './pages/AppHeader';
 import ProductPanel from './pages/ProductPanel';
@@ -52,6 +56,10 @@ function App() {
               <Route path="/components/checkbox" element={<Checkbox />} />
               <Route path="/components/toggle" element={<Toggle />} />
               <Route path="/components/text-input" element={<TextInput />} />
+              <Route path="/components/number-input" element={<NumberInput />} />
+              <Route path="/components/tooltip" element={<TooltipPage />} />
+              <Route path="/components/panel-button" element={<PanelButtonPage />} />
+              <Route path="/components/panel-study-name" element={<PanelStudyNamePage />} />
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />

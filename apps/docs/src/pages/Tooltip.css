@@ -1,0 +1,49 @@
+.tooltip-examples {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--background-main, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+
+.tooltip-example-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltip-example-label {
+  color: var(--text-secondary, #63728a);
+}
+
+/* Usage demo - hover wrapper */
+.tooltip-usage-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip-usage-popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.tooltip-usage-popup--right {
+  top: 50%;
+  left: calc(100% + 6px);
+  transform: translateY(-50%);
+}
+
+.tooltip-usage-wrapper:hover .tooltip-usage-popup {
+  opacity: 1;
+}
