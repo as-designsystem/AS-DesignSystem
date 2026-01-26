@@ -12,7 +12,7 @@ packages/
 │   └── src/
 │       ├── components/      # Atomic components (.tsx + .css)
 │       ├── composites/      # Complex container components (.tsx + .css)
-│       ├── tokens/          # Design tokens (colors, typography)
+│       ├── tokens/          # Design tokens (colors, typography, radius)
 │       └── assets/          # SVG icons, PNG tool icons, backgrounds
 │
 ├── cli/                     # CLI tool for component installation
