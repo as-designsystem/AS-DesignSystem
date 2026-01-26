@@ -1,11 +1,17 @@
 import React from 'react';
 import { Button } from '../components/Button';
+import { Icon } from '../components/Icon';
 import { PanelStudyName } from '../components/PanelStudyName';
 import { IconButton } from '../components/IconButton';
 import { Tooltip } from '../components/Tooltip';
 import './PanelHeader.css';
 
 export interface PanelHeaderProps {
+  /**
+   * Workspace label displayed above the study name
+   * @default 'Workspace Name'
+   */
+  workspaceName?: string;
   /**
    * Study name displayed in the header
    */
@@ -61,6 +67,7 @@ export interface PanelHeaderProps {
  * ```
  */
 export function PanelHeader({
+  workspaceName = 'Workspace Name',
   studyName,
   studyNameLines = 1,
   onStudyNameClick,
@@ -91,16 +98,16 @@ export function PanelHeader({
         {/* Back Home button */}
         <Button
           label="BACK HOME"
-          leftIcon="arrow_back"
+          leftIconComponent={<Icon name="arrow_back" size={12} color="var(--primary-light, #cfddf8)" />}
           variant="Ghost"
-          size="S"
+          size="M"
           className="panel-header__back-button"
           onClick={onBackHome}
         />
 
         {/* Study Info section */}
         <div className="panel-header__study-info">
-          <span className="panel-header__legend">Study Name</span>
+          <span className="panel-header__legend">{workspaceName}</span>
           <div className="panel-header__study-row">
             <PanelStudyName
               name={studyName}
@@ -111,7 +118,7 @@ export function PanelHeader({
               <span className="panel-header__action-wrapper">
                 <IconButton
                   icon="content_copy"
-                  size="XS"
+                  size="S"
                   variant="Ghost"
                   onClick={onDuplicate}
                   alt="Duplicate Study"

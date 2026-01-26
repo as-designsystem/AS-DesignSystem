@@ -22,6 +22,7 @@ import AppHeader from './pages/AppHeader';
 import ProductBanner from './pages/ProductBanner';
 import HomePageActionBar from './pages/HomePageActionBar';
 import PanelHeaderPage from './pages/PanelHeader';
+import LeftPanelPage from './pages/LeftPanel';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import TextStyles from './pages/TextStyles';
@@ -67,6 +68,7 @@ function App() {
               <Route path="/composites/product-banner" element={<ProductBanner />} />
               <Route path="/composites/home-page-action-bar" element={<HomePageActionBar />} />
               <Route path="/composites/panel-header" element={<PanelHeaderPage />} />
+              <Route path="/composites/left-panel" element={<LeftPanelPage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

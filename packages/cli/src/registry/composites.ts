@@ -104,6 +104,29 @@ export const composites: RegistryItem[] = [
     ],
   },
   {
+    name: 'left-panel',
+    type: 'composite',
+    displayName: 'LeftPanel',
+    description: 'Full-height side panel with corporate background, header, scrollable content, and optional footer',
+    files: [
+      {
+        path: 'templates/composites/LeftPanel.tsx',
+        target: 'composites/LeftPanel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/LeftPanel.css',
+        target: 'composites/LeftPanel.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['panel-header', 'panel-button'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
     name: 'panel-header',
     type: 'composite',
     displayName: 'PanelHeader',

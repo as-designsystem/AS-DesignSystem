@@ -23,6 +23,7 @@ export { AppHeader, type AppHeaderProps } from './composites/AppHeader';
 export { ProductBanner, type ProductBannerProps, type ProductBannerLink } from './composites/ProductBanner';
 export { HomePageActionBar, type HomePageActionBarProps, type HomePageTab } from './composites/HomePageActionBar';
 export { PanelHeader, type PanelHeaderProps } from './composites/PanelHeader';
+export { LeftPanel, type LeftPanelProps } from './composites/LeftPanel';
 
 // Tokens
 export * from './tokens/colors';

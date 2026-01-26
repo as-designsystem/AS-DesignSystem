@@ -35,7 +35,8 @@
     "./HomePageActionBar.css": "./dist/HomePageActionBar.css",
     "./PanelStudyName.css": "./dist/PanelStudyName.css",
     "./PanelButton.css": "./dist/PanelButton.css",
-    "./PanelHeader.css": "./dist/PanelHeader.css"
+    "./PanelHeader.css": "./dist/PanelHeader.css",
+    "./LeftPanel.css": "./dist/LeftPanel.css"
   },
   "scripts": {
     "build": "tsup",

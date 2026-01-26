@@ -1,0 +1,24 @@
+.left-panel-demo {
+  height: 600px;
+  width: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--background-main, #ffffff);
+  padding: 16px;
+}
+
+.left-panel-demo-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.left-panel-demo-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
