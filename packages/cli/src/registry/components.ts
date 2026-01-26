@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (51 icons)
+      // SVG icon assets (53 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -55,6 +55,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/dark_mode.svg', target: 'assets/svg/icons/dark_mode.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/delete.svg', target: 'assets/svg/icons/delete.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/dropdown.svg', target: 'assets/svg/icons/dropdown.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/edit.svg', target: 'assets/svg/icons/edit.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/emoji_emotions.svg', target: 'assets/svg/icons/emoji_emotions.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter_row.svg', target: 'assets/svg/icons/filter_row.svg', type: 'component' },
@@ -69,6 +70,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/remove.svg', target: 'assets/svg/icons/remove.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/search.svg', target: 'assets/svg/icons/search.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/settings.svg', target: 'assets/svg/icons/settings.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/warning.svg', target: 'assets/svg/icons/warning.svg', type: 'component' },
     ],
     cssImports: [],
   },
@@ -93,6 +95,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -115,6 +118,7 @@ export const components: RegistryItem[] = [
     dependencies: ['icon'],
     cssImports: [
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -395,6 +399,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -418,6 +423,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -441,6 +447,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -467,6 +474,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -490,6 +498,7 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -562,6 +571,102 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'number-input',
+    type: 'component',
+    displayName: 'NumberInput',
+    description: 'Numeric stepper input with increment/decrement buttons',
+    files: [
+      {
+        path: 'templates/components/NumberInput.tsx',
+        target: 'components/NumberInput.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/NumberInput.css',
+        target: 'components/NumberInput.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'icon-button'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'tooltip',
+    type: 'component',
+    displayName: 'Tooltip',
+    description: 'Lightweight tooltip with configurable arrow direction',
+    files: [
+      {
+        path: 'templates/components/Tooltip.tsx',
+        target: 'components/Tooltip.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Tooltip.css',
+        target: 'components/Tooltip.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'panel-study-name',
+    type: 'component',
+    displayName: 'PanelStudyName',
+    description: 'Clickable study name label with edit icon for dark corporate panels',
+    files: [
+      {
+        path: 'templates/components/PanelStudyName.tsx',
+        target: 'components/PanelStudyName.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/PanelStudyName.css',
+        target: 'components/PanelStudyName.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'panel-button',
+    type: 'component',
+    displayName: 'PanelButton',
+    description: 'Navigation button for dark side panels with expanded/collapsed modes',
+    files: [
+      {
+        path: 'templates/components/PanelButton.tsx',
+        target: 'components/PanelButton.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/PanelButton.css',
+        target: 'components/PanelButton.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'tooltip'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
 ];

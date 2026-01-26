@@ -12,6 +12,10 @@ export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
 export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 export { TextInput, type TextInputProps, type TextInputSize, type TextInputState } from './components/TextInput';
+export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState } from './components/NumberInput';
+export { Tooltip, type TooltipProps, type TooltipArrow } from './components/Tooltip';
+export { PanelStudyName, type PanelStudyNameProps } from './components/PanelStudyName';
+export { PanelButton, type PanelButtonProps, type PanelButtonSize, type PanelButtonVariant } from './components/PanelButton';
 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';

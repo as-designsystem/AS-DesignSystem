@@ -22,6 +22,7 @@ export const composites: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
@@ -76,6 +77,7 @@ export const composites: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
   {
