@@ -108,10 +108,9 @@
   gap: 8px;
   height: 32px;
   padding: 8px 12px;
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   text-decoration: none;
   color: var(--primary-light, #cfddf8);
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .product-panel__link:hover {

@@ -63,7 +63,7 @@
 .home-page__row {
   width: 100%;
   min-height: 87px;
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   box-sizing: border-box;
 }
 

@@ -289,12 +289,12 @@
 
 .vselect-dropdown--open::-webkit-scrollbar-track {
   background: var(--background-tertiary);
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
 }
 
 .vselect-dropdown--open::-webkit-scrollbar-thumb {
   background: var(--border-moderate);
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
 }
 
 .vselect-dropdown--open::-webkit-scrollbar-thumb:hover {

@@ -7,7 +7,7 @@
   display: inline-flex;
   padding: 4px;
   background-color: var(--background-tertiary, #eff1f4);
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   gap: 4px;
 }
 
@@ -25,7 +25,7 @@
 
 /* Button items inside group - override some default button styles */
 .button-group__item {
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
 }
 
 /* In vertical layout, text buttons should fill the ButtonGroup width */

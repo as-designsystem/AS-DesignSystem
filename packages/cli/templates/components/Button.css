@@ -12,11 +12,10 @@
   justify-content: center;
   gap: 8px;
   border: none;
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
   position: relative;
   box-sizing: border-box;
 }
@@ -185,7 +184,7 @@
   background-color: var(--background-main, #ffffff);
   color: var(--text-main, #14171d);
   padding: 8px;
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;

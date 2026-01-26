@@ -38,11 +38,10 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border-moderate, #c1c7d0);
-  border-radius: 3px;
+  border-radius: var(--radius-xs, 3px);
   background-color: var(--background-main, #ffffff);
   cursor: pointer;
   box-sizing: border-box;
-  transition: all 0.2s ease;
   flex-shrink: 0;
 }
 
