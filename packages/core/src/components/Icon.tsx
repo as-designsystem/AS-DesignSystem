@@ -36,6 +36,7 @@ import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import dropdownIcon from '../assets/svg/icons/dropdown.svg?raw';
+import editIcon from '../assets/svg/icons/edit.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
@@ -50,6 +51,7 @@ import playIcon from '../assets/svg/icons/play.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
+import warningIcon from '../assets/svg/icons/warning.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -90,6 +92,7 @@ const iconMap: Record<string, string> = {
   'dark_mode': darkModeIcon,
   'delete': deleteIcon,
   'dropdown': dropdownIcon,
+  'edit': editIcon,
   'emoji_emotions': emojiEmotionsIcon,
   'filter': filterIcon,
   'filter_row': filterRowIcon,
@@ -104,6 +107,7 @@ const iconMap: Record<string, string> = {
   'remove': removeIcon,
   'search': searchIcon,
   'settings': settingsIcon,
+  'warning': warningIcon,
 };
 
 export const availableIcons = [
@@ -144,6 +148,7 @@ export const availableIcons = [
   'dark_mode',
   'delete',
   'dropdown',
+  'edit',
   'emoji_emotions',
   'filter',
   'filter_row',
@@ -158,6 +163,7 @@ export const availableIcons = [
   'remove',
   'search',
   'settings',
+  'warning',
 ] as const;
 
 export type IconName = typeof availableIcons[number];
