@@ -57,6 +57,7 @@ import warningIcon from '../assets/svg/icons/warning.svg?raw';
 import errorIcon from '../assets/svg/icons/error.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
+import folderIcon from '../assets/svg/icons/folder.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -118,6 +119,7 @@ const iconMap: Record<string, string> = {
   'error': errorIcon,
   'broken_image': brokenImageIcon,
   'autorenew': autorenewIcon,
+  'folder': folderIcon,
 };
 
 export const availableIcons = [
@@ -179,6 +181,7 @@ export const availableIcons = [
   'error',
   'broken_image',
   'autorenew',
+  'folder',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

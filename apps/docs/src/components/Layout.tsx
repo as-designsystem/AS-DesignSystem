@@ -90,7 +90,7 @@ const navSections: NavSectionData[] = [
     ],
   },
   {
-    title: 'Components',
+    title: 'Basics',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" />
@@ -100,6 +100,7 @@ const navSections: NavSectionData[] = [
       </svg>
     ),
     items: [
+      { label: 'Avatar', path: '/components/avatar' },
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },
       { label: 'Checkbox', path: '/components/checkbox' },
@@ -126,10 +127,22 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'Accordion', path: '/composites/accordion' },
       { label: 'AppHeader', path: '/composites/app-header' },
-      { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
       { label: 'Modal', path: '/composites/modal' },
-      { label: 'ProductBanner', path: '/composites/product-banner' },
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
+    ],
+  },
+  {
+    title: 'Home Components',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    items: [
+      { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
+      { label: 'ProductBanner', path: '/composites/product-banner' },
+      { label: 'Workspace', path: '/composites/workspace' },
     ],
   },
   {

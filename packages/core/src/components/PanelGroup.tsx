@@ -87,7 +87,7 @@ export function PanelGroup({
         <Icon
           name="keyboard_arrow_down"
           size={iconSize}
-          color="var(--cool-grey-40, #b3bbc8)"
+          color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
         />
       </span>
       <span className="panel-group__label">{label}</span>

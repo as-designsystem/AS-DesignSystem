@@ -112,7 +112,7 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                   <PanelSectionTitle label="Size S (12px)" size="S" />
                 </div>
                 <div className="panel-section-title-demo-item">
-                  <PanelSectionTitle label="Size XS (11px)" size="XS" />
+                  <PanelSectionTitle label="Size XS (10px)" size="XS" />
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                   <td><code>size</code></td>
                   <td><code>'XS' | 'S' | 'M'</code></td>
                   <td><code>'S'</code></td>
-                  <td>Title size (M: 14px, S: 12px, XS: 11px)</td>
+                  <td>Title size (M: 14px, S: 12px, XS: 10px)</td>
                 </tr>
                 <tr>
                   <td><code>className</code></td>

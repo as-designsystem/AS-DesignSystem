@@ -28,6 +28,8 @@ import PanelHeaderPage from './pages/PanelHeader';
 import LeftPanelPage from './pages/LeftPanel';
 import AccordionPage from './pages/Accordion';
 import StudyStatusBarPage from './pages/StudyStatusBar';
+import AvatarPage from './pages/Avatar';
+import WorkspacePage from './pages/Workspace';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import TextStyles from './pages/TextStyles';
@@ -70,6 +72,7 @@ function App() {
               <Route path="/components/spinner" element={<SpinnerPage />} />
               <Route path="/components/panel-section-title" element={<PanelSectionTitlePage />} />
               <Route path="/components/panel-group" element={<PanelGroupPage />} />
+              <Route path="/components/avatar" element={<AvatarPage />} />
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />
@@ -79,6 +82,7 @@ function App() {
               <Route path="/composites/left-panel" element={<LeftPanelPage />} />
               <Route path="/composites/study-status-bar" element={<StudyStatusBarPage />} />
               <Route path="/composites/accordion" element={<AccordionPage />} />
+              <Route path="/composites/workspace" element={<WorkspacePage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

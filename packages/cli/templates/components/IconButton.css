@@ -7,6 +7,7 @@
 /* Users should import: @as-design-system/core/colors.css */
 
 .icon-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,6 +81,7 @@
 .icon-button--outlined {
   background-color: transparent;
   border: 1px solid var(--primary-default, var(--sea-blue-70, #063b9e));
+  color: var(--primary-default, var(--sea-blue-70, #063b9e));
 }
 
 .icon-button--outlined:not(:disabled):hover,
@@ -97,6 +99,7 @@
 
 .icon-button--ghost {
   background-color: transparent;
+  color: var(--primary-default, var(--sea-blue-70, #063b9e));
 }
 
 .icon-button--ghost:not(:disabled):hover,
@@ -117,4 +120,24 @@
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
+}
+
+/* ============================================================================
+   TOOLTIP
+   ============================================================================ */
+
+.icon-button__tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.icon-button:not(:disabled):hover .icon-button__tooltip {
+  opacity: 1;
 }

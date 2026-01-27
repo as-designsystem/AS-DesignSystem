@@ -1,0 +1,16 @@
+.workspace-demo {
+  width: 100%;
+  max-width: 700px;
+  padding: 16px;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.workspace-demo__study-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-main, #14171d);
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: var(--background-secondary, #fafafa);
+}

@@ -196,4 +196,28 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'workspace',
+    type: 'composite',
+    displayName: 'Workspace',
+    description: 'Collapsible workspace card with folder icon, study count, computing state, and user avatars',
+    files: [
+      {
+        path: 'templates/composites/Workspace.tsx',
+        target: 'composites/Workspace.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/Workspace.css',
+        target: 'composites/Workspace.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'spinner', 'avatar'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
 ];

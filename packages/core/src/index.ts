@@ -19,6 +19,7 @@ export { PanelButton, type PanelButtonProps, type PanelButtonSize, type PanelBut
 export { Spinner, type SpinnerProps, type SpinnerVariant } from './components/Spinner';
 export { PanelSectionTitle, type PanelSectionTitleProps, type PanelSectionTitleSize } from './components/PanelSectionTitle';
 export { PanelGroup, type PanelGroupProps, type PanelGroupSize } from './components/PanelGroup';
+export { Avatar, AvatarStack, type AvatarProps, type AvatarStackProps, type AvatarSize } from './components/Avatar';
 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';
@@ -29,6 +30,7 @@ export { PanelHeader, type PanelHeaderProps } from './composites/PanelHeader';
 export { LeftPanel, type LeftPanelProps } from './composites/LeftPanel';
 export { StudyStatusBar, type StudyStatusBarProps, type StudyStatusBarStatus } from './composites/StudyStatusBar';
 export { Accordion, type AccordionProps, type AccordionSize } from './composites/Accordion';
+export { Workspace, type WorkspaceProps, type WorkspaceUser } from './composites/Workspace';
 
 // Tokens
 export * from './tokens/colors';

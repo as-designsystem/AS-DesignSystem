@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { LeftPanel, PanelHeader, PanelButton, Tab, Button } from '@as-design-system/core';
+import { LeftPanel, PanelHeader, PanelButton, PanelGroup, PanelSectionTitle, IconButton, Tab, Button } from '@as-design-system/core';
 import '@as-design-system/core/LeftPanel.css';
 import '@as-design-system/core/PanelHeader.css';
 import '@as-design-system/core/PanelStudyName.css';
 import '@as-design-system/core/PanelButton.css';
+import '@as-design-system/core/PanelGroup.css';
+import '@as-design-system/core/PanelSectionTitle.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/IconButton.css';
 import '@as-design-system/core/Tooltip.css';
@@ -14,6 +16,77 @@ import './LeftPanel.css';
 export default function LeftPanelPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
+
+  // Example 2 — scenario open/close states
+  const [scenario1Open, setScenario1Open] = useState(true);
+  const [scenario2Open, setScenario2Open] = useState(false);
+  const [scenario3Open, setScenario3Open] = useState(false);
+
+  const scenariosCode = `import { LeftPanel } from '@/design-system/composites/LeftPanel';
+import { PanelHeader } from '@/design-system/composites/PanelHeader';
+import { PanelGroup } from '@/design-system/components/PanelGroup';
+import { PanelSectionTitle } from '@/design-system/components/PanelSectionTitle';
+import { PanelButton } from '@/design-system/components/PanelButton';
+import { IconButton } from '@/design-system/components/IconButton';
+
+const [scenario1Open, setScenario1Open] = useState(true);
+const [scenario2Open, setScenario2Open] = useState(false);
+
+<LeftPanel
+  header={<PanelHeader studyName="My Study" />}
+  footer={
+    <>
+      <PanelButton icon="info" label="Need Help?" />
+      <PanelButton icon="construction" label="Glossary" />
+    </>
+  }
+>
+  <PanelGroup
+    label="Scenario 1"
+    open={scenario1Open}
+    onClick={() => setScenario1Open(!scenario1Open)}
+    size="S"
+    actions={
+      <>
+        <IconButton icon="edit" size="XS" variant="Ghost" />
+        <IconButton icon="content_copy" size="XS" variant="Ghost" />
+        <IconButton icon="delete" size="XS" variant="Ghost" />
+      </>
+    }
+  />
+  {scenario1Open && (
+    <div style={{ paddingLeft: 16 }}>
+      <PanelSectionTitle label="Inputs" size="XS" />
+      <PanelButton icon="settings" label="Fleet" size="XS" />
+      <PanelButton icon="AIR_side" label="Mission" size="XS" />
+      <PanelSectionTitle label="Results" size="XS" />
+      <PanelButton icon="AIR_airport" label="Economics" size="XS" />
+    </div>
+  )}
+
+  <PanelGroup
+    label="Scenario 2"
+    open={scenario2Open}
+    onClick={() => setScenario2Open(!scenario2Open)}
+    size="S"
+    actions={
+      <>
+        <IconButton icon="edit" size="XS" variant="Ghost" />
+        <IconButton icon="content_copy" size="XS" variant="Ghost" />
+        <IconButton icon="delete" size="XS" variant="Ghost" />
+      </>
+    }
+  />
+  {scenario2Open && (
+    <div style={{ paddingLeft: 16 }}>
+      <PanelSectionTitle label="Inputs" size="XS" />
+      <PanelButton icon="settings" label="Fleet" size="XS" />
+      <PanelButton icon="AIR_side" label="Mission" size="XS" />
+      <PanelSectionTitle label="Results" size="XS" />
+      <PanelButton icon="AIR_airport" label="Economics" size="XS" />
+    </div>
+  )}
+</LeftPanel>`;
 
   const basicCode = `import { LeftPanel } from '@/design-system/composites/LeftPanel';
 import { PanelHeader } from '@/design-system/composites/PanelHeader';
@@ -79,20 +152,19 @@ import { PanelButton } from '@/design-system/components/PanelButton';
 
       {/* Examples Tab */}
       {activeTab === 'examples' && (
-        <>
-          {/* Example */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Example
-              </h2>
+        <section className="component-section">
+          <div className="section-header">
+            <h2
+              className="heading-6"
+              style={{
+                marginTop: '32px',
+                marginBottom: '16px',
+                color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+              }}
+            >
+              Example
+            </h2>
+            <div style={{ display: 'flex', gap: '8px' }}>
               <Button
                 label="Code"
                 leftIcon="code"
@@ -100,7 +172,16 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 variant="Outlined"
                 onClick={() => setOpenModal('basic')}
               />
+              <Button
+                label="Code (Scenarios)"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('scenarios')}
+              />
             </div>
+          </div>
+          <div className="left-panel-demo-grid">
             <div className="left-panel-demo">
               <LeftPanel
                 header={
@@ -137,8 +218,99 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 </div>
               </LeftPanel>
             </div>
-          </section>
-        </>
+
+            <div className="left-panel-demo">
+              <LeftPanel
+                header={
+                  <PanelHeader
+                    studyName="My Study"
+                    onBackHome={() => console.log('Back home')}
+                    onStudyNameClick={() => console.log('Edit study name')}
+                    onDuplicate={() => console.log('Duplicate study')}
+                    backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
+                  />
+                }
+                footer={
+                  <>
+                    <PanelButton icon="info" label="Need Help?" />
+                    <PanelButton icon="construction" label="Glossary" />
+                  </>
+                }
+              >
+                <PanelGroup
+                  label="Scenario 1"
+                  open={scenario1Open}
+                  onClick={() => setScenario1Open(!scenario1Open)}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                      <IconButton icon="delete" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+                {scenario1Open && (
+                  <div className="left-panel-scenario-content">
+                    <PanelSectionTitle label="Inputs" size="XS" />
+                    <PanelButton icon="settings" label="Fleet" variant="Selected" size="XS" />
+                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                    <PanelButton icon="AIR_engine" label="Engine" size="XS" />
+                    <PanelSectionTitle label="Results" size="XS" />
+                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                    <PanelButton icon="AIR_departure" label="Charts" variant="Disabled" size="XS" />
+                  </div>
+                )}
+
+                <PanelGroup
+                  label="Scenario 2"
+                  open={scenario2Open}
+                  onClick={() => setScenario2Open(!scenario2Open)}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                      <IconButton icon="delete" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+                {scenario2Open && (
+                  <div className="left-panel-scenario-content">
+                    <PanelSectionTitle label="Inputs" size="XS" />
+                    <PanelButton icon="settings" label="Fleet" size="XS" />
+                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                    <PanelSectionTitle label="Results" size="XS" />
+                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                  </div>
+                )}
+
+                <PanelGroup
+                  label="Scenario 3"
+                  open={scenario3Open}
+                  onClick={() => setScenario3Open(!scenario3Open)}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                      <IconButton icon="delete" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+                {scenario3Open && (
+                  <div className="left-panel-scenario-content">
+                    <PanelSectionTitle label="Inputs" size="XS" />
+                    <PanelButton icon="settings" label="Fleet" size="XS" />
+                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                    <PanelSectionTitle label="Results" size="XS" />
+                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                  </div>
+                )}
+              </LeftPanel>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Props Tab */}
@@ -199,8 +371,14 @@ import { PanelButton } from '@/design-system/components/PanelButton';
       <CodeModal
         isOpen={openModal === 'basic'}
         onClose={() => setOpenModal(null)}
-        title="LeftPanel Example"
+        title="LeftPanel — Example"
         code={basicCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'scenarios'}
+        onClose={() => setOpenModal(null)}
+        title="LeftPanel — With Scenarios"
+        code={scenariosCode}
       />
     </div>
   );

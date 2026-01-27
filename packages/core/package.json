@@ -41,7 +41,9 @@
     "./Accordion.css": "./dist/Accordion.css",
     "./Spinner.css": "./dist/Spinner.css",
     "./PanelSectionTitle.css": "./dist/PanelSectionTitle.css",
-    "./PanelGroup.css": "./dist/PanelGroup.css"
+    "./PanelGroup.css": "./dist/PanelGroup.css",
+    "./Avatar.css": "./dist/Avatar.css",
+    "./Workspace.css": "./dist/Workspace.css"
   },
   "scripts": {
     "build": "tsup",

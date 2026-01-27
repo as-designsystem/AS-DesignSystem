@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (58 icons)
+      // SVG icon assets (59 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -64,6 +64,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/error.svg', target: 'assets/svg/icons/error.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter_row.svg', target: 'assets/svg/icons/filter_row.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/folder.svg', target: 'assets/svg/icons/folder.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/info.svg', target: 'assets/svg/icons/info.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_down.svg', target: 'assets/svg/icons/keyboard_arrow_down.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_up.svg', target: 'assets/svg/icons/keyboard_arrow_up.svg', type: 'component' },
@@ -733,5 +734,28 @@ export const components: RegistryItem[] = [
     ],
     dependencies: ['icon'],
     cssImports: [],
+  },
+  {
+    name: 'avatar',
+    type: 'component',
+    displayName: 'Avatar',
+    description: 'Circular user initials indicator with auto-colored background and stack layout',
+    files: [
+      {
+        path: 'templates/components/Avatar.tsx',
+        target: 'components/Avatar.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Avatar.css',
+        target: 'components/Avatar.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
   },
 ];
