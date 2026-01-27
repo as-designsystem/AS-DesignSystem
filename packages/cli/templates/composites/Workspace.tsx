@@ -127,11 +127,15 @@ export function Workspace({
             color="var(--text-secondary, #63728a)"
           />
         </span>
-        <Icon
-          name="folder"
-          size={24}
-          color="var(--primary-default, #063b9e)"
-        />
+        {isComputing ? (
+          <Spinner size={24} />
+        ) : (
+          <Icon
+            name="folder"
+            size={24}
+            color="var(--primary-default, #063b9e)"
+          />
+        )}
         <div className="workspace__title-block">
           <span className="workspace__title">{title}</span>
           <div className="workspace__title-row">
@@ -159,11 +163,6 @@ export function Workspace({
                 <Avatar key={i} initials={user.initials} size="M" color={user.color || '#ced5dd'} textColor="#00205b" />
               ))}
             </AvatarStack>
-          </span>
-        )}
-        {isComputing && (
-          <span className="workspace__spinner">
-            <Spinner size={16} />
           </span>
         )}
       </button>
