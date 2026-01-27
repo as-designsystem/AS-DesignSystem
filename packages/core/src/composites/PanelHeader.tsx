@@ -124,7 +124,7 @@ export function PanelHeader({
                   alt="Duplicate Study"
                   className="panel-header__icon-button"
                 />
-                <Tooltip label="Duplicate Study" arrow="Bottom" className="panel-header__tooltip" />
+                <Tooltip label="Duplicate Study" arrow="Top" className="panel-header__tooltip" />
               </span>
               {actions}
             </div>

@@ -28,6 +28,7 @@ Templates are complete page layouts that users can install and customize. Unlike
 Examples: HomePage, DashboardPage, SettingsPage, LoginPage.
 
 Templates typically:
+
 - Combine multiple composites (AppHeader, Sidebar, Modal, etc.)
 - Include page-level layout and structure
 - Provide a starting point that users customize for their needs
@@ -36,7 +37,9 @@ Templates typically:
 ## Workflow
 
 ### 1. Inspect Figma
-Use MCP tools to understand the full page structure:
+
+Use Local MCP tools to understand the full page structure:
+
 - `mcp__figma__get_design_context` - Main design specs
 - `mcp__figma__get_metadata` - Full node hierarchy (useful for complex pages)
 - `mcp__figma__get_screenshot` - Visual reference
@@ -45,24 +48,30 @@ Use MCP tools to understand the full page structure:
 Pay attention to: page sections, composites used, layout structure, responsive behavior, content areas.
 
 ### 2. Check Dependencies
+
 Templates rely heavily on existing components and composites. Verify ALL exist:
 
 **Components** in `/packages/core/src/components/`:
+
 - Button, Icon, TextInput, etc.
 
 **Composites** in `/packages/core/src/composites/`:
+
 - AppHeader, Modal, ProductBanner, etc.
 
 **If missing**: List all missing dependencies and ask whether to generate them first, proceed anyway, or cancel.
 
 ### 3. Create Template
+
 Templates go directly in the CLI templates folder (NOT in core):
 
 Files to create:
+
 - `/packages/cli/templates/pages/[Name].tsx`
 - `/packages/cli/templates/pages/[Name].css`
 
 **Important considerations:**
+
 - Import components using `@/design-system/` alias (this is what users will have)
 - Include all necessary CSS imports at the top
 - Add helpful comments explaining customization points
@@ -70,6 +79,7 @@ Files to create:
 - Handle dark mode if applicable
 
 **Example import pattern:**
+
 ```tsx
 import { AppHeader, Button, TextInput } from '@/design-system/components';
 import { Modal } from '@/design-system/composites';
@@ -79,6 +89,7 @@ import './[Name].css';
 ```
 
 ### 4. Register Template
+
 Register in `/packages/cli/src/registry/templates.ts`:
 
 ```typescript
@@ -107,13 +118,16 @@ Register in `/packages/cli/src/registry/templates.ts`:
 **Note:** `dependencies` should list ALL components and composites used. The CLI will auto-install them when the user runs `asds add my-page`.
 
 ### 5. Create Documentation Preview
+
 Templates need a preview in the docs app. This is different from component docs - it shows the template in action.
 
 Files to create:
+
 - `/apps/docs/src/pages/[Name]Template.tsx` - Preview wrapper
 - `/apps/docs/src/pages/[Name]Template.css` - Preview-specific styles (if needed)
 
 Add route in `/apps/docs/src/App.tsx`:
+
 ```tsx
 <Route path="/templates/my-page" element={<MyPageTemplate />} />
 ```
@@ -121,12 +135,14 @@ Add route in `/apps/docs/src/App.tsx`:
 Add nav link in `/apps/docs/src/components/Layout.tsx` under "Templates" section.
 
 ### 6. Build & Verify
+
 ```bash
 cd packages/cli && pnpm build
 cd apps/docs && pnpm dev
 ```
 
 Test the template:
+
 1. Check the preview in docs app
 2. Test installation: `asds add my-page` in a test project
 3. Verify all dependencies are installed
@@ -143,13 +159,13 @@ Test the template:
 
 ## Template vs Component/Composite
 
-| Aspect | Component/Composite | Template |
-|--------|---------------------|----------|
-| Location | `packages/core/src/` | `packages/cli/templates/pages/` |
-| Exported from core | Yes | No |
-| User imports from | `@as-design-system/core` | Local file |
-| Purpose | Reusable UI element | Starting point for a page |
-| User modifies | Rarely | Always |
+| Aspect             | Component/Composite      | Template                        |
+| ------------------ | ------------------------ | ------------------------------- |
+| Location           | `packages/core/src/`     | `packages/cli/templates/pages/` |
+| Exported from core | Yes                      | No                              |
+| User imports from  | `@as-design-system/core` | Local file                      |
+| Purpose            | Reusable UI element      | Starting point for a page       |
+| User modifies      | Rarely                   | Always                          |
 
 ## Feedback
 

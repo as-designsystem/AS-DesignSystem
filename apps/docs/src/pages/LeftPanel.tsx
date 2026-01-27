@@ -30,23 +30,9 @@ import { PanelButton } from '@/design-system/components/PanelButton';
   }
   footer={
     <>
-      <PanelButton icon="help" label="Need Help?" />
-      <PanelButton icon="menu_book" label="Glossary" />
+      <PanelButton icon="info" label="Need Help?" />
+      <PanelButton icon="construction" label="Glossary" />
     </>
-  }
->
-  {/* Your panel content here */}
-</LeftPanel>`;
-
-  const noFooterCode = `import { LeftPanel } from '@/design-system/composites/LeftPanel';
-import { PanelHeader } from '@/design-system/composites/PanelHeader';
-
-<LeftPanel
-  header={
-    <PanelHeader
-      studyName="Fleet Analysis Q4 2025"
-      onBackHome={() => navigate('/')}
-    />
   }
 >
   {/* Your panel content here */}
@@ -94,7 +80,7 @@ import { PanelHeader } from '@/design-system/composites/PanelHeader';
       {/* Examples Tab */}
       {activeTab === 'examples' && (
         <>
-          {/* With Footer */}
+          {/* Example */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -105,7 +91,7 @@ import { PanelHeader } from '@/design-system/composites/PanelHeader';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                With Header & Footer
+                Example
               </h2>
               <Button
                 label="Code"
@@ -123,53 +109,32 @@ import { PanelHeader } from '@/design-system/composites/PanelHeader';
                     onBackHome={() => console.log('Back home')}
                     onStudyNameClick={() => console.log('Edit study name')}
                     onDuplicate={() => console.log('Duplicate study')}
+                    backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
                   />
                 }
                 footer={
                   <>
-                    <PanelButton icon="help" label="Need Help?" />
-                    <PanelButton icon="menu_book" label="Glossary" />
+                    <PanelButton icon="info" label="Need Help?" />
+                    <PanelButton icon="construction" label="Glossary" />
                   </>
                 }
               >
-                <div className="left-panel-demo-content">Panel content</div>
-              </LeftPanel>
-            </div>
-          </section>
-
-          {/* Without Footer */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Without Footer
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('noFooter')}
-              />
-            </div>
-            <div className="left-panel-demo">
-              <LeftPanel
-                header={
-                  <PanelHeader
-                    studyName="Fleet Analysis Q4 2025"
-                    onBackHome={() => console.log('Back home')}
-                    onDuplicate={() => console.log('Duplicate study')}
-                    backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
-                  />
-                }
-              >
-                <div className="left-panel-demo-content">Panel content</div>
+                <div className="left-panel-body-section">
+                  <span className="left-panel-section-title">Inputs</span>
+                  <div className="left-panel-section-items">
+                    <PanelButton icon="settings" label="Input Page 1" variant="Selected" />
+                    <PanelButton icon="AIR_fleet" label="Input Page 2" showError errorCount={2} />
+                    <PanelButton icon="AIR_engine" label="Input Page 3" />
+                    <PanelButton icon="AIR_side" label="Input Page 4" />
+                  </div>
+                </div>
+                <div className="left-panel-body-section">
+                  <span className="left-panel-section-title left-panel-section-title--disabled">Results</span>
+                  <div className="left-panel-section-items">
+                    <PanelButton icon="AIR_airport" label="Results Page 1" variant="Disabled" />
+                    <PanelButton icon="AIR_departure" label="Results Page 2" variant="Disabled" />
+                  </div>
+                </div>
               </LeftPanel>
             </div>
           </section>
@@ -234,14 +199,8 @@ import { PanelHeader } from '@/design-system/composites/PanelHeader';
       <CodeModal
         isOpen={openModal === 'basic'}
         onClose={() => setOpenModal(null)}
-        title="With Header & Footer"
+        title="LeftPanel Example"
         code={basicCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'noFooter'}
-        onClose={() => setOpenModal(null)}
-        title="Without Footer"
-        code={noFooterCode}
       />
     </div>
   );

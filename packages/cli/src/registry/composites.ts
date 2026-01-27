@@ -127,6 +127,53 @@ export const composites: RegistryItem[] = [
     ],
   },
   {
+    name: 'study-status-bar',
+    type: 'composite',
+    displayName: 'StudyStatusBar',
+    description: 'Horizontal status bar indicating study computation state with colored border, icon, title, and action buttons',
+    files: [
+      {
+        path: 'templates/composites/StudyStatusBar.tsx',
+        target: 'composites/StudyStatusBar.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/StudyStatusBar.css',
+        target: 'composites/StudyStatusBar.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['button', 'icon', 'spinner'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'accordion',
+    type: 'composite',
+    displayName: 'Accordion',
+    description: 'Collapsible panel with corporate-styled header and expandable content area',
+    files: [
+      {
+        path: 'templates/composites/Accordion.tsx',
+        target: 'composites/Accordion.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/Accordion.css',
+        target: 'composites/Accordion.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'panel-header',
     type: 'composite',
     displayName: 'PanelHeader',

@@ -119,7 +119,7 @@
   bottom: 0;
   width: 2px;
   background-color: #ffffff;
-  border-radius: 0 1px 1px 0;
+  border-radius: var(--radius-xs, 3px) 1px 1px var(--radius-xs, 3px);
 }
 
 /* ============================================================================
@@ -201,6 +201,34 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* ============================================================================
+   BADGE WRAPPER (for tooltip on hover)
+   ============================================================================ */
+
+.panel-button__badge-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.panel-button__badge-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.panel-button__badge-wrapper:hover .panel-button__badge-tooltip {
+  opacity: 1;
 }
 
 /* ============================================================================

@@ -54,6 +54,9 @@ import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
+import errorIcon from '../assets/svg/icons/error.svg?raw';
+import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
+import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -112,6 +115,9 @@ const iconMap: Record<string, string> = {
   'search': searchIcon,
   'settings': settingsIcon,
   'warning': warningIcon,
+  'error': errorIcon,
+  'broken_image': brokenImageIcon,
+  'autorenew': autorenewIcon,
 };
 
 export const availableIcons = [
@@ -170,6 +176,9 @@ export const availableIcons = [
   'search',
   'settings',
   'warning',
+  'error',
+  'broken_image',
+  'autorenew',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

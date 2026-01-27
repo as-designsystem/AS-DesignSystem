@@ -36,7 +36,12 @@
     "./PanelStudyName.css": "./dist/PanelStudyName.css",
     "./PanelButton.css": "./dist/PanelButton.css",
     "./PanelHeader.css": "./dist/PanelHeader.css",
-    "./LeftPanel.css": "./dist/LeftPanel.css"
+    "./LeftPanel.css": "./dist/LeftPanel.css",
+    "./StudyStatusBar.css": "./dist/StudyStatusBar.css",
+    "./Accordion.css": "./dist/Accordion.css",
+    "./Spinner.css": "./dist/Spinner.css",
+    "./PanelSectionTitle.css": "./dist/PanelSectionTitle.css",
+    "./PanelGroup.css": "./dist/PanelGroup.css"
   },
   "scripts": {
     "build": "tsup",

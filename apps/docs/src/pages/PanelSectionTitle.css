@@ -1,0 +1,22 @@
+.panel-section-title-demo-area {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: var(--background-corporate, #00205b);
+  border-radius: 8px;
+  gap: 4px;
+}
+
+.panel-section-title-demo-area--narrow {
+  max-width: 280px;
+}
+
+.panel-section-title-demo-row {
+  display: flex;
+  gap: 32px;
+}
+
+.panel-section-title-demo-item {
+  display: flex;
+  flex-direction: column;
+}

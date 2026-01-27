@@ -3,6 +3,7 @@ import { PanelButton } from '@as-design-system/core';
 import { Tab } from '@as-design-system/core';
 import { Button } from '@as-design-system/core';
 import '@as-design-system/core/PanelButton.css';
+import '@as-design-system/core/Tooltip.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
 import CodeModal from '../components/CodeModal';
@@ -38,17 +39,33 @@ export default function PanelButtonPage() {
 
   const badgesCode = `import { PanelButton } from '@/design-system/components/PanelButton';
 
-// Error badge (expanded)
-<PanelButton label="Errors" icon="info" showError errorCount={2} />
+// Error badge with tooltip
+<PanelButton
+  label="With Error"
+  icon="info"
+  showError
+  errorCount={2}
+  errorTooltip="2 inputs missing"
+/>
 
-// Warning indicator (expanded)
-<PanelButton label="Warnings" icon="construction" showWarning />
+// Warning indicator with tooltip
+<PanelButton
+  label="With Warning"
+  icon="construction"
+  showWarning
+  warningTooltip="Outdated configuration"
+/>
 
-// Error dot (collapsed)
-<PanelButton label="Errors" icon="info" panelOpen={false} showError />
-
-// Warning dot (collapsed)
-<PanelButton label="Warnings" icon="construction" panelOpen={false} showWarning />`;
+// Both with tooltips
+<PanelButton
+  label="Both"
+  icon="apps"
+  showError
+  errorCount={5}
+  showWarning
+  errorTooltip="5 inputs missing"
+  warningTooltip="Outdated configuration"
+/>`;
 
   return (
     <div className="component-page">
@@ -166,17 +183,20 @@ export default function PanelButtonPage() {
               <div className="panel-button-group">
                 <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Expanded</h3>
                 <div className="panel-button-demo-area">
-                  <PanelButton label="With Error" icon="info" showError errorCount={2} variant="Selected" />
-                  <PanelButton label="With Warning" icon="construction" showWarning variant="Selected" />
-                  <PanelButton label="Both" icon="apps" showError errorCount={5} showWarning />
+                  <PanelButton label="With Error" icon="info" showError errorCount={2} variant="Selected" errorTooltip="2 inputs missing" />
+                  <PanelButton label="With Warning" icon="construction" showWarning variant="Selected" warningTooltip="Outdated configuration" />
+                  <PanelButton label="Both" icon="apps" showError errorCount={5} showWarning errorTooltip="5 inputs missing" warningTooltip="Outdated configuration" />
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: 0 }}>
+                    Hover over the error or warning indicators to see the tooltip
+                  </p>
                 </div>
               </div>
               <div className="panel-button-group">
                 <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Collapsed</h3>
                 <div className="panel-button-demo-area">
                   <div className="panel-button-demo-row">
-                    <PanelButton label="Errors" icon="info" panelOpen={false} showError variant="Selected" />
-                    <PanelButton label="Warnings" icon="construction" panelOpen={false} showWarning variant="Selected" />
+                    <PanelButton label="Errors" icon="info" panelOpen={false} showError variant="Selected" errorTooltip="2 inputs missing" />
+                    <PanelButton label="Warnings" icon="construction" panelOpen={false} showWarning variant="Selected" warningTooltip="Outdated configuration" />
                   </div>
                 </div>
               </div>
@@ -255,6 +275,18 @@ export default function PanelButtonPage() {
                   <td><code>boolean</code></td>
                   <td><code>false</code></td>
                   <td>Show warning indicator</td>
+                </tr>
+                <tr>
+                  <td><code>errorTooltip</code></td>
+                  <td><code>string</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Tooltip text shown on hover over the error badge</td>
+                </tr>
+                <tr>
+                  <td><code>warningTooltip</code></td>
+                  <td><code>string</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Tooltip text shown on hover over the warning indicator</td>
                 </tr>
                 <tr>
                   <td><code>onClick</code></td>

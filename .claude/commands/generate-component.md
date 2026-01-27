@@ -28,7 +28,9 @@ Create a complete, production-ready component by inspecting the Figma design and
 ## Workflow
 
 ### 1. Inspect Figma
-Use MCP tools to extract the complete design:
+
+Use Local MCP tools to extract the complete design:
+
 - `mcp__figma__get_design_context` - Main design specs
 - `mcp__figma__get_screenshot` - Visual reference if needed
 - `mcp__figma__get_variable_defs` - Design tokens used
@@ -36,18 +38,22 @@ Use MCP tools to extract the complete design:
 Extract: variants, sizes, states, colors, spacing, typography, borders, shadows, icons, transitions.
 
 ### 2. Check Dependencies
+
 If the component uses embedded components (Icon, Button, etc.), verify they exist in `/packages/core/src/components/`.
 
 **If missing**: Warn me and ask whether to generate them first, proceed anyway, or cancel.
 
 ### 3. Create Component
+
 Follow the patterns documented in `CLAUDE.md` and reference existing components like `Button.tsx`, `Tab.tsx`.
 
 Files to create:
+
 - `/packages/core/src/components/[Name].tsx`
 - `/packages/core/src/components/[Name].css`
 
 ### 4. Register Component
+
 - Export from `/packages/core/src/index.ts`
 - Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`
 - Add CSS export in `/packages/core/package.json`
@@ -61,13 +67,16 @@ Files to create:
   - `cssImports`: token imports needed
 
 ### 5. Create Documentation
+
 Follow existing doc pages (e.g., `Button.tsx` in `/apps/docs/src/pages/`):
+
 - `/apps/docs/src/pages/[Name].tsx`
 - `/apps/docs/src/pages/[Name].css`
 - Add route in `/apps/docs/src/App.tsx`
 - Add nav link in `/apps/docs/src/components/Layout.tsx` (alphabetical order)
 
 ### 6. Build & Verify
+
 ```bash
 cd packages/core && pnpm build
 cd packages/cli && pnpm sync && pnpm build

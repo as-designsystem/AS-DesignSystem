@@ -1,0 +1,12 @@
+/**
+ * StudyStatusBar Documentation Page Styles
+ */
+
+.study-status-bar-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--background-secondary, #f5f6f8);
+  border-radius: 8px;
+}

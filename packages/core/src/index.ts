@@ -16,6 +16,9 @@ export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberIn
 export { Tooltip, type TooltipProps, type TooltipArrow } from './components/Tooltip';
 export { PanelStudyName, type PanelStudyNameProps } from './components/PanelStudyName';
 export { PanelButton, type PanelButtonProps, type PanelButtonSize, type PanelButtonVariant } from './components/PanelButton';
+export { Spinner, type SpinnerProps, type SpinnerVariant } from './components/Spinner';
+export { PanelSectionTitle, type PanelSectionTitleProps, type PanelSectionTitleSize } from './components/PanelSectionTitle';
+export { PanelGroup, type PanelGroupProps, type PanelGroupSize } from './components/PanelGroup';
 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';
@@ -24,6 +27,8 @@ export { ProductBanner, type ProductBannerProps, type ProductBannerLink } from '
 export { HomePageActionBar, type HomePageActionBarProps, type HomePageTab } from './composites/HomePageActionBar';
 export { PanelHeader, type PanelHeaderProps } from './composites/PanelHeader';
 export { LeftPanel, type LeftPanelProps } from './composites/LeftPanel';
+export { StudyStatusBar, type StudyStatusBarProps, type StudyStatusBarStatus } from './composites/StudyStatusBar';
+export { Accordion, type AccordionProps, type AccordionSize } from './composites/Accordion';
 
 // Tokens
 export * from './tokens/colors';

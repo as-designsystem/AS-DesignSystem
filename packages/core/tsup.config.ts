@@ -35,7 +35,7 @@ export default defineConfig({
   },
   onSuccess: () => {
     // Copy component CSS files to dist
-    const componentCssFiles = ['Icon.css', 'Button.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'VSelect.css', 'Checkbox.css', 'VCheckbox.css', 'Toggle.css', 'VToggle.css', 'TextInput.css', 'NumberInput.css', 'Tooltip.css', 'PanelStudyName.css', 'PanelButton.css'];
+    const componentCssFiles = ['Icon.css', 'Button.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'VSelect.css', 'Checkbox.css', 'VCheckbox.css', 'Toggle.css', 'VToggle.css', 'TextInput.css', 'NumberInput.css', 'Tooltip.css', 'PanelStudyName.css', 'PanelButton.css', 'Spinner.css', 'PanelSectionTitle.css', 'PanelGroup.css'];
     componentCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'components', file);
       const distCss = join(process.cwd(), 'dist', file);
@@ -45,7 +45,7 @@ export default defineConfig({
     });
 
     // Copy composite CSS files to dist
-    const compositeCssFiles = ['Modal.css', 'AppHeader.css', 'ProductBanner.css', 'HomePageActionBar.css', 'PanelHeader.css', 'LeftPanel.css'];
+    const compositeCssFiles = ['Modal.css', 'AppHeader.css', 'ProductBanner.css', 'HomePageActionBar.css', 'PanelHeader.css', 'LeftPanel.css', 'StudyStatusBar.css', 'Accordion.css'];
     compositeCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'composites', file);
       const distCss = join(process.cwd(), 'dist', file);

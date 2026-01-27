@@ -1,0 +1,30 @@
+.panel-group-demo-area {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: var(--background-corporate, #00205b);
+  border-radius: 8px;
+  gap: 4px;
+}
+
+.panel-group-demo-area--narrow {
+  max-width: 280px;
+}
+
+.panel-group-demo-row {
+  display: flex;
+  gap: 32px;
+}
+
+.panel-group-demo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panel-group-demo-item span.demo-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

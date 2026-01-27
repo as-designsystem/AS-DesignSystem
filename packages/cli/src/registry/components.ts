@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (55 icons)
+      // SVG icon assets (58 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -49,6 +49,8 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/add.svg', target: 'assets/svg/icons/add.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/apps.svg', target: 'assets/svg/icons/apps.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/arrow_back.svg', target: 'assets/svg/icons/arrow_back.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/autorenew.svg', target: 'assets/svg/icons/autorenew.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/broken_image.svg', target: 'assets/svg/icons/broken_image.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/check.svg', target: 'assets/svg/icons/check.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/close.svg', target: 'assets/svg/icons/close.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/code.svg', target: 'assets/svg/icons/code.svg', type: 'component' },
@@ -59,6 +61,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/dropdown.svg', target: 'assets/svg/icons/dropdown.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/edit.svg', target: 'assets/svg/icons/edit.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/emoji_emotions.svg', target: 'assets/svg/icons/emoji_emotions.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/error.svg', target: 'assets/svg/icons/error.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter_row.svg', target: 'assets/svg/icons/filter_row.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/info.svg', target: 'assets/svg/icons/info.svg', type: 'component' },
@@ -670,5 +673,65 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
       '@/design-system/tokens/radius.css',
     ],
+  },
+  {
+    name: 'spinner',
+    type: 'component',
+    displayName: 'Spinner',
+    description: 'Rotating loading indicator',
+    files: [
+      {
+        path: 'templates/components/Spinner.tsx',
+        target: 'components/Spinner.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Spinner.css',
+        target: 'components/Spinner.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [],
+  },
+  {
+    name: 'panel-section-title',
+    type: 'component',
+    displayName: 'PanelSectionTitle',
+    description: 'Section title label for dark corporate panels',
+    files: [
+      {
+        path: 'templates/components/PanelSectionTitle.tsx',
+        target: 'components/PanelSectionTitle.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/PanelSectionTitle.css',
+        target: 'components/PanelSectionTitle.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [],
+  },
+  {
+    name: 'panel-group',
+    type: 'component',
+    displayName: 'PanelGroup',
+    description: 'Collapsible group header for dark corporate panels with optional actions',
+    files: [
+      {
+        path: 'templates/components/PanelGroup.tsx',
+        target: 'components/PanelGroup.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/PanelGroup.css',
+        target: 'components/PanelGroup.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [],
   },
 ];

@@ -50,6 +50,14 @@ export interface PanelButtonProps {
    */
   showWarning?: boolean;
   /**
+   * Tooltip text shown on hover over the error badge
+   */
+  errorTooltip?: string;
+  /**
+   * Tooltip text shown on hover over the warning indicator
+   */
+  warningTooltip?: string;
+  /**
    * Click handler
    */
   onClick?: () => void;
@@ -82,6 +90,8 @@ export function PanelButton({
   showError = false,
   errorCount = 0,
   showWarning = false,
+  errorTooltip,
+  warningTooltip,
   onClick,
   className = '',
 }: PanelButtonProps) {
@@ -133,15 +143,23 @@ export function PanelButton({
 
       {/* Error chip (expanded mode) */}
       {panelOpen && showError && errorCount > 0 && (
-        <span className="panel-button__error-chip">
-          {errorCount}
+        <span className="panel-button__badge-wrapper">
+          <span className="panel-button__error-chip">
+            {errorCount}
+          </span>
+          {errorTooltip && (
+            <Tooltip label={errorTooltip} arrow="Bottom" className="panel-button__badge-tooltip" />
+          )}
         </span>
       )}
 
       {/* Warning icon (expanded mode) */}
       {panelOpen && showWarning && (
-        <span className="panel-button__warning">
+        <span className="panel-button__badge-wrapper">
           <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
+          {warningTooltip && (
+            <Tooltip label={warningTooltip} arrow="Bottom" className="panel-button__badge-tooltip" />
+          )}
         </span>
       )}
 
@@ -159,7 +177,11 @@ export function PanelButton({
 
       {/* Tooltip (collapsed mode only, shown on hover via CSS) */}
       {!panelOpen && (
-        <Tooltip label={label} arrow="Left" className="panel-button__tooltip" />
+        <Tooltip
+          label={[label, errorTooltip, warningTooltip].filter(Boolean).join(' · ')}
+          arrow="Left"
+          className="panel-button__tooltip"
+        />
       )}
     </button>
   );
