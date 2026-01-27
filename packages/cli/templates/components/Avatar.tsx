@@ -145,19 +145,17 @@ export function AvatarStack({
     className,
   ].filter(Boolean).join(' ');
 
-  const totalItems = visibleCount + (overflowCount > 0 ? 1 : 0);
-
   return (
     <div className={classes} role="group" aria-label="User avatars">
       {childArray.slice(0, visibleCount).map((child, index) => (
-        <span className="avatar-stack__item" key={index} style={{ zIndex: totalItems - index }}>
+        <span className="avatar-stack__item" key={index} style={{ zIndex: visibleCount - index }}>
           {child}
         </span>
       ))}
       {overflowCount > 0 && (
         <span
           className={`avatar-stack__item avatar-stack__overflow avatar avatar--${size.toLowerCase()}`}
-          style={{ zIndex: 0 }}
+          style={{ zIndex: visibleCount + 1 }}
         >
           +{overflowCount}
         </span>
