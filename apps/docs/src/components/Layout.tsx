@@ -105,6 +105,7 @@ const navSections: NavSectionData[] = [
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },
       { label: 'Checkbox', path: '/components/checkbox' },
+      { label: 'Chip', path: '/components/chip' },
       { label: 'IconButton', path: '/components/icon-button' },
       { label: 'Modal', path: '/composites/modal' },
       { label: 'NumberInput', path: '/components/number-input' },
@@ -177,6 +178,7 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'About Templates', path: '/templates/about' },
       { label: 'HomePage', path: '/templates/home-page' },
+      { label: 'LandingPage', path: '/templates/landing-page' },
     ],
   },
 ];
@@ -298,6 +300,71 @@ export default function HomePage() {
   border-radius: 8px;
   border: 1px solid var(--border-minimal, #e0e3e9);
   padding: 24px;
+}`,
+    },
+  ],
+  '/templates/landing-page': [
+    {
+      title: 'LandingPage.tsx',
+      language: 'tsx',
+      code: `// Install with: asds add landing-page
+
+import { useState } from 'react';
+import { AppHeader } from './composites/AppHeader';
+import { ToolTile } from './composites/ToolTile';
+import { Button } from './components/Button';
+import { IconButton } from './components/IconButton';
+import { Chip } from './components/Chip';
+import './LandingPage.css';
+
+export default function LandingPage() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  return (
+    <div className="landing-page">
+      <AppHeader appName="Airline Digital Twin" actions={...} />
+
+      {/* Hero Section */}
+      <section className="landing-page__hero">
+        <div className="landing-page__hero-overlay" />
+        <div className="landing-page__hero-content">
+          <h1 className="landing-page__hero-title">Airline Digital Twin</h1>
+          <p className="landing-page__hero-subtitle">By Airline Sciences</p>
+          <p className="landing-page__hero-description">...</p>
+          <div className="landing-page__hero-actions">
+            <Button label="LEARN MORE" variant="Ghost" size="M" />
+            <Button label="OUR TOOLS" rightIcon="arrow_downward" size="M" />
+          </div>
+        </div>
+      </section>
+
+      {/* Tool Catalog with Chip Filters */}
+      <main className="landing-page__main">
+        <section className="landing-page__tools">
+          <div className="landing-page__filters">
+            {categories.map(cat => (
+              <Chip key={cat} label={cat} size="S" active={activeCategory === cat}
+                onClick={() => setActiveCategory(cat)} />
+            ))}
+          </div>
+          {sections.map(section => (
+            <div key={section.title} className="landing-page__category">
+              <h3 className="landing-page__category-title">{section.title}</h3>
+              <div className="landing-page__category-grid">
+                {section.tools.map(tool => (
+                  <ToolTile key={tool.title} tool={tool.tool} title={tool.title}
+                    description={tool.description} platforms={tool.platforms} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      </main>
+
+      {/* Contact Us + Footer */}
+      ...
+    </div>
+  );
 }`,
     },
   ],

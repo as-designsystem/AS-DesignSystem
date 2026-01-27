@@ -27,6 +27,7 @@ import airSideIcon from '../assets/svg/icons/AIR_side.svg?raw';
 import airSpinnerIcon from '../assets/svg/icons/AIR_spinner.svg?raw';
 import airTailIcon from '../assets/svg/icons/AIR_tail.svg?raw';
 import arrowBackIcon from '../assets/svg/icons/arrow_back.svg?raw';
+import arrowDownwardIcon from '../assets/svg/icons/arrow_downward.svg?raw';
 import accountCircleIcon from '../assets/svg/icons/account_circle.svg?raw';
 import addIcon from '../assets/svg/icons/add.svg?raw';
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
@@ -91,6 +92,7 @@ const iconMap: Record<string, string> = {
   'AIR_spinner': airSpinnerIcon,
   'AIR_tail': airTailIcon,
   'arrow_back': arrowBackIcon,
+  'arrow_downward': arrowDownwardIcon,
   'account_circle': accountCircleIcon,
   'add': addIcon,
   'apps': appsIcon,
@@ -155,6 +157,7 @@ export const availableIcons = [
   'AIR_spinner',
   'AIR_tail',
   'arrow_back',
+  'arrow_downward',
   'account_circle',
   'add',
   'apps',

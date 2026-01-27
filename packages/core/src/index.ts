@@ -20,6 +20,7 @@ export { Spinner, type SpinnerProps, type SpinnerVariant } from './components/Sp
 export { PanelSectionTitle, type PanelSectionTitleProps, type PanelSectionTitleSize } from './components/PanelSectionTitle';
 export { PanelGroup, type PanelGroupProps, type PanelGroupSize } from './components/PanelGroup';
 export { Avatar, AvatarStack, type AvatarProps, type AvatarStackProps, type AvatarSize } from './components/Avatar';
+export { Chip, type ChipProps, type ChipSize, type ChipType } from './components/Chip';
 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';

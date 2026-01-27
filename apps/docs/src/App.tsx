@@ -31,8 +31,10 @@ import StudyStatusBarPage from './pages/StudyStatusBar';
 import AvatarPage from './pages/Avatar';
 import WorkspacePage from './pages/Workspace';
 import ToolTilePage from './pages/ToolTile';
+import ChipPage from './pages/Chip';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
+import LandingPageTemplate from './pages/LandingPageTemplate';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -43,6 +45,7 @@ function App() {
       <Routes>
         {/* Fullscreen routes - outside Layout */}
         <Route path="/templates/home-page/fullscreen" element={<HomePageTemplate />} />
+        <Route path="/templates/landing-page/fullscreen" element={<LandingPageTemplate />} />
 
         {/* Main routes with Layout */}
         <Route path="/*" element={
@@ -74,6 +77,7 @@ function App() {
               <Route path="/components/panel-section-title" element={<PanelSectionTitlePage />} />
               <Route path="/components/panel-group" element={<PanelGroupPage />} />
               <Route path="/components/avatar" element={<AvatarPage />} />
+              <Route path="/components/chip" element={<ChipPage />} />
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />
@@ -88,6 +92,7 @@ function App() {
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />
+              <Route path="/templates/landing-page" element={<LandingPageTemplate />} />
             </Routes>
           </Layout>
         } />
