@@ -30,6 +30,7 @@ import AccordionPage from './pages/Accordion';
 import StudyStatusBarPage from './pages/StudyStatusBar';
 import AvatarPage from './pages/Avatar';
 import WorkspacePage from './pages/Workspace';
+import ToolTilePage from './pages/ToolTile';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import TextStyles from './pages/TextStyles';
@@ -83,6 +84,7 @@ function App() {
               <Route path="/composites/study-status-bar" element={<StudyStatusBarPage />} />
               <Route path="/composites/accordion" element={<AccordionPage />} />
               <Route path="/composites/workspace" element={<WorkspacePage />} />
+              <Route path="/composites/tool-tile" element={<ToolTilePage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

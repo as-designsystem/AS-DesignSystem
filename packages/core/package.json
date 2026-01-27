@@ -43,7 +43,8 @@
     "./PanelSectionTitle.css": "./dist/PanelSectionTitle.css",
     "./PanelGroup.css": "./dist/PanelGroup.css",
     "./Avatar.css": "./dist/Avatar.css",
-    "./Workspace.css": "./dist/Workspace.css"
+    "./Workspace.css": "./dist/Workspace.css",
+    "./ToolTile.css": "./dist/ToolTile.css"
   },
   "scripts": {
     "build": "tsup",

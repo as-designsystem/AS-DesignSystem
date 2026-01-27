@@ -47,6 +47,7 @@ import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?r
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
+import moreHorizIcon from '../assets/svg/icons/more_horiz.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
@@ -58,6 +59,7 @@ import errorIcon from '../assets/svg/icons/error.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import folderIcon from '../assets/svg/icons/folder.svg?raw';
+import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -109,6 +111,7 @@ const iconMap: Record<string, string> = {
   'keyboard_arrow_up': keyboardArrowUpIcon,
   'light_mode': lightModeIcon,
   'menu': menuIcon,
+  'more_horiz': moreHorizIcon,
   'notifications': notificationsIcon,
   'open_in_new': openInNewIcon,
   'play': playIcon,
@@ -120,6 +123,7 @@ const iconMap: Record<string, string> = {
   'broken_image': brokenImageIcon,
   'autorenew': autorenewIcon,
   'folder': folderIcon,
+  'folder_open': folderOpenIcon,
 };
 
 export const availableIcons = [
@@ -171,6 +175,7 @@ export const availableIcons = [
   'keyboard_arrow_up',
   'light_mode',
   'menu',
+  'more_horiz',
   'notifications',
   'open_in_new',
   'play',
@@ -182,6 +187,7 @@ export const availableIcons = [
   'broken_image',
   'autorenew',
   'folder',
+  'folder_open',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

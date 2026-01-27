@@ -113,7 +113,6 @@ const navSections: NavSectionData[] = [
       { label: 'Tab', path: '/components/tab' },
       { label: 'TextInput', path: '/components/text-input' },
       { label: 'Toggle', path: '/components/toggle' },
-      { label: 'ToolIcons', path: '/components/tool-icons' },
       { label: 'Tooltip', path: '/components/tooltip' },
     ],
   },
@@ -129,6 +128,8 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'AppHeader', path: '/composites/app-header' },
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
+      { label: 'ToolIcons', path: '/components/tool-icons' },
+      { label: 'ToolTile', path: '/composites/tool-tile' },
     ],
   },
   {

@@ -6,6 +6,7 @@ import './Workspace.css';
 
 export interface WorkspaceUser {
   initials: string;
+  name?: string;
   color?: string;
 }
 
@@ -131,7 +132,7 @@ export function Workspace({
           <Spinner size={24} variant="arc" />
         ) : (
           <Icon
-            name="folder"
+            name={isOpen ? 'folder_open' : 'folder'}
             size={24}
             color="var(--primary-default, #063b9e)"
           />
@@ -163,6 +164,14 @@ export function Workspace({
                 <Avatar key={i} initials={user.initials} size="M" color={user.color || '#ced5dd'} textColor="#00205b" />
               ))}
             </AvatarStack>
+            <span className="workspace__users-tooltip">
+              {users.map((user, i) => (
+                <span key={i} className="workspace__users-tooltip-item">
+                  <Avatar initials={user.initials} size="XS" color={user.color || '#ced5dd'} textColor="#00205b" />
+                  <span>{user.name || user.initials}</span>
+                </span>
+              ))}
+            </span>
           </span>
         )}
       </button>

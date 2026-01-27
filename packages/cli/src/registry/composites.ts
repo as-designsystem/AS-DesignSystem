@@ -197,6 +197,35 @@ export const composites: RegistryItem[] = [
     ],
   },
   {
+    name: 'tool-tile',
+    type: 'composite',
+    displayName: 'ToolTile',
+    description: 'Product/tool card with icon, name, platform badges, and description',
+    files: [
+      {
+        path: 'templates/composites/ToolTile.tsx',
+        target: 'composites/ToolTile.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/ToolTile.css',
+        target: 'composites/ToolTile.css',
+        type: 'style',
+      },
+      { path: 'templates/assets/svg/platforms/platform-web.svg', target: 'assets/svg/platforms/platform-web.svg', type: 'component' },
+      { path: 'templates/assets/svg/platforms/platform-android.svg', target: 'assets/svg/platforms/platform-android.svg', type: 'component' },
+      { path: 'templates/assets/svg/platforms/platform-ios.svg', target: 'assets/svg/platforms/platform-ios.svg', type: 'component' },
+      { path: 'templates/assets/svg/platforms/platform-windows.svg', target: 'assets/svg/platforms/platform-windows.svg', type: 'component' },
+      { path: 'templates/assets/svg/platforms/platform-skywise.svg', target: 'assets/svg/platforms/platform-skywise.svg', type: 'component' },
+    ],
+    dependencies: ['tool-icons', 'icon-button'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'workspace',
     type: 'composite',
     displayName: 'Workspace',

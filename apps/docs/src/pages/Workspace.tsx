@@ -20,9 +20,9 @@ export default function WorkspacePage() {
   studyCount={12}
   lastModified="Jan 15, 2025"
   users={[
-    { initials: 'MT' },
-    { initials: 'JD' },
-    { initials: 'AB' },
+    { initials: 'MT', name: 'Mark Thompson' },
+    { initials: 'JD', name: 'Jane Doe' },
+    { initials: 'AB', name: 'Alice Brown' },
   ]}
 >
   <p>Folder content here...</p>
@@ -34,7 +34,7 @@ export default function WorkspacePage() {
   title="My Workspace"
   studyCount={8}
   lastModified="Dec 20, 2024"
-  users={[{ initials: 'MT' }, { initials: 'JD' }]}
+  users={[{ initials: 'MT', name: 'Mark Thompson' }, { initials: 'JD', name: 'Jane Doe' }]}
   defaultOpen
 >
   <div>Study 1 — A320 Fleet Analysis</div>
@@ -51,10 +51,10 @@ export default function WorkspacePage() {
   isComputing
   lastModified="Jan 27, 2025"
   users={[
-    { initials: 'MT' },
-    { initials: 'JD' },
-    { initials: 'AB' },
-    { initials: 'KL' },
+    { initials: 'MT', name: 'Mark Thompson' },
+    { initials: 'JD', name: 'Jane Doe' },
+    { initials: 'AB', name: 'Alice Brown' },
+    { initials: 'KL', name: 'Kevin Lee' },
   ]}
   maxAvatars={3}
   defaultOpen
@@ -144,9 +144,9 @@ const [isOpen, setIsOpen] = useState(false);
                 studyCount={12}
                 lastModified="Jan 15, 2025"
                 users={[
-                  { initials: 'MT' },
-                  { initials: 'JD' },
-                  { initials: 'AB' },
+                  { initials: 'MT', name: 'Mark Thompson' },
+                  { initials: 'JD', name: 'Jane Doe' },
+                  { initials: 'AB', name: 'Alice Brown' },
                 ]}
               >
                 <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>
@@ -182,7 +182,7 @@ const [isOpen, setIsOpen] = useState(false);
                 title="My Workspace"
                 studyCount={8}
                 lastModified="Dec 20, 2024"
-                users={[{ initials: 'MT' }, { initials: 'JD' }]}
+                users={[{ initials: 'MT', name: 'Mark Thompson' }, { initials: 'JD', name: 'Jane Doe' }]}
                 defaultOpen
               >
                 <div className="workspace-demo__study-item">Study 1 — A320 Fleet Analysis</div>
@@ -221,10 +221,10 @@ const [isOpen, setIsOpen] = useState(false);
                 isComputing
                 lastModified="Jan 27, 2025"
                 users={[
-                  { initials: 'MT' },
-                  { initials: 'JD' },
-                  { initials: 'AB' },
-                  { initials: 'KL' },
+                  { initials: 'MT', name: 'Mark Thompson' },
+                  { initials: 'JD', name: 'Jane Doe' },
+                  { initials: 'AB', name: 'Alice Brown' },
+                  { initials: 'KL', name: 'Kevin Lee' },
                 ]}
                 maxAvatars={3}
                 defaultOpen
@@ -321,7 +321,7 @@ const [isOpen, setIsOpen] = useState(false);
                   <td><code>users</code></td>
                   <td><code>WorkspaceUser[]</code></td>
                   <td>-</td>
-                  <td>Users to display as avatar stack</td>
+                  <td>Users to display as avatar stack. Each user has <code>initials</code>, optional <code>name</code> (shown on hover), and optional <code>color</code>.</td>
                 </tr>
                 <tr>
                   <td><code>maxAvatars</code></td>
