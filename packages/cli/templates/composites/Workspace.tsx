@@ -122,7 +122,7 @@ export function Workspace({
       >
         <span className="workspace__toggle-icon">
           <Icon
-            name="keyboard_arrow_down"
+            name="dropdown"
             size={20}
             color="var(--text-secondary, #63728a)"
           />
