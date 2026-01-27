@@ -100,11 +100,13 @@ const navSections: NavSectionData[] = [
       </svg>
     ),
     items: [
+      { label: 'Accordion', path: '/composites/accordion' },
       { label: 'Avatar', path: '/components/avatar' },
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },
       { label: 'Checkbox', path: '/components/checkbox' },
       { label: 'IconButton', path: '/components/icon-button' },
+      { label: 'Modal', path: '/composites/modal' },
       { label: 'NumberInput', path: '/components/number-input' },
       { label: 'Select', path: '/components/select' },
       { label: 'Spinner', path: '/components/spinner' },
@@ -116,7 +118,7 @@ const navSections: NavSectionData[] = [
     ],
   },
   {
-    title: 'Composites',
+    title: 'AS Generics',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -125,9 +127,7 @@ const navSections: NavSectionData[] = [
       </svg>
     ),
     items: [
-      { label: 'Accordion', path: '/composites/accordion' },
       { label: 'AppHeader', path: '/composites/app-header' },
-      { label: 'Modal', path: '/composites/modal' },
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
     ],
   },
