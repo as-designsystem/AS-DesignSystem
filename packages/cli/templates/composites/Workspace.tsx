@@ -128,7 +128,7 @@ export function Workspace({
           />
         </span>
         {isComputing ? (
-          <Spinner size={24} />
+          <Spinner size={24} variant="arc" />
         ) : (
           <Icon
             name="folder"
