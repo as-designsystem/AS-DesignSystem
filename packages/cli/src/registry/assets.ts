@@ -54,6 +54,24 @@ export const assets: RegistryItem[] = [
     ],
   },
   {
+    name: 'favicons',
+    type: 'asset',
+    displayName: 'Favicons',
+    description: 'Airbus favicon SVG files (light and dark variants)',
+    files: [
+      {
+        path: 'templates/assets/favicons/favicon.svg',
+        target: 'assets/favicons/favicon.svg',
+        type: 'util',
+      },
+      {
+        path: 'templates/assets/favicons/favicon-dark.svg',
+        target: 'assets/favicons/favicon-dark.svg',
+        type: 'util',
+      },
+    ],
+  },
+  {
     name: 'all-assets',
     type: 'asset',
     displayName: 'All Assets',

@@ -293,6 +293,26 @@ export const init = new Command()
       logger.error(error.message);
     }
 
+    // Auto-install favicons
+    const faviconSpinner = logger.spinner('Installing favicons...');
+    try {
+      const favicons = getRegistryItem('favicons');
+
+      if (!favicons) {
+        throw new Error('Favicons registry item not found');
+      }
+
+      // Copy favicon files
+      for (const file of favicons.files) {
+        await copyFile(file, config as Config, cwd);
+      }
+
+      faviconSpinner.succeed('Installed favicons (favicon.svg, favicon-dark.svg)');
+    } catch (error: any) {
+      faviconSpinner.fail('Failed to install favicons');
+      logger.error(error.message);
+    }
+
     logger.break();
     logger.success('Initialization complete!');
     logger.break();

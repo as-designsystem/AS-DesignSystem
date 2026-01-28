@@ -279,10 +279,6 @@ export default function LandingPage() {
     );
   };
 
-  const handleToolClick = (title: string) => {
-    console.log('Tool clicked:', title);
-  };
-
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement contact form submission
@@ -358,8 +354,7 @@ export default function LandingPage() {
                       title={tool.title}
                       description={tool.description}
                       platforms={tool.platforms}
-                      onClick={() => handleToolClick(tool.title)}
-                    />
+                                          />
                     <div className="landing-page__tile-menu">
                       <DropdownMenu>
                         <DropdownMenuTrigger>
@@ -436,8 +431,7 @@ export default function LandingPage() {
                       title={tool.title}
                       description={tool.description}
                       platforms={tool.platforms}
-                      onClick={() => handleToolClick(tool.title)}
-                    />
+                                          />
                     <div className="landing-page__tile-menu">
                       <DropdownMenu>
                         <DropdownMenuTrigger>
