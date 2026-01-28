@@ -96,6 +96,7 @@ export function StudyRow({
     'study-row',
     selected ? 'study-row--selected' : '',
     status === 'Failed' ? 'study-row--failed' : '',
+    status === 'Warning' ? 'study-row--warning' : '',
     className,
   ].filter(Boolean).join(' ');
 

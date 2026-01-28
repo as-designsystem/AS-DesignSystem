@@ -10,7 +10,7 @@
   flex-direction: column;
   border-radius: var(--radius-xs, 3px);
   background-color: var(--background-main, #ffffff);
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-1, 0 0 3px 0 rgba(0, 0, 0, 0.15));
   overflow: hidden;
 }
 
@@ -171,13 +171,24 @@
 .workspace__content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   padding: 0 16px;
   overflow: hidden;
-  background-color: var(--background-main, #ffffff);
   transition: padding 250ms ease-in-out;
 }
 
 .workspace--open .workspace__content {
   padding: 8px 16px 16px;
+}
+
+/* ============================================================================
+   TABLE WRAPPER (shadow card around study table)
+   ============================================================================ */
+
+.workspace__table-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-main, #ffffff);
+  box-shadow: var(--shadow-1, 0 0 3px 0 rgba(0, 0, 0, 0.15));
+  border-radius: var(--radius-xs, 3px);
+  overflow: hidden;
 }

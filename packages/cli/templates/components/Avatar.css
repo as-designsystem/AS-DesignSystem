@@ -86,7 +86,8 @@
 
 /* Overflow indicator */
 .avatar-stack__overflow {
-  background-color: var(--text-tertiary, #b3bbc8);
+  background-color: var(--cool-grey-30, #ced5dd);
   color: var(--text-corporate, #00205b);
   font-weight: 700;
+  box-shadow: 0 0 0 2px var(--background-main, #ffffff);
 }

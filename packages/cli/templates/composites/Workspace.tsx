@@ -182,7 +182,9 @@ export function Workspace({
       </button>
       <div className="workspace__body">
         <div className="workspace__content">
-          {children}
+          <div className="workspace__table-wrapper">
+            {children}
+          </div>
         </div>
       </div>
     </div>

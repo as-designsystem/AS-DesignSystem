@@ -7,7 +7,6 @@
   align-items: center;
   min-height: 48px;
   width: 100%;
-  background-color: var(--background-main, #ffffff);
   border-bottom: 1px solid var(--border-minimal, #eff1f4);
   transition: background-color 150ms ease;
   position: relative;
@@ -15,25 +14,22 @@
 
 /* Hover state */
 .study-row:hover {
-  background-color: var(--background-secondary, #eff1f4);
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
 /* Selected state */
 .study-row--selected {
-  background-color: #e5ecf7;
-}
-
-.study-row--selected:hover {
-  background-color: #d9e4f3;
+  background-color: var(--primary-t-active, rgba(0, 45, 128, 0.2));
 }
 
 /* Failed state */
 .study-row--failed {
-  background-color: #fef5f6;
+  background-color: var(--feedback-error-t-background, rgba(228, 0, 43, 0.1));
 }
 
-.study-row--failed:hover {
-  background-color: #fde9eb;
+/* Warning state */
+.study-row--warning {
+  background-color: var(--feedback-warning-t-background, rgba(255, 201, 41, 0.1));
 }
 
 /* Clickable row */

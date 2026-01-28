@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import { Workspace, Tab, Button } from '@as-design-system/core';
+import { Workspace, Tab, Button, StudyTableHeader, StudyRow } from '@as-design-system/core';
 import '@as-design-system/core/Workspace.css';
 import '@as-design-system/core/Avatar.css';
 import '@as-design-system/core/Spinner.css';
 import '@as-design-system/core/Icon.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/StudyTableHeader.css';
+import '@as-design-system/core/StudyRow.css';
+import '@as-design-system/core/StudyStatus.css';
+import '@as-design-system/core/Checkbox.css';
+import '@as-design-system/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
 import './Workspace.css';
 
@@ -29,25 +34,46 @@ export default function WorkspacePage() {
 </Workspace>`;
 
   const expandedCode = `import { Workspace } from '@/design-system/composites/Workspace';
+import { StudyTableHeader } from '@/design-system/components/StudyTableHeader';
+import { StudyRow } from '@/design-system/components/StudyRow';
 
 <Workspace
   title="My Workspace"
-  studyCount={8}
+  studyCount={3}
   lastModified="Dec 20, 2024"
   users={[{ initials: 'MT', name: 'Mark Thompson' }, { initials: 'JD', name: 'Jane Doe' }]}
   defaultOpen
 >
-  <div>Study 1 — A320 Fleet Analysis</div>
-  <div>Study 2 — Route Optimization</div>
-  <div>Study 3 — Maintenance Forecast</div>
+  <StudyTableHeader
+    columns={[
+      { key: 'name', label: 'Name' },
+      { key: 'description', label: 'Description' },
+    ]}
+  />
+  <StudyRow
+    status="Computed"
+    columns={[
+      { key: 'name', value: 'A320 Fleet Analysis' },
+      { key: 'description', value: 'Fleet performance review' },
+    ]}
+  />
+  <StudyRow
+    status="Computing"
+    columns={[
+      { key: 'name', value: 'Route Optimization' },
+      { key: 'description', value: 'Network route analysis' },
+    ]}
+  />
 </Workspace>`;
 
   const computingCode = `import { Workspace } from '@/design-system/composites/Workspace';
+import { StudyTableHeader } from '@/design-system/components/StudyTableHeader';
+import { StudyRow } from '@/design-system/components/StudyRow';
 
 <Workspace
   title="Production Workspace"
-  studyCount={5}
-  computingText="3 Computing"
+  studyCount={3}
+  computingText="2 Computing"
   isComputing
   lastModified="Jan 27, 2025"
   users={[
@@ -59,7 +85,14 @@ export default function WorkspacePage() {
   maxAvatars={3}
   defaultOpen
 >
-  <div>Study content...</div>
+  <StudyTableHeader
+    columns={[
+      { key: 'name', label: 'Name' },
+      { key: 'description', label: 'Description' },
+    ]}
+  />
+  <StudyRow status="Computing" columns={[...]} />
+  <StudyRow status="Computed" columns={[...]} />
 </Workspace>`;
 
   const controlledCode = `import { useState } from 'react';
@@ -151,9 +184,19 @@ const [isOpen, setIsOpen] = useState(false);
                   { initials: 'AB', name: 'Alice Brown' },
                 ]}
               >
-                <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>
-                  Folder content here...
-                </p>
+                <StudyTableHeader
+                  columns={[
+                    { key: 'name', label: 'Name' },
+                    { key: 'description', label: 'Description' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computed"
+                  columns={[
+                    { key: 'name', value: 'Fleet Analysis' },
+                    { key: 'description', value: 'Annual fleet review' },
+                  ]}
+                />
               </Workspace>
             </div>
           </section>
@@ -182,14 +225,38 @@ const [isOpen, setIsOpen] = useState(false);
             <div className="workspace-demo">
               <Workspace
                 title="My Workspace"
-                studyCount={8}
+                studyCount={3}
                 lastModified="Dec 20, 2024"
                 users={[{ initials: 'MT', name: 'Mark Thompson' }, { initials: 'JD', name: 'Jane Doe' }]}
                 defaultOpen
               >
-                <div className="workspace-demo__study-item">Study 1 — A320 Fleet Analysis</div>
-                <div className="workspace-demo__study-item">Study 2 — Route Optimization</div>
-                <div className="workspace-demo__study-item">Study 3 — Maintenance Forecast</div>
+                <StudyTableHeader
+                  columns={[
+                    { key: 'name', label: 'Name' },
+                    { key: 'description', label: 'Description' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computed"
+                  columns={[
+                    { key: 'name', value: 'A320 Fleet Analysis' },
+                    { key: 'description', value: 'Fleet performance review' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computing"
+                  columns={[
+                    { key: 'name', value: 'Route Optimization' },
+                    { key: 'description', value: 'Network route analysis' },
+                  ]}
+                />
+                <StudyRow
+                  status="Draft"
+                  columns={[
+                    { key: 'name', value: 'Maintenance Forecast' },
+                    { key: 'description', value: 'Annual maintenance schedule' },
+                  ]}
+                />
               </Workspace>
             </div>
           </section>
@@ -218,8 +285,8 @@ const [isOpen, setIsOpen] = useState(false);
             <div className="workspace-demo">
               <Workspace
                 title="Production Workspace"
-                studyCount={5}
-                computingText="3 Computing"
+                studyCount={3}
+                computingText="2 Computing"
                 isComputing
                 lastModified="Jan 27, 2025"
                 users={[
@@ -231,8 +298,33 @@ const [isOpen, setIsOpen] = useState(false);
                 maxAvatars={3}
                 defaultOpen
               >
-                <div className="workspace-demo__study-item">Study 1 — Running simulation...</div>
-                <div className="workspace-demo__study-item">Study 2 — Processing data...</div>
+                <StudyTableHeader
+                  columns={[
+                    { key: 'name', label: 'Name' },
+                    { key: 'description', label: 'Description' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computing"
+                  columns={[
+                    { key: 'name', value: 'Fuel Burn Analysis' },
+                    { key: 'description', value: 'Running simulation...' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computing"
+                  columns={[
+                    { key: 'name', value: 'Noise Footprint' },
+                    { key: 'description', value: 'Processing data...' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computed"
+                  columns={[
+                    { key: 'name', value: 'Weight Estimation' },
+                    { key: 'description', value: 'Completed successfully' },
+                  ]}
+                />
               </Workspace>
             </div>
           </section>
@@ -409,13 +501,30 @@ function ControlledWorkspaceExample() {
       />
       <Workspace
         title="Controlled Workspace"
-        studyCount={3}
+        studyCount={2}
         open={isOpen}
         onToggle={setIsOpen}
       >
-        <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>
-          This workspace is controlled externally via the button above.
-        </p>
+        <StudyTableHeader
+          columns={[
+            { key: 'name', label: 'Name' },
+            { key: 'description', label: 'Description' },
+          ]}
+        />
+        <StudyRow
+          status="Computed"
+          columns={[
+            { key: 'name', value: 'Weight Estimation' },
+            { key: 'description', value: 'Completed successfully' },
+          ]}
+        />
+        <StudyRow
+          status="Failed"
+          columns={[
+            { key: 'name', value: 'Drag Polar Analysis' },
+            { key: 'description', value: 'Error during computation' },
+          ]}
+        />
       </Workspace>
     </div>
   );

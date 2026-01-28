@@ -52,7 +52,7 @@ export function StudyStatus({
       case 'Computed':
         return <Icon name="check" size={16} color="var(--primary-default, #063b9e)" />;
       case 'Computing':
-        return <Spinner size={16} variant="arc" />;
+        return <Spinner size={16} variant="arc" color="var(--text-secondary, #63728a)" />;
       case 'Failed':
         return <Icon name="close" size={16} color="var(--feedback-error-default, #e4002b)" />;
       case 'Draft':
