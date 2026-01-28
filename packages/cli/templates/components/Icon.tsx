@@ -64,6 +64,11 @@ import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import folderIcon from '../assets/svg/icons/folder.svg?raw';
 import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
+import starIcon from '../assets/svg/icons/star.svg?raw';
+import starBorderIcon from '../assets/svg/icons/star_border.svg?raw';
+import forumIcon from '../assets/svg/icons/forum.svg?raw';
+import descriptionIcon from '../assets/svg/icons/description.svg?raw';
+import listIcon from '../assets/svg/icons/list.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -132,6 +137,11 @@ const iconMap: Record<string, string> = {
   'autorenew': autorenewIcon,
   'folder': folderIcon,
   'folder_open': folderOpenIcon,
+  'star': starIcon,
+  'star_border': starBorderIcon,
+  'forum': forumIcon,
+  'description': descriptionIcon,
+  'list': listIcon,
 };
 
 export const availableIcons = [
@@ -200,6 +210,11 @@ export const availableIcons = [
   'autorenew',
   'folder',
   'folder_open',
+  'star',
+  'star_border',
+  'forum',
+  'description',
+  'list',
 ] as const;
 
 export type IconName = typeof availableIcons[number];
