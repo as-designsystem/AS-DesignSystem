@@ -43,7 +43,7 @@ export default function HomePage() {
     <div className="home-page">
       {/* Application Header */}
       <AppHeader
-        appName="Tool name here"
+        appName="Product Name"
         actions={
           <>
             <IconButton icon="notifications" size="M" variant="Ghost" alt="Notifications" />

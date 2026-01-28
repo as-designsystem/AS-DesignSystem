@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Spinner } from '../components/Spinner';
 import { Avatar, AvatarStack } from '../components/Avatar';
+import { SimpleTooltip } from '../components/Tooltip';
 import './Workspace.css';
 
 export interface WorkspaceUser {
@@ -158,18 +159,25 @@ export function Workspace({
           </div>
         )}
         {users && users.length > 0 && (
-          <AvatarStack max={maxAvatars} size="M">
-            {users.map((user, i) => (
-              <Avatar
-                key={i}
-                initials={user.initials}
-                size="M"
-                color={user.color || '#ced5dd'}
-                textColor="#00205b"
-                tooltip={user.name || user.initials}
-              />
-            ))}
-          </AvatarStack>
+          <SimpleTooltip
+            label={users.map(u => u.name || u.initials).join(', ')}
+            side="top"
+            delayDuration={0}
+          >
+            <div>
+              <AvatarStack max={maxAvatars} size="M">
+                {users.map((user, i) => (
+                  <Avatar
+                    key={i}
+                    initials={user.initials}
+                    size="M"
+                    color={user.color || '#ced5dd'}
+                    textColor="#00205b"
+                  />
+                ))}
+              </AvatarStack>
+            </div>
+          </SimpleTooltip>
         )}
       </button>
       <div className="workspace__body">
