@@ -1,8 +1,17 @@
 import { useState } from 'react';
-import { Tooltip, Tab, Button } from '@as-design-system/core';
+import {
+  SimpleTooltip,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  Tab,
+  Button,
+  IconButton,
+} from '@as-design-system/core';
 import '@as-design-system/core/Tooltip.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
 import './Tooltip.css';
 
@@ -10,22 +19,59 @@ export default function TooltipPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
-  const arrowsCode = `import { Tooltip } from '@/design-system/components/Tooltip';
-
-<Tooltip label="No arrow" arrow="None" />
-<Tooltip label="Arrow bottom" arrow="Bottom" />
-<Tooltip label="Arrow top" arrow="Top" />
-<Tooltip label="Arrow right" arrow="Right" />
-<Tooltip label="Arrow left" arrow="Left" />`;
-
-  const usageCode = `import { Tooltip } from '@/design-system/components/Tooltip';
+  const simpleCode = `import { SimpleTooltip } from '@/design-system/components/Tooltip';
 import { Button } from '@/design-system/components/Button';
 
-// Wrap a Button and position the tooltip with CSS
-<div style={{ position: 'relative', display: 'inline-flex' }}>
-  <Button label="Hover me" variant="Outlined" size="M" />
-  <Tooltip label="Helpful info" arrow="Top" />
-</div>`;
+<SimpleTooltip label="Delete item" side="top">
+  <Button label="Delete" variant="Outlined" size="M" />
+</SimpleTooltip>`;
+
+  const sidesCode = `import { SimpleTooltip } from '@/design-system/components/Tooltip';
+import { Button } from '@/design-system/components/Button';
+
+<SimpleTooltip label="Top tooltip" side="top">
+  <Button label="Top" variant="Outlined" size="S" />
+</SimpleTooltip>
+
+<SimpleTooltip label="Right tooltip" side="right">
+  <Button label="Right" variant="Outlined" size="S" />
+</SimpleTooltip>
+
+<SimpleTooltip label="Bottom tooltip" side="bottom">
+  <Button label="Bottom" variant="Outlined" size="S" />
+</SimpleTooltip>
+
+<SimpleTooltip label="Left tooltip" side="left">
+  <Button label="Left" variant="Outlined" size="S" />
+</SimpleTooltip>`;
+
+  const compoundCode = `import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent
+} from '@/design-system/components/Tooltip';
+import { Button } from '@/design-system/components/Button';
+
+<Tooltip delayDuration={500}>
+  <TooltipTrigger>
+    <Button label="Advanced" variant="Outlined" size="M" />
+  </TooltipTrigger>
+  <TooltipContent side="top" align="start">
+    <div style={{ maxWidth: '200px' }}>
+      Custom content with <strong>formatting</strong>
+    </div>
+  </TooltipContent>
+</Tooltip>`;
+
+  const iconButtonCode = `import { IconButton } from '@/design-system/components/IconButton';
+
+// IconButton has built-in tooltip support
+<IconButton
+  icon="settings"
+  size="M"
+  variant="Ghost"
+  tooltip="Settings"
+/>`;
 
   return (
     <div className="component-page">
@@ -43,8 +89,7 @@ import { Button } from '@/design-system/components/Button';
           color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
         }}
       >
-        A lightweight tooltip used to display contextual information, with
-        configurable arrow direction.
+        Radix UI-based tooltip with proper positioning and hover behavior. Use SimpleTooltip for simple cases or the compound components for advanced control.
       </p>
 
       {/* Main Tabs */}
@@ -68,7 +113,7 @@ import { Button } from '@/design-system/components/Button';
       {/* Examples Tab */}
       {activeTab === 'examples' && (
         <>
-          {/* Arrow Variants */}
+          {/* SimpleTooltip */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -79,41 +124,27 @@ import { Button } from '@/design-system/components/Button';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                Arrow Variants
+                SimpleTooltip
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('arrows')}
+                onClick={() => setOpenModal('simple')}
               />
             </div>
-            <div className="tooltip-examples">
-              <div className="tooltip-example-item">
-                <span className="tooltip-example-label label-regular-xs">None</span>
-                <Tooltip label="Tooltip label" arrow="None" />
-              </div>
-              <div className="tooltip-example-item">
-                <span className="tooltip-example-label label-regular-xs">Bottom</span>
-                <Tooltip label="Tooltip label" arrow="Bottom" />
-              </div>
-              <div className="tooltip-example-item">
-                <span className="tooltip-example-label label-regular-xs">Top</span>
-                <Tooltip label="Tooltip label" arrow="Top" />
-              </div>
-              <div className="tooltip-example-item">
-                <span className="tooltip-example-label label-regular-xs">Right</span>
-                <Tooltip label="Tooltip label" arrow="Right" />
-              </div>
-              <div className="tooltip-example-item">
-                <span className="tooltip-example-label label-regular-xs">Left</span>
-                <Tooltip label="Tooltip label" arrow="Left" />
-              </div>
+            <div className="tooltip-examples" style={{ gap: '24px' }}>
+              <SimpleTooltip label="Delete item" side="top">
+                <Button label="Delete" variant="Outlined" size="M" />
+              </SimpleTooltip>
+              <SimpleTooltip label="Save changes" side="bottom">
+                <Button label="Save" variant="Default" size="M" />
+              </SimpleTooltip>
             </div>
           </section>
 
-          {/* Usage Example */}
+          {/* Sides */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -124,33 +155,33 @@ import { Button } from '@/design-system/components/Button';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                Usage Example
+                Tooltip Sides
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('usage')}
+                onClick={() => setOpenModal('sides')}
               />
             </div>
-            <div className="tooltip-examples">
-              <div className="tooltip-usage-wrapper">
-                <Button label="Hover me" variant="Outlined" size="M" />
-                <div className="tooltip-usage-popup">
-                  <Tooltip label="Helpful information" arrow="Top" />
-                </div>
-              </div>
-              <div className="tooltip-usage-wrapper tooltip-usage-wrapper--right">
-                <Button label="Hover me" variant="Outlined" size="M" />
-                <div className="tooltip-usage-popup tooltip-usage-popup--right">
-                  <Tooltip label="Side tooltip" arrow="Left" />
-                </div>
-              </div>
+            <div className="tooltip-examples" style={{ gap: '12px' }}>
+              <SimpleTooltip label="Top tooltip" side="top">
+                <Button label="Top" variant="Outlined" size="S" />
+              </SimpleTooltip>
+              <SimpleTooltip label="Right tooltip" side="right">
+                <Button label="Right" variant="Outlined" size="S" />
+              </SimpleTooltip>
+              <SimpleTooltip label="Bottom tooltip" side="bottom">
+                <Button label="Bottom" variant="Outlined" size="S" />
+              </SimpleTooltip>
+              <SimpleTooltip label="Left tooltip" side="left">
+                <Button label="Left" variant="Outlined" size="S" />
+              </SimpleTooltip>
             </div>
           </section>
 
-          {/* Custom Labels */}
+          {/* IconButton Integration */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -161,14 +192,65 @@ import { Button } from '@/design-system/components/Button';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                Custom Labels
+                IconButton with Tooltip
               </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('iconbutton')}
+              />
             </div>
-            <div className="tooltip-examples">
-              <Tooltip label="Save document" arrow="Bottom" />
-              <Tooltip label="Delete item" arrow="Bottom" />
-              <Tooltip label="Open settings" arrow="Bottom" />
-              <Tooltip label="View details" arrow="None" />
+            <div className="tooltip-examples" style={{ gap: '12px' }}>
+              <IconButton icon="settings" size="M" variant="Ghost" tooltip="Settings" />
+              <IconButton icon="delete" size="M" variant="Ghost" tooltip="Delete" />
+              <IconButton icon="edit" size="M" variant="Ghost" tooltip="Edit" />
+              <IconButton icon="search" size="M" variant="Ghost" tooltip="Search" />
+            </div>
+          </section>
+
+          {/* Compound Components */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Advanced: Compound Components
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('compound')}
+              />
+            </div>
+            <div className="tooltip-examples" style={{ gap: '24px' }}>
+              <Tooltip delayDuration={500}>
+                <TooltipTrigger>
+                  <Button label="Custom Content" variant="Outlined" size="M" />
+                </TooltipTrigger>
+                <TooltipContent side="top" align="start">
+                  <div style={{ maxWidth: '200px' }}>
+                    Custom content with <strong>formatting</strong>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip delayDuration={0}>
+                <TooltipTrigger>
+                  <Button label="No Delay" variant="Outlined" size="M" />
+                </TooltipTrigger>
+                <TooltipContent side="bottom" arrow={false}>
+                  Instant tooltip without arrow
+                </TooltipContent>
+              </Tooltip>
             </div>
           </section>
         </>
@@ -185,7 +267,7 @@ import { Button } from '@/design-system/components/Button';
               color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
             }}
           >
-            Props
+            SimpleTooltip Props
           </h2>
           <div className="props-table">
             <table>
@@ -201,20 +283,130 @@ import { Button } from '@/design-system/components/Button';
                 <tr>
                   <td><code>label</code></td>
                   <td><code>string</code></td>
-                  <td><code>'Tooltip label'</code></td>
-                  <td>Text content of the tooltip</td>
+                  <td>—</td>
+                  <td>Tooltip text content</td>
+                </tr>
+                <tr>
+                  <td><code>children</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>—</td>
+                  <td>Element that triggers the tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>side</code></td>
+                  <td><code>'top' | 'right' | 'bottom' | 'left'</code></td>
+                  <td><code>'top'</code></td>
+                  <td>Side of the trigger to place the tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>delayDuration</code></td>
+                  <td><code>number</code></td>
+                  <td><code>300</code></td>
+                  <td>Delay in ms before showing tooltip</td>
                 </tr>
                 <tr>
                   <td><code>arrow</code></td>
-                  <td><code>'None' | 'Top' | 'Bottom' | 'Left' | 'Right'</code></td>
-                  <td><code>'None'</code></td>
-                  <td>Arrow direction (points to the trigger element side)</td>
+                  <td><code>boolean</code></td>
+                  <td><code>true</code></td>
+                  <td>Whether to show arrow</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2
+            className="heading-6"
+            style={{
+              marginTop: '32px',
+              marginBottom: '16px',
+              color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+            }}
+          >
+            Tooltip (Root) Props
+          </h2>
+          <div className="props-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Prop</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>children</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>—</td>
+                  <td>TooltipTrigger and TooltipContent</td>
                 </tr>
                 <tr>
-                  <td><code>className</code></td>
-                  <td><code>string</code></td>
-                  <td><code>''</code></td>
-                  <td>Additional CSS class names</td>
+                  <td><code>delayDuration</code></td>
+                  <td><code>number</code></td>
+                  <td><code>300</code></td>
+                  <td>Delay in ms before showing tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>skipDelayDuration</code></td>
+                  <td><code>number</code></td>
+                  <td><code>300</code></td>
+                  <td>Skip delay when moving between tooltips</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2
+            className="heading-6"
+            style={{
+              marginTop: '32px',
+              marginBottom: '16px',
+              color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+            }}
+          >
+            TooltipContent Props
+          </h2>
+          <div className="props-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Prop</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>children</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>—</td>
+                  <td>Content to display in tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>side</code></td>
+                  <td><code>'top' | 'right' | 'bottom' | 'left'</code></td>
+                  <td><code>'top'</code></td>
+                  <td>Side of the trigger to place the tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>align</code></td>
+                  <td><code>'start' | 'center' | 'end'</code></td>
+                  <td><code>'center'</code></td>
+                  <td>Alignment relative to the trigger</td>
+                </tr>
+                <tr>
+                  <td><code>sideOffset</code></td>
+                  <td><code>number</code></td>
+                  <td><code>4</code></td>
+                  <td>Offset from the trigger in pixels</td>
+                </tr>
+                <tr>
+                  <td><code>arrow</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>true</code></td>
+                  <td>Whether to show arrow</td>
                 </tr>
               </tbody>
             </table>
@@ -224,16 +416,28 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Modals */}
       <CodeModal
-        isOpen={openModal === 'arrows'}
+        isOpen={openModal === 'simple'}
         onClose={() => setOpenModal(null)}
-        title="Arrow Variants"
-        code={arrowsCode}
+        title="SimpleTooltip"
+        code={simpleCode}
       />
       <CodeModal
-        isOpen={openModal === 'usage'}
+        isOpen={openModal === 'sides'}
         onClose={() => setOpenModal(null)}
-        title="Usage Example"
-        code={usageCode}
+        title="Tooltip Sides"
+        code={sidesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'iconbutton'}
+        onClose={() => setOpenModal(null)}
+        title="IconButton with Tooltip"
+        code={iconButtonCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'compound'}
+        onClose={() => setOpenModal(null)}
+        title="Compound Components"
+        code={compoundCode}
       />
     </div>
   );
