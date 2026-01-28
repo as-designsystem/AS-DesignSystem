@@ -49,7 +49,8 @@
     "./StudyStatus.css": "./dist/StudyStatus.css",
     "./StudyRow.css": "./dist/StudyRow.css",
     "./StudyTableHeader.css": "./dist/StudyTableHeader.css",
-    "./DropdownMenu.css": "./dist/DropdownMenu.css"
+    "./DropdownMenu.css": "./dist/DropdownMenu.css",
+    "./StudyContextMenu.css": "./dist/StudyContextMenu.css"
   },
   "scripts": {
     "build": "tsup",

@@ -7,6 +7,10 @@ export interface StudyRowColumn {
   key: string;
   value: React.ReactNode;
   align?: 'left' | 'center' | 'right';
+  /** Fixed width (e.g. '200px', '30%') */
+  width?: string;
+  /** Flex grow factor (default: 1) */
+  flex?: number;
 }
 
 export interface StudyRowProps {
@@ -125,14 +129,21 @@ export function StudyRow({
       </div>
 
       {/* Data columns */}
-      {columns.map((column) => (
-        <div
-          key={column.key}
-          className={`study-row__cell study-row__cell--${column.align || 'left'}`}
-        >
-          {column.value}
-        </div>
-      ))}
+      {columns.map((column) => {
+        const style: React.CSSProperties = column.width
+          ? { width: column.width, flexShrink: 0, flex: 'none' }
+          : { flex: column.flex ?? 1 };
+
+        return (
+          <div
+            key={column.key}
+            className={`study-row__cell study-row__cell--${column.align || 'left'}`}
+            style={style}
+          >
+            {column.value}
+          </div>
+        );
+      })}
 
       {/* More options button */}
       {showMoreOptions && (
