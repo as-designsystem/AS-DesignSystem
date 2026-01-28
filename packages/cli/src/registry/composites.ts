@@ -249,27 +249,4 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/radius.css',
     ],
   },
-  {
-    name: 'study-context-menu',
-    type: 'composite',
-    displayName: 'StudyContextMenu',
-    description: 'Context menu for study actions (edit, duplicate, delete, etc.) based on study computation state',
-    files: [
-      {
-        path: 'templates/composites/StudyContextMenu.tsx',
-        target: 'composites/StudyContextMenu.tsx',
-        type: 'component',
-      },
-      {
-        path: 'templates/composites/StudyContextMenu.css',
-        target: 'composites/StudyContextMenu.css',
-        type: 'style',
-      },
-    ],
-    dependencies: ['dropdown-menu', 'icon-button', 'icon'],
-    cssImports: [
-      '@/design-system/tokens/typography.css',
-      '@/design-system/tokens/colors.css',
-    ],
-  },
 ];

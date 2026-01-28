@@ -42,7 +42,6 @@ import LandingPageTemplate from './pages/LandingPageTemplate';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
-import StudyContextMenuPage from './pages/StudyContextMenu';
 
 function App() {
   return (
@@ -95,7 +94,6 @@ function App() {
               <Route path="/composites/accordion" element={<AccordionPage />} />
               <Route path="/composites/workspace" element={<WorkspacePage />} />
               <Route path="/composites/tool-tile" element={<ToolTilePage />} />
-              <Route path="/composites/study-context-menu" element={<StudyContextMenuPage />} />
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />
               <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />

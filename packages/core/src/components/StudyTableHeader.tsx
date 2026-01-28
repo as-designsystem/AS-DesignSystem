@@ -5,10 +5,6 @@ export interface StudyTableHeaderColumn {
   key: string;
   label: string;
   align?: 'left' | 'center' | 'right';
-  /** Fixed width (e.g. '200px', '30%') */
-  width?: string;
-  /** Flex grow factor (default: 1) */
-  flex?: number;
 }
 
 export interface StudyTableHeaderProps {
@@ -111,21 +107,14 @@ export function StudyTableHeader({
       )}
 
       {/* Data column headers */}
-      {columns.map((column) => {
-        const style: React.CSSProperties = column.width
-          ? { width: column.width, flexShrink: 0, flex: 'none' }
-          : { flex: column.flex ?? 1 };
-
-        return (
-          <div
-            key={column.key}
-            className={`study-table-header__cell study-table-header__cell--${column.align || 'left'}`}
-            style={style}
-          >
-            {column.label}
-          </div>
-        );
-      })}
+      {columns.map((column) => (
+        <div
+          key={column.key}
+          className={`study-table-header__cell study-table-header__cell--${column.align || 'left'}`}
+        >
+          {column.label}
+        </div>
+      ))}
 
       {/* Actions column placeholder */}
       {showActionsColumn && (
