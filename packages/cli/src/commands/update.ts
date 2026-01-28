@@ -63,6 +63,30 @@ function rewriteImports(content: string, config: any, filePath?: string): string
 }
 
 /**
+ * Recursively copy a directory
+ */
+async function copyDirectory(sourcePath: string, targetPath: string): Promise<number> {
+  await fs.ensureDir(targetPath);
+
+  const entries = await fs.readdir(sourcePath, { withFileTypes: true });
+  let count = 0;
+
+  for (const entry of entries) {
+    const srcPath = path.join(sourcePath, entry.name);
+    const destPath = path.join(targetPath, entry.name);
+
+    if (entry.isDirectory()) {
+      count += await copyDirectory(srcPath, destPath);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+      count++;
+    }
+  }
+
+  return count;
+}
+
+/**
  * Copy file from source to target with import rewriting
  */
 async function copyFile(
@@ -70,10 +94,16 @@ async function copyFile(
   config: any,
   cwd: string,
   customTargetPath?: string
-): Promise<void> {
+): Promise<number> {
   const sourcePath = path.resolve(__dirname, '..', file.path);
   const basePath = customTargetPath || config.designSystemPath;
   const targetPath = path.join(cwd, basePath, file.target);
+
+  // Check if source is a directory (for assets)
+  const stat = await fs.stat(sourcePath);
+  if (stat.isDirectory()) {
+    return await copyDirectory(sourcePath, targetPath);
+  }
 
   await fs.ensureDir(path.dirname(targetPath));
 
@@ -86,6 +116,8 @@ async function copyFile(
     const rewritten = rewriteImports(content, config, file.target);
     await fs.writeFile(targetPath, rewritten, 'utf-8');
   }
+
+  return 1;
 }
 
 /**
@@ -99,6 +131,18 @@ async function detectInstalledComponents(
   const installed: string[] = [];
 
   for (const item of allItems) {
+    // For assets, check if the target directory/file exists
+    if (item.type === 'asset') {
+      const assetFile = item.files[0];
+      if (assetFile) {
+        const targetPath = path.join(cwd, config.designSystemPath, assetFile.target);
+        if (await fs.pathExists(targetPath)) {
+          installed.push(item.name);
+        }
+      }
+      continue;
+    }
+
     // Check if the main component file exists
     const mainFile = item.files.find(f => f.type === 'component' && f.target.endsWith('.tsx'));
     if (mainFile) {
@@ -218,8 +262,8 @@ export const update = new Command()
 
         for (const file of item.files) {
           if (!shouldCopyFile(file)) continue;
-          await copyFile(file, config, cwd, customTargetPath);
-          filesCopied++;
+          const copied = await copyFile(file, config, cwd, customTargetPath);
+          filesCopied += copied;
         }
       }
 

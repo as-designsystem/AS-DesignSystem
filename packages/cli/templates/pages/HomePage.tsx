@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AppHeader } from '@/design-system/composites/AppHeader';
 import { ProductBanner } from '@/design-system/composites/ProductBanner';
 import { HomePageActionBar } from '@/design-system/composites/HomePageActionBar';
@@ -14,7 +14,7 @@ import './HomePage.css';
  * HomePage Template
  *
  * A complete home page layout with:
- * - AppHeader with dark/light mode toggle and user button
+ * - AppHeader with notifications, settings, apps icons, and user button
  * - ProductBanner hero section
  * - HomePageActionBar with tabs and search
  * - Content area for study/item list
@@ -27,20 +27,6 @@ import './HomePage.css';
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
   const [searchValue, setSearchValue] = useState('');
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Sync with document dark mode state
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setIsDarkMode(isDark);
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    document.documentElement.classList.toggle('dark', newMode);
-    localStorage.setItem('theme', newMode ? 'dark' : 'light');
-  };
 
   const handleNewStudy = () => {
     // TODO: Implement new study creation
@@ -60,13 +46,9 @@ export default function HomePage() {
         appName="Tool name here"
         actions={
           <>
-            <IconButton
-              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
-              size="M"
-              variant="Ghost"
-              onClick={toggleDarkMode}
-              alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            />
+            <IconButton icon="notifications" size="M" variant="Ghost" alt="Notifications" />
+            <IconButton icon="settings" size="M" variant="Ghost" alt="Settings" />
+            <IconButton icon="apps" size="M" variant="Ghost" alt="Apps" />
             <Button
               label="Mark Thompson"
               rightIcon="account_circle"

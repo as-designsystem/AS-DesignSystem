@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   AppHeader,
   ProductBanner,
@@ -27,20 +27,6 @@ import './HomePageTemplate.css';
 export default function HomePageTemplatePage() {
   const [activeTab, setActiveTab] = useState<HomePageTab>('my-studies');
   const [searchValue, setSearchValue] = useState('');
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Sync with document dark mode state
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setIsDarkMode(isDark);
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    document.documentElement.classList.toggle('dark', newMode);
-    localStorage.setItem('theme', newMode ? 'dark' : 'light');
-  };
 
   const handleNewStudy = () => {
     console.log('Create new study');
@@ -55,16 +41,12 @@ export default function HomePageTemplatePage() {
     <div className="home-page-template-preview">
       {/* Application Header */}
       <AppHeader
-        appName="Tool name here"
+        appName="Airline Business Planner"
         actions={
           <>
-            <IconButton
-              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
-              size="M"
-              variant="Ghost"
-              onClick={toggleDarkMode}
-              alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            />
+            <IconButton icon="notifications" size="M" variant="Ghost" alt="Notifications" />
+            <IconButton icon="settings" size="M" variant="Ghost" alt="Settings" />
+            <IconButton icon="apps" size="M" variant="Ghost" alt="Apps" />
             <Button
               label="Mark Thompson"
               rightIcon="account_circle"
