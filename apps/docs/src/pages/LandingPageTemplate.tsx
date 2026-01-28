@@ -29,6 +29,7 @@ interface ToolData {
   title: string;
   description: string;
   category: string;
+  filter?: string;
   platforms?: PlatformName[];
 }
 
@@ -39,6 +40,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Airline Business Planner',
     description: 'A tool that models an airline\'s future performance to project economic and business outcomes.',
     category: 'Simulation Apps',
+    filter: 'Commercial Operations',
     platforms: ['web'],
   },
   {
@@ -53,6 +55,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Cabin Crew Manager',
     description: 'Simulate your missions with FMS model and optimise your flights considering weather.',
     category: 'Simulation Apps',
+    filter: 'Flight Operations',
     platforms: ['web'],
   },
   {
@@ -60,6 +63,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Economics Analyser',
     description: 'Analyse historical market demand and forecast future demand and revenue.',
     category: 'Simulation Apps',
+    filter: 'Commercial Operations',
     platforms: ['web'],
   },
   {
@@ -67,6 +71,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Economics Lite',
     description: 'A lite version of Economic Analyser to analyse traffic and yield quickly.',
     category: 'Simulation Apps',
+    filter: 'Commercial Operations',
     platforms: ['web'],
   },
   {
@@ -74,20 +79,23 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Maintenance Ops Simulator',
     description: 'Manage your fleet maintenance, considering impact on cost and time.',
     category: 'Simulation Apps',
+    filter: 'Maintenance Operations',
     platforms: ['web'],
   },
   {
     tool: 'network-fam',
     title: 'Network Builder - FAM',
-    description: 'Allocates aircraft type or fleet to each scheduled flight.',
+    description: 'Optimizes and allocates fleet across the airline\'s route network.',
     category: 'Simulation Apps',
+    filter: 'Network Operations',
     platforms: ['web'],
   },
   {
     tool: 'network-rotation',
     title: 'Network Builder - Rotation',
-    description: 'Assigns each FAM flight to a specific aircraft (tail/MSN).',
+    description: 'Manages crew duty sequences across multiple flight segments.',
     category: 'Simulation Apps',
+    filter: 'Network Operations',
     platforms: ['web'],
   },
   {
@@ -95,6 +103,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Network Builder - TAM',
     description: 'Plans and assigns rotations to individual crew members.',
     category: 'Simulation Apps',
+    filter: 'Network Operations',
     platforms: ['web'],
   },
   {
@@ -102,6 +111,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Trajectory Optimiser',
     description: 'Simulate your missions with FMS model and optimise your flights considering weather.',
     category: 'Simulation Apps',
+    filter: 'Flight Operations',
     platforms: ['web'],
   },
   {
@@ -109,6 +119,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Weight Builder',
     description: 'Simulate your missions with FMS model and optimise your flights considering weather.',
     category: 'Simulation Apps',
+    filter: 'Flight Operations',
     platforms: ['web'],
   },
   // Other Apps
@@ -122,8 +133,9 @@ const ALL_TOOLS: ToolData[] = [
   {
     tool: 'fellofly',
     title: 'Pairiscope',
-    description: 'Get insight into the Pairing Assistance Tool, explore and analyse found pairing in real world traffic',
+    description: 'Optimise your flight plan in real mission condition and compare cost index options.',
     category: 'Other Apps',
+    filter: 'Flight Operations',
     platforms: ['web'],
   },
   {
@@ -131,6 +143,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'SkyFinesse',
     description: 'Optimise your flight plan in real mission condition and compare cost index options.',
     category: 'Other Apps',
+    filter: 'Flight Operations',
     platforms: ['web', 'windows'],
   },
   {
@@ -145,21 +158,24 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Mission Lite',
     description: 'Quick Simulator in your pocket. Analyse missions performance and revenue, view range circle and compare aircraft.',
     category: 'Other Apps',
+    filter: 'Flight Operations',
     platforms: ['android', 'ios'],
   },
   // Data Management Tools
   {
     tool: 'atmosphere',
     title: 'Atmosphere Editor',
-    description: 'Description here',
+    description: 'Edit and manage atmospheric data models used across simulation environments.',
     category: 'Data Management Tools',
+    filter: 'Data Management',
     platforms: ['web'],
   },
   {
     tool: 'ac-config',
     title: 'Aircraft Configurator',
-    description: 'Description here',
+    description: 'Configure aircraft parameters and fleet specifications for simulation models.',
     category: 'Data Management Tools',
+    filter: 'Data Management',
     platforms: ['web'],
   },
   {
@@ -167,6 +183,7 @@ const ALL_TOOLS: ToolData[] = [
     title: 'Navigation Editor',
     description: 'Customize Airac Cycles dataset to define default data that need to be used in our simulations.',
     category: 'Data Management Tools',
+    filter: 'Data Management',
     platforms: ['web'],
   },
 ];
@@ -177,7 +194,7 @@ const CATEGORIES = [
   'Commercial Operations',
   'Maintenance Operations',
   'Network Operations',
-  'Admin',
+  'Data Management',
 ];
 
 const TOOL_SECTIONS = ['Simulation Apps', 'Other Apps', 'Data Management Tools'];
@@ -210,16 +227,7 @@ export default function LandingPageTemplatePage() {
 
   const filteredTools = activeCategory === 'All'
     ? ALL_TOOLS
-    : ALL_TOOLS.filter((t) => {
-        const mapping: Record<string, string[]> = {
-          'Flight Operations': ['Simulation Apps'],
-          'Commercial Operations': ['Other Apps'],
-          'Maintenance Operations': ['Other Apps'],
-          'Network Operations': ['Data Management Tools'],
-          'Admin': [],
-        };
-        return (mapping[activeCategory] || []).includes(t.category);
-      });
+    : ALL_TOOLS.filter((t) => t.filter === activeCategory);
 
   const toolsBySection = TOOL_SECTIONS.map((section) => ({
     title: section,
