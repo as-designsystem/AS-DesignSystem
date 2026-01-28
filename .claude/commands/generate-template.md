@@ -38,7 +38,7 @@ Templates typically:
 
 ### 1. Inspect Figma
 
-Use Local MCP tools to understand the full page structure:
+Use Local Figma MCP tools to understand the full page structure:
 
 - `mcp__figma__get_design_context` - Main design specs
 - `mcp__figma__get_metadata` - Full node hierarchy (useful for complex pages)

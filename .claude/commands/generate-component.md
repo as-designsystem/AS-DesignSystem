@@ -29,7 +29,7 @@ Create a complete, production-ready component by inspecting the Figma design and
 
 ### 1. Inspect Figma
 
-Use Local MCP tools to extract the complete design:
+Use Local Figma MCP tools to extract the complete design:
 
 - `mcp__figma__get_design_context` - Main design specs
 - `mcp__figma__get_screenshot` - Visual reference if needed

@@ -21,6 +21,28 @@ export { PanelSectionTitle, type PanelSectionTitleProps, type PanelSectionTitleS
 export { PanelGroup, type PanelGroupProps, type PanelGroupSize } from './components/PanelGroup';
 export { Avatar, AvatarStack, type AvatarProps, type AvatarStackProps, type AvatarSize } from './components/Avatar';
 export { Chip, type ChipProps, type ChipSize, type ChipType } from './components/Chip';
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  type DropdownMenuProps,
+  type DropdownMenuTriggerProps,
+  type DropdownMenuContentProps,
+  type DropdownMenuItemProps,
+  type DropdownMenuCheckboxItemProps,
+  type DropdownMenuLabelProps,
+  type DropdownMenuSeparatorProps,
+  type DropdownMenuSubProps,
+  type DropdownMenuSubTriggerProps,
+  type DropdownMenuSubContentProps,
+} from './components/DropdownMenu';
 
 // Composites
 export { Modal, type ModalProps } from './composites/Modal';

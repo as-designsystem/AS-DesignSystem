@@ -32,6 +32,7 @@ import AvatarPage from './pages/Avatar';
 import WorkspacePage from './pages/Workspace';
 import ToolTilePage from './pages/ToolTile';
 import ChipPage from './pages/Chip';
+import DropdownMenuPage from './pages/DropdownMenu';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import LandingPageTemplate from './pages/LandingPageTemplate';
@@ -78,6 +79,7 @@ function App() {
               <Route path="/components/panel-group" element={<PanelGroupPage />} />
               <Route path="/components/avatar" element={<AvatarPage />} />
               <Route path="/components/chip" element={<ChipPage />} />
+              <Route path="/components/dropdown-menu" element={<DropdownMenuPage />} />
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />

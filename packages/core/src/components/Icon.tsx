@@ -32,6 +32,8 @@ import accountCircleIcon from '../assets/svg/icons/account_circle.svg?raw';
 import addIcon from '../assets/svg/icons/add.svg?raw';
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
+import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
+import checkBoxOutlineBlankIcon from '../assets/svg/icons/check_box_outline_blank.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
 import contentCopyIcon from '../assets/svg/icons/content_copy.svg?raw';
@@ -45,6 +47,7 @@ import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
+import keyboardArrowRightIcon from '../assets/svg/icons/keyboard_arrow_right.svg?raw';
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
@@ -97,6 +100,8 @@ const iconMap: Record<string, string> = {
   'add': addIcon,
   'apps': appsIcon,
   'check': checkIcon,
+  'check_box': checkBoxIcon,
+  'check_box_outline_blank': checkBoxOutlineBlankIcon,
   'close': closeIcon,
   'code': codeIcon,
   'content_copy': contentCopyIcon,
@@ -110,6 +115,7 @@ const iconMap: Record<string, string> = {
   'filter_row': filterRowIcon,
   'info': infoIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
+  'keyboard_arrow_right': keyboardArrowRightIcon,
   'keyboard_arrow_up': keyboardArrowUpIcon,
   'light_mode': lightModeIcon,
   'menu': menuIcon,
@@ -162,6 +168,8 @@ export const availableIcons = [
   'add',
   'apps',
   'check',
+  'check_box',
+  'check_box_outline_blank',
   'close',
   'code',
   'content_copy',
@@ -175,6 +183,7 @@ export const availableIcons = [
   'filter_row',
   'info',
   'keyboard_arrow_down',
+  'keyboard_arrow_right',
   'keyboard_arrow_up',
   'light_mode',
   'menu',

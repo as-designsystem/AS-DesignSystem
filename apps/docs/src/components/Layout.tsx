@@ -106,6 +106,7 @@ const navSections: NavSectionData[] = [
       { label: 'ButtonGroup', path: '/components/button-group' },
       { label: 'Checkbox', path: '/components/checkbox' },
       { label: 'Chip', path: '/components/chip' },
+      { label: 'DropdownMenu', path: '/components/dropdown-menu' },
       { label: 'IconButton', path: '/components/icon-button' },
       { label: 'Modal', path: '/composites/modal' },
       { label: 'NumberInput', path: '/components/number-input' },

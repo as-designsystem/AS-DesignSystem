@@ -36,7 +36,7 @@ They typically have:
 
 ### 1. Inspect Figma
 
-Use Local MCP tools to understand the full structure:
+Use Local Figma MCP tools to understand the full structure:
 
 - `mcp__figma__get_design_context` - Main design specs
 - `mcp__figma__get_metadata` - Full node hierarchy

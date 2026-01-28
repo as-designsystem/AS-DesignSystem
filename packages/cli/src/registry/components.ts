@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (62 icons)
+      // SVG icon assets (65 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -53,6 +53,8 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/autorenew.svg', target: 'assets/svg/icons/autorenew.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/broken_image.svg', target: 'assets/svg/icons/broken_image.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/check.svg', target: 'assets/svg/icons/check.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/check_box.svg', target: 'assets/svg/icons/check_box.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/check_box_outline_blank.svg', target: 'assets/svg/icons/check_box_outline_blank.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/close.svg', target: 'assets/svg/icons/close.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/code.svg', target: 'assets/svg/icons/code.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/construction.svg', target: 'assets/svg/icons/construction.svg', type: 'component' },
@@ -69,6 +71,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/folder_open.svg', target: 'assets/svg/icons/folder_open.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/info.svg', target: 'assets/svg/icons/info.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_down.svg', target: 'assets/svg/icons/keyboard_arrow_down.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/keyboard_arrow_right.svg', target: 'assets/svg/icons/keyboard_arrow_right.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_up.svg', target: 'assets/svg/icons/keyboard_arrow_up.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/light_mode.svg', target: 'assets/svg/icons/light_mode.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/menu.svg', target: 'assets/svg/icons/menu.svg', type: 'component' },
@@ -782,6 +785,33 @@ export const components: RegistryItem[] = [
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'dropdown-menu',
+    type: 'component',
+    displayName: 'DropdownMenu',
+    description: 'Accessible dropdown menu based on Radix UI with action items, checkbox items, sub-menus, and section labels',
+    files: [
+      {
+        path: 'templates/components/DropdownMenu.tsx',
+        target: 'components/DropdownMenu.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/DropdownMenu.css',
+        target: 'components/DropdownMenu.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    externalDependencies: {
+      '@radix-ui/react-dropdown-menu': '^2.1.16',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
     ],
   },
 ];
