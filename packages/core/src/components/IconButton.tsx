@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from './Icon';
-import { Tooltip } from './Tooltip';
+import { SimpleTooltip } from './Tooltip';
 import './IconButton.css';
 
 export type IconButtonSize = 'XS' | 'S' | 'M' | 'L' | 'XL';
@@ -94,7 +94,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
 
   const iconColor = getIconColor();
 
-  return (
+  const button = (
     <button
       ref={ref}
       className={buttonClasses}
@@ -106,11 +106,18 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
       {...props}
     >
       <Icon name={icon} size={iconSize} color={iconColor} />
-      {tooltip && (
-        <Tooltip label={tooltip} arrow="Top" className="icon-button__tooltip" />
-      )}
     </button>
   );
+
+  if (tooltip) {
+    return (
+      <SimpleTooltip label={tooltip} side="top">
+        {button}
+      </SimpleTooltip>
+    );
+  }
+
+  return button;
 });
 
 IconButton.displayName = 'IconButton';

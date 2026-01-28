@@ -3,7 +3,6 @@ import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { PanelStudyName } from '../components/PanelStudyName';
 import { IconButton } from '../components/IconButton';
-import { Tooltip } from '../components/Tooltip';
 import './PanelHeader.css';
 
 export interface PanelHeaderProps {
@@ -115,17 +114,15 @@ export function PanelHeader({
               onClick={onStudyNameClick}
             />
             <div className="panel-header__actions">
-              <span className="panel-header__action-wrapper">
-                <IconButton
-                  icon="content_copy"
-                  size="S"
-                  variant="Ghost"
-                  onClick={onDuplicate}
-                  alt="Duplicate Study"
-                  className="panel-header__icon-button"
-                />
-                <Tooltip label="Duplicate Study" arrow="Top" className="panel-header__tooltip" />
-              </span>
+              <IconButton
+                icon="content_copy"
+                size="S"
+                variant="Ghost"
+                onClick={onDuplicate}
+                alt="Duplicate Study"
+                tooltip="Duplicate Study"
+                className="panel-header__icon-button"
+              />
               {actions}
             </div>
           </div>

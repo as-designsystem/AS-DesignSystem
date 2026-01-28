@@ -133,7 +133,7 @@ export const components: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['icon'],
+    dependencies: ['icon', 'tooltip'],
     cssImports: [
       '@/design-system/tokens/colors.css',
       '@/design-system/tokens/radius.css',
@@ -620,7 +620,7 @@ export const components: RegistryItem[] = [
     name: 'tooltip',
     type: 'component',
     displayName: 'Tooltip',
-    description: 'Lightweight tooltip with configurable arrow direction',
+    description: 'Radix UI-based tooltip with compound component pattern',
     files: [
       {
         path: 'templates/components/Tooltip.tsx',
@@ -634,6 +634,9 @@ export const components: RegistryItem[] = [
       },
     ],
     dependencies: [],
+    externalDependencies: {
+      '@radix-ui/react-tooltip': '^1.2.8',
+    },
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
@@ -764,7 +767,7 @@ export const components: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: [],
+    dependencies: ['tooltip'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

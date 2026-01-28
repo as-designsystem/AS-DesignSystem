@@ -13,7 +13,18 @@ export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './c
 export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 export { TextInput, type TextInputProps, type TextInputSize, type TextInputState } from './components/TextInput';
 export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState } from './components/NumberInput';
-export { Tooltip, type TooltipProps, type TooltipArrow } from './components/Tooltip';
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  SimpleTooltip,
+  type TooltipProps,
+  type TooltipTriggerProps,
+  type TooltipContentProps,
+  type SimpleTooltipProps,
+  type TooltipSide,
+  type TooltipAlign,
+} from './components/Tooltip';
 export { PanelStudyName, type PanelStudyNameProps } from './components/PanelStudyName';
 export { PanelButton, type PanelButtonProps, type PanelButtonSize, type PanelButtonVariant } from './components/PanelButton';
 export { Spinner, type SpinnerProps, type SpinnerVariant } from './components/Spinner';

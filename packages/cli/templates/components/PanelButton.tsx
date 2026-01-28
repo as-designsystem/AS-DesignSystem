@@ -1,7 +1,7 @@
 import React from 'react';
 import './PanelButton.css';
 import { Icon } from './Icon';
-import { Tooltip } from './Tooltip';
+import { SimpleTooltip } from './Tooltip';
 
 export type PanelButtonSize = 'XS' | 'S' | 'M';
 export type PanelButtonVariant = 'Default' | 'Selected' | 'Disabled';
@@ -116,7 +116,7 @@ export function PanelButton({
     .filter(Boolean)
     .join(' ');
 
-  return (
+  const buttonContent = (
     <button
       type="button"
       className={classes}
@@ -143,24 +143,36 @@ export function PanelButton({
 
       {/* Error chip (expanded mode) */}
       {panelOpen && showError && errorCount > 0 && (
-        <span className="panel-button__badge-wrapper">
-          <span className="panel-button__error-chip">
-            {errorCount}
+        errorTooltip ? (
+          <SimpleTooltip label={errorTooltip} side="bottom">
+            <span className="panel-button__badge-wrapper">
+              <span className="panel-button__error-chip">
+                {errorCount}
+              </span>
+            </span>
+          </SimpleTooltip>
+        ) : (
+          <span className="panel-button__badge-wrapper">
+            <span className="panel-button__error-chip">
+              {errorCount}
+            </span>
           </span>
-          {errorTooltip && (
-            <Tooltip label={errorTooltip} arrow="Bottom" className="panel-button__badge-tooltip" />
-          )}
-        </span>
+        )
       )}
 
       {/* Warning icon (expanded mode) */}
       {panelOpen && showWarning && (
-        <span className="panel-button__badge-wrapper">
-          <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
-          {warningTooltip && (
-            <Tooltip label={warningTooltip} arrow="Bottom" className="panel-button__badge-tooltip" />
-          )}
-        </span>
+        warningTooltip ? (
+          <SimpleTooltip label={warningTooltip} side="bottom">
+            <span className="panel-button__badge-wrapper">
+              <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
+            </span>
+          </SimpleTooltip>
+        ) : (
+          <span className="panel-button__badge-wrapper">
+            <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
+          </span>
+        )
       )}
 
       {/* Error dot (collapsed mode) */}
@@ -174,17 +186,20 @@ export function PanelButton({
           <Icon name="warning" size={12} color="var(--colour-category-saturated-yellow, #ffc929)" />
         </span>
       )}
-
-      {/* Tooltip (collapsed mode only, shown on hover via CSS) */}
-      {!panelOpen && (
-        <Tooltip
-          label={[label, errorTooltip, warningTooltip].filter(Boolean).join(' · ')}
-          arrow="Left"
-          className="panel-button__tooltip"
-        />
-      )}
     </button>
   );
+
+  // Wrap with tooltip in collapsed mode
+  if (!panelOpen) {
+    const tooltipLabel = [label, errorTooltip, warningTooltip].filter(Boolean).join(' · ');
+    return (
+      <SimpleTooltip label={tooltipLabel} side="right">
+        {buttonContent}
+      </SimpleTooltip>
+    );
+  }
+
+  return buttonContent;
 }
 
 export default PanelButton;
