@@ -68,9 +68,9 @@
 
 .workspace__title {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: normal;
   color: var(--text-main, #14171d);
   text-align: left;
   white-space: nowrap;
