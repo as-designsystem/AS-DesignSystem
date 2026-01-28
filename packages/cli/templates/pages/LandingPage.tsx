@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppHeader } from '@/design-system/composites/AppHeader';
 import { ToolTile } from '@/design-system/composites/ToolTile';
 import { Button } from '@/design-system/components/Button';
@@ -6,6 +6,13 @@ import { IconButton } from '@/design-system/components/IconButton';
 import { Chip } from '@/design-system/components/Chip';
 import { TextInput } from '@/design-system/components/TextInput';
 import { Select } from '@/design-system/components/Select';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '@/design-system/components/DropdownMenu';
 import type { ToolName } from '@/design-system/components/ToolIcons';
 import type { PlatformName } from '@/design-system/composites/ToolTile';
 import landingBackground from '@/design-system/assets/backgrounds/LandingPage.png';
@@ -209,8 +216,8 @@ const CATEGORIES = [
 // Categories in the tool catalog view
 const TOOL_SECTIONS = ['Simulation Apps', 'Other Apps', 'Data Management Tools'];
 
-// Favourite tools (by title)
-const FAVOURITE_TITLES = ['Trajectory Optimiser'];
+// LocalStorage key for favorites
+const FAVORITES_STORAGE_KEY = 'landing-page-favorites';
 
 // ---------------------------------------------------------------------------
 // Airbus Logo (inline SVG for footer)
@@ -235,6 +242,19 @@ function AirbusLogoWhite() {
 
 export default function LandingPage() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    // Initialize from localStorage
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem(FAVORITES_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    }
+    return [];
+  });
+
+  // Sync favorites to localStorage
+  useEffect(() => {
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+  }, [favorites]);
 
   const filteredTools = activeCategory === 'All'
     ? ALL_TOOLS
@@ -247,14 +267,20 @@ export default function LandingPage() {
   })).filter((s) => s.tools.length > 0);
 
   // Favourite tools
-  const favouriteTools = ALL_TOOLS.filter((t) => FAVOURITE_TITLES.includes(t.title));
+  const favouriteTools = ALL_TOOLS.filter((t) => favorites.includes(t.title));
+
+  const isFavorite = (title: string) => favorites.includes(title);
+
+  const toggleFavorite = (title: string) => {
+    setFavorites((prev) =>
+      prev.includes(title)
+        ? prev.filter((t) => t !== title)
+        : [...prev, title]
+    );
+  };
 
   const handleToolClick = (title: string) => {
     console.log('Tool clicked:', title);
-  };
-
-  const handleMoreOptions = (e: React.MouseEvent, title: string) => {
-    console.log('More options:', title);
   };
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -326,15 +352,54 @@ export default function LandingPage() {
             <div className="landing-page__favourites-container">
               <div className="landing-page__favourites-grid">
                 {favouriteTools.map((tool) => (
-                  <ToolTile
-                    key={tool.title}
-                    tool={tool.tool}
-                    title={tool.title}
-                    description={tool.description}
-                    platforms={tool.platforms}
-                    onClick={() => handleToolClick(tool.title)}
-                    onMoreOptions={(e) => handleMoreOptions(e, tool.title)}
-                  />
+                  <div key={tool.title} className="landing-page__tile-wrapper">
+                    <ToolTile
+                      tool={tool.tool}
+                      title={tool.title}
+                      description={tool.description}
+                      platforms={tool.platforms}
+                      onClick={() => handleToolClick(tool.title)}
+                    />
+                    <div className="landing-page__tile-menu">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger>
+                          <IconButton
+                            icon="more_horiz"
+                            size="XS"
+                            variant="Ghost"
+                            alt="More options"
+                          />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            icon={isFavorite(tool.title) ? 'star_border' : 'star'}
+                            onSelect={() => toggleFavorite(tool.title)}
+                          >
+                            {isFavorite(tool.title) ? 'Remove from Favorite' : 'Add to Favorite'}
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem
+                            icon="forum"
+                            onSelect={() => console.log('Contact & Support:', tool.title)}
+                          >
+                            Contact & Support
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            icon="description"
+                            onSelect={() => console.log('Documentation:', tool.title)}
+                          >
+                            Documentation
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            icon="list"
+                            onSelect={() => console.log('Release Note:', tool.title)}
+                          >
+                            Release Note
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -365,15 +430,54 @@ export default function LandingPage() {
               <h3 className="landing-page__category-title">{section.title}</h3>
               <div className="landing-page__category-grid">
                 {section.tools.map((tool) => (
-                  <ToolTile
-                    key={tool.title}
-                    tool={tool.tool}
-                    title={tool.title}
-                    description={tool.description}
-                    platforms={tool.platforms}
-                    onClick={() => handleToolClick(tool.title)}
-                    onMoreOptions={(e) => handleMoreOptions(e, tool.title)}
-                  />
+                  <div key={tool.title} className="landing-page__tile-wrapper">
+                    <ToolTile
+                      tool={tool.tool}
+                      title={tool.title}
+                      description={tool.description}
+                      platforms={tool.platforms}
+                      onClick={() => handleToolClick(tool.title)}
+                    />
+                    <div className="landing-page__tile-menu">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger>
+                          <IconButton
+                            icon="more_horiz"
+                            size="XS"
+                            variant="Ghost"
+                            alt="More options"
+                          />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            icon={isFavorite(tool.title) ? 'star_border' : 'star'}
+                            onSelect={() => toggleFavorite(tool.title)}
+                          >
+                            {isFavorite(tool.title) ? 'Remove from Favorite' : 'Add to Favorite'}
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem
+                            icon="forum"
+                            onSelect={() => console.log('Contact & Support:', tool.title)}
+                          >
+                            Contact & Support
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            icon="description"
+                            onSelect={() => console.log('Documentation:', tool.title)}
+                          >
+                            Documentation
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            icon="list"
+                            onSelect={() => console.log('Release Note:', tool.title)}
+                          >
+                            Release Note
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

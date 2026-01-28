@@ -189,6 +189,28 @@
 }
 
 /* ============================================================================
+   TILE WRAPPER (with dropdown menu)
+   ============================================================================ */
+
+.landing-page-template-preview__tile-wrapper {
+  position: relative;
+}
+
+.landing-page-template-preview__tile-menu {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 1;
+}
+
+.landing-page-template-preview__tile-wrapper:hover .landing-page-template-preview__tile-menu,
+.landing-page-template-preview__tile-menu:focus-within {
+  opacity: 1;
+}
+
+/* ============================================================================
    CONTACT US SECTION
    ============================================================================ */
 

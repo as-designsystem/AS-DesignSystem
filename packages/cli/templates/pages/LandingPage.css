@@ -194,6 +194,32 @@
 }
 
 /* ============================================================================
+   TILE WRAPPER (with dropdown menu)
+   ============================================================================ */
+
+.landing-page__tile-wrapper {
+  position: relative;
+}
+
+.landing-page__tile-wrapper .tool-tile {
+  /* Remove built-in more options button since we handle it externally */
+}
+
+.landing-page__tile-menu {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+  z-index: 1;
+}
+
+.landing-page__tile-wrapper:hover .landing-page__tile-menu,
+.landing-page__tile-menu:focus-within {
+  opacity: 1;
+}
+
+/* ============================================================================
    CONTACT US SECTION
    ============================================================================ */
 
