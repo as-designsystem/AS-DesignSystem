@@ -152,53 +152,7 @@
   white-space: nowrap;
 }
 
-/* ============================================================================
-   AVATARS
-   ============================================================================ */
-
-.workspace__avatars {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-/* ============================================================================
-   USERS TOOLTIP (shown on avatar hover)
-   ============================================================================ */
-
-.workspace__users-tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 10px 12px;
-  background-color: var(--background-inverse, #14171d);
-  border-radius: var(--radius-xs, 3px);
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease-in-out;
-  z-index: 1001;
-  white-space: nowrap;
-}
-
-.workspace__avatars:hover .workspace__users-tooltip {
-  opacity: 1;
-}
-
-.workspace__users-tooltip-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  color: var(--text-negative, #ffffff);
-}
+/* Avatars removed - now using individual Avatar tooltips via Radix UI */
 
 /* ============================================================================
    CONTENT (animated collapse)

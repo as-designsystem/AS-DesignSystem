@@ -158,21 +158,18 @@ export function Workspace({
           </div>
         )}
         {users && users.length > 0 && (
-          <span className="workspace__avatars">
-            <AvatarStack max={maxAvatars} size="M">
-              {users.map((user, i) => (
-                <Avatar key={i} initials={user.initials} size="M" color={user.color || '#ced5dd'} textColor="#00205b" />
-              ))}
-            </AvatarStack>
-            <span className="workspace__users-tooltip">
-              {users.map((user, i) => (
-                <span key={i} className="workspace__users-tooltip-item">
-                  <Avatar initials={user.initials} size="XS" color={user.color || '#ced5dd'} textColor="#00205b" />
-                  <span>{user.name || user.initials}</span>
-                </span>
-              ))}
-            </span>
-          </span>
+          <AvatarStack max={maxAvatars} size="M">
+            {users.map((user, i) => (
+              <Avatar
+                key={i}
+                initials={user.initials}
+                size="M"
+                color={user.color || '#ced5dd'}
+                textColor="#00205b"
+                tooltip={user.name || user.initials}
+              />
+            ))}
+          </AvatarStack>
         )}
       </button>
       <div className="workspace__body">
