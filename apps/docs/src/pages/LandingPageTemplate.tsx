@@ -121,7 +121,7 @@ const ALL_TOOLS: ToolData[] = [
   },
   {
     tool: 'fellofly',
-    title: 'fello\'fly PAT Monitoring system',
+    title: 'Pairiscope',
     description: 'Get insight into the Pairing Assistance Tool, explore and analyse found pairing in real world traffic',
     category: 'Other Apps',
     platforms: ['web'],

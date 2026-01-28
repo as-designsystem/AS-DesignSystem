@@ -31,12 +31,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 40px;
+  height: 40px;
 }
 
 .tool-tile__title-column {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 4px;
   min-width: 0;
 }
@@ -99,8 +100,14 @@
   line-height: 16px;
   color: var(--text-secondary, #63728a);
   margin: 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.tool-tile__description-text {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

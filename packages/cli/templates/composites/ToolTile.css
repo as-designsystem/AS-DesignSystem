@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 16px;
   background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #e0e3e9);
+  border: 1px solid var(--border-moderate, #ced5dd);
   border-radius: var(--radius-xs, 3px);
   cursor: pointer;
   transition: background-color 0.15s ease;
@@ -18,7 +18,7 @@
 }
 
 .tool-tile:hover {
-  background-color: var(--background-hover, #f1f1f1);
+  background-color: var(--background-tertiary, #eff1f4);
 }
 
 .tool-tile:focus-visible {
@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 40px;
+  min-height: 40px;
 }
 
 .tool-tile__title-column {
@@ -47,9 +47,10 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--text-corporate, #00205b);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Platform icons */
@@ -78,6 +79,8 @@
   right: 11px;
   opacity: 0;
   transition: opacity 0.15s ease;
+  background-color: var(--background-tertiary, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
 }
 
 .tool-tile:hover .tool-tile__more-options {
