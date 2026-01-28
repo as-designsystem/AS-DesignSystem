@@ -171,6 +171,9 @@ async function detectInstalledComponents(
   const installed: string[] = [];
 
   for (const item of allItems) {
+    // Skip templates — they are user-modified starting points
+    if (item.type === 'template') continue;
+
     // For assets, check if the target directory/file exists
     if (item.type === 'asset') {
       const assetFile = item.files[0];
