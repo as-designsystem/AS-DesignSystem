@@ -80,7 +80,7 @@
 /* Hover state */
 .vcheckbox-container:not(.vcheckbox-container--disabled):not(.vcheckbox-container--read-only) .vcheckbox:hover {
   border-color: var(--primary-default);
-  background-color: var(--t-hover);
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
 /* Focus state */

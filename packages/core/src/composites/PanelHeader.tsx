@@ -97,7 +97,7 @@ export function PanelHeader({
         {/* Back Home button */}
         <Button
           label="BACK HOME"
-          leftIconComponent={<Icon name="arrow_back" size={12} color="var(--primary-light, #cfddf8)" />}
+          leftIconComponent={<Icon name="arrow_back" size={12} color="var(--sea-blue-20, #cfddf8)" />}
           variant="Ghost"
           size="M"
           className="panel-header__back-button"

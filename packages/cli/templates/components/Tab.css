@@ -113,7 +113,7 @@
 
 .tab:not(:disabled):not(.tab--active):hover,
 .tab--hover:not(.tab--active) {
-  background-color: var(--t-hover, rgba(6, 59, 158, 0.08));
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
 .tab:disabled,

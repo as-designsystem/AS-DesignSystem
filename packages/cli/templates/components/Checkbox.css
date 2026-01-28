@@ -64,7 +64,7 @@
 /* Hover state */
 .checkbox:not([data-disabled]):hover {
   border-color: var(--primary-default, #063b9e);
-  background-color: var(--t-hover, rgba(0, 45, 128, 0.1));
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
 /* Focus state */

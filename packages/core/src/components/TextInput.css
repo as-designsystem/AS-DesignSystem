@@ -288,7 +288,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: var(--text-moderate, #919cb0);
+  color: var(--text-tertiary, #b3bbc8);
 }
 
 .text-input-container--error .text-input-legend {

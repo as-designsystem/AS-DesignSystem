@@ -109,7 +109,7 @@
 }
 
 .number-input-wrapper:focus-within {
-  background-color: var(--surface-interaction-active, #e5ecf7);
+  background-color: var(--background-tertiary, #eff1f4);
   box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
 }
 
@@ -233,7 +233,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: var(--text-moderate, #919cb0);
+  color: var(--text-tertiary, #b3bbc8);
 }
 
 .number-input-container--error .number-input-legend {

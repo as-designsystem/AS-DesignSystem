@@ -110,7 +110,7 @@
   padding: 8px 12px;
   border-radius: var(--radius-xs, 3px);
   text-decoration: none;
-  color: var(--primary-light, #cfddf8);
+  color: var(--sea-blue-20, #cfddf8);
 }
 
 .product-banner__link:hover {

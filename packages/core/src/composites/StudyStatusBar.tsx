@@ -31,7 +31,7 @@ export interface StudyStatusBarProps {
 const statusIconMap: Record<Exclude<StudyStatusBarStatus, 'Computing'>, { name: string; color: string }> = {
   Ready: { name: 'check', color: 'var(--primary-default, #063b9e)' },
   NotReady: { name: 'error', color: 'var(--feedback-error-default, #e4002b)' },
-  Modified: { name: 'warning', color: 'var(--colour-category-saturated-yellow, #ffc929)' },
+  Modified: { name: 'warning', color: 'var(--feedback-warning-default, #ffc929)' },
   Failed: { name: 'broken_image', color: 'var(--feedback-error-default, #e4002b)' },
 };
 
@@ -69,7 +69,7 @@ export function StudyStatusBar({
       {/* Status icon */}
       <div className="study-status-bar__icon">
         {status === 'Computing' ? (
-          <Spinner variant="arc" size={24} color="var(--text-tertiary, #b3bbc8)" />
+          <Spinner variant="arc" size={24} color="var(--text-secondary, #63728a)" />
         ) : (
           <Icon name={statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
         )}

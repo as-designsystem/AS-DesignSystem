@@ -64,12 +64,12 @@
    ============================================================================ */
 
 .panel-header__back-button.button--ghost {
-  color: var(--primary-light, #cfddf8);
+  color: var(--sea-blue-20, #cfddf8);
   align-self: flex-start;
 }
 
 .panel-header__back-button.button--ghost .button__label {
-  color: var(--primary-light, #cfddf8);
+  color: var(--sea-blue-20, #cfddf8);
 }
 
 .panel-header__back-button.button--ghost:not(:disabled):hover {
@@ -128,7 +128,7 @@
 
 /* Override IconButton ghost colors for dark panel context */
 .panel-header__icon-button.icon-button--ghost {
-  color: var(--primary-light, #cfddf8);
+  color: var(--sea-blue-20, #cfddf8);
 }
 
 .panel-header__icon-button.icon-button--ghost:not(:disabled):hover {

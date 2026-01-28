@@ -165,12 +165,12 @@ export function PanelButton({
         warningTooltip ? (
           <SimpleTooltip label={warningTooltip} side="bottom" delayDuration={0}>
             <span className="panel-button__badge-wrapper">
-              <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
+              <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--feedback-warning-default, #ffc929)" />
             </span>
           </SimpleTooltip>
         ) : (
           <span className="panel-button__badge-wrapper">
-            <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
+            <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--feedback-warning-default, #ffc929)" />
           </span>
         )
       )}
@@ -183,7 +183,7 @@ export function PanelButton({
       {/* Warning dot (collapsed mode) */}
       {!panelOpen && showWarning && (
         <span className="panel-button__warning-dot">
-          <Icon name="warning" size={12} color="var(--colour-category-saturated-yellow, #ffc929)" />
+          <Icon name="warning" size={12} color="var(--feedback-warning-default, #ffc929)" />
         </span>
       )}
     </button>

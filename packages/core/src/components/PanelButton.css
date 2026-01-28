@@ -16,7 +16,7 @@
 }
 
 .panel-button:focus-visible {
-  outline: 2px solid var(--primary-light, #cfddf8);
+  outline: 2px solid var(--sea-blue-20, #cfddf8);
   outline-offset: 2px;
 }
 
@@ -172,7 +172,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background-color: var(--colour-category-saturated-red, #f23346);
+  background-color: var(--feedback-error-default, #e4002b);
   color: #ffffff;
   border-radius: 16px;
   font-family: 'Inter', sans-serif;
@@ -242,7 +242,7 @@
   width: 8px;
   height: 8px;
   border-radius: 16px;
-  background-color: var(--colour-category-saturated-red, #f23346);
+  background-color: var(--feedback-error-default, #e4002b);
 }
 
 /* ============================================================================

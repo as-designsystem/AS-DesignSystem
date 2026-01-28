@@ -16,7 +16,7 @@
 }
 
 .panel-group:focus-visible {
-  outline: 2px solid var(--primary-light, #cfddf8);
+  outline: 2px solid var(--sea-blue-20, #cfddf8);
   outline-offset: 2px;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .panel-group__actions .icon-button--ghost {
-  color: var(--primary-light, #cfddf8);
+  color: var(--sea-blue-20, #cfddf8);
 }
 
 .panel-group__actions .icon-button--ghost:not(:disabled):hover {
