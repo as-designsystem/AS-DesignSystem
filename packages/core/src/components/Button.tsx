@@ -55,16 +55,16 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 /**
  * Composant Button
- * 
+ *
  * Bouton réutilisable avec support de différentes tailles, états et variantes.
- * 
+ *
  * @example
  * ```tsx
  * <Button label="Click me" size="M" variant="Default" />
  * <Button label="With icon" leftIcon="add" size="L" />
  * ```
  */
-export function Button({
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   label = 'BUTTON LABEL',
   size = 'M',
   state = 'Default',
@@ -78,7 +78,7 @@ export function Button({
   className = '',
   disabled,
   ...props
-}: ButtonProps) {
+}, ref) => {
   // L'état Disabled écrase la prop disabled
   const isDisabled = state === 'Disabled' || disabled;
   
@@ -119,6 +119,7 @@ export function Button({
   
   return (
     <button
+      ref={ref}
       className={buttonClasses}
       disabled={isDisabled}
       data-size={size}
@@ -155,7 +156,9 @@ export function Button({
       )}
     </button>
   );
-}
+});
+
+Button.displayName = 'Button';
 
 export default Button;
 

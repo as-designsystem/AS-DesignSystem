@@ -103,6 +103,11 @@ export interface DropdownMenuItemProps {
   destructive?: boolean;
   disabled?: boolean;
   onSelect?: (event: Event) => void;
+  /**
+   * Whether the dropdown should close when this item is selected
+   * @default true
+   */
+  closeOnSelect?: boolean;
   className?: string;
 }
 
@@ -112,6 +117,7 @@ export function DropdownMenuItem({
   destructive = false,
   disabled = false,
   onSelect,
+  closeOnSelect = true,
   className = '',
 }: DropdownMenuItemProps) {
   const classes = [
@@ -122,11 +128,18 @@ export function DropdownMenuItem({
     .filter(Boolean)
     .join(' ');
 
+  const handleSelect = (event: Event) => {
+    if (!closeOnSelect) {
+      event.preventDefault();
+    }
+    onSelect?.(event);
+  };
+
   return (
     <DropdownMenuPrimitive.Item
       className={classes}
       disabled={disabled}
-      onSelect={onSelect}
+      onSelect={handleSelect}
     >
       {icon && (
         <span className="dropdown-menu-item__icon">
@@ -148,6 +161,11 @@ export interface DropdownMenuCheckboxItemProps {
   onCheckedChange?: (checked: boolean) => void;
   disabled?: boolean;
   onSelect?: (event: Event) => void;
+  /**
+   * Whether the dropdown should close when this item is selected
+   * @default false (checkbox items typically stay open)
+   */
+  closeOnSelect?: boolean;
   className?: string;
 }
 
@@ -157,15 +175,23 @@ export function DropdownMenuCheckboxItem({
   onCheckedChange,
   disabled = false,
   onSelect,
+  closeOnSelect = false,
   className = '',
 }: DropdownMenuCheckboxItemProps) {
+  const handleSelect = (event: Event) => {
+    if (!closeOnSelect) {
+      event.preventDefault();
+    }
+    onSelect?.(event);
+  };
+
   return (
     <DropdownMenuPrimitive.CheckboxItem
       className={`dropdown-menu-checkbox-item ${className}`}
       checked={checked}
       onCheckedChange={onCheckedChange}
       disabled={disabled}
-      onSelect={onSelect}
+      onSelect={handleSelect}
     >
       <span className="dropdown-menu-checkbox-item__indicator">
         <Icon

@@ -48,7 +48,7 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
  * <IconButton icon="delete" size="S" variant="Outlined" />
  * ```
  */
-export function IconButton({
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(({
   icon,
   size = 'M',
   state = 'Default',
@@ -58,7 +58,7 @@ export function IconButton({
   className = '',
   disabled,
   ...props
-}: IconButtonProps) {
+}, ref) => {
   const isDisabled = state === 'Disabled' || disabled;
 
   // Icon sizes according to button size
@@ -96,6 +96,7 @@ export function IconButton({
 
   return (
     <button
+      ref={ref}
       className={buttonClasses}
       disabled={isDisabled}
       aria-label={alt || tooltip || icon}
@@ -110,6 +111,8 @@ export function IconButton({
       )}
     </button>
   );
-}
+});
+
+IconButton.displayName = 'IconButton';
 
 export default IconButton;
