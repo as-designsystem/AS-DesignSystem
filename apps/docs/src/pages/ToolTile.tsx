@@ -94,7 +94,8 @@ export default function ToolTilePage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -108,6 +109,7 @@ export default function ToolTilePage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -134,15 +136,17 @@ export default function ToolTilePage() {
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="tool-tile-demo">
-              <ToolTile
-                tool="maintenance"
-                title="Maintenance"
-                description="Aircraft maintenance management and forecasting tool"
-                platforms={['web', 'ios', 'android']}
-                onClick={() => console.log('tile clicked')}
-                onMoreOptions={() => console.log('more options')}
-              />
+            <div className="example-container">
+              <div className="tool-tile-demo">
+                <ToolTile
+                  tool="maintenance"
+                  title="Maintenance"
+                  description="Aircraft maintenance management and forecasting tool"
+                  platforms={['web', 'ios', 'android']}
+                  onClick={() => console.log('tile clicked')}
+                  onMoreOptions={() => console.log('more options')}
+                />
+              </div>
             </div>
           </section>
 
@@ -167,32 +171,34 @@ export default function ToolTilePage() {
                 onClick={() => setOpenModal('grid')}
               />
             </div>
-            <div className="tool-tile-demo">
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                <ToolTile
-                  tool="trajopt"
-                  title="TrajOpt"
-                  description="Trajectory optimization and flight planning tool"
-                  platforms={['web', 'windows']}
-                  onClick={() => {}}
-                  onMoreOptions={() => {}}
-                />
-                <ToolTile
-                  tool="economics"
-                  title="Economics"
-                  description="Aircraft operating cost analysis and financial modelling"
-                  platforms={['web', 'android', 'ios', 'windows', 'skywise']}
-                  onClick={() => {}}
-                  onMoreOptions={() => {}}
-                />
-                <ToolTile
-                  tool="network"
-                  title="Network"
-                  description="Airline network planning and route analysis tool"
-                  platforms={['web', 'skywise']}
-                  onClick={() => {}}
-                  onMoreOptions={() => {}}
-                />
+            <div className="example-container">
+              <div className="tool-tile-demo">
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                  <ToolTile
+                    tool="trajopt"
+                    title="TrajOpt"
+                    description="Trajectory optimization and flight planning tool"
+                    platforms={['web', 'windows']}
+                    onClick={() => {}}
+                    onMoreOptions={() => {}}
+                  />
+                  <ToolTile
+                    tool="economics"
+                    title="Economics"
+                    description="Aircraft operating cost analysis and financial modelling"
+                    platforms={['web', 'android', 'ios', 'windows', 'skywise']}
+                    onClick={() => {}}
+                    onMoreOptions={() => {}}
+                  />
+                  <ToolTile
+                    tool="network"
+                    title="Network"
+                    description="Airline network planning and route analysis tool"
+                    platforms={['web', 'skywise']}
+                    onClick={() => {}}
+                    onMoreOptions={() => {}}
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -218,13 +224,15 @@ export default function ToolTilePage() {
                 onClick={() => setOpenModal('noPlatforms')}
               />
             </div>
-            <div className="tool-tile-demo">
-              <ToolTile
-                tool="airscout"
-                title="AirScout"
-                description="Flight data monitoring and analysis platform"
-                onClick={() => console.log('tile clicked')}
-              />
+            <div className="example-container">
+              <div className="tool-tile-demo">
+                <ToolTile
+                  tool="airscout"
+                  title="AirScout"
+                  description="Flight data monitoring and analysis platform"
+                  onClick={() => console.log('tile clicked')}
+                />
+              </div>
             </div>
           </section>
 
@@ -249,14 +257,16 @@ export default function ToolTilePage() {
                 onClick={() => setOpenModal('noDescription')}
               />
             </div>
-            <div className="tool-tile-demo">
-              <ToolTile
-                tool="skyfinesse"
-                title="SkyFInesse"
-                platforms={['web', 'ios']}
-                onClick={() => console.log('tile clicked')}
-                onMoreOptions={() => console.log('more options')}
-              />
+            <div className="example-container">
+              <div className="tool-tile-demo">
+                <ToolTile
+                  tool="skyfinesse"
+                  title="SkyFInesse"
+                  platforms={['web', 'ios']}
+                  onClick={() => console.log('tile clicked')}
+                  onMoreOptions={() => console.log('more options')}
+                />
+              </div>
             </div>
           </section>
         </>

@@ -87,19 +87,21 @@ export default function ChipPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
-          <Tab
-            label="Examples"
-            size="M"
-            status={activeTab === 'examples' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('examples')}
-          />
-          <Tab
-            label="Props"
-            size="M"
-            status={activeTab === 'props' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('props')}
-          />
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
         </div>
       </div>
 
@@ -127,7 +129,7 @@ export default function ChipPage() {
                 onClick={() => setOpenModal('selectable')}
               />
             </div>
-            <div className="chip-demo">
+            <div className="example-container">
               <div className="chip-demo__row">
                 <Chip
                   label="Option A"

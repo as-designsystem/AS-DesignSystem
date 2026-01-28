@@ -797,6 +797,75 @@ export const components: RegistryItem[] = [
     ],
   },
   {
+    name: 'study-status',
+    type: 'component',
+    displayName: 'StudyStatus',
+    description: 'Displays computation status of a study (Computed, Computing, Failed, Draft, Warning)',
+    files: [
+      {
+        path: 'templates/components/StudyStatus.tsx',
+        target: 'components/StudyStatus.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/StudyStatus.css',
+        target: 'components/StudyStatus.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'spinner'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'study-row',
+    type: 'component',
+    displayName: 'StudyRow',
+    description: 'Table row displaying study information with status, configurable columns, and optional checkbox',
+    files: [
+      {
+        path: 'templates/components/StudyRow.tsx',
+        target: 'components/StudyRow.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/StudyRow.css',
+        target: 'components/StudyRow.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['checkbox', 'study-status', 'icon-button'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
+    name: 'study-table-header',
+    type: 'component',
+    displayName: 'StudyTableHeader',
+    description: 'Table header row for study lists with configurable columns and optional select-all checkbox',
+    files: [
+      {
+        path: 'templates/components/StudyTableHeader.tsx',
+        target: 'components/StudyTableHeader.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/StudyTableHeader.css',
+        target: 'components/StudyTableHeader.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['checkbox'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
     name: 'dropdown-menu',
     type: 'component',
     displayName: 'DropdownMenu',

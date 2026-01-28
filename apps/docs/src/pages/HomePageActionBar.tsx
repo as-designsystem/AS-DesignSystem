@@ -100,7 +100,8 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -114,6 +115,7 @@ import { Button } from '@/design-system/components/Button';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}

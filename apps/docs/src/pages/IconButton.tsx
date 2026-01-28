@@ -43,19 +43,21 @@ export default function IconButtonPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
-          <Tab
-            label="Examples"
-            size="M"
-            status={activeTab === 'examples' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('examples')}
-          />
-          <Tab
-            label="Props"
-            size="M"
-            status={activeTab === 'props' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('props')}
-          />
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
         </div>
       </div>
 
@@ -76,13 +78,15 @@ export default function IconButtonPage() {
             onClick={() => setOpenModal('variants')}
           />
         </div>
-        <div className="icon-button-examples">
+        <div className="example-container">
+          <div className="icon-button-examples">
           <IconButton icon="add" variant="Default" size="M" />
           <IconButton icon="construction" variant="Outlined" size="M" />
           <IconButton icon="keyboard_arrow_up" variant="Ghost" size="M" />
           <IconButton icon="delete" variant="Default" size="M" disabled />
           <IconButton icon="emoji_emotions" variant="Outlined" size="M" disabled />
           <IconButton icon="keyboard_arrow_down" variant="Ghost" size="M" disabled />
+          </div>
         </div>
       </section>
 
@@ -100,12 +104,14 @@ export default function IconButtonPage() {
             onClick={() => setOpenModal('sizes')}
           />
         </div>
-        <div className="icon-button-examples">
+        <div className="example-container">
+          <div className="icon-button-examples">
           <IconButton icon="add" size="XS" variant="Default" />
           <IconButton icon="add" size="S" variant="Default" />
           <IconButton icon="add" size="M" variant="Default" />
           <IconButton icon="add" size="L" variant="Default" />
           <IconButton icon="add" size="XL" variant="Default" />
+          </div>
         </div>
       </section>
         </>

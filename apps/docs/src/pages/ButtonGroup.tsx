@@ -202,7 +202,8 @@ function Example() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -216,6 +217,7 @@ function Example() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -238,44 +240,46 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
               Buttons are laid out horizontally and fit their content width.
             </p>
-            <div className="button-group-examples">
-              <div className="button-group-example-row">
-                <span className="example-label">Text only:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                    { value: 'option3', label: 'Option 3' },
-                  ]}
-                  value={horizontalValue}
-                  onChange={setHorizontalValue}
-                  layout="horizontal"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">Icon only:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'add', iconName: 'add' },
-                    { value: 'delete', iconName: 'delete' },
-                    { value: 'code', iconName: 'code' },
-                  ]}
-                  value={horizontalIconValue}
-                  onChange={setHorizontalIconValue}
-                  layout="horizontal"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">Icon + label:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'add', iconName: 'add', label: 'Add' },
-                    { value: 'delete', iconName: 'delete', label: 'Delete' },
-                  ]}
-                  value={horizontalIconLabelValue}
-                  onChange={setHorizontalIconLabelValue}
-                  layout="horizontal"
-                />
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">Text only:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                      { value: 'option3', label: 'Option 3' },
+                    ]}
+                    value={horizontalValue}
+                    onChange={setHorizontalValue}
+                    layout="horizontal"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon only:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'add', iconName: 'add' },
+                      { value: 'delete', iconName: 'delete' },
+                      { value: 'code', iconName: 'code' },
+                    ]}
+                    value={horizontalIconValue}
+                    onChange={setHorizontalIconValue}
+                    layout="horizontal"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon + label:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'add', iconName: 'add', label: 'Add' },
+                      { value: 'delete', iconName: 'delete', label: 'Delete' },
+                    ]}
+                    value={horizontalIconLabelValue}
+                    onChange={setHorizontalIconLabelValue}
+                    layout="horizontal"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -297,44 +301,46 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
               Buttons are stacked vertically and fill the width of the container.
             </p>
-            <div className="button-group-examples">
-              <div className="button-group-example-row">
-                <span className="example-label">Text only:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                    { value: 'option3', label: 'Very Long Option' },
-                  ]}
-                  value={verticalValue}
-                  onChange={setVerticalValue}
-                  layout="vertical"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">Icon only:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'add', iconName: 'add' },
-                    { value: 'delete', iconName: 'delete' },
-                    { value: 'code', iconName: 'code' },
-                  ]}
-                  value={verticalIconValue}
-                  onChange={setVerticalIconValue}
-                  layout="vertical"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">Icon + label:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'add', iconName: 'add', label: 'Add' },
-                    { value: 'delete', iconName: 'delete', label: 'Delete' },
-                  ]}
-                  value={verticalIconLabelValue}
-                  onChange={setVerticalIconLabelValue}
-                  layout="vertical"
-                />
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">Text only:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                      { value: 'option3', label: 'Very Long Option' },
+                    ]}
+                    value={verticalValue}
+                    onChange={setVerticalValue}
+                    layout="vertical"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon only:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'add', iconName: 'add' },
+                      { value: 'delete', iconName: 'delete' },
+                      { value: 'code', iconName: 'code' },
+                    ]}
+                    value={verticalIconValue}
+                    onChange={setVerticalIconValue}
+                    layout="vertical"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon + label:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'add', iconName: 'add', label: 'Add' },
+                      { value: 'delete', iconName: 'delete', label: 'Delete' },
+                    ]}
+                    value={verticalIconLabelValue}
+                    onChange={setVerticalIconLabelValue}
+                    layout="vertical"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -356,54 +362,56 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
               The size prop controls the size of all buttons in the group.
             </p>
-            <div className="button-group-examples">
-              <div className="button-group-example-row">
-                <span className="example-label">S:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                  ]}
-                  value={sizeSValue}
-                  onChange={setSizeSValue}
-                  size="S"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">M (default):</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                  ]}
-                  value={sizeMValue}
-                  onChange={setSizeMValue}
-                  size="M"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">L:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                  ]}
-                  value={sizeLValue}
-                  onChange={setSizeLValue}
-                  size="L"
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">XL:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                  ]}
-                  value={sizeXlValue}
-                  onChange={setSizeXlValue}
-                  size="XL"
-                />
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">S:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value={sizeSValue}
+                    onChange={setSizeSValue}
+                    size="S"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">M (default):</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value={sizeMValue}
+                    onChange={setSizeMValue}
+                    size="M"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">L:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value={sizeLValue}
+                    onChange={setSizeLValue}
+                    size="L"
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">XL:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value={sizeXlValue}
+                    onChange={setSizeXlValue}
+                    size="XL"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -425,30 +433,32 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
               Individual options or the entire group can be disabled.
             </p>
-            <div className="button-group-examples">
-              <div className="button-group-example-row">
-                <span className="example-label">Disabled option:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2', disabled: true },
-                    { value: 'option3', label: 'Option 3' },
-                  ]}
-                  value={disabledValue}
-                  onChange={setDisabledValue}
-                />
-              </div>
-              <div className="button-group-example-row">
-                <span className="example-label">Disabled group:</span>
-                <ButtonGroup
-                  options={[
-                    { value: 'option1', label: 'Option 1' },
-                    { value: 'option2', label: 'Option 2' },
-                  ]}
-                  value="option1"
-                  onChange={() => {}}
-                  disabled
-                />
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">Disabled option:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2', disabled: true },
+                      { value: 'option3', label: 'Option 3' },
+                    ]}
+                    value={disabledValue}
+                    onChange={setDisabledValue}
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Disabled group:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value="option1"
+                    onChange={() => {}}
+                    disabled
+                  />
+                </div>
               </div>
             </div>
           </section>

@@ -49,7 +49,8 @@ import { PanelButton } from '@/design-system/components/PanelButton';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -63,6 +64,7 @@ import { PanelButton } from '@/design-system/components/PanelButton';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -82,10 +84,12 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="panel-section-title-demo-area">
-              <PanelSectionTitle label="Inputs" />
-              <PanelSectionTitle label="Results" />
-              <PanelSectionTitle label="Options" />
+            <div className="example-container--dark">
+              <div className="panel-section-title-demo-area">
+                <PanelSectionTitle label="Inputs" />
+                <PanelSectionTitle label="Results" />
+                <PanelSectionTitle label="Options" />
+              </div>
             </div>
           </section>
 
@@ -103,16 +107,18 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="panel-section-title-demo-area">
-              <div className="panel-section-title-demo-row">
-                <div className="panel-section-title-demo-item">
-                  <PanelSectionTitle label="Size M (14px)" size="M" />
-                </div>
-                <div className="panel-section-title-demo-item">
-                  <PanelSectionTitle label="Size S (12px)" size="S" />
-                </div>
-                <div className="panel-section-title-demo-item">
-                  <PanelSectionTitle label="Size XS (10px)" size="XS" />
+            <div className="example-container--dark">
+              <div className="panel-section-title-demo-area">
+                <div className="panel-section-title-demo-row">
+                  <div className="panel-section-title-demo-item">
+                    <PanelSectionTitle label="Size M (14px)" size="M" />
+                  </div>
+                  <div className="panel-section-title-demo-item">
+                    <PanelSectionTitle label="Size S (12px)" size="S" />
+                  </div>
+                  <div className="panel-section-title-demo-item">
+                    <PanelSectionTitle label="Size XS (10px)" size="XS" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,13 +138,15 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 onClick={() => setOpenModal('context')}
               />
             </div>
-            <div className="panel-section-title-demo-area panel-section-title-demo-area--narrow">
-              <PanelSectionTitle label="Inputs" size="S" />
-              <PanelButton label="Fleet" icon="AIR_fleet" variant="Selected" size="S" />
-              <PanelButton label="Mission" icon="AIR_side" size="S" />
-              <PanelSectionTitle label="Results" size="S" />
-              <PanelButton label="Economics" icon="apps" size="S" />
-              <PanelButton label="Charts" icon="info" size="S" />
+            <div className="example-container--dark">
+              <div className="panel-section-title-demo-area panel-section-title-demo-area--narrow">
+                <PanelSectionTitle label="Inputs" size="S" />
+                <PanelButton label="Fleet" icon="AIR_fleet" variant="Selected" size="S" />
+                <PanelButton label="Mission" icon="AIR_side" size="S" />
+                <PanelSectionTitle label="Results" size="S" />
+                <PanelButton label="Economics" icon="apps" size="S" />
+                <PanelButton label="Charts" icon="info" size="S" />
+              </div>
             </div>
           </section>
         </>

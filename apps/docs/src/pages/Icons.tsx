@@ -83,44 +83,46 @@ export default function Icons() {
       </div>
 
       {/* Controls Bar */}
-      <div className="icons-controls">
-        <TextInput
-          placeholder="Search an icon..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          size="S"
-          showLabel={false}
-          showLeftIcon
-          leftIcon="search"
-          showRightIconButton={searchQuery.length > 0}
-          rightIconButton="close"
-          onRightIconButtonClick={() => setSearchQuery('')}
-          className="icon-search-input"
-        />
-
-        {/* Size Selector */}
-        <div className="icons-setting">
-          <span className="icons-setting-label">Size</span>
-          <ButtonGroup
-            options={sizeOptions}
-            value={String(selectedSize)}
-            onChange={(value) => setSelectedSize(Number(value) as IconSize)}
+      <div className="example-container">
+        <div className="icons-controls">
+          <TextInput
+            placeholder="Search an icon..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             size="S"
+            showLabel={false}
+            showLeftIcon
+            leftIcon="search"
+            showRightIconButton={searchQuery.length > 0}
+            rightIconButton="close"
+            onRightIconButtonClick={() => setSearchQuery('')}
+            className="icon-search-input"
           />
-        </div>
 
-        {/* Color Selector */}
-        <div className="icons-setting">
-          <span className="icons-setting-label">Color</span>
-          <ButtonGroup
-            options={colorButtonOptions}
-            value={selectedColor.label}
-            onChange={(value) => {
-              const color = colorOptions.find((c) => c.label === value);
-              if (color) setSelectedColor(color);
-            }}
-            size="S"
-          />
+          {/* Size Selector */}
+          <div className="icons-setting">
+            <span className="icons-setting-label">Size</span>
+            <ButtonGroup
+              options={sizeOptions}
+              value={String(selectedSize)}
+              onChange={(value) => setSelectedSize(Number(value) as IconSize)}
+              size="S"
+            />
+          </div>
+
+          {/* Color Selector */}
+          <div className="icons-setting">
+            <span className="icons-setting-label">Color</span>
+            <ButtonGroup
+              options={colorButtonOptions}
+              value={selectedColor.label}
+              onChange={(value) => {
+                const color = colorOptions.find((c) => c.label === value);
+                if (color) setSelectedColor(color);
+              }}
+              size="S"
+            />
+          </div>
         </div>
       </div>
 

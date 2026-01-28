@@ -33,6 +33,9 @@ import WorkspacePage from './pages/Workspace';
 import ToolTilePage from './pages/ToolTile';
 import ChipPage from './pages/Chip';
 import DropdownMenuPage from './pages/DropdownMenu';
+import StudyStatusPage from './pages/StudyStatus';
+import StudyRowPage from './pages/StudyRow';
+import StudyTableHeaderPage from './pages/StudyTableHeader';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import LandingPageTemplate from './pages/LandingPageTemplate';
@@ -91,6 +94,9 @@ function App() {
               <Route path="/composites/accordion" element={<AccordionPage />} />
               <Route path="/composites/workspace" element={<WorkspacePage />} />
               <Route path="/composites/tool-tile" element={<ToolTilePage />} />
+              <Route path="/components/study-status" element={<StudyStatusPage />} />
+              <Route path="/components/study-row" element={<StudyRowPage />} />
+              <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

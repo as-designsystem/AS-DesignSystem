@@ -47,7 +47,8 @@ export default function PanelStudyNamePage() {
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -61,6 +62,7 @@ export default function PanelStudyNamePage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -87,12 +89,14 @@ export default function PanelStudyNamePage() {
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="panel-study-name-demo">
-              <div style={{ width: 238 }}>
-                <PanelStudyName name="Study Name" />
-              </div>
-              <div style={{ width: 238 }}>
-                <PanelStudyName name="Very Long Study Name That Overflows The Container" />
+            <div className="example-container--dark">
+              <div className="panel-study-name-demo">
+                <div style={{ width: 238 }}>
+                  <PanelStudyName name="Study Name" />
+                </div>
+                <div style={{ width: 238 }}>
+                  <PanelStudyName name="Very Long Study Name That Overflows The Container" />
+                </div>
               </div>
             </div>
           </section>
@@ -118,12 +122,14 @@ export default function PanelStudyNamePage() {
                 onClick={() => setOpenModal('multiline')}
               />
             </div>
-            <div className="panel-study-name-demo">
-              <div style={{ width: 238 }}>
-                <PanelStudyName name="Very Long Study Name That Overflows Onto Multiple Lines In The Container" lines={2} />
-              </div>
-              <div style={{ width: 238 }}>
-                <PanelStudyName name="Very Long Study Name That Overflows Onto Multiple Lines In The Container" lines={3} />
+            <div className="example-container--dark">
+              <div className="panel-study-name-demo">
+                <div style={{ width: 238 }}>
+                  <PanelStudyName name="Very Long Study Name That Overflows Onto Multiple Lines In The Container" lines={2} />
+                </div>
+                <div style={{ width: 238 }}>
+                  <PanelStudyName name="Very Long Study Name That Overflows Onto Multiple Lines In The Container" lines={3} />
+                </div>
               </div>
             </div>
           </section>

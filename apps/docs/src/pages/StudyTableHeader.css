@@ -1,0 +1,10 @@
+/**
+ * StudyTableHeader Documentation Page Styles
+ */
+
+.study-table-header-demo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}

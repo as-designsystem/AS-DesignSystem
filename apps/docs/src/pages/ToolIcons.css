@@ -14,10 +14,6 @@
   border-radius: 8px;
 }
 
-.tool-icon-item--dark {
-  background-color: var(--background-corporate, #00205b);
-}
-
 .all-tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));

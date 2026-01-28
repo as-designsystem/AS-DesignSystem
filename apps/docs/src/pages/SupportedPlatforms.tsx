@@ -78,17 +78,18 @@ export default function SupportedPlatforms() {
       {/* Frameworks Grid */}
       <div className="platforms-grid">
         {frameworks.map((framework) => (
-          <div
-            key={framework.name}
-            className={`platform-card ${framework.supported ? 'platform-card--supported' : 'platform-card--coming-soon'}`}
-          >
-            <div className="platform-icon">
-              {framework.icon}
+          <div className="example-container" key={framework.name}>
+            <div
+              className={`platform-card ${framework.supported ? 'platform-card--supported' : 'platform-card--coming-soon'}`}
+            >
+              <div className="platform-icon">
+                {framework.icon}
+              </div>
+              <span className="platform-name">{framework.name}</span>
+              {!framework.supported && (
+                <span className="platform-status">Coming soon</span>
+              )}
             </div>
-            <span className="platform-name">{framework.name}</span>
-            {!framework.supported && (
-              <span className="platform-status">Coming soon</span>
-            )}
           </div>
         ))}
       </div>
@@ -100,54 +101,62 @@ export default function SupportedPlatforms() {
           Make sure your environment meets these requirements before getting started.
         </p>
         <div className="requirements-grid">
-          <div className="requirement-card">
-            <div className="requirement-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              </svg>
-            </div>
-            <div className="requirement-content">
-              <div className="requirement-title">Node.js</div>
-              <div className="requirement-value">Version 18.0.0 or higher</div>
-            </div>
-          </div>
-
-          <div className="requirement-card">
-            <div className="requirement-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 6v6l4 2"/>
-              </svg>
-            </div>
-            <div className="requirement-content">
-              <div className="requirement-title">React</div>
-              <div className="requirement-value">Version 18.0.0 or higher</div>
+          <div className="example-container">
+            <div className="requirement-card">
+              <div className="requirement-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+              </div>
+              <div className="requirement-content">
+                <div className="requirement-title">Node.js</div>
+                <div className="requirement-value">Version 18.0.0 or higher</div>
+              </div>
             </div>
           </div>
 
-          <div className="requirement-card">
-            <div className="requirement-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="16 18 22 12 16 6"/>
-                <polyline points="8 6 2 12 8 18"/>
-              </svg>
-            </div>
-            <div className="requirement-content">
-              <div className="requirement-title">TypeScript</div>
-              <div className="requirement-value">Version 5.0+ (optional but recommended)</div>
+          <div className="example-container">
+            <div className="requirement-card">
+              <div className="requirement-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <div className="requirement-content">
+                <div className="requirement-title">React</div>
+                <div className="requirement-value">Version 18.0.0 or higher</div>
+              </div>
             </div>
           </div>
 
-          <div className="requirement-card">
-            <div className="requirement-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              </svg>
+          <div className="example-container">
+            <div className="requirement-card">
+              <div className="requirement-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <div className="requirement-content">
+                <div className="requirement-title">TypeScript</div>
+                <div className="requirement-value">Version 5.0+ (optional but recommended)</div>
+              </div>
             </div>
-            <div className="requirement-content">
-              <div className="requirement-title">Package Manager</div>
-              <div className="requirement-value">npm, pnpm, or yarn</div>
+          </div>
+
+          <div className="example-container">
+            <div className="requirement-card">
+              <div className="requirement-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <div className="requirement-content">
+                <div className="requirement-title">Package Manager</div>
+                <div className="requirement-value">npm, pnpm, or yarn</div>
+              </div>
             </div>
           </div>
         </div>

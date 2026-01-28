@@ -145,6 +145,9 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
       { label: 'ProductBanner', path: '/composites/product-banner' },
+      { label: 'StudyRow', path: '/components/study-row' },
+      { label: 'StudyStatus', path: '/components/study-status' },
+      { label: 'StudyTableHeader', path: '/components/study-table-header' },
       { label: 'Workspace', path: '/composites/workspace' },
     ],
   },

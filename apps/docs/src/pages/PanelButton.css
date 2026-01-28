@@ -2,10 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px;
-  background-color: var(--background-corporate, #00205b);
-  border-radius: 8px;
-  border: 1px solid var(--border-minimal);
 }
 
 .panel-button-demo-row {

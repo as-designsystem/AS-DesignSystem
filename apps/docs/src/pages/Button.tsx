@@ -55,19 +55,21 @@ export default function ButtonPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
-          <Tab
-            label="Examples"
-            size="M"
-            status={activeTab === 'examples' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('examples')}
-          />
-          <Tab
-            label="Props"
-            size="M"
-            status={activeTab === 'props' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('props')}
-          />
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
         </div>
       </div>
 
@@ -88,13 +90,15 @@ export default function ButtonPage() {
             onClick={() => setOpenModal('variants')}
           />
         </div>
-        <div className="button-examples">
-          <Button label="Default" variant="Default" size="M" />
-          <Button label="Outlined" variant="Outlined" size="M" />
-          <Button label="Ghost" variant="Ghost" size="M" />
-          <Button label="Default Disabled" variant="Default" size="M" disabled />
-          <Button label="Outlined Disabled" variant="Outlined" size="M" disabled />
-          <Button label="Ghost Disabled" variant="Ghost" size="M" disabled />
+        <div className="example-container">
+          <div className="button-examples">
+            <Button label="Default" variant="Default" size="M" />
+            <Button label="Outlined" variant="Outlined" size="M" />
+            <Button label="Ghost" variant="Ghost" size="M" />
+            <Button label="Default Disabled" variant="Default" size="M" disabled />
+            <Button label="Outlined Disabled" variant="Outlined" size="M" disabled />
+            <Button label="Ghost Disabled" variant="Ghost" size="M" disabled />
+          </div>
         </div>
       </section>
 
@@ -112,12 +116,14 @@ export default function ButtonPage() {
             onClick={() => setOpenModal('sizes')}
           />
         </div>
-        <div className="button-examples">
-          <Button label="Size XS" size="XS" variant="Default" />
-          <Button label="Size S" size="S" variant="Default" />
-          <Button label="Size M" size="M" variant="Default" />
-          <Button label="Size L" size="L" variant="Default" />
-          <Button label="Size XL" size="XL" variant="Default" />
+        <div className="example-container">
+          <div className="button-examples">
+            <Button label="Size XS" size="XS" variant="Default" />
+            <Button label="Size S" size="S" variant="Default" />
+            <Button label="Size M" size="M" variant="Default" />
+            <Button label="Size L" size="L" variant="Default" />
+            <Button label="Size XL" size="XL" variant="Default" />
+          </div>
         </div>
       </section>
 
@@ -138,25 +144,31 @@ export default function ButtonPage() {
         <div className="button-showcase">
           <div className="button-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Left icon</h3>
-            <div className="button-examples">
-              <Button label="Add" leftIcon="add" size="M" variant="Default" />
-              <Button label="Delete" leftIcon="delete" size="M" variant="Outlined" />
-              <Button label="Construction" leftIcon="construction" size="M" variant="Ghost" />
+            <div className="example-container">
+              <div className="button-examples">
+                <Button label="Add" leftIcon="add" size="M" variant="Default" />
+                <Button label="Delete" leftIcon="delete" size="M" variant="Outlined" />
+                <Button label="Construction" leftIcon="construction" size="M" variant="Ghost" />
+              </div>
             </div>
           </div>
 
           <div className="button-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Right icon</h3>
-            <div className="button-examples">
-              <Button label="Next" rightIcon="keyboard_arrow_down" size="M" variant="Default" />
-              <Button label="Up" rightIcon="keyboard_arrow_up" size="M" variant="Outlined" />
+            <div className="example-container">
+              <div className="button-examples">
+                <Button label="Next" rightIcon="keyboard_arrow_down" size="M" variant="Default" />
+                <Button label="Up" rightIcon="keyboard_arrow_up" size="M" variant="Outlined" />
+              </div>
             </div>
           </div>
 
           <div className="button-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Both icons</h3>
-            <div className="button-examples">
-              <Button label="Action" leftIcon="add" rightIcon="keyboard_arrow_down" size="M" variant="Default" />
+            <div className="example-container">
+              <div className="button-examples">
+                <Button label="Action" leftIcon="add" rightIcon="keyboard_arrow_down" size="M" variant="Default" />
+              </div>
             </div>
           </div>
         </div>

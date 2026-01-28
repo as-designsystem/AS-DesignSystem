@@ -78,7 +78,8 @@ export default function PanelButtonPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -92,6 +93,7 @@ export default function PanelButtonPage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -111,10 +113,12 @@ export default function PanelButtonPage() {
                 onClick={() => setOpenModal('variants')}
               />
             </div>
-            <div className="panel-button-demo-area">
-              <PanelButton label="Default" icon="apps" variant="Default" />
-              <PanelButton label="Selected" icon="apps" variant="Selected" />
-              <PanelButton label="Disabled" icon="apps" variant="Disabled" />
+            <div className="example-container--dark">
+              <div className="panel-button-demo-area">
+                <PanelButton label="Default" icon="apps" variant="Default" />
+                <PanelButton label="Selected" icon="apps" variant="Selected" />
+                <PanelButton label="Disabled" icon="apps" variant="Disabled" />
+              </div>
             </div>
           </section>
 
@@ -132,10 +136,12 @@ export default function PanelButtonPage() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="panel-button-demo-area">
-              <PanelButton label="Size XS" icon="apps" size="XS" variant="Selected" />
-              <PanelButton label="Size S" icon="apps" size="S" variant="Selected" />
-              <PanelButton label="Size M" icon="apps" size="M" variant="Selected" />
+            <div className="example-container--dark">
+              <div className="panel-button-demo-area">
+                <PanelButton label="Size XS" icon="apps" size="XS" variant="Selected" />
+                <PanelButton label="Size S" icon="apps" size="S" variant="Selected" />
+                <PanelButton label="Size M" icon="apps" size="M" variant="Selected" />
+              </div>
             </div>
           </section>
 
@@ -153,15 +159,17 @@ export default function PanelButtonPage() {
                 onClick={() => setOpenModal('collapsed')}
               />
             </div>
-            <div className="panel-button-demo-area">
-              <div className="panel-button-demo-row">
-                <PanelButton label="Dashboard" icon="apps" panelOpen={false} />
-                <PanelButton label="Settings" icon="settings" panelOpen={false} variant="Selected" />
-                <PanelButton label="Admin" icon="account_circle" panelOpen={false} variant="Disabled" />
+            <div className="example-container--dark">
+              <div className="panel-button-demo-area">
+                <div className="panel-button-demo-row">
+                  <PanelButton label="Dashboard" icon="apps" panelOpen={false} />
+                  <PanelButton label="Settings" icon="settings" panelOpen={false} variant="Selected" />
+                  <PanelButton label="Admin" icon="account_circle" panelOpen={false} variant="Disabled" />
+                </div>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: 0 }}>
+                  Hover over the buttons to see the tooltip
+                </p>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: 0 }}>
-                Hover over the buttons to see the tooltip
-              </p>
             </div>
           </section>
 
@@ -182,21 +190,25 @@ export default function PanelButtonPage() {
             <div className="panel-button-showcase">
               <div className="panel-button-group">
                 <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Expanded</h3>
-                <div className="panel-button-demo-area">
-                  <PanelButton label="With Error" icon="info" showError errorCount={2} variant="Selected" errorTooltip="2 inputs missing" />
-                  <PanelButton label="With Warning" icon="construction" showWarning variant="Selected" warningTooltip="Outdated configuration" />
-                  <PanelButton label="Both" icon="apps" showError errorCount={5} showWarning errorTooltip="5 inputs missing" warningTooltip="Outdated configuration" />
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: 0 }}>
-                    Hover over the error or warning indicators to see the tooltip
-                  </p>
+                <div className="example-container--dark">
+                  <div className="panel-button-demo-area">
+                    <PanelButton label="With Error" icon="info" showError errorCount={2} variant="Selected" errorTooltip="2 inputs missing" />
+                    <PanelButton label="With Warning" icon="construction" showWarning variant="Selected" warningTooltip="Outdated configuration" />
+                    <PanelButton label="Both" icon="apps" showError errorCount={5} showWarning errorTooltip="5 inputs missing" warningTooltip="Outdated configuration" />
+                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: 0 }}>
+                      Hover over the error or warning indicators to see the tooltip
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="panel-button-group">
                 <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Collapsed</h3>
-                <div className="panel-button-demo-area">
-                  <div className="panel-button-demo-row">
-                    <PanelButton label="Errors" icon="info" panelOpen={false} showError variant="Selected" errorTooltip="2 inputs missing" />
-                    <PanelButton label="Warnings" icon="construction" panelOpen={false} showWarning variant="Selected" warningTooltip="Outdated configuration" />
+                <div className="example-container--dark">
+                  <div className="panel-button-demo-area">
+                    <div className="panel-button-demo-row">
+                      <PanelButton label="Errors" icon="info" panelOpen={false} showError variant="Selected" errorTooltip="2 inputs missing" />
+                      <PanelButton label="Warnings" icon="construction" panelOpen={false} showWarning variant="Selected" warningTooltip="Outdated configuration" />
+                    </div>
                   </div>
                 </div>
               </div>

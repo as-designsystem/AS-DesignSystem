@@ -1,9 +1,6 @@
 .panel-group-demo-area {
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  background-color: var(--background-corporate, #00205b);
-  border-radius: 8px;
   gap: 4px;
 }
 

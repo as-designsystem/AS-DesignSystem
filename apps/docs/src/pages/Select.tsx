@@ -161,19 +161,21 @@ const options = [
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
-          <Tab
-            label="Examples"
-            size="M"
-            status={activeTab === 'examples' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('examples')}
-          />
-          <Tab
-            label="Props"
-            size="M"
-            status={activeTab === 'props' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('props')}
-          />
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
         </div>
       </div>
 
@@ -201,7 +203,8 @@ const options = [
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="select-examples">
+            <div className="example-container">
+              <div className="select-examples">
               {componentType === 'select' ? (
                 <>
                   <Select
@@ -265,6 +268,7 @@ const options = [
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -289,7 +293,8 @@ const options = [
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="select-examples">
+            <div className="example-container">
+              <div className="select-examples">
               {componentType === 'select' ? (
                 <>
                   <Select
@@ -357,6 +362,7 @@ const options = [
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -381,7 +387,8 @@ const options = [
                 onClick={() => setOpenModal('options')}
               />
             </div>
-            <div className="select-examples">
+            <div className="example-container">
+              <div className="select-examples">
               {componentType === 'select' ? (
                 <>
                   <Select
@@ -435,6 +442,7 @@ const options = [
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 

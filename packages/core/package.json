@@ -46,6 +46,9 @@
     "./Workspace.css": "./dist/Workspace.css",
     "./ToolTile.css": "./dist/ToolTile.css",
     "./Chip.css": "./dist/Chip.css",
+    "./StudyStatus.css": "./dist/StudyStatus.css",
+    "./StudyRow.css": "./dist/StudyRow.css",
+    "./StudyTableHeader.css": "./dist/StudyTableHeader.css",
     "./DropdownMenu.css": "./dist/DropdownMenu.css"
   },
   "scripts": {

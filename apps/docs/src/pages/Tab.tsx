@@ -65,19 +65,21 @@ export default function TabPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
-          <Tab
-            label="Examples"
-            size="M"
-            status={activeTab === 'examples' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('examples')}
-          />
-          <Tab
-            label="Props"
-            size="M"
-            status={activeTab === 'props' ? 'Active' : 'Default'}
-            onClick={() => setActiveTab('props')}
-          />
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
         </div>
       </div>
 
@@ -101,20 +103,24 @@ export default function TabPage() {
         <div className="tab-showcase">
           <div className="tab-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Default Variant</h3>
-            <div className="tab-examples">
+            <div className="example-container">
+              <div className="tab-examples">
               <Tab label="Default" variant="Default" status="Default" size="M" />
               <Tab label="Active" variant="Default" status="Active" size="M" />
               <Tab label="Default Disabled" variant="Default" status="Default" size="M" disabled />
               <Tab label="Active Disabled" variant="Default" status="Active" size="M" disabled />
+              </div>
             </div>
           </div>
           <div className="tab-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Container Variant</h3>
-            <div className="tab-examples tab-examples--container">
-              <Tab label="Default" variant="Container" status="Default" size="M" />
-              <Tab label="Active" variant="Container" status="Active" size="M" />
-              <Tab label="Default Disabled" variant="Container" status="Default" size="M" disabled />
-              <Tab label="Active Disabled" variant="Container" status="Active" size="M" disabled />
+            <div className="example-container">
+              <div className="tab-examples tab-examples--container">
+                <Tab label="Default" variant="Container" status="Default" size="M" />
+                <Tab label="Active" variant="Container" status="Active" size="M" />
+                <Tab label="Default Disabled" variant="Container" status="Default" size="M" disabled />
+                <Tab label="Active Disabled" variant="Container" status="Active" size="M" disabled />
+              </div>
             </div>
           </div>
         </div>
@@ -180,24 +186,30 @@ export default function TabPage() {
         <div className="tab-showcase">
           <div className="tab-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Left icon</h3>
-            <div className="tab-examples">
+            <div className="example-container">
+              <div className="tab-examples">
               <Tab label="Add" leftIcon="add" size="M" status="Active" />
               <Tab label="Build" leftIcon="construction" size="M" status="Default" />
+              </div>
             </div>
           </div>
 
           <div className="tab-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Right icon</h3>
-            <div className="tab-examples">
+            <div className="example-container">
+              <div className="tab-examples">
               <Tab label="Up" rightIcon="keyboard_arrow_up" size="M" status="Active" />
               <Tab label="Down" rightIcon="keyboard_arrow_down" size="M" status="Default" />
+              </div>
             </div>
           </div>
 
           <div className="tab-group">
             <h3 className="label-bold-m" style={{ marginBottom: '12px', color: 'var(--text-main, #14171d)' }}>Both icons</h3>
-            <div className="tab-examples">
+            <div className="example-container">
+              <div className="tab-examples">
               <Tab label="Action" leftIcon="add" rightIcon="keyboard_arrow_down" size="M" status="Active" />
+              </div>
             </div>
           </div>
         </div>

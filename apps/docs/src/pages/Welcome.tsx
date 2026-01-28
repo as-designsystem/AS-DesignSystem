@@ -75,82 +75,94 @@ export default function Welcome() {
       <section style={{ marginBottom: '48px' }}>
         <h2 className="welcome-section-title">Why AS Design System?</h2>
         <div className="welcome-features">
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Full Ownership</h3>
+              <p className="welcome-feature-desc">
+                Components are copied directly into your project. Modify, extend, or refactor as needed.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Full Ownership</h3>
-            <p className="welcome-feature-desc">
-              Components are copied directly into your project. Modify, extend, or refactor as needed.
-            </p>
           </div>
 
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <line x1="3" y1="9" x2="21" y2="9" />
-                <line x1="9" y1="21" x2="9" y2="9" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <line x1="3" y1="9" x2="21" y2="9" />
+                  <line x1="9" y1="21" x2="9" y2="9" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Design Tokens</h3>
+              <p className="welcome-feature-desc">
+                Consistent colors, typography, and spacing. Available as CSS variables and TypeScript.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Design Tokens</h3>
-            <p className="welcome-feature-desc">
-              Consistent colors, typography, and spacing. Available as CSS variables and TypeScript.
-            </p>
           </div>
 
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Zero Runtime</h3>
+              <p className="welcome-feature-desc">
+                No external runtime dependencies. Just React, CSS, and your code.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Zero Runtime</h3>
-            <p className="welcome-feature-desc">
-              No external runtime dependencies. Just React, CSS, and your code.
-            </p>
           </div>
 
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Type Safe</h3>
+              <p className="welcome-feature-desc">
+                Built with TypeScript. Full autocomplete and type checking out of the box.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Type Safe</h3>
-            <p className="welcome-feature-desc">
-              Built with TypeScript. Full autocomplete and type checking out of the box.
-            </p>
           </div>
 
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Easy Updates</h3>
+              <p className="welcome-feature-desc">
+                Update components with a single CLI command while keeping your customizations.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Easy Updates</h3>
-            <p className="welcome-feature-desc">
-              Update components with a single CLI command while keeping your customizations.
-            </p>
           </div>
 
-          <div className="welcome-feature">
-            <div className="welcome-feature-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                <line x1="12" y1="22.08" x2="12" y2="12" />
-              </svg>
+          <div className="example-container">
+            <div className="welcome-feature">
+              <div className="welcome-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <h3 className="welcome-feature-title">Modular</h3>
+              <p className="welcome-feature-desc">
+                Install only what you need. Each component is independent and self-contained.
+              </p>
             </div>
-            <h3 className="welcome-feature-title">Modular</h3>
-            <p className="welcome-feature-desc">
-              Install only what you need. Each component is independent and self-contained.
-            </p>
           </div>
         </div>
       </section>
@@ -159,21 +171,29 @@ export default function Welcome() {
       <section>
         <h2 className="welcome-section-title">CLI Commands</h2>
         <div className="welcome-commands">
-          <div className="welcome-command">
-            <code className="welcome-command-code">asds init</code>
-            <span className="welcome-command-desc">Initialize the design system in your project</span>
+          <div className="example-container">
+            <div className="welcome-command">
+              <code className="welcome-command-code">asds init</code>
+              <span className="welcome-command-desc">Initialize the design system in your project</span>
+            </div>
           </div>
-          <div className="welcome-command">
-            <code className="welcome-command-code">asds add button</code>
-            <span className="welcome-command-desc">Add a component to your project</span>
+          <div className="example-container">
+            <div className="welcome-command">
+              <code className="welcome-command-code">asds add button</code>
+              <span className="welcome-command-desc">Add a component to your project</span>
+            </div>
           </div>
-          <div className="welcome-command">
-            <code className="welcome-command-code">asds list</code>
-            <span className="welcome-command-desc">List all available components</span>
+          <div className="example-container">
+            <div className="welcome-command">
+              <code className="welcome-command-code">asds list</code>
+              <span className="welcome-command-desc">List all available components</span>
+            </div>
           </div>
-          <div className="welcome-command">
-            <code className="welcome-command-code">asds update</code>
-            <span className="welcome-command-desc">Update installed components to latest version</span>
+          <div className="example-container">
+            <div className="welcome-command">
+              <code className="welcome-command-code">asds update</code>
+              <span className="welcome-command-desc">Update installed components to latest version</span>
+            </div>
           </div>
         </div>
       </section>

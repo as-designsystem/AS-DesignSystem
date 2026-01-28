@@ -2,8 +2,4 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
-  background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #e0e3e9);
-  border-radius: 8px;
 }

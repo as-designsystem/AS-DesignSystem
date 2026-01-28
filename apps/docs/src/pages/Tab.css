@@ -1,20 +1,7 @@
-.tabs-container {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: var(--background-secondary);
-  margin-bottom: 32px;
-  border-bottom: 1px solid var(--border-minimal);
-}
-
 .tab-examples {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
-  background-color: var(--background-main, #ffffff);
-  border-radius: 8px;
-  border: 1px solid var(--border-minimal);
 }
 
 .tab-examples--container {

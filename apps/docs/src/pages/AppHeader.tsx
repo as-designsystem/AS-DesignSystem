@@ -76,7 +76,8 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -90,6 +91,7 @@ import { Button } from '@/design-system/components/Button';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -109,23 +111,25 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="appheader-example">
-              <AppHeader
-                appName="Maintenance Scheduler"
-                actions={
-                  <>
-                    <IconButton icon="notifications" variant="Ghost" size="M" />
-                    <IconButton icon="settings" variant="Ghost" size="M" />
-                    <IconButton icon="apps" variant="Ghost" size="M" />
-                    <Button
-                      label="Mark Thompson"
-                      rightIcon="account_circle"
-                      variant="Ghost"
-                      size="M"
-                    />
-                  </>
-                }
-              />
+            <div className="example-container">
+              <div className="appheader-example">
+                <AppHeader
+                  appName="Maintenance Scheduler"
+                  actions={
+                    <>
+                      <IconButton icon="notifications" variant="Ghost" size="M" />
+                      <IconButton icon="settings" variant="Ghost" size="M" />
+                      <IconButton icon="apps" variant="Ghost" size="M" />
+                      <Button
+                        label="Mark Thompson"
+                        rightIcon="account_circle"
+                        variant="Ghost"
+                        size="M"
+                      />
+                    </>
+                  }
+                />
+              </div>
             </div>
           </section>
 
@@ -143,8 +147,10 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('minimal')}
               />
             </div>
-            <div className="appheader-example">
-              <AppHeader appName="My Application" />
+            <div className="example-container">
+              <div className="appheader-example">
+                <AppHeader appName="My Application" />
+              </div>
             </div>
           </section>
 
@@ -162,23 +168,25 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('customActions')}
               />
             </div>
-            <div className="appheader-example">
-              <AppHeader
-                appName="Fleet Manager"
-                actions={
-                  <>
-                    <IconButton icon="dark_mode" variant="Ghost" size="M" />
-                    <IconButton icon="notifications" variant="Ghost" size="M" />
-                    <IconButton icon="settings" variant="Ghost" size="M" />
-                    <Button
-                      label="John Doe"
-                      rightIcon="account_circle"
-                      variant="Ghost"
-                      size="M"
-                    />
-                  </>
-                }
-              />
+            <div className="example-container">
+              <div className="appheader-example">
+                <AppHeader
+                  appName="Fleet Manager"
+                  actions={
+                    <>
+                      <IconButton icon="dark_mode" variant="Ghost" size="M" />
+                      <IconButton icon="notifications" variant="Ghost" size="M" />
+                      <IconButton icon="settings" variant="Ghost" size="M" />
+                      <Button
+                        label="John Doe"
+                        rightIcon="account_circle"
+                        variant="Ghost"
+                        size="M"
+                      />
+                    </>
+                  }
+                />
+              </div>
             </div>
           </section>
         </>

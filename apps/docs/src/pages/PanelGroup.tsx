@@ -94,7 +94,8 @@ import { IconButton } from '@/design-system/components/IconButton';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -108,6 +109,7 @@ import { IconButton } from '@/design-system/components/IconButton';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -127,17 +129,19 @@ import { IconButton } from '@/design-system/components/IconButton';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="panel-group-demo-area panel-group-demo-area--narrow">
-              <PanelGroup
-                label="Inputs"
-                open={openGroup1}
-                onClick={() => setOpenGroup1(!openGroup1)}
-              />
-              <PanelGroup
-                label="Results"
-                open={openGroup2}
-                onClick={() => setOpenGroup2(!openGroup2)}
-              />
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area panel-group-demo-area--narrow">
+                <PanelGroup
+                  label="Inputs"
+                  open={openGroup1}
+                  onClick={() => setOpenGroup1(!openGroup1)}
+                />
+                <PanelGroup
+                  label="Results"
+                  open={openGroup2}
+                  onClick={() => setOpenGroup2(!openGroup2)}
+                />
+              </div>
             </div>
           </section>
 
@@ -155,19 +159,21 @@ import { IconButton } from '@/design-system/components/IconButton';
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="panel-group-demo-area">
-              <div className="panel-group-demo-row">
-                <div className="panel-group-demo-item">
-                  <span className="demo-label">M (40px)</span>
-                  <PanelGroup label="Size M" size="M" open={true} />
-                </div>
-                <div className="panel-group-demo-item">
-                  <span className="demo-label">S (32px)</span>
-                  <PanelGroup label="Size S" size="S" open={true} />
-                </div>
-                <div className="panel-group-demo-item">
-                  <span className="demo-label">XS (24px)</span>
-                  <PanelGroup label="Size XS" size="XS" open={true} />
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area">
+                <div className="panel-group-demo-row">
+                  <div className="panel-group-demo-item">
+                    <span className="demo-label">M (40px)</span>
+                    <PanelGroup label="Size M" size="M" open={true} />
+                  </div>
+                  <div className="panel-group-demo-item">
+                    <span className="demo-label">S (32px)</span>
+                    <PanelGroup label="Size S" size="S" open={true} />
+                  </div>
+                  <div className="panel-group-demo-item">
+                    <span className="demo-label">XS (24px)</span>
+                    <PanelGroup label="Size XS" size="XS" open={true} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -187,31 +193,33 @@ import { IconButton } from '@/design-system/components/IconButton';
                 onClick={() => setOpenModal('actions')}
               />
             </div>
-            <div className="panel-group-demo-area panel-group-demo-area--narrow">
-              <PanelGroup
-                label="Scenario 1"
-                open={true}
-                size="S"
-                actions={
-                  <>
-                    <IconButton icon="edit" size="XS" variant="Ghost" />
-                    <IconButton icon="content_copy" size="XS" variant="Ghost" />
-                    <IconButton icon="delete" size="XS" variant="Ghost" />
-                  </>
-                }
-              />
-              <PanelGroup
-                label="Scenario 2"
-                open={false}
-                size="S"
-                actions={
-                  <>
-                    <IconButton icon="edit" size="XS" variant="Ghost" />
-                    <IconButton icon="content_copy" size="XS" variant="Ghost" />
-                    <IconButton icon="delete" size="XS" variant="Ghost" />
-                  </>
-                }
-              />
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area panel-group-demo-area--narrow">
+                <PanelGroup
+                  label="Scenario 1"
+                  open={true}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                      <IconButton icon="delete" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+                <PanelGroup
+                  label="Scenario 2"
+                  open={false}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                      <IconButton icon="delete" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+              </div>
             </div>
           </section>
 
@@ -229,38 +237,40 @@ import { IconButton } from '@/design-system/components/IconButton';
                 onClick={() => setOpenModal('context')}
               />
             </div>
-            <div className="panel-group-demo-area panel-group-demo-area--narrow">
-              <PanelSectionTitle label="Inputs" size="S" />
-              <PanelGroup
-                label="Fleet"
-                open={openGroupCtx1}
-                onClick={() => setOpenGroupCtx1(!openGroupCtx1)}
-                size="S"
-                actions={
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area panel-group-demo-area--narrow">
+                <PanelSectionTitle label="Inputs" size="S" />
+                <PanelGroup
+                  label="Fleet"
+                  open={openGroupCtx1}
+                  onClick={() => setOpenGroupCtx1(!openGroupCtx1)}
+                  size="S"
+                  actions={
+                    <>
+                      <IconButton icon="edit" size="XS" variant="Ghost" />
+                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                    </>
+                  }
+                />
+                {openGroupCtx1 && (
                   <>
-                    <IconButton icon="edit" size="XS" variant="Ghost" />
-                    <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                    <PanelButton label="A320" icon="AIR_fleet" size="S" />
+                    <PanelButton label="A330" icon="AIR_fleet" size="S" />
                   </>
-                }
-              />
-              {openGroupCtx1 && (
-                <>
-                  <PanelButton label="A320" icon="AIR_fleet" size="S" />
-                  <PanelButton label="A330" icon="AIR_fleet" size="S" />
-                </>
-              )}
-              <PanelGroup
-                label="Mission"
-                open={openGroupCtx2}
-                onClick={() => setOpenGroupCtx2(!openGroupCtx2)}
-                size="S"
-              />
-              {openGroupCtx2 && (
-                <>
-                  <PanelButton label="Route 1" icon="AIR_side" size="S" />
-                  <PanelButton label="Route 2" icon="AIR_side" size="S" />
-                </>
-              )}
+                )}
+                <PanelGroup
+                  label="Mission"
+                  open={openGroupCtx2}
+                  onClick={() => setOpenGroupCtx2(!openGroupCtx2)}
+                  size="S"
+                />
+                {openGroupCtx2 && (
+                  <>
+                    <PanelButton label="Route 1" icon="AIR_side" size="S" />
+                    <PanelButton label="Route 2" icon="AIR_side" size="S" />
+                  </>
+                )}
+              </div>
             </div>
           </section>
         </>

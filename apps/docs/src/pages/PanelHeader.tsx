@@ -70,7 +70,8 @@ export default function PanelHeaderPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -84,6 +85,7 @@ export default function PanelHeaderPage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -110,13 +112,15 @@ export default function PanelHeaderPage() {
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="panel-header-demo">
-              <PanelHeader
-                studyName="My Study"
-                onBackHome={() => console.log('Back home')}
-                onStudyNameClick={() => console.log('Edit study name')}
-                onDuplicate={() => console.log('Duplicate study')}
-              />
+            <div className="example-container">
+              <div className="panel-header-demo">
+                <PanelHeader
+                  studyName="My Study"
+                  onBackHome={() => console.log('Back home')}
+                  onStudyNameClick={() => console.log('Edit study name')}
+                  onDuplicate={() => console.log('Duplicate study')}
+                />
+              </div>
             </div>
           </section>
 
@@ -141,14 +145,16 @@ export default function PanelHeaderPage() {
                 onClick={() => setOpenModal('withBackground')}
               />
             </div>
-            <div className="panel-header-demo">
-              <PanelHeader
-                studyName="Fleet Analysis Q4 2025"
-                onBackHome={() => console.log('Back home')}
-                onStudyNameClick={() => console.log('Edit study name')}
-                onDuplicate={() => console.log('Duplicate study')}
-                backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
-              />
+            <div className="example-container">
+              <div className="panel-header-demo">
+                <PanelHeader
+                  studyName="Fleet Analysis Q4 2025"
+                  onBackHome={() => console.log('Back home')}
+                  onStudyNameClick={() => console.log('Edit study name')}
+                  onDuplicate={() => console.log('Duplicate study')}
+                  backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
+                />
+              </div>
             </div>
           </section>
 
@@ -174,20 +180,24 @@ export default function PanelHeaderPage() {
               />
             </div>
             <div className="panel-header-demo-grid">
-              <div className="panel-header-demo">
-                <PanelHeader
-                  studyName="Very Long Study Name That Overflows The Container Width Easily"
-                  onBackHome={() => console.log('Back home')}
-                  onDuplicate={() => console.log('Duplicate')}
-                />
+              <div className="example-container">
+                <div className="panel-header-demo">
+                  <PanelHeader
+                    studyName="Very Long Study Name That Overflows The Container Width Easily"
+                    onBackHome={() => console.log('Back home')}
+                    onDuplicate={() => console.log('Duplicate')}
+                  />
+                </div>
               </div>
-              <div className="panel-header-demo">
-                <PanelHeader
-                  studyName="Very Long Study Name That Overflows Onto Multiple Lines In The Container"
-                  studyNameLines={2}
-                  onBackHome={() => console.log('Back home')}
-                  onDuplicate={() => console.log('Duplicate')}
-                />
+              <div className="example-container">
+                <div className="panel-header-demo">
+                  <PanelHeader
+                    studyName="Very Long Study Name That Overflows Onto Multiple Lines In The Container"
+                    studyNameLines={2}
+                    onBackHome={() => console.log('Back home')}
+                    onDuplicate={() => console.log('Duplicate')}
+                  />
+                </div>
               </div>
             </div>
           </section>

@@ -134,7 +134,8 @@ import { PanelButton } from '@/design-system/components/PanelButton';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -148,6 +149,7 @@ import { PanelButton } from '@/design-system/components/PanelButton';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -182,132 +184,136 @@ import { PanelButton } from '@/design-system/components/PanelButton';
             </div>
           </div>
           <div className="left-panel-demo-grid">
-            <div className="left-panel-demo">
-              <LeftPanel
-                header={
-                  <PanelHeader
-                    studyName="My Study"
-                    onBackHome={() => console.log('Back home')}
-                    onStudyNameClick={() => console.log('Edit study name')}
-                    onDuplicate={() => console.log('Duplicate study')}
-                    backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
-                  />
-                }
-                footer={
-                  <>
-                    <PanelButton icon="info" label="Need Help?" />
-                    <PanelButton icon="construction" label="Glossary" />
-                  </>
-                }
-              >
-                <div className="left-panel-body-section">
-                  <span className="left-panel-section-title">Inputs</span>
-                  <div className="left-panel-section-items">
-                    <PanelButton icon="settings" label="Input Page 1" variant="Selected" />
-                    <PanelButton icon="AIR_fleet" label="Input Page 2" showError errorCount={2} />
-                    <PanelButton icon="AIR_engine" label="Input Page 3" />
-                    <PanelButton icon="AIR_side" label="Input Page 4" />
+            <div className="example-container">
+              <div className="left-panel-demo">
+                <LeftPanel
+                  header={
+                    <PanelHeader
+                      studyName="My Study"
+                      onBackHome={() => console.log('Back home')}
+                      onStudyNameClick={() => console.log('Edit study name')}
+                      onDuplicate={() => console.log('Duplicate study')}
+                      backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
+                    />
+                  }
+                  footer={
+                    <>
+                      <PanelButton icon="info" label="Need Help?" />
+                      <PanelButton icon="construction" label="Glossary" />
+                    </>
+                  }
+                >
+                  <div className="left-panel-body-section">
+                    <span className="left-panel-section-title">Inputs</span>
+                    <div className="left-panel-section-items">
+                      <PanelButton icon="settings" label="Input Page 1" variant="Selected" />
+                      <PanelButton icon="AIR_fleet" label="Input Page 2" showError errorCount={2} />
+                      <PanelButton icon="AIR_engine" label="Input Page 3" />
+                      <PanelButton icon="AIR_side" label="Input Page 4" />
+                    </div>
                   </div>
-                </div>
-                <div className="left-panel-body-section">
-                  <span className="left-panel-section-title left-panel-section-title--disabled">Results</span>
-                  <div className="left-panel-section-items">
-                    <PanelButton icon="AIR_airport" label="Results Page 1" variant="Disabled" />
-                    <PanelButton icon="AIR_departure" label="Results Page 2" variant="Disabled" />
+                  <div className="left-panel-body-section">
+                    <span className="left-panel-section-title left-panel-section-title--disabled">Results</span>
+                    <div className="left-panel-section-items">
+                      <PanelButton icon="AIR_airport" label="Results Page 1" variant="Disabled" />
+                      <PanelButton icon="AIR_departure" label="Results Page 2" variant="Disabled" />
+                    </div>
                   </div>
-                </div>
-              </LeftPanel>
+                </LeftPanel>
+              </div>
             </div>
 
-            <div className="left-panel-demo">
-              <LeftPanel
-                header={
-                  <PanelHeader
-                    studyName="My Study"
-                    onBackHome={() => console.log('Back home')}
-                    onStudyNameClick={() => console.log('Edit study name')}
-                    onDuplicate={() => console.log('Duplicate study')}
-                    backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
+            <div className="example-container">
+              <div className="left-panel-demo">
+                <LeftPanel
+                  header={
+                    <PanelHeader
+                      studyName="My Study"
+                      onBackHome={() => console.log('Back home')}
+                      onStudyNameClick={() => console.log('Edit study name')}
+                      onDuplicate={() => console.log('Duplicate study')}
+                      backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&auto=format&fit=crop"
+                    />
+                  }
+                  footer={
+                    <>
+                      <PanelButton icon="info" label="Need Help?" />
+                      <PanelButton icon="construction" label="Glossary" />
+                    </>
+                  }
+                >
+                  <PanelGroup
+                    label="Scenario 1"
+                    open={scenario1Open}
+                    onClick={() => setScenario1Open(!scenario1Open)}
+                    size="S"
+                    actions={
+                      <>
+                        <IconButton icon="edit" size="XS" variant="Ghost" />
+                        <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                        <IconButton icon="delete" size="XS" variant="Ghost" />
+                      </>
+                    }
                   />
-                }
-                footer={
-                  <>
-                    <PanelButton icon="info" label="Need Help?" />
-                    <PanelButton icon="construction" label="Glossary" />
-                  </>
-                }
-              >
-                <PanelGroup
-                  label="Scenario 1"
-                  open={scenario1Open}
-                  onClick={() => setScenario1Open(!scenario1Open)}
-                  size="S"
-                  actions={
-                    <>
-                      <IconButton icon="edit" size="XS" variant="Ghost" />
-                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
-                      <IconButton icon="delete" size="XS" variant="Ghost" />
-                    </>
-                  }
-                />
-                {scenario1Open && (
-                  <div className="left-panel-scenario-content">
-                    <PanelSectionTitle label="Inputs" size="XS" />
-                    <PanelButton icon="settings" label="Fleet" variant="Selected" size="XS" />
-                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
-                    <PanelButton icon="AIR_engine" label="Engine" size="XS" />
-                    <PanelSectionTitle label="Results" size="XS" />
-                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
-                    <PanelButton icon="AIR_departure" label="Charts" variant="Disabled" size="XS" />
-                  </div>
-                )}
+                  {scenario1Open && (
+                    <div className="left-panel-scenario-content">
+                      <PanelSectionTitle label="Inputs" size="XS" />
+                      <PanelButton icon="settings" label="Fleet" variant="Selected" size="XS" />
+                      <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                      <PanelButton icon="AIR_engine" label="Engine" size="XS" />
+                      <PanelSectionTitle label="Results" size="XS" />
+                      <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                      <PanelButton icon="AIR_departure" label="Charts" variant="Disabled" size="XS" />
+                    </div>
+                  )}
 
-                <PanelGroup
-                  label="Scenario 2"
-                  open={scenario2Open}
-                  onClick={() => setScenario2Open(!scenario2Open)}
-                  size="S"
-                  actions={
-                    <>
-                      <IconButton icon="edit" size="XS" variant="Ghost" />
-                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
-                      <IconButton icon="delete" size="XS" variant="Ghost" />
-                    </>
-                  }
-                />
-                {scenario2Open && (
-                  <div className="left-panel-scenario-content">
-                    <PanelSectionTitle label="Inputs" size="XS" />
-                    <PanelButton icon="settings" label="Fleet" size="XS" />
-                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
-                    <PanelSectionTitle label="Results" size="XS" />
-                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
-                  </div>
-                )}
+                  <PanelGroup
+                    label="Scenario 2"
+                    open={scenario2Open}
+                    onClick={() => setScenario2Open(!scenario2Open)}
+                    size="S"
+                    actions={
+                      <>
+                        <IconButton icon="edit" size="XS" variant="Ghost" />
+                        <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                        <IconButton icon="delete" size="XS" variant="Ghost" />
+                      </>
+                    }
+                  />
+                  {scenario2Open && (
+                    <div className="left-panel-scenario-content">
+                      <PanelSectionTitle label="Inputs" size="XS" />
+                      <PanelButton icon="settings" label="Fleet" size="XS" />
+                      <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                      <PanelSectionTitle label="Results" size="XS" />
+                      <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                    </div>
+                  )}
 
-                <PanelGroup
-                  label="Scenario 3"
-                  open={scenario3Open}
-                  onClick={() => setScenario3Open(!scenario3Open)}
-                  size="S"
-                  actions={
-                    <>
-                      <IconButton icon="edit" size="XS" variant="Ghost" />
-                      <IconButton icon="content_copy" size="XS" variant="Ghost" />
-                      <IconButton icon="delete" size="XS" variant="Ghost" />
-                    </>
-                  }
-                />
-                {scenario3Open && (
-                  <div className="left-panel-scenario-content">
-                    <PanelSectionTitle label="Inputs" size="XS" />
-                    <PanelButton icon="settings" label="Fleet" size="XS" />
-                    <PanelButton icon="AIR_side" label="Mission" size="XS" />
-                    <PanelSectionTitle label="Results" size="XS" />
-                    <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
-                  </div>
-                )}
-              </LeftPanel>
+                  <PanelGroup
+                    label="Scenario 3"
+                    open={scenario3Open}
+                    onClick={() => setScenario3Open(!scenario3Open)}
+                    size="S"
+                    actions={
+                      <>
+                        <IconButton icon="edit" size="XS" variant="Ghost" />
+                        <IconButton icon="content_copy" size="XS" variant="Ghost" />
+                        <IconButton icon="delete" size="XS" variant="Ghost" />
+                      </>
+                    }
+                  />
+                  {scenario3Open && (
+                    <div className="left-panel-scenario-content">
+                      <PanelSectionTitle label="Inputs" size="XS" />
+                      <PanelButton icon="settings" label="Fleet" size="XS" />
+                      <PanelButton icon="AIR_side" label="Mission" size="XS" />
+                      <PanelSectionTitle label="Results" size="XS" />
+                      <PanelButton icon="AIR_airport" label="Economics" variant="Disabled" size="XS" />
+                    </div>
+                  )}
+                </LeftPanel>
+              </div>
             </div>
           </div>
         </section>

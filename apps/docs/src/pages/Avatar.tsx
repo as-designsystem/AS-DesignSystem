@@ -74,7 +74,8 @@ export default function AvatarPage() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -88,6 +89,7 @@ export default function AvatarPage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -114,22 +116,24 @@ export default function AvatarPage() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="avatar-demo">
-              <div className="avatar-demo__item">
-                <Avatar initials="MT" size="XS" />
-                <span className="avatar-demo__label">XS (16px)</span>
-              </div>
-              <div className="avatar-demo__item">
-                <Avatar initials="MT" size="S" />
-                <span className="avatar-demo__label">S (24px)</span>
-              </div>
-              <div className="avatar-demo__item">
-                <Avatar initials="MT" size="M" />
-                <span className="avatar-demo__label">M (32px)</span>
-              </div>
-              <div className="avatar-demo__item">
-                <Avatar initials="MT" size="L" />
-                <span className="avatar-demo__label">L (40px)</span>
+            <div className="example-container">
+              <div className="avatar-demo">
+                <div className="avatar-demo__item">
+                  <Avatar initials="MT" size="XS" />
+                  <span className="avatar-demo__label">XS (16px)</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <Avatar initials="MT" size="S" />
+                  <span className="avatar-demo__label">S (24px)</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <Avatar initials="MT" size="M" />
+                  <span className="avatar-demo__label">M (32px)</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <Avatar initials="MT" size="L" />
+                  <span className="avatar-demo__label">L (40px)</span>
+                </div>
               </div>
             </div>
           </section>
@@ -155,13 +159,15 @@ export default function AvatarPage() {
                 onClick={() => setOpenModal('autoColor')}
               />
             </div>
-            <div className="avatar-demo">
-              {['MT', 'JD', 'AB', 'KL', 'RP', 'SG', 'WN', 'FE'].map((initials) => (
-                <div className="avatar-demo__item" key={initials}>
-                  <Avatar initials={initials} size="M" />
-                  <span className="avatar-demo__label">{initials}</span>
-                </div>
-              ))}
+            <div className="example-container">
+              <div className="avatar-demo">
+                {['MT', 'JD', 'AB', 'KL', 'RP', 'SG', 'WN', 'FE'].map((initials) => (
+                  <div className="avatar-demo__item" key={initials}>
+                    <Avatar initials={initials} size="M" />
+                    <span className="avatar-demo__label">{initials}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
@@ -186,14 +192,16 @@ export default function AvatarPage() {
                 onClick={() => setOpenModal('customColor')}
               />
             </div>
-            <div className="avatar-demo">
-              <div className="avatar-demo__item">
-                <Avatar initials="MT" size="M" color="#e4002b" />
-                <span className="avatar-demo__label">#e4002b</span>
-              </div>
-              <div className="avatar-demo__item">
-                <Avatar initials="JD" size="M" color="#08875b" />
-                <span className="avatar-demo__label">#08875b</span>
+            <div className="example-container">
+              <div className="avatar-demo">
+                <div className="avatar-demo__item">
+                  <Avatar initials="MT" size="M" color="#e4002b" />
+                  <span className="avatar-demo__label">#e4002b</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <Avatar initials="JD" size="M" color="#08875b" />
+                  <span className="avatar-demo__label">#08875b</span>
+                </div>
               </div>
             </div>
           </section>
@@ -219,12 +227,14 @@ export default function AvatarPage() {
                 onClick={() => setOpenModal('stack')}
               />
             </div>
-            <div className="avatar-demo">
-              <AvatarStack size="M">
-                <Avatar initials="MT" />
-                <Avatar initials="JD" />
-                <Avatar initials="AB" />
-              </AvatarStack>
+            <div className="example-container">
+              <div className="avatar-demo">
+                <AvatarStack size="M">
+                  <Avatar initials="MT" />
+                  <Avatar initials="JD" />
+                  <Avatar initials="AB" />
+                </AvatarStack>
+              </div>
             </div>
           </section>
 
@@ -249,35 +259,37 @@ export default function AvatarPage() {
                 onClick={() => setOpenModal('stackOverflow')}
               />
             </div>
-            <div className="avatar-demo" style={{ gap: '48px' }}>
-              <div className="avatar-demo__item">
-                <AvatarStack max={3} size="S">
-                  <Avatar initials="MT" size="S" />
-                  <Avatar initials="JD" size="S" />
-                  <Avatar initials="AB" size="S" />
-                  <Avatar initials="KL" size="S" />
-                  <Avatar initials="RP" size="S" />
-                </AvatarStack>
-                <span className="avatar-demo__label">max=3, size S</span>
-              </div>
-              <div className="avatar-demo__item">
-                <AvatarStack max={3} size="M">
-                  <Avatar initials="MT" />
-                  <Avatar initials="JD" />
-                  <Avatar initials="AB" />
-                  <Avatar initials="KL" />
-                  <Avatar initials="RP" />
-                </AvatarStack>
-                <span className="avatar-demo__label">max=3, size M</span>
-              </div>
-              <div className="avatar-demo__item">
-                <AvatarStack max={2} size="L">
-                  <Avatar initials="MT" size="L" />
-                  <Avatar initials="JD" size="L" />
-                  <Avatar initials="AB" size="L" />
-                  <Avatar initials="KL" size="L" />
-                </AvatarStack>
-                <span className="avatar-demo__label">max=2, size L</span>
+            <div className="example-container">
+              <div className="avatar-demo" style={{ gap: '48px' }}>
+                <div className="avatar-demo__item">
+                  <AvatarStack max={3} size="S">
+                    <Avatar initials="MT" size="S" />
+                    <Avatar initials="JD" size="S" />
+                    <Avatar initials="AB" size="S" />
+                    <Avatar initials="KL" size="S" />
+                    <Avatar initials="RP" size="S" />
+                  </AvatarStack>
+                  <span className="avatar-demo__label">max=3, size S</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <AvatarStack max={3} size="M">
+                    <Avatar initials="MT" />
+                    <Avatar initials="JD" />
+                    <Avatar initials="AB" />
+                    <Avatar initials="KL" />
+                    <Avatar initials="RP" />
+                  </AvatarStack>
+                  <span className="avatar-demo__label">max=3, size M</span>
+                </div>
+                <div className="avatar-demo__item">
+                  <AvatarStack max={2} size="L">
+                    <Avatar initials="MT" size="L" />
+                    <Avatar initials="JD" size="L" />
+                    <Avatar initials="AB" size="L" />
+                    <Avatar initials="KL" size="L" />
+                  </AvatarStack>
+                  <span className="avatar-demo__label">max=2, size L</span>
+                </div>
               </div>
             </div>
           </section>

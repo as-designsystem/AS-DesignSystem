@@ -242,7 +242,7 @@ export const composites: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['icon', 'spinner', 'avatar'],
+    dependencies: ['icon', 'spinner', 'avatar', 'tooltip'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

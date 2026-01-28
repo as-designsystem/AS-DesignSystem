@@ -67,7 +67,8 @@ export default function NumberInputPage() {
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -81,6 +82,7 @@ export default function NumberInputPage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -107,7 +109,8 @@ export default function NumberInputPage() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="numberinput-examples">
+            <div className="example-container">
+              <div className="numberinput-examples">
               <NumberInput
                 label="Size XS"
                 value={0}
@@ -132,6 +135,7 @@ export default function NumberInputPage() {
                 size="L"
                 onChange={() => {}}
               />
+              </div>
             </div>
           </section>
 
@@ -156,7 +160,8 @@ export default function NumberInputPage() {
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="numberinput-examples">
+            <div className="example-container">
+              <div className="numberinput-examples">
               <NumberInput
                 label="Default"
                 value={5}
@@ -189,6 +194,7 @@ export default function NumberInputPage() {
                 value={42}
                 readOnly
               />
+              </div>
             </div>
           </section>
 
@@ -213,7 +219,8 @@ export default function NumberInputPage() {
                 onClick={() => setOpenModal('options')}
               />
             </div>
-            <div className="numberinput-examples">
+            <div className="example-container">
+              <div className="numberinput-examples">
               <NumberInput
                 label="With optional"
                 value={0}
@@ -241,6 +248,7 @@ export default function NumberInputPage() {
                 max={10}
                 onChange={() => {}}
               />
+              </div>
             </div>
           </section>
 
@@ -258,7 +266,8 @@ export default function NumberInputPage() {
                 Controlled Input
               </h2>
             </div>
-            <div className="numberinput-examples">
+            <div className="example-container">
+              <div className="numberinput-examples">
               <NumberInput
                 label="Quantity"
                 value={quantity}
@@ -289,6 +298,7 @@ export default function NumberInputPage() {
                   <br />
                   Temperature: <strong>{temperature}°C</strong>
                 </p>
+              </div>
               </div>
             </div>
           </section>

@@ -144,7 +144,8 @@ function MyComponent() {
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -158,6 +159,7 @@ function MyComponent() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -184,50 +186,52 @@ function MyComponent() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="toggle-examples">
-              {componentType === 'toggle' ? (
-                <>
-                  <Toggle
-                    label="Size S"
-                    size="S"
-                    checked={sizeS}
-                    onCheckedChange={setSizeS}
-                  />
-                  <Toggle
-                    label="Size M"
-                    size="M"
-                    checked={sizeM}
-                    onCheckedChange={setSizeM}
-                  />
-                  <Toggle
-                    label="Size L"
-                    size="L"
-                    checked={sizeL}
-                    onCheckedChange={setSizeL}
-                  />
-                </>
-              ) : (
-                <>
-                  <VToggle
-                    label="Size S"
-                    size="S"
-                    selected={sizeS}
-                    onChange={setSizeS}
-                  />
-                  <VToggle
-                    label="Size M"
-                    size="M"
-                    selected={sizeM}
-                    onChange={setSizeM}
-                  />
-                  <VToggle
-                    label="Size L"
-                    size="L"
-                    selected={sizeL}
-                    onChange={setSizeL}
-                  />
-                </>
-              )}
+            <div className="example-container">
+              <div className="toggle-examples">
+                {componentType === 'toggle' ? (
+                  <>
+                    <Toggle
+                      label="Size S"
+                      size="S"
+                      checked={sizeS}
+                      onCheckedChange={setSizeS}
+                    />
+                    <Toggle
+                      label="Size M"
+                      size="M"
+                      checked={sizeM}
+                      onCheckedChange={setSizeM}
+                    />
+                    <Toggle
+                      label="Size L"
+                      size="L"
+                      checked={sizeL}
+                      onCheckedChange={setSizeL}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <VToggle
+                      label="Size S"
+                      size="S"
+                      selected={sizeS}
+                      onChange={setSizeS}
+                    />
+                    <VToggle
+                      label="Size M"
+                      size="M"
+                      selected={sizeM}
+                      onChange={setSizeM}
+                    />
+                    <VToggle
+                      label="Size L"
+                      size="L"
+                      selected={sizeL}
+                      onChange={setSizeL}
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </section>
 
@@ -252,18 +256,20 @@ function MyComponent() {
                 onClick={() => setOpenModal('selected')}
               />
             </div>
-            <div className="toggle-examples">
-              {componentType === 'toggle' ? (
-                <>
-                  <Toggle label="Unchecked" checked={false} />
-                  <Toggle label="Checked" checked={true} />
-                </>
-              ) : (
-                <>
-                  <VToggle label="Unselected" selected={false} />
-                  <VToggle label="Selected" selected={true} />
-                </>
-              )}
+            <div className="example-container">
+              <div className="toggle-examples">
+                {componentType === 'toggle' ? (
+                  <>
+                    <Toggle label="Unchecked" checked={false} />
+                    <Toggle label="Checked" checked={true} />
+                  </>
+                ) : (
+                  <>
+                    <VToggle label="Unselected" selected={false} />
+                    <VToggle label="Selected" selected={true} />
+                  </>
+                )}
+              </div>
             </div>
           </section>
 
@@ -288,20 +294,22 @@ function MyComponent() {
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="toggle-examples">
-              {componentType === 'toggle' ? (
-                <>
-                  <Toggle label="Default" state="Default" />
-                  <Toggle label="Disabled" state="Disabled" />
-                  <Toggle label="Disabled Checked" state="Disabled" checked />
-                </>
-              ) : (
-                <>
-                  <VToggle label="Default" state="Default" />
-                  <VToggle label="Disabled" state="Disabled" />
-                  <VToggle label="Disabled Selected" state="Disabled" selected />
-                </>
-              )}
+            <div className="example-container">
+              <div className="toggle-examples">
+                {componentType === 'toggle' ? (
+                  <>
+                    <Toggle label="Default" state="Default" />
+                    <Toggle label="Disabled" state="Disabled" />
+                    <Toggle label="Disabled Checked" state="Disabled" checked />
+                  </>
+                ) : (
+                  <>
+                    <VToggle label="Default" state="Default" />
+                    <VToggle label="Disabled" state="Disabled" />
+                    <VToggle label="Disabled Selected" state="Disabled" selected />
+                  </>
+                )}
+              </div>
             </div>
           </section>
 
@@ -326,44 +334,46 @@ function MyComponent() {
                 onClick={() => setOpenModal('controlled')}
               />
             </div>
-            <div className="toggle-examples">
-              {componentType === 'toggle' ? (
-                <>
-                  <Toggle
-                    label="Enable notifications"
-                    checked={notifications}
-                    onCheckedChange={setNotifications}
-                  />
-                  <Toggle
-                    label="Dark mode"
-                    checked={darkMode}
-                    onCheckedChange={setDarkMode}
-                  />
-                  <Toggle
-                    label="Auto-save"
-                    checked={autoSave}
-                    onCheckedChange={setAutoSave}
-                  />
-                </>
-              ) : (
-                <>
-                  <VToggle
-                    label="Enable notifications"
-                    selected={notifications}
-                    onChange={setNotifications}
-                  />
-                  <VToggle
-                    label="Dark mode"
-                    selected={darkMode}
-                    onChange={setDarkMode}
-                  />
-                  <VToggle
-                    label="Auto-save"
-                    selected={autoSave}
-                    onChange={setAutoSave}
-                  />
-                </>
-              )}
+            <div className="example-container">
+              <div className="toggle-examples">
+                {componentType === 'toggle' ? (
+                  <>
+                    <Toggle
+                      label="Enable notifications"
+                      checked={notifications}
+                      onCheckedChange={setNotifications}
+                    />
+                    <Toggle
+                      label="Dark mode"
+                      checked={darkMode}
+                      onCheckedChange={setDarkMode}
+                    />
+                    <Toggle
+                      label="Auto-save"
+                      checked={autoSave}
+                      onCheckedChange={setAutoSave}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <VToggle
+                      label="Enable notifications"
+                      selected={notifications}
+                      onChange={setNotifications}
+                    />
+                    <VToggle
+                      label="Dark mode"
+                      selected={darkMode}
+                      onChange={setDarkMode}
+                    />
+                    <VToggle
+                      label="Auto-save"
+                      selected={autoSave}
+                      onChange={setAutoSave}
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </section>
 
@@ -388,20 +398,22 @@ function MyComponent() {
                 onClick={() => setOpenModal('withoutLabel')}
               />
             </div>
-            <div className="toggle-examples toggle-examples--no-label">
-              {componentType === 'toggle' ? (
-                <>
-                  <Toggle showLabel={false} size="S" label="Small toggle" />
-                  <Toggle showLabel={false} size="M" checked label="Medium toggle" />
-                  <Toggle showLabel={false} size="L" label="Large toggle" />
-                </>
-              ) : (
-                <>
-                  <VToggle showLabel={false} size="S" label="Small toggle" />
-                  <VToggle showLabel={false} size="M" selected label="Medium toggle" />
-                  <VToggle showLabel={false} size="L" label="Large toggle" />
-                </>
-              )}
+            <div className="example-container">
+              <div className="toggle-examples toggle-examples--no-label">
+                {componentType === 'toggle' ? (
+                  <>
+                    <Toggle showLabel={false} size="S" label="Small toggle" />
+                    <Toggle showLabel={false} size="M" checked label="Medium toggle" />
+                    <Toggle showLabel={false} size="L" label="Large toggle" />
+                  </>
+                ) : (
+                  <>
+                    <VToggle showLabel={false} size="S" label="Small toggle" />
+                    <VToggle showLabel={false} size="M" selected label="Medium toggle" />
+                    <VToggle showLabel={false} size="L" label="Large toggle" />
+                  </>
+                )}
+              </div>
             </div>
           </section>
 

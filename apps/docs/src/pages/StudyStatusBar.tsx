@@ -86,7 +86,8 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -100,6 +101,7 @@ import { Button } from '@/design-system/components/Button';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -125,47 +127,49 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="study-status-bar-demo">
-              <StudyStatusBar
-                status="Ready"
-                title="Inputs ready"
-                description="You can compute the study."
-                actions={<Button label="COMPUTE STUDY" size="M" onClick={() => console.log('Compute study')} />}
-              />
-              <StudyStatusBar
-                status="NotReady"
-                title="Inputs not ready"
-                description="Check and fix the errors."
-                actions={<Button label="COMPUTE STUDY" size="M" disabled />}
-              />
-              <StudyStatusBar
-                status="Computing"
-                title="Computing..."
-                description="Study is being computed."
-                actions={<Button label="CANCEL COMPUTATION" variant="Ghost" size="M" onClick={() => console.log('Cancel')} />}
-              />
-              <StudyStatusBar
-                status="Modified"
-                title="Inputs modified"
-                description="Results may be outdated."
-                actions={
-                  <>
-                    <Button label="CANCEL MODIFICATION" variant="Ghost" size="M" onClick={() => console.log('Cancel')} />
-                    <Button label="RECOMPUTE" leftIcon="autorenew" size="M" onClick={() => console.log('Recompute')} />
-                  </>
-                }
-              />
-              <StudyStatusBar
-                status="Failed"
-                title="Computation failed"
-                description="An error occurred during computation."
-                actions={
-                  <>
-                    <Button label="VIEW LOGS" variant="Ghost" size="M" onClick={() => console.log('View logs')} />
-                    <Button label="RECOMPUTE" leftIcon="autorenew" size="M" onClick={() => console.log('Recompute')} />
-                  </>
-                }
-              />
+            <div className="example-container">
+              <div className="study-status-bar-demo">
+                <StudyStatusBar
+                  status="Ready"
+                  title="Inputs ready"
+                  description="You can compute the study."
+                  actions={<Button label="COMPUTE STUDY" size="M" onClick={() => console.log('Compute study')} />}
+                />
+                <StudyStatusBar
+                  status="NotReady"
+                  title="Inputs not ready"
+                  description="Check and fix the errors."
+                  actions={<Button label="COMPUTE STUDY" size="M" disabled />}
+                />
+                <StudyStatusBar
+                  status="Computing"
+                  title="Computing..."
+                  description="Study is being computed."
+                  actions={<Button label="CANCEL COMPUTATION" variant="Ghost" size="M" onClick={() => console.log('Cancel')} />}
+                />
+                <StudyStatusBar
+                  status="Modified"
+                  title="Inputs modified"
+                  description="Results may be outdated."
+                  actions={
+                    <>
+                      <Button label="CANCEL MODIFICATION" variant="Ghost" size="M" onClick={() => console.log('Cancel')} />
+                      <Button label="RECOMPUTE" leftIcon="autorenew" size="M" onClick={() => console.log('Recompute')} />
+                    </>
+                  }
+                />
+                <StudyStatusBar
+                  status="Failed"
+                  title="Computation failed"
+                  description="An error occurred during computation."
+                  actions={
+                    <>
+                      <Button label="VIEW LOGS" variant="Ghost" size="M" onClick={() => console.log('View logs')} />
+                      <Button label="RECOMPUTE" leftIcon="autorenew" size="M" onClick={() => console.log('Recompute')} />
+                    </>
+                  }
+                />
+              </div>
             </div>
           </section>
         </>

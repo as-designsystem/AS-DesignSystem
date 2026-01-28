@@ -157,7 +157,8 @@ const [showGuides, setShowGuides] = useState(true);
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -171,6 +172,7 @@ const [showGuides, setShowGuides] = useState(true);
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -197,21 +199,23 @@ const [showGuides, setShowGuides] = useState(true);
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="dropdown-demo">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <IconButton icon="more_horiz" size="S" variant="Ghost" alt="More options" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem icon="open_in_new">Open Results</DropdownMenuItem>
-                  <DropdownMenuItem icon="content_copy">Duplicate</DropdownMenuItem>
-                  <DropdownMenuItem icon="edit">Rename</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem icon="delete" destructive>
-                    Delete Study
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="example-container">
+              <div className="dropdown-demo">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <IconButton icon="more_horiz" size="S" variant="Ghost" alt="More options" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem icon="open_in_new">Open Results</DropdownMenuItem>
+                    <DropdownMenuItem icon="content_copy">Duplicate</DropdownMenuItem>
+                    <DropdownMenuItem icon="edit">Rename</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem icon="delete" destructive>
+                      Delete Study
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
           </section>
 
@@ -236,40 +240,42 @@ const [showGuides, setShowGuides] = useState(true);
                 onClick={() => setOpenModal('checkbox')}
               />
             </div>
-            <div className="dropdown-demo">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <IconButton icon="settings" size="S" variant="Ghost" alt="Display settings" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>Display</DropdownMenuLabel>
-                  <DropdownMenuCheckboxItem
-                    checked={showGrid}
-                    onCheckedChange={setShowGrid}
-                  >
-                    Show Grid
-                  </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem
-                    checked={showRulers}
-                    onCheckedChange={setShowRulers}
-                  >
-                    Show Rulers
-                  </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem
-                    checked={showGuides}
-                    onCheckedChange={setShowGuides}
-                  >
-                    Show Guides
-                  </DropdownMenuCheckboxItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <span
-                className="label-regular-s"
-                style={{ color: 'var(--text-secondary, #63728a)' }}
-              >
-                Grid: {showGrid ? 'On' : 'Off'} | Rulers: {showRulers ? 'On' : 'Off'} | Guides:{' '}
-                {showGuides ? 'On' : 'Off'}
-              </span>
+            <div className="example-container">
+              <div className="dropdown-demo">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <IconButton icon="settings" size="S" variant="Ghost" alt="Display settings" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>Display</DropdownMenuLabel>
+                    <DropdownMenuCheckboxItem
+                      checked={showGrid}
+                      onCheckedChange={setShowGrid}
+                    >
+                      Show Grid
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      checked={showRulers}
+                      onCheckedChange={setShowRulers}
+                    >
+                      Show Rulers
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      checked={showGuides}
+                      onCheckedChange={setShowGuides}
+                    >
+                      Show Guides
+                    </DropdownMenuCheckboxItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <span
+                  className="label-regular-s"
+                  style={{ color: 'var(--text-secondary, #63728a)' }}
+                >
+                  Grid: {showGrid ? 'On' : 'Off'} | Rulers: {showRulers ? 'On' : 'Off'} | Guides:{' '}
+                  {showGuides ? 'On' : 'Off'}
+                </span>
+              </div>
             </div>
           </section>
 
@@ -294,34 +300,36 @@ const [showGuides, setShowGuides] = useState(true);
                 onClick={() => setOpenModal('submenu')}
               />
             </div>
-            <div className="dropdown-demo">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <Button
-                    label="Actions"
-                    rightIcon="keyboard_arrow_down"
-                    variant="Outlined"
-                    size="S"
-                  />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem icon="open_in_new">Open</DropdownMenuItem>
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger icon="content_copy">
-                      Export as...
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuSubContent>
-                      <DropdownMenuItem>PDF</DropdownMenuItem>
-                      <DropdownMenuItem>CSV</DropdownMenuItem>
-                      <DropdownMenuItem>Excel</DropdownMenuItem>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuSub>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem icon="delete" destructive>
-                    Delete
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="example-container">
+              <div className="dropdown-demo">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Button
+                      label="Actions"
+                      rightIcon="keyboard_arrow_down"
+                      variant="Outlined"
+                      size="S"
+                    />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem icon="open_in_new">Open</DropdownMenuItem>
+                    <DropdownMenuSub>
+                      <DropdownMenuSubTrigger icon="content_copy">
+                        Export as...
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuSubContent>
+                        <DropdownMenuItem>PDF</DropdownMenuItem>
+                        <DropdownMenuItem>CSV</DropdownMenuItem>
+                        <DropdownMenuItem>Excel</DropdownMenuItem>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuSub>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem icon="delete" destructive>
+                      Delete
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
           </section>
 
@@ -346,22 +354,24 @@ const [showGuides, setShowGuides] = useState(true);
                 onClick={() => setOpenModal('sections')}
               />
             </div>
-            <div className="dropdown-demo">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <IconButton icon="more_horiz" size="S" variant="Ghost" alt="More options" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuLabel>Study</DropdownMenuLabel>
-                  <DropdownMenuItem icon="open_in_new">Open Results</DropdownMenuItem>
-                  <DropdownMenuItem icon="content_copy">Duplicate</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>Danger Zone</DropdownMenuLabel>
-                  <DropdownMenuItem icon="delete" destructive>
-                    Delete Study
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="example-container">
+              <div className="dropdown-demo">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <IconButton icon="more_horiz" size="S" variant="Ghost" alt="More options" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel>Study</DropdownMenuLabel>
+                    <DropdownMenuItem icon="open_in_new">Open Results</DropdownMenuItem>
+                    <DropdownMenuItem icon="content_copy">Duplicate</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuLabel>Danger Zone</DropdownMenuLabel>
+                    <DropdownMenuItem icon="delete" destructive>
+                      Delete Study
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
           </section>
         </>

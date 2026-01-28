@@ -134,7 +134,8 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -148,6 +149,7 @@ import { Button } from '@/design-system/components/Button';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -167,13 +169,15 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="modal-examples">
-              <Button
-                label="Open Modal"
-                variant="Default"
-                size="M"
-                onClick={() => setBasicModalOpen(true)}
-              />
+            <div className="example-container">
+              <div className="modal-examples">
+                <Button
+                  label="Open Modal"
+                  variant="Default"
+                  size="M"
+                  onClick={() => setBasicModalOpen(true)}
+                />
+              </div>
             </div>
           </section>
 
@@ -191,19 +195,21 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('customSize')}
               />
             </div>
-            <div className="modal-examples">
-              <Button
-                label="Fullscreen"
-                variant="Outlined"
-                size="M"
-                onClick={() => setFullscreenModalOpen(true)}
-              />
-              <Button
-                label="Hug Content"
-                variant="Outlined"
-                size="M"
-                onClick={() => setHugContentModalOpen(true)}
-              />
+            <div className="example-container">
+              <div className="modal-examples">
+                <Button
+                  label="Fullscreen"
+                  variant="Outlined"
+                  size="M"
+                  onClick={() => setFullscreenModalOpen(true)}
+                />
+                <Button
+                  label="Hug Content"
+                  variant="Outlined"
+                  size="M"
+                  onClick={() => setHugContentModalOpen(true)}
+                />
+              </div>
             </div>
           </section>
 
@@ -221,13 +227,15 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('customFooter')}
               />
             </div>
-            <div className="modal-examples">
-              <Button
-                label="Modal without Footer"
-                variant="Outlined"
-                size="M"
-                onClick={() => setNoFooterModalOpen(true)}
-              />
+            <div className="example-container">
+              <div className="modal-examples">
+                <Button
+                  label="Modal without Footer"
+                  variant="Outlined"
+                  size="M"
+                  onClick={() => setNoFooterModalOpen(true)}
+                />
+              </div>
             </div>
           </section>
 

@@ -91,10 +91,6 @@
 }
 
 .welcome-feature {
-  padding: 24px;
-  background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #eff1f4);
-  border-radius: 12px;
   transition: all 0.2s ease;
 }
 
@@ -174,10 +170,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
-  background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #eff1f4);
-  border-radius: 8px;
 }
 
 .welcome-command-code {

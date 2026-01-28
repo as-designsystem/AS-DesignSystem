@@ -1,9 +1,6 @@
 .panel-header-demo {
   width: 280px;
-  border-radius: 4px;
   overflow: visible;
-  background-color: var(--background-main, #ffffff);
-  padding: 16px;
 }
 
 .panel-header-demo-grid {

@@ -27,3 +27,36 @@ body {
   gap: 16px;
 }
 
+/* Tabs container - sticky navigation for Examples/Props tabs */
+.tabs-container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background-secondary);
+  padding: 16px 0 8px 0;
+}
+
+/* Example container - standard wrapper for component demos */
+.example-container {
+  padding: 24px;
+  background-color: var(--background-main, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+
+/* Dark example container - for panel/dark components */
+.example-container--dark {
+  padding: 24px;
+  background-color: var(--background-corporate, #00205b);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+
+/* Secondary example container - for components on secondary background */
+.example-container--secondary {
+  padding: 24px;
+  background-color: var(--background-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal);
+}
+

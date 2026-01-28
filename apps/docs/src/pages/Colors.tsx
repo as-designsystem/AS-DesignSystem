@@ -238,9 +238,13 @@ function SemanticColorGroup({
 
           // For colors that flip (dark in light mode, light in dark mode),
           // use --background-main which is white in light mode and dark in dark mode
+          // Special case: text-negative is white, so use dark text on that swatch
+          const isTextNegative = title === 'Text' && key === 'negative';
           let textColor: string;
           if (isAlwaysDark) {
             textColor = '#fff'; // Always white on corporate
+          } else if (isTextNegative) {
+            textColor = 'var(--text-main)'; // Dark text on white swatch
           } else if (isPrimaryState || isFeedbackState || isTextColor) {
             textColor = 'var(--background-main)'; // Flips with theme
           } else {

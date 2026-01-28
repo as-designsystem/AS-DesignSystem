@@ -96,7 +96,8 @@ function Example() {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -110,6 +111,7 @@ function Example() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -129,17 +131,19 @@ function Example() {
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="productbanner-example">
-              <ProductBanner
-                productName="Maintenance"
-                productDescription="Tool for aircraft maintenance management and scheduling. Provides comprehensive solutions for tracking maintenance tasks, scheduling inspections, and ensuring aircraft safety compliance."
-                tool="maintenance"
-                links={[
-                  { label: 'DOCUMENTATION', href: '#', icon: 'info' },
-                  { label: 'APIs', href: '#', icon: 'code' },
-                  { label: 'CONTACT & SUPPORT', href: '#', icon: 'notifications' },
-                ]}
-              />
+            <div className="example-container">
+              <div className="productbanner-example">
+                <ProductBanner
+                  productName="Maintenance"
+                  productDescription="Tool for aircraft maintenance management and scheduling. Provides comprehensive solutions for tracking maintenance tasks, scheduling inspections, and ensuring aircraft safety compliance."
+                  tool="maintenance"
+                  links={[
+                    { label: 'DOCUMENTATION', href: '#', icon: 'info' },
+                    { label: 'APIs', href: '#', icon: 'code' },
+                    { label: 'CONTACT & SUPPORT', href: '#', icon: 'notifications' },
+                  ]}
+                />
+              </div>
             </div>
           </section>
 
@@ -157,12 +161,14 @@ function Example() {
                 onClick={() => setOpenModal('minimal')}
               />
             </div>
-            <div className="productbanner-example">
-              <ProductBanner
-                productName="TrajOpt"
-                productDescription="Comprehensive trajectory optimization solution for flight planning and operations."
-                tool="trajopt"
-              />
+            <div className="example-container">
+              <div className="productbanner-example">
+                <ProductBanner
+                  productName="TrajOpt"
+                  productDescription="Comprehensive trajectory optimization solution for flight planning and operations."
+                  tool="trajopt"
+                />
+              </div>
             </div>
           </section>
 
@@ -180,16 +186,18 @@ function Example() {
                 onClick={() => setOpenModal('backgroundImage')}
               />
             </div>
-            <div className="productbanner-example">
-              <ProductBanner
-                productName="SkyFinesse"
-                productDescription="Data platform for aviation analytics and insights. Transform your data into actionable intelligence."
-                tool="skyfinesse"
-                backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&auto=format&fit=crop"
-                links={[
-                  { label: 'LEARN MORE', href: '#', icon: 'info' },
-                ]}
-              />
+            <div className="example-container">
+              <div className="productbanner-example">
+                <ProductBanner
+                  productName="SkyFinesse"
+                  productDescription="Data platform for aviation analytics and insights. Transform your data into actionable intelligence."
+                  tool="skyfinesse"
+                  backgroundImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&auto=format&fit=crop"
+                  links={[
+                    { label: 'LEARN MORE', href: '#', icon: 'info' },
+                  ]}
+                />
+              </div>
             </div>
           </section>
 
@@ -210,32 +218,34 @@ function Example() {
             <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>
               Use the <code style={{ background: 'var(--background-tertiary)', padding: '2px 6px', borderRadius: '3px' }}>onClick</code> handler on links for SPA navigation with React Router.
             </p>
-            <div className="productbanner-example">
-              <ProductBanner
-                productName="AirScout"
-                productDescription="Real-time flight operations management and monitoring dashboard."
-                tool="airscout"
-                links={[
-                  {
-                    label: 'DASHBOARD',
-                    href: '#',
-                    icon: 'apps',
-                    onClick: (e) => {
-                      e.preventDefault();
-                      console.log('Navigate to dashboard');
+            <div className="example-container">
+              <div className="productbanner-example">
+                <ProductBanner
+                  productName="AirScout"
+                  productDescription="Real-time flight operations management and monitoring dashboard."
+                  tool="airscout"
+                  links={[
+                    {
+                      label: 'DASHBOARD',
+                      href: '#',
+                      icon: 'apps',
+                      onClick: (e) => {
+                        e.preventDefault();
+                        console.log('Navigate to dashboard');
+                      },
                     },
-                  },
-                  {
-                    label: 'SETTINGS',
-                    href: '#',
-                    icon: 'settings',
-                    onClick: (e) => {
-                      e.preventDefault();
-                      console.log('Navigate to settings');
+                    {
+                      label: 'SETTINGS',
+                      href: '#',
+                      icon: 'settings',
+                      onClick: (e) => {
+                        e.preventDefault();
+                        console.log('Navigate to settings');
+                      },
                     },
-                  },
-                ]}
-              />
+                  ]}
+                />
+              </div>
             </div>
           </section>
         </>

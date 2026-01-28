@@ -72,7 +72,8 @@ export default function TextInputPage() {
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -86,6 +87,7 @@ export default function TextInputPage() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -112,7 +114,8 @@ export default function TextInputPage() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="textinput-examples">
+            <div className="example-container">
+              <div className="textinput-examples">
               <TextInput
                 label="Size XS"
                 placeholder="Enter text..."
@@ -133,6 +136,7 @@ export default function TextInputPage() {
                 placeholder="Enter text..."
                 size="L"
               />
+              </div>
             </div>
           </section>
 
@@ -157,7 +161,8 @@ export default function TextInputPage() {
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="textinput-examples">
+            <div className="example-container">
+              <div className="textinput-examples">
               <TextInput
                 label="Default"
                 placeholder="Enter text..."
@@ -187,6 +192,7 @@ export default function TextInputPage() {
                 value="Read-only value"
                 readOnly
               />
+              </div>
             </div>
           </section>
 
@@ -211,7 +217,8 @@ export default function TextInputPage() {
                 onClick={() => setOpenModal('options')}
               />
             </div>
-            <div className="textinput-examples">
+            <div className="example-container">
+              <div className="textinput-examples">
               <TextInput
                 label="With optional"
                 placeholder="Enter your email"
@@ -250,6 +257,7 @@ export default function TextInputPage() {
                 rightIconButton="close"
                 onRightIconButtonClick={() => alert('Clear clicked!')}
               />
+              </div>
             </div>
           </section>
 
@@ -267,7 +275,8 @@ export default function TextInputPage() {
                 Controlled Input
               </h2>
             </div>
-            <div className="textinput-examples">
+            <div className="example-container">
+              <div className="textinput-examples">
               <TextInput
                 label="Controlled input"
                 placeholder="Type something..."
@@ -284,6 +293,7 @@ export default function TextInputPage() {
                 <p className="label-regular-s" style={{ margin: 0 }}>
                   Current value: <strong>{inputValue || '(empty)'}</strong>
                 </p>
+              </div>
               </div>
             </div>
           </section>

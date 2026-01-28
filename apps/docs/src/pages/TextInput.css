@@ -4,10 +4,6 @@
   flex-wrap: wrap;
   gap: 24px;
   align-items: flex-start;
-  padding: 24px;
-  background-color: var(--background-main, #ffffff);
-  border-radius: 8px;
-  border: 1px solid var(--border-minimal);
 }
 
 .textinput-examples > * {

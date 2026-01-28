@@ -97,7 +97,8 @@ useEffect(() => {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -111,6 +112,7 @@ useEffect(() => {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -137,22 +139,24 @@ useEffect(() => {
                 onClick={() => setOpenModal('variants')}
               />
             </div>
-            <div className="spinner-demo">
-              <div className="spinner-demo__item">
-                <Spinner variant="default" size={32} />
-                <span className="spinner-demo__label">default</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner variant="dots" size={32} />
-                <span className="spinner-demo__label">dots</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner variant="arc" size={32} />
-                <span className="spinner-demo__label">arc</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner variant="progress" value={65} size={32} />
-                <span className="spinner-demo__label">progress (65%)</span>
+            <div className="example-container">
+              <div className="spinner-demo">
+                <div className="spinner-demo__item">
+                  <Spinner variant="default" size={32} />
+                  <span className="spinner-demo__label">default</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner variant="dots" size={32} />
+                  <span className="spinner-demo__label">dots</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner variant="arc" size={32} />
+                  <span className="spinner-demo__label">arc</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner variant="progress" value={65} size={32} />
+                  <span className="spinner-demo__label">progress (65%)</span>
+                </div>
               </div>
             </div>
           </section>
@@ -178,22 +182,24 @@ useEffect(() => {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="spinner-demo">
-              <div className="spinner-demo__item">
-                <Spinner size={16} />
-                <span className="spinner-demo__label">16px</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={24} />
-                <span className="spinner-demo__label">24px</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={32} />
-                <span className="spinner-demo__label">32px</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={48} />
-                <span className="spinner-demo__label">48px</span>
+            <div className="example-container">
+              <div className="spinner-demo">
+                <div className="spinner-demo__item">
+                  <Spinner size={16} />
+                  <span className="spinner-demo__label">16px</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={24} />
+                  <span className="spinner-demo__label">24px</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={32} />
+                  <span className="spinner-demo__label">32px</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={48} />
+                  <span className="spinner-demo__label">48px</span>
+                </div>
               </div>
             </div>
           </section>
@@ -219,22 +225,24 @@ useEffect(() => {
                 onClick={() => setOpenModal('colors')}
               />
             </div>
-            <div className="spinner-demo">
-              <div className="spinner-demo__item">
-                <Spinner size={24} color="var(--primary-default, #063b9e)" />
-                <span className="spinner-demo__label">Primary</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={24} color="var(--feedback-error-default, #e4002b)" />
-                <span className="spinner-demo__label">Error</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={24} color="var(--text-tertiary, #b3bbc8)" />
-                <span className="spinner-demo__label">Tertiary</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Spinner size={24} color="#ffc929" />
-                <span className="spinner-demo__label">Custom</span>
+            <div className="example-container">
+              <div className="spinner-demo">
+                <div className="spinner-demo__item">
+                  <Spinner size={24} color="var(--primary-default, #063b9e)" />
+                  <span className="spinner-demo__label">Primary</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={24} color="var(--feedback-error-default, #e4002b)" />
+                  <span className="spinner-demo__label">Error</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={24} color="var(--text-tertiary, #b3bbc8)" />
+                  <span className="spinner-demo__label">Tertiary</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Spinner size={24} color="#ffc929" />
+                  <span className="spinner-demo__label">Custom</span>
+                </div>
               </div>
             </div>
           </section>
@@ -260,18 +268,20 @@ useEffect(() => {
                 onClick={() => setOpenModal('progress')}
               />
             </div>
-            <div className="spinner-demo">
-              <div className="spinner-demo__item">
-                <Spinner variant="progress" value={progressValue} size={48} />
-                <span className="spinner-demo__label">{progressValue}%</span>
-              </div>
-              <div className="spinner-demo__item">
-                <Button
-                  label={progressValue > 0 && progressValue < 100 ? 'Running...' : 'Start'}
-                  size="S"
-                  onClick={startProgress}
-                  disabled={progressValue > 0 && progressValue < 100}
-                />
+            <div className="example-container">
+              <div className="spinner-demo">
+                <div className="spinner-demo__item">
+                  <Spinner variant="progress" value={progressValue} size={48} />
+                  <span className="spinner-demo__label">{progressValue}%</span>
+                </div>
+                <div className="spinner-demo__item">
+                  <Button
+                    label={progressValue > 0 && progressValue < 100 ? 'Running...' : 'Start'}
+                    size="S"
+                    onClick={startProgress}
+                    disabled={progressValue > 0 && progressValue < 100}
+                  />
+                </div>
               </div>
             </div>
           </section>

@@ -1,0 +1,10 @@
+/**
+ * StudyRow Documentation Page Styles
+ */
+
+.study-row-demo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}

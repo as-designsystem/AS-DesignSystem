@@ -94,7 +94,8 @@ import { Button } from '@/design-system/components/Button';
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -108,6 +109,7 @@ import { Button } from '@/design-system/components/Button';
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -134,13 +136,15 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('simple')}
               />
             </div>
-            <div className="tooltip-examples" style={{ gap: '24px' }}>
-              <SimpleTooltip label="Delete item" side="top">
-                <Button label="Delete" variant="Outlined" size="M" />
-              </SimpleTooltip>
-              <SimpleTooltip label="Save changes" side="bottom">
-                <Button label="Save" variant="Default" size="M" />
-              </SimpleTooltip>
+            <div className="example-container">
+              <div className="tooltip-examples" style={{ gap: '24px' }}>
+                <SimpleTooltip label="Delete item" side="top">
+                  <Button label="Delete" variant="Outlined" size="M" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Save changes" side="bottom">
+                  <Button label="Save" variant="Default" size="M" />
+                </SimpleTooltip>
+              </div>
             </div>
           </section>
 
@@ -165,19 +169,21 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('sides')}
               />
             </div>
-            <div className="tooltip-examples" style={{ gap: '12px' }}>
-              <SimpleTooltip label="Top tooltip" side="top">
-                <Button label="Top" variant="Outlined" size="S" />
-              </SimpleTooltip>
-              <SimpleTooltip label="Right tooltip" side="right">
-                <Button label="Right" variant="Outlined" size="S" />
-              </SimpleTooltip>
-              <SimpleTooltip label="Bottom tooltip" side="bottom">
-                <Button label="Bottom" variant="Outlined" size="S" />
-              </SimpleTooltip>
-              <SimpleTooltip label="Left tooltip" side="left">
-                <Button label="Left" variant="Outlined" size="S" />
-              </SimpleTooltip>
+            <div className="example-container">
+              <div className="tooltip-examples" style={{ gap: '12px' }}>
+                <SimpleTooltip label="Top tooltip" side="top">
+                  <Button label="Top" variant="Outlined" size="S" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Right tooltip" side="right">
+                  <Button label="Right" variant="Outlined" size="S" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Bottom tooltip" side="bottom">
+                  <Button label="Bottom" variant="Outlined" size="S" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Left tooltip" side="left">
+                  <Button label="Left" variant="Outlined" size="S" />
+                </SimpleTooltip>
+              </div>
             </div>
           </section>
 
@@ -202,11 +208,13 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('iconbutton')}
               />
             </div>
-            <div className="tooltip-examples" style={{ gap: '12px' }}>
-              <IconButton icon="settings" size="M" variant="Ghost" tooltip="Settings" />
-              <IconButton icon="delete" size="M" variant="Ghost" tooltip="Delete" />
-              <IconButton icon="edit" size="M" variant="Ghost" tooltip="Edit" />
-              <IconButton icon="search" size="M" variant="Ghost" tooltip="Search" />
+            <div className="example-container">
+              <div className="tooltip-examples" style={{ gap: '12px' }}>
+                <IconButton icon="settings" size="M" variant="Ghost" tooltip="Settings" />
+                <IconButton icon="delete" size="M" variant="Ghost" tooltip="Delete" />
+                <IconButton icon="edit" size="M" variant="Ghost" tooltip="Edit" />
+                <IconButton icon="search" size="M" variant="Ghost" tooltip="Search" />
+              </div>
             </div>
           </section>
 
@@ -231,26 +239,28 @@ import { Button } from '@/design-system/components/Button';
                 onClick={() => setOpenModal('compound')}
               />
             </div>
-            <div className="tooltip-examples" style={{ gap: '24px' }}>
-              <Tooltip delayDuration={500}>
-                <TooltipTrigger>
-                  <Button label="Custom Content" variant="Outlined" size="M" />
-                </TooltipTrigger>
-                <TooltipContent side="top" align="start">
-                  <div style={{ maxWidth: '200px' }}>
-                    Custom content with <strong>formatting</strong>
-                  </div>
-                </TooltipContent>
-              </Tooltip>
+            <div className="example-container">
+              <div className="tooltip-examples" style={{ gap: '24px' }}>
+                <Tooltip delayDuration={500}>
+                  <TooltipTrigger>
+                    <Button label="Custom Content" variant="Outlined" size="M" />
+                  </TooltipTrigger>
+                  <TooltipContent side="top" align="start">
+                    <div style={{ maxWidth: '200px' }}>
+                      Custom content with <strong>formatting</strong>
+                    </div>
+                  </TooltipContent>
+                </Tooltip>
 
-              <Tooltip delayDuration={0}>
-                <TooltipTrigger>
-                  <Button label="No Delay" variant="Outlined" size="M" />
-                </TooltipTrigger>
-                <TooltipContent side="bottom" arrow={false}>
-                  Instant tooltip without arrow
-                </TooltipContent>
-              </Tooltip>
+                <Tooltip delayDuration={0}>
+                  <TooltipTrigger>
+                    <Button label="No Delay" variant="Outlined" size="M" />
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" arrow={false}>
+                    Instant tooltip without arrow
+                  </TooltipContent>
+                </Tooltip>
+              </div>
             </div>
           </section>
         </>

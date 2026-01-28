@@ -87,7 +87,8 @@ const tools = [
 
       {/* Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -101,6 +102,7 @@ const tools = [
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -121,10 +123,12 @@ const tools = [
               />
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              {allTools.map(tool => (
-                <ToolIcons key={tool} tool={tool} mode="light" size={60} />
-              ))}
+            <div className="example-container">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                {allTools.map(tool => (
+                  <ToolIcons key={tool} tool={tool} mode="light" size={60} />
+                ))}
+              </div>
             </div>
           </section>
 
@@ -143,10 +147,12 @@ const tools = [
               />
             </div>
 
-            <div style={{ backgroundColor: 'var(--background-corporate)', padding: '24px', borderRadius: '8px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              {allTools.map(tool => (
-                <ToolIcons key={tool} tool={tool} mode="dark" size={60} />
-              ))}
+            <div className="example-container--dark">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                {allTools.map(tool => (
+                  <ToolIcons key={tool} tool={tool} mode="dark" size={60} />
+                ))}
+              </div>
             </div>
           </section>
 
@@ -165,22 +171,24 @@ const tools = [
               />
             </div>
 
-            <div className="tool-icons-grid" style={{ alignItems: 'flex-end' }}>
-              <div className="tool-icon-item">
-                <ToolIcons tool="network" mode="light" size={40} />
-                <p className="label-regular-s">40px</p>
-              </div>
-              <div className="tool-icon-item">
-                <ToolIcons tool="network" mode="light" size={60} />
-                <p className="label-regular-s">60px (default)</p>
-              </div>
-              <div className="tool-icon-item">
-                <ToolIcons tool="network" mode="light" size={80} />
-                <p className="label-regular-s">80px</p>
-              </div>
-              <div className="tool-icon-item">
-                <ToolIcons tool="network" mode="light" size={100} />
-                <p className="label-regular-s">100px</p>
+            <div className="example-container">
+              <div className="tool-icons-grid" style={{ alignItems: 'flex-end' }}>
+                <div className="tool-icon-item">
+                  <ToolIcons tool="network" mode="light" size={40} />
+                  <p className="label-regular-s">40px</p>
+                </div>
+                <div className="tool-icon-item">
+                  <ToolIcons tool="network" mode="light" size={60} />
+                  <p className="label-regular-s">60px (default)</p>
+                </div>
+                <div className="tool-icon-item">
+                  <ToolIcons tool="network" mode="light" size={80} />
+                  <p className="label-regular-s">80px</p>
+                </div>
+                <div className="tool-icon-item">
+                  <ToolIcons tool="network" mode="light" size={100} />
+                  <p className="label-regular-s">100px</p>
+                </div>
               </div>
             </div>
           </section>

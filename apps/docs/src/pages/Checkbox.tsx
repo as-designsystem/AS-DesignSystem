@@ -152,7 +152,8 @@ function MyComponent() {
 
       {/* Main Tabs */}
       <div className="tabs-container">
-        <div style={{ display: 'flex', gap: '0' }}>
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
           <Tab
             label="Examples"
             size="M"
@@ -166,6 +167,7 @@ function MyComponent() {
             onClick={() => setActiveTab('props')}
           />
         </div>
+      </div>
       </div>
 
       {/* Examples Tab */}
@@ -192,7 +194,8 @@ function MyComponent() {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="checkbox-examples">
+            <div className="example-container">
+              <div className="checkbox-examples">
               {componentType === 'checkbox' ? (
                 <>
                   <Checkbox
@@ -236,6 +239,7 @@ function MyComponent() {
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -260,7 +264,8 @@ function MyComponent() {
                 onClick={() => setOpenModal('status')}
               />
             </div>
-            <div className="checkbox-examples">
+            <div className="example-container">
+              <div className="checkbox-examples">
               {componentType === 'checkbox' ? (
                 <>
                   <Checkbox label="Default (unchecked)" status="Default" />
@@ -274,6 +279,7 @@ function MyComponent() {
                   <VCheckbox label="Indeterminate" status="Indeterminate" />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -298,7 +304,8 @@ function MyComponent() {
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="checkbox-examples">
+            <div className="example-container">
+              <div className="checkbox-examples">
               {componentType === 'checkbox' ? (
                 <>
                   <Checkbox label="Default" state="Default" />
@@ -330,6 +337,7 @@ function MyComponent() {
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -354,7 +362,8 @@ function MyComponent() {
                 onClick={() => setOpenModal('controlled')}
               />
             </div>
-            <div className="checkbox-examples">
+            <div className="example-container">
+              <div className="checkbox-examples">
               {componentType === 'checkbox' ? (
                 <>
                   <Checkbox
@@ -392,6 +401,7 @@ function MyComponent() {
                   />
                 </>
               )}
+              </div>
             </div>
           </section>
 
@@ -416,7 +426,8 @@ function MyComponent() {
                 onClick={() => setOpenModal('withoutLabel')}
               />
             </div>
-            <div className="checkbox-examples">
+            <div className="example-container">
+              <div className="checkbox-examples">
               {componentType === 'checkbox' ? (
                 <>
                   <Checkbox showLabel={false} size="S" />
@@ -430,6 +441,7 @@ function MyComponent() {
                   <VCheckbox showLabel={false} size="L" status="Indeterminate" />
                 </>
               )}
+              </div>
             </div>
           </section>
 
