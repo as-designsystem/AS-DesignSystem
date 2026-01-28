@@ -146,7 +146,9 @@ export function ToolTile({
 
       {/* Description */}
       {description && (
-        <p className="tool-tile__description">{description}</p>
+        <div className="tool-tile__description">
+          <span className="tool-tile__description-text">{description}</span>
+        </div>
       )}
     </div>
   );
