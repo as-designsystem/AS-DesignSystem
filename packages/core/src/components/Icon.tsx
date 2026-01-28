@@ -70,6 +70,9 @@ import starBorderIcon from '../assets/svg/icons/star_border.svg?raw';
 import forumIcon from '../assets/svg/icons/forum.svg?raw';
 import descriptionIcon from '../assets/svg/icons/description.svg?raw';
 import listIcon from '../assets/svg/icons/list.svg?raw';
+import downloadIcon from '../assets/svg/icons/download.svg?raw';
+import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
+import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -144,6 +147,9 @@ const iconMap: Record<string, string> = {
   'forum': forumIcon,
   'description': descriptionIcon,
   'list': listIcon,
+  'download': downloadIcon,
+  'visibility': visibilityIcon,
+  'cancel': cancelIcon,
 };
 
 export const availableIcons = [
@@ -218,6 +224,9 @@ export const availableIcons = [
   'forum',
   'description',
   'list',
+  'download',
+  'visibility',
+  'cancel',
 ] as const;
 
 export type IconName = typeof availableIcons[number];
