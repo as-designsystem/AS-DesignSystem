@@ -144,7 +144,7 @@ export function PanelButton({
       {/* Error chip (expanded mode) */}
       {panelOpen && showError && errorCount > 0 && (
         errorTooltip ? (
-          <SimpleTooltip label={errorTooltip} side="bottom">
+          <SimpleTooltip label={errorTooltip} side="bottom" delayDuration={0}>
             <span className="panel-button__badge-wrapper">
               <span className="panel-button__error-chip">
                 {errorCount}
@@ -163,7 +163,7 @@ export function PanelButton({
       {/* Warning icon (expanded mode) */}
       {panelOpen && showWarning && (
         warningTooltip ? (
-          <SimpleTooltip label={warningTooltip} side="bottom">
+          <SimpleTooltip label={warningTooltip} side="bottom" delayDuration={0}>
             <span className="panel-button__badge-wrapper">
               <Icon name="warning" size={size === 'XS' ? 16 : 24} color="var(--colour-category-saturated-yellow, #ffc929)" />
             </span>
@@ -193,7 +193,7 @@ export function PanelButton({
   if (!panelOpen) {
     const tooltipLabel = [label, errorTooltip, warningTooltip].filter(Boolean).join(' · ');
     return (
-      <SimpleTooltip label={tooltipLabel} side="right">
+      <SimpleTooltip label={tooltipLabel} side="right" delayDuration={0}>
         {buttonContent}
       </SimpleTooltip>
     );

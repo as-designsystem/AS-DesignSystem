@@ -121,7 +121,7 @@ export function Avatar({
 
   if (tooltip) {
     return (
-      <SimpleTooltip label={tooltip} side="bottom">
+      <SimpleTooltip label={tooltip} side="bottom" delayDuration={0}>
         {avatar}
       </SimpleTooltip>
     );

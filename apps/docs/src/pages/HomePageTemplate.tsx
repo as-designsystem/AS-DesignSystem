@@ -41,7 +41,7 @@ export default function HomePageTemplatePage() {
     <div className="home-page-template-preview">
       {/* Application Header */}
       <AppHeader
-        appName="Airline Business Planner"
+        appName="Product Name"
         actions={
           <>
             <IconButton icon="notifications" size="M" variant="Ghost" alt="Notifications" />

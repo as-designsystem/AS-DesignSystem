@@ -111,7 +111,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
 
   if (tooltip) {
     return (
-      <SimpleTooltip label={tooltip} side="top">
+      <SimpleTooltip label={tooltip} side="top" delayDuration={0}>
         {button}
       </SimpleTooltip>
     );
