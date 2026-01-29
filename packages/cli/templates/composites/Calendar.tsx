@@ -88,6 +88,11 @@ export interface CalendarProps {
    */
   maxDate?: Date;
   /**
+   * Default date to display when the calendar opens with no value selected.
+   * Defaults to today.
+   */
+  defaultDate?: Date;
+  /**
    * Controlled open state
    */
   open?: boolean;
@@ -211,6 +216,7 @@ export function Calendar({
   onChange,
   minDate,
   maxDate,
+  defaultDate,
   open: controlledOpen,
   onOpenChange,
   className = '',
@@ -229,8 +235,9 @@ export function Calendar({
 
   // Calendar navigation state
   const today = new Date();
-  const [displayMonth, setDisplayMonth] = useState(value ? value.getMonth() : today.getMonth());
-  const [displayYear, setDisplayYear] = useState(value ? value.getFullYear() : today.getFullYear());
+  const initialDate = value || defaultDate || today;
+  const [displayMonth, setDisplayMonth] = useState(initialDate.getMonth());
+  const [displayYear, setDisplayYear] = useState(initialDate.getFullYear());
   const [currentView, setCurrentView] = useState<CalendarView>(mode === 'month' ? 'months' : 'days');
   const [previousView, setPreviousView] = useState<CalendarView>(mode === 'month' ? 'months' : 'days');
 
@@ -244,12 +251,11 @@ export function Calendar({
   useEffect(() => {
     if (isOpen) {
       setCurrentView(mode === 'month' ? 'months' : 'days');
-      if (value) {
-        setDisplayMonth(value.getMonth());
-        setDisplayYear(value.getFullYear());
-      }
+      const target = value || defaultDate || today;
+      setDisplayMonth(target.getMonth());
+      setDisplayYear(target.getFullYear());
     }
-  }, [isOpen, mode, value]);
+  }, [isOpen, mode, value, defaultDate]);
 
   // Auto-scroll year list to selected year
   useEffect(() => {
@@ -461,10 +467,19 @@ export function Calendar({
     return rows;
   };
 
+  // Navigation boundary checks
+  const yearMin = minDate ? minDate.getFullYear() : YEAR_MIN;
+  const yearMax = maxDate ? maxDate.getFullYear() : YEAR_MAX;
+
+  const canGoPrevMonth = !(minDate && displayYear === yearMin && displayMonth <= minDate.getMonth());
+  const canGoNextMonth = !(maxDate && displayYear === yearMax && displayMonth >= maxDate.getMonth());
+  const canGoPrevYear = displayYear > yearMin;
+  const canGoNextYear = displayYear < yearMax;
+
   // Build year list
   const renderYearList = () => {
     const years: React.ReactNode[] = [];
-    for (let year = YEAR_MIN; year <= YEAR_MAX; year++) {
+    for (let year = yearMin; year <= yearMax; year++) {
       const isSelected = year === displayYear;
       const yearClasses = [
         'calendar-year',
@@ -487,16 +502,25 @@ export function Calendar({
   };
 
   // Header date display
+  const headerFallback = defaultDate || today;
   const headerYear = value ? value.getFullYear() : displayYear;
   const headerDate = value
     ? (mode === 'date' ? formatHeaderDate(value) : `${MONTH_NAMES_SHORT[value.getMonth()]} ${value.getFullYear()}`)
-    : (mode === 'date' ? formatHeaderDate(today) : `${MONTH_NAMES_SHORT[today.getMonth()]} ${today.getFullYear()}`);
+    : (mode === 'date' ? formatHeaderDate(headerFallback) : `${MONTH_NAMES_SHORT[headerFallback.getMonth()]} ${headerFallback.getFullYear()}`);
 
   return (
     <Popover.Root open={isOpen} onOpenChange={handleOpenChange}>
       <div className={`calendar-container ${className}`}>
         <Popover.Anchor asChild>
-          <div className="calendar-trigger-wrapper">
+          <div
+            className="calendar-trigger-wrapper"
+            onClick={() => {
+              if (readOnly && !disabled) {
+                handleOpenChange(!isOpen);
+              }
+            }}
+            style={readOnly && !disabled ? { cursor: 'pointer' } : undefined}
+          >
             <TextInput
               label={label}
               legend={legend}
@@ -518,7 +542,7 @@ export function Calendar({
               rightIconButton="event"
               onRightIconButtonClick={(e) => {
                 e.preventDefault();
-                if (!disabled && !readOnly) {
+                if (!disabled) {
                   handleOpenChange(!isOpen);
                 }
               }}
@@ -559,6 +583,7 @@ export function Calendar({
                     size="XS"
                     variant="Ghost"
                     onClick={handlePrevMonth}
+                    disabled={!canGoPrevMonth}
                     aria-label="Previous month"
                     tabIndex={-1}
                   />
@@ -570,6 +595,7 @@ export function Calendar({
                     size="XS"
                     variant="Ghost"
                     onClick={handleNextMonth}
+                    disabled={!canGoNextMonth}
                     aria-label="Next month"
                     tabIndex={-1}
                   />
@@ -599,6 +625,7 @@ export function Calendar({
                     size="XS"
                     variant="Ghost"
                     onClick={handlePrevYear}
+                    disabled={!canGoPrevYear}
                     aria-label="Previous year"
                     tabIndex={-1}
                   />
@@ -609,6 +636,7 @@ export function Calendar({
                     icon="navigate_next"
                     size="XS"
                     variant="Ghost"
+                    disabled={!canGoNextYear}
                     onClick={handleNextYear}
                     aria-label="Next year"
                     tabIndex={-1}
