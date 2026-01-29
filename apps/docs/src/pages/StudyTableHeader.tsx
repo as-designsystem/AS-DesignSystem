@@ -48,6 +48,18 @@ export default function StudyTableHeaderPage() {
   showActionsColumn
 />`;
 
+  const columnSizingCode = `import { StudyTableHeader } from '@/design-system/components/StudyTableHeader';
+
+// Mix fixed widths and flex proportional columns
+<StudyTableHeader
+  columns={[
+    { key: 'name', label: 'Name', width: '200px' },
+    { key: 'description', label: 'Description', flex: 2 },
+    { key: 'author', label: 'Author', flex: 1 },
+    { key: 'date', label: 'Created', width: '120px', align: 'right' },
+  ]}
+/>`;
+
   return (
     <div className="component-page">
       <h1
@@ -211,6 +223,50 @@ export default function StudyTableHeaderPage() {
               </div>
             </div>
           </section>
+
+          {/* Column Sizing */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Column Sizing
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('columnSizing')}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Columns support fixed widths and flex proportional sizing. Use <code>width</code> for a fixed size (e.g. '200px') or <code>flex</code> for a proportional grow factor. By default, all columns use <code>flex: 1</code>.
+            </p>
+            <div className="example-container">
+              <div className="study-table-header-demo">
+                <StudyTableHeader
+                  columns={[
+                    { key: 'name', label: 'Name', width: '200px' },
+                    { key: 'description', label: 'Description', flex: 2 },
+                    { key: 'author', label: 'Author', flex: 1 },
+                    { key: 'date', label: 'Created', width: '120px', align: 'right' },
+                  ]}
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -322,6 +378,16 @@ export default function StudyTableHeaderPage() {
                 <td><code>'left' | 'center' | 'right'</code></td>
                 <td>Text alignment (default: 'left')</td>
               </tr>
+              <tr>
+                <td><code>width</code></td>
+                <td><code>string</code></td>
+                <td>Fixed width (e.g. '200px', '30%'). Disables flex.</td>
+              </tr>
+              <tr>
+                <td><code>flex</code></td>
+                <td><code>number</code></td>
+                <td>Flex grow factor (default: 1)</td>
+              </tr>
             </tbody>
           </table>
         </section>
@@ -345,6 +411,12 @@ export default function StudyTableHeaderPage() {
         onClose={() => setOpenModal(null)}
         title="With Actions Column"
         code={withActionsCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'columnSizing'}
+        onClose={() => setOpenModal(null)}
+        title="Column Sizing"
+        code={columnSizingCode}
       />
     </div>
   );

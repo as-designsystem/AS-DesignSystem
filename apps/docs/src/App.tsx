@@ -39,6 +39,7 @@ import StudyTableHeaderPage from './pages/StudyTableHeader';
 import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import LandingPageTemplate from './pages/LandingPageTemplate';
+import CalendarPage from './pages/Calendar';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
@@ -94,6 +95,7 @@ function App() {
               <Route path="/composites/accordion" element={<AccordionPage />} />
               <Route path="/composites/workspace" element={<WorkspacePage />} />
               <Route path="/composites/tool-tile" element={<ToolTilePage />} />
+              <Route path="/composites/calendar" element={<CalendarPage />} />
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />
               <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />

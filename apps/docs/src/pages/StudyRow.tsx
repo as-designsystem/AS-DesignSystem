@@ -65,6 +65,19 @@ export default function StudyRowPage() {
 <StudyRow status="Draft" columns={[...]} />
 <StudyRow status="Warning" columns={[...]} />`;
 
+  const columnSizingCode = `import { StudyRow } from '@/design-system/components/StudyRow';
+
+// Mix fixed widths and flex proportional columns
+<StudyRow
+  status="Computed"
+  columns={[
+    { key: 'name', value: 'Flight Analysis 2024', width: '200px' },
+    { key: 'description', value: 'Comprehensive flight performance study', flex: 2 },
+    { key: 'author', value: 'John Doe', flex: 1 },
+    { key: 'date', value: '2024-01-15', width: '120px', align: 'right' },
+  ]}
+/>`;
+
   return (
     <div className="component-page">
       <h1
@@ -278,6 +291,51 @@ export default function StudyRowPage() {
               </div>
             </div>
           </section>
+
+          {/* Column Sizing */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Column Sizing
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('columnSizing')}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Columns support fixed widths and flex proportional sizing. Use <code>width</code> for a fixed size (e.g. '200px') or <code>flex</code> for a proportional grow factor. By default, all columns use <code>flex: 1</code>.
+            </p>
+            <div className="example-container">
+              <div className="study-row-demo">
+                <StudyRow
+                  status="Computed"
+                  columns={[
+                    { key: 'name', value: 'Flight Analysis 2024', width: '200px' },
+                    { key: 'description', value: 'Comprehensive flight performance study', flex: 2 },
+                    { key: 'author', value: 'John Doe', flex: 1 },
+                    { key: 'date', value: '2024-01-15', width: '120px', align: 'right' },
+                  ]}
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -395,6 +453,16 @@ export default function StudyRowPage() {
                 <td><code>'left' | 'center' | 'right'</code></td>
                 <td>Text alignment (default: 'left')</td>
               </tr>
+              <tr>
+                <td><code>width</code></td>
+                <td><code>string</code></td>
+                <td>Fixed width (e.g. '200px', '30%'). Disables flex.</td>
+              </tr>
+              <tr>
+                <td><code>flex</code></td>
+                <td><code>number</code></td>
+                <td>Flex grow factor (default: 1)</td>
+              </tr>
             </tbody>
           </table>
         </section>
@@ -424,6 +492,12 @@ export default function StudyRowPage() {
         onClose={() => setOpenModal(null)}
         title="Status States"
         code={allStatesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'columnSizing'}
+        onClose={() => setOpenModal(null)}
+        title="Column Sizing"
+        code={columnSizingCode}
       />
     </div>
   );

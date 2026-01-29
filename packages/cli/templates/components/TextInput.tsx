@@ -1,6 +1,7 @@
 // @ts-ignore - React import needed for JSX in non-TypeScript projects
 import React, { forwardRef } from 'react';
 import { Icon } from './Icon';
+import { SimpleTooltip } from './Tooltip';
 import './TextInput.css';
 
 export type TextInputSize = 'XS' | 'S' | 'M' | 'L';
@@ -192,17 +193,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                 <span className="text-input-optional"> (Optional)</span>
               )}
             </label>
-            {showInfo && (
-              <span
-                className="text-input-info-icon"
-                data-tooltip={infoText || undefined}
-              >
+            {showInfo && infoText ? (
+              <SimpleTooltip label={infoText} delayDuration={0}>
+                <span className="text-input-info-icon">
+                  <Icon name="info" size={16} />
+                </span>
+              </SimpleTooltip>
+            ) : showInfo ? (
+              <span className="text-input-info-icon">
                 <Icon name="info" size={16} />
-                {infoText && (
-                  <span className="text-input-tooltip">{infoText}</span>
-                )}
               </span>
-            )}
+            ) : null}
           </div>
         )}
 

@@ -249,4 +249,31 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/radius.css',
     ],
   },
+  {
+    name: 'calendar',
+    type: 'composite',
+    displayName: 'Calendar',
+    description: 'Date and month picker with TextInput trigger and calendar dropdown',
+    files: [
+      {
+        path: 'templates/composites/Calendar.tsx',
+        target: 'composites/Calendar.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/Calendar.css',
+        target: 'composites/Calendar.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['text-input', 'icon', 'icon-button'],
+    externalDependencies: {
+      '@radix-ui/react-popover': '^1.1.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
 ];

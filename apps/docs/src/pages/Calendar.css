@@ -1,0 +1,25 @@
+.calendar-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.calendar-examples {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.calendar-examples > * {
+  min-width: 200px;
+  max-width: 300px;
+  flex: 1 1 200px;
+}
+
+.calendar-group {
+  display: flex;
+  flex-direction: column;
+}

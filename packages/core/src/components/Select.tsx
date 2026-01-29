@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Icon } from './Icon';
+import { SimpleTooltip } from './Tooltip';
 import './Select.css';
 
 export type SelectSize = 'XS' | 'S' | 'M' | 'L';
@@ -200,12 +201,17 @@ export function Select({
             {label}
             {showOptional && <span className="select-optional"> (Optional)</span>}
           </label>
-          {showInfo && (
-            <span className="select-info-icon" data-tooltip={infoText || undefined}>
+          {showInfo && infoText ? (
+            <SimpleTooltip label={infoText} delayDuration={0}>
+              <span className="select-info-icon">
+                <Icon name="info" size={16} />
+              </span>
+            </SimpleTooltip>
+          ) : showInfo ? (
+            <span className="select-info-icon">
               <Icon name="info" size={16} />
-              {infoText && <span className="select-tooltip">{infoText}</span>}
             </span>
-          )}
+          ) : null}
         </div>
       )}
 

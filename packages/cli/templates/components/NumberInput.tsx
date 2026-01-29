@@ -2,6 +2,7 @@
 import React, { forwardRef } from 'react';
 import { Icon } from './Icon';
 import { IconButton } from './IconButton';
+import { SimpleTooltip } from './Tooltip';
 import './NumberInput.css';
 
 export type NumberInputSize = 'XS' | 'S' | 'M' | 'L';
@@ -194,17 +195,17 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                 <span className="number-input-optional"> (Optional)</span>
               )}
             </label>
-            {showInfo && (
-              <span
-                className="number-input-info-icon"
-                data-tooltip={infoText || undefined}
-              >
+            {showInfo && infoText ? (
+              <SimpleTooltip label={infoText} delayDuration={0}>
+                <span className="number-input-info-icon">
+                  <Icon name="info" size={16} />
+                </span>
+              </SimpleTooltip>
+            ) : showInfo ? (
+              <span className="number-input-info-icon">
                 <Icon name="info" size={16} />
-                {infoText && (
-                  <span className="number-input-tooltip">{infoText}</span>
-                )}
               </span>
-            )}
+            ) : null}
           </div>
         )}
 

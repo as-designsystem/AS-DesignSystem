@@ -69,6 +69,7 @@ export { StudyStatusBar, type StudyStatusBarProps, type StudyStatusBarStatus } f
 export { Accordion, type AccordionProps, type AccordionSize } from './composites/Accordion';
 export { Workspace, type WorkspaceProps, type WorkspaceUser } from './composites/Workspace';
 export { ToolTile, type ToolTileProps, type PlatformName } from './composites/ToolTile';
+export { Calendar, type CalendarProps, type CalendarMode } from './composites/Calendar';
 
 // Tokens
 export * from './tokens/colors';

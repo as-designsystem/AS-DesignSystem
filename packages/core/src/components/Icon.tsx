@@ -44,6 +44,7 @@ import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import dropdownIcon from '../assets/svg/icons/dropdown.svg?raw';
 import editIcon from '../assets/svg/icons/edit.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
+import eventIcon from '../assets/svg/icons/event.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
@@ -53,6 +54,8 @@ import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
 import moreHorizIcon from '../assets/svg/icons/more_horiz.svg?raw';
+import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
+import navigateNextIcon from '../assets/svg/icons/navigate_next.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
@@ -121,6 +124,7 @@ const iconMap: Record<string, string> = {
   'dropdown': dropdownIcon,
   'edit': editIcon,
   'emoji_emotions': emojiEmotionsIcon,
+  'event': eventIcon,
   'filter': filterIcon,
   'filter_row': filterRowIcon,
   'info': infoIcon,
@@ -130,6 +134,8 @@ const iconMap: Record<string, string> = {
   'light_mode': lightModeIcon,
   'menu': menuIcon,
   'more_horiz': moreHorizIcon,
+  'navigate_before': navigateBeforeIcon,
+  'navigate_next': navigateNextIcon,
   'notifications': notificationsIcon,
   'open_in_new': openInNewIcon,
   'play': playIcon,
@@ -198,6 +204,7 @@ export const availableIcons = [
   'dropdown',
   'edit',
   'emoji_emotions',
+  'event',
   'filter',
   'filter_row',
   'info',
@@ -207,6 +214,8 @@ export const availableIcons = [
   'light_mode',
   'menu',
   'more_horiz',
+  'navigate_before',
+  'navigate_next',
   'notifications',
   'open_in_new',
   'play',
