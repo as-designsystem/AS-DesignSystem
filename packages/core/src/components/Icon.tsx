@@ -305,6 +305,12 @@ export function Icon({ name, size = 24, className = '', color }: IconProps) {
     .replace(/stroke="(?!none")[^"]*"/g, 'stroke="currentColor"')
     .replace(/<svg/, `<svg width="${iconSize}" height="${iconSize}"`);
 
+  // If the root <svg> has no fill attribute, add fill="currentColor" so paths without
+  // explicit fill inherit it (SVG default fill is black, not currentColor)
+  if (!/^<svg[^>]*fill="/.test(processedSvg)) {
+    processedSvg = processedSvg.replace(/<svg/, '<svg fill="currentColor"');
+  }
+
   return (
     <span
       className={`icon icon-${name} ${className}`}

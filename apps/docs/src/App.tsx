@@ -40,9 +40,11 @@ import AboutTemplates from './pages/AboutTemplates';
 import HomePageTemplate from './pages/HomePageTemplate';
 import LandingPageTemplate from './pages/LandingPageTemplate';
 import CalendarPage from './pages/Calendar';
+import AircraftSelectorPage from './pages/AircraftSelector';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
+import SizeRadius from './pages/SizeRadius';
 
 function App() {
   return (
@@ -64,6 +66,7 @@ function App() {
               <Route path="/tokens/text-styles" element={<TextStyles />} />
               <Route path="/tokens/colors" element={<Colors />} />
               <Route path="/tokens/icons" element={<Icons />} />
+              <Route path="/tokens/size-radius" element={<SizeRadius />} />
               <Route path="/components" element={<Navigate to="/components/button" replace />} />
               <Route path="/components/button" element={<Button />} />
               <Route path="/components/button-group" element={<ButtonGroup />} />
@@ -96,6 +99,7 @@ function App() {
               <Route path="/composites/workspace" element={<WorkspacePage />} />
               <Route path="/composites/tool-tile" element={<ToolTilePage />} />
               <Route path="/composites/calendar" element={<CalendarPage />} />
+              <Route path="/composites/aircraft-selector" element={<AircraftSelectorPage />} />
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />
               <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />

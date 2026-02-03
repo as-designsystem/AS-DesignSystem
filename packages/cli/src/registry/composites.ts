@@ -276,4 +276,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/radius.css',
     ],
   },
+  {
+    name: 'aircraft-selector',
+    type: 'composite',
+    displayName: 'AircraftSelector',
+    description: 'Split-panel aircraft configuration selector with tree navigation and detail view',
+    files: [
+      {
+        path: 'templates/composites/AircraftSelector.tsx',
+        target: 'composites/AircraftSelector.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/AircraftSelector.css',
+        target: 'composites/AircraftSelector.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'tab', 'text-input', 'number-input', 'button-group'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

@@ -58,4 +58,23 @@ export const tokens: RegistryItem[] = [
     ],
     cssImports: ['@/design-system/tokens/radius.css'],
   },
+  {
+    name: 'sizes',
+    type: 'token',
+    displayName: 'Sizes',
+    description: 'Component height scale tokens (2XS through XL)',
+    files: [
+      {
+        path: 'templates/tokens/sizes.ts',
+        target: 'tokens/sizes.ts',
+        type: 'component',
+      },
+      {
+        path: 'templates/tokens/sizes.css',
+        target: 'tokens/sizes.css',
+        type: 'style',
+      },
+    ],
+    cssImports: ['@/design-system/tokens/sizes.css'],
+  },
 ];

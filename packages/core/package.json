@@ -31,6 +31,7 @@
     "./colors.css": "./dist/colors.css",
     "./typography.css": "./dist/typography.css",
     "./radius.css": "./dist/radius.css",
+    "./sizes.css": "./dist/sizes.css",
     "./ProductBanner.css": "./dist/ProductBanner.css",
     "./HomePageActionBar.css": "./dist/HomePageActionBar.css",
     "./PanelStudyName.css": "./dist/PanelStudyName.css",
@@ -50,7 +51,8 @@
     "./StudyRow.css": "./dist/StudyRow.css",
     "./StudyTableHeader.css": "./dist/StudyTableHeader.css",
     "./DropdownMenu.css": "./dist/DropdownMenu.css",
-    "./Calendar.css": "./dist/Calendar.css"
+    "./Calendar.css": "./dist/Calendar.css",
+    "./AircraftSelector.css": "./dist/AircraftSelector.css"
   },
   "scripts": {
     "build": "tsup",

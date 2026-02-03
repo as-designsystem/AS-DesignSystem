@@ -86,6 +86,7 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'Colors', path: '/tokens/colors' },
       { label: 'Icons', path: '/tokens/icons' },
+      { label: 'Size & Radius', path: '/tokens/size-radius' },
       { label: 'Text Styles', path: '/tokens/text-styles' },
     ],
   },
@@ -129,6 +130,7 @@ const navSections: NavSectionData[] = [
       </svg>
     ),
     items: [
+      { label: 'AircraftSelector', path: '/composites/aircraft-selector' },
       { label: 'AppHeader', path: '/composites/app-header' },
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
       { label: 'ToolIcons', path: '/components/tool-icons' },

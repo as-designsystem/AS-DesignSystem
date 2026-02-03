@@ -1,6 +1,101 @@
 import { useState } from 'react';
 import './Tokens.css';
 
+interface TextStyleDef {
+  className: string;
+  label: string;
+  fontSize: string;
+  lineHeight: string;
+  fontWeight: string;
+  fontFamily?: string;
+}
+
+const WEIGHT_LABELS: Record<string, string> = {
+  '700': 'Bold',
+  '500': 'Medium',
+  '400': 'Regular',
+  '300': 'Light',
+};
+
+const sections: { title: string; styles: TextStyleDef[] }[] = [
+  {
+    title: 'Headings',
+    styles: [
+      { className: 'heading-1', label: 'Heading 1', fontSize: '56', lineHeight: '80', fontWeight: '700' },
+      { className: 'subheading-1', label: 'Subheading 1', fontSize: '56', lineHeight: '80', fontWeight: '300' },
+      { className: 'heading-2', label: 'Heading 2', fontSize: '48', lineHeight: '72', fontWeight: '700' },
+      { className: 'subheading-2', label: 'Subheading 2', fontSize: '48', lineHeight: '72', fontWeight: '300' },
+      { className: 'heading-3', label: 'Heading 3', fontSize: '36', lineHeight: '56', fontWeight: '700' },
+      { className: 'subheading-3', label: 'Subheading 3', fontSize: '36', lineHeight: '56', fontWeight: '300' },
+      { className: 'heading-4', label: 'Heading 4', fontSize: '32', lineHeight: '48', fontWeight: '700' },
+      { className: 'subheading-4', label: 'Subheading 4', fontSize: '32', lineHeight: '48', fontWeight: '300' },
+      { className: 'heading-5', label: 'Heading 5', fontSize: '24', lineHeight: '40', fontWeight: '700' },
+      { className: 'subheading-5', label: 'Subheading 5', fontSize: '24', lineHeight: '40', fontWeight: '300' },
+      { className: 'heading-6', label: 'Heading 6', fontSize: '20', lineHeight: '32', fontWeight: '700' },
+      { className: 'subheading-6', label: 'Subheading 6', fontSize: '20', lineHeight: '32', fontWeight: '300' },
+    ],
+  },
+  {
+    title: 'Labels - Large',
+    styles: [
+      { className: 'label-bold-l', label: 'Label Bold L', fontSize: '18', lineHeight: '32', fontWeight: '700' },
+      { className: 'label-medium-l', label: 'Label Medium L', fontSize: '18', lineHeight: '32', fontWeight: '500' },
+      { className: 'label-regular-l', label: 'Label Regular L', fontSize: '18', lineHeight: '32', fontWeight: '400' },
+      { className: 'label-light-l', label: 'Label Light L', fontSize: '18', lineHeight: '32', fontWeight: '300' },
+    ],
+  },
+  {
+    title: 'Labels - Medium',
+    styles: [
+      { className: 'label-bold-m', label: 'Label Bold M', fontSize: '16', lineHeight: '24', fontWeight: '700' },
+      { className: 'label-medium-m', label: 'Label Medium M', fontSize: '16', lineHeight: '24', fontWeight: '500' },
+      { className: 'label-regular-m', label: 'Label Regular M', fontSize: '16', lineHeight: '24', fontWeight: '400' },
+      { className: 'label-light-m', label: 'Label Light M', fontSize: '16', lineHeight: '24', fontWeight: '300' },
+    ],
+  },
+  {
+    title: 'Labels - Small',
+    styles: [
+      { className: 'label-bold-s', label: 'Label Bold S', fontSize: '14', lineHeight: '20', fontWeight: '700' },
+      { className: 'label-medium-s', label: 'Label Medium S', fontSize: '14', lineHeight: '20', fontWeight: '500' },
+      { className: 'label-regular-s', label: 'Label Regular S', fontSize: '14', lineHeight: '20', fontWeight: '400' },
+      { className: 'label-light-s', label: 'Label Light S', fontSize: '14', lineHeight: '20', fontWeight: '300' },
+    ],
+  },
+  {
+    title: 'Labels - Extra Small',
+    styles: [
+      { className: 'label-bold-xs', label: 'Label Bold XS', fontSize: '12', lineHeight: '20', fontWeight: '700' },
+      { className: 'label-medium-xs', label: 'Label Medium XS', fontSize: '12', lineHeight: '20', fontWeight: '500' },
+      { className: 'label-regular-xs', label: 'Label Regular XS', fontSize: '12', lineHeight: '20', fontWeight: '400' },
+      { className: 'label-light-xs', label: 'Label Light XS', fontSize: '12', lineHeight: '20', fontWeight: '300' },
+    ],
+  },
+  {
+    title: 'Legends',
+    styles: [
+      { className: 'legend-bold', label: 'Legend Bold', fontSize: '11', lineHeight: '20', fontWeight: '700' },
+      { className: 'legend-medium', label: 'Legend Medium', fontSize: '11', lineHeight: '20', fontWeight: '500' },
+    ],
+  },
+  {
+    title: 'System (Monospace)',
+    styles: [
+      { className: 'system-l', label: 'System L', fontSize: '18', lineHeight: '28', fontWeight: '400', fontFamily: 'Roboto Mono' },
+      { className: 'system-m', label: 'System M', fontSize: '16', lineHeight: '24', fontWeight: '400', fontFamily: 'Roboto Mono' },
+      { className: 'system-s', label: 'System S', fontSize: '14', lineHeight: '20', fontWeight: '400', fontFamily: 'Roboto Mono' },
+      { className: 'system-xs', label: 'System XS', fontSize: '12', lineHeight: '20', fontWeight: '400', fontFamily: 'Roboto Mono' },
+    ],
+  },
+];
+
+function formatSpecs(style: TextStyleDef) {
+  const weight = WEIGHT_LABELS[style.fontWeight] || style.fontWeight;
+  const parts = [`${style.fontSize}/${style.lineHeight}px`, weight];
+  if (style.fontFamily) parts.push(style.fontFamily);
+  return parts.join(' · ');
+}
+
 export default function TextStyles() {
   const [copiedClass, setCopiedClass] = useState<string | null>(null);
 
@@ -17,504 +112,39 @@ export default function TextStyles() {
         Les styles de texte (typographie) générés depuis Figma.
       </p>
 
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Headings
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-1')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
+      {sections.map((section) => (
+        <section key={section.title} className="tokens-section">
+          <h2
+            className="heading-6"
+            style={{
+              marginTop: '32px',
+              marginBottom: '16px',
+              color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+            }}
           >
-            <p className="heading-1">Heading 1</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-1' ? '✓ Copied!' : '.heading-1'}
-              </code>
-            </div>
+            {section.title}
+          </h2>
+          <div className="text-styles-list">
+            {section.styles.map((style) => (
+              <div
+                key={style.className}
+                className="token-item clickable"
+                onClick={() => copyClassName(style.className)}
+                style={{ cursor: 'pointer' }}
+                title="Click to copy class name"
+              >
+                <p className={style.className}>{style.label}</p>
+                <div className="token-item__right">
+                  <code className="token-code">
+                    {copiedClass === style.className ? '✓ Copied!' : `.${style.className}`}
+                  </code>
+                  <span className="token-specs">{formatSpecs(style)}</span>
+                </div>
+              </div>
+            ))}
           </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-1')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-1">Subheading 1</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-1' ? '✓ Copied!' : '.subheading-1'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-2')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="heading-2">Heading 2</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-2' ? '✓ Copied!' : '.heading-2'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-2')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-2">Subheading 2</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-2' ? '✓ Copied!' : '.subheading-2'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-3')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="heading-3">Heading 3</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-3' ? '✓ Copied!' : '.heading-3'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-3')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-3">Subheading 3</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-3' ? '✓ Copied!' : '.subheading-3'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-4')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="heading-4">Heading 4</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-4' ? '✓ Copied!' : '.heading-4'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-4')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-4">Subheading 4</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-4' ? '✓ Copied!' : '.subheading-4'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-5')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="heading-5">Heading 5</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-5' ? '✓ Copied!' : '.heading-5'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-5')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-5">Subheading 5</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-5' ? '✓ Copied!' : '.subheading-5'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('heading-6')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="heading-6">Heading 6</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'heading-6' ? '✓ Copied!' : '.heading-6'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('subheading-6')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="subheading-6">Subheading 6</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'subheading-6' ? '✓ Copied!' : '.subheading-6'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Labels - Large
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-bold-l')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-bold-l">Label Bold L</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-bold-l' ? '✓ Copied!' : '.label-bold-l'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-medium-l')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-medium-l">Label Medium L</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-medium-l' ? '✓ Copied!' : '.label-medium-l'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-regular-l')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-regular-l">Label Regular L</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-regular-l' ? '✓ Copied!' : '.label-regular-l'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-light-l')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-light-l">Label Light L</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-light-l' ? '✓ Copied!' : '.label-light-l'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Labels - Medium
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-bold-m')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-bold-m">Label Bold M</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-bold-m' ? '✓ Copied!' : '.label-bold-m'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-medium-m')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-medium-m">Label Medium M</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-medium-m' ? '✓ Copied!' : '.label-medium-m'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-regular-m')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-regular-m">Label Regular M</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-regular-m' ? '✓ Copied!' : '.label-regular-m'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-light-m')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-light-m">Label Light M</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-light-m' ? '✓ Copied!' : '.label-light-m'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Labels - Small
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-bold-s')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-bold-s">Label Bold S</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-bold-s' ? '✓ Copied!' : '.label-bold-s'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-medium-s')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-medium-s">Label Medium S</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-medium-s' ? '✓ Copied!' : '.label-medium-s'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-regular-s')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-regular-s">Label Regular S</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-regular-s' ? '✓ Copied!' : '.label-regular-s'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-light-s')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-light-s">Label Light S</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-light-s' ? '✓ Copied!' : '.label-light-s'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Labels - Extra Small
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-bold-xs')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-bold-xs">Label Bold XS</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-bold-xs' ? '✓ Copied!' : '.label-bold-xs'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-medium-xs')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-medium-xs">Label Medium XS</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-medium-xs' ? '✓ Copied!' : '.label-medium-xs'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-regular-xs')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-regular-xs">Label Regular XS</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-regular-xs' ? '✓ Copied!' : '.label-regular-xs'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('label-light-xs')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="label-light-xs">Label Light XS</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'label-light-xs' ? '✓ Copied!' : '.label-light-xs'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          Legends
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('legend-bold')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="legend-bold">Legend Bold</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'legend-bold' ? '✓ Copied!' : '.legend-bold'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('legend-medium')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="legend-medium">Legend Medium</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'legend-medium' ? '✓ Copied!' : '.legend-medium'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="tokens-section">
-        <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-          System (Monospace)
-        </h2>
-        <div className="text-styles-list">
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('system-l')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="system-l">System L</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'system-l' ? '✓ Copied!' : '.system-l'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('system-m')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="system-m">System M</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'system-m' ? '✓ Copied!' : '.system-m'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('system-s')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="system-s">System S</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'system-s' ? '✓ Copied!' : '.system-s'}
-              </code>
-            </div>
-          </div>
-          <div
-            className="token-item clickable"
-            onClick={() => copyClassName('system-xs')}
-            style={{ cursor: 'pointer' }}
-            title="Click to copy class name"
-          >
-            <p className="system-xs">System XS</p>
-            <div>
-              <code className="token-code">
-                {copiedClass === 'system-xs' ? '✓ Copied!' : '.system-xs'}
-              </code>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
     </div>
   );
 }
-
