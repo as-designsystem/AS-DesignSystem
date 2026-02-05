@@ -1,6 +1,9 @@
 .aircraft-selector-demo {
   width: 100%;
   height: 480px;
+  padding: 16px;
   border-radius: 4px;
   overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--background-secondary, #fafafa);
 }
