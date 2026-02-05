@@ -122,6 +122,8 @@
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
+  border: 1px solid var(--border-minimal, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
 }
 
 /* Empty state */
