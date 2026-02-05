@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { EmptyState, Button, Tab, type EmptyStateIllustration } from '@as-design-system/core';
+import { EmptyState, Button, Tab, Icon, type EmptyStateIllustration } from '@as-design-system/core';
 import '@as-design-system/core/EmptyState.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
+import '@as-design-system/core/Icon.css';
 import CodeModal from '../components/CodeModal';
 
 const availableIllustrations: EmptyStateIllustration[] = ['Box', 'Folder', 'Mail', 'Bell', 'Document', 'Image'];
@@ -24,6 +25,20 @@ import '@as-design-system/core/Button.css';
       <Button variant="Outlined" label="ADD AIRCRAFT" leftIcon="add" />
       <Button variant="Default" label="IMPORT FLEET" leftIcon="download" />
     </>
+  }
+/>`;
+
+  const customIconCode = `import { EmptyState, Button, Icon } from '@as-design-system/core';
+import '@as-design-system/core/EmptyState.css';
+import '@as-design-system/core/Button.css';
+import '@as-design-system/core/Icon.css';
+
+<EmptyState
+  icon={<Icon name="search" size={80} />}
+  title="No results found"
+  description="Try adjusting your search or filters"
+  actions={
+    <Button variant="Outlined" label="CLEAR FILTERS" leftIcon="close" />
   }
 />`;
 
@@ -107,6 +122,46 @@ import '@as-design-system/core/Button.css';
                     <Button variant="Outlined" label="ADD AIRCRAFT" leftIcon="add" />
                     <Button variant="Default" label="IMPORT FLEET" leftIcon="download" />
                   </>
+                }
+              />
+            </div>
+          </section>
+
+          {/* Custom Icon Example */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Custom Icon
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('custom')}
+              />
+            </div>
+            <div
+              className="example-container"
+              style={{
+                padding: '48px 24px',
+                backgroundColor: 'var(--background-main, #ffffff)',
+                border: '1px solid var(--border-minimal, #eff1f4)',
+              }}
+            >
+              <EmptyState
+                icon={<Icon name="search" size={80} />}
+                title="No results found"
+                description="Try adjusting your search or filters"
+                actions={
+                  <Button variant="Outlined" label="CLEAR FILTERS" leftIcon="close" />
                 }
               />
             </div>
@@ -249,12 +304,18 @@ import '@as-design-system/core/Button.css';
         </>
       )}
 
-      {/* Modal */}
+      {/* Modals */}
       <CodeModal
         isOpen={openModal === 'basic'}
         onClose={() => setOpenModal(null)}
         title="EmptyState"
         code={basicCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'custom'}
+        onClose={() => setOpenModal(null)}
+        title="EmptyState with Custom Icon"
+        code={customIconCode}
       />
     </div>
   );
