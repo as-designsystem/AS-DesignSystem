@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { EmptyState, Button, Tab, Icon, type EmptyStateIllustration } from '@as-design-system/core';
+import { EmptyState, Button, Tab, Icon, emptyStateIllustrations, type EmptyStateIllustration } from '@as-design-system/core';
 import '@as-design-system/core/EmptyState.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Icon.css';
 import CodeModal from '../components/CodeModal';
 
-const availableIllustrations: EmptyStateIllustration[] = ['Box', 'Folder', 'Mail', 'Bell', 'Document', 'Image'];
+const illustrationNames: EmptyStateIllustration[] = ['Box', 'Folder', 'Mail', 'Bell', 'Document', 'Image'];
 
 export default function EmptyStatePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
@@ -187,13 +187,13 @@ import '@as-design-system/core/Icon.css';
                 border: '1px solid var(--border-minimal, #eff1f4)',
               }}
             >
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
-                {availableIllustrations.map((name) => (
-                  <div key={name} style={{ textAlign: 'center', width: '80px' }}>
-                    <div style={{ transform: 'scale(0.6)', transformOrigin: 'top center', height: '70px' }}>
-                      <EmptyState illustration={name} title="" />
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'center' }}>
+                {illustrationNames.map((name) => (
+                  <div key={name} style={{ textAlign: 'center' }}>
+                    <div style={{ width: '64px', height: '64px', color: 'var(--text-tertiary, #8e99ab)' }}>
+                      {emptyStateIllustrations[name]}
                     </div>
-                    <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{name}</p>
+                    <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--text-secondary)' }}>{name}</p>
                   </div>
                 ))}
               </div>
