@@ -2,6 +2,7 @@ import React from 'react';
 import './EmptyState.css';
 
 export type EmptyStateIllustration = 'Box' | 'Folder' | 'Mail' | 'Bell' | 'Document' | 'Image';
+export type EmptyStateSize = 'M' | 'S' | 'XS';
 
 // Built-in illustrations
 export const emptyStateIllustrations: Record<EmptyStateIllustration, React.ReactNode> = {
@@ -44,6 +45,11 @@ export const emptyStateIllustrations: Record<EmptyStateIllustration, React.React
 };
 
 export interface EmptyStateProps {
+  /**
+   * Size variant of the empty state
+   * @default 'M'
+   */
+  size?: EmptyStateSize;
   /**
    * Built-in illustration name. Use this OR icon prop, not both.
    */
@@ -100,6 +106,7 @@ export interface EmptyStateProps {
  * ```
  */
 export function EmptyState({
+  size = 'M',
   illustration,
   icon,
   title,
@@ -107,7 +114,11 @@ export function EmptyState({
   actions,
   className,
 }: EmptyStateProps) {
-  const classes = ['empty-state', className].filter(Boolean).join(' ');
+  const classes = [
+    'empty-state',
+    `empty-state--${size.toLowerCase()}`,
+    className,
+  ].filter(Boolean).join(' ');
 
   // Use illustration prop if provided, otherwise fall back to icon prop
   const displayIcon = illustration ? emptyStateIllustrations[illustration] : icon;

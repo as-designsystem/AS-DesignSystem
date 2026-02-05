@@ -127,6 +127,73 @@ import '@as-design-system/core/Icon.css';
             </div>
           </section>
 
+          {/* Sizes */}
+          <section className="component-section">
+            <h2
+              className="heading-6"
+              style={{
+                marginTop: '32px',
+                marginBottom: '16px',
+                color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+              }}
+            >
+              Sizes
+            </h2>
+            <div
+              className="example-container"
+              style={{
+                padding: '24px',
+                backgroundColor: 'var(--background-main, #ffffff)',
+                border: '1px solid var(--border-minimal, #eff1f4)',
+                display: 'flex',
+                gap: '48px',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+              }}
+            >
+              {/* Size M */}
+              <div style={{ flex: '1', minWidth: '280px', maxWidth: '400px' }}>
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px', textAlign: 'center' }}>Size M (default)</p>
+                <EmptyState
+                  size="M"
+                  illustration="Folder"
+                  title="No files yet"
+                  description="Upload your first file to get started"
+                  actions={
+                    <Button variant="Default" label="UPLOAD" leftIcon="add" size="M" />
+                  }
+                />
+              </div>
+              {/* Size S */}
+              <div style={{ flex: '1', minWidth: '240px', maxWidth: '320px' }}>
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px', textAlign: 'center' }}>Size S</p>
+                <EmptyState
+                  size="S"
+                  illustration="Mail"
+                  title="No messages"
+                  description="Your inbox is empty"
+                  actions={
+                    <Button variant="Default" label="COMPOSE" leftIcon="add" size="S" />
+                  }
+                />
+              </div>
+              {/* Size XS */}
+              <div style={{ flex: '1', minWidth: '200px', maxWidth: '260px' }}>
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px', textAlign: 'center' }}>Size XS</p>
+                <EmptyState
+                  size="XS"
+                  illustration="Bell"
+                  title="No notifications"
+                  description="You're all caught up"
+                  actions={
+                    <Button variant="Outlined" label="SETTINGS" size="XS" />
+                  }
+                />
+              </div>
+            </div>
+          </section>
+
           {/* Custom Icon Example */}
           <section className="component-section">
             <div className="section-header">
@@ -279,6 +346,12 @@ import '@as-design-system/core/Icon.css';
                   </tr>
                 </thead>
                 <tbody>
+                  <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
+                    <td style={{ padding: '12px 8px' }}><code>size</code></td>
+                    <td style={{ padding: '12px 8px' }}>'M' | 'S' | 'XS'</td>
+                    <td style={{ padding: '12px 8px' }}>'M'</td>
+                    <td style={{ padding: '12px 8px' }}>Size variant</td>
+                  </tr>
                   <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
                     <td style={{ padding: '12px 8px' }}><code>illustration</code></td>
                     <td style={{ padding: '12px 8px' }}>'Box' | 'Folder' | 'Mail' | 'Bell' | 'Document' | 'Image'</td>
