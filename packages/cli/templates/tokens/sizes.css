@@ -1,0 +1,14 @@
+/**
+ * Size CSS Variables
+ * Standard component height scale used across the design system
+ * Generated from Figma - AS Common UI Kit
+ */
+
+:root {
+  --size-2xs: 20px;
+  --size-xs: 24px;
+  --size-s: 32px;
+  --size-m: 40px;
+  --size-l: 48px;
+  --size-xl: 56px;
+}
