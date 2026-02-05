@@ -512,7 +512,7 @@ const [perfSource, setPerfSource] = useState<'FMS' | 'BADA'>('FMS');
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="aircraft-selector-demo">
+            <div className="example-container" style={{ height: '480px' }}>
               <AircraftSelector
                 sources={mockSources}
                 selectedNodeId={selectedNodeId}
@@ -548,7 +548,7 @@ const [perfSource, setPerfSource] = useState<'FMS' | 'BADA'>('FMS');
                 onClick={() => setOpenModal('empty')}
               />
             </div>
-            <div className="aircraft-selector-demo">
+            <div className="example-container" style={{ height: '480px' }}>
               <AircraftSelector
                 sources={mockSources}
                 emptyStateText="Select an Aircraft"
