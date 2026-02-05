@@ -299,4 +299,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'empty-state',
+    type: 'composite',
+    displayName: 'EmptyState',
+    description: 'Placeholder component for empty content with illustration, title, description, and action buttons',
+    files: [
+      {
+        path: 'templates/composites/EmptyState.tsx',
+        target: 'composites/EmptyState.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/EmptyState.css',
+        target: 'composites/EmptyState.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];
