@@ -287,8 +287,8 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
   --ag-header-foreground-color: var(--text-negative, #ffffff);
 
   /* Rows */
-  --ag-row-hover-color: var(--primary-t-hover);
-  --ag-selected-row-background-color: var(--primary-t-active);
+  --ag-row-hover-color: rgba(0, 45, 128, 0.02);
+  --ag-selected-row-background-color: rgba(0, 45, 128, 0.05);
 
   /* Checkbox */
   --ag-checkbox-checked-color: var(--primary-default, #063b9e);
@@ -478,7 +478,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                     style={{
                       flex: 1,
                       height: '40px',
-                      backgroundColor: 'rgba(0, 45, 128, 0.05)',
+                      backgroundColor: 'rgba(0, 45, 128, 0.02)',
                       borderBottom: '1px solid var(--border-minimal)',
                     }}
                   />
@@ -497,7 +497,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                     style={{
                       flex: 1,
                       height: '40px',
-                      backgroundColor: 'rgba(0, 45, 128, 0.1)',
+                      backgroundColor: 'rgba(0, 45, 128, 0.05)',
                       borderBottom: '1px solid var(--border-minimal)',
                     }}
                   />

@@ -35,8 +35,8 @@
 
   /* Rows */
   --ag-odd-row-background-color: var(--background-main, #ffffff);
-  --ag-row-hover-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
-  --ag-selected-row-background-color: var(--primary-t-active, rgba(0, 45, 128, 0.1));
+  --ag-row-hover-color: rgba(0, 45, 128, 0.02);
+  --ag-selected-row-background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
 
   /* Selection */
   --ag-range-selection-border-color: var(--primary-default, #063b9e);
