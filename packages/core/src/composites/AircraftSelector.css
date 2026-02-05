@@ -119,10 +119,8 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  margin: 16px;
   overflow: hidden;
   border: 1px solid var(--border-minimal, #eff1f4);
-  border-radius: var(--radius-xs, 3px);
 }
 
 /* Empty state */
