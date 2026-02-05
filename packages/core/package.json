@@ -53,6 +53,7 @@
     "./DropdownMenu.css": "./dist/DropdownMenu.css",
     "./Calendar.css": "./dist/Calendar.css",
     "./AircraftSelector.css": "./dist/AircraftSelector.css",
+    "./EmptyState.css": "./dist/EmptyState.css",
     "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
   },
   "scripts": {

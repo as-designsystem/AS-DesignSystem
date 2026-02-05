@@ -46,6 +46,7 @@ import Colors from './pages/Colors';
 import Icons from './pages/Icons';
 import SizeRadius from './pages/SizeRadius';
 import AgGridTablePage from './pages/AgGridTable';
+import EmptyStatePage from './pages/EmptyState';
 
 function App() {
   return (
@@ -88,6 +89,7 @@ function App() {
               <Route path="/components/avatar" element={<AvatarPage />} />
               <Route path="/components/chip" element={<ChipPage />} />
               <Route path="/components/dropdown-menu" element={<DropdownMenuPage />} />
+              <Route path="/components/empty-state" element={<EmptyStatePage />} />
               <Route path="/composites" element={<Navigate to="/composites/modal" replace />} />
               <Route path="/composites/modal" element={<Modal />} />
               <Route path="/composites/app-header" element={<AppHeader />} />

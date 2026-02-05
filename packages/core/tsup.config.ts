@@ -45,7 +45,7 @@ export default defineConfig({
     });
 
     // Copy composite CSS files to dist
-    const compositeCssFiles = ['Modal.css', 'AppHeader.css', 'ProductBanner.css', 'HomePageActionBar.css', 'PanelHeader.css', 'LeftPanel.css', 'StudyStatusBar.css', 'Accordion.css', 'Workspace.css', 'ToolTile.css', 'Calendar.css', 'AircraftSelector.css'];
+    const compositeCssFiles = ['Modal.css', 'AppHeader.css', 'ProductBanner.css', 'HomePageActionBar.css', 'PanelHeader.css', 'LeftPanel.css', 'StudyStatusBar.css', 'Accordion.css', 'Workspace.css', 'ToolTile.css', 'Calendar.css', 'AircraftSelector.css', 'EmptyState.css'];
     compositeCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'composites', file);
       const distCss = join(process.cwd(), 'dist', file);
