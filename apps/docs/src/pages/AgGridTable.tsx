@@ -142,21 +142,27 @@ export default function AgGridTablePage() {
     { aircraft: 'B777-300ER', manufacturer: 'Boeing', range: 13650, capacity: 396, status: 'maintenance' },
   ], []);
 
+  // Default column definition with filter enabled
+  const defaultColDef = useMemo(() => ({
+    filter: true,
+    floatingFilter: false,
+  }), []);
+
   // Column definitions for default table (size S components)
   const defaultColDefs = useMemo(() => [
-    { headerCheckboxSelection: true, checkboxSelection: true, width: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false },
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererS },
+    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererS, filter: 'agNumberColumnFilter' },
     { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRendererS },
   ], []);
 
   // Column definitions for small table (size XS components)
   const smallColDefs = useMemo(() => [
-    { headerCheckboxSelection: true, checkboxSelection: true, width: 44, maxWidth: 44, suppressSizeToFit: true, resizable: false },
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 44, maxWidth: 44, suppressSizeToFit: true, resizable: false, filter: false },
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererXS },
+    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererXS, filter: 'agNumberColumnFilter' },
     { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRendererXS },
   ], []);
 
@@ -224,11 +230,16 @@ const MyTable = () => {
     { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, status: 'maintenance' },
   ], []);
 
+  // Enable filtering on all columns by default
+  const defaultColDef = useMemo(() => ({
+    filter: true,
+  }), []);
+
   const colDefs = useMemo(() => [
-    { headerCheckboxSelection: true, checkboxSelection: true, width: 50 },
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 50, filter: false },
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range', flex: 1, cellRenderer: NumberInputCellRenderer },
+    { field: 'range', headerName: 'Range', flex: 1, cellRenderer: NumberInputCellRenderer, filter: 'agNumberColumnFilter' },
     { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRenderer },
   ], []);
 
@@ -238,6 +249,7 @@ const MyTable = () => {
         className="as-ag-grid"
         rowData={rowData}
         columnDefs={colDefs}
+        defaultColDef={defaultColDef}
         rowSelection="multiple"
         suppressRowClickSelection={true}
       />
@@ -363,6 +375,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid"
                 rowData={rowData}
                 columnDefs={defaultColDefs}
+                defaultColDef={defaultColDef}
                 rowSelection="multiple"
                 suppressRowClickSelection={true}
                 cellSelection={false}
@@ -405,6 +418,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid as-ag-grid--small"
                 rowData={rowData.slice(0, 4)}
                 columnDefs={smallColDefs}
+                defaultColDef={defaultColDef}
                 rowSelection="multiple"
                 suppressRowClickSelection={true}
               />
@@ -420,110 +434,6 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
             </p>
           </section>
 
-          {/* Row States */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Row States
-              </h2>
-            </div>
-            <div className="example-container">
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  padding: '16px',
-                  backgroundColor: 'var(--background-secondary, #fafafa)',
-                  borderRadius: '4px',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    style={{
-                      width: '100px',
-                      fontSize: '12px',
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    Default
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: '40px',
-                      backgroundColor: '#ffffff',
-                      borderBottom: '1px solid var(--border-minimal)',
-                    }}
-                  />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    style={{
-                      width: '100px',
-                      fontSize: '12px',
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    Hover
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: '40px',
-                      backgroundColor: 'rgba(0, 45, 128, 0.02)',
-                      borderBottom: '1px solid var(--border-minimal)',
-                    }}
-                  />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    style={{
-                      width: '100px',
-                      fontSize: '12px',
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    Selected
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: '40px',
-                      backgroundColor: 'rgba(0, 45, 128, 0.05)',
-                      borderBottom: '1px solid var(--border-minimal)',
-                    }}
-                  />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span
-                    style={{
-                      width: '100px',
-                      fontSize: '12px',
-                      color: 'var(--text-secondary)',
-                    }}
-                  >
-                    Alternating
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: '40px',
-                      backgroundColor: '#fafafa',
-                      borderBottom: '1px solid var(--border-minimal)',
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
         </>
       )}
 

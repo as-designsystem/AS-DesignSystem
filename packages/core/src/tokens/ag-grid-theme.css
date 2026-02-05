@@ -107,14 +107,29 @@
   opacity: 1;
 }
 
-/* Filter icon in header */
-.as-ag-grid .ag-header-cell-menu-button {
-  opacity: 0;
-  transition: opacity 0.15s ease;
+/* Filter icon in header - only show on hover */
+.as-ag-grid .ag-header-cell-menu-button,
+.as-ag-grid .ag-header-cell-filter-button,
+.as-ag-grid .ag-floating-filter-button,
+.as-ag-grid .ag-header-icon {
+  opacity: 0 !important;
 }
 
-.as-ag-grid .ag-header-cell:hover .ag-header-cell-menu-button {
-  opacity: 1;
+.as-ag-grid .ag-header-cell:hover .ag-header-cell-menu-button,
+.as-ag-grid .ag-header-cell:hover .ag-header-cell-filter-button,
+.as-ag-grid .ag-header-cell:hover .ag-floating-filter-button,
+.as-ag-grid .ag-header-cell:hover .ag-header-icon {
+  opacity: 1 !important;
+}
+
+/* Filter icon styling - primary color */
+.as-ag-grid .ag-header-icon {
+  color: var(--primary-default, #063b9e) !important;
+  border-radius: var(--radius-xs, 3px);
+}
+
+.as-ag-grid .ag-header-icon:hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
 }
 
 /* ===== ROWS ===== */
@@ -317,7 +332,6 @@
 .as-ag-grid .ag-header-cell-resize::after {
   width: 2px;
   background-color: transparent;
-  transition: background-color 0.15s ease;
 }
 
 .as-ag-grid .ag-header-cell:hover .ag-header-cell-resize::after {
