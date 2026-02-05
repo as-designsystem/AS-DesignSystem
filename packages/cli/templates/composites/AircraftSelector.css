@@ -9,9 +9,8 @@
   width: 100%;
   height: 100%;
   padding: 16px;
+  gap: 16px;
   background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #eff1f4);
-  border-radius: var(--radius-xs, 3px);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -23,7 +22,9 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border-minimal, #eff1f4);
+  border: 1px solid var(--border-minimal, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
+  overflow: hidden;
 }
 
 /* Source tabs (RDM / Custom) */
