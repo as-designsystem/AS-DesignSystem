@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@as-design-system/core": "workspace:*",
+    "ag-grid-community": "^35.0.1",
+    "ag-grid-react": "^35.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",

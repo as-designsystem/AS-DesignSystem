@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
-import { Tab, Button } from '@as-design-system/core';
+import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
+import { Tab, Button, NumberInput, Select } from '@as-design-system/core';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/NumberInput.css';
+import '@as-design-system/core/Select.css';
 import '@as-design-system/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 
@@ -17,6 +19,68 @@ interface RowData {
   capacity: number;
   price: number;
 }
+
+interface EditableRowData {
+  aircraft: string;
+  manufacturer: string;
+  range: number;
+  status: string;
+}
+
+// Custom cell renderer for NumberInput
+const NumberInputCellRenderer = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+
+  const handleChange = (newValue: number | null) => {
+    setValue(newValue);
+    if (props.node && props.colDef?.field) {
+      props.node.setDataValue(props.colDef.field, newValue);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
+      <NumberInput
+        value={value}
+        onChange={handleChange}
+        size="S"
+        min={0}
+        max={20000}
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+};
+
+// Custom cell renderer for Select
+const SelectCellRenderer = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+
+  const options = [
+    { value: 'active', label: 'Active' },
+    { value: 'maintenance', label: 'Maintenance' },
+    { value: 'retired', label: 'Retired' },
+  ];
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
+    if (props.node && props.colDef?.field) {
+      props.node.setDataValue(props.colDef.field, newValue);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
+      <Select
+        value={value}
+        onChange={handleChange}
+        options={options}
+        size="S"
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+};
 
 export default function AgGridTablePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
@@ -48,6 +112,22 @@ export default function AgGridTablePage() {
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
     { field: 'range', headerName: 'Range (km)', flex: 1 },
+  ], []);
+
+  // Editable data with DS components
+  const [editableData, setEditableData] = useState<EditableRowData[]>([
+    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, status: 'active' },
+    { aircraft: 'A321neo', manufacturer: 'Airbus', range: 7400, status: 'maintenance' },
+    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, status: 'active' },
+    { aircraft: 'B787-9', manufacturer: 'Boeing', range: 14140, status: 'retired' },
+  ]);
+
+  // Column definitions with custom DS components
+  const editableColDefs = useMemo(() => [
+    { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
+    { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
+    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRenderer },
+    { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRenderer },
   ], []);
 
   const installCode = `# Install AG-Grid
@@ -94,6 +174,52 @@ const MyTable = () => {
   rowData={rowData}
   columnDefs={colDefs}
 />`;
+
+  const componentsCode = `import { NumberInput, Select } from '@as-design-system/core';
+import { ICellRendererParams } from 'ag-grid-community';
+
+// Custom cell renderer for NumberInput
+const NumberInputCellRenderer = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+
+  const handleChange = (newValue: number | null) => {
+    setValue(newValue);
+    props.node.setDataValue(props.colDef.field, newValue);
+  };
+
+  return (
+    <NumberInput
+      value={value}
+      onChange={handleChange}
+      size="S"
+    />
+  );
+};
+
+// Custom cell renderer for Select
+const SelectCellRenderer = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+  const options = [
+    { value: 'active', label: 'Active' },
+    { value: 'maintenance', label: 'Maintenance' },
+  ];
+
+  return (
+    <Select
+      value={value}
+      onChange={setValue}
+      options={options}
+      size="S"
+    />
+  );
+};
+
+// Column definitions
+const colDefs = [
+  { field: 'aircraft', headerName: 'Aircraft' },
+  { field: 'range', headerName: 'Range', cellRenderer: NumberInputCellRenderer },
+  { field: 'status', headerName: 'Status', cellRenderer: SelectCellRenderer },
+];`;
 
   const cssVariablesCode = `/* Available CSS variables for customization */
 
@@ -246,6 +372,46 @@ const MyTable = () => {
               }}
             >
               Compact table with 32px row height. Add the class <code>as-ag-grid--small</code>.
+            </p>
+          </section>
+
+          {/* With DS Components */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                With DS Components
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('components')}
+              />
+            </div>
+            <div className="example-container" style={{ height: 220 }}>
+              <AgGridReact
+                className="as-ag-grid"
+                rowData={editableData}
+                columnDefs={editableColDefs}
+                rowHeight={48}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginTop: '12px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Use custom cell renderers with DS components like <code>NumberInput</code> and <code>Select</code>.
             </p>
           </section>
 
@@ -505,6 +671,12 @@ const MyTable = () => {
         onClose={() => setOpenModal(null)}
         title="CSS Variables"
         code={cssVariablesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'components'}
+        onClose={() => setOpenModal(null)}
+        title="With DS Components"
+        code={componentsCode}
       />
     </div>
   );
