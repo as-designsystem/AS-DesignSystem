@@ -17,18 +17,17 @@ interface RowData {
   manufacturer: string;
   range: number;
   capacity: number;
-  price: number;
-}
-
-interface EditableRowData {
-  aircraft: string;
-  manufacturer: string;
-  range: number;
   status: string;
 }
 
-// Custom cell renderer for NumberInput
-const NumberInputCellRenderer = (props: ICellRendererParams) => {
+const statusOptions = [
+  { value: 'active', label: 'Active' },
+  { value: 'maintenance', label: 'Maintenance' },
+  { value: 'retired', label: 'Retired' },
+];
+
+// Custom cell renderer for NumberInput - Size S (Default table)
+const NumberInputCellRendererS = (props: ICellRendererParams) => {
   const [value, setValue] = useState(props.value);
 
   const handleChange = (newValue: number | null) => {
@@ -53,15 +52,9 @@ const NumberInputCellRenderer = (props: ICellRendererParams) => {
   );
 };
 
-// Custom cell renderer for Select
-const SelectCellRenderer = (props: ICellRendererParams) => {
+// Custom cell renderer for Select - Size S (Default table)
+const SelectCellRendererS = (props: ICellRendererParams) => {
   const [value, setValue] = useState(props.value);
-
-  const options = [
-    { value: 'active', label: 'Active' },
-    { value: 'maintenance', label: 'Maintenance' },
-    { value: 'retired', label: 'Retired' },
-  ];
 
   const handleChange = (newValue: string) => {
     setValue(newValue);
@@ -75,8 +68,59 @@ const SelectCellRenderer = (props: ICellRendererParams) => {
       <Select
         value={value}
         onChange={handleChange}
-        options={options}
+        options={statusOptions}
         size="S"
+        showLabel={false}
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+};
+
+// Custom cell renderer for NumberInput - Size XS (Small table)
+const NumberInputCellRendererXS = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+
+  const handleChange = (newValue: number | null) => {
+    setValue(newValue);
+    if (props.node && props.colDef?.field) {
+      props.node.setDataValue(props.colDef.field, newValue);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+      <NumberInput
+        value={value}
+        onChange={handleChange}
+        size="XS"
+        min={0}
+        max={20000}
+        showLabel={false}
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+};
+
+// Custom cell renderer for Select - Size XS (Small table)
+const SelectCellRendererXS = (props: ICellRendererParams) => {
+  const [value, setValue] = useState(props.value);
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
+    if (props.node && props.colDef?.field) {
+      props.node.setDataValue(props.colDef.field, newValue);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+      <Select
+        value={value}
+        onChange={handleChange}
+        options={statusOptions}
+        size="XS"
         showLabel={false}
         style={{ width: '100%' }}
       />
@@ -90,46 +134,30 @@ export default function AgGridTablePage() {
 
   // Sample data
   const rowData = useMemo<RowData[]>(() => [
-    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, capacity: 180, price: 101000000 },
-    { aircraft: 'A321neo', manufacturer: 'Airbus', range: 7400, capacity: 244, price: 129500000 },
-    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, capacity: 189, price: 106100000 },
-    { aircraft: 'B787-9', manufacturer: 'Boeing', range: 14140, capacity: 296, price: 292500000 },
-    { aircraft: 'A350-900', manufacturer: 'Airbus', range: 15000, capacity: 325, price: 317400000 },
-    { aircraft: 'B777-300ER', manufacturer: 'Boeing', range: 13650, capacity: 396, price: 375500000 },
+    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, capacity: 180, status: 'active' },
+    { aircraft: 'A321neo', manufacturer: 'Airbus', range: 7400, capacity: 244, status: 'maintenance' },
+    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, capacity: 189, status: 'active' },
+    { aircraft: 'B787-9', manufacturer: 'Boeing', range: 14140, capacity: 296, status: 'retired' },
+    { aircraft: 'A350-900', manufacturer: 'Airbus', range: 15000, capacity: 325, status: 'active' },
+    { aircraft: 'B777-300ER', manufacturer: 'Boeing', range: 13650, capacity: 396, status: 'maintenance' },
   ], []);
 
-  // Column definitions for default table
+  // Column definitions for default table (size S components)
   const defaultColDefs = useMemo(() => [
     { headerCheckboxSelection: true, checkboxSelection: true, width: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false },
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1 },
-    { field: 'capacity', headerName: 'Capacity', flex: 1 },
-    { field: 'price', headerName: 'Price (USD)', flex: 1, valueFormatter: (p: { value: number }) => p.value?.toLocaleString() },
+    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererS },
+    { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRendererS },
   ], []);
 
-  // Column definitions for small table (with checkboxes)
+  // Column definitions for small table (size XS components)
   const smallColDefs = useMemo(() => [
     { headerCheckboxSelection: true, checkboxSelection: true, width: 44, maxWidth: 44, suppressSizeToFit: true, resizable: false },
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1 },
-  ], []);
-
-  // Editable data with DS components
-  const [editableData, setEditableData] = useState<EditableRowData[]>([
-    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, status: 'active' },
-    { aircraft: 'A321neo', manufacturer: 'Airbus', range: 7400, status: 'maintenance' },
-    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, status: 'active' },
-    { aircraft: 'B787-9', manufacturer: 'Boeing', range: 14140, status: 'retired' },
-  ]);
-
-  // Column definitions with custom DS components
-  const editableColDefs = useMemo(() => [
-    { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
-    { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRenderer },
-    { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRenderer },
+    { field: 'range', headerName: 'Range (km)', flex: 1, cellRenderer: NumberInputCellRendererXS },
+    { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRendererXS },
   ], []);
 
   const installCode = `# Install AG-Grid
@@ -139,46 +167,12 @@ npm install ag-grid-community ag-grid-react
 
   const basicUsageCode = `import { useState, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
+import { NumberInput, Select } from '@as-design-system/core';
 import '@as-design-system/core/ag-grid-theme.css';
 
 // Register AG-Grid modules
 ModuleRegistry.registerModules([AllCommunityModule]);
-
-const MyTable = () => {
-  const rowData = useMemo(() => [
-    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100 },
-    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765 },
-    { aircraft: 'A350-900', manufacturer: 'Airbus', range: 15000 },
-  ], []);
-
-  const colDefs = useMemo(() => [
-    { field: 'aircraft', headerCheckboxSelection: true, checkboxSelection: true },
-    { field: 'manufacturer' },
-    { field: 'range' },
-  ], []);
-
-  return (
-    <div style={{ height: 300 }}>
-      <AgGridReact
-        className="as-ag-grid"
-        rowData={rowData}
-        columnDefs={colDefs}
-        rowSelection="multiple"
-        suppressRowClickSelection={true}
-      />
-    </div>
-  );
-};`;
-
-  const smallSizeCode = `<AgGridReact
-  className="as-ag-grid as-ag-grid--small"
-  rowData={rowData}
-  columnDefs={colDefs}
-/>`;
-
-  const componentsCode = `import { NumberInput, Select } from '@as-design-system/core';
-import { ICellRendererParams } from 'ag-grid-community';
 
 // Custom cell renderer for NumberInput
 const NumberInputCellRenderer = (props: ICellRendererParams) => {
@@ -224,12 +218,53 @@ const SelectCellRenderer = (props: ICellRendererParams) => {
   );
 };
 
-// Column definitions
-const colDefs = [
-  { field: 'aircraft', headerName: 'Aircraft' },
-  { field: 'range', headerName: 'Range', cellRenderer: NumberInputCellRenderer },
-  { field: 'status', headerName: 'Status', cellRenderer: SelectCellRenderer },
-];`;
+const MyTable = () => {
+  const rowData = useMemo(() => [
+    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, status: 'active' },
+    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, status: 'maintenance' },
+  ], []);
+
+  const colDefs = useMemo(() => [
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 50 },
+    { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
+    { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
+    { field: 'range', headerName: 'Range', flex: 1, cellRenderer: NumberInputCellRenderer },
+    { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRenderer },
+  ], []);
+
+  return (
+    <div style={{ height: 300 }}>
+      <AgGridReact
+        className="as-ag-grid"
+        rowData={rowData}
+        columnDefs={colDefs}
+        rowSelection="multiple"
+        suppressRowClickSelection={true}
+      />
+    </div>
+  );
+};`;
+
+  const smallSizeCode = `// For small tables, use size="XS" for DS components
+const NumberInputCellRendererXS = (props: ICellRendererParams) => {
+  // ... same as above but with size="XS"
+  return (
+    <NumberInput size="XS" showLabel={false} ... />
+  );
+};
+
+const SelectCellRendererXS = (props: ICellRendererParams) => {
+  // ... same as above but with size="XS"
+  return (
+    <Select size="XS" showLabel={false} ... />
+  );
+};
+
+<AgGridReact
+  className="as-ag-grid as-ag-grid--small"
+  rowData={rowData}
+  columnDefs={colDefs}
+/>`;
 
   const cssVariablesCode = `/* Available CSS variables for customization */
 
@@ -340,7 +375,7 @@ const colDefs = [
                 color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
               }}
             >
-              Default table with 40px row height. Use the class <code>as-ag-grid</code>.
+              Default table with 40px row height. Use <code>as-ag-grid</code> class and size <code>S</code> for DS components.
             </p>
           </section>
 
@@ -381,47 +416,7 @@ const colDefs = [
                 color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
               }}
             >
-              Compact table with 32px row height. Add the class <code>as-ag-grid--small</code>.
-            </p>
-          </section>
-
-          {/* With DS Components */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                With DS Components
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('components')}
-              />
-            </div>
-            <div className="example-container" style={{ height: 220 }}>
-              <AgGridReact
-                className="as-ag-grid"
-                rowData={editableData}
-                columnDefs={editableColDefs}
-                rowHeight={48}
-              />
-            </div>
-            <p
-              className="label-regular-s"
-              style={{
-                marginTop: '12px',
-                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
-              }}
-            >
-              Use custom cell renderers with DS components like <code>NumberInput</code> and <code>Select</code>.
+              Compact table with 32px row height. Use <code>as-ag-grid--small</code> class and size <code>XS</code> for DS components.
             </p>
           </section>
 
@@ -681,12 +676,6 @@ const colDefs = [
         onClose={() => setOpenModal(null)}
         title="CSS Variables"
         code={cssVariablesCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'components'}
-        onClose={() => setOpenModal(null)}
-        title="With DS Components"
-        code={componentsCode}
       />
     </div>
   );
