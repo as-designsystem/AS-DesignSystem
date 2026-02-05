@@ -1,42 +1,89 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { AgGridReact } from 'ag-grid-react';
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { Tab, Button } from '@as-design-system/core';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
+
+// Register AG-Grid modules
+ModuleRegistry.registerModules([AllCommunityModule]);
+
+interface RowData {
+  aircraft: string;
+  manufacturer: string;
+  range: number;
+  capacity: number;
+  price: number;
+}
 
 export default function AgGridTablePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
   const [openModal, setOpenModal] = useState<string | null>(null);
+
+  // Sample data
+  const rowData = useMemo<RowData[]>(() => [
+    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100, capacity: 180, price: 101000000 },
+    { aircraft: 'A321neo', manufacturer: 'Airbus', range: 7400, capacity: 244, price: 129500000 },
+    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765, capacity: 189, price: 106100000 },
+    { aircraft: 'B787-9', manufacturer: 'Boeing', range: 14140, capacity: 296, price: 292500000 },
+    { aircraft: 'A350-900', manufacturer: 'Airbus', range: 15000, capacity: 325, price: 317400000 },
+    { aircraft: 'B777-300ER', manufacturer: 'Boeing', range: 13650, capacity: 396, price: 375500000 },
+  ], []);
+
+  // Column definitions for default table
+  const defaultColDefs = useMemo(() => [
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false },
+    { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
+    { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
+    { field: 'range', headerName: 'Range (km)', flex: 1 },
+    { field: 'capacity', headerName: 'Capacity', flex: 1 },
+    { field: 'price', headerName: 'Price (USD)', flex: 1, valueFormatter: (p: { value: number }) => p.value?.toLocaleString() },
+  ], []);
+
+  // Column definitions for small table (with checkboxes)
+  const smallColDefs = useMemo(() => [
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 44, maxWidth: 44, suppressSizeToFit: true, resizable: false },
+    { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
+    { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
+    { field: 'range', headerName: 'Range (km)', flex: 1 },
+  ], []);
 
   const installCode = `# Install AG-Grid
 npm install ag-grid-community ag-grid-react
 
 # The AS Design System theme is included in @as-design-system/core`;
 
-  const basicUsageCode = `import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/styles/ag-grid.css';
+  const basicUsageCode = `import { useState, useMemo } from 'react';
+import { AgGridReact } from 'ag-grid-react';
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import '@as-design-system/core/ag-grid-theme.css';
 
-const MyTable = () => {
-  const [rowData] = useState([
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxster', price: 72000 },
-  ]);
+// Register AG-Grid modules
+ModuleRegistry.registerModules([AllCommunityModule]);
 
-  const [colDefs] = useState([
-    { field: 'make', headerCheckboxSelection: true, checkboxSelection: true },
-    { field: 'model' },
-    { field: 'price' },
-  ]);
+const MyTable = () => {
+  const rowData = useMemo(() => [
+    { aircraft: 'A320-200', manufacturer: 'Airbus', range: 6100 },
+    { aircraft: 'B737-800', manufacturer: 'Boeing', range: 5765 },
+    { aircraft: 'A350-900', manufacturer: 'Airbus', range: 15000 },
+  ], []);
+
+  const colDefs = useMemo(() => [
+    { field: 'aircraft', headerCheckboxSelection: true, checkboxSelection: true },
+    { field: 'manufacturer' },
+    { field: 'range' },
+  ], []);
 
   return (
-    <div style={{ height: 400 }}>
+    <div style={{ height: 300 }}>
       <AgGridReact
         className="as-ag-grid"
         rowData={rowData}
         columnDefs={colDefs}
         rowSelection="multiple"
+        suppressRowClickSelection={true}
       />
     </div>
   );
@@ -132,12 +179,22 @@ const MyTable = () => {
               >
                 Default Size
               </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('basic')}
+              />
             </div>
-            <div className="example-container">
-              <img
-                src="https://placehold.co/800x300/fafafa/63728a?text=AG-Grid+Default+Size+(40px+rows)"
-                alt="AG-Grid Default Size"
-                style={{ width: '100%', borderRadius: '4px' }}
+            <div className="example-container" style={{ height: 300 }}>
+              <AgGridReact
+                className="as-ag-grid"
+                rowData={rowData}
+                columnDefs={defaultColDefs}
+                rowSelection="multiple"
+                suppressRowClickSelection={true}
+                cellSelection={false}
               />
             </div>
             <p
@@ -172,11 +229,13 @@ const MyTable = () => {
                 onClick={() => setOpenModal('small')}
               />
             </div>
-            <div className="example-container">
-              <img
-                src="https://placehold.co/800x300/fafafa/63728a?text=AG-Grid+Small+Size+(32px+rows)"
-                alt="AG-Grid Small Size"
-                style={{ width: '100%', borderRadius: '4px' }}
+            <div className="example-container" style={{ height: 220 }}>
+              <AgGridReact
+                className="as-ag-grid as-ag-grid--small"
+                rowData={rowData.slice(0, 4)}
+                columnDefs={smallColDefs}
+                rowSelection="multiple"
+                suppressRowClickSelection={true}
               />
             </div>
             <p
@@ -428,28 +487,24 @@ const MyTable = () => {
         onClose={() => setOpenModal(null)}
         title="Installation"
         code={installCode}
-        language="bash"
       />
       <CodeModal
         isOpen={openModal === 'basic'}
         onClose={() => setOpenModal(null)}
         title="Basic Usage"
         code={basicUsageCode}
-        language="tsx"
       />
       <CodeModal
         isOpen={openModal === 'small'}
         onClose={() => setOpenModal(null)}
         title="Small Size"
         code={smallSizeCode}
-        language="tsx"
       />
       <CodeModal
         isOpen={openModal === 'variables'}
         onClose={() => setOpenModal(null)}
         title="CSS Variables"
         code={cssVariablesCode}
-        language="css"
       />
     </div>
   );
