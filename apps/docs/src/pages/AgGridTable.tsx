@@ -39,13 +39,14 @@ const NumberInputCellRenderer = (props: ICellRendererParams) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
       <NumberInput
         value={value}
         onChange={handleChange}
         size="S"
         min={0}
         max={20000}
+        showLabel={false}
         style={{ width: '100%' }}
       />
     </div>
@@ -70,12 +71,13 @@ const SelectCellRenderer = (props: ICellRendererParams) => {
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: '100%', padding: '0 4px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
       <Select
         value={value}
         onChange={handleChange}
         options={options}
         size="S"
+        showLabel={false}
         style={{ width: '100%' }}
       />
     </div>
@@ -188,11 +190,15 @@ const NumberInputCellRenderer = (props: ICellRendererParams) => {
   };
 
   return (
-    <NumberInput
-      value={value}
-      onChange={handleChange}
-      size="S"
-    />
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+      <NumberInput
+        value={value}
+        onChange={handleChange}
+        size="S"
+        showLabel={false}
+        style={{ width: '100%' }}
+      />
+    </div>
   );
 };
 
@@ -205,12 +211,16 @@ const SelectCellRenderer = (props: ICellRendererParams) => {
   ];
 
   return (
-    <Select
-      value={value}
-      onChange={setValue}
-      options={options}
-      size="S"
-    />
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
+      <Select
+        value={value}
+        onChange={setValue}
+        options={options}
+        size="S"
+        showLabel={false}
+        style={{ width: '100%' }}
+      />
+    </div>
   );
 };
 
