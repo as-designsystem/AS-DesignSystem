@@ -187,16 +187,32 @@ import '@as-design-system/core/Icon.css';
                 border: '1px solid var(--border-minimal, #eff1f4)',
               }}
             >
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '48px', justifyContent: 'center', alignItems: 'flex-end' }}>
                 {illustrationNames.map((name) => (
-                  <div key={name} style={{ textAlign: 'center' }}>
-                    <div style={{ width: '64px', height: '64px', color: 'var(--text-tertiary, #8e99ab)' }}>
+                  <div key={name} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div
+                      style={{
+                        width: '64px',
+                        height: '64px',
+                        color: 'var(--text-tertiary, #8e99ab)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      className="illustration-preview"
+                    >
                       {emptyStateIllustrations[name]}
                     </div>
                     <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--text-secondary)' }}>{name}</p>
                   </div>
                 ))}
               </div>
+              <style>{`
+                .illustration-preview svg {
+                  width: 100%;
+                  height: 100%;
+                }
+              `}</style>
             </div>
             <p
               className="label-regular-s"
