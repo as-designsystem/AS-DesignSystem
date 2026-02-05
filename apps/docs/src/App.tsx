@@ -45,6 +45,7 @@ import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
 import SizeRadius from './pages/SizeRadius';
+import AgGridTablePage from './pages/AgGridTable';
 
 function App() {
   return (
@@ -103,6 +104,7 @@ function App() {
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />
               <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />
+              <Route path="/components/ag-grid-table" element={<AgGridTablePage />} />
               <Route path="/templates" element={<Navigate to="/templates/about" replace />} />
               <Route path="/templates/about" element={<AboutTemplates />} />
               <Route path="/templates/home-page" element={<HomePageTemplate />} />

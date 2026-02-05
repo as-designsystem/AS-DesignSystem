@@ -1,0 +1,357 @@
+/**
+ * AG-Grid Theme for AS Design System
+ *
+ * This CSS file provides custom styling for AG-Grid tables to match the AS Design System.
+ * Import this file in your application alongside AG-Grid's base styles.
+ *
+ * Usage:
+ *   import 'ag-grid-community/styles/ag-grid.css';
+ *   import '@as-design-system/core/ag-grid-theme.css';
+ *
+ *   <AgGridReact className="as-ag-grid" ... />
+ *   or for small size:
+ *   <AgGridReact className="as-ag-grid as-ag-grid--small" ... />
+ */
+
+/* ===== BASE GRID ===== */
+
+.as-ag-grid {
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 14px;
+  --ag-grid-size: 4px;
+  --ag-row-height: 40px;
+  --ag-header-height: 40px;
+  --ag-list-item-height: 32px;
+
+  /* Colors */
+  --ag-background-color: var(--background-main, #ffffff);
+  --ag-foreground-color: var(--text-primary, #333d47);
+  --ag-border-color: var(--border-minimal, #eff1f4);
+  --ag-secondary-border-color: var(--border-minimal, #eff1f4);
+
+  /* Header */
+  --ag-header-background-color: var(--primary-default, #00205b);
+  --ag-header-foreground-color: var(--text-negative, #ffffff);
+
+  /* Rows */
+  --ag-odd-row-background-color: var(--background-main, #ffffff);
+  --ag-row-hover-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
+  --ag-selected-row-background-color: var(--primary-t-active, rgba(0, 45, 128, 0.1));
+
+  /* Selection */
+  --ag-range-selection-border-color: var(--primary-default, #063b9e);
+  --ag-range-selection-background-color: var(--primary-t-active, rgba(0, 45, 128, 0.1));
+
+  /* Checkbox */
+  --ag-checkbox-checked-color: var(--primary-default, #063b9e);
+  --ag-checkbox-unchecked-color: var(--border-default, #c2c9d6);
+  --ag-checkbox-indeterminate-color: var(--primary-default, #063b9e);
+
+  /* Input */
+  --ag-input-focus-border-color: var(--primary-default, #063b9e);
+
+  font-family: var(--ag-font-family);
+  border: 1px solid var(--ag-border-color);
+  border-radius: var(--radius-xs, 3px);
+}
+
+/* ===== SMALL SIZE ===== */
+
+.as-ag-grid--small {
+  --ag-font-size: 12px;
+  --ag-row-height: 32px;
+  --ag-header-height: 32px;
+}
+
+/* ===== HEADER ===== */
+
+.as-ag-grid .ag-header {
+  background-color: var(--ag-header-background-color);
+  border-bottom: 1px solid var(--ag-border-color);
+}
+
+.as-ag-grid .ag-header-cell {
+  padding: 0 12px;
+  font-weight: 600;
+  font-size: var(--ag-font-size);
+  color: var(--ag-header-foreground-color);
+}
+
+.as-ag-grid .ag-header-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Header checkbox */
+.as-ag-grid .ag-header-select-all {
+  padding-left: 12px;
+}
+
+/* Sort icons */
+.as-ag-grid .ag-header-icon {
+  color: var(--ag-header-foreground-color);
+  opacity: 0.7;
+}
+
+.as-ag-grid .ag-header-cell:hover .ag-header-icon {
+  opacity: 1;
+}
+
+/* Filter icon in header */
+.as-ag-grid .ag-header-cell-menu-button {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.as-ag-grid .ag-header-cell:hover .ag-header-cell-menu-button {
+  opacity: 1;
+}
+
+/* ===== ROWS ===== */
+
+.as-ag-grid .ag-row {
+  border-bottom: 1px solid var(--ag-border-color);
+  font-size: var(--ag-font-size);
+  color: var(--ag-foreground-color);
+}
+
+.as-ag-grid .ag-row-odd {
+  background-color: var(--background-secondary, #fafafa);
+}
+
+.as-ag-grid .ag-row-even {
+  background-color: var(--ag-odd-row-background-color);
+}
+
+.as-ag-grid .ag-row:hover {
+  background-color: var(--ag-row-hover-color);
+}
+
+.as-ag-grid .ag-row-selected {
+  background-color: var(--ag-selected-row-background-color);
+}
+
+.as-ag-grid .ag-row-selected:hover {
+  background-color: var(--ag-selected-row-background-color);
+}
+
+/* ===== CELLS ===== */
+
+.as-ag-grid .ag-cell {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  border-right: none;
+}
+
+.as-ag-grid .ag-cell-focus {
+  border: none !important;
+  outline: none;
+}
+
+.as-ag-grid .ag-cell-focus:focus-within {
+  box-shadow: inset 0 0 0 2px var(--primary-default, #063b9e);
+}
+
+/* Cell with checkbox */
+.as-ag-grid .ag-selection-checkbox {
+  margin-right: 0;
+}
+
+/* Editable cell */
+.as-ag-grid .ag-cell-editable:hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
+}
+
+/* Cell editing */
+.as-ag-grid .ag-cell-inline-editing {
+  padding: 0;
+  height: 100%;
+  box-shadow: inset 0 0 0 2px var(--primary-default, #063b9e);
+  border-radius: 0;
+}
+
+.as-ag-grid .ag-cell-inline-editing input {
+  padding: 0 12px;
+  height: 100%;
+  font-family: var(--ag-font-family);
+  font-size: var(--ag-font-size);
+  border: none;
+  outline: none;
+}
+
+/* ===== CHECKBOX ===== */
+
+.as-ag-grid .ag-checkbox-input-wrapper {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--ag-checkbox-unchecked-color);
+  border-radius: 3px;
+  background-color: var(--background-main, #ffffff);
+  transition: all 0.15s ease;
+}
+
+.as-ag-grid .ag-checkbox-input-wrapper.ag-checked {
+  background-color: var(--ag-checkbox-checked-color);
+  border-color: var(--ag-checkbox-checked-color);
+}
+
+.as-ag-grid .ag-checkbox-input-wrapper::after {
+  color: var(--text-negative, #ffffff);
+}
+
+/* Header checkbox - white border */
+.as-ag-grid .ag-header-select-all .ag-checkbox-input-wrapper {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.as-ag-grid .ag-header-select-all .ag-checkbox-input-wrapper.ag-checked {
+  background-color: var(--text-negative, #ffffff);
+  border-color: var(--text-negative, #ffffff);
+}
+
+.as-ag-grid .ag-header-select-all .ag-checkbox-input-wrapper.ag-checked::after {
+  color: var(--primary-default, #00205b);
+}
+
+/* ===== PINNED COLUMNS ===== */
+
+.as-ag-grid .ag-pinned-left-header,
+.as-ag-grid .ag-pinned-left-cols-container {
+  border-right: 1px solid var(--ag-border-color);
+}
+
+.as-ag-grid .ag-pinned-right-header,
+.as-ag-grid .ag-pinned-right-cols-container {
+  border-left: 1px solid var(--ag-border-color);
+}
+
+/* ===== SCROLLBARS ===== */
+
+.as-ag-grid .ag-body-horizontal-scroll-viewport,
+.as-ag-grid .ag-body-vertical-scroll-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default, #c2c9d6) transparent;
+}
+
+.as-ag-grid .ag-body-horizontal-scroll-viewport::-webkit-scrollbar,
+.as-ag-grid .ag-body-vertical-scroll-viewport::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.as-ag-grid .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb,
+.as-ag-grid .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb {
+  background-color: var(--border-default, #c2c9d6);
+  border-radius: 4px;
+}
+
+.as-ag-grid .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb:hover,
+.as-ag-grid .ag-body-vertical-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-tertiary, #8e99ab);
+}
+
+/* ===== LOADING / NO ROWS ===== */
+
+.as-ag-grid .ag-overlay-loading-center,
+.as-ag-grid .ag-overlay-no-rows-center {
+  font-family: var(--ag-font-family);
+  font-size: var(--ag-font-size);
+  color: var(--text-secondary, #63728a);
+  padding: 24px;
+}
+
+/* ===== PAGINATION ===== */
+
+.as-ag-grid .ag-paging-panel {
+  height: 48px;
+  padding: 0 16px;
+  border-top: 1px solid var(--ag-border-color);
+  font-size: var(--ag-font-size);
+  color: var(--text-secondary, #63728a);
+}
+
+.as-ag-grid .ag-paging-button {
+  color: var(--primary-default, #063b9e);
+  cursor: pointer;
+}
+
+.as-ag-grid .ag-paging-button:hover {
+  color: var(--primary-hover, #255fcc);
+}
+
+.as-ag-grid .ag-paging-button.ag-disabled {
+  color: var(--text-tertiary, #8e99ab);
+  cursor: default;
+}
+
+/* ===== CONTEXT MENU ===== */
+
+.as-ag-grid .ag-menu {
+  background-color: var(--background-main, #ffffff);
+  border: 1px solid var(--border-minimal, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.as-ag-grid .ag-menu-option {
+  height: 36px;
+  padding: 0 16px;
+  font-size: var(--ag-font-size);
+}
+
+.as-ag-grid .ag-menu-option:hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
+}
+
+.as-ag-grid .ag-menu-option-active {
+  background-color: var(--primary-t-active, rgba(0, 45, 128, 0.1));
+}
+
+/* ===== COLUMN RESIZE ===== */
+
+.as-ag-grid .ag-header-cell-resize {
+  width: 8px;
+}
+
+.as-ag-grid .ag-header-cell-resize::after {
+  width: 2px;
+  background-color: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.as-ag-grid .ag-header-cell:hover .ag-header-cell-resize::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== ROW ACTIONS (custom) ===== */
+
+.as-ag-grid .ag-row-action-buttons {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.as-ag-grid .ag-row:hover .ag-row-action-buttons {
+  opacity: 1;
+}
+
+.as-ag-grid .ag-row-action-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xs, 3px);
+  color: var(--text-secondary, #63728a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-ag-grid .ag-row-action-button:hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
+  color: var(--primary-default, #063b9e);
+}

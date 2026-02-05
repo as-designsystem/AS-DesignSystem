@@ -151,6 +151,7 @@ const navSections: NavSectionData[] = [
       { label: 'StudyRow', path: '/components/study-row' },
       { label: 'StudyStatus', path: '/components/study-status' },
       { label: 'StudyTableHeader', path: '/components/study-table-header' },
+      { label: 'AG-Grid Tables', path: '/components/ag-grid-table' },
       { label: 'Workspace', path: '/composites/workspace' },
     ],
   },

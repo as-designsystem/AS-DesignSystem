@@ -55,7 +55,7 @@ export default defineConfig({
     });
 
     // Copy token CSS files to dist
-    const tokenCssFiles = ['colors.css', 'typography.css', 'radius.css', 'sizes.css'];
+    const tokenCssFiles = ['colors.css', 'typography.css', 'radius.css', 'sizes.css', 'ag-grid-theme.css'];
     tokenCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'tokens', file);
       const distCss = join(process.cwd(), 'dist', file);

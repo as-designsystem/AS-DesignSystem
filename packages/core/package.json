@@ -52,7 +52,8 @@
     "./StudyTableHeader.css": "./dist/StudyTableHeader.css",
     "./DropdownMenu.css": "./dist/DropdownMenu.css",
     "./Calendar.css": "./dist/Calendar.css",
-    "./AircraftSelector.css": "./dist/AircraftSelector.css"
+    "./AircraftSelector.css": "./dist/AircraftSelector.css",
+    "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
   },
   "scripts": {
     "build": "tsup",
