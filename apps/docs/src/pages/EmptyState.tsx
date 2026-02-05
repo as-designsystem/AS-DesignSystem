@@ -187,11 +187,13 @@ import '@as-design-system/core/Icon.css';
                 border: '1px solid var(--border-minimal, #eff1f4)',
               }}
             >
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', justifyContent: 'center' }}>
                 {availableIllustrations.map((name) => (
-                  <div key={name} style={{ textAlign: 'center' }}>
-                    <EmptyState illustration={name} title="" />
-                    <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--text-secondary)' }}>{name}</p>
+                  <div key={name} style={{ textAlign: 'center', width: '80px' }}>
+                    <div style={{ transform: 'scale(0.6)', transformOrigin: 'top center', height: '70px' }}>
+                      <EmptyState illustration={name} title="" />
+                    </div>
+                    <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{name}</p>
                   </div>
                 ))}
               </div>
