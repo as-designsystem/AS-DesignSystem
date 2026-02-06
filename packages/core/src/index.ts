@@ -13,7 +13,7 @@ export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
 export { VToggle, type VToggleProps, type VToggleSize, type VToggleState } from './components/VToggle';
 export { TextInput, type TextInputProps, type TextInputSize, type TextInputState } from './components/TextInput';
-export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState } from './components/NumberInput';
+export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState, type NumberInputVariant, type NumberInputTextAlign } from './components/NumberInput';
 export {
   Tooltip,
   TooltipTrigger,

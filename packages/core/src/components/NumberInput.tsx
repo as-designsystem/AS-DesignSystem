@@ -7,6 +7,8 @@ import './NumberInput.css';
 
 export type NumberInputSize = 'XS' | 'S' | 'M' | 'L';
 export type NumberInputState = 'Default' | 'Error' | 'Valid';
+export type NumberInputVariant = 'Default' | 'Centered';
+export type NumberInputTextAlign = 'left' | 'center' | 'right';
 
 export interface NumberInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -28,6 +30,18 @@ export interface NumberInputProps
    * @default 'Default'
    */
   state?: NumberInputState;
+  /**
+   * Visual variant of the input
+   * - Default: buttons inline with subtle styling
+   * - Centered: buttons in separate zones with visual separators
+   * @default 'Default'
+   */
+  variant?: NumberInputVariant;
+  /**
+   * Text alignment within the input
+   * @default 'center'
+   */
+  textAlign?: NumberInputTextAlign;
   /**
    * Show the label
    * @default true
@@ -103,6 +117,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       placeholder = '0',
       size = 'M',
       state = 'Default',
+      variant = 'Default',
+      textAlign = 'center',
       showLabel = true,
       showLegend = false,
       showOptional = false,
@@ -176,10 +192,18 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     const inputWrapperClasses = [
       'number-input-wrapper',
       `number-input-wrapper--${size.toLowerCase()}`,
+      `number-input-wrapper--${variant.toLowerCase()}`,
       isError && 'number-input-wrapper--error',
       isValid && 'number-input-wrapper--valid',
       isDisabled && 'number-input-wrapper--disabled',
       isReadOnly && 'number-input-wrapper--read-only',
+    ]
+      .filter(Boolean)
+      .join(' ');
+
+    const inputFieldClasses = [
+      'number-input-field',
+      `number-input-field--${textAlign}`,
     ]
       .filter(Boolean)
       .join(' ');
@@ -229,7 +253,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             ref={ref}
             type="text"
             inputMode="numeric"
-            className="number-input-field"
+            className={inputFieldClasses}
             placeholder={placeholder}
             value={value !== undefined ? String(value) : ''}
             onChange={handleInputChange}

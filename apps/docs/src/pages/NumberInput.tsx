@@ -20,6 +20,20 @@ export default function NumberInputPage() {
 <NumberInput label="Size M" value={0} size="M" onChange={(v) => console.log(v)} />
 <NumberInput label="Size L" value={0} size="L" onChange={(v) => console.log(v)} />`;
 
+  const variantsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
+
+// Default variant (stepper buttons inline)
+<NumberInput label="Default" value={5} variant="Default" onChange={(v) => console.log(v)} />
+
+// Centered variant (buttons in separate zones)
+<NumberInput label="Centered" value={5} variant="Centered" onChange={(v) => console.log(v)} />
+
+// Centered with text aligned left
+<NumberInput label="Centered Left" value={5} variant="Centered" textAlign="left" onChange={(v) => console.log(v)} />
+
+// Centered with text aligned right
+<NumberInput label="Centered Right" value={5} variant="Centered" textAlign="right" onChange={(v) => console.log(v)} />`;
+
   const statesCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
 <NumberInput label="Default" value={5} state="Default" onChange={(v) => console.log(v)} />
@@ -135,6 +149,59 @@ export default function NumberInputPage() {
                 size="L"
                 onChange={() => {}}
               />
+              </div>
+            </div>
+          </section>
+
+          {/* Variants */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Variants
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('variants')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="numberinput-examples">
+                <NumberInput
+                  label="Default"
+                  value={5}
+                  variant="Default"
+                  onChange={() => {}}
+                />
+                <NumberInput
+                  label="Centered"
+                  value={5}
+                  variant="Centered"
+                  onChange={() => {}}
+                />
+                <NumberInput
+                  label="Centered (text left)"
+                  value={5}
+                  variant="Centered"
+                  textAlign="left"
+                  onChange={() => {}}
+                />
+                <NumberInput
+                  label="Centered (text right)"
+                  value={5}
+                  variant="Centered"
+                  textAlign="right"
+                  onChange={() => {}}
+                />
               </div>
             </div>
           </section>
@@ -366,6 +433,18 @@ export default function NumberInputPage() {
                   <td>Validation state</td>
                 </tr>
                 <tr>
+                  <td><code>variant</code></td>
+                  <td><code>'Default' | 'Centered'</code></td>
+                  <td><code>'Default'</code></td>
+                  <td>Visual variant (Centered has buttons in separate zones)</td>
+                </tr>
+                <tr>
+                  <td><code>textAlign</code></td>
+                  <td><code>'left' | 'center' | 'right'</code></td>
+                  <td><code>'center'</code></td>
+                  <td>Text alignment within the input</td>
+                </tr>
+                <tr>
                   <td><code>min</code></td>
                   <td><code>number</code></td>
                   <td><code>undefined</code></td>
@@ -437,6 +516,12 @@ export default function NumberInputPage() {
         onClose={() => setOpenModal(null)}
         title="Sizes Implementation"
         code={sizesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'variants'}
+        onClose={() => setOpenModal(null)}
+        title="Variants Implementation"
+        code={variantsCode}
       />
       <CodeModal
         isOpen={openModal === 'states'}
