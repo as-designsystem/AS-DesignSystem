@@ -167,6 +167,21 @@
   -moz-appearance: textfield;
 }
 
+/* Text alignment variants */
+.number-input-field--left {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.number-input-field--center {
+  text-align: center;
+}
+
+.number-input-field--right {
+  text-align: right;
+  padding-right: 12px;
+}
+
 .number-input-field::-webkit-outer-spin-button,
 .number-input-field::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -195,4 +210,58 @@
 
 .number-input-container--valid .number-input-legend {
   color: var(--feedback-success-default, #08875b);
+}
+
+/* ============================================================================
+   CENTERED VARIANT
+   ============================================================================ */
+
+.number-input-wrapper--centered {
+  background-color: var(--background-secondary, #fafafa);
+  border-radius: var(--radius-xs, 3px);
+  box-shadow: none;
+  border: 1px solid var(--border-minimal, #e0e3e9);
+  overflow: hidden;
+}
+
+.number-input-wrapper--centered:hover {
+  background-color: var(--background-secondary, #fafafa);
+}
+
+.number-input-wrapper--centered:focus-within {
+  background-color: var(--background-secondary, #fafafa);
+  border-color: var(--primary-default, #063b9e);
+  box-shadow: none;
+}
+
+.number-input-wrapper--centered .number-input-stepper {
+  background-color: var(--background-tertiary, #eff1f4);
+  border-radius: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-input-wrapper--centered .number-input-stepper:hover:not(:disabled) {
+  background-color: var(--background-hover, #e5e7eb);
+}
+
+.number-input-wrapper--centered .number-input-stepper:first-child {
+  border-right: 1px solid var(--border-minimal, #e0e3e9);
+}
+
+.number-input-wrapper--centered .number-input-stepper:last-child {
+  border-left: 1px solid var(--border-minimal, #e0e3e9);
+}
+
+/* Centered variant with error state */
+.number-input-wrapper--centered.number-input-wrapper--error {
+  border-color: var(--feedback-error-default, #e4002b);
+}
+
+/* Centered variant with valid state */
+.number-input-wrapper--centered.number-input-wrapper--valid {
+  border-color: var(--feedback-success-default, #08875b);
 }
