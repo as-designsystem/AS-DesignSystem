@@ -145,6 +145,7 @@ export function Combobox({
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const [isFiltering, setIsFiltering] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -174,12 +175,12 @@ export function Combobox({
     }
   }, [value, options]);
 
-  // Filter options based on input
+  // Filter options based on input (only when user is actively typing)
   const filteredOptions = useMemo(() => {
-    if (!inputValue.trim()) return options;
+    if (!isFiltering || !inputValue.trim()) return options;
     const search = inputValue.toLowerCase();
     return options.filter((opt) => opt.label.toLowerCase().includes(search));
-  }, [inputValue, options]);
+  }, [inputValue, options, isFiltering]);
 
   // Reset highlighted index when filtered options change
   useEffect(() => {
@@ -199,12 +200,14 @@ export function Combobox({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
+    setIsFiltering(true);
     setOpen(true);
     onInputChange?.(newValue);
   };
 
   const handleSelectOption = (option: ComboboxOption) => {
     setInputValue(option.label);
+    setIsFiltering(false);
     onValueChange?.(option.value);
     setOpen(false);
     inputRef.current?.focus();
@@ -251,6 +254,7 @@ export function Combobox({
 
   const handleFocus = () => {
     if (!isDisabled && !isReadOnly) {
+      setIsFiltering(false);
       setOpen(true);
     }
   };
@@ -258,6 +262,8 @@ export function Combobox({
   const handleBlur = () => {
     // Small delay to allow click on option to register
     setTimeout(() => {
+      setOpen(false);
+      setIsFiltering(false);
       if (!allowCustomValue && inputValue) {
         // Revert to selected value if custom values not allowed
         const selectedOption = options.find((opt) => opt.value === value);
@@ -317,7 +323,14 @@ export function Combobox({
       )}
 
       {/* Combobox */}
-      <Popover.Root open={open} onOpenChange={setOpen}>
+      <Popover.Root open={open} onOpenChange={(isOpen) => {
+        // Only close through our explicit handlers (Escape, Tab, select, blur)
+        // Prevent Radix from closing unexpectedly when input has focus
+        if (!isOpen && document.activeElement === inputRef.current) {
+          return;
+        }
+        setOpen(isOpen);
+      }}>
         <Popover.Anchor asChild>
           <div className={inputWrapperClasses}>
             {showLeftIcon && leftIcon && (

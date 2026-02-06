@@ -29,9 +29,9 @@
   --ag-border-color: var(--border-neutral-default, #919cb0);
   --ag-secondary-border-color: var(--border-minimal, #eff1f4);
 
-  /* Header - Light gray background with dark text */
+  /* Header - Light gray background with secondary text */
   --ag-header-background-color: var(--background-tertiary, #eff1f4);
-  --ag-header-foreground-color: var(--text-main, #14171d);
+  --ag-header-foreground-color: var(--text-secondary, #63728a);
 
   /* Rows */
   --ag-odd-row-background-color: var(--background-main, #ffffff);
