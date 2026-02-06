@@ -211,8 +211,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-left: 1px solid var(--border-minimal, #e0e3e9);
-  background-color: var(--background-tertiary, #eff1f4);
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
 }
@@ -223,37 +221,18 @@
   opacity: 1;
 }
 
-.number-input-stepper-btn {
+/* IconButton overrides for stepper variant */
+.number-input-stepper-group .number-input-stepper-btn {
+  border-radius: 0;
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 0 4px;
-  color: var(--text-secondary, #63728a);
   min-height: 0;
+  height: auto;
 }
 
-.number-input-stepper-btn:hover:not(:disabled) {
-  background-color: var(--background-hover, #e5e7eb);
+.number-input-stepper-group .number-input-stepper-btn:first-child {
+  border-top-right-radius: var(--radius-xs, 3px);
 }
 
-.number-input-stepper-btn:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.number-input-stepper-btn:first-child {
-  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
-}
-
-/* Size-specific icon sizes for stepper */
-.number-input-wrapper--xs .number-input-stepper-btn {
-  padding: 0 2px;
-}
-
-.number-input-wrapper--s .number-input-stepper-btn {
-  padding: 0 3px;
+.number-input-stepper-group .number-input-stepper-btn:last-child {
+  border-bottom-right-radius: var(--radius-xs, 3px);
 }

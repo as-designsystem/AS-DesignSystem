@@ -223,7 +223,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             <IconButton
               icon="remove"
               size={size}
-              variant="Default"
+              variant="Ghost"
               onClick={handleDecrement}
               disabled={isDisabled || !canDecrement}
               aria-label="Decrease value"
@@ -250,26 +250,26 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           {/* Stepper variant: stacked buttons on right (appear on hover) */}
           {!isReadOnly && variant === 'Stepper' && (
             <div className="number-input-stepper-group">
-              <button
-                type="button"
-                className="number-input-stepper-btn"
+              <IconButton
+                icon="keyboard_arrow_up"
+                size={size}
+                variant="Default"
                 onClick={handleIncrement}
                 disabled={isDisabled || !canIncrement}
                 aria-label="Increase value"
                 tabIndex={-1}
-              >
-                <Icon name="keyboard_arrow_up" size={size === 'XS' ? 12 : size === 'S' ? 14 : 16} />
-              </button>
-              <button
-                type="button"
                 className="number-input-stepper-btn"
+              />
+              <IconButton
+                icon="keyboard_arrow_down"
+                size={size}
+                variant="Default"
                 onClick={handleDecrement}
                 disabled={isDisabled || !canDecrement}
                 aria-label="Decrease value"
                 tabIndex={-1}
-              >
-                <Icon name="keyboard_arrow_down" size={size === 'XS' ? 12 : size === 'S' ? 14 : 16} />
-              </button>
+                className="number-input-stepper-btn"
+              />
             </div>
           )}
 
@@ -278,7 +278,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             <IconButton
               icon="add"
               size={size}
-              variant="Default"
+              variant="Ghost"
               onClick={handleIncrement}
               disabled={isDisabled || !canIncrement}
               aria-label="Increase value"
