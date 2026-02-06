@@ -77,4 +77,18 @@ export const tokens: RegistryItem[] = [
     ],
     cssImports: ['@/design-system/tokens/sizes.css'],
   },
+  {
+    name: 'ag-grid-theme',
+    type: 'token',
+    displayName: 'AG-Grid Theme',
+    description: 'Custom AG-Grid theme matching the AS Design System',
+    files: [
+      {
+        path: 'templates/tokens/ag-grid-theme.css',
+        target: 'tokens/ag-grid-theme.css',
+        type: 'style',
+      },
+    ],
+    cssImports: ['@/design-system/tokens/ag-grid-theme.css'],
+  },
 ];
