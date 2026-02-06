@@ -186,8 +186,11 @@ async function detectInstalledComponents(
       continue;
     }
 
-    // Check if the main component file exists
-    const mainFile = item.files.find(f => f.type === 'component' && f.target.endsWith('.tsx'));
+    // Check if the main component file exists (TSX for components, CSS for tokens)
+    const mainFile = item.files.find(f =>
+      (f.type === 'component' && f.target.endsWith('.tsx')) ||
+      (item.type === 'token' && f.type === 'style' && f.target.endsWith('.css'))
+    );
     if (mainFile) {
       // Templates use their own targetPath, everything else uses designSystemPath
       const basePath = item.type === 'template'
