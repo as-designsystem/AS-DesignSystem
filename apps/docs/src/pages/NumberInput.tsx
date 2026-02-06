@@ -22,17 +22,14 @@ export default function NumberInputPage() {
 
   const variantsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
-// Default variant (stepper buttons inline)
+// Default variant (buttons on both sides, text centered)
 <NumberInput label="Default" value={5} variant="Default" onChange={(v) => console.log(v)} />
 
-// Centered variant (buttons in separate zones)
-<NumberInput label="Centered" value={5} variant="Centered" onChange={(v) => console.log(v)} />
+// Stepper variant (up/down buttons stacked on right, text left-aligned)
+<NumberInput label="Stepper" value={5} variant="Stepper" onChange={(v) => console.log(v)} />
 
-// Centered with text aligned left
-<NumberInput label="Centered Left" value={5} variant="Centered" textAlign="left" onChange={(v) => console.log(v)} />
-
-// Centered with text aligned right
-<NumberInput label="Centered Right" value={5} variant="Centered" textAlign="right" onChange={(v) => console.log(v)} />`;
+// Centered variant (buttons in separate visual zones, text centered)
+<NumberInput label="Centered" value={5} variant="Centered" onChange={(v) => console.log(v)} />`;
 
   const statesCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
@@ -183,23 +180,15 @@ export default function NumberInputPage() {
                   onChange={() => {}}
                 />
                 <NumberInput
+                  label="Stepper"
+                  value={5}
+                  variant="Stepper"
+                  onChange={() => {}}
+                />
+                <NumberInput
                   label="Centered"
                   value={5}
                   variant="Centered"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Centered (text left)"
-                  value={5}
-                  variant="Centered"
-                  textAlign="left"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Centered (text right)"
-                  value={5}
-                  variant="Centered"
-                  textAlign="right"
                   onChange={() => {}}
                 />
               </div>
@@ -434,15 +423,9 @@ export default function NumberInputPage() {
                 </tr>
                 <tr>
                   <td><code>variant</code></td>
-                  <td><code>'Default' | 'Centered'</code></td>
+                  <td><code>'Default' | 'Stepper' | 'Centered'</code></td>
                   <td><code>'Default'</code></td>
-                  <td>Visual variant (Centered has buttons in separate zones)</td>
-                </tr>
-                <tr>
-                  <td><code>textAlign</code></td>
-                  <td><code>'left' | 'center' | 'right'</code></td>
-                  <td><code>'center'</code></td>
-                  <td>Text alignment within the input</td>
+                  <td>Visual variant: Default (buttons inline), Stepper (up/down on right), Centered (buttons in zones)</td>
                 </tr>
                 <tr>
                   <td><code>min</code></td>
