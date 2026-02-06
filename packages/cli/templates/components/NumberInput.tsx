@@ -7,8 +7,7 @@ import './NumberInput.css';
 
 export type NumberInputSize = 'XS' | 'S' | 'M' | 'L';
 export type NumberInputState = 'Default' | 'Error' | 'Valid';
-export type NumberInputVariant = 'Default' | 'Centered';
-export type NumberInputTextAlign = 'left' | 'center' | 'right';
+export type NumberInputVariant = 'Default' | 'Stepper' | 'Centered';
 
 export interface NumberInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -32,16 +31,12 @@ export interface NumberInputProps
   state?: NumberInputState;
   /**
    * Visual variant of the input
-   * - Default: buttons inline with subtle styling
-   * - Centered: buttons in separate zones with visual separators
+   * - Default: buttons on both sides, text centered
+   * - Stepper: up/down buttons stacked on right, text left-aligned
+   * - Centered: buttons in separate visual zones, text centered
    * @default 'Default'
    */
   variant?: NumberInputVariant;
-  /**
-   * Text alignment within the input
-   * @default 'center'
-   */
-  textAlign?: NumberInputTextAlign;
   /**
    * Show the label
    * @default true
@@ -118,7 +113,6 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       size = 'M',
       state = 'Default',
       variant = 'Default',
-      textAlign = 'center',
       showLabel = true,
       showLegend = false,
       showOptional = false,
@@ -201,6 +195,9 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       .filter(Boolean)
       .join(' ');
 
+    // Text alignment is determined by variant
+    const textAlign = variant === 'Stepper' ? 'left' : 'center';
+
     const inputFieldClasses = [
       'number-input-field',
       `number-input-field--${textAlign}`,
@@ -235,8 +232,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
         {/* Input wrapper */}
         <div className={inputWrapperClasses}>
-          {/* Decrement button */}
-          {!isReadOnly && (
+          {/* Decrement button (left side for Default and Centered variants) */}
+          {!isReadOnly && variant !== 'Stepper' && (
             <IconButton
               icon="remove"
               size={size}
@@ -245,7 +242,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               disabled={isDisabled || !canDecrement}
               aria-label="Decrease value"
               tabIndex={-1}
-              className="number-input-stepper"
+              className="number-input-stepper number-input-stepper--left"
             />
           )}
 
@@ -264,8 +261,34 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             {...inputProps}
           />
 
-          {/* Increment button */}
-          {!isReadOnly && (
+          {/* Stepper variant: stacked buttons on right */}
+          {!isReadOnly && variant === 'Stepper' && (
+            <div className="number-input-stepper-group">
+              <button
+                type="button"
+                className="number-input-stepper-btn number-input-stepper-btn--up"
+                onClick={handleIncrement}
+                disabled={isDisabled || !canIncrement}
+                aria-label="Increase value"
+                tabIndex={-1}
+              >
+                <Icon name="keyboard_arrow_up" size={16} />
+              </button>
+              <button
+                type="button"
+                className="number-input-stepper-btn number-input-stepper-btn--down"
+                onClick={handleDecrement}
+                disabled={isDisabled || !canDecrement}
+                aria-label="Decrease value"
+                tabIndex={-1}
+              >
+                <Icon name="keyboard_arrow_down" size={16} />
+              </button>
+            </div>
+          )}
+
+          {/* Increment button (right side for Default and Centered variants) */}
+          {!isReadOnly && variant !== 'Stepper' && (
             <IconButton
               icon="add"
               size={size}
@@ -274,7 +297,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
               disabled={isDisabled || !canIncrement}
               aria-label="Increase value"
               tabIndex={-1}
-              className="number-input-stepper"
+              className="number-input-stepper number-input-stepper--right"
             />
           )}
         </div>

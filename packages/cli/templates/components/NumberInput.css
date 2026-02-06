@@ -248,11 +248,11 @@
   background-color: var(--background-hover, #e5e7eb);
 }
 
-.number-input-wrapper--centered .number-input-stepper:first-child {
+.number-input-wrapper--centered .number-input-stepper--left {
   border-right: 1px solid var(--border-minimal, #e0e3e9);
 }
 
-.number-input-wrapper--centered .number-input-stepper:last-child {
+.number-input-wrapper--centered .number-input-stepper--right {
   border-left: 1px solid var(--border-minimal, #e0e3e9);
 }
 
@@ -263,5 +263,71 @@
 
 /* Centered variant with valid state */
 .number-input-wrapper--centered.number-input-wrapper--valid {
+  border-color: var(--feedback-success-default, #08875b);
+}
+
+/* ============================================================================
+   STEPPER VARIANT (buttons stacked on right)
+   ============================================================================ */
+
+.number-input-wrapper--stepper {
+  background-color: var(--background-secondary, #fafafa);
+  border-radius: var(--radius-xs, 3px);
+  box-shadow: none;
+  border: 1px solid var(--border-minimal, #e0e3e9);
+  overflow: hidden;
+}
+
+.number-input-wrapper--stepper:hover {
+  background-color: var(--background-secondary, #fafafa);
+}
+
+.number-input-wrapper--stepper:focus-within {
+  background-color: var(--background-secondary, #fafafa);
+  border-color: var(--primary-default, #063b9e);
+  box-shadow: none;
+}
+
+/* Stepper button group (stacked vertically on right) */
+.number-input-stepper-group {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-left: 1px solid var(--border-minimal, #e0e3e9);
+  background-color: var(--background-tertiary, #eff1f4);
+}
+
+.number-input-stepper-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 8px;
+  color: var(--text-secondary, #63728a);
+}
+
+.number-input-stepper-btn:hover:not(:disabled) {
+  background-color: var(--background-hover, #e5e7eb);
+}
+
+.number-input-stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.number-input-stepper-btn--up {
+  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
+}
+
+/* Stepper variant with error state */
+.number-input-wrapper--stepper.number-input-wrapper--error {
+  border-color: var(--feedback-error-default, #e4002b);
+}
+
+/* Stepper variant with valid state */
+.number-input-wrapper--stepper.number-input-wrapper--valid {
   border-color: var(--feedback-success-default, #08875b);
 }
