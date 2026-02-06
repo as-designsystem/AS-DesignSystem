@@ -11,6 +11,7 @@ import ToolIcons from './pages/ToolIcons';
 import Tab from './pages/Tab';
 import Select from './pages/Select';
 import Checkbox from './pages/Checkbox';
+import ComboboxPage from './pages/Combobox';
 import Toggle from './pages/Toggle';
 import TextInput from './pages/TextInput';
 import NumberInput from './pages/NumberInput';
@@ -77,6 +78,7 @@ function App() {
               <Route path="/components/tab" element={<Tab />} />
               <Route path="/components/select" element={<Select />} />
               <Route path="/components/checkbox" element={<Checkbox />} />
+              <Route path="/components/combobox" element={<ComboboxPage />} />
               <Route path="/components/toggle" element={<Toggle />} />
               <Route path="/components/text-input" element={<TextInput />} />
               <Route path="/components/number-input" element={<NumberInput />} />
