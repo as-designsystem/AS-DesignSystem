@@ -20,16 +20,13 @@ export default function NumberInputPage() {
 <NumberInput label="Size M" value={0} size="M" onChange={(v) => console.log(v)} />
 <NumberInput label="Size L" value={0} size="L" onChange={(v) => console.log(v)} />`;
 
-  const variantsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
+  const stepperCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
-// Default variant (buttons on both sides, text centered)
-<NumberInput label="Default" value={5} variant="Default" onChange={(v) => console.log(v)} />
-
-// Stepper variant (up/down buttons stacked on right, text left-aligned)
-<NumberInput label="Stepper" value={5} variant="Stepper" onChange={(v) => console.log(v)} />
-
-// Centered variant (buttons in separate visual zones, text centered)
-<NumberInput label="Centered" value={5} variant="Centered" onChange={(v) => console.log(v)} />`;
+// Stepper variant: up/down buttons stacked on right, text left-aligned
+<NumberInput label="Stepper XS" value={0} size="XS" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="Stepper S" value={0} size="S" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="Stepper M" value={0} size="M" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="Stepper L" value={0} size="L" variant="Stepper" onChange={(v) => console.log(v)} />`;
 
   const statesCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
@@ -150,7 +147,7 @@ export default function NumberInputPage() {
             </div>
           </section>
 
-          {/* Variants */}
+          {/* Stepper Variant */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -161,34 +158,44 @@ export default function NumberInputPage() {
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                Variants
+                Stepper Variant
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('variants')}
+                onClick={() => setOpenModal('stepper')}
               />
             </div>
             <div className="example-container">
               <div className="numberinput-examples">
                 <NumberInput
-                  label="Default"
-                  value={5}
-                  variant="Default"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Stepper"
-                  value={5}
+                  label="Stepper XS"
+                  value={0}
+                  size="XS"
                   variant="Stepper"
                   onChange={() => {}}
                 />
                 <NumberInput
-                  label="Centered"
-                  value={5}
-                  variant="Centered"
+                  label="Stepper S"
+                  value={0}
+                  size="S"
+                  variant="Stepper"
+                  onChange={() => {}}
+                />
+                <NumberInput
+                  label="Stepper M"
+                  value={0}
+                  size="M"
+                  variant="Stepper"
+                  onChange={() => {}}
+                />
+                <NumberInput
+                  label="Stepper L"
+                  value={0}
+                  size="L"
+                  variant="Stepper"
                   onChange={() => {}}
                 />
               </div>
@@ -423,9 +430,9 @@ export default function NumberInputPage() {
                 </tr>
                 <tr>
                   <td><code>variant</code></td>
-                  <td><code>'Default' | 'Stepper' | 'Centered'</code></td>
-                  <td><code>'Default'</code></td>
-                  <td>Visual variant: Default (buttons inline), Stepper (up/down on right), Centered (buttons in zones)</td>
+                  <td><code>'Stepper'</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Stepper variant puts up/down buttons on the right side</td>
                 </tr>
                 <tr>
                   <td><code>min</code></td>
@@ -501,10 +508,10 @@ export default function NumberInputPage() {
         code={sizesCode}
       />
       <CodeModal
-        isOpen={openModal === 'variants'}
+        isOpen={openModal === 'stepper'}
         onClose={() => setOpenModal(null)}
-        title="Variants Implementation"
-        code={variantsCode}
+        title="Stepper Variant Implementation"
+        code={stepperCode}
       />
       <CodeModal
         isOpen={openModal === 'states'}

@@ -7,7 +7,7 @@ import './NumberInput.css';
 
 export type NumberInputSize = 'XS' | 'S' | 'M' | 'L';
 export type NumberInputState = 'Default' | 'Error' | 'Valid';
-export type NumberInputVariant = 'Default' | 'Stepper' | 'Centered';
+export type NumberInputVariant = 'Stepper';
 
 export interface NumberInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
@@ -30,11 +30,7 @@ export interface NumberInputProps
    */
   state?: NumberInputState;
   /**
-   * Visual variant of the input
-   * - Default: buttons on both sides, text centered
-   * - Stepper: up/down buttons stacked on right, text left-aligned
-   * - Centered: buttons in separate visual zones, text centered
-   * @default 'Default'
+   * Visual variant - 'Stepper' puts up/down buttons on right side
    */
   variant?: NumberInputVariant;
   /**
@@ -112,7 +108,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       placeholder = '0',
       size = 'M',
       state = 'Default',
-      variant = 'Default',
+      variant,
       showLabel = true,
       showLegend = false,
       showOptional = false,
@@ -186,21 +182,11 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     const inputWrapperClasses = [
       'number-input-wrapper',
       `number-input-wrapper--${size.toLowerCase()}`,
-      `number-input-wrapper--${variant.toLowerCase()}`,
+      variant === 'Stepper' && 'number-input-wrapper--stepper',
       isError && 'number-input-wrapper--error',
       isValid && 'number-input-wrapper--valid',
       isDisabled && 'number-input-wrapper--disabled',
       isReadOnly && 'number-input-wrapper--read-only',
-    ]
-      .filter(Boolean)
-      .join(' ');
-
-    // Text alignment is determined by variant
-    const textAlign = variant === 'Stepper' ? 'left' : 'center';
-
-    const inputFieldClasses = [
-      'number-input-field',
-      `number-input-field--${textAlign}`,
     ]
       .filter(Boolean)
       .join(' ');
@@ -232,17 +218,17 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
         {/* Input wrapper */}
         <div className={inputWrapperClasses}>
-          {/* Decrement button (left side for Default and Centered variants) */}
+          {/* Decrement button (left side) - only for default variant */}
           {!isReadOnly && variant !== 'Stepper' && (
             <IconButton
               icon="remove"
               size={size}
-              variant="Ghost"
+              variant="Default"
               onClick={handleDecrement}
               disabled={isDisabled || !canDecrement}
               aria-label="Decrease value"
               tabIndex={-1}
-              className="number-input-stepper number-input-stepper--left"
+              className="number-input-stepper"
             />
           )}
 
@@ -250,7 +236,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             ref={ref}
             type="text"
             inputMode="numeric"
-            className={inputFieldClasses}
+            className={`number-input-field${variant === 'Stepper' ? ' number-input-field--left' : ''}`}
             placeholder={placeholder}
             value={value !== undefined ? String(value) : ''}
             onChange={handleInputChange}
@@ -261,43 +247,43 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             {...inputProps}
           />
 
-          {/* Stepper variant: stacked buttons on right */}
+          {/* Stepper variant: stacked buttons on right (appear on hover) */}
           {!isReadOnly && variant === 'Stepper' && (
             <div className="number-input-stepper-group">
               <button
                 type="button"
-                className="number-input-stepper-btn number-input-stepper-btn--up"
+                className="number-input-stepper-btn"
                 onClick={handleIncrement}
                 disabled={isDisabled || !canIncrement}
                 aria-label="Increase value"
                 tabIndex={-1}
               >
-                <Icon name="keyboard_arrow_up" size={16} />
+                <Icon name="keyboard_arrow_up" size={size === 'XS' ? 12 : size === 'S' ? 14 : 16} />
               </button>
               <button
                 type="button"
-                className="number-input-stepper-btn number-input-stepper-btn--down"
+                className="number-input-stepper-btn"
                 onClick={handleDecrement}
                 disabled={isDisabled || !canDecrement}
                 aria-label="Decrease value"
                 tabIndex={-1}
               >
-                <Icon name="keyboard_arrow_down" size={16} />
+                <Icon name="keyboard_arrow_down" size={size === 'XS' ? 12 : size === 'S' ? 14 : 16} />
               </button>
             </div>
           )}
 
-          {/* Increment button (right side for Default and Centered variants) */}
+          {/* Increment button (right side) - only for default variant */}
           {!isReadOnly && variant !== 'Stepper' && (
             <IconButton
               icon="add"
               size={size}
-              variant="Ghost"
+              variant="Default"
               onClick={handleIncrement}
               disabled={isDisabled || !canIncrement}
               aria-label="Increase value"
               tabIndex={-1}
-              className="number-input-stepper number-input-stepper--right"
+              className="number-input-stepper"
             />
           )}
         </div>

@@ -167,21 +167,6 @@
   -moz-appearance: textfield;
 }
 
-/* Text alignment variants */
-.number-input-field--left {
-  text-align: left;
-  padding-left: 12px;
-}
-
-.number-input-field--center {
-  text-align: center;
-}
-
-.number-input-field--right {
-  text-align: right;
-  padding-right: 12px;
-}
-
 .number-input-field::-webkit-outer-spin-button,
 .number-input-field::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -213,79 +198,12 @@
 }
 
 /* ============================================================================
-   CENTERED VARIANT
+   STEPPER VARIANT (buttons stacked on right, appear on hover)
    ============================================================================ */
 
-.number-input-wrapper--centered {
-  background-color: var(--background-secondary, #fafafa);
-  border-radius: var(--radius-xs, 3px);
-  box-shadow: none;
-  border: 1px solid var(--border-minimal, #e0e3e9);
-  overflow: hidden;
-}
-
-.number-input-wrapper--centered:hover {
-  background-color: var(--background-secondary, #fafafa);
-}
-
-.number-input-wrapper--centered:focus-within {
-  background-color: var(--background-secondary, #fafafa);
-  border-color: var(--primary-default, #063b9e);
-  box-shadow: none;
-}
-
-.number-input-wrapper--centered .number-input-stepper {
-  background-color: var(--background-tertiary, #eff1f4);
-  border-radius: 0;
-  height: 100%;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.number-input-wrapper--centered .number-input-stepper:hover:not(:disabled) {
-  background-color: var(--background-hover, #e5e7eb);
-}
-
-.number-input-wrapper--centered .number-input-stepper--left {
-  border-right: 1px solid var(--border-minimal, #e0e3e9);
-}
-
-.number-input-wrapper--centered .number-input-stepper--right {
-  border-left: 1px solid var(--border-minimal, #e0e3e9);
-}
-
-/* Centered variant with error state */
-.number-input-wrapper--centered.number-input-wrapper--error {
-  border-color: var(--feedback-error-default, #e4002b);
-}
-
-/* Centered variant with valid state */
-.number-input-wrapper--centered.number-input-wrapper--valid {
-  border-color: var(--feedback-success-default, #08875b);
-}
-
-/* ============================================================================
-   STEPPER VARIANT (buttons stacked on right)
-   ============================================================================ */
-
-.number-input-wrapper--stepper {
-  background-color: var(--background-secondary, #fafafa);
-  border-radius: var(--radius-xs, 3px);
-  box-shadow: none;
-  border: 1px solid var(--border-minimal, #e0e3e9);
-  overflow: hidden;
-}
-
-.number-input-wrapper--stepper:hover {
-  background-color: var(--background-secondary, #fafafa);
-}
-
-.number-input-wrapper--stepper:focus-within {
-  background-color: var(--background-secondary, #fafafa);
-  border-color: var(--primary-default, #063b9e);
-  box-shadow: none;
+.number-input-field--left {
+  text-align: left;
+  padding-left: 12px;
 }
 
 /* Stepper button group (stacked vertically on right) */
@@ -295,6 +213,14 @@
   height: 100%;
   border-left: 1px solid var(--border-minimal, #e0e3e9);
   background-color: var(--background-tertiary, #eff1f4);
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Show stepper buttons on hover */
+.number-input-wrapper:hover .number-input-stepper-group,
+.number-input-wrapper:focus-within .number-input-stepper-group {
+  opacity: 1;
 }
 
 .number-input-stepper-btn {
@@ -305,8 +231,9 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 4px;
   color: var(--text-secondary, #63728a);
+  min-height: 0;
 }
 
 .number-input-stepper-btn:hover:not(:disabled) {
@@ -318,16 +245,15 @@
   cursor: default;
 }
 
-.number-input-stepper-btn--up {
+.number-input-stepper-btn:first-child {
   border-bottom: 1px solid var(--border-minimal, #e0e3e9);
 }
 
-/* Stepper variant with error state */
-.number-input-wrapper--stepper.number-input-wrapper--error {
-  border-color: var(--feedback-error-default, #e4002b);
+/* Size-specific icon sizes for stepper */
+.number-input-wrapper--xs .number-input-stepper-btn {
+  padding: 0 2px;
 }
 
-/* Stepper variant with valid state */
-.number-input-wrapper--stepper.number-input-wrapper--valid {
-  border-color: var(--feedback-success-default, #08875b);
+.number-input-wrapper--s .number-input-stepper-btn {
+  padding: 0 3px;
 }
