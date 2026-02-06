@@ -1,3 +1,47 @@
+/* Variants row - side by side */
+.numberinput-variants-row {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.numberinput-variant-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 250px;
+  flex: 1;
+  max-width: 350px;
+}
+
+.variant-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary, #919cb0);
+}
+
+/* Dual columns layout - Default on left, Stepper on right */
+.numberinput-dual-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.numberinput-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 250px;
+  flex: 1;
+  max-width: 350px;
+}
+
+/* Legacy single row layout */
 .numberinput-examples {
   display: flex;
   flex-direction: row;

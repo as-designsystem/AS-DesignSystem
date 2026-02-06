@@ -11,47 +11,61 @@ export default function NumberInputPage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'props'>('examples');
 
   const [quantity, setQuantity] = useState(5);
+  const [quantityStepper, setQuantityStepper] = useState(5);
   const [temperature, setTemperature] = useState(20);
+  const [temperatureStepper, setTemperatureStepper] = useState(20);
+
+  const variantsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
+
+// Default variant: buttons on both sides, text centered
+<NumberInput label="Default" value={0} onChange={(v) => console.log(v)} />
+
+// Stepper variant: up/down buttons stacked on right (appear on hover), text left-aligned
+<NumberInput label="Stepper" value={0} variant="Stepper" onChange={(v) => console.log(v)} />`;
 
   const sizesCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
-<NumberInput label="Size XS" value={0} size="XS" onChange={(v) => console.log(v)} />
-<NumberInput label="Size S" value={0} size="S" onChange={(v) => console.log(v)} />
-<NumberInput label="Size M" value={0} size="M" onChange={(v) => console.log(v)} />
-<NumberInput label="Size L" value={0} size="L" onChange={(v) => console.log(v)} />`;
+// Default variant sizes
+<NumberInput label="XS" value={0} size="XS" onChange={(v) => console.log(v)} />
+<NumberInput label="S" value={0} size="S" onChange={(v) => console.log(v)} />
+<NumberInput label="M" value={0} size="M" onChange={(v) => console.log(v)} />
+<NumberInput label="L" value={0} size="L" onChange={(v) => console.log(v)} />
 
-  const stepperCode = `import { NumberInput } from '@/design-system/components/NumberInput';
-
-// Stepper variant: up/down buttons stacked on right, text left-aligned
-<NumberInput label="Stepper XS" value={0} size="XS" variant="Stepper" onChange={(v) => console.log(v)} />
-<NumberInput label="Stepper S" value={0} size="S" variant="Stepper" onChange={(v) => console.log(v)} />
-<NumberInput label="Stepper M" value={0} size="M" variant="Stepper" onChange={(v) => console.log(v)} />
-<NumberInput label="Stepper L" value={0} size="L" variant="Stepper" onChange={(v) => console.log(v)} />`;
+// Stepper variant sizes
+<NumberInput label="XS" value={0} size="XS" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="S" value={0} size="S" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="M" value={0} size="M" variant="Stepper" onChange={(v) => console.log(v)} />
+<NumberInput label="L" value={0} size="L" variant="Stepper" onChange={(v) => console.log(v)} />`;
 
   const statesCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
+// Default variant states
 <NumberInput label="Default" value={5} state="Default" onChange={(v) => console.log(v)} />
-<NumberInput label="Error" value={0} state="Error" legend="Value must be greater than 0" showLegend onChange={(v) => console.log(v)} />
-<NumberInput label="Valid" value={10} state="Valid" legend="Value accepted" showLegend onChange={(v) => console.log(v)} />
+<NumberInput label="Error" value={0} state="Error" legend="Error message" showLegend onChange={(v) => console.log(v)} />
+<NumberInput label="Valid" value={10} state="Valid" legend="Valid" showLegend onChange={(v) => console.log(v)} />
 <NumberInput label="Disabled" value={3} disabled />
-<NumberInput label="Read-only" value={42} readOnly />`;
+<NumberInput label="Read-only" value={42} readOnly />
+
+// Stepper variant states
+<NumberInput label="Default" value={5} variant="Stepper" state="Default" onChange={(v) => console.log(v)} />
+<NumberInput label="Error" value={0} variant="Stepper" state="Error" legend="Error message" showLegend onChange={(v) => console.log(v)} />
+<NumberInput label="Valid" value={10} variant="Stepper" state="Valid" legend="Valid" showLegend onChange={(v) => console.log(v)} />
+<NumberInput label="Disabled" value={3} variant="Stepper" disabled />
+<NumberInput label="Read-only" value={42} variant="Stepper" readOnly />`;
 
   const optionsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
-// With min/max constraints
-<NumberInput label="Quantity" value={5} min={0} max={99} onChange={(v) => setValue(v)} />
-
-// With step
-<NumberInput label="Temperature" value={20} step={5} min={-40} max={50} onChange={(v) => setValue(v)} />
-
 // With optional text
-<NumberInput label="Count" value={0} showOptional onChange={(v) => setValue(v)} />
+<NumberInput label="Optional" value={0} showOptional onChange={(v) => console.log(v)} />
 
 // With legend
-<NumberInput label="Items" value={1} legend="Max 10 items allowed" showLegend onChange={(v) => setValue(v)} />
+<NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={(v) => console.log(v)} />
 
 // With info tooltip
-<NumberInput label="Passengers" value={1} showInfo infoText="Including children" onChange={(v) => setValue(v)} />`;
+<NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={(v) => console.log(v)} />
+
+// With min/max constraints
+<NumberInput label="Min/Max" value={5} min={0} max={10} onChange={(v) => console.log(v)} />`;
 
   return (
     <div className="component-page">
@@ -96,6 +110,50 @@ export default function NumberInputPage() {
       {/* Examples Tab */}
       {activeTab === 'examples' && (
         <>
+          {/* Variants */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Variants
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('variants')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="numberinput-variants-row">
+                <div className="numberinput-variant-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput
+                    label="Quantity"
+                    value={0}
+                    onChange={() => {}}
+                  />
+                </div>
+                <div className="numberinput-variant-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput
+                    label="Quantity"
+                    value={0}
+                    variant="Stepper"
+                    onChange={() => {}}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Sizes */}
           <section className="component-section">
             <div className="section-header">
@@ -118,86 +176,21 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div className="numberinput-examples">
-              <NumberInput
-                label="Size XS"
-                value={0}
-                size="XS"
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Size S"
-                value={0}
-                size="S"
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Size M"
-                value={0}
-                size="M"
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Size L"
-                value={0}
-                size="L"
-                onChange={() => {}}
-              />
-              </div>
-            </div>
-          </section>
-
-          {/* Stepper Variant */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Stepper Variant
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('stepper')}
-              />
-            </div>
-            <div className="example-container">
-              <div className="numberinput-examples">
-                <NumberInput
-                  label="Stepper XS"
-                  value={0}
-                  size="XS"
-                  variant="Stepper"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Stepper S"
-                  value={0}
-                  size="S"
-                  variant="Stepper"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Stepper M"
-                  value={0}
-                  size="M"
-                  variant="Stepper"
-                  onChange={() => {}}
-                />
-                <NumberInput
-                  label="Stepper L"
-                  value={0}
-                  size="L"
-                  variant="Stepper"
-                  onChange={() => {}}
-                />
+              <div className="numberinput-dual-columns">
+                <div className="numberinput-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput label="XS" value={0} size="XS" onChange={() => {}} />
+                  <NumberInput label="S" value={0} size="S" onChange={() => {}} />
+                  <NumberInput label="M" value={0} size="M" onChange={() => {}} />
+                  <NumberInput label="L" value={0} size="L" onChange={() => {}} />
+                </div>
+                <div className="numberinput-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput label="XS" value={0} size="XS" variant="Stepper" onChange={() => {}} />
+                  <NumberInput label="S" value={0} size="S" variant="Stepper" onChange={() => {}} />
+                  <NumberInput label="M" value={0} size="M" variant="Stepper" onChange={() => {}} />
+                  <NumberInput label="L" value={0} size="L" variant="Stepper" onChange={() => {}} />
+                </div>
               </div>
             </div>
           </section>
@@ -224,39 +217,23 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div className="numberinput-examples">
-              <NumberInput
-                label="Default"
-                value={5}
-                state="Default"
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Error"
-                value={0}
-                state="Error"
-                legend="Value must be greater than 0"
-                showLegend
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Valid"
-                value={10}
-                state="Valid"
-                legend="Value accepted"
-                showLegend
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="Disabled"
-                value={3}
-                disabled
-              />
-              <NumberInput
-                label="Read-only"
-                value={42}
-                readOnly
-              />
+              <div className="numberinput-dual-columns">
+                <div className="numberinput-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput label="Default" value={5} state="Default" onChange={() => {}} />
+                  <NumberInput label="Error" value={0} state="Error" legend="Error message" showLegend onChange={() => {}} />
+                  <NumberInput label="Valid" value={10} state="Valid" legend="Valid" showLegend onChange={() => {}} />
+                  <NumberInput label="Disabled" value={3} disabled />
+                  <NumberInput label="Read-only" value={42} readOnly />
+                </div>
+                <div className="numberinput-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput label="Default" value={5} variant="Stepper" state="Default" onChange={() => {}} />
+                  <NumberInput label="Error" value={0} variant="Stepper" state="Error" legend="Error message" showLegend onChange={() => {}} />
+                  <NumberInput label="Valid" value={10} variant="Stepper" state="Valid" legend="Valid" showLegend onChange={() => {}} />
+                  <NumberInput label="Disabled" value={3} variant="Stepper" disabled />
+                  <NumberInput label="Read-only" value={42} variant="Stepper" readOnly />
+                </div>
               </div>
             </div>
           </section>
@@ -283,34 +260,21 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div className="numberinput-examples">
-              <NumberInput
-                label="With optional"
-                value={0}
-                showOptional
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="With legend"
-                value={1}
-                legend="Max 10 items allowed"
-                showLegend
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="With info tooltip"
-                value={1}
-                showInfo
-                infoText="Including children"
-                onChange={() => {}}
-              />
-              <NumberInput
-                label="With min/max"
-                value={5}
-                min={0}
-                max={10}
-                onChange={() => {}}
-              />
+              <div className="numberinput-dual-columns">
+                <div className="numberinput-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput label="Optional" value={0} showOptional onChange={() => {}} />
+                  <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={() => {}} />
+                  <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={() => {}} />
+                  <NumberInput label="Min/Max (0-10)" value={5} min={0} max={10} onChange={() => {}} />
+                </div>
+                <div className="numberinput-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput label="Optional" value={0} variant="Stepper" showOptional onChange={() => {}} />
+                  <NumberInput label="With legend" value={1} variant="Stepper" legend="Max 10 items" showLegend onChange={() => {}} />
+                  <NumberInput label="With info" value={1} variant="Stepper" showInfo infoText="Tooltip text" onChange={() => {}} />
+                  <NumberInput label="Min/Max (0-10)" value={5} variant="Stepper" min={0} max={10} onChange={() => {}} />
+                </div>
               </div>
             </div>
           </section>
@@ -330,38 +294,49 @@ export default function NumberInputPage() {
               </h2>
             </div>
             <div className="example-container">
-              <div className="numberinput-examples">
-              <NumberInput
-                label="Quantity"
-                value={quantity}
-                min={0}
-                max={99}
-                onChange={setQuantity}
-              />
-              <NumberInput
-                label="Temperature (step 5)"
-                value={temperature}
-                step={5}
-                min={-40}
-                max={50}
-                onChange={setTemperature}
-                legend={`Current: ${temperature}°C`}
-                showLegend
-              />
-              <div
-                style={{
-                  padding: '16px',
-                  background: 'var(--background-tertiary)',
-                  borderRadius: '4px',
-                  alignSelf: 'center',
-                }}
-              >
-                <p className="label-regular-s" style={{ margin: 0 }}>
-                  Quantity: <strong>{quantity}</strong>
-                  <br />
-                  Temperature: <strong>{temperature}°C</strong>
-                </p>
-              </div>
+              <div className="numberinput-dual-columns">
+                <div className="numberinput-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput
+                    label="Quantity"
+                    value={quantity}
+                    min={0}
+                    max={99}
+                    onChange={setQuantity}
+                  />
+                  <NumberInput
+                    label="Temperature"
+                    value={temperature}
+                    step={5}
+                    min={-40}
+                    max={50}
+                    onChange={setTemperature}
+                    legend={`Current: ${temperature}°C`}
+                    showLegend
+                  />
+                </div>
+                <div className="numberinput-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput
+                    label="Quantity"
+                    value={quantityStepper}
+                    variant="Stepper"
+                    min={0}
+                    max={99}
+                    onChange={setQuantityStepper}
+                  />
+                  <NumberInput
+                    label="Temperature"
+                    value={temperatureStepper}
+                    variant="Stepper"
+                    step={5}
+                    min={-40}
+                    max={50}
+                    onChange={setTemperatureStepper}
+                    legend={`Current: ${temperatureStepper}°C`}
+                    showLegend
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -432,7 +407,7 @@ export default function NumberInputPage() {
                   <td><code>variant</code></td>
                   <td><code>'Stepper'</code></td>
                   <td><code>undefined</code></td>
-                  <td>Stepper variant puts up/down buttons on the right side</td>
+                  <td>Stepper variant puts up/down buttons on the right side (appear on hover)</td>
                 </tr>
                 <tr>
                   <td><code>min</code></td>
@@ -502,16 +477,16 @@ export default function NumberInputPage() {
 
       {/* Modals */}
       <CodeModal
+        isOpen={openModal === 'variants'}
+        onClose={() => setOpenModal(null)}
+        title="Variants Implementation"
+        code={variantsCode}
+      />
+      <CodeModal
         isOpen={openModal === 'sizes'}
         onClose={() => setOpenModal(null)}
         title="Sizes Implementation"
         code={sizesCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'stepper'}
-        onClose={() => setOpenModal(null)}
-        title="Stepper Variant Implementation"
-        code={stepperCode}
       />
       <CodeModal
         isOpen={openModal === 'states'}
