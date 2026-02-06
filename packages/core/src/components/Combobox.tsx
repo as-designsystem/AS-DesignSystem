@@ -323,14 +323,7 @@ export function Combobox({
       )}
 
       {/* Combobox */}
-      <Popover.Root open={open} onOpenChange={(isOpen) => {
-        // Only close through our explicit handlers (Escape, Tab, select, blur)
-        // Prevent Radix from closing unexpectedly when input has focus
-        if (!isOpen && document.activeElement === inputRef.current) {
-          return;
-        }
-        setOpen(isOpen);
-      }}>
+      <Popover.Root open={open} modal={false}>
         <Popover.Anchor asChild>
           <div className={inputWrapperClasses}>
             {showLeftIcon && leftIcon && (
@@ -376,7 +369,7 @@ export function Combobox({
             className={`combobox-content combobox-content--${size.toLowerCase()}`}
             sideOffset={4}
             onOpenAutoFocus={(e) => e.preventDefault()}
-            onInteractOutside={() => setOpen(false)}
+            onCloseAutoFocus={(e) => e.preventDefault()}
           >
             <div ref={listRef} className="combobox-list" role="listbox">
               {filteredOptions.length > 0 ? (
