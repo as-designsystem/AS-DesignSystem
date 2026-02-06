@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (89 icons)
+      // SVG icon assets (91 icons)
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_Airbus.svg', target: 'assets/svg/icons/AIR_Airbus.svg', type: 'component' },
@@ -74,6 +74,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/emoji_emotions.svg', target: 'assets/svg/icons/emoji_emotions.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/error.svg', target: 'assets/svg/icons/error.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/event.svg', target: 'assets/svg/icons/event.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/event_note.svg', target: 'assets/svg/icons/event_note.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter_row.svg', target: 'assets/svg/icons/filter_row.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/flight_class.svg', target: 'assets/svg/icons/flight_class.svg', type: 'component' },
@@ -102,6 +103,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/speed.svg', target: 'assets/svg/icons/speed.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/star.svg', target: 'assets/svg/icons/star.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/star_border.svg', target: 'assets/svg/icons/star_border.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/table_chart.svg', target: 'assets/svg/icons/table_chart.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/trending_down.svg', target: 'assets/svg/icons/trending_down.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/trending_up.svg', target: 'assets/svg/icons/trending_up.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/upload.svg', target: 'assets/svg/icons/upload.svg', type: 'component' },
