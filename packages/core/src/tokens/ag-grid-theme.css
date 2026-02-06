@@ -70,15 +70,15 @@
   --ag-header-height: 32px;
 }
 
-.as-ag-grid--small .ag-header-cell {
+.as-ag-grid.as-ag-grid--small .ag-header-cell {
   padding: 0 4px;
 }
 
-.as-ag-grid--small .ag-cell {
+.as-ag-grid.as-ag-grid--small .ag-cell {
   padding: 0 4px;
 }
 
-.as-ag-grid--small .ag-cell-inline-editing input {
+.as-ag-grid.as-ag-grid--small .ag-cell-inline-editing input {
   padding: 0 4px;
 }
 
