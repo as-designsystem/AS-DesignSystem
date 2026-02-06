@@ -70,6 +70,18 @@
   --ag-header-height: 32px;
 }
 
+.as-ag-grid--small .ag-header-cell {
+  padding: 0 4px;
+}
+
+.as-ag-grid--small .ag-cell {
+  padding: 0 4px;
+}
+
+.as-ag-grid--small .ag-cell-inline-editing input {
+  padding: 0 4px;
+}
+
 /* ===== HEADER ===== */
 
 .as-ag-grid .ag-header {
@@ -78,7 +90,7 @@
 }
 
 .as-ag-grid .ag-header-cell {
-  padding: 0 16px;
+  padding: 0 8px;
   font-weight: 700;
   font-size: 12px;
   color: var(--ag-header-foreground-color);
@@ -163,7 +175,7 @@
 /* ===== CELLS ===== */
 
 .as-ag-grid .ag-cell {
-  padding: 0 16px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
   line-height: 1.4;
@@ -195,7 +207,7 @@
 }
 
 .as-ag-grid .ag-cell-inline-editing input {
-  padding: 0 16px;
+  padding: 0 8px;
   height: 100%;
   font-family: var(--ag-font-family);
   font-size: var(--ag-font-size);
