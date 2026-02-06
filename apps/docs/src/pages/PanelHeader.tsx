@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PanelHeader, Tab, Button } from '@as-design-system/core';
+import { PanelHeader, Tab, Button, IconButton } from '@as-design-system/core';
 import '@as-design-system/core/PanelHeader.css';
 import '@as-design-system/core/PanelStudyName.css';
 import '@as-design-system/core/Button.css';
@@ -44,6 +44,30 @@ export default function PanelHeaderPage() {
 <PanelHeader
   studyName="Very Long Study Name That Overflows Onto Multiple Lines"
   studyNameLines={2}
+  onBackHome={() => navigate('/')}
+/>`;
+
+  const customActionsCode = `import { PanelHeader } from '@/design-system/composites/PanelHeader';
+import { IconButton } from '@/design-system/components/IconButton';
+
+{/* Replace duplicate button with a "more" menu */}
+<PanelHeader
+  studyName="My Study"
+  showDuplicateButton={false}
+  actions={<IconButton icon="more_horiz" variant="Ghost" size="S" />}
+  onBackHome={() => navigate('/')}
+/>
+
+{/* Multiple custom action buttons */}
+<PanelHeader
+  studyName="My Study"
+  showDuplicateButton={false}
+  actions={
+    <>
+      <IconButton icon="share" variant="Ghost" size="S" />
+      <IconButton icon="more_horiz" variant="Ghost" size="S" />
+    </>
+  }
   onBackHome={() => navigate('/')}
 />`;
 
@@ -201,6 +225,92 @@ export default function PanelHeaderPage() {
               </div>
             </div>
           </section>
+
+          {/* Custom Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Custom Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('customActions')}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Use <code>showDuplicateButton=&#123;false&#125;</code> to hide the default duplicate button,
+              and <code>actions</code> to add custom buttons.
+            </p>
+            <div className="panel-header-demo-grid">
+              <div className="example-container">
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                  With "more" menu button
+                </p>
+                <div className="panel-header-demo">
+                  <PanelHeader
+                    studyName="Fleet Analysis Q4"
+                    showDuplicateButton={false}
+                    actions={
+                      <IconButton
+                        icon="more_horiz"
+                        variant="Ghost"
+                        size="S"
+                        onClick={() => console.log('Open menu')}
+                        className="panel-header__icon-button"
+                      />
+                    }
+                    onBackHome={() => console.log('Back home')}
+                  />
+                </div>
+              </div>
+              <div className="example-container">
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                  With multiple custom buttons
+                </p>
+                <div className="panel-header-demo">
+                  <PanelHeader
+                    studyName="Fleet Analysis Q4"
+                    showDuplicateButton={false}
+                    actions={
+                      <>
+                        <IconButton
+                          icon="share"
+                          variant="Ghost"
+                          size="S"
+                          onClick={() => console.log('Share')}
+                          className="panel-header__icon-button"
+                        />
+                        <IconButton
+                          icon="more_horiz"
+                          variant="Ghost"
+                          size="S"
+                          onClick={() => console.log('Open menu')}
+                          className="panel-header__icon-button"
+                        />
+                      </>
+                    }
+                    onBackHome={() => console.log('Back home')}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -247,6 +357,12 @@ export default function PanelHeaderPage() {
                   <td>Callback when the study name is clicked (e.g., to rename)</td>
                 </tr>
                 <tr>
+                  <td><code>showDuplicateButton</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>true</code></td>
+                  <td>Whether to show the duplicate button</td>
+                </tr>
+                <tr>
                   <td><code>onDuplicate</code></td>
                   <td><code>() =&gt; void</code></td>
                   <td>-</td>
@@ -268,7 +384,7 @@ export default function PanelHeaderPage() {
                   <td><code>actions</code></td>
                   <td><code>ReactNode</code></td>
                   <td>-</td>
-                  <td>Additional action buttons next to the duplicate button</td>
+                  <td>Custom action buttons (use with showDuplicateButton=false to replace)</td>
                 </tr>
                 <tr>
                   <td><code>className</code></td>
@@ -300,6 +416,12 @@ export default function PanelHeaderPage() {
         onClose={() => setOpenModal(null)}
         title="Long Study Name"
         code={longNameCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'customActions'}
+        onClose={() => setOpenModal(null)}
+        title="Custom Actions"
+        code={customActionsCode}
       />
     </div>
   );
