@@ -18,6 +18,7 @@
     "./Tab.css": "./dist/Tab.css",
     "./ToolIcons.css": "./dist/ToolIcons.css",
     "./Select.css": "./dist/Select.css",
+    "./Combobox.css": "./dist/Combobox.css",
     "./VSelect.css": "./dist/VSelect.css",
     "./Checkbox.css": "./dist/Checkbox.css",
     "./VCheckbox.css": "./dist/VCheckbox.css",

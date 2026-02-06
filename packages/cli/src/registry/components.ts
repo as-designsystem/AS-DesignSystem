@@ -439,6 +439,33 @@ export const components: RegistryItem[] = [
     ],
   },
   {
+    name: 'combobox',
+    type: 'component',
+    displayName: 'Combobox',
+    description: 'Autocomplete input with dropdown suggestions based on Radix UI Popover',
+    files: [
+      {
+        path: 'templates/components/Combobox.tsx',
+        target: 'components/Combobox.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Combobox.css',
+        target: 'components/Combobox.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'tooltip'],
+    externalDependencies: {
+      '@radix-ui/react-popover': '^1.1.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'vselect',
     type: 'component',
     displayName: 'VSelect',

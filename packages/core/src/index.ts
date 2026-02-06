@@ -6,6 +6,7 @@ export { IconButton, type IconButtonProps, type IconButtonSize, type IconButtonS
 export { Tab, type TabProps, type TabSize, type TabStatus, type TabState, type TabVariant } from './components/Tab';
 export { ToolIcons, type ToolIconsProps, type ToolName, type ToolIconMode } from './components/ToolIcons';
 export { Select, type SelectProps, type SelectSize, type SelectState, type SelectOption } from './components/Select';
+export { Combobox, type ComboboxProps, type ComboboxSize, type ComboboxState, type ComboboxOption } from './components/Combobox';
 export { VSelect, type VSelectProps, type VSelectSize, type VSelectState, type VSelectOption } from './components/VSelect';
 export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, type CheckboxStatus } from './components/Checkbox';
 export { VCheckbox, type VCheckboxProps, type VCheckboxSize, type VCheckboxState, type VCheckboxStatus } from './components/VCheckbox';
