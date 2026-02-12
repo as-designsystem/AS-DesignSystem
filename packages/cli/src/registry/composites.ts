@@ -322,4 +322,28 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'chart-card',
+    type: 'composite',
+    displayName: 'ChartCard',
+    description: 'Flexible card container for charts, maps, tables, or data visualizations with customizable header, filters, and footer',
+    files: [
+      {
+        path: 'templates/composites/ChartCard.tsx',
+        target: 'composites/ChartCard.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/ChartCard.css',
+        target: 'composites/ChartCard.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
 ];

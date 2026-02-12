@@ -1,0 +1,71 @@
+/* ChartCard Documentation Page Styles */
+
+.chart-card-demo {
+  padding: 24px;
+  background-color: var(--background-secondary, #fafafa);
+  border-radius: 8px;
+  border: 1px solid var(--border-minimal, #e0e3e9);
+}
+
+/* Placeholder for chart content in demos */
+.chart-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  min-height: 120px;
+  background-color: var(--cool-grey-10, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-secondary, var(--cool-grey-70, #63728a));
+}
+
+/* Legend styles for footer demo */
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--text-secondary, var(--cool-grey-70, #63728a));
+}
+
+.chart-legend__color {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.chart-legend__line {
+  width: 16px;
+  height: 3px;
+  flex-shrink: 0;
+}
+
+/* Dark mode */
+html.dark .chart-card-demo {
+  background-color: var(--background-secondary);
+  border-color: var(--border-minimal);
+}
+
+html.dark .chart-placeholder {
+  background-color: var(--cool-grey-90, #2a2f38);
+  color: var(--text-secondary);
+}
+
+html.dark .chart-legend__item {
+  color: var(--text-secondary);
+}

@@ -55,6 +55,7 @@
     "./Calendar.css": "./dist/Calendar.css",
     "./AircraftSelector.css": "./dist/AircraftSelector.css",
     "./EmptyState.css": "./dist/EmptyState.css",
+    "./ChartCard.css": "./dist/ChartCard.css",
     "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
   },
   "scripts": {

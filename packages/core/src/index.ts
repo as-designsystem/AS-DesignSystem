@@ -73,6 +73,7 @@ export { ToolTile, type ToolTileProps, type PlatformName } from './composites/To
 export { Calendar, type CalendarProps, type CalendarMode } from './composites/Calendar';
 export { AircraftSelector, type AircraftSelectorProps, type AircraftSource, type AircraftTreeNode, type AircraftNodeType, type AircraftSummary, type AircraftConfigData, type AircraftWeights, type AircraftCabin, type AircraftCG, type AircraftPerformanceData, type PerformanceSource, type AircraftDeteriorationPerPhase } from './composites/AircraftSelector';
 export { EmptyState, emptyStateIllustrations, type EmptyStateProps, type EmptyStateIllustration, type EmptyStateSize } from './composites/EmptyState';
+export { ChartCard, type ChartCardProps } from './composites/ChartCard';
 
 // Tokens
 export * from './tokens/colors';
