@@ -28,6 +28,34 @@ export default function ChartCardPage() {
   <div className="chart-placeholder">Chart Content</div>
 </ChartCard>`;
 
+  const withHeaderCenterCode = `import { ChartCard, IconButton, Select } from '@/design-system';
+
+<ChartCard
+  title="Network Map"
+  headerCenter={
+    <>
+      <span className="label-regular-s">Year</span>
+      <div style={{ width: '120px' }}>
+        <Select
+          options={[
+            { value: 'all', label: 'All' },
+            { value: '2024', label: '2024' },
+            { value: '2023', label: '2023' },
+          ]}
+          value="all"
+          size="XS"
+          showLabel={false}
+        />
+      </div>
+    </>
+  }
+  actions={
+    <IconButton icon="open_in_full" size="S" variant="Ghost" alt="Fullscreen" />
+  }
+>
+  {/* Map content */}
+</ChartCard>`;
+
   const withFiltersCode = `import { ChartCard, IconButton, Select } from '@/design-system';
 
 <ChartCard
@@ -39,16 +67,18 @@ export default function ChartCardPage() {
     </>
   }
   filters={
-    <Select
-      options={[
-        { value: '2024', label: '2024' },
-        { value: '2023', label: '2023' },
-        { value: '2022', label: '2022' },
-      ]}
-      value="2024"
-      size="XS"
-      showLabel={false}
-    />
+    <div style={{ width: '150px' }}>
+      <Select
+        options={[
+          { value: '2024', label: '2024' },
+          { value: '2023', label: '2023' },
+          { value: '2022', label: '2022' },
+        ]}
+        value="2024"
+        size="XS"
+        showLabel={false}
+      />
+    </div>
   }
 >
   <div className="chart-placeholder">Chart with Filters</div>
@@ -65,12 +95,14 @@ export default function ChartCardPage() {
     </>
   }
   filters={
-    <Select
-      options={[{ value: 'all', label: 'All Regions' }]}
-      value="all"
-      size="XS"
-      showLabel={false}
-    />
+    <div style={{ width: '150px' }}>
+      <Select
+        options={[{ value: 'all', label: 'All Regions' }]}
+        value="all"
+        size="XS"
+        showLabel={false}
+      />
+    </div>
   }
   footer={
     <div className="chart-legend">
@@ -127,7 +159,7 @@ export default function ChartCardPage() {
         }}
       >
         A flexible card container for displaying charts, maps, tables, or any data visualization.
-        Features customizable header with title and actions, optional filter section, and optional footer for legends.
+        Features customizable header with title, center content, and actions, optional filter section, and optional footer for legends.
       </p>
 
       {/* Tabs */}
@@ -192,6 +224,59 @@ export default function ChartCardPage() {
             </div>
           </section>
 
+          {/* With Header Center */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                With Header Center
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('headerCenter')}
+              />
+            </div>
+            <div className="chart-card-demo">
+              <ChartCard
+                title="Network Map"
+                headerCenter={
+                  <>
+                    <span className="label-regular-s" style={{ color: 'var(--text-secondary, #63728a)' }}>Year</span>
+                    <div style={{ width: '120px' }}>
+                      <Select
+                        options={[
+                          { value: 'all', label: 'All' },
+                          { value: '2024', label: '2024' },
+                          { value: '2023', label: '2023' },
+                        ]}
+                        value="all"
+                        size="XS"
+                        showLabel={false}
+                      />
+                    </div>
+                  </>
+                }
+                actions={
+                  <IconButton icon="open_in_full" size="S" variant="Ghost" alt="Fullscreen" />
+                }
+              >
+                <div className="chart-placeholder">
+                  <Icon name="broken_image" size={32} color="var(--cool-grey-70, #63728a)" />
+                  <span>Sorry. No Data to display.</span>
+                </div>
+              </ChartCard>
+            </div>
+          </section>
+
           {/* With Filters */}
           <section className="component-section">
             <div className="section-header">
@@ -223,16 +308,18 @@ export default function ChartCardPage() {
                   </>
                 }
                 filters={
-                  <Select
-                    options={[
-                      { value: '2024', label: '2024' },
-                      { value: '2023', label: '2023' },
-                      { value: '2022', label: '2022' },
-                    ]}
-                    value="2024"
-                    size="XS"
-                    showLabel={false}
-                  />
+                  <div style={{ width: '150px' }}>
+                    <Select
+                      options={[
+                        { value: '2024', label: '2024' },
+                        { value: '2023', label: '2023' },
+                        { value: '2022', label: '2022' },
+                      ]}
+                      value="2024"
+                      size="XS"
+                      showLabel={false}
+                    />
+                  </div>
                 }
               >
                 <div className="chart-placeholder">
@@ -274,12 +361,14 @@ export default function ChartCardPage() {
                   </>
                 }
                 filters={
-                  <Select
-                    options={[{ value: 'all', label: 'All Regions' }]}
-                    value="all"
-                    size="XS"
-                    showLabel={false}
-                  />
+                  <div style={{ width: '150px' }}>
+                    <Select
+                      options={[{ value: 'all', label: 'All Regions' }]}
+                      value="all"
+                      size="XS"
+                      showLabel={false}
+                    />
+                  </div>
                 }
                 footer={
                   <div className="chart-legend">
@@ -369,6 +458,12 @@ export default function ChartCardPage() {
                 <td>Title displayed in the card header. Can be a string or any React node.</td>
               </tr>
               <tr>
+                <td><code>headerCenter</code></td>
+                <td><code>ReactNode</code></td>
+                <td>-</td>
+                <td>Content displayed in the center of the header, between title and actions (labels, filters, etc.)</td>
+              </tr>
+              <tr>
                 <td><code>actions</code></td>
                 <td><code>ReactNode</code></td>
                 <td>-</td>
@@ -415,6 +510,12 @@ export default function ChartCardPage() {
         onClose={() => setOpenModal(null)}
         title="Basic ChartCard"
         sections={[{ title: 'ChartCard.tsx', language: 'tsx', code: basicCode }]}
+      />
+      <CodeModal
+        isOpen={openModal === 'headerCenter'}
+        onClose={() => setOpenModal(null)}
+        title="ChartCard with Header Center"
+        sections={[{ title: 'ChartCard.tsx', language: 'tsx', code: withHeaderCenterCode }]}
       />
       <CodeModal
         isOpen={openModal === 'filters'}

@@ -8,7 +8,7 @@
   flex-direction: column;
   background-color: var(--background-main, var(--white, #ffffff));
   border-radius: var(--radius-xs, 3px);
-  box-shadow: var(--shadow-1, 0 0 3px 0 rgba(0, 0, 0, 0.10));
+  box-shadow: var(--shadow-2, 0 0 5px 0 rgba(0, 0, 0, 0.15));
   overflow: hidden;
   /* Default height - can be overridden via style prop */
   height: 320px;
@@ -19,19 +19,28 @@
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-2xs, 4px);
-  padding: 16px 16px 0 16px;
+  padding: 16px 16px 4px 16px;
   background-color: var(--background-main, var(--white, #ffffff));
   flex-shrink: 0;
 }
 
 .chart-card__title {
-  flex: 1;
   min-width: 0;
+  /* label-medium-s */
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 20px;
   color: var(--text-secondary, var(--cool-grey-70, #63728a));
+  flex-shrink: 0;
+}
+
+.chart-card__header-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .chart-card__actions {
@@ -39,6 +48,7 @@
   align-items: center;
   gap: 0;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* Filters */
@@ -79,7 +89,7 @@
 /* Dark mode support */
 html.dark .chart-card {
   background-color: var(--background-main);
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
 }
 
 html.dark .chart-card__header,

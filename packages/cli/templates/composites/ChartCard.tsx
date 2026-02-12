@@ -8,6 +8,11 @@ export interface ChartCardProps {
    */
   title: React.ReactNode;
   /**
+   * Content displayed in the center of the header, between title and actions.
+   * Useful for inline filters, labels, or other controls.
+   */
+  headerCenter?: React.ReactNode;
+  /**
    * Action buttons/icons displayed on the right side of the header.
    * Typically IconButton or Button components.
    */
@@ -68,6 +73,7 @@ export interface ChartCardProps {
  */
 export function ChartCard({
   title,
+  headerCenter,
   actions,
   filters,
   children,
@@ -82,6 +88,7 @@ export function ChartCard({
       {/* Header */}
       <div className="chart-card__header">
         <div className="chart-card__title">{title}</div>
+        {headerCenter && <div className="chart-card__header-center">{headerCenter}</div>}
         {actions && <div className="chart-card__actions">{actions}</div>}
       </div>
 
