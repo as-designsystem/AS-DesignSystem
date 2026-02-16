@@ -15,6 +15,7 @@
 .button-group--horizontal {
   flex-direction: row;
   align-items: center;
+  align-self: flex-start;
 }
 
 /* Vertical layout - buttons fill width */
