@@ -65,7 +65,31 @@ const radiusTokens: RadiusDef[] = [
   },
 ];
 
-export default function SizeRadius() {
+// --- Shadow tokens ---
+
+interface ShadowDef {
+  token: string;
+  cssVar: string;
+  lightValue: string;
+  darkValue: string;
+}
+
+const shadowTokens: ShadowDef[] = [
+  {
+    token: '1',
+    cssVar: '--shadow-1',
+    lightValue: '0 0 3px 0 rgba(0, 0, 0, 0.10)',
+    darkValue: '0 0 3px 0 rgba(255, 255, 255, 0.15)',
+  },
+  {
+    token: '2',
+    cssVar: '--shadow-2',
+    lightValue: '0 0 5px 0 rgba(0, 0, 0, 0.15)',
+    darkValue: '0 0 5px 0 rgba(255, 255, 255, 0.20)',
+  },
+];
+
+export default function Others() {
   const [copiedVar, setCopiedVar] = useState<string | null>(null);
 
   const copyVar = (cssVar: string) => {
@@ -76,12 +100,12 @@ export default function SizeRadius() {
 
   return (
     <div className="tokens-page tokens-page--full-width">
-      <h1 className="heading-5">Size & Radius</h1>
+      <h1 className="heading-5">Others</h1>
       <p
         className="label-regular-m"
         style={{ marginTop: '12px', color: 'var(--text-secondary)' }}
       >
-        Standard height scale and border-radius tokens used across all components.
+        Size, radius and shadow tokens used across all components.
       </p>
 
       {/* ===== SIZES ===== */}
@@ -200,6 +224,62 @@ export default function SizeRadius() {
         </div>
       </section>
 
+      {/* ===== SHADOW ===== */}
+      <section className="tokens-section">
+        <h2
+          className="heading-6"
+          style={{
+            marginTop: '32px',
+            marginBottom: '8px',
+            color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+          }}
+        >
+          Shadow
+        </h2>
+        <p
+          className="label-regular-s"
+          style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}
+        >
+          Box-shadow tokens for elevation. Values adapt to light and dark themes.
+        </p>
+
+        <div className="size-radius-table">
+          <div className="size-radius-table__header">
+            <span className="size-radius-table__col size-radius-table__col--token">Token</span>
+            <span className="size-radius-table__col size-radius-table__col--var">CSS Variable</span>
+            <span className="size-radius-table__col size-radius-table__col--value">Light Value</span>
+            <span className="size-radius-table__col size-radius-table__col--preview">Preview</span>
+          </div>
+          {shadowTokens.map((s) => (
+            <div
+              key={s.token}
+              className="size-radius-table__row clickable"
+              onClick={() => copyVar(s.cssVar)}
+              title={`Click to copy var(${s.cssVar})`}
+              style={{ cursor: 'pointer' }}
+            >
+              <span className="size-radius-table__col size-radius-table__col--token">
+                <span className="size-radius-table__token-badge">{s.token}</span>
+              </span>
+              <span className="size-radius-table__col size-radius-table__col--var">
+                <code className="token-code">
+                  {copiedVar === s.cssVar ? '✓ Copied!' : s.cssVar}
+                </code>
+              </span>
+              <span className="size-radius-table__col size-radius-table__col--value">
+                <span className="size-radius-table__value">{s.lightValue}</span>
+              </span>
+              <span className="size-radius-table__col size-radius-table__col--preview">
+                <span
+                  className="size-radius-table__shadow-box"
+                  style={{ boxShadow: `var(${s.cssVar})` }}
+                />
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ===== USAGE ===== */}
       <section className="tokens-section">
         <h2
@@ -216,17 +296,14 @@ export default function SizeRadius() {
           <code>{`/* Import in your CSS */
 @import '@/design-system/tokens/sizes.css';
 @import '@/design-system/tokens/radius.css';
+@import '@/design-system/tokens/colors.css'; /* shadows are in colors.css */
 
 /* Use in your styles */
 .my-component {
   height: var(--size-m);          /* 40px */
   border-radius: var(--radius-xs); /* 3px */
-}
-
-/* Also available as JS constants */
-import { sizes, radius } from '@as-design-system/core';
-console.log(sizes.m);    // "40px"
-console.log(radius.xs);  // "3px"`}</code>
+  box-shadow: var(--shadow-1);    /* subtle elevation */
+}`}</code>
         </div>
       </section>
     </div>

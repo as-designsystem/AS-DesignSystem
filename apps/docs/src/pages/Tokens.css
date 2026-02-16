@@ -463,3 +463,12 @@
   background-color: transparent;
 }
 
+/* Shadow box preview */
+.size-radius-table__shadow-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--background-main, #ffffff);
+  border: 1px solid var(--border-minimal, #e0e3e9);
+}
+

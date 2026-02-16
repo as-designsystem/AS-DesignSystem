@@ -86,8 +86,8 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'Colors', path: '/tokens/colors' },
       { label: 'Icons', path: '/tokens/icons' },
-      { label: 'Size & Radius', path: '/tokens/size-radius' },
       { label: 'Text Styles', path: '/tokens/text-styles' },
+      { label: 'Others', path: '/tokens/others' },
     ],
   },
   {

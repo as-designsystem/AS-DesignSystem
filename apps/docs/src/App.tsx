@@ -45,7 +45,7 @@ import AircraftSelectorPage from './pages/AircraftSelector';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
 import Icons from './pages/Icons';
-import SizeRadius from './pages/SizeRadius';
+import Others from './pages/Others';
 import AgGridTablePage from './pages/AgGridTable';
 import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
@@ -71,7 +71,7 @@ function App() {
               <Route path="/tokens/text-styles" element={<TextStyles />} />
               <Route path="/tokens/colors" element={<Colors />} />
               <Route path="/tokens/icons" element={<Icons />} />
-              <Route path="/tokens/size-radius" element={<SizeRadius />} />
+              <Route path="/tokens/others" element={<Others />} />
               <Route path="/components" element={<Navigate to="/components/button" replace />} />
               <Route path="/components/button" element={<Button />} />
               <Route path="/components/button-group" element={<ButtonGroup />} />
