@@ -157,6 +157,15 @@ export default function AgGridTablePage() {
     { field: 'status', headerName: 'Status', flex: 1, cellRenderer: SelectCellRendererS },
   ], []);
 
+  // Column definitions for pinned columns table
+  const pinnedColDefs = useMemo(() => [
+    { field: 'aircraft', headerName: 'Aircraft', pinned: 'left' as const, width: 150 },
+    { field: 'manufacturer', headerName: 'Manufacturer', width: 150 },
+    { field: 'range', headerName: 'Range (km)', width: 150, filter: 'agNumberColumnFilter' },
+    { field: 'capacity', headerName: 'Capacity', width: 150, filter: 'agNumberColumnFilter' },
+    { field: 'status', headerName: 'Status', width: 150 },
+  ], []);
+
   // Column definitions for small table (size XS components)
   const smallColDefs = useMemo(() => [
     { headerCheckboxSelection: true, checkboxSelection: true, width: 44, maxWidth: 44, suppressSizeToFit: true, resizable: false, filter: false },
@@ -274,6 +283,20 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
 
 <AgGridReact
   className="as-ag-grid as-ag-grid--small"
+  rowData={rowData}
+  columnDefs={colDefs}
+/>`;
+
+  const pinnedCode = `const colDefs = [
+  { field: 'aircraft', headerName: 'Aircraft', pinned: 'left', width: 150 },
+  { field: 'manufacturer', headerName: 'Manufacturer', width: 150 },
+  { field: 'range', headerName: 'Range (km)', width: 150 },
+  { field: 'capacity', headerName: 'Capacity', width: 150 },
+  { field: 'status', headerName: 'Status', width: 150 },
+];
+
+<AgGridReact
+  className="as-ag-grid"
   rowData={rowData}
   columnDefs={colDefs}
 />`;
@@ -434,6 +457,47 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
             </p>
           </section>
 
+          {/* Pinned Columns */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Pinned Columns
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('pinned')}
+              />
+            </div>
+            <div className="example-container" style={{ height: 300, maxWidth: 500 }}>
+              <AgGridReact
+                className="as-ag-grid"
+                rowData={rowData}
+                columnDefs={pinnedColDefs}
+                defaultColDef={defaultColDef}
+                cellSelection={false}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginTop: '12px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Use <code>pinned: 'left'</code> or <code>pinned: 'right'</code> on a column definition to fix it while the rest scrolls horizontally.
+            </p>
+          </section>
+
         </>
       )}
 
@@ -580,6 +644,12 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
         onClose={() => setOpenModal(null)}
         title="Small Size"
         code={smallSizeCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'pinned'}
+        onClose={() => setOpenModal(null)}
+        title="Pinned Columns"
+        code={pinnedCode}
       />
       <CodeModal
         isOpen={openModal === 'variables'}

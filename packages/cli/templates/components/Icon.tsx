@@ -52,6 +52,9 @@ import descriptionIcon from '../assets/svg/icons/description.svg?raw';
 import downloadIcon from '../assets/svg/icons/download.svg?raw';
 import driveFileMoveIcon from '../assets/svg/icons/drive_file_move.svg?raw';
 import dropdownIcon from '../assets/svg/icons/dropdown.svg?raw';
+import dropdownLeftIcon from '../assets/svg/icons/dropdown_left.svg?raw';
+import dropdownRightIcon from '../assets/svg/icons/dropdown_right.svg?raw';
+import dropdownUpIcon from '../assets/svg/icons/dropdown_up.svg?raw';
 import saveAltIcon from '../assets/svg/icons/save_alt.svg?raw';
 import editIcon from '../assets/svg/icons/edit.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
@@ -67,6 +70,7 @@ import forumIcon from '../assets/svg/icons/forum.svg?raw';
 import groupsIcon from '../assets/svg/icons/groups.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
+import keyboardArrowLeftIcon from '../assets/svg/icons/keyboard_arrow_left.svg?raw';
 import keyboardArrowRightIcon from '../assets/svg/icons/keyboard_arrow_right.svg?raw';
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
@@ -87,6 +91,7 @@ import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import shareIcon from '../assets/svg/icons/share.svg?raw';
 import speedIcon from '../assets/svg/icons/speed.svg?raw';
+import stackedBarChartIcon from '../assets/svg/icons/stacked_bar_chart.svg?raw';
 import starIcon from '../assets/svg/icons/star.svg?raw';
 import starBorderIcon from '../assets/svg/icons/star_border.svg?raw';
 import systemUpdateAltIcon from '../assets/svg/icons/system_update_alt.svg?raw';
@@ -152,6 +157,9 @@ const iconMap: Record<string, string> = {
   'download': downloadIcon,
   'drive_file_move': driveFileMoveIcon,
   'dropdown': dropdownIcon,
+  'dropdown_left': dropdownLeftIcon,
+  'dropdown_right': dropdownRightIcon,
+  'dropdown_up': dropdownUpIcon,
   'edit': editIcon,
   'emoji_emotions': emojiEmotionsIcon,
   'error': errorIcon,
@@ -166,6 +174,7 @@ const iconMap: Record<string, string> = {
   'groups': groupsIcon,
   'info': infoIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
+  'keyboard_arrow_left': keyboardArrowLeftIcon,
   'keyboard_arrow_right': keyboardArrowRightIcon,
   'keyboard_arrow_up': keyboardArrowUpIcon,
   'light_mode': lightModeIcon,
@@ -187,6 +196,7 @@ const iconMap: Record<string, string> = {
   'settings': settingsIcon,
   'share': shareIcon,
   'speed': speedIcon,
+  'stacked_bar_chart': stackedBarChartIcon,
   'star': starIcon,
   'star_border': starBorderIcon,
   'system_update_alt': systemUpdateAltIcon,
@@ -252,6 +262,9 @@ export const availableIcons = [
   'download',
   'drive_file_move',
   'dropdown',
+  'dropdown_left',
+  'dropdown_right',
+  'dropdown_up',
   'edit',
   'emoji_emotions',
   'error',
@@ -266,6 +279,7 @@ export const availableIcons = [
   'groups',
   'info',
   'keyboard_arrow_down',
+  'keyboard_arrow_left',
   'keyboard_arrow_right',
   'keyboard_arrow_up',
   'light_mode',
@@ -287,6 +301,7 @@ export const availableIcons = [
   'settings',
   'share',
   'speed',
+  'stacked_bar_chart',
   'star',
   'star_border',
   'system_update_alt',
