@@ -51,12 +51,16 @@
   --ag-input-focus-border-color: var(--primary-default, #063b9e);
 
   font-family: var(--ag-font-family);
-  border: none !important;
+  border: 1px solid var(--border-minimal, #e0e3e9) !important;
   border-radius: var(--radius-xs, 3px);
+  overflow: hidden;
 }
 
-.as-ag-grid,
-.as-ag-grid .ag-root-wrapper,
+.as-ag-grid .ag-root-wrapper {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
 .as-ag-grid .ag-root,
 .as-ag-grid .ag-body-viewport {
   border: none !important;
