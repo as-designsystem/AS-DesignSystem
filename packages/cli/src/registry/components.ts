@@ -945,4 +945,24 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/radius.css',
     ],
   },
+  {
+    name: 'study-content',
+    type: 'component',
+    displayName: 'StudyContent',
+    description: 'Layout container for study page content with Scrollable and Fixed variants',
+    files: [
+      {
+        path: 'templates/components/StudyContent.tsx',
+        target: 'components/StudyContent.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/StudyContent.css',
+        target: 'components/StudyContent.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [],
+  },
 ];

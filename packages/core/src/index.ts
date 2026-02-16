@@ -36,6 +36,7 @@ export { Chip, type ChipProps, type ChipSize, type ChipType } from './components
 export { StudyStatus, type StudyStatusProps, type StudyStatusState } from './components/StudyStatus';
 export { StudyRow, type StudyRowProps, type StudyRowColumn } from './components/StudyRow';
 export { StudyTableHeader, type StudyTableHeaderProps, type StudyTableHeaderColumn } from './components/StudyTableHeader';
+export { StudyContent, type StudyContentProps, type StudyContentVariant } from './components/StudyContent';
 export {
   DropdownMenu,
   DropdownMenuTrigger,

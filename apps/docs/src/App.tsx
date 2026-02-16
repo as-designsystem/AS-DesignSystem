@@ -49,6 +49,7 @@ import SizeRadius from './pages/SizeRadius';
 import AgGridTablePage from './pages/AgGridTable';
 import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
+import StudyContentPage from './pages/StudyContent';
 
 function App() {
   return (
@@ -107,6 +108,7 @@ function App() {
               <Route path="/composites/calendar" element={<CalendarPage />} />
               <Route path="/composites/aircraft-selector" element={<AircraftSelectorPage />} />
               <Route path="/composites/chart-card" element={<ChartCardPage />} />
+              <Route path="/components/study-content" element={<StudyContentPage />} />
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />
               <Route path="/components/study-table-header" element={<StudyTableHeaderPage />} />

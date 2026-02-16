@@ -150,6 +150,7 @@ const navSections: NavSectionData[] = [
       { label: 'AircraftSelector', path: '/composites/aircraft-selector' },
       { label: 'AppHeader', path: '/composites/app-header' },
       { label: 'ChartCard', path: '/composites/chart-card' },
+      { label: 'StudyContent', path: '/components/study-content' },
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
       { label: 'ToolIcons', path: '/components/tool-icons' },
       { label: 'ToolTile', path: '/composites/tool-tile' },

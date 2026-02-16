@@ -56,6 +56,7 @@
     "./AircraftSelector.css": "./dist/AircraftSelector.css",
     "./EmptyState.css": "./dist/EmptyState.css",
     "./ChartCard.css": "./dist/ChartCard.css",
+    "./StudyContent.css": "./dist/StudyContent.css",
     "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
   },
   "scripts": {

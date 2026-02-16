@@ -1,0 +1,25 @@
+/**
+ * StudyContent Component Styles
+ */
+
+.study-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+}
+
+/* Scrollable variant — more spacious, scrolls vertically */
+.study-content--scrollable {
+  padding: 32px;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+/* Fixed variant — compact, children fill available space */
+.study-content--fixed {
+  padding: 16px;
+  gap: 8px;
+}
