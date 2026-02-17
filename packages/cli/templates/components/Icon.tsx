@@ -47,6 +47,10 @@ import codeIcon from '../assets/svg/icons/code.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import contentCopyIcon from '../assets/svg/icons/content_copy.svg?raw';
 import databaseIcon from '../assets/svg/icons/database.svg?raw';
+import databaseEditIcon from '../assets/svg/icons/database_edit.svg?raw';
+import databaseErrorIcon from '../assets/svg/icons/database_error.svg?raw';
+import databaseUploadIcon from '../assets/svg/icons/database_upload.svg?raw';
+import databaseValidIcon from '../assets/svg/icons/database_valid.svg?raw';
 import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import descriptionIcon from '../assets/svg/icons/description.svg?raw';
@@ -153,6 +157,10 @@ const iconMap: Record<string, string> = {
   'construction': constructionIcon,
   'content_copy': contentCopyIcon,
   'database': databaseIcon,
+  'database_edit': databaseEditIcon,
+  'database_error': databaseErrorIcon,
+  'database_upload': databaseUploadIcon,
+  'database_valid': databaseValidIcon,
   'dark_mode': darkModeIcon,
   'delete': deleteIcon,
   'description': descriptionIcon,
@@ -259,6 +267,10 @@ export const availableIcons = [
   'construction',
   'content_copy',
   'database',
+  'database_edit',
+  'database_error',
+  'database_upload',
+  'database_valid',
   'dark_mode',
   'delete',
   'description',
