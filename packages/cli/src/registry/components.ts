@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (108 icons)
+      // SVG icon assets (110 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -54,6 +54,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/apps.svg', target: 'assets/svg/icons/apps.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/arrow_back.svg', target: 'assets/svg/icons/arrow_back.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/arrow_downward.svg', target: 'assets/svg/icons/arrow_downward.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/attach_money.svg', target: 'assets/svg/icons/attach_money.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/autorenew.svg', target: 'assets/svg/icons/autorenew.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/balance.svg', target: 'assets/svg/icons/balance.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/broken_image.svg', target: 'assets/svg/icons/broken_image.svg', type: 'component' },
@@ -92,6 +93,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/folder_open.svg', target: 'assets/svg/icons/folder_open.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/forum.svg', target: 'assets/svg/icons/forum.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/groups.svg', target: 'assets/svg/icons/groups.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/groups_2.svg', target: 'assets/svg/icons/groups_2.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/info.svg', target: 'assets/svg/icons/info.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_down.svg', target: 'assets/svg/icons/keyboard_arrow_down.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/keyboard_arrow_left.svg', target: 'assets/svg/icons/keyboard_arrow_left.svg', type: 'component' },

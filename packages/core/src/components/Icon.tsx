@@ -35,6 +35,7 @@ import airlineSeatReclineExtraIcon from '../assets/svg/icons/airline_seat_reclin
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
 import arrowBackIcon from '../assets/svg/icons/arrow_back.svg?raw';
 import arrowDownwardIcon from '../assets/svg/icons/arrow_downward.svg?raw';
+import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
@@ -74,6 +75,7 @@ import folderIcon from '../assets/svg/icons/folder.svg?raw';
 import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
 import forumIcon from '../assets/svg/icons/forum.svg?raw';
 import groupsIcon from '../assets/svg/icons/groups.svg?raw';
+import groups2Icon from '../assets/svg/icons/groups_2.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
 import keyboardArrowLeftIcon from '../assets/svg/icons/keyboard_arrow_left.svg?raw';
@@ -146,6 +148,7 @@ const iconMap: Record<string, string> = {
   'apps': appsIcon,
   'arrow_back': arrowBackIcon,
   'arrow_downward': arrowDownwardIcon,
+  'attach_money': attachMoneyIcon,
   'autorenew': autorenewIcon,
   'balance': balanceIcon,
   'broken_image': brokenImageIcon,
@@ -184,6 +187,7 @@ const iconMap: Record<string, string> = {
   'folder_open': folderOpenIcon,
   'forum': forumIcon,
   'groups': groupsIcon,
+  'groups_2': groups2Icon,
   'info': infoIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
   'keyboard_arrow_left': keyboardArrowLeftIcon,
@@ -257,6 +261,7 @@ export const availableIcons = [
   'apps',
   'arrow_back',
   'arrow_downward',
+  'attach_money',
   'autorenew',
   'balance',
   'broken_image',
@@ -295,6 +300,7 @@ export const availableIcons = [
   'folder_open',
   'forum',
   'groups',
+  'groups_2',
   'info',
   'keyboard_arrow_down',
   'keyboard_arrow_left',
