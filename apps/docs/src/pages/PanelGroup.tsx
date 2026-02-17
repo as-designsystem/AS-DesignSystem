@@ -7,6 +7,7 @@ import '@as-design-system/core/PanelButton.css';
 import '@as-design-system/core/Tooltip.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/Spinner.css';
 import CodeModal from '../components/CodeModal';
 import './PanelGroup.css';
 
@@ -44,6 +45,26 @@ const [isOpen, setIsOpen] = useState(true);
   open={isOpen}
   size="S"
   onClick={() => setIsOpen(!isOpen)}
+/>`;
+
+  const loadingCode = `import { PanelGroup } from '@/design-system/components/PanelGroup';
+
+// Loading state replaces the icon with a spinner
+<PanelGroup
+  label="Scenario 1"
+  icon="database"
+  loading={true}
+  open={true}
+  size="S"
+/>
+
+// Normal state shows the icon
+<PanelGroup
+  label="Scenario 2"
+  icon="database"
+  loading={false}
+  open={true}
+  size="S"
 />`;
 
   const actionsCode = `import { PanelGroup } from '@/design-system/components/PanelGroup';
@@ -221,6 +242,40 @@ import { IconButton } from '@/design-system/components/IconButton';
             </div>
           </section>
 
+          {/* Loading */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Loading State
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('loading')}
+              />
+            </div>
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area panel-group-demo-area--narrow">
+                <PanelGroup
+                  label="Scenario 1"
+                  icon="database"
+                  loading={true}
+                  open={true}
+                  size="S"
+                />
+                <PanelGroup
+                  label="Scenario 2"
+                  icon="database"
+                  loading={false}
+                  open={true}
+                  size="S"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* With Actions */}
           <section className="component-section">
             <div className="section-header">
@@ -348,6 +403,12 @@ import { IconButton } from '@/design-system/components/IconButton';
                   <td>Optional icon name displayed before the label</td>
                 </tr>
                 <tr>
+                  <td><code>loading</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Show a loading spinner instead of the icon</td>
+                </tr>
+                <tr>
                   <td><code>open</code></td>
                   <td><code>boolean</code></td>
                   <td><code>true</code></td>
@@ -401,6 +462,12 @@ import { IconButton } from '@/design-system/components/IconButton';
         onClose={() => setOpenModal(null)}
         title="PanelGroup — With Icon"
         code={iconCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'loading'}
+        onClose={() => setOpenModal(null)}
+        title="PanelGroup — Loading State"
+        code={loadingCode}
       />
       <CodeModal
         isOpen={openModal === 'actions'}

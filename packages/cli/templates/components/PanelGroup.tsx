@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Icon } from './Icon';
+import { Spinner } from './Spinner';
 import './PanelGroup.css';
 
 export type PanelGroupSize = 'XS' | 'S' | 'M';
@@ -13,6 +14,11 @@ export interface PanelGroupProps {
    * Optional icon displayed before the label
    */
   icon?: string;
+  /**
+   * Show a loading spinner instead of the icon
+   * @default false
+   */
+  loading?: boolean;
   /**
    * Whether the group is expanded
    * @default true
@@ -75,6 +81,7 @@ const labelIconSizes: Record<PanelGroupSize, number> = {
 export function PanelGroup({
   label,
   icon,
+  loading = false,
   open = true,
   size = 'S',
   actions,
@@ -102,13 +109,18 @@ export function PanelGroup({
             color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
           />
         </span>
-        {icon && (
+        {loading ? (
+          <Spinner
+            size={labelIconSizes[size]}
+            color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
+          />
+        ) : icon ? (
           <Icon
             name={icon}
             size={labelIconSizes[size]}
             color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
           />
-        )}
+        ) : null}
         <span className="panel-group__label">{label}</span>
       </button>
       {actions && <span className="panel-group__actions">{actions}</span>}
