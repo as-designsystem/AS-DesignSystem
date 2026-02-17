@@ -177,6 +177,13 @@
   --feedback-warning-background: var(--yellow-10);
   --feedback-warning-t-background: rgba(255, 201, 41, 0.1);
 
+  /* Feedback Info - Références Cool Grey */
+  --feedback-info-default: var(--cool-grey-70);
+  --feedback-info-hover: var(--cool-grey-60);
+  --feedback-info-active: var(--cool-grey-80);
+  --feedback-info-background: var(--cool-grey-10);
+  --feedback-info-t-background: rgba(80, 93, 116, 0.1);
+
   /* Background Inverse (for tooltips, etc.) */
   --background-inverse: var(--cool-grey-100);
 }
@@ -241,5 +248,12 @@ html.dark {
   --feedback-warning-active: #ffd557;
   --feedback-warning-background: #554000;
   --feedback-warning-t-background: rgba(255, 201, 41, 0.1);
+
+  /* Feedback Info - Lighter greys */
+  --feedback-info-default: #b3bbc8;
+  --feedback-info-hover: #919cb0;
+  --feedback-info-active: #ced5dd;
+  --feedback-info-background: #282e3a;
+  --feedback-info-t-background: rgba(179, 187, 200, 0.1);
 }
 

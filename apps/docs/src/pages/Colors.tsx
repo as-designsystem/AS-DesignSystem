@@ -84,6 +84,7 @@ function getSemanticVariableName(groupTitle: string, key: string): string {
     Success: 'feedback-success',
     Error: 'feedback-error',
     Warning: 'feedback-warning',
+    Info: 'feedback-info',
   };
 
   const prefix = groupMap[groupTitle] || groupTitle.toLowerCase();
@@ -233,7 +234,7 @@ function SemanticColorGroup({
           // Colors that are dark in light mode but light in dark mode need dynamic text
           const isTextColor = title === 'Text';
           const isPrimaryState = title === 'Primary' && (key === 'default' || key === 'hover' || key === 'active');
-          const isFeedbackState = (title === 'Success' || title === 'Error') && (key === 'default' || key === 'hover' || key === 'active');
+          const isFeedbackState = (title === 'Success' || title === 'Error' || title === 'Info') && (key === 'default' || key === 'hover' || key === 'active');
 
           // Corporate background is always dark in both modes
           const isAlwaysDark = title === 'Background' && key === 'corporate';
@@ -491,6 +492,11 @@ export default function Colors() {
                     title="Warning"
                     colors={colors.feedback.warning}
                     reference="Yellow"
+                  />
+                  <SemanticColorGroup
+                    title="Info"
+                    colors={colors.feedback.info}
+                    reference="Cool Grey"
                   />
                 </div>
               </div>

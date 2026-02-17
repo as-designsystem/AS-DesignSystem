@@ -184,7 +184,7 @@ export const border = {
 
 /**
  * Feedback Colors
- * Références : Green, Red, Yellow
+ * Références : Green, Red, Yellow, Sea Blue
  */
 
 // Success - Références Green
@@ -211,6 +211,14 @@ export const feedback = {
     active: yellow[60], // #ddab17
     background: yellow[10], // #fff9e5
     tBackground: 'rgba(255, 201, 41, 0.1)', // Yellow 50 avec 10% opacity
+  },
+  // Info - Références Cool Grey
+  info: {
+    default: coolGrey[70], // #505d74
+    hover: coolGrey[60], // #63728a
+    active: coolGrey[80], // #3c4657
+    background: coolGrey[10], // #eff1f4
+    tBackground: 'rgba(80, 93, 116, 0.1)', // Cool Grey 70 avec 10% opacity
   },
 } as const;
 
