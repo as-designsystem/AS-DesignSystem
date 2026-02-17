@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+import numbers123Icon from '../assets/svg/icons/123.svg?raw';
 import airAcTwinEngineIcon from '../assets/svg/icons/AIR_AC_twin_engine.svg?raw';
 import airApuIcon from '../assets/svg/icons/AIR_APU.svg?raw';
 import airAirbusIcon from '../assets/svg/icons/AIR_Airbus.svg?raw';
@@ -109,6 +110,7 @@ import warningIcon from '../assets/svg/icons/warning.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
+  '123': numbers123Icon,
   'AIR_AC_twin_engine': airAcTwinEngineIcon,
   'AIR_APU': airApuIcon,
   'AIR_Airbus': airAirbusIcon,
@@ -219,6 +221,7 @@ const iconMap: Record<string, string> = {
 };
 
 export const availableIcons = [
+  '123',
   'AIR_AC_twin_engine',
   'AIR_APU',
   'AIR_Airbus',
