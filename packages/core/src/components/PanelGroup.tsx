@@ -10,6 +10,10 @@ export interface PanelGroupProps {
    */
   label: string;
   /**
+   * Optional icon displayed before the label
+   */
+  icon?: string;
+  /**
    * Whether the group is expanded
    * @default true
    */
@@ -64,6 +68,7 @@ const iconSizes: Record<PanelGroupSize, number> = {
  */
 export function PanelGroup({
   label,
+  icon,
   open = true,
   size = 'S',
   actions,
@@ -91,6 +96,13 @@ export function PanelGroup({
             color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
           />
         </span>
+        {icon && (
+          <Icon
+            name={icon}
+            size={iconSize}
+            color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
+          />
+        )}
         <span className="panel-group__label">{label}</span>
       </button>
       {actions && <span className="panel-group__actions">{actions}</span>}
