@@ -68,6 +68,8 @@ function getPrimitiveVariableName(paletteName: string, shade: string): string {
     Red: 'red',
     Green: 'green',
     Yellow: 'yellow',
+    Orange: 'orange',
+    Purple: 'purple',
   };
   return `--${nameMap[paletteName] || paletteName.toLowerCase()}-${shade}`;
 }
@@ -371,6 +373,8 @@ export default function Colors() {
               <ColorPalette name="Red" palette={colors.red} />
               <ColorPalette name="Green" palette={colors.green} />
               <ColorPalette name="Yellow" palette={colors.yellow} />
+              <ColorPalette name="Orange" palette={colors.orange} />
+              <ColorPalette name="Purple" palette={colors.purple} />
               <div className="color-category">
                 <h3
                   className="label-bold-m"

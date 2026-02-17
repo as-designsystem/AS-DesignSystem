@@ -12,7 +12,6 @@
   border-left: 4px solid var(--text-corporate, #00205b);
   background-color: var(--background-main, #ffffff);
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.24);
-  overflow: hidden;
 }
 
 /* ============================================================================
@@ -52,8 +51,8 @@
 }
 
 .accordion--s .accordion__title {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 /* L */
@@ -63,8 +62,8 @@
 }
 
 .accordion--l .accordion__title {
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 /* ============================================================================
@@ -73,9 +72,9 @@
 
 .accordion__title {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 20px;
   color: var(--text-corporate, #00205b);
   text-align: left;
 }
@@ -96,8 +95,9 @@
 
 .accordion__content {
   display: flex;
+  flex-direction: column;
   gap: 24px;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 0 16px;
   overflow: hidden;
   background-color: var(--background-main, #ffffff);

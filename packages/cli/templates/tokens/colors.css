@@ -93,6 +93,30 @@
   --yellow-20: #ffecb3;
   --yellow-10: #fff9e5;
 
+  /* Orange */
+  --orange-100: #683100;
+  --orange-90: #8c4100;
+  --orange-80: #b35400;
+  --orange-70: #d56401;
+  --orange-60: #ff7700;
+  --orange-50: #ff9131;
+  --orange-40: #ffab61;
+  --orange-30: #ffc38f;
+  --orange-20: #ffd9b8;
+  --orange-10: #fff1e5;
+
+  /* Purple */
+  --purple-100: #610153;
+  --purple-90: #830a71;
+  --purple-80: #a51890;
+  --purple-70: #bb35a7;
+  --purple-60: #d653c3;
+  --purple-50: #e56ed4;
+  --purple-40: #f489e4;
+  --purple-30: #fab0ef;
+  --purple-20: #ffd0f8;
+  --purple-10: #ffeefc;
+
   /* White & Black */
   --white: #ffffff;
   --black: #000000;

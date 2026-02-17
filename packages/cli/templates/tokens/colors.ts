@@ -102,6 +102,32 @@ export const yellow = {
   10: '#fff9e5',
 } as const;
 
+export const orange = {
+  100: '#683100',
+  90: '#8c4100',
+  80: '#b35400',
+  70: '#d56401',
+  60: '#ff7700',
+  50: '#ff9131',
+  40: '#ffab61',
+  30: '#ffc38f',
+  20: '#ffd9b8',
+  10: '#fff1e5',
+} as const;
+
+export const purple = {
+  100: '#610153',
+  90: '#830a71',
+  80: '#a51890',
+  70: '#bb35a7',
+  60: '#d653c3',
+  50: '#e56ed4',
+  40: '#f489e4',
+  30: '#fab0ef',
+  20: '#ffd0f8',
+  10: '#ffeefc',
+} as const;
+
 export const white = '#ffffff';
 export const black = '#000000';
 
@@ -201,6 +227,8 @@ export const colors = {
   red,
   green,
   yellow,
+  orange,
+  purple,
   white,
   black,
   // Semantic
