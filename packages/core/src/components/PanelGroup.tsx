@@ -43,6 +43,12 @@ const iconSizes: Record<PanelGroupSize, number> = {
   XS: 16,
 };
 
+const labelIconSizes: Record<PanelGroupSize, number> = {
+  M: 20,
+  S: 16,
+  XS: 12,
+};
+
 /**
  * PanelGroup Component
  *
@@ -99,7 +105,7 @@ export function PanelGroup({
         {icon && (
           <Icon
             name={icon}
-            size={iconSize}
+            size={labelIconSizes[size]}
             color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
           />
         )}

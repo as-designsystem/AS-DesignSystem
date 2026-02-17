@@ -36,6 +36,16 @@ const [isOpen, setIsOpen] = useState(true);
 <PanelGroup label="Size S" size="S" open={true} />
 <PanelGroup label="Size XS" size="XS" open={true} />`;
 
+  const iconCode = `import { PanelGroup } from '@/design-system/components/PanelGroup';
+
+<PanelGroup
+  label="Scenario 1"
+  icon="database"
+  open={isOpen}
+  size="S"
+  onClick={() => setIsOpen(!isOpen)}
+/>`;
+
   const actionsCode = `import { PanelGroup } from '@/design-system/components/PanelGroup';
 import { IconButton } from '@/design-system/components/IconButton';
 
@@ -179,6 +189,38 @@ import { IconButton } from '@/design-system/components/IconButton';
             </div>
           </section>
 
+          {/* With Icon */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                With Icon
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('icon')}
+              />
+            </div>
+            <div className="example-container--dark">
+              <div className="panel-group-demo-area panel-group-demo-area--narrow">
+                <PanelGroup
+                  label="Scenario 1"
+                  icon="database"
+                  open={true}
+                  size="S"
+                />
+                <PanelGroup
+                  label="Scenario 2"
+                  icon="database"
+                  open={false}
+                  size="S"
+                />
+              </div>
+            </div>
+          </section>
+
           {/* With Actions */}
           <section className="component-section">
             <div className="section-header">
@@ -300,6 +342,12 @@ import { IconButton } from '@/design-system/components/IconButton';
                   <td>Group label text (required)</td>
                 </tr>
                 <tr>
+                  <td><code>icon</code></td>
+                  <td><code>string</code></td>
+                  <td><code>-</code></td>
+                  <td>Optional icon name displayed before the label</td>
+                </tr>
+                <tr>
                   <td><code>open</code></td>
                   <td><code>boolean</code></td>
                   <td><code>true</code></td>
@@ -347,6 +395,12 @@ import { IconButton } from '@/design-system/components/IconButton';
         onClose={() => setOpenModal(null)}
         title="PanelGroup — Sizes"
         code={sizesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'icon'}
+        onClose={() => setOpenModal(null)}
+        title="PanelGroup — With Icon"
+        code={iconCode}
       />
       <CodeModal
         isOpen={openModal === 'actions'}
