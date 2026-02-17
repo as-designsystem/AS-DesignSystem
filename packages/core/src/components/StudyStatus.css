@@ -33,7 +33,7 @@
 }
 
 .study-status--computing .study-status__label {
-  color: var(--text-secondary, #63728a);
+  color: var(--text-tertiary, #8e99ab);
 }
 
 .study-status--failed .study-status__label {
