@@ -22,4 +22,5 @@
 .study-content--fixed {
   padding: 16px;
   gap: 8px;
+  overflow: auto;
 }
