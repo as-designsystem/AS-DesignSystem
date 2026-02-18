@@ -15,6 +15,16 @@ export default function NumberInputPage() {
   const [temperature, setTemperature] = useState(20);
   const [temperatureStepper, setTemperatureStepper] = useState(20);
 
+  // Prefix & Suffix examples
+  const [percentage, setPercentage] = useState(12);
+  const [percentageStepper, setPercentageStepper] = useState(12);
+  const [price, setPrice] = useState(250);
+  const [priceStepper, setPriceStepper] = useState(250);
+  const [weight, setWeight] = useState(75);
+  const [weightStepper, setWeightStepper] = useState(75);
+  const [tempC, setTempC] = useState(20);
+  const [tempCStepper, setTempCStepper] = useState(20);
+
   const variantsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
 // Default variant: buttons on both sides, text centered
@@ -52,6 +62,23 @@ export default function NumberInputPage() {
 <NumberInput label="Valid" value={10} variant="Stepper" state="Valid" legend="Valid" showLegend onChange={(v) => console.log(v)} />
 <NumberInput label="Disabled" value={3} variant="Stepper" disabled />
 <NumberInput label="Read-only" value={42} variant="Stepper" readOnly />`;
+
+  const prefixSuffixCode = `import { NumberInput } from '@/design-system/components/NumberInput';
+
+// Percentage (suffix)
+<NumberInput label="Discount" value={12} suffix="%" min={0} max={100} onChange={(v) => setValue(v)} />
+
+// Currency (prefix)
+<NumberInput label="Price" value={250} prefix="$" min={0} onChange={(v) => setValue(v)} />
+
+// Weight (suffix with space)
+<NumberInput label="Weight" value={75} suffix=" kg" min={0} max={500} onChange={(v) => setValue(v)} />
+
+// Temperature (suffix)
+<NumberInput label="Temperature" value={20} suffix="°C" min={-40} max={50} step={5} onChange={(v) => setValue(v)} />
+
+// Prefix + Suffix combined
+<NumberInput label="Budget" value={1000} prefix="$" suffix=" USD" onChange={(v) => setValue(v)} />`;
 
   const optionsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
 
@@ -238,6 +265,116 @@ export default function NumberInputPage() {
             </div>
           </section>
 
+          {/* Prefix & Suffix */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Prefix & Suffix
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('prefixSuffix')}
+              />
+            </div>
+            <p
+              className="label-regular-m"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Add prefix and/or suffix text to the value. On focus, the formatting is removed for easier editing.
+            </p>
+            <div className="example-container">
+              <div className="numberinput-dual-columns">
+                <div className="numberinput-column">
+                  <span className="variant-label">Default</span>
+                  <NumberInput
+                    label="Discount"
+                    value={percentage}
+                    suffix="%"
+                    min={0}
+                    max={100}
+                    onChange={setPercentage}
+                  />
+                  <NumberInput
+                    label="Price"
+                    value={price}
+                    prefix="$"
+                    min={0}
+                    onChange={setPrice}
+                  />
+                  <NumberInput
+                    label="Weight"
+                    value={weight}
+                    suffix=" kg"
+                    min={0}
+                    max={500}
+                    onChange={setWeight}
+                  />
+                  <NumberInput
+                    label="Temperature"
+                    value={tempC}
+                    suffix="°C"
+                    min={-40}
+                    max={50}
+                    step={5}
+                    onChange={setTempC}
+                  />
+                </div>
+                <div className="numberinput-column">
+                  <span className="variant-label">Stepper</span>
+                  <NumberInput
+                    label="Discount"
+                    value={percentageStepper}
+                    variant="Stepper"
+                    suffix="%"
+                    min={0}
+                    max={100}
+                    onChange={setPercentageStepper}
+                  />
+                  <NumberInput
+                    label="Price"
+                    value={priceStepper}
+                    variant="Stepper"
+                    prefix="$"
+                    min={0}
+                    onChange={setPriceStepper}
+                  />
+                  <NumberInput
+                    label="Weight"
+                    value={weightStepper}
+                    variant="Stepper"
+                    suffix=" kg"
+                    min={0}
+                    max={500}
+                    onChange={setWeightStepper}
+                  />
+                  <NumberInput
+                    label="Temperature"
+                    value={tempCStepper}
+                    variant="Stepper"
+                    suffix="°C"
+                    min={-40}
+                    max={50}
+                    step={5}
+                    onChange={setTempCStepper}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Other Options */}
           <section className="component-section">
             <div className="section-header">
@@ -410,6 +547,18 @@ export default function NumberInputPage() {
                   <td>Stepper variant puts up/down buttons on the right side (appear on hover)</td>
                 </tr>
                 <tr>
+                  <td><code>prefix</code></td>
+                  <td><code>string</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Text displayed before the value (e.g. "$", "€"). Hidden on focus for editing.</td>
+                </tr>
+                <tr>
+                  <td><code>suffix</code></td>
+                  <td><code>string</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Text displayed after the value (e.g. "%", "°C", " kg"). Hidden on focus for editing.</td>
+                </tr>
+                <tr>
                   <td><code>min</code></td>
                   <td><code>number</code></td>
                   <td><code>undefined</code></td>
@@ -476,6 +625,12 @@ export default function NumberInputPage() {
       )}
 
       {/* Modals */}
+      <CodeModal
+        isOpen={openModal === 'prefixSuffix'}
+        onClose={() => setOpenModal(null)}
+        title="Prefix & Suffix Implementation"
+        code={prefixSuffixCode}
+      />
       <CodeModal
         isOpen={openModal === 'variants'}
         onClose={() => setOpenModal(null)}

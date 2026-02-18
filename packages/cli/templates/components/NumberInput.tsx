@@ -10,7 +10,7 @@ export type NumberInputState = 'Default' | 'Error' | 'Valid';
 export type NumberInputVariant = 'Stepper';
 
 export interface NumberInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange' | 'prefix'> {
   /**
    * Label of the input
    */
@@ -57,6 +57,16 @@ export interface NumberInputProps
    * Tooltip text for the info icon
    */
   infoText?: string;
+  /**
+   * Text displayed before the value (e.g. "$", "€")
+   * Shown at rest, hidden on focus for easier editing
+   */
+  prefix?: string;
+  /**
+   * Text displayed after the value (e.g. "%", "°C", " kg")
+   * Shown at rest, hidden on focus for easier editing
+   */
+  suffix?: string;
   /**
    * Current numeric value
    */
@@ -114,6 +124,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       showOptional = false,
       showInfo = false,
       infoText = '',
+      prefix,
+      suffix,
       value,
       min,
       max,
@@ -122,10 +134,14 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       disabled = false,
       readOnly = false,
       className = '',
+      onFocus: onFocusProp,
+      onBlur: onBlurProp,
       ...inputProps
     },
     ref
   ) => {
+    const [isFocused, setIsFocused] = React.useState(false);
+
     // Derived states
     const isDisabled = disabled;
     const isReadOnly = readOnly;
@@ -167,6 +183,27 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         onChange?.(parsed);
       }
     };
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(true);
+      if (prefix || suffix) {
+        requestAnimationFrame(() => e.target.select());
+      }
+      onFocusProp?.(e);
+    };
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(false);
+      onBlurProp?.(e);
+    };
+
+    // Format display value with prefix/suffix when not focused
+    const displayValue = (() => {
+      if (value === undefined) return '';
+      const raw = String(value);
+      if (isFocused || (!prefix && !suffix)) return raw;
+      return `${prefix ?? ''}${raw}${suffix ?? ''}`;
+    })();
 
     // CSS classes
     const containerClasses = [
@@ -238,13 +275,21 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             inputMode="numeric"
             className={`number-input-field${variant === 'Stepper' ? ' number-input-field--left' : ''}`}
             placeholder={placeholder}
-            value={value !== undefined ? String(value) : ''}
+            value={displayValue}
             onChange={handleInputChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             disabled={isDisabled}
             readOnly={isReadOnly}
             aria-invalid={isError}
             aria-describedby={showLegend ? `${label}-legend` : undefined}
             {...inputProps}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                (e.target as HTMLInputElement).blur();
+              }
+              inputProps.onKeyDown?.(e);
+            }}
           />
 
           {/* Stepper variant: stacked buttons on right (appear on hover) */}

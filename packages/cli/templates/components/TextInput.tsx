@@ -229,6 +229,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             aria-invalid={isError}
             aria-describedby={showLegend ? `${label}-legend` : undefined}
             {...inputProps}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                (e.target as HTMLInputElement).blur();
+              }
+              inputProps.onKeyDown?.(e);
+            }}
           />
 
           {showRightIcon && rightIcon && (
