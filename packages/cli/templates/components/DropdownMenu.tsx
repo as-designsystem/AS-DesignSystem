@@ -143,7 +143,7 @@ export function DropdownMenuItem({
     >
       {icon && (
         <span className="dropdown-menu-item__icon">
-          <Icon name={icon} size={16} />
+          <Icon name={icon} size={16} color={destructive ? 'var(--feedback-error-default, #e4002b)' : undefined} />
         </span>
       )}
       <span className="dropdown-menu-item__label">{children}</span>
