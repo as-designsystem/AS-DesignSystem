@@ -8,6 +8,7 @@ import '@as-design-system/core/Icon.css';
 import '@as-design-system/core/Spinner.css';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
+import '@as-design-system/core/Tooltip.css';
 import CodeModal from '../components/CodeModal';
 import './StudyRow.css';
 
@@ -75,6 +76,24 @@ export default function StudyRowPage() {
     { key: 'description', value: 'Comprehensive flight performance study', flex: 2 },
     { key: 'author', value: 'John Doe', flex: 1 },
     { key: 'date', value: '2024-01-15', width: '120px', align: 'right' },
+  ]}
+/>`;
+
+  const statusTooltipCode = `import { StudyRow } from '@/design-system/components/StudyRow';
+
+// With statusLabel and statusTooltip
+<StudyRow
+  status="Draft"
+  statusLabel="2 Draft"
+  statusTooltip={
+    <div>
+      <div>Flight Analysis — Draft</div>
+      <div>Network Optimization — Draft</div>
+    </div>
+  }
+  columns={[
+    { key: 'name', value: 'Multi-Study Batch' },
+    { key: 'description', value: 'Grouped studies overview' },
   ]}
 />`;
 
@@ -336,6 +355,79 @@ export default function StudyRowPage() {
               </div>
             </div>
           </section>
+
+          {/* Status Label & Tooltip */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Status Label & Tooltip
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('statusTooltip')}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Use <code>statusLabel</code> to display a custom label next to the status icon, and <code>statusTooltip</code> to wrap the status in a tooltip with custom content. Hover the status to see the tooltip.
+            </p>
+            <div className="example-container">
+              <div className="study-row-demo">
+                <StudyRow
+                  status="Draft"
+                  statusLabel="2 Draft"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Draft</div>
+                      <div>Network Optimization — Draft</div>
+                    </div>
+                  }
+                  columns={[
+                    { key: 'name', value: 'Multi-Study Batch' },
+                    { key: 'description', value: 'Grouped studies overview' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computed"
+                  statusLabel="3 Computed"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Computed</div>
+                      <div>Network Optimization — Computed</div>
+                      <div>Maintenance Planning — Computed</div>
+                    </div>
+                  }
+                  columns={[
+                    { key: 'name', value: 'Completed Batch' },
+                    { key: 'description', value: 'All studies computed' },
+                  ]}
+                />
+                <StudyRow
+                  status="Failed"
+                  statusLabel="1 Failed"
+                  columns={[
+                    { key: 'name', value: 'Without Tooltip' },
+                    { key: 'description', value: 'statusLabel without statusTooltip' },
+                  ]}
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -367,6 +459,18 @@ export default function StudyRowPage() {
                 <td><code>StudyStatusState</code></td>
                 <td>-</td>
                 <td>Study status (required)</td>
+              </tr>
+              <tr>
+                <td><code>statusLabel</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>Custom label next to the status icon (e.g. "2 Draft")</td>
+              </tr>
+              <tr>
+                <td><code>statusTooltip</code></td>
+                <td><code>React.ReactNode</code></td>
+                <td>-</td>
+                <td>Custom tooltip content. When provided, the status is wrapped in a Tooltip.</td>
               </tr>
               <tr>
                 <td><code>columns</code></td>
@@ -498,6 +602,12 @@ export default function StudyRowPage() {
         onClose={() => setOpenModal(null)}
         title="Column Sizing"
         code={columnSizingCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'statusTooltip'}
+        onClose={() => setOpenModal(null)}
+        title="Status Label & Tooltip"
+        code={statusTooltipCode}
       />
     </div>
   );
