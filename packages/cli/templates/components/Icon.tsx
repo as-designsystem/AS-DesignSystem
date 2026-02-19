@@ -94,6 +94,7 @@ import openInFullIcon from '../assets/svg/icons/open_in_full.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
 import receiptLongIcon from '../assets/svg/icons/receipt_long.svg?raw';
+import refreshIcon from '../assets/svg/icons/refresh.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
@@ -206,6 +207,7 @@ const iconMap: Record<string, string> = {
   'open_in_new': openInNewIcon,
   'play': playIcon,
   'receipt_long': receiptLongIcon,
+  'refresh': refreshIcon,
   'remove': removeIcon,
   'search': searchIcon,
   'save_alt': saveAltIcon,
@@ -319,6 +321,7 @@ export const availableIcons = [
   'open_in_new',
   'play',
   'receipt_long',
+  'refresh',
   'remove',
   'search',
   'save_alt',
