@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Icon } from '../components/Icon';
-import { Spinner } from '../components/Spinner';
+import { Spinner, type SpinnerVariant } from '../components/Spinner';
 import './StudyStatusBar.css';
 
 export type StudyStatusBarStatus = 'Ready' | 'NotReady' | 'Computing' | 'Modified' | 'Failed';
@@ -22,6 +22,15 @@ export interface StudyStatusBarProps {
    * Action elements displayed on the right side (Button, IconButton, etc.)
    */
   actions?: ReactNode;
+  /**
+   * Spinner variant used when status is 'Computing'
+   * @default 'arc'
+   */
+  spinnerVariant?: SpinnerVariant;
+  /**
+   * Progress value (0–100). Only used when spinnerVariant is 'progress'.
+   */
+  spinnerValue?: number;
   /**
    * Additional CSS class
    */
@@ -56,6 +65,8 @@ export function StudyStatusBar({
   title,
   description,
   actions,
+  spinnerVariant = 'arc',
+  spinnerValue,
   className = '',
 }: StudyStatusBarProps) {
   const containerClasses = [
@@ -69,7 +80,7 @@ export function StudyStatusBar({
       {/* Status icon */}
       <div className="study-status-bar__icon">
         {status === 'Computing' ? (
-          <Spinner variant="arc" size={24} color="var(--text-secondary, #63728a)" />
+          <Spinner variant={spinnerVariant} value={spinnerValue} size={24} color="var(--text-secondary, #63728a)" />
         ) : (
           <Icon name={statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
         )}
