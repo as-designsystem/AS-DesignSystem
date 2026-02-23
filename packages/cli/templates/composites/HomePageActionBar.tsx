@@ -1,5 +1,5 @@
 import { useState, ReactNode } from 'react';
-import { Tab } from '../components/Tab';
+import { Tab, type TabSize } from '../components/Tab';
 import './HomePageActionBar.css';
 
 export type HomePageTab = 'my-studies' | 'all-studies';
@@ -14,6 +14,11 @@ export interface HomePageActionBarProps {
    * Callback when tab changes
    */
   onTabChange?: (tab: HomePageTab) => void;
+  /**
+   * Size of the tabs
+   * @default 'M'
+   */
+  tabSize?: TabSize;
   /**
    * Actions to display on the right side (buttons, inputs, selects, etc.)
    */
@@ -45,6 +50,7 @@ export interface HomePageActionBarProps {
 export function HomePageActionBar({
   activeTab: controlledActiveTab,
   onTabChange,
+  tabSize = 'M',
   children,
   className = '',
 }: HomePageActionBarProps) {
@@ -71,13 +77,13 @@ export function HomePageActionBar({
       <div className="home-page-action-bar__tabs">
         <Tab
           label="My Studies"
-          size="M"
+          size={tabSize}
           status={activeTab === 'my-studies' ? 'Active' : 'Default'}
           onClick={() => handleTabChange('my-studies')}
         />
         <Tab
           label="All studies"
-          size="M"
+          size={tabSize}
           status={activeTab === 'all-studies' ? 'Active' : 'Default'}
           onClick={() => handleTabChange('all-studies')}
         />

@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (111 icons)
+      // SVG icon assets (114 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -54,6 +54,8 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/apps.svg', target: 'assets/svg/icons/apps.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/arrow_back.svg', target: 'assets/svg/icons/arrow_back.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/arrow_downward.svg', target: 'assets/svg/icons/arrow_downward.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/arrow_forward.svg', target: 'assets/svg/icons/arrow_forward.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/arrow_upward.svg', target: 'assets/svg/icons/arrow_upward.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/attach_money.svg', target: 'assets/svg/icons/attach_money.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/autorenew.svg', target: 'assets/svg/icons/autorenew.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/balance.svg', target: 'assets/svg/icons/balance.svg', type: 'component' },
@@ -73,6 +75,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/database_error.svg', target: 'assets/svg/icons/database_error.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/database_upload.svg', target: 'assets/svg/icons/database_upload.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/database_valid.svg', target: 'assets/svg/icons/database_valid.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/database_warning.svg', target: 'assets/svg/icons/database_warning.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/delete.svg', target: 'assets/svg/icons/delete.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/description.svg', target: 'assets/svg/icons/description.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/download.svg', target: 'assets/svg/icons/download.svg', type: 'component' },

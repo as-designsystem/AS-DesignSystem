@@ -35,6 +35,8 @@ import airlineSeatReclineExtraIcon from '../assets/svg/icons/airline_seat_reclin
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
 import arrowBackIcon from '../assets/svg/icons/arrow_back.svg?raw';
 import arrowDownwardIcon from '../assets/svg/icons/arrow_downward.svg?raw';
+import arrowForwardIcon from '../assets/svg/icons/arrow_forward.svg?raw';
+import arrowUpwardIcon from '../assets/svg/icons/arrow_upward.svg?raw';
 import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
@@ -53,6 +55,7 @@ import databaseEditIcon from '../assets/svg/icons/database_edit.svg?raw';
 import databaseErrorIcon from '../assets/svg/icons/database_error.svg?raw';
 import databaseUploadIcon from '../assets/svg/icons/database_upload.svg?raw';
 import databaseValidIcon from '../assets/svg/icons/database_valid.svg?raw';
+import databaseWarningIcon from '../assets/svg/icons/database_warning.svg?raw';
 import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import descriptionIcon from '../assets/svg/icons/description.svg?raw';
@@ -149,6 +152,8 @@ const iconMap: Record<string, string> = {
   'apps': appsIcon,
   'arrow_back': arrowBackIcon,
   'arrow_downward': arrowDownwardIcon,
+  'arrow_forward': arrowForwardIcon,
+  'arrow_upward': arrowUpwardIcon,
   'attach_money': attachMoneyIcon,
   'autorenew': autorenewIcon,
   'balance': balanceIcon,
@@ -167,6 +172,7 @@ const iconMap: Record<string, string> = {
   'database_error': databaseErrorIcon,
   'database_upload': databaseUploadIcon,
   'database_valid': databaseValidIcon,
+  'database_warning': databaseWarningIcon,
   'dark_mode': darkModeIcon,
   'delete': deleteIcon,
   'description': descriptionIcon,
@@ -263,6 +269,8 @@ export const availableIcons = [
   'apps',
   'arrow_back',
   'arrow_downward',
+  'arrow_forward',
+  'arrow_upward',
   'attach_money',
   'autorenew',
   'balance',
@@ -281,6 +289,7 @@ export const availableIcons = [
   'database_error',
   'database_upload',
   'database_valid',
+  'database_warning',
   'dark_mode',
   'delete',
   'description',
