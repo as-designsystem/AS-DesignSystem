@@ -172,36 +172,4 @@
   white-space: nowrap;
 }
 
-/* ============================================================================
-   TOOLTIP
-   ============================================================================ */
-
-.button__tooltip {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--background-main, #ffffff);
-  color: var(--text-main, #14171d);
-  padding: 8px;
-  border-radius: var(--radius-xs, 3px);
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  white-space: nowrap;
-  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.button:hover .button__tooltip {
-  opacity: 1;
-}
-
-.button--disabled .button__tooltip,
-.button:disabled .button__tooltip {
-  display: none;
-}
 

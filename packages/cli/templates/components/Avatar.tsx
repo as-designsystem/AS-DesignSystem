@@ -1,5 +1,4 @@
 import React from 'react';
-import { SimpleTooltip } from './Tooltip';
 import './Avatar.css';
 
 export type AvatarSize = 'XS' | 'S' | 'M' | 'L';
@@ -30,10 +29,6 @@ export interface AvatarProps {
    * Accessible label
    */
   ariaLabel?: string;
-  /**
-   * Tooltip text shown on hover (e.g. full name)
-   */
-  tooltip?: string;
 }
 
 export interface AvatarStackProps {
@@ -93,7 +88,6 @@ export function Avatar({
   textColor,
   className = '',
   ariaLabel,
-  tooltip,
 }: AvatarProps) {
   const bgColor = color || getAutoColor(initials);
 
@@ -108,26 +102,16 @@ export function Avatar({
     style.color = textColor;
   }
 
-  const avatar = (
+  return (
     <span
       className={classes}
       style={style}
-      aria-label={ariaLabel || tooltip || initials}
+      aria-label={ariaLabel || initials}
       role="img"
     >
       {initials.slice(0, 2).toUpperCase()}
     </span>
   );
-
-  if (tooltip) {
-    return (
-      <SimpleTooltip label={tooltip} side="bottom" delayDuration={0}>
-        {avatar}
-      </SimpleTooltip>
-    );
-  }
-
-  return avatar;
 }
 
 /**

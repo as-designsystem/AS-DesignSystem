@@ -11,7 +11,7 @@ export interface TooltipProps {
   children: React.ReactNode;
   /**
    * Delay in ms before showing tooltip
-   * @default 300
+   * @default 0
    */
   delayDuration?: number;
   /**
@@ -21,7 +21,7 @@ export interface TooltipProps {
   skipDelayDuration?: number;
 }
 
-export function Tooltip({ children, delayDuration = 300, skipDelayDuration = 300 }: TooltipProps) {
+export function Tooltip({ children, delayDuration = 0, skipDelayDuration = 300 }: TooltipProps) {
   return (
     <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={skipDelayDuration}>
       <TooltipPrimitive.Root>{children}</TooltipPrimitive.Root>
@@ -121,7 +121,7 @@ export interface SimpleTooltipProps {
   side?: TooltipSide;
   /**
    * Delay in ms before showing tooltip
-   * @default 300
+   * @default 0
    */
   delayDuration?: number;
   /**
@@ -145,11 +145,11 @@ export function SimpleTooltip({
   label,
   children,
   side = 'top',
-  delayDuration = 300,
+  delayDuration = 0,
   arrow = true,
 }: SimpleTooltipProps) {
   return (
-    <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={300}>
+    <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={0}>
       <TooltipPrimitive.Root>
         <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>

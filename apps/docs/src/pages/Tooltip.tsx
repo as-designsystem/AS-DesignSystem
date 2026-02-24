@@ -63,15 +63,12 @@ import { Button } from '@/design-system/components/Button';
   </TooltipContent>
 </Tooltip>`;
 
-  const iconButtonCode = `import { IconButton } from '@/design-system/components/IconButton';
+  const iconButtonCode = `import { SimpleTooltip } from '@/design-system/components/Tooltip';
+import { IconButton } from '@/design-system/components/IconButton';
 
-// IconButton has built-in tooltip support
-<IconButton
-  icon="settings"
-  size="M"
-  variant="Ghost"
-  tooltip="Settings"
-/>`;
+<SimpleTooltip label="Settings" side="top">
+  <IconButton icon="settings" size="M" variant="Ghost" />
+</SimpleTooltip>`;
 
   return (
     <div className="component-page">
@@ -198,7 +195,7 @@ import { Button } from '@/design-system/components/Button';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                IconButton with Tooltip
+                SimpleTooltip with IconButton
               </h2>
               <Button
                 label="Code"
@@ -210,10 +207,18 @@ import { Button } from '@/design-system/components/Button';
             </div>
             <div className="example-container">
               <div className="tooltip-examples" style={{ gap: '12px' }}>
-                <IconButton icon="settings" size="M" variant="Ghost" tooltip="Settings" />
-                <IconButton icon="delete" size="M" variant="Ghost" tooltip="Delete" />
-                <IconButton icon="edit" size="M" variant="Ghost" tooltip="Edit" />
-                <IconButton icon="search" size="M" variant="Ghost" tooltip="Search" />
+                <SimpleTooltip label="Settings" side="top">
+                  <IconButton icon="settings" size="M" variant="Ghost" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Delete" side="top">
+                  <IconButton icon="delete" size="M" variant="Ghost" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Edit" side="top">
+                  <IconButton icon="edit" size="M" variant="Ghost" />
+                </SimpleTooltip>
+                <SimpleTooltip label="Search" side="top">
+                  <IconButton icon="search" size="M" variant="Ghost" />
+                </SimpleTooltip>
               </div>
             </div>
           </section>
@@ -252,7 +257,7 @@ import { Button } from '@/design-system/components/Button';
                   </TooltipContent>
                 </Tooltip>
 
-                <Tooltip delayDuration={0}>
+                <Tooltip>
                   <TooltipTrigger>
                     <Button label="No Delay" variant="Outlined" size="M" />
                   </TooltipTrigger>
@@ -311,7 +316,7 @@ import { Button } from '@/design-system/components/Button';
                 <tr>
                   <td><code>delayDuration</code></td>
                   <td><code>number</code></td>
-                  <td><code>300</code></td>
+                  <td><code>0</code></td>
                   <td>Delay in ms before showing tooltip</td>
                 </tr>
                 <tr>
@@ -354,13 +359,13 @@ import { Button } from '@/design-system/components/Button';
                 <tr>
                   <td><code>delayDuration</code></td>
                   <td><code>number</code></td>
-                  <td><code>300</code></td>
+                  <td><code>0</code></td>
                   <td>Delay in ms before showing tooltip</td>
                 </tr>
                 <tr>
                   <td><code>skipDelayDuration</code></td>
                   <td><code>number</code></td>
-                  <td><code>300</code></td>
+                  <td><code>0</code></td>
                   <td>Skip delay when moving between tooltips</td>
                 </tr>
               </tbody>
@@ -440,7 +445,7 @@ import { Button } from '@/design-system/components/Button';
       <CodeModal
         isOpen={openModal === 'iconbutton'}
         onClose={() => setOpenModal(null)}
-        title="IconButton with Tooltip"
+        title="SimpleTooltip with IconButton"
         code={iconButtonCode}
       />
       <CodeModal

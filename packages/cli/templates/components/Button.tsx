@@ -42,15 +42,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
    * Composant React personnalisé pour l'icône de droite
    */
   rightIconComponent?: React.ReactNode;
-  /**
-   * Tooltip à afficher
-   */
-  tooltip?: string;
-  /**
-   * Afficher le tooltip
-   * @default false
-   */
-  showTooltip?: boolean;
 }
 
 /**
@@ -73,8 +64,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   rightIcon,
   leftIconComponent,
   rightIconComponent,
-  tooltip,
-  showTooltip = false,
   className = '',
   disabled,
   ...props
@@ -151,9 +140,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
         </span>
       )}
       
-      {showTooltip && tooltip && (
-        <span className="button__tooltip">{tooltip}</span>
-      )}
     </button>
   );
 });

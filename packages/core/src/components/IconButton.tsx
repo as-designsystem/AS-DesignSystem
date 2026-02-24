@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from './Icon';
-import { SimpleTooltip } from './Tooltip';
 import './IconButton.css';
 
 export type IconButtonSize = 'XS' | 'S' | 'M' | 'L' | 'XL';
@@ -31,10 +30,6 @@ export interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
    * Alternative text for accessibility
    */
   alt?: string;
-  /**
-   * Tooltip text shown on hover
-   */
-  tooltip?: string;
 }
 
 /**
@@ -54,7 +49,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
   state = 'Default',
   variant = 'Default',
   alt,
-  tooltip,
   className = '',
   disabled,
   ...props
@@ -94,12 +88,12 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
 
   const iconColor = getIconColor();
 
-  const button = (
+  return (
     <button
       ref={ref}
       className={buttonClasses}
       disabled={isDisabled}
-      aria-label={alt || tooltip || icon}
+      aria-label={alt || icon}
       data-size={size}
       data-state={state}
       data-variant={variant}
@@ -108,16 +102,6 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>((
       <Icon name={icon} size={iconSize} color={iconColor} />
     </button>
   );
-
-  if (tooltip) {
-    return (
-      <SimpleTooltip label={tooltip} side="top" delayDuration={0}>
-        {button}
-      </SimpleTooltip>
-    );
-  }
-
-  return button;
 });
 
 IconButton.displayName = 'IconButton';
