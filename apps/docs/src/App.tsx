@@ -5,6 +5,7 @@ import Installation from './pages/Installation';
 import HowToUse from './pages/HowToUse';
 import SupportedPlatforms from './pages/SupportedPlatforms';
 import Button from './pages/Button';
+import VButtonPage from './pages/VButton';
 import ButtonGroup from './pages/ButtonGroup';
 import IconButton from './pages/IconButton';
 import ToolIcons from './pages/ToolIcons';
@@ -74,6 +75,7 @@ function App() {
               <Route path="/tokens/others" element={<Others />} />
               <Route path="/components" element={<Navigate to="/components/button" replace />} />
               <Route path="/components/button" element={<Button />} />
+              <Route path="/components/vbutton" element={<VButtonPage />} />
               <Route path="/components/button-group" element={<ButtonGroup />} />
               <Route path="/components/icon-button" element={<IconButton />} />
               <Route path="/components/tool-icons" element={<ToolIcons />} />

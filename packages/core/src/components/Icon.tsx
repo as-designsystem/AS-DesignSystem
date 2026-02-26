@@ -73,6 +73,7 @@ import eventIcon from '../assets/svg/icons/event.svg?raw';
 import eventNoteIcon from '../assets/svg/icons/event_note.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
+import flightIcon from '../assets/svg/icons/flight.svg?raw';
 import flightClassIcon from '../assets/svg/icons/flight_class.svg?raw';
 import folderIcon from '../assets/svg/icons/folder.svg?raw';
 import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
@@ -189,6 +190,7 @@ const iconMap: Record<string, string> = {
   'event_note': eventNoteIcon,
   'filter': filterIcon,
   'filter_row': filterRowIcon,
+  'flight': flightIcon,
   'flight_class': flightClassIcon,
   'folder': folderIcon,
   'folder_open': folderOpenIcon,
@@ -306,6 +308,7 @@ export const availableIcons = [
   'event_note',
   'filter',
   'filter_row',
+  'flight',
   'flight_class',
   'folder',
   'folder_open',

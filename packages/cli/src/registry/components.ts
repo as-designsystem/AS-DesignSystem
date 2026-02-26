@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (114 icons)
+      // SVG icon assets (115 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -91,6 +91,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/event_note.svg', target: 'assets/svg/icons/event_note.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter_row.svg', target: 'assets/svg/icons/filter_row.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/flight.svg', target: 'assets/svg/icons/flight.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/flight_class.svg', target: 'assets/svg/icons/flight_class.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/folder.svg', target: 'assets/svg/icons/folder.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/folder_open.svg', target: 'assets/svg/icons/folder_open.svg', type: 'component' },
@@ -149,6 +150,30 @@ export const components: RegistryItem[] = [
       {
         path: 'templates/components/Button.css',
         target: 'components/Button.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'vbutton',
+    type: 'component',
+    displayName: 'VButton',
+    description: 'Vertical button component with icon above label, variants and sizes',
+    files: [
+      {
+        path: 'templates/components/VButton.tsx',
+        target: 'components/VButton.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/VButton.css',
+        target: 'components/VButton.css',
         type: 'style',
       },
     ],
