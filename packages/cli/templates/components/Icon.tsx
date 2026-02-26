@@ -41,6 +41,7 @@ import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
+import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
@@ -50,6 +51,7 @@ import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import contentCopyIcon from '../assets/svg/icons/content_copy.svg?raw';
+import dashboardIcon from '../assets/svg/icons/dashboard.svg?raw';
 import databaseIcon from '../assets/svg/icons/database.svg?raw';
 import databaseEditIcon from '../assets/svg/icons/database_edit.svg?raw';
 import databaseErrorIcon from '../assets/svg/icons/database_error.svg?raw';
@@ -79,14 +81,17 @@ import folderIcon from '../assets/svg/icons/folder.svg?raw';
 import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
 import forumIcon from '../assets/svg/icons/forum.svg?raw';
 import groupsIcon from '../assets/svg/icons/groups.svg?raw';
+import helpOutlineIcon from '../assets/svg/icons/help_outline.svg?raw';
 import groups2Icon from '../assets/svg/icons/groups_2.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
+import leaderboardIcon from '../assets/svg/icons/leaderboard.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
 import keyboardArrowLeftIcon from '../assets/svg/icons/keyboard_arrow_left.svg?raw';
 import keyboardArrowRightIcon from '../assets/svg/icons/keyboard_arrow_right.svg?raw';
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import listIcon from '../assets/svg/icons/list.svg?raw';
+import logoutIcon from '../assets/svg/icons/logout.svg?raw';
 import mapIcon from '../assets/svg/icons/map.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
 import monetizationOnIcon from '../assets/svg/icons/monetization_on.svg?raw';
@@ -159,6 +164,7 @@ const iconMap: Record<string, string> = {
   'autorenew': autorenewIcon,
   'balance': balanceIcon,
   'broken_image': brokenImageIcon,
+  'call_split': callSplitIcon,
   'calendar_month': calendarMonthIcon,
   'cancel': cancelIcon,
   'check': checkIcon,
@@ -168,6 +174,7 @@ const iconMap: Record<string, string> = {
   'code': codeIcon,
   'construction': constructionIcon,
   'content_copy': contentCopyIcon,
+  'dashboard': dashboardIcon,
   'database': databaseIcon,
   'database_edit': databaseEditIcon,
   'database_error': databaseErrorIcon,
@@ -196,14 +203,17 @@ const iconMap: Record<string, string> = {
   'folder_open': folderOpenIcon,
   'forum': forumIcon,
   'groups': groupsIcon,
+  'help_outline': helpOutlineIcon,
   'groups_2': groups2Icon,
   'info': infoIcon,
+  'leaderboard': leaderboardIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
   'keyboard_arrow_left': keyboardArrowLeftIcon,
   'keyboard_arrow_right': keyboardArrowRightIcon,
   'keyboard_arrow_up': keyboardArrowUpIcon,
   'light_mode': lightModeIcon,
   'list': listIcon,
+  'logout': logoutIcon,
   'map': mapIcon,
   'menu': menuIcon,
   'monetization_on': monetizationOnIcon,
@@ -277,6 +287,7 @@ export const availableIcons = [
   'autorenew',
   'balance',
   'broken_image',
+  'call_split',
   'calendar_month',
   'cancel',
   'check',
@@ -286,6 +297,7 @@ export const availableIcons = [
   'code',
   'construction',
   'content_copy',
+  'dashboard',
   'database',
   'database_edit',
   'database_error',
@@ -315,13 +327,16 @@ export const availableIcons = [
   'forum',
   'groups',
   'groups_2',
+  'help_outline',
   'info',
+  'leaderboard',
   'keyboard_arrow_down',
   'keyboard_arrow_left',
   'keyboard_arrow_right',
   'keyboard_arrow_up',
   'light_mode',
   'list',
+  'logout',
   'map',
   'menu',
   'monetization_on',
