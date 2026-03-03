@@ -4,6 +4,7 @@ import '@as-design-system/core/ButtonGroup.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/IconButton.css';
 import '@as-design-system/core/Tab.css';
+import '@as-design-system/core/Tooltip.css';
 import CodeModal from '../components/CodeModal';
 import './ButtonGroup.css';
 
@@ -23,6 +24,10 @@ export default function ButtonGroupPage() {
   const [sizeLValue, setSizeLValue] = useState('option1');
   const [sizeXlValue, setSizeXlValue] = useState('option1');
   const [disabledValue, setDisabledValue] = useState('option1');
+  const [tooltipValue, setTooltipValue] = useState('list');
+  const [tooltipIconValue, setTooltipIconValue] = useState('tile_large');
+  const [outlinedValue, setOutlinedValue] = useState('all');
+  const [outlinedIconValue, setOutlinedIconValue] = useState('tile_large');
 
   const horizontalCode = `import { useState } from 'react';
 import { ButtonGroup } from '@/design-system/components/ButtonGroup';
@@ -153,6 +158,77 @@ function Example() {
         value={value}
         onChange={setValue}
         size="XL"
+      />
+    </>
+  );
+}`;
+
+  const outlinedCode = `import { useState } from 'react';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
+
+function Example() {
+  const [value, setValue] = useState('all');
+
+  return (
+    <>
+      {/* Text buttons */}
+      <ButtonGroup
+        variant="Outlined"
+        options={[
+          { value: 'now', label: 'NOW' },
+          { value: '1d', label: '1D' },
+          { value: '1w', label: '1W' },
+          { value: '1m', label: '1M' },
+          { value: 'all', label: 'ALL' },
+        ]}
+        value={value}
+        onChange={setValue}
+      />
+
+      {/* Icon buttons */}
+      <ButtonGroup
+        variant="Outlined"
+        options={[
+          { value: 'tile_large', iconName: 'tile_large' },
+          { value: 'tile_medium', iconName: 'tile_medium' },
+          { value: 'tile_small', iconName: 'tile_small' },
+        ]}
+        value={iconValue}
+        onChange={setIconValue}
+        size="S"
+      />
+    </>
+  );
+}`;
+
+  const tooltipCode = `import { useState } from 'react';
+import { ButtonGroup } from '@/design-system/components/ButtonGroup';
+
+function Example() {
+  const [value, setValue] = useState('list');
+
+  return (
+    <>
+      {/* Text buttons with tooltips */}
+      <ButtonGroup
+        options={[
+          { value: 'list', label: 'List', tooltip: 'Show as list' },
+          { value: 'grid', label: 'Grid', tooltip: 'Show as grid' },
+          { value: 'table', label: 'Table', tooltip: 'Show as table' },
+        ]}
+        value={value}
+        onChange={setValue}
+      />
+
+      {/* Icon-only buttons with tooltips */}
+      <ButtonGroup
+        options={[
+          { value: 'tile_large', iconName: 'tile_large', tooltip: 'Large tiles' },
+          { value: 'tile_medium', iconName: 'tile_medium', tooltip: 'Medium tiles' },
+          { value: 'tile_small', iconName: 'tile_small', tooltip: 'Small tiles' },
+        ]}
+        value={iconValue}
+        onChange={setIconValue}
       />
     </>
   );
@@ -416,6 +492,105 @@ function Example() {
             </div>
           </section>
 
+          {/* Outlined Variant */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Outlined Variant
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('outlined')}
+              />
+            </div>
+            <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
+              Joined outlined buttons with no container background. Active button is filled, inactive ones are outlined.
+            </p>
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">Text:</span>
+                  <ButtonGroup
+                    variant="Outlined"
+                    options={[
+                      { value: 'now', label: 'NOW' },
+                      { value: '1d', label: '1D' },
+                      { value: '1w', label: '1W' },
+                      { value: '1m', label: '1M' },
+                      { value: 'all', label: 'ALL' },
+                    ]}
+                    value={outlinedValue}
+                    onChange={setOutlinedValue}
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon:</span>
+                  <ButtonGroup
+                    variant="Outlined"
+                    options={[
+                      { value: 'tile_large', iconName: 'tile_large' },
+                      { value: 'tile_medium', iconName: 'tile_medium' },
+                      { value: 'tile_small', iconName: 'tile_small' },
+                    ]}
+                    value={outlinedIconValue}
+                    onChange={setOutlinedIconValue}
+                    size="S"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* With Tooltips */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                With Tooltips
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('tooltip')}
+              />
+            </div>
+            <p className="label-regular-m" style={{ marginBottom: '16px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
+              Each option can have a tooltip that appears on hover.
+            </p>
+            <div className="example-container">
+              <div className="button-group-examples">
+                <div className="button-group-example-row">
+                  <span className="example-label">Text + tooltip:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'list', label: 'List', tooltip: 'Show as list' },
+                      { value: 'grid', label: 'Grid', tooltip: 'Show as grid' },
+                      { value: 'table', label: 'Table', tooltip: 'Show as table' },
+                    ]}
+                    value={tooltipValue}
+                    onChange={setTooltipValue}
+                  />
+                </div>
+                <div className="button-group-example-row">
+                  <span className="example-label">Icon + tooltip:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'tile_large', iconName: 'tile_large', tooltip: 'Large tiles' },
+                      { value: 'tile_medium', iconName: 'tile_medium', tooltip: 'Medium tiles' },
+                      { value: 'tile_small', iconName: 'tile_small', tooltip: 'Small tiles' },
+                    ]}
+                    value={tooltipIconValue}
+                    onChange={setTooltipIconValue}
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Disabled */}
           <section className="component-section">
             <div className="section-header">
@@ -511,6 +686,12 @@ function Example() {
                   <td>Layout direction of the buttons</td>
                 </tr>
                 <tr>
+                  <td><code>variant</code></td>
+                  <td><code>'Default' | 'Outlined'</code></td>
+                  <td><code>'Default'</code></td>
+                  <td>Visual variant. Outlined joins buttons with no container background</td>
+                </tr>
+                <tr>
                   <td><code>size</code></td>
                   <td><code>'S' | 'M' | 'L' | 'XL'</code></td>
                   <td><code>'M'</code></td>
@@ -565,6 +746,11 @@ function Example() {
                   <td><code>boolean</code></td>
                   <td>Whether the option is disabled</td>
                 </tr>
+                <tr>
+                  <td><code>tooltip</code></td>
+                  <td><code>string</code></td>
+                  <td>Tooltip label to display on hover</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -589,6 +775,18 @@ function Example() {
         onClose={() => setOpenModal(null)}
         title="Sizes"
         code={sizesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'outlined'}
+        onClose={() => setOpenModal(null)}
+        title="Outlined Variant"
+        code={outlinedCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'tooltip'}
+        onClose={() => setOpenModal(null)}
+        title="With Tooltips"
+        code={tooltipCode}
       />
       <CodeModal
         isOpen={openModal === 'disabled'}

@@ -41,6 +41,56 @@
   align-self: stretch;
 }
 
+/* ============================================================================
+   VARIANT: Outlined
+   ============================================================================ */
+
+.button-group--outlined {
+  background-color: transparent;
+  padding: 0;
+  gap: 0;
+  border-radius: 0;
+}
+
+/* Remove border-radius on middle buttons */
+.button-group--outlined .button-group__item--middle {
+  border-radius: 0;
+}
+
+/* First button: radius on left side only */
+.button-group--outlined .button-group__item--first {
+  border-radius: var(--radius-xs, 3px) 0 0 var(--radius-xs, 3px);
+}
+
+/* Last button: radius on right side only */
+.button-group--outlined .button-group__item--last {
+  border-radius: 0 var(--radius-xs, 3px) var(--radius-xs, 3px) 0;
+}
+
+/* Vertical: first = top, last = bottom */
+.button-group--outlined.button-group--vertical .button-group__item--first {
+  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0;
+}
+
+.button-group--outlined.button-group--vertical .button-group__item--last {
+  border-radius: 0 0 var(--radius-xs, 3px) var(--radius-xs, 3px);
+}
+
+/* Collapse shared borders between adjacent outlined buttons */
+.button-group--outlined .button-group__item + .button-group__item {
+  margin-left: -1px;
+}
+
+.button-group--outlined.button-group--vertical .button-group__item + .button-group__item {
+  margin-left: 0;
+  margin-top: -1px;
+}
+
+/* Ensure active button appears above neighbors for border visibility */
+.button-group--outlined .button-group__item[aria-pressed="true"] {
+  z-index: 1;
+}
+
 /* Disabled container */
 .button-group--disabled {
   opacity: 0.3;

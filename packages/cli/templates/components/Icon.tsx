@@ -32,6 +32,7 @@ import accountBalanceIcon from '../assets/svg/icons/account_balance.svg?raw';
 import accountCircleIcon from '../assets/svg/icons/account_circle.svg?raw';
 import addIcon from '../assets/svg/icons/add.svg?raw';
 import airlineSeatReclineExtraIcon from '../assets/svg/icons/airline_seat_recline_extra.svg?raw';
+import airlineTicketIcon from '../assets/svg/icons/airline_ticket.svg?raw';
 import appsIcon from '../assets/svg/icons/apps.svg?raw';
 import arrowBackIcon from '../assets/svg/icons/arrow_back.svg?raw';
 import arrowDownwardIcon from '../assets/svg/icons/arrow_downward.svg?raw';
@@ -40,6 +41,7 @@ import arrowUpwardIcon from '../assets/svg/icons/arrow_upward.svg?raw';
 import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
+import barChartIcon from '../assets/svg/icons/bar_chart.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
 import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
@@ -84,7 +86,9 @@ import groupsIcon from '../assets/svg/icons/groups.svg?raw';
 import helpOutlineIcon from '../assets/svg/icons/help_outline.svg?raw';
 import groups2Icon from '../assets/svg/icons/groups_2.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
+import insertPhotoIcon from '../assets/svg/icons/insert_photo.svg?raw';
 import leaderboardIcon from '../assets/svg/icons/leaderboard.svg?raw';
+import ssidChartIcon from '../assets/svg/icons/ssid_chart.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
 import keyboardArrowLeftIcon from '../assets/svg/icons/keyboard_arrow_left.svg?raw';
 import keyboardArrowRightIcon from '../assets/svg/icons/keyboard_arrow_right.svg?raw';
@@ -105,9 +109,11 @@ import playIcon from '../assets/svg/icons/play.svg?raw';
 import receiptLongIcon from '../assets/svg/icons/receipt_long.svg?raw';
 import refreshIcon from '../assets/svg/icons/refresh.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
+import routeIcon from '../assets/svg/icons/route.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import shareIcon from '../assets/svg/icons/share.svg?raw';
+import showChartIcon from '../assets/svg/icons/show_chart.svg?raw';
 import speedIcon from '../assets/svg/icons/speed.svg?raw';
 import stackedBarChartIcon from '../assets/svg/icons/stacked_bar_chart.svg?raw';
 import starIcon from '../assets/svg/icons/star.svg?raw';
@@ -116,6 +122,10 @@ import systemUpdateAltIcon from '../assets/svg/icons/system_update_alt.svg?raw';
 import tableChartIcon from '../assets/svg/icons/table_chart.svg?raw';
 import trendingDownIcon from '../assets/svg/icons/trending_down.svg?raw';
 import trendingUpIcon from '../assets/svg/icons/trending_up.svg?raw';
+import tuneIcon from '../assets/svg/icons/tune.svg?raw';
+import tileLargeIcon from '../assets/svg/icons/tile_large.svg?raw';
+import tileMediumIcon from '../assets/svg/icons/tile_medium.svg?raw';
+import tileSmallIcon from '../assets/svg/icons/tile_small.svg?raw';
 import uploadIcon from '../assets/svg/icons/upload.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
@@ -155,6 +165,7 @@ const iconMap: Record<string, string> = {
   'account_circle': accountCircleIcon,
   'add': addIcon,
   'airline_seat_recline_extra': airlineSeatReclineExtraIcon,
+  'airline_ticket': airlineTicketIcon,
   'apps': appsIcon,
   'arrow_back': arrowBackIcon,
   'arrow_downward': arrowDownwardIcon,
@@ -163,6 +174,7 @@ const iconMap: Record<string, string> = {
   'attach_money': attachMoneyIcon,
   'autorenew': autorenewIcon,
   'balance': balanceIcon,
+  'bar_chart': barChartIcon,
   'broken_image': brokenImageIcon,
   'call_split': callSplitIcon,
   'calendar_month': calendarMonthIcon,
@@ -206,7 +218,9 @@ const iconMap: Record<string, string> = {
   'help_outline': helpOutlineIcon,
   'groups_2': groups2Icon,
   'info': infoIcon,
+  'insert_photo': insertPhotoIcon,
   'leaderboard': leaderboardIcon,
+  'ssid_chart': ssidChartIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
   'keyboard_arrow_left': keyboardArrowLeftIcon,
   'keyboard_arrow_right': keyboardArrowRightIcon,
@@ -227,10 +241,12 @@ const iconMap: Record<string, string> = {
   'receipt_long': receiptLongIcon,
   'refresh': refreshIcon,
   'remove': removeIcon,
+  'route': routeIcon,
   'search': searchIcon,
   'save_alt': saveAltIcon,
   'settings': settingsIcon,
   'share': shareIcon,
+  'show_chart': showChartIcon,
   'speed': speedIcon,
   'stacked_bar_chart': stackedBarChartIcon,
   'star': starIcon,
@@ -239,6 +255,10 @@ const iconMap: Record<string, string> = {
   'table_chart': tableChartIcon,
   'trending_down': trendingDownIcon,
   'trending_up': trendingUpIcon,
+  'tune': tuneIcon,
+  'tile_large': tileLargeIcon,
+  'tile_medium': tileMediumIcon,
+  'tile_small': tileSmallIcon,
   'upload': uploadIcon,
   'visibility': visibilityIcon,
   'warning': warningIcon,
@@ -278,6 +298,7 @@ export const availableIcons = [
   'account_circle',
   'add',
   'airline_seat_recline_extra',
+  'airline_ticket',
   'apps',
   'arrow_back',
   'arrow_downward',
@@ -286,6 +307,7 @@ export const availableIcons = [
   'attach_money',
   'autorenew',
   'balance',
+  'bar_chart',
   'broken_image',
   'call_split',
   'calendar_month',
@@ -329,7 +351,9 @@ export const availableIcons = [
   'groups_2',
   'help_outline',
   'info',
+  'insert_photo',
   'leaderboard',
+  'ssid_chart',
   'keyboard_arrow_down',
   'keyboard_arrow_left',
   'keyboard_arrow_right',
@@ -350,10 +374,12 @@ export const availableIcons = [
   'receipt_long',
   'refresh',
   'remove',
+  'route',
   'search',
   'save_alt',
   'settings',
   'share',
+  'show_chart',
   'speed',
   'stacked_bar_chart',
   'star',
@@ -362,6 +388,10 @@ export const availableIcons = [
   'table_chart',
   'trending_down',
   'trending_up',
+  'tune',
+  'tile_large',
+  'tile_medium',
+  'tile_small',
   'upload',
   'visibility',
   'warning',

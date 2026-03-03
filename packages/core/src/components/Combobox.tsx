@@ -325,7 +325,14 @@ export function Combobox({
       {/* Combobox */}
       <Popover.Root open={open} modal={false}>
         <Popover.Anchor asChild>
-          <div className={inputWrapperClasses}>
+          <div
+            className={inputWrapperClasses}
+            onClick={() => {
+              if (!isDisabled && !isReadOnly) {
+                inputRef.current?.focus();
+              }
+            }}
+          >
             {showLeftIcon && leftIcon && (
               <span className="combobox-icon combobox-icon--left">
                 <Icon

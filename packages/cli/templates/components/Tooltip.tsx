@@ -151,7 +151,9 @@ export function SimpleTooltip({
   return (
     <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={0}>
       <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Trigger asChild>
+          <span style={{ display: 'inline-flex' }}>{children}</span>
+        </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
           <TooltipPrimitive.Content className="tooltip-content" side={side} sideOffset={4}>
             {label}

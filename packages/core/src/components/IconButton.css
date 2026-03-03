@@ -70,6 +70,7 @@
   background-color: var(--primary-hover, #255fcc);
 }
 
+.icon-button--default:not(:disabled):active,
 .icon-button--default.icon-button--active {
   background-color: var(--primary-active, #002d80);
 }
@@ -89,6 +90,7 @@
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
+.icon-button--outlined:not(:disabled):active,
 .icon-button--outlined.icon-button--active {
   background-color: var(--primary-t-active, rgba(0, 45, 128, 0.2));
 }
@@ -107,6 +109,7 @@
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
 
+.icon-button--ghost:not(:disabled):active,
 .icon-button--ghost.icon-button--active {
   background-color: var(--primary-t-active, rgba(0, 45, 128, 0.2));
 }
