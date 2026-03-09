@@ -128,13 +128,20 @@ const ALL_TOOLS: ToolData[] = [
     filter: 'Flight Operations',
     platforms: ['web'],
   },
-  // Other Apps
+  // Other Apps (alphabetical by title)
   {
     tool: 'aoa',
     title: 'Airline Operations Intelligence Portal',
     description: 'Create studies on Skywise platform to analyse airlines operations.',
     category: 'Other Apps',
     platforms: ['skywise'],
+  },
+  {
+    tool: 'airsense',
+    title: 'AirSense',
+    description: 'Best-in-class data products for aviation with real-time situational awareness, aircraft tracking and predictive services.',
+    category: 'Other Apps',
+    platforms: ['web'],
   },
   {
     tool: 'lopaexplorer',
@@ -249,7 +256,7 @@ export default function LandingPageTemplatePage() {
 
   const toolsBySection = TOOL_SECTIONS.map((section) => ({
     title: section,
-    tools: filteredTools.filter((t) => t.category === section),
+    tools: filteredTools.filter((t) => t.category === section).sort((a, b) => a.title.localeCompare(b.title)),
   })).filter((s) => s.tools.length > 0);
 
   const favouriteTools = ALL_TOOLS.filter((t) => favorites.includes(t.title));
