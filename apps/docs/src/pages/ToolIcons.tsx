@@ -34,6 +34,7 @@ export default function ToolIconsPage() {
     'airline-business-planner',
     'weight-builder',
     'cabin-crew',
+    'airsense',
   ];
 
   const lightCode = `import { ToolIcons } from '@/design-system/components/ToolIcons';
@@ -45,7 +46,7 @@ const tools = [
   'network-tam', 'aoa', 'missionlite', 'lopaexplorer',
   'airline-simulator', 'navdb-editor', 'economicslite',
   'atmosphere', 'ac-config', 'fellofly',
-  'airline-business-planner', 'weight-builder', 'cabin-crew'
+  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense'
 ];
 
 {tools.map(tool => (
@@ -61,7 +62,7 @@ const tools = [
   'network-tam', 'aoa', 'missionlite', 'lopaexplorer',
   'airline-simulator', 'navdb-editor', 'economicslite',
   'atmosphere', 'ac-config', 'fellofly',
-  'airline-business-planner', 'weight-builder', 'cabin-crew'
+  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense'
 ];
 
 {tools.map(tool => (

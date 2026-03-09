@@ -43,6 +43,8 @@ import weightBuilderLight from '../assets/png/tool-icons/weight-builder-light.pn
 import weightBuilderDark from '../assets/png/tool-icons/weight-builder-dark.png';
 import cabinCrewLight from '../assets/png/tool-icons/cabin-crew-light.png';
 import cabinCrewDark from '../assets/png/tool-icons/cabin-crew-dark.png';
+import airsenseLight from '../assets/png/tool-icons/airsense-light.png';
+import airsenseDark from '../assets/png/tool-icons/airsense-dark.png';
 
 export type ToolName =
   | 'trajopt'
@@ -65,7 +67,8 @@ export type ToolName =
   | 'fellofly'
   | 'airline-business-planner'
   | 'weight-builder'
-  | 'cabin-crew';
+  | 'cabin-crew'
+  | 'airsense';
 
 export type ToolIconMode = 'light' | 'dark';
 
@@ -118,6 +121,7 @@ const imageMap: Record<ToolName, { light: string; dark: string }> = {
   'airline-business-planner': { light: airlineBusinessPlannerLight, dark: airlineBusinessPlannerDark },
   'weight-builder': { light: weightBuilderLight, dark: weightBuilderDark },
   'cabin-crew': { light: cabinCrewLight, dark: cabinCrewDark },
+  'airsense': { light: airsenseLight, dark: airsenseDark },
 };
 
 /**
@@ -162,6 +166,7 @@ export function ToolIcons({
     'airline-business-planner': 'Airline Business Planner',
     'weight-builder': 'Weight Builder',
     'cabin-crew': 'Cabin Crew',
+    'airsense': 'AirSense',
   };
 
   const toolLabel = toolLabels[tool];
