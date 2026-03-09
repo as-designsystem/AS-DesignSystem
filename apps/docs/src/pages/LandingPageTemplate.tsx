@@ -137,6 +137,21 @@ const ALL_TOOLS: ToolData[] = [
     platforms: ['skywise'],
   },
   {
+    tool: 'lopaexplorer',
+    title: 'Lopa Explorer',
+    description: 'Explore different LOPA configuration for new aircraft and see economics estimations.',
+    category: 'Other Apps',
+    platforms: ['ios'],
+  },
+  {
+    tool: 'missionlite',
+    title: 'Mission Lite',
+    description: 'Quick Simulator in your pocket. Analyse missions performance and revenue, view range circle and compare aircraft.',
+    category: 'Other Apps',
+    filter: 'Flight Operations',
+    platforms: ['android', 'ios'],
+  },
+  {
     tool: 'fellofly',
     title: 'Pairiscope',
     description: 'Optimise your flight plan in real mission condition and compare cost index options.',
@@ -151,21 +166,6 @@ const ALL_TOOLS: ToolData[] = [
     category: 'Other Apps',
     filter: 'Flight Operations',
     platforms: ['web', 'windows'],
-  },
-  {
-    tool: 'lopaexplorer',
-    title: 'Lopa Explorer',
-    description: 'Explore different LOPA configuration for new aircraft and see economics estimations.',
-    category: 'Other Apps',
-    platforms: ['ios'],
-  },
-  {
-    tool: 'missionlite',
-    title: 'Mission Lite',
-    description: 'Quick Simulator in your pocket. Analyse missions performance and revenue, view range circle and compare aircraft.',
-    category: 'Other Apps',
-    filter: 'Flight Operations',
-    platforms: ['android', 'ios'],
   },
   // Data Management Tools
   {
