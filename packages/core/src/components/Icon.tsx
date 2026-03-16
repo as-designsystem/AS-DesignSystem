@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import numbers123Icon from '../assets/svg/icons/123.svg?raw';
+import _123Icon from '../assets/svg/icons/123.svg?raw';
 import airAcTwinEngineIcon from '../assets/svg/icons/AIR_AC_twin_engine.svg?raw';
 import airApuIcon from '../assets/svg/icons/AIR_APU.svg?raw';
 import airAirbusIcon from '../assets/svg/icons/AIR_Airbus.svg?raw';
@@ -43,8 +43,8 @@ import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
 import barChartIcon from '../assets/svg/icons/bar_chart.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
-import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
+import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
@@ -53,6 +53,7 @@ import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import contentCopyIcon from '../assets/svg/icons/content_copy.svg?raw';
+import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import dashboardIcon from '../assets/svg/icons/dashboard.svg?raw';
 import databaseIcon from '../assets/svg/icons/database.svg?raw';
 import databaseEditIcon from '../assets/svg/icons/database_edit.svg?raw';
@@ -60,39 +61,40 @@ import databaseErrorIcon from '../assets/svg/icons/database_error.svg?raw';
 import databaseUploadIcon from '../assets/svg/icons/database_upload.svg?raw';
 import databaseValidIcon from '../assets/svg/icons/database_valid.svg?raw';
 import databaseWarningIcon from '../assets/svg/icons/database_warning.svg?raw';
-import darkModeIcon from '../assets/svg/icons/dark_mode.svg?raw';
 import deleteIcon from '../assets/svg/icons/delete.svg?raw';
 import descriptionIcon from '../assets/svg/icons/description.svg?raw';
+import dnsIcon from '../assets/svg/icons/dns.svg?raw';
+import docsIcon from '../assets/svg/icons/docs.svg?raw';
 import downloadIcon from '../assets/svg/icons/download.svg?raw';
 import driveFileMoveIcon from '../assets/svg/icons/drive_file_move.svg?raw';
 import dropdownIcon from '../assets/svg/icons/dropdown.svg?raw';
 import dropdownLeftIcon from '../assets/svg/icons/dropdown_left.svg?raw';
 import dropdownRightIcon from '../assets/svg/icons/dropdown_right.svg?raw';
 import dropdownUpIcon from '../assets/svg/icons/dropdown_up.svg?raw';
-import saveAltIcon from '../assets/svg/icons/save_alt.svg?raw';
 import editIcon from '../assets/svg/icons/edit.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
 import errorIcon from '../assets/svg/icons/error.svg?raw';
 import eventIcon from '../assets/svg/icons/event.svg?raw';
 import eventNoteIcon from '../assets/svg/icons/event_note.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
+import filterAltIcon from '../assets/svg/icons/filter_alt.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import flightIcon from '../assets/svg/icons/flight.svg?raw';
 import flightClassIcon from '../assets/svg/icons/flight_class.svg?raw';
 import folderIcon from '../assets/svg/icons/folder.svg?raw';
 import folderOpenIcon from '../assets/svg/icons/folder_open.svg?raw';
 import forumIcon from '../assets/svg/icons/forum.svg?raw';
+import fullscreenIcon from '../assets/svg/icons/fullscreen.svg?raw';
 import groupsIcon from '../assets/svg/icons/groups.svg?raw';
-import helpOutlineIcon from '../assets/svg/icons/help_outline.svg?raw';
 import groups2Icon from '../assets/svg/icons/groups_2.svg?raw';
+import helpOutlineIcon from '../assets/svg/icons/help_outline.svg?raw';
 import infoIcon from '../assets/svg/icons/info.svg?raw';
 import insertPhotoIcon from '../assets/svg/icons/insert_photo.svg?raw';
-import leaderboardIcon from '../assets/svg/icons/leaderboard.svg?raw';
-import ssidChartIcon from '../assets/svg/icons/ssid_chart.svg?raw';
 import keyboardArrowDownIcon from '../assets/svg/icons/keyboard_arrow_down.svg?raw';
 import keyboardArrowLeftIcon from '../assets/svg/icons/keyboard_arrow_left.svg?raw';
 import keyboardArrowRightIcon from '../assets/svg/icons/keyboard_arrow_right.svg?raw';
 import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
+import leaderboardIcon from '../assets/svg/icons/leaderboard.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import listIcon from '../assets/svg/icons/list.svg?raw';
 import logoutIcon from '../assets/svg/icons/logout.svg?raw';
@@ -110,29 +112,31 @@ import receiptLongIcon from '../assets/svg/icons/receipt_long.svg?raw';
 import refreshIcon from '../assets/svg/icons/refresh.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import routeIcon from '../assets/svg/icons/route.svg?raw';
+import saveAltIcon from '../assets/svg/icons/save_alt.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import shareIcon from '../assets/svg/icons/share.svg?raw';
 import showChartIcon from '../assets/svg/icons/show_chart.svg?raw';
 import speedIcon from '../assets/svg/icons/speed.svg?raw';
+import ssidChartIcon from '../assets/svg/icons/ssid_chart.svg?raw';
 import stackedBarChartIcon from '../assets/svg/icons/stacked_bar_chart.svg?raw';
 import starIcon from '../assets/svg/icons/star.svg?raw';
 import starBorderIcon from '../assets/svg/icons/star_border.svg?raw';
 import systemUpdateAltIcon from '../assets/svg/icons/system_update_alt.svg?raw';
 import tableChartIcon from '../assets/svg/icons/table_chart.svg?raw';
-import trendingDownIcon from '../assets/svg/icons/trending_down.svg?raw';
-import trendingUpIcon from '../assets/svg/icons/trending_up.svg?raw';
-import tuneIcon from '../assets/svg/icons/tune.svg?raw';
 import tileLargeIcon from '../assets/svg/icons/tile_large.svg?raw';
 import tileMediumIcon from '../assets/svg/icons/tile_medium.svg?raw';
 import tileSmallIcon from '../assets/svg/icons/tile_small.svg?raw';
+import trendingDownIcon from '../assets/svg/icons/trending_down.svg?raw';
+import trendingUpIcon from '../assets/svg/icons/trending_up.svg?raw';
+import tuneIcon from '../assets/svg/icons/tune.svg?raw';
 import uploadIcon from '../assets/svg/icons/upload.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
-  '123': numbers123Icon,
+  '123': _123Icon,
   'AIR_AC_twin_engine': airAcTwinEngineIcon,
   'AIR_APU': airApuIcon,
   'AIR_Airbus': airAirbusIcon,
@@ -176,8 +180,8 @@ const iconMap: Record<string, string> = {
   'balance': balanceIcon,
   'bar_chart': barChartIcon,
   'broken_image': brokenImageIcon,
-  'call_split': callSplitIcon,
   'calendar_month': calendarMonthIcon,
+  'call_split': callSplitIcon,
   'cancel': cancelIcon,
   'check': checkIcon,
   'check_box': checkBoxIcon,
@@ -186,6 +190,7 @@ const iconMap: Record<string, string> = {
   'code': codeIcon,
   'construction': constructionIcon,
   'content_copy': contentCopyIcon,
+  'dark_mode': darkModeIcon,
   'dashboard': dashboardIcon,
   'database': databaseIcon,
   'database_edit': databaseEditIcon,
@@ -193,9 +198,10 @@ const iconMap: Record<string, string> = {
   'database_upload': databaseUploadIcon,
   'database_valid': databaseValidIcon,
   'database_warning': databaseWarningIcon,
-  'dark_mode': darkModeIcon,
   'delete': deleteIcon,
   'description': descriptionIcon,
+  'dns': dnsIcon,
+  'docs': docsIcon,
   'download': downloadIcon,
   'drive_file_move': driveFileMoveIcon,
   'dropdown': dropdownIcon,
@@ -208,23 +214,24 @@ const iconMap: Record<string, string> = {
   'event': eventIcon,
   'event_note': eventNoteIcon,
   'filter': filterIcon,
+  'filter_alt': filterAltIcon,
   'filter_row': filterRowIcon,
   'flight': flightIcon,
   'flight_class': flightClassIcon,
   'folder': folderIcon,
   'folder_open': folderOpenIcon,
   'forum': forumIcon,
+  'fullscreen': fullscreenIcon,
   'groups': groupsIcon,
-  'help_outline': helpOutlineIcon,
   'groups_2': groups2Icon,
+  'help_outline': helpOutlineIcon,
   'info': infoIcon,
   'insert_photo': insertPhotoIcon,
-  'leaderboard': leaderboardIcon,
-  'ssid_chart': ssidChartIcon,
   'keyboard_arrow_down': keyboardArrowDownIcon,
   'keyboard_arrow_left': keyboardArrowLeftIcon,
   'keyboard_arrow_right': keyboardArrowRightIcon,
   'keyboard_arrow_up': keyboardArrowUpIcon,
+  'leaderboard': leaderboardIcon,
   'light_mode': lightModeIcon,
   'list': listIcon,
   'logout': logoutIcon,
@@ -242,23 +249,24 @@ const iconMap: Record<string, string> = {
   'refresh': refreshIcon,
   'remove': removeIcon,
   'route': routeIcon,
-  'search': searchIcon,
   'save_alt': saveAltIcon,
+  'search': searchIcon,
   'settings': settingsIcon,
   'share': shareIcon,
   'show_chart': showChartIcon,
   'speed': speedIcon,
+  'ssid_chart': ssidChartIcon,
   'stacked_bar_chart': stackedBarChartIcon,
   'star': starIcon,
   'star_border': starBorderIcon,
   'system_update_alt': systemUpdateAltIcon,
   'table_chart': tableChartIcon,
-  'trending_down': trendingDownIcon,
-  'trending_up': trendingUpIcon,
-  'tune': tuneIcon,
   'tile_large': tileLargeIcon,
   'tile_medium': tileMediumIcon,
   'tile_small': tileSmallIcon,
+  'trending_down': trendingDownIcon,
+  'trending_up': trendingUpIcon,
+  'tune': tuneIcon,
   'upload': uploadIcon,
   'visibility': visibilityIcon,
   'warning': warningIcon,
@@ -309,8 +317,8 @@ export const availableIcons = [
   'balance',
   'bar_chart',
   'broken_image',
-  'call_split',
   'calendar_month',
+  'call_split',
   'cancel',
   'check',
   'check_box',
@@ -319,6 +327,7 @@ export const availableIcons = [
   'code',
   'construction',
   'content_copy',
+  'dark_mode',
   'dashboard',
   'database',
   'database_edit',
@@ -326,9 +335,10 @@ export const availableIcons = [
   'database_upload',
   'database_valid',
   'database_warning',
-  'dark_mode',
   'delete',
   'description',
+  'dns',
+  'docs',
   'download',
   'drive_file_move',
   'dropdown',
@@ -341,23 +351,24 @@ export const availableIcons = [
   'event',
   'event_note',
   'filter',
+  'filter_alt',
   'filter_row',
   'flight',
   'flight_class',
   'folder',
   'folder_open',
   'forum',
+  'fullscreen',
   'groups',
   'groups_2',
   'help_outline',
   'info',
   'insert_photo',
-  'leaderboard',
-  'ssid_chart',
   'keyboard_arrow_down',
   'keyboard_arrow_left',
   'keyboard_arrow_right',
   'keyboard_arrow_up',
+  'leaderboard',
   'light_mode',
   'list',
   'logout',
@@ -375,23 +386,24 @@ export const availableIcons = [
   'refresh',
   'remove',
   'route',
-  'search',
   'save_alt',
+  'search',
   'settings',
   'share',
   'show_chart',
   'speed',
+  'ssid_chart',
   'stacked_bar_chart',
   'star',
   'star_border',
   'system_update_alt',
   'table_chart',
-  'trending_down',
-  'trending_up',
-  'tune',
   'tile_large',
   'tile_medium',
   'tile_small',
+  'trending_down',
+  'trending_up',
+  'tune',
   'upload',
   'visibility',
   'warning',

@@ -25,13 +25,20 @@ function toCamelCase(filename) {
   if (name === 'delete') return 'deleteIcon';
 
   // Convert kebab-case or snake_case to camelCase
-  return name
+  let result = name
     .split(/[-_]/)
     .map((part, index) => {
       if (index === 0) return part.toLowerCase();
       return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
     })
     .join('') + 'Icon';
+
+  // Prefix with underscore if name starts with a digit (invalid JS identifier)
+  if (/^\d/.test(result)) {
+    result = '_' + result;
+  }
+
+  return result;
 }
 
 // Read all SVG files
