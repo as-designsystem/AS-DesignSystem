@@ -43,6 +43,7 @@ import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
 import barChartIcon from '../assets/svg/icons/bar_chart.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
+import buildIcon from '../assets/svg/icons/build.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
 import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
@@ -180,6 +181,7 @@ const iconMap: Record<string, string> = {
   'balance': balanceIcon,
   'bar_chart': barChartIcon,
   'broken_image': brokenImageIcon,
+  'build': buildIcon,
   'calendar_month': calendarMonthIcon,
   'call_split': callSplitIcon,
   'cancel': cancelIcon,
@@ -317,6 +319,7 @@ export const availableIcons = [
   'balance',
   'bar_chart',
   'broken_image',
+  'build',
   'calendar_month',
   'call_split',
   'cancel',
