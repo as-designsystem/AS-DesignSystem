@@ -40,6 +40,7 @@ import arrowForwardIcon from '../assets/svg/icons/arrow_forward.svg?raw';
 import arrowUpwardIcon from '../assets/svg/icons/arrow_upward.svg?raw';
 import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
+import avTimerIcon from '../assets/svg/icons/av_timer.svg?raw';
 import balanceIcon from '../assets/svg/icons/balance.svg?raw';
 import barChartIcon from '../assets/svg/icons/bar_chart.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
@@ -50,6 +51,7 @@ import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
 import checkBoxOutlineBlankIcon from '../assets/svg/icons/check_box_outline_blank.svg?raw';
+import checklistIcon from '../assets/svg/icons/checklist.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
@@ -109,6 +111,7 @@ import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import openInFullIcon from '../assets/svg/icons/open_in_full.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
+import playlistPlayIcon from '../assets/svg/icons/playlist_play.svg?raw';
 import receiptLongIcon from '../assets/svg/icons/receipt_long.svg?raw';
 import refreshIcon from '../assets/svg/icons/refresh.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
@@ -132,6 +135,7 @@ import trendingDownIcon from '../assets/svg/icons/trending_down.svg?raw';
 import trendingUpIcon from '../assets/svg/icons/trending_up.svg?raw';
 import tuneIcon from '../assets/svg/icons/tune.svg?raw';
 import uploadIcon from '../assets/svg/icons/upload.svg?raw';
+import viewTimelineIcon from '../assets/svg/icons/view_timeline.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
 
@@ -178,6 +182,7 @@ const iconMap: Record<string, string> = {
   'arrow_upward': arrowUpwardIcon,
   'attach_money': attachMoneyIcon,
   'autorenew': autorenewIcon,
+  'av_timer': avTimerIcon,
   'balance': balanceIcon,
   'bar_chart': barChartIcon,
   'broken_image': brokenImageIcon,
@@ -188,6 +193,7 @@ const iconMap: Record<string, string> = {
   'check': checkIcon,
   'check_box': checkBoxIcon,
   'check_box_outline_blank': checkBoxOutlineBlankIcon,
+  'checklist': checklistIcon,
   'close': closeIcon,
   'code': codeIcon,
   'construction': constructionIcon,
@@ -247,6 +253,7 @@ const iconMap: Record<string, string> = {
   'open_in_full': openInFullIcon,
   'open_in_new': openInNewIcon,
   'play': playIcon,
+  'playlist_play': playlistPlayIcon,
   'receipt_long': receiptLongIcon,
   'refresh': refreshIcon,
   'remove': removeIcon,
@@ -270,6 +277,7 @@ const iconMap: Record<string, string> = {
   'trending_up': trendingUpIcon,
   'tune': tuneIcon,
   'upload': uploadIcon,
+  'view_timeline': viewTimelineIcon,
   'visibility': visibilityIcon,
   'warning': warningIcon,
 };
@@ -316,6 +324,7 @@ export const availableIcons = [
   'arrow_upward',
   'attach_money',
   'autorenew',
+  'av_timer',
   'balance',
   'bar_chart',
   'broken_image',
@@ -326,6 +335,7 @@ export const availableIcons = [
   'check',
   'check_box',
   'check_box_outline_blank',
+  'checklist',
   'close',
   'code',
   'construction',
@@ -385,6 +395,7 @@ export const availableIcons = [
   'open_in_full',
   'open_in_new',
   'play',
+  'playlist_play',
   'receipt_long',
   'refresh',
   'remove',
@@ -408,6 +419,7 @@ export const availableIcons = [
   'trending_up',
   'tune',
   'upload',
+  'view_timeline',
   'visibility',
   'warning',
 ] as const;
