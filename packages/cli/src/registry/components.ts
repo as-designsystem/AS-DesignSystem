@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (139 icons)
+      // SVG icon assets (140 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -136,6 +136,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/remove.svg', target: 'assets/svg/icons/remove.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/route.svg', target: 'assets/svg/icons/route.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/save_alt.svg', target: 'assets/svg/icons/save_alt.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/schedule.svg', target: 'assets/svg/icons/schedule.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/search.svg', target: 'assets/svg/icons/search.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/settings.svg', target: 'assets/svg/icons/settings.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/share.svg', target: 'assets/svg/icons/share.svg', type: 'component' },
@@ -540,30 +541,6 @@ export const components: RegistryItem[] = [
     ],
   },
   {
-    name: 'vselect',
-    type: 'component',
-    displayName: 'VSelect',
-    description: 'Vanilla select component (pure React) with sizes and states',
-    files: [
-      {
-        path: 'templates/components/VSelect.tsx',
-        target: 'components/VSelect.tsx',
-        type: 'component',
-      },
-      {
-        path: 'templates/components/VSelect.css',
-        target: 'components/VSelect.css',
-        type: 'style',
-      },
-    ],
-    dependencies: ['icon'],
-    cssImports: [
-      '@/design-system/tokens/typography.css',
-      '@/design-system/tokens/colors.css',
-      '@/design-system/tokens/radius.css',
-    ],
-  },
-  {
     name: 'button-group',
     type: 'component',
     displayName: 'ButtonGroup',
@@ -615,30 +592,6 @@ export const components: RegistryItem[] = [
     ],
   },
   {
-    name: 'vcheckbox',
-    type: 'component',
-    displayName: 'VCheckbox',
-    description: 'Vanilla checkbox component (pure React) with sizes and states',
-    files: [
-      {
-        path: 'templates/components/VCheckbox.tsx',
-        target: 'components/VCheckbox.tsx',
-        type: 'component',
-      },
-      {
-        path: 'templates/components/VCheckbox.css',
-        target: 'components/VCheckbox.css',
-        type: 'style',
-      },
-    ],
-    dependencies: ['icon'],
-    cssImports: [
-      '@/design-system/tokens/typography.css',
-      '@/design-system/tokens/colors.css',
-      '@/design-system/tokens/radius.css',
-    ],
-  },
-  {
     name: 'toggle',
     type: 'component',
     displayName: 'Toggle',
@@ -659,29 +612,6 @@ export const components: RegistryItem[] = [
     externalDependencies: {
       '@radix-ui/react-switch': '^1.2.6',
     },
-    cssImports: [
-      '@/design-system/tokens/typography.css',
-      '@/design-system/tokens/colors.css',
-    ],
-  },
-  {
-    name: 'vtoggle',
-    type: 'component',
-    displayName: 'VToggle',
-    description: 'Vanilla toggle switch component (pure React) for boolean selections',
-    files: [
-      {
-        path: 'templates/components/VToggle.tsx',
-        target: 'components/VToggle.tsx',
-        type: 'component',
-      },
-      {
-        path: 'templates/components/VToggle.css',
-        target: 'components/VToggle.css',
-        type: 'style',
-      },
-    ],
-    dependencies: [],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

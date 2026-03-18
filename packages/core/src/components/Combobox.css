@@ -159,22 +159,15 @@
 /* Input sizes */
 .combobox-input-wrapper--xs .combobox-input {
   font-size: 12px;
-  line-height: 16px;
 }
 
-.combobox-input-wrapper--s .combobox-input {
-  font-size: 12px;
-  line-height: 16px;
-}
-
+.combobox-input-wrapper--s .combobox-input,
 .combobox-input-wrapper--m .combobox-input {
   font-size: 14px;
-  line-height: 20px;
 }
 
 .combobox-input-wrapper--l .combobox-input {
   font-size: 16px;
-  line-height: 24px;
 }
 
 /* ============================================================================
@@ -248,25 +241,21 @@
 /* Item sizes */
 .combobox-item--xs {
   font-size: 12px;
-  line-height: 16px;
   padding: 4px 8px;
 }
 
 .combobox-item--s {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
   padding: 6px 12px;
 }
 
 .combobox-item--m {
   font-size: 14px;
-  line-height: 20px;
   padding: 8px 12px;
 }
 
 .combobox-item--l {
   font-size: 16px;
-  line-height: 24px;
   padding: 10px 16px;
 }
 

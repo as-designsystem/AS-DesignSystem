@@ -86,6 +86,12 @@ export interface SelectProps {
    * Classe CSS additionnelle
    */
   className?: string;
+  /**
+   * DOM element to render the dropdown portal into.
+   * Useful when the Select is inside a popup (e.g. AG Grid filter) to prevent
+   * click-outside detection from closing the parent popup.
+   */
+  popupContainer?: Element | null;
 }
 
 /**
@@ -123,6 +129,7 @@ export function Select({
   value,
   onValueChange,
   className = '',
+  popupContainer,
 }: SelectProps) {
   // États dérivés
   const isDisabled = state === 'Disabled';
@@ -236,7 +243,7 @@ export function Select({
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
 
-        <SelectPrimitive.Portal>
+        <SelectPrimitive.Portal container={popupContainer ?? undefined}>
           <SelectPrimitive.Content
             className={`select-content select-content--${size.toLowerCase()}`}
             position="popper"

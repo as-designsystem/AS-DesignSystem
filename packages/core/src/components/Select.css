@@ -105,15 +105,13 @@
 .select-trigger--xs {
   height: 24px;
   font-size: 12px;
-  line-height: 16px;
   padding: 0 8px;
   gap: 4px;
 }
 
 .select-trigger--s {
   height: 32px;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
   padding: 0 12px;
   gap: 8px;
 }
@@ -121,7 +119,6 @@
 .select-trigger--m {
   height: 40px;
   font-size: 14px;
-  line-height: 20px;
   padding: 0 12px;
   gap: 8px;
 }
@@ -129,7 +126,6 @@
 .select-trigger--l {
   height: 48px;
   font-size: 16px;
-  line-height: 24px;
   padding: 0 16px;
   gap: 8px;
 }
@@ -253,25 +249,21 @@
 
 .select-item--xs {
   font-size: 12px;
-  line-height: 16px;
   padding: 4px 8px;
 }
 
 .select-item--s {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
   padding: 6px 12px;
 }
 
 .select-item--m {
   font-size: 14px;
-  line-height: 20px;
   padding: 8px 12px;
 }
 
 .select-item--l {
   font-size: 16px;
-  line-height: 24px;
   padding: 10px 16px;
 }
 

@@ -179,13 +179,18 @@
   color: var(--text-secondary, #63728a);
 }
 
-/* Field sizes - All sizes use 14px font per Figma specs */
-.text-input-wrapper--xs .text-input-field,
+/* Field sizes */
+.text-input-wrapper--xs .text-input-field {
+  font-size: 12px;
+}
+
 .text-input-wrapper--s .text-input-field,
-.text-input-wrapper--m .text-input-field,
-.text-input-wrapper--l .text-input-field {
+.text-input-wrapper--m .text-input-field {
   font-size: 14px;
-  line-height: 20px;
+}
+
+.text-input-wrapper--l .text-input-field {
+  font-size: 16px;
 }
 
 /* ============================================================================

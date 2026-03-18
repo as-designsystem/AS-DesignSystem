@@ -156,12 +156,24 @@
   background: transparent;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
   outline: none;
   text-align: center;
   -moz-appearance: textfield;
+}
+
+/* Field sizes */
+.number-input-wrapper--xs .number-input-field {
+  font-size: 12px;
+}
+
+.number-input-wrapper--s .number-input-field,
+.number-input-wrapper--m .number-input-field {
+  font-size: 14px;
+}
+
+.number-input-wrapper--l .number-input-field {
+  font-size: 16px;
 }
 
 .number-input-field::-webkit-outer-spin-button,
