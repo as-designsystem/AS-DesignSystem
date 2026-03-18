@@ -239,7 +239,7 @@ export function TimePicker({
           <div
             className="time-picker-trigger-wrapper"
             onClick={() => {
-              if (!disabled) handleOpenChange(true);
+              if (!disabled && !readOnly) handleOpenChange(true);
             }}
           >
             <TextInput

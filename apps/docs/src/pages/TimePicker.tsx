@@ -69,7 +69,7 @@ const [time, setTime] = useState('09:00');
     { name: 'state', type: '"Default" | "Error" | "Valid"', default: '"Default"', description: 'Validation state' },
     { name: 'placeholder', type: 'string', default: '"--:--"', description: 'Input placeholder text' },
     { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables the picker' },
-    { name: 'readOnly', type: 'boolean', default: 'false', description: 'Makes the input read-only (icon still opens picker)' },
+    { name: 'readOnly', type: 'boolean', default: 'false', description: 'Makes the input read-only, prevents all interaction' },
     { name: 'showLabel', type: 'boolean', default: 'true', description: 'Show/hide the label' },
     { name: 'showLegend', type: 'boolean', default: 'false', description: 'Show/hide the legend' },
     { name: 'showOptional', type: 'boolean', default: 'false', description: 'Show "(Optional)" after the label' },
