@@ -166,18 +166,12 @@
   opacity: 1 !important;
 }
 
-/* Active filter icon - primary color, no background/border at rest */
+/* Active filter icon - primary color */
 .as-ag-grid .ag-header-cell-filter-button.ag-filter-active {
   color: var(--primary-default, #063b9e) !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  padding: 4px !important;
-  border-radius: var(--radius-xs, 3px) !important;
 }
 
-/* Active filter icon - hover fill (same as normal icon) */
+/* Active filter icon - hover fill */
 .as-ag-grid .ag-header-cell-filter-button.ag-filter-active:hover {
   background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05)) !important;
 }
@@ -458,44 +452,8 @@
 
 /* ===== CUSTOM ASDS FILTER ===== */
 
-.ag-custom-filter {
+.as-ag-grid .ag-custom-filter {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-/* Filter type select — styled to match ASDS Select underline style */
-.ag-custom-filter__type-select {
-  display: block;
-  width: 100%;
-  height: 32px;
-  padding: 0 28px 0 12px;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
-  color: var(--text-main, #14171d);
-  background-color: var(--background-secondary, #fafafa);
-  border: none !important;
-  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0;
-  box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0);
-  outline: none;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  /* Chevron icon (primary blue) */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23063b9e' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 16px 16px;
-}
-
-.ag-custom-filter__type-select:hover {
-  background-color: var(--background-tertiary, #eff1f4);
-}
-
-.ag-custom-filter__type-select:focus {
-  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
-  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
 }
