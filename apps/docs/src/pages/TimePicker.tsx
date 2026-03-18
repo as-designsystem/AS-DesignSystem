@@ -59,208 +59,307 @@ const [time, setTime] = useState('09:00');
 <TimePicker label="M" size="M" />
 <TimePicker label="L" size="L" />`;
 
-  const propsData = [
-    { name: 'value', type: 'string', default: '—', description: 'Selected time in "HH:MM" format (24h)' },
-    { name: 'onChange', type: '(value: string) => void', default: '—', description: 'Callback when the value changes' },
-    { name: 'step', type: 'number', default: '1', description: 'Minute increment (e.g. 15 for quarter-hour steps)' },
-    { name: 'label', type: 'string', default: '"Label"', description: 'Label text above the input' },
-    { name: 'legend', type: 'string', default: '"Legend"', description: 'Helper text below the input' },
-    { name: 'size', type: '"XS" | "S" | "M" | "L"', default: '"M"', description: 'Size of the input' },
-    { name: 'state', type: '"Default" | "Error" | "Valid"', default: '"Default"', description: 'Validation state' },
-    { name: 'placeholder', type: 'string', default: '"--:--"', description: 'Input placeholder text' },
-    { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables the picker' },
-    { name: 'readOnly', type: 'boolean', default: 'false', description: 'Makes the input read-only, prevents all interaction' },
-    { name: 'showLabel', type: 'boolean', default: 'true', description: 'Show/hide the label' },
-    { name: 'showLegend', type: 'boolean', default: 'false', description: 'Show/hide the legend' },
-    { name: 'showOptional', type: 'boolean', default: 'false', description: 'Show "(Optional)" after the label' },
-    { name: 'showInfo', type: 'boolean', default: 'false', description: 'Show info icon with tooltip' },
-    { name: 'infoText', type: 'string', default: '""', description: 'Tooltip text for the info icon' },
-    { name: 'open', type: 'boolean', default: '—', description: 'Controlled open state for the popover' },
-    { name: 'onOpenChange', type: '(open: boolean) => void', default: '—', description: 'Callback when popover open state changes' },
-    { name: 'className', type: 'string', default: '""', description: 'Additional CSS class on the container' },
-  ];
-
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
+      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
         TimePicker
       </h1>
-      <p
-        className="label-regular-m"
-        style={{
-          marginTop: '12px',
-          marginBottom: '24px',
-          color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
-        }}
-      >
+      <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         Time picker with a text input trigger and a scrollable hour/minute dropdown. Supports direct typing in HH:MM format and minute step intervals.
       </p>
 
-      <Tab
-        label="Examples"
-        size="M"
-        status="Active"
-        state={activeTab === 'examples' ? 'Selected' : 'Default'}
-        onClick={() => setActiveTab('examples')}
-        style={{ marginRight: '8px' }}
-      />
-      <Tab
-        label="Props"
-        size="M"
-        status="Active"
-        state={activeTab === 'props' ? 'Selected' : 'Default'}
-        onClick={() => setActiveTab('props')}
-      />
+      {/* Tabs */}
+      <div className="tabs-container">
+        <div className="example-container">
+          <div style={{ display: 'flex', gap: '0' }}>
+            <Tab
+              label="Examples"
+              size="M"
+              status={activeTab === 'examples' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('examples')}
+            />
+            <Tab
+              label="Props"
+              size="M"
+              status={activeTab === 'props' ? 'Active' : 'Default'}
+              onClick={() => setActiveTab('props')}
+            />
+          </div>
+        </div>
+      </div>
 
+      {/* Examples Tab */}
       {activeTab === 'examples' && (
-        <div className="time-picker-showcase">
-
+        <>
           {/* Basic usage */}
-          <div className="component-section">
-            <div className="component-section-header">
-              <h2 className="heading-6" style={{ color: 'var(--text-main, #14171d)' }}>Basic</h2>
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Basic
+              </h2>
               <Button
-                label="View code"
+                label="Code"
+                leftIcon="code"
                 size="S"
-                variant="Ghost"
+                variant="Outlined"
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="time-picker-examples">
-              <TimePicker
-                label="Start time"
-                value={basicTime}
-                onChange={setBasicTime}
-              />
-              <TimePicker
-                label="End time"
-                value={basicTime}
-                onChange={setBasicTime}
-                placeholder="--:--"
-              />
+            <div className="example-container">
+              <div className="time-picker-examples">
+                <TimePicker
+                  label="Start time"
+                  value={basicTime}
+                  onChange={setBasicTime}
+                />
+                <TimePicker
+                  label="End time"
+                  value={basicTime}
+                  onChange={setBasicTime}
+                  placeholder="--:--"
+                />
+              </div>
             </div>
-          </div>
+          </section>
 
           {/* Step intervals */}
-          <div className="component-section">
-            <div className="component-section-header">
-              <h2 className="heading-6" style={{ color: 'var(--text-main, #14171d)' }}>Step intervals</h2>
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Step intervals
+              </h2>
               <Button
-                label="View code"
+                label="Code"
+                leftIcon="code"
                 size="S"
-                variant="Ghost"
+                variant="Outlined"
                 onClick={() => setOpenModal('step')}
               />
             </div>
-            <div className="time-picker-examples">
-              <TimePicker
-                label="15-min steps"
-                value={stepTime}
-                onChange={setStepTime}
-                step={15}
-              />
-              <TimePicker
-                label="30-min steps"
-                value={stepTime}
-                onChange={setStepTime}
-                step={30}
-              />
+            <div className="example-container">
+              <div className="time-picker-examples">
+                <TimePicker
+                  label="15-min steps"
+                  value={stepTime}
+                  onChange={setStepTime}
+                  step={15}
+                />
+                <TimePicker
+                  label="30-min steps"
+                  value={stepTime}
+                  onChange={setStepTime}
+                  step={30}
+                />
+              </div>
             </div>
-          </div>
+          </section>
 
           {/* States */}
-          <div className="component-section">
-            <div className="component-section-header">
-              <h2 className="heading-6" style={{ color: 'var(--text-main, #14171d)' }}>States</h2>
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                States
+              </h2>
               <Button
-                label="View code"
+                label="Code"
+                leftIcon="code"
                 size="S"
-                variant="Ghost"
+                variant="Outlined"
                 onClick={() => setOpenModal('states')}
               />
             </div>
-            <div className="time-picker-examples">
-              <TimePicker label="Default" value={stateTime} onChange={setStateTime} />
-              <TimePicker label="Error" state="Error" legend="Required field" showLegend />
-              <TimePicker label="Valid" state="Valid" value="14:30" legend="Time confirmed" showLegend />
-              <TimePicker label="Disabled" disabled value="08:00" />
-              <TimePicker label="Read-only" readOnly value="14:30" />
+            <div className="example-container">
+              <div className="time-picker-examples">
+                <TimePicker label="Default" value={stateTime} onChange={setStateTime} />
+                <TimePicker label="Error" state="Error" legend="Required field" showLegend />
+                <TimePicker label="Valid" state="Valid" value="14:30" legend="Time confirmed" showLegend />
+                <TimePicker label="Disabled" disabled value="08:00" />
+                <TimePicker label="Read-only" readOnly value="14:30" />
+              </div>
             </div>
-          </div>
+          </section>
 
           {/* Sizes */}
-          <div className="component-section">
-            <div className="component-section-header">
-              <h2 className="heading-6" style={{ color: 'var(--text-main, #14171d)' }}>Sizes</h2>
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Sizes
+              </h2>
               <Button
-                label="View code"
+                label="Code"
+                leftIcon="code"
                 size="S"
-                variant="Ghost"
+                variant="Outlined"
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="time-picker-examples">
-              <TimePicker label="XS" size="XS" />
-              <TimePicker label="S" size="S" />
-              <TimePicker label="M" size="M" />
-              <TimePicker label="L" size="L" />
+            <div className="example-container">
+              <div className="time-picker-examples">
+                <TimePicker label="XS" size="XS" />
+                <TimePicker label="S" size="S" />
+                <TimePicker label="M" size="M" />
+                <TimePicker label="L" size="L" />
+              </div>
             </div>
-          </div>
-
-        </div>
+          </section>
+        </>
       )}
 
+      {/* Props Tab */}
       {activeTab === 'props' && (
-        <div className="props-table-wrapper" style={{ marginTop: '24px' }}>
-          <table className="props-table">
-            <thead>
-              <tr>
-                <th>Prop</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {propsData.map((prop) => (
-                <tr key={prop.name}>
-                  <td><code>{prop.name}</code></td>
-                  <td><code>{prop.type}</code></td>
-                  <td><code>{prop.default}</code></td>
-                  <td>{prop.description}</td>
+        <section className="component-section">
+          <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+            Props
+          </h2>
+          <div className="props-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Prop</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>value</code></td>
+                  <td><code>string</code></td>
+                  <td><code>—</code></td>
+                  <td>Selected time in "HH:MM" format (24h)</td>
+                </tr>
+                <tr>
+                  <td><code>onChange</code></td>
+                  <td><code>(value: string) =&gt; void</code></td>
+                  <td><code>—</code></td>
+                  <td>Callback when the value changes</td>
+                </tr>
+                <tr>
+                  <td><code>step</code></td>
+                  <td><code>number</code></td>
+                  <td><code>1</code></td>
+                  <td>Minute increment (e.g. 15 for quarter-hour steps)</td>
+                </tr>
+                <tr>
+                  <td><code>label</code></td>
+                  <td><code>string</code></td>
+                  <td><code>"Label"</code></td>
+                  <td>Label text above the input</td>
+                </tr>
+                <tr>
+                  <td><code>legend</code></td>
+                  <td><code>string</code></td>
+                  <td><code>"Legend"</code></td>
+                  <td>Helper text below the input</td>
+                </tr>
+                <tr>
+                  <td><code>size</code></td>
+                  <td><code>"XS" | "S" | "M" | "L"</code></td>
+                  <td><code>"M"</code></td>
+                  <td>Size of the input</td>
+                </tr>
+                <tr>
+                  <td><code>state</code></td>
+                  <td><code>"Default" | "Error" | "Valid"</code></td>
+                  <td><code>"Default"</code></td>
+                  <td>Validation state</td>
+                </tr>
+                <tr>
+                  <td><code>placeholder</code></td>
+                  <td><code>string</code></td>
+                  <td><code>"--:--"</code></td>
+                  <td>Input placeholder text</td>
+                </tr>
+                <tr>
+                  <td><code>disabled</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Disables the picker</td>
+                </tr>
+                <tr>
+                  <td><code>readOnly</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Makes the input read-only, prevents all interaction</td>
+                </tr>
+                <tr>
+                  <td><code>showLabel</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>true</code></td>
+                  <td>Show/hide the label</td>
+                </tr>
+                <tr>
+                  <td><code>showLegend</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Show/hide the legend</td>
+                </tr>
+                <tr>
+                  <td><code>showOptional</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Show "(Optional)" after the label</td>
+                </tr>
+                <tr>
+                  <td><code>showInfo</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Show info icon with tooltip</td>
+                </tr>
+                <tr>
+                  <td><code>infoText</code></td>
+                  <td><code>string</code></td>
+                  <td><code>""</code></td>
+                  <td>Tooltip text for the info icon</td>
+                </tr>
+                <tr>
+                  <td><code>open</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>—</code></td>
+                  <td>Controlled open state for the popover</td>
+                </tr>
+                <tr>
+                  <td><code>onOpenChange</code></td>
+                  <td><code>(open: boolean) =&gt; void</code></td>
+                  <td><code>—</code></td>
+                  <td>Callback when popover open state changes</td>
+                </tr>
+                <tr>
+                  <td><code>className</code></td>
+                  <td><code>string</code></td>
+                  <td><code>""</code></td>
+                  <td>Additional CSS class on the container</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       )}
 
+      {/* Code Modals */}
       <CodeModal
         isOpen={openModal === 'basic'}
         onClose={() => setOpenModal(null)}
         title="Basic usage"
-        sections={[{ code: basicCode, language: 'tsx' }]}
+        code={basicCode}
       />
       <CodeModal
         isOpen={openModal === 'step'}
         onClose={() => setOpenModal(null)}
         title="Step intervals"
-        sections={[{ code: stepCode, language: 'tsx' }]}
+        code={stepCode}
       />
       <CodeModal
         isOpen={openModal === 'states'}
         onClose={() => setOpenModal(null)}
         title="States"
-        sections={[{ code: statesCode, language: 'tsx' }]}
+        code={statesCode}
       />
       <CodeModal
         isOpen={openModal === 'sizes'}
         onClose={() => setOpenModal(null)}
         title="Sizes"
-        sections={[{ code: sizesCode, language: 'tsx' }]}
+        code={sizesCode}
       />
     </div>
   );

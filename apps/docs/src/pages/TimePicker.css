@@ -1,10 +1,3 @@
-.time-picker-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  margin-top: 16px;
-}
-
 .time-picker-examples {
   display: flex;
   flex-direction: row;
