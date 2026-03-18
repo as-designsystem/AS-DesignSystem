@@ -1,8 +1,7 @@
-import { useState, useMemo, useRef, useLayoutEffect } from 'react';
-import { flushSync } from 'react-dom';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { AgGridReact, useGridFilter, type CustomFilterProps } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
-import { Tab, Button, NumberInput, Select, TextInput, type SelectOption } from '@as-design-system/core';
+import { Tab, Button, NumberInput, Select, TextInput } from '@as-design-system/core';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/NumberInput.css';
@@ -186,9 +185,9 @@ const AgGridTextFilter = ({ model, onModelChange, colDef }: CustomFilterProps<Ro
     },
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const popup = containerRef.current?.closest<HTMLElement>('.ag-popup-child') ?? null;
-    flushSync(() => setPopupEl(popup));
+    setPopupEl(popup);
 
     // Prevent AG Grid from closing the filter popup when the user clicks on the
     // Radix Select dropdown (which renders in document.body via portal).
