@@ -277,6 +277,33 @@ export const composites: RegistryItem[] = [
     ],
   },
   {
+    name: 'time-picker',
+    type: 'composite',
+    displayName: 'TimePicker',
+    description: 'Time picker with TextInput trigger and scrollable hour/minute columns dropdown',
+    files: [
+      {
+        path: 'templates/composites/TimePicker.tsx',
+        target: 'composites/TimePicker.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/TimePicker.css',
+        target: 'composites/TimePicker.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['text-input', 'icon'],
+    externalDependencies: {
+      '@radix-ui/react-popover': '^1.1.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'aircraft-selector',
     type: 'composite',
     displayName: 'AircraftSelector',

@@ -117,6 +117,7 @@ import refreshIcon from '../assets/svg/icons/refresh.svg?raw';
 import removeIcon from '../assets/svg/icons/remove.svg?raw';
 import routeIcon from '../assets/svg/icons/route.svg?raw';
 import saveAltIcon from '../assets/svg/icons/save_alt.svg?raw';
+import scheduleIcon from '../assets/svg/icons/schedule.svg?raw';
 import searchIcon from '../assets/svg/icons/search.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import shareIcon from '../assets/svg/icons/share.svg?raw';
@@ -259,6 +260,7 @@ const iconMap: Record<string, string> = {
   'remove': removeIcon,
   'route': routeIcon,
   'save_alt': saveAltIcon,
+  'schedule': scheduleIcon,
   'search': searchIcon,
   'settings': settingsIcon,
   'share': shareIcon,
@@ -283,6 +285,7 @@ const iconMap: Record<string, string> = {
 };
 
 export const availableIcons = [
+  'blank',
   '123',
   'AIR_AC_twin_engine',
   'AIR_APU',
@@ -401,6 +404,7 @@ export const availableIcons = [
   'remove',
   'route',
   'save_alt',
+  'schedule',
   'search',
   'settings',
   'share',
@@ -445,8 +449,19 @@ export interface IconProps {
  * ```
  */
 export function Icon({ name, size = 24, className = '', color }: IconProps) {
-  const svgContent = iconMap[name];
   const iconSize = typeof size === 'number' ? `${size}px` : size;
+
+  if (name === 'blank') {
+    return (
+      <span
+        className={`icon icon-blank ${className}`}
+        style={{ display: 'inline-flex', width: iconSize, height: iconSize, flexShrink: 0 }}
+        aria-hidden="true"
+      />
+    );
+  }
+
+  const svgContent = iconMap[name];
   const defaultColor = color || 'var(--primary-default, var(--sea-blue-70, #063b9e))';
 
   if (!svgContent) {

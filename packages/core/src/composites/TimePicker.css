@@ -1,0 +1,101 @@
+/**
+ * TimePicker Component Styles
+ */
+
+/* ============================================================================
+   CONTAINER
+   ============================================================================ */
+
+.time-picker-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.time-picker-trigger-wrapper {
+  width: 100%;
+}
+
+/* ============================================================================
+   POPOVER
+   ============================================================================ */
+
+.time-picker-popover {
+  display: flex;
+  background-color: var(--background-main, #ffffff);
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-xs, 3px);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   COLUMNS
+   ============================================================================ */
+
+.time-picker-columns {
+  display: flex;
+}
+
+.time-picker-column {
+  display: flex;
+  flex-direction: column;
+  width: 52px;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.time-picker-column:first-child {
+  border-right: 1px solid var(--border-moderate, #ced5dd);
+}
+
+/* Scrollbar styling */
+.time-picker-column::-webkit-scrollbar {
+  width: 4px;
+}
+
+.time-picker-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.time-picker-column::-webkit-scrollbar-thumb {
+  background: var(--border-moderate, #ced5dd);
+  border-radius: 2px;
+}
+
+/* ============================================================================
+   ITEMS
+   ============================================================================ */
+
+.time-picker-item {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 100%;
+  border-radius: var(--radius-xs, 3px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--text-main, #14171d);
+  cursor: pointer;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.time-picker-item:hover:not(.time-picker-item--selected) {
+  background-color: var(--primary-t-hover, rgba(6, 59, 158, 0.1));
+}
+
+.time-picker-item--selected {
+  background-color: var(--primary-default, #063b9e);
+  color: var(--text-negative, #ffffff);
+  font-weight: 700;
+}

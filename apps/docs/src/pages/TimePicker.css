@@ -1,0 +1,20 @@
+.time-picker-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.time-picker-examples {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.time-picker-examples > * {
+  min-width: 180px;
+  max-width: 280px;
+  flex: 1 1 180px;
+}

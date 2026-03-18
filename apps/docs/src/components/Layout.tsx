@@ -30,7 +30,7 @@ interface NavSectionProps {
   forceOpen?: boolean;
 }
 
-function NavSection({ title, children, defaultOpen = true, icon, forceOpen }: NavSectionProps) {
+function NavSection({ title, children, defaultOpen = false, icon, forceOpen }: NavSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const open = forceOpen !== undefined ? forceOpen : isOpen;
 
@@ -119,6 +119,7 @@ const navSections: NavSectionData[] = [
       { label: 'Spinner', path: '/components/spinner' },
       { label: 'Tab', path: '/components/tab' },
       { label: 'TextInput', path: '/components/text-input' },
+      { label: 'TimePicker', path: '/composites/time-picker' },
       { label: 'Toggle', path: '/components/toggle' },
       { label: 'Tooltip', path: '/components/tooltip' },
     ],
