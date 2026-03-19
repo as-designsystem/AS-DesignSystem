@@ -53,6 +53,11 @@
   font-family: var(--ag-font-family);
   border: 1px solid var(--border-minimal, #e0e3e9) !important;
   border-radius: var(--radius-xs, 3px);
+}
+
+/* Clip header to rounded top corners without hiding filter dropdowns */
+.as-ag-grid .ag-header {
+  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0;
   overflow: hidden;
 }
 
