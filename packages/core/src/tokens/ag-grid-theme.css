@@ -449,6 +449,11 @@
   --ag-borders-input: none;
 }
 
+/* Allow select list dropdown to overflow the filter popup */
+.as-ag-grid .ag-popup-child:has(.ag-filter) {
+  overflow: visible !important;
+}
+
 /* ===== DEFAULT TEXT FILTER - ASDS STYLING ===== */
 
 /* Filter layout */
