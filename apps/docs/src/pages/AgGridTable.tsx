@@ -1,12 +1,11 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
-import { AgGridReact, useGridFilter, type CustomFilterProps } from 'ag-grid-react';
+import { useState, useMemo } from 'react';
+import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
-import { Tab, Button, NumberInput, Select, TextInput } from '@as-design-system/core';
+import { Tab, Button, NumberInput, Select } from '@as-design-system/core';
 import '@as-design-system/core/Tab.css';
 import '@as-design-system/core/Button.css';
 import '@as-design-system/core/NumberInput.css';
 import '@as-design-system/core/Select.css';
-import '@as-design-system/core/TextInput.css';
 import '@as-design-system/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 
@@ -129,118 +128,6 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
   );
 };
 
-// ===== Custom Column Filter =====
-
-type FilterModel = { type: string; value: string };
-
-const filterTypeOptions = [
-  { value: 'contains', label: 'Contains' },
-  { value: 'notContains', label: 'Does not contain' },
-  { value: 'equals', label: 'Equals' },
-  { value: 'notEquals', label: 'Does not equal' },
-  { value: 'startsWith', label: 'Starts with' },
-  { value: 'endsWith', label: 'Ends with' },
-  { value: 'blank', label: 'Blank' },
-  { value: 'notBlank', label: 'Not blank' },
-];
-
-const noValueTypes = new Set(['blank', 'notBlank']);
-
-const AgGridTextFilter = ({ model, onModelChange, colDef }: CustomFilterProps<RowData, FilterModel>) => {
-  const field = (colDef.field ?? '') as keyof RowData;
-  const containerRef = useRef<HTMLDivElement>(null);
-  const modelRef = useRef<FilterModel | null>(null);
-  // popupEl: the AG Grid popup DOM element used as Radix Select portal container.
-  // Rendering the dropdown inside the popup avoids position:fixed issues caused
-  // by any CSS transform on the popup's ancestors.
-  const [popupEl, setPopupEl] = useState<HTMLElement | null>(null);
-  // Track selected type locally so it persists even when model is null (no value typed yet)
-  const [selectedType, setSelectedType] = useState('contains');
-  modelRef.current = model;
-  // Keep selectedType in sync when model is set externally (e.g. cleared)
-  const currentType = model?.type ?? selectedType;
-
-  useGridFilter({
-    doesFilterPass({ data }) {
-      const m = modelRef.current;
-      if (!m) return true;
-      const cellValue = String(data[field] ?? '').toLowerCase();
-      const filterValue = m.value.toLowerCase();
-      switch (m.type) {
-        case 'equals': return cellValue === filterValue;
-        case 'notEquals': return cellValue !== filterValue;
-        case 'notContains': return !cellValue.includes(filterValue);
-        case 'startsWith': return cellValue.startsWith(filterValue);
-        case 'endsWith': return cellValue.endsWith(filterValue);
-        case 'blank': return cellValue === '';
-        case 'notBlank': return cellValue !== '';
-        default: return cellValue.includes(filterValue);
-      }
-    },
-    afterGuiAttached() {
-      document.querySelector(`.ag-header-cell[col-id="${field}"]`)?.classList.add('ag-filter-popup-open');
-    },
-    afterGuiDetached() {
-      document.querySelector(`.ag-header-cell[col-id="${field}"]`)?.classList.remove('ag-filter-popup-open');
-    },
-  });
-
-  useEffect(() => {
-    const popup = containerRef.current?.closest<HTMLElement>('.ag-popup-child') ?? null;
-    setPopupEl(popup);
-
-    // Prevent AG Grid from closing the filter popup when the user clicks on the
-    // Radix Select dropdown (which renders in document.body via portal).
-    // We intercept mousedown in capture phase, before AG Grid's listener fires.
-    const handleMouseDown = (e: MouseEvent) => {
-      const wrapper = document.querySelector('[data-radix-popper-content-wrapper]');
-      if (wrapper?.contains(e.target as Node)) {
-        e.stopPropagation();
-      }
-    };
-    document.addEventListener('mousedown', handleMouseDown, true);
-    return () => document.removeEventListener('mousedown', handleMouseDown, true);
-  }, []);
-
-  const currentValue = model?.value ?? '';
-  const isNoValueType = noValueTypes.has(currentType);
-
-  return (
-    <div className="ag-custom-filter" ref={containerRef}>
-      <Select
-        options={filterTypeOptions}
-        value={currentType}
-        onValueChange={(type) => {
-          setSelectedType(type);
-          if (noValueTypes.has(type)) {
-            onModelChange({ type, value: '' });
-          } else {
-            onModelChange(currentValue ? { type, value: currentValue } : null);
-          }
-        }}
-        showLabel={false}
-        size="S"
-        popupContainer={popupEl}
-      />
-      {!isNoValueType && (
-        <TextInput
-          value={currentValue}
-          onChange={(e) => {
-            const val = e.target.value;
-            onModelChange(val ? { type: currentType, value: val } : null);
-          }}
-          showLeftIcon
-          leftIcon="search"
-          showLabel={false}
-          placeholder="Filter..."
-          size="S"
-          aria-label="Filter value"
-        />
-      )}
-    </div>
-  );
-};
-
 export default function AgGridTablePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
   const [openModal, setOpenModal] = useState<string | null>(null);
@@ -291,77 +178,15 @@ export default function AgGridTablePage() {
     { field: 'status', headerName: 'Status', flex: 1 },
   ], []);
 
-  const filterColFilterCode = `import { useState } from 'react';
-import { useGridFilter, type CustomFilterProps } from 'ag-grid-react';
-import { TextInput, Select, type SelectOption } from '@as-design-system/core';
-import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/Select.css';
+  const filterColFilterCode = `// Enable filters - the ASDS theme styles the filter popup automatically
+import '@as-design-system/core/ag-grid-theme.css';
 
-type FilterModel = { type: string; value: string };
-
-const filterTypeOptions: SelectOption[] = [
-  { value: 'contains', label: 'Contains' },
-  { value: 'equals', label: 'Equals' },
-  { value: 'startsWith', label: 'Starts with' },
-  { value: 'endsWith', label: 'Ends with' },
-];
-
-const AgGridTextFilter = ({ model, onModelChange, colDef }: CustomFilterProps) => {
-  const field = colDef.field ?? '';
-  // Track type locally so it persists when no value is typed yet
-  const [selectedType, setSelectedType] = useState('contains');
-  const currentType = model?.type ?? selectedType;
-  const currentValue = model?.value ?? '';
-
-  useGridFilter({
-    doesFilterPass({ data }) {
-      if (!model) return true;
-      const cellValue = String(data[field] ?? '').toLowerCase();
-      const filterValue = model.value.toLowerCase();
-      switch (model.type) {
-        case 'equals': return cellValue === filterValue;
-        case 'startsWith': return cellValue.startsWith(filterValue);
-        case 'endsWith': return cellValue.endsWith(filterValue);
-        default: return cellValue.includes(filterValue);
-      }
-    },
-  });
-
-  return (
-    <div className="ag-custom-filter">
-      <Select
-        options={filterTypeOptions}
-        value={currentType}
-        onValueChange={(type) => {
-          setSelectedType(type);
-          onModelChange(currentValue ? { type, value: currentValue } : null);
-        }}
-        showLabel={false}
-        size="S"
-      />
-      <TextInput
-        value={currentValue}
-        onChange={(e) => {
-          const val = e.target.value;
-          onModelChange(val ? { type: currentType, value: val } : null);
-        }}
-        showLeftIcon
-        leftIcon="search"
-        showLabel={false}
-        placeholder="Filter..."
-        size="S"
-      />
-    </div>
-  );
-};
-
-// Column defs: use AgGridTextFilter for text columns
 const colDefs = [
-  { field: 'aircraft', headerName: 'Aircraft', flex: 1, filter: AgGridTextFilter },
-  { field: 'manufacturer', headerName: 'Manufacturer', flex: 1, filter: AgGridTextFilter },
+  { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
+  { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
   { field: 'range', headerName: 'Range (km)', flex: 1, filter: 'agNumberColumnFilter' },
-  { field: 'capacity', headerName: 'Capacity', flex: 1, filter: 'agNumberColumnFilter' },
-  { field: 'status', headerName: 'Status', flex: 1, filter: AgGridTextFilter },
+  { field: 'capacity', headerName: 'Capacity', flex: 1 },
+  { field: 'status', headerName: 'Status', flex: 1 },
 ];
 
 <AgGridReact
@@ -594,7 +419,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid"
                 rowData={rowData}
                 columnDefs={defaultColDefs}
-                defaultColDef={{ filter: AgGridTextFilter }}
+                defaultColDef={{ filter: true }}
                 rowSelection="multiple"
                 suppressRowClickSelection={true}
                 cellSelection={false}
@@ -637,7 +462,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid as-ag-grid--small"
                 rowData={rowData.slice(0, 4)}
                 columnDefs={smallColDefs}
-                defaultColDef={{ filter: AgGridTextFilter }}
+                defaultColDef={{ filter: true }}
                 rowSelection="multiple"
                 suppressRowClickSelection={true}
               />
@@ -679,7 +504,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid"
                 rowData={rowData}
                 columnDefs={pinnedColDefs}
-                defaultColDef={{ filter: AgGridTextFilter }}
+                defaultColDef={{ filter: true }}
                 cellSelection={false}
               />
             </div>
@@ -720,7 +545,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 className="as-ag-grid"
                 rowData={rowData}
                 columnDefs={filterColDefs}
-                defaultColDef={{ filter: AgGridTextFilter }}
+                defaultColDef={{ filter: true }}
                 cellSelection={false}
               />
             </div>
@@ -731,7 +556,7 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
                 color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
               }}
             >
-              Use <code>filter: AgGridTextFilter</code> on text columns to replace the default AG Grid filter popup with ASDS components (Select + TextInput).
+              Enable filters with <code>defaultColDef={`{{ filter: true }}`}</code>. The ASDS theme automatically styles the filter popup to match the design system.
             </p>
           </section>
 

@@ -162,7 +162,7 @@
 .as-ag-grid .ag-column-filter-active .ag-header-cell-filter-button,
 .as-ag-grid .ag-column-filter-active .ag-header-cell-menu-button,
 .as-ag-grid .ag-header-cell-filter-button.ag-filter-active,
-.as-ag-grid .ag-filter-popup-open .ag-header-cell-filter-button {
+.as-ag-grid .ag-header-cell-filter-button[aria-expanded="true"] {
   opacity: 1 !important;
 }
 
@@ -444,16 +444,135 @@
   min-width: 220px;
 }
 
-/* Filter popup: positioning is handled by AgGridTextFilter's useLayoutEffect.
-   Keep overflow visible so the popup is not clipped. */
-.as-ag-grid .ag-popup-child:has(.ag-filter) {
-  overflow: visible !important;
-}
+/* ===== DEFAULT TEXT FILTER - ASDS STYLING ===== */
 
-/* ===== CUSTOM ASDS FILTER ===== */
-
-.as-ag-grid .ag-custom-filter {
+/* Filter layout */
+.as-ag-grid .ag-simple-filter-body-wrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Hide "Filter type:" and "Filter value:" labels */
+.as-ag-grid .ag-filter-select > .ag-label,
+.as-ag-grid .ag-filter-body .ag-label {
+  display: none;
+}
+
+/* Filter type select - trigger */
+.as-ag-grid .ag-filter-select .ag-picker-field-wrapper {
+  height: 32px;
+  border: 1px solid var(--border-neutral-default, #919cb0);
+  border-radius: var(--radius-xs, 3px);
+  padding: 0 8px;
+  background-color: var(--background-main, #ffffff);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.as-ag-grid .ag-filter-select .ag-picker-field-wrapper:hover {
+  border-color: var(--primary-default, #063b9e);
+}
+
+.as-ag-grid .ag-filter-select .ag-picker-field-display {
+  flex: 1;
+  font-family: var(--ag-font-family);
+  font-size: 13px;
+  color: var(--text-main, #14171d);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.as-ag-grid .ag-filter-select .ag-picker-field-icon {
+  color: var(--text-secondary, #63728a);
+}
+
+/* Text / number input */
+.as-ag-grid .ag-filter-body .ag-input-field-wrapper {
+  border: 1px solid var(--border-neutral-default, #919cb0);
+  border-radius: var(--radius-xs, 3px);
+  background-color: var(--background-main, #ffffff);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.as-ag-grid .ag-filter-body .ag-input-field-wrapper:focus-within {
+  border-color: var(--primary-default, #063b9e);
+  box-shadow: 0 0 0 1px var(--primary-default, #063b9e);
+}
+
+.as-ag-grid .ag-filter-body .ag-text-field-input,
+.as-ag-grid .ag-filter-body .ag-number-field-input {
+  height: 32px;
+  padding: 0 8px;
+  font-family: var(--ag-font-family);
+  font-size: 13px;
+  color: var(--text-main, #14171d);
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+.as-ag-grid .ag-filter-body .ag-text-field-input::placeholder,
+.as-ag-grid .ag-filter-body .ag-number-field-input::placeholder {
+  color: var(--text-tertiary, #8e99ab);
+}
+
+/* Select dropdown list */
+.as-ag-grid .ag-select-list {
+  background-color: var(--background-main, #ffffff);
+  border: 1px solid var(--border-minimal, #eff1f4);
+  border-radius: var(--radius-xs, 3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 4px 0;
+}
+
+.as-ag-grid .ag-select-list-item {
+  height: 32px;
+  padding: 0 12px;
+  font-family: var(--ag-font-family);
+  font-size: 13px;
+  color: var(--text-main, #14171d);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.as-ag-grid .ag-select-list-item:hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.05));
+}
+
+.as-ag-grid .ag-select-list-item.ag-active-item {
+  background-color: var(--primary-t-active, rgba(0, 45, 128, 0.1));
+  color: var(--primary-default, #063b9e);
+}
+
+/* Apply / Reset buttons */
+.as-ag-grid .ag-filter-apply-panel {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.as-ag-grid .ag-filter-apply-panel-button {
+  flex: 1;
+  height: 28px;
+  font-family: var(--ag-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-xs, 3px);
+  border: 1px solid var(--border-neutral-default, #919cb0);
+  background-color: transparent;
+  color: var(--text-secondary, #63728a);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-ag-grid .ag-filter-apply-panel-button:hover {
+  border-color: var(--primary-default, #063b9e);
+  color: var(--primary-default, #063b9e);
 }
