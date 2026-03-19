@@ -64,6 +64,7 @@
 .as-ag-grid .ag-root-wrapper {
   border: none !important;
   border-radius: 0 !important;
+  overflow: visible !important;
 }
 
 .as-ag-grid .ag-root,
