@@ -442,6 +442,11 @@
 .as-ag-grid .ag-filter {
   padding: 8px;
   min-width: 220px;
+  /* Reset AG Grid input variables so we can fully control the style */
+  --ag-input-border-color: transparent;
+  --ag-input-focus-border-color: transparent;
+  --ag-input-focus-box-shadow: none;
+  --ag-borders-input: none;
 }
 
 /* ===== DEFAULT TEXT FILTER - ASDS STYLING ===== */
@@ -500,50 +505,52 @@
 }
 
 /* Text / number input - ASDS style (underline only, no border box) */
-.as-ag-grid .ag-filter-body .ag-input-field-wrapper {
+.as-ag-grid .ag-filter .ag-filter-body .ag-input-wrapper {
   height: 32px;
-  border: none;
-  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0;
-  padding: 0 8px;
-  background-color: var(--background-secondary, #fafafa);
-  box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  border: none !important;
+  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0 !important;
+  padding: 0 8px !important;
+  background-color: var(--background-secondary, #fafafa) !important;
+  box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
   transition: background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.as-ag-grid .ag-filter-body .ag-input-field-wrapper:hover {
-  background-color: var(--background-tertiary, #eff1f4);
+.as-ag-grid .ag-filter .ag-filter-body .ag-input-wrapper:hover {
+  background-color: var(--background-tertiary, #eff1f4) !important;
 }
 
-.as-ag-grid .ag-filter-body .ag-input-field-wrapper:focus-within {
-  background-color: var(--background-tertiary, #eff1f4);
-  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
+.as-ag-grid .ag-filter .ag-filter-body .ag-input-wrapper:focus-within {
+  background-color: var(--background-tertiary, #eff1f4) !important;
+  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e) !important;
 }
 
-/* Icon inside filter input */
-.as-ag-grid .ag-filter-body .ag-input-field-wrapper .ag-icon {
-  flex-shrink: 0;
-  color: var(--text-secondary, #63728a);
+
+/* Hide AG Grid's search icon pseudo-element inside filter input */
+.as-ag-grid .ag-filter .ag-filter-body .ag-input-wrapper::before {
+  display: none !important;
 }
 
-.as-ag-grid .ag-filter-body .ag-text-field-input,
-.as-ag-grid .ag-filter-body .ag-number-field-input {
-  flex: 1;
-  min-width: 0;
-  height: 100%;
-  padding: 0;
-  font-family: var(--ag-font-family);
-  font-size: 14px;
-  color: var(--text-main, #14171d);
-  border: none;
-  outline: none;
-  background: transparent;
+.as-ag-grid .ag-filter .ag-filter-body .ag-text-field-input,
+.as-ag-grid .ag-filter .ag-filter-body .ag-number-field-input {
+  flex: 1 !important;
+  min-width: 0 !important;
+  width: auto !important;
+  height: 100% !important;
+  padding: 0 !important;
+  font-family: var(--ag-font-family) !important;
+  font-size: 14px !important;
+  color: var(--text-main, #14171d) !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-.as-ag-grid .ag-filter-body .ag-text-field-input::placeholder,
-.as-ag-grid .ag-filter-body .ag-number-field-input::placeholder {
+.as-ag-grid .ag-filter .ag-filter-body .ag-text-field-input::placeholder,
+.as-ag-grid .ag-filter .ag-filter-body .ag-number-field-input::placeholder {
   color: var(--text-secondary, #63728a);
 }
 
@@ -575,6 +582,11 @@
 .as-ag-grid .ag-select-list-item.ag-active-item {
   background-color: var(--primary-t-active, rgba(6, 59, 158, 0.2));
   font-weight: 700;
+}
+
+/* Hide filter popup resize handles */
+.as-ag-grid .ag-filter .ag-resizer-wrapper {
+  display: none;
 }
 
 /* Apply / Reset buttons */
