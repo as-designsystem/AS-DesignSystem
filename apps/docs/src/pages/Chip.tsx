@@ -16,54 +16,128 @@ export default function ChipPage() {
     setSelectedChips((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const selectableCode = `import { Chip } from '@/design-system/components/Chip';
+  const selectableCode = `import { useState } from 'react';
+import { Chip } from '@/design-system/components/Chip';
+
+const [selectedChips, setSelectedChips] = useState<Record<string, boolean>>({});
+
+const toggleChip = (id: string) => {
+  setSelectedChips((prev) => ({ ...prev, [id]: !prev[id] }));
+};
 
 <Chip
-  label="Filter"
+  label="Option A"
   size="M"
   type="Selectable"
-  active={isActive}
-  onClick={() => setIsActive(!isActive)}
+  active={!!selectedChips['a']}
+  onClick={() => toggleChip('a')}
+/>
+<Chip
+  label="Option B"
+  size="M"
+  type="Selectable"
+  active={!!selectedChips['b']}
+  onClick={() => toggleChip('b')}
+/>
+<Chip
+  label="Option C"
+  size="M"
+  type="Selectable"
+  active={!!selectedChips['c']}
+  onClick={() => toggleChip('c')}
 />`;
 
   const sizesCode = `import { Chip } from '@/design-system/components/Chip';
 
-<Chip label="XS Chip" size="XS" />
-<Chip label="S Chip" size="S" />
-<Chip label="M Chip" size="M" />
-<Chip label="L Chip" size="L" />
-<Chip label="XL Chip" size="XL" />`;
+<Chip label="XS Chip" size="XS" onClick={() => {}} />
+<Chip label="S Chip" size="S" onClick={() => {}} />
+<Chip label="M Chip" size="M" onClick={() => {}} />
+<Chip label="L Chip" size="L" onClick={() => {}} />
+<Chip label="XL Chip" size="XL" onClick={() => {}} />`;
 
   const withIconCode = `import { Chip } from '@/design-system/components/Chip';
 
+<Chip label="Fleet" size="S" icon="AIR_fleet" onClick={() => {}} />
+<Chip label="Fleet" size="M" icon="AIR_fleet" onClick={() => {}} />
+<Chip label="Fleet" size="L" icon="AIR_fleet" onClick={() => {}} />
 <Chip
-  label="Fleet"
+  label="Fleet Active"
   size="M"
   icon="AIR_fleet"
+  active
   onClick={() => {}}
 />`;
 
   const removableCode = `import { Chip } from '@/design-system/components/Chip';
 
-<Chip
-  label="Removable"
-  size="M"
-  type="Removable"
-  onRemove={(e) => console.log('removed')}
-/>`;
+<Chip label="XS" size="XS" type="Removable" onRemove={() => console.log('removed')} />
+<Chip label="Small" size="S" type="Removable" onRemove={() => console.log('removed')} />
+<Chip label="Medium" size="M" type="Removable" onRemove={() => console.log('removed')} />
+<Chip label="Large" size="L" type="Removable" onRemove={() => console.log('removed')} />
+<Chip label="XL" size="XL" type="Removable" onRemove={() => console.log('removed')} />
+<Chip label="Active" size="M" type="Removable" active onRemove={() => console.log('removed')} />`;
 
   const readonlyCode = `import { Chip } from '@/design-system/components/Chip';
 
+<Chip label="Read Only" size="S" type="ReadOnly" />
+<Chip label="Read Only" size="M" type="ReadOnly" />
+<Chip label="With Icon" size="M" type="ReadOnly" icon="AIR_fleet" />`;
+
+  const richLabelCode = `import { Chip } from '@/design-system/components/Chip';
+
 <Chip
-  label="Read Only"
+  label={
+    <>
+      <span style={{ fontWeight: 400 }}>Maintenance Profile</span>{' '}
+      <span style={{ fontWeight: 700 }}>Heavy MRP, +2</span>
+    </>
+  }
   size="M"
-  type="ReadOnly"
+  type="Removable"
+  active
+  ariaLabel="Remove Maintenance Profile filter"
+  onRemove={() => {}}
+  onClick={() => {}}
+/>
+
+<Chip
+  label={
+    <>
+      <span style={{ fontWeight: 400 }}>Status</span>{' '}
+      <span style={{ fontWeight: 700 }}>Active</span>
+    </>
+  }
+  size="M"
+  type="Removable"
+  ariaLabel="Remove Status filter"
+  onRemove={() => {}}
+  onClick={() => {}}
+/>
+
+<Chip
+  label={
+    <>
+      <span style={{ fontWeight: 400 }}>Airport</span>{' '}
+      <span style={{ fontWeight: 700 }}>CDG, +3</span>
+    </>
+  }
+  size="S"
+  type="Selectable"
+  active
+  onClick={() => {}}
 />`;
 
   const disabledCode = `import { Chip } from '@/design-system/components/Chip';
 
-<Chip label="Disabled" size="M" disabled />
-<Chip label="Disabled Active" size="M" active disabled />`;
+<Chip label="Disabled" size="M" disabled onClick={() => {}} />
+<Chip label="Disabled Active" size="M" active disabled onClick={() => {}} />
+<Chip
+  label="Disabled Removable"
+  size="M"
+  type="Removable"
+  disabled
+  onRemove={() => {}}
+/>`;
 
   return (
     <div className="component-page">
@@ -278,6 +352,13 @@ export default function ChipPage() {
                   type="Removable"
                   onRemove={() => console.log('removed')}
                 />
+                <Chip
+                  label="Active"
+                  size="M"
+                  type="Removable"
+                  active
+                  onRemove={() => console.log('removed')}
+                />
               </div>
             </div>
           </section>
@@ -308,6 +389,72 @@ export default function ChipPage() {
                 <Chip label="Read Only" size="S" type="ReadOnly" />
                 <Chip label="Read Only" size="M" type="ReadOnly" />
                 <Chip label="With Icon" size="M" type="ReadOnly" icon="AIR_fleet" />
+              </div>
+            </div>
+          </section>
+
+          {/* Rich Label */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Rich Label
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('richLabel')}
+              />
+            </div>
+            <div className="chip-demo">
+              <div className="chip-demo__row chip-demo__row--align-center">
+                <Chip
+                  label={
+                    <>
+                      <span style={{ fontWeight: 400 }}>Maintenance Profile</span>{' '}
+                      <span style={{ fontWeight: 700 }}>Heavy MRP, +2</span>
+                    </>
+                  }
+                  size="M"
+                  type="Removable"
+                  active
+                  ariaLabel="Remove Maintenance Profile filter"
+                  onRemove={() => console.log('removed')}
+                  onClick={() => {}}
+                />
+                <Chip
+                  label={
+                    <>
+                      <span style={{ fontWeight: 400 }}>Status</span>{' '}
+                      <span style={{ fontWeight: 700 }}>Active</span>
+                    </>
+                  }
+                  size="M"
+                  type="Removable"
+                  ariaLabel="Remove Status filter"
+                  onRemove={() => console.log('removed')}
+                  onClick={() => {}}
+                />
+                <Chip
+                  label={
+                    <>
+                      <span style={{ fontWeight: 400 }}>Airport</span>{' '}
+                      <span style={{ fontWeight: 700 }}>CDG, +3</span>
+                    </>
+                  }
+                  size="S"
+                  type="Selectable"
+                  active
+                  onClick={() => {}}
+                />
               </div>
             </div>
           </section>
@@ -376,9 +523,15 @@ export default function ChipPage() {
               <tbody>
                 <tr>
                   <td><code>label</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>-</td>
+                  <td>Content displayed in the chip. Accepts a string or JSX for mixed content.</td>
+                </tr>
+                <tr>
+                  <td><code>ariaLabel</code></td>
                   <td><code>string</code></td>
                   <td>-</td>
-                  <td>Text label displayed in the chip</td>
+                  <td>Accessible label override for the remove button. Required when label is JSX.</td>
                 </tr>
                 <tr>
                   <td><code>size</code></td>
@@ -464,6 +617,12 @@ export default function ChipPage() {
         onClose={() => setOpenModal(null)}
         title="Chip — Read Only"
         sections={[{ title: 'Chip.tsx', language: 'tsx', code: readonlyCode }]}
+      />
+      <CodeModal
+        isOpen={openModal === 'richLabel'}
+        onClose={() => setOpenModal(null)}
+        title="Chip — Rich Label"
+        sections={[{ title: 'Chip.tsx', language: 'tsx', code: richLabelCode }]}
       />
       <CodeModal
         isOpen={openModal === 'disabled'}

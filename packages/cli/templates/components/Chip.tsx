@@ -7,9 +7,14 @@ export type ChipType = 'Selectable' | 'ReadOnly' | 'Removable';
 
 export interface ChipProps {
   /**
-   * Text label displayed in the chip
+   * Content displayed in the chip. Accepts a string or JSX for mixed content.
    */
-  label: string;
+  label: React.ReactNode;
+  /**
+   * Accessible label override. Required when label is JSX so the remove button
+   * gets a meaningful aria-label.
+   */
+  ariaLabel?: string;
   /**
    * Size of the chip
    * @default 'M'
@@ -63,6 +68,7 @@ export interface ChipProps {
  */
 export function Chip({
   label,
+  ariaLabel,
   size = 'M',
   type = 'Selectable',
   active = false,
@@ -150,7 +156,7 @@ export function Chip({
           className="chip__remove"
           onClick={handleRemove}
           disabled={disabled}
-          aria-label={`Remove ${label}`}
+          aria-label={ariaLabel ?? (typeof label === 'string' ? `Remove ${label}` : 'Remove')}
           tabIndex={disabled ? -1 : 0}
           type="button"
         >
