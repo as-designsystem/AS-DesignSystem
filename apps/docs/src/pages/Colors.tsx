@@ -249,7 +249,9 @@ function SemanticColorGroup({
             textColor = '#fff'; // Always white on corporate
           } else if (isTextNegative) {
             textColor = 'var(--text-main)'; // Dark text on white swatch
-          } else if (isPrimaryState || isFeedbackState || isFeedbackText || isTextColor) {
+          } else if (isFeedbackText) {
+            textColor = 'var(--text-negative)'; // White text on dark feedback tiles
+          } else if (isPrimaryState || isFeedbackState || isTextColor) {
             textColor = 'var(--background-main)'; // Flips with theme
           } else {
             textColor = 'var(--text-main)';
