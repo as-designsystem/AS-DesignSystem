@@ -1,0 +1,189 @@
+/**
+ * Alert Component Styles
+ */
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--borderradius, 4px);
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+}
+
+/* ── Loader ── */
+
+.alert__loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  overflow: hidden;
+  border-radius: var(--borderradius, 4px) var(--borderradius, 4px) 0 0;
+}
+
+.alert__loader-bar {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 0;
+}
+
+/* ── Icon ── */
+
+.alert__icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Content ── */
+
+.alert__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.alert__title {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+}
+
+.alert__description {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.17px;
+}
+
+/* ── Action Bottom ── */
+
+.alert__action-bottom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.alert__action-bottom button,
+.alert__action-bottom a {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-r3, 3px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--primary-default, #063b9e);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.alert__action-bottom button:hover,
+.alert__action-bottom a:hover {
+  background-color: rgba(6, 59, 158, 0.08);
+}
+
+/* ── Action Right ── */
+
+.alert__action-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.alert__action-right button,
+.alert__action-right a {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-r3, 3px);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--primary-default, #063b9e);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.alert__action-right button:hover,
+.alert__action-right a:hover {
+  background-color: rgba(6, 59, 158, 0.08);
+}
+
+/* ── Close ── */
+
+.alert__close {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Variant: Error ── */
+
+.alert--error {
+  background-color: var(--feedback-error-background, #fad1d8);
+}
+
+.alert--error .alert__title,
+.alert--error .alert__description {
+  color: var(--red-100, #6a0014);
+}
+
+/* ── Variant: Warning ── */
+
+.alert--warning {
+  background-color: var(--feedback-warning-background, #fff9e5);
+}
+
+.alert--warning .alert__title,
+.alert--warning .alert__description {
+  color: var(--yellow-100, #554000);
+}
+
+/* ── Variant: Validated ── */
+
+.alert--validated {
+  background-color: var(--feedback-success-background, #d1ffef);
+}
+
+.alert--validated .alert__title,
+.alert--validated .alert__description {
+  color: var(--green-100, #005e3e);
+}
+
+/* ── Variant: Info ── */
+
+.alert--info {
+  background-color: var(--background-secondary, #fafafa);
+}
+
+.alert--info .alert__title,
+.alert--info .alert__description {
+  color: var(--cool-grey-100, #14171d);
+}

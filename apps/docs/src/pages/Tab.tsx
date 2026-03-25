@@ -140,11 +140,13 @@ export default function TabPage() {
             onClick={() => setOpenModal('sizes')}
           />
         </div>
-        <div className="tab-examples">
-          <Tab label="Size S" size="S" status="Active" />
-          <Tab label="Size M" size="M" status="Active" />
-          <Tab label="Size L" size="L" status="Active" />
-          <Tab label="Size XL" size="XL" status="Active" />
+        <div className="example-container">
+          <div className="tab-examples">
+            <Tab label="Size S" size="S" status="Active" />
+            <Tab label="Size M" size="M" status="Active" />
+            <Tab label="Size L" size="L" status="Active" />
+            <Tab label="Size XL" size="XL" status="Active" />
+          </div>
         </div>
       </section>
 
@@ -162,10 +164,12 @@ export default function TabPage() {
             onClick={() => setOpenModal('states')}
           />
         </div>
-        <div className="tab-examples">
-          <Tab label="Default" status="Default" size="M" />
-          <Tab label="Active" status="Active" size="M" />
-          <Tab label="Disabled" status="Default" size="M" disabled={true} />
+        <div className="example-container">
+          <div className="tab-examples">
+            <Tab label="Default" status="Default" size="M" />
+            <Tab label="Active" status="Active" size="M" />
+            <Tab label="Disabled" status="Default" size="M" disabled={true} />
+          </div>
         </div>
       </section>
 

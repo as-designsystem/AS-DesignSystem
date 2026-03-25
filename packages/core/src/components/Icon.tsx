@@ -50,6 +50,7 @@ import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
+import checkCircleIcon from '../assets/svg/icons/check_circle.svg?raw';
 import checkBoxOutlineBlankIcon from '../assets/svg/icons/check_box_outline_blank.svg?raw';
 import checklistIcon from '../assets/svg/icons/checklist.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
@@ -77,6 +78,7 @@ import dropdownUpIcon from '../assets/svg/icons/dropdown_up.svg?raw';
 import editIcon from '../assets/svg/icons/edit.svg?raw';
 import emojiEmotionsIcon from '../assets/svg/icons/emoji_emotions.svg?raw';
 import errorIcon from '../assets/svg/icons/error.svg?raw';
+import errorOutlineIcon from '../assets/svg/icons/error_outline.svg?raw';
 import eventIcon from '../assets/svg/icons/event.svg?raw';
 import eventNoteIcon from '../assets/svg/icons/event_note.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
@@ -139,6 +141,7 @@ import uploadIcon from '../assets/svg/icons/upload.svg?raw';
 import viewTimelineIcon from '../assets/svg/icons/view_timeline.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
+import warningOutlineIcon from '../assets/svg/icons/warning_outline.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -194,6 +197,7 @@ const iconMap: Record<string, string> = {
   'check': checkIcon,
   'check_box': checkBoxIcon,
   'check_box_outline_blank': checkBoxOutlineBlankIcon,
+  'check_circle': checkCircleIcon,
   'checklist': checklistIcon,
   'close': closeIcon,
   'code': codeIcon,
@@ -220,6 +224,7 @@ const iconMap: Record<string, string> = {
   'edit': editIcon,
   'emoji_emotions': emojiEmotionsIcon,
   'error': errorIcon,
+  'error_outline': errorOutlineIcon,
   'event': eventIcon,
   'event_note': eventNoteIcon,
   'filter': filterIcon,
@@ -282,6 +287,7 @@ const iconMap: Record<string, string> = {
   'view_timeline': viewTimelineIcon,
   'visibility': visibilityIcon,
   'warning': warningIcon,
+  'warning_outline': warningOutlineIcon,
 };
 
 export const availableIcons = [
@@ -338,6 +344,7 @@ export const availableIcons = [
   'check',
   'check_box',
   'check_box_outline_blank',
+  'check_circle',
   'checklist',
   'close',
   'code',
@@ -364,6 +371,7 @@ export const availableIcons = [
   'edit',
   'emoji_emotions',
   'error',
+  'error_outline',
   'event',
   'event_note',
   'filter',
@@ -426,6 +434,7 @@ export const availableIcons = [
   'view_timeline',
   'visibility',
   'warning',
+  'warning_outline',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

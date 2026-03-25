@@ -102,6 +102,7 @@ const navSections: NavSectionData[] = [
     ),
     items: [
       { label: 'Accordion', path: '/composites/accordion' },
+      { label: 'Alert', path: '/components/alert' },
       { label: 'Avatar', path: '/components/avatar' },
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },

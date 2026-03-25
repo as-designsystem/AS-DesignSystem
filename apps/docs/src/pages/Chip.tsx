@@ -251,13 +251,15 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip label="XS Chip" size="XS" onClick={() => {}} />
-                <Chip label="S Chip" size="S" onClick={() => {}} />
-                <Chip label="M Chip" size="M" onClick={() => {}} />
-                <Chip label="L Chip" size="L" onClick={() => {}} />
-                <Chip label="XL Chip" size="XL" onClick={() => {}} />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip label="XS Chip" size="XS" onClick={() => {}} />
+                  <Chip label="S Chip" size="S" onClick={() => {}} />
+                  <Chip label="M Chip" size="M" onClick={() => {}} />
+                  <Chip label="L Chip" size="L" onClick={() => {}} />
+                  <Chip label="XL Chip" size="XL" onClick={() => {}} />
+                </div>
               </div>
             </div>
           </section>
@@ -283,18 +285,20 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('withIcon')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip label="Fleet" size="S" icon="AIR_fleet" onClick={() => {}} />
-                <Chip label="Fleet" size="M" icon="AIR_fleet" onClick={() => {}} />
-                <Chip label="Fleet" size="L" icon="AIR_fleet" onClick={() => {}} />
-                <Chip
-                  label="Fleet Active"
-                  size="M"
-                  icon="AIR_fleet"
-                  active
-                  onClick={() => {}}
-                />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip label="Fleet" size="S" icon="AIR_fleet" onClick={() => {}} />
+                  <Chip label="Fleet" size="M" icon="AIR_fleet" onClick={() => {}} />
+                  <Chip label="Fleet" size="L" icon="AIR_fleet" onClick={() => {}} />
+                  <Chip
+                    label="Fleet Active"
+                    size="M"
+                    icon="AIR_fleet"
+                    active
+                    onClick={() => {}}
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -320,45 +324,47 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('removable')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip
-                  label="XS"
-                  size="XS"
-                  type="Removable"
-                  onRemove={() => console.log('removed')}
-                />
-                <Chip
-                  label="Small"
-                  size="S"
-                  type="Removable"
-                  onRemove={() => console.log('removed')}
-                />
-                <Chip
-                  label="Medium"
-                  size="M"
-                  type="Removable"
-                  onRemove={() => console.log('removed')}
-                />
-                <Chip
-                  label="Large"
-                  size="L"
-                  type="Removable"
-                  onRemove={() => console.log('removed')}
-                />
-                <Chip
-                  label="XL"
-                  size="XL"
-                  type="Removable"
-                  onRemove={() => console.log('removed')}
-                />
-                <Chip
-                  label="Active"
-                  size="M"
-                  type="Removable"
-                  active
-                  onRemove={() => console.log('removed')}
-                />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip
+                    label="XS"
+                    size="XS"
+                    type="Removable"
+                    onRemove={() => console.log('removed')}
+                  />
+                  <Chip
+                    label="Small"
+                    size="S"
+                    type="Removable"
+                    onRemove={() => console.log('removed')}
+                  />
+                  <Chip
+                    label="Medium"
+                    size="M"
+                    type="Removable"
+                    onRemove={() => console.log('removed')}
+                  />
+                  <Chip
+                    label="Large"
+                    size="L"
+                    type="Removable"
+                    onRemove={() => console.log('removed')}
+                  />
+                  <Chip
+                    label="XL"
+                    size="XL"
+                    type="Removable"
+                    onRemove={() => console.log('removed')}
+                  />
+                  <Chip
+                    label="Active"
+                    size="M"
+                    type="Removable"
+                    active
+                    onRemove={() => console.log('removed')}
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -384,11 +390,13 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('readonly')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip label="Read Only" size="S" type="ReadOnly" />
-                <Chip label="Read Only" size="M" type="ReadOnly" />
-                <Chip label="With Icon" size="M" type="ReadOnly" icon="AIR_fleet" />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip label="Read Only" size="S" type="ReadOnly" />
+                  <Chip label="Read Only" size="M" type="ReadOnly" />
+                  <Chip label="With Icon" size="M" type="ReadOnly" icon="AIR_fleet" />
+                </div>
               </div>
             </div>
           </section>
@@ -414,47 +422,49 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('richLabel')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip
-                  label={
-                    <>
-                      <span style={{ fontWeight: 400 }}>Maintenance Profile</span>{' '}
-                      <span style={{ fontWeight: 700 }}>Heavy MRP, +2</span>
-                    </>
-                  }
-                  size="M"
-                  type="Removable"
-                  active
-                  ariaLabel="Remove Maintenance Profile filter"
-                  onRemove={() => console.log('removed')}
-                  onClick={() => {}}
-                />
-                <Chip
-                  label={
-                    <>
-                      <span style={{ fontWeight: 400 }}>Status</span>{' '}
-                      <span style={{ fontWeight: 700 }}>Active</span>
-                    </>
-                  }
-                  size="M"
-                  type="Removable"
-                  ariaLabel="Remove Status filter"
-                  onRemove={() => console.log('removed')}
-                  onClick={() => {}}
-                />
-                <Chip
-                  label={
-                    <>
-                      <span style={{ fontWeight: 400 }}>Airport</span>{' '}
-                      <span style={{ fontWeight: 700 }}>CDG, +3</span>
-                    </>
-                  }
-                  size="S"
-                  type="Selectable"
-                  active
-                  onClick={() => {}}
-                />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip
+                    label={
+                      <>
+                        <span style={{ fontWeight: 400 }}>Maintenance Profile</span>{' '}
+                        <span style={{ fontWeight: 700 }}>Heavy MRP, +2</span>
+                      </>
+                    }
+                    size="M"
+                    type="Removable"
+                    active
+                    ariaLabel="Remove Maintenance Profile filter"
+                    onRemove={() => console.log('removed')}
+                    onClick={() => {}}
+                  />
+                  <Chip
+                    label={
+                      <>
+                        <span style={{ fontWeight: 400 }}>Status</span>{' '}
+                        <span style={{ fontWeight: 700 }}>Active</span>
+                      </>
+                    }
+                    size="M"
+                    type="Removable"
+                    ariaLabel="Remove Status filter"
+                    onRemove={() => console.log('removed')}
+                    onClick={() => {}}
+                  />
+                  <Chip
+                    label={
+                      <>
+                        <span style={{ fontWeight: 400 }}>Airport</span>{' '}
+                        <span style={{ fontWeight: 700 }}>CDG, +3</span>
+                      </>
+                    }
+                    size="S"
+                    type="Selectable"
+                    active
+                    onClick={() => {}}
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -480,17 +490,19 @@ const toggleChip = (id: string) => {
                 onClick={() => setOpenModal('disabled')}
               />
             </div>
-            <div className="chip-demo">
-              <div className="chip-demo__row chip-demo__row--align-center">
-                <Chip label="Disabled" size="M" disabled onClick={() => {}} />
-                <Chip label="Disabled Active" size="M" active disabled onClick={() => {}} />
-                <Chip
-                  label="Disabled Removable"
-                  size="M"
-                  type="Removable"
-                  disabled
-                  onRemove={() => {}}
-                />
+            <div className="example-container">
+              <div className="chip-demo">
+                <div className="chip-demo__row chip-demo__row--align-center">
+                  <Chip label="Disabled" size="M" disabled onClick={() => {}} />
+                  <Chip label="Disabled Active" size="M" active disabled onClick={() => {}} />
+                  <Chip
+                    label="Disabled Removable"
+                    size="M"
+                    type="Removable"
+                    disabled
+                    onRemove={() => {}}
+                  />
+                </div>
               </div>
             </div>
           </section>

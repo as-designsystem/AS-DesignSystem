@@ -49,6 +49,7 @@ import Colors from './pages/Colors';
 import Icons from './pages/Icons';
 import Others from './pages/Others';
 import AgGridTablePage from './pages/AgGridTable';
+import AlertPage from './pages/Alert';
 import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
 import StudyContentPage from './pages/StudyContent';
@@ -75,6 +76,7 @@ function App() {
               <Route path="/tokens/icons" element={<Icons />} />
               <Route path="/tokens/others" element={<Others />} />
               <Route path="/components" element={<Navigate to="/components/button" replace />} />
+              <Route path="/components/alert" element={<AlertPage />} />
               <Route path="/components/button" element={<Button />} />
               <Route path="/components/vbutton" element={<VButtonPage />} />
               <Route path="/components/button-group" element={<ButtonGroup />} />

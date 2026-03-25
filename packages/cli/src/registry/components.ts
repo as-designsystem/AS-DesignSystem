@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (140 icons)
+      // SVG icon assets (144 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -70,6 +70,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/check.svg', target: 'assets/svg/icons/check.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/check_box.svg', target: 'assets/svg/icons/check_box.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/check_box_outline_blank.svg', target: 'assets/svg/icons/check_box_outline_blank.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/check_circle.svg', target: 'assets/svg/icons/check_circle.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/checklist.svg', target: 'assets/svg/icons/checklist.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/close.svg', target: 'assets/svg/icons/close.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/code.svg', target: 'assets/svg/icons/code.svg', type: 'component' },
@@ -96,6 +97,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/edit.svg', target: 'assets/svg/icons/edit.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/emoji_emotions.svg', target: 'assets/svg/icons/emoji_emotions.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/error.svg', target: 'assets/svg/icons/error.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/error_outline.svg', target: 'assets/svg/icons/error_outline.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/event.svg', target: 'assets/svg/icons/event.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/event_note.svg', target: 'assets/svg/icons/event_note.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/filter.svg', target: 'assets/svg/icons/filter.svg', type: 'component' },
@@ -158,6 +160,8 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/view_timeline.svg', target: 'assets/svg/icons/view_timeline.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/visibility.svg', target: 'assets/svg/icons/visibility.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/warning.svg', target: 'assets/svg/icons/warning.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/warning_amber.svg', target: 'assets/svg/icons/warning_amber.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/warning_outline.svg', target: 'assets/svg/icons/warning_outline.svg', type: 'component' },
     ],
     cssImports: [],
   },
@@ -939,6 +943,29 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
       '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'alert',
+    type: 'component',
+    displayName: 'Alert',
+    description: 'Feedback alert banner with Error, Warning, Validated, and Info variants',
+    files: [
+      {
+        path: 'templates/components/Alert.tsx',
+        target: 'components/Alert.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Alert.css',
+        target: 'components/Alert.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'icon-button'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
     ],
   },
   {

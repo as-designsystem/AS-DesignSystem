@@ -176,6 +176,18 @@ Create in `/apps/docs/src/pages/`:
 
 **Reference:** See existing doc pages like `Button.tsx`, `Select.tsx`.
 
+**Important:** Every example section MUST wrap its demo content in a `<div className="example-container">`:
+```tsx
+<section className="component-section">
+  <div className="section-header">...</div>
+  <div className="example-container">
+    <div className="component-demo">
+      {/* Component examples here */}
+    </div>
+  </div>
+</section>
+```
+
 Add route in `/apps/docs/src/App.tsx`:
 ```typescript
 <Route path="/components/component-name" element={<ComponentName />} />

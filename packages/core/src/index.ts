@@ -1,4 +1,5 @@
 // Components
+export { Alert, type AlertProps, type AlertVariant } from './components/Alert';
 export { Icon, type IconProps, availableIcons, type IconName } from './components/Icon';
 export { Button, type ButtonProps, type ButtonSize, type ButtonState, type ButtonVariant } from './components/Button';
 export { VButton, type VButtonProps, type VButtonSize, type VButtonState, type VButtonVariant } from './components/VButton';

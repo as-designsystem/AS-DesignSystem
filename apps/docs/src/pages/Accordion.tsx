@@ -122,10 +122,12 @@ const [isOpen, setIsOpen] = useState(false);
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="accordion-demo">
-              <Accordion title="Filters">
-                <p>Filter content here...</p>
-              </Accordion>
+            <div className="example-container">
+              <div className="accordion-demo">
+                <Accordion title="Filters">
+                  <p>Filter content here...</p>
+                </Accordion>
+              </div>
             </div>
           </section>
 
@@ -150,16 +152,18 @@ const [isOpen, setIsOpen] = useState(false);
                 onClick={() => setOpenModal('sizes')}
               />
             </div>
-            <div className="accordion-demo" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <Accordion title="Filters" size="S">
-                <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Small (S) — 32px header</p>
-              </Accordion>
-              <Accordion title="Filters" size="M">
-                <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Medium (M) — 40px header (default)</p>
-              </Accordion>
-              <Accordion title="Filters" size="L">
-                <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Large (L) — 48px header</p>
-              </Accordion>
+            <div className="example-container">
+              <div className="accordion-demo" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <Accordion title="Filters" size="S">
+                  <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Small (S) — 32px header</p>
+                </Accordion>
+                <Accordion title="Filters" size="M">
+                  <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Medium (M) — 40px header (default)</p>
+                </Accordion>
+                <Accordion title="Filters" size="L">
+                  <p className="label-regular-s" style={{ color: 'var(--text-main, #14171d)' }}>Large (L) — 48px header</p>
+                </Accordion>
+              </div>
             </div>
           </section>
 
@@ -184,31 +188,33 @@ const [isOpen, setIsOpen] = useState(false);
                 onClick={() => setOpenModal('open')}
               />
             </div>
-            <div className="accordion-demo">
-              <Accordion title="Filters" defaultOpen>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <span className="label-bold-s" style={{ color: 'var(--text-secondary, #63728a)' }}>
-                    Interval Yield
-                  </span>
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'center', height: '40px' }}>
-                    <Checkbox label="Calendar" status="Checked" size="S" />
-                    <Checkbox label="FC" status="Checked" size="S" />
-                    <Checkbox label="FH" status="Checked" size="S" />
+            <div className="example-container">
+              <div className="accordion-demo">
+                <Accordion title="Filters" defaultOpen>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <span className="label-bold-s" style={{ color: 'var(--text-secondary, #63728a)' }}>
+                      Interval Yield
+                    </span>
+                    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', height: '40px' }}>
+                      <Checkbox label="Calendar" status="Checked" size="S" />
+                      <Checkbox label="FC" status="Checked" size="S" />
+                      <Checkbox label="FH" status="Checked" size="S" />
+                    </div>
                   </div>
-                </div>
-                <div style={{ width: '240px' }}>
-                  <Select
-                    label="Aircraft Type"
-                    options={[
-                      { value: 'all', label: 'ALL AIRCRAFT TYPE' },
-                      { value: 'a320', label: 'A320' },
-                      { value: 'a330', label: 'A330' },
-                    ]}
-                    value="all"
-                    size="M"
-                  />
-                </div>
-              </Accordion>
+                  <div style={{ width: '240px' }}>
+                    <Select
+                      label="Aircraft Type"
+                      options={[
+                        { value: 'all', label: 'ALL AIRCRAFT TYPE' },
+                        { value: 'a320', label: 'A320' },
+                        { value: 'a330', label: 'A330' },
+                      ]}
+                      value="all"
+                      size="M"
+                    />
+                  </div>
+                </Accordion>
+              </div>
             </div>
           </section>
 
@@ -233,8 +239,10 @@ const [isOpen, setIsOpen] = useState(false);
                 onClick={() => setOpenModal('controlled')}
               />
             </div>
-            <div className="accordion-demo">
-              <ControlledAccordionExample />
+            <div className="example-container">
+              <div className="accordion-demo">
+                <ControlledAccordionExample />
+              </div>
             </div>
           </section>
         </>
