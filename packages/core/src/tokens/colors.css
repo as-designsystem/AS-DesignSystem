@@ -161,6 +161,7 @@
   --feedback-success-hover: var(--green-70);
   --feedback-success-active: var(--green-90);
   --feedback-success-background: var(--green-10);
+  --feedback-success-text: var(--green-100);
   --feedback-success-t-background: rgba(8, 135, 91, 0.1);
 
   /* Feedback Error - Références Red */
@@ -168,6 +169,7 @@
   --feedback-error-hover: var(--red-60);
   --feedback-error-active: var(--red-80);
   --feedback-error-background: var(--red-10);
+  --feedback-error-text: var(--red-100);
   --feedback-error-t-background: rgba(228, 0, 43, 0.1);
 
   /* Feedback Warning - Références Yellow */
@@ -175,6 +177,7 @@
   --feedback-warning-hover: var(--yellow-40);
   --feedback-warning-active: var(--yellow-60);
   --feedback-warning-background: var(--yellow-10);
+  --feedback-warning-text: var(--yellow-100);
   --feedback-warning-t-background: rgba(255, 201, 41, 0.1);
 
   /* Feedback Info - Références Cool Grey */
@@ -182,6 +185,7 @@
   --feedback-info-hover: var(--cool-grey-60);
   --feedback-info-active: var(--cool-grey-80);
   --feedback-info-background: var(--cool-grey-10);
+  --feedback-info-text: var(--cool-grey-100);
   --feedback-info-t-background: rgba(80, 93, 116, 0.1);
 
   /* Background Inverse (for tooltips, etc.) */
@@ -233,6 +237,7 @@ html.dark {
   --feedback-success-hover: #27e7a7;
   --feedback-success-active: #9cfcda;
   --feedback-success-background: #005e3e;
+  --feedback-success-text: #d1ffef;
   --feedback-success-t-background: rgba(94, 247, 196, 0.1);
 
   /* Feedback Error - Lighter reds */
@@ -240,6 +245,7 @@ html.dark {
   --feedback-error-hover: #ffa2b0;
   --feedback-error-active: #f86471;
   --feedback-error-background: #6a0014;
+  --feedback-error-text: #fad1d8;
   --feedback-error-t-background: rgba(255, 137, 152, 0.1);
 
   /* Feedback Warning - Same yellow base */
@@ -247,6 +253,7 @@ html.dark {
   --feedback-warning-hover: #ddab17;
   --feedback-warning-active: #ffd557;
   --feedback-warning-background: #554000;
+  --feedback-warning-text: #fff9e5;
   --feedback-warning-t-background: rgba(255, 201, 41, 0.1);
 
   /* Feedback Info - Lighter greys */
@@ -254,6 +261,7 @@ html.dark {
   --feedback-info-hover: #919cb0;
   --feedback-info-active: #ced5dd;
   --feedback-info-background: #282e3a;
+  --feedback-info-text: #eff1f4;
   --feedback-info-t-background: rgba(179, 187, 200, 0.1);
 }
 

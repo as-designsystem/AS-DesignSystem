@@ -194,6 +194,7 @@ export const feedback = {
     hover: green[70], // #18a272
     active: green[90], // #036e4a
     background: green[10], // #d1ffef
+    text: green[100], // #005e3e
     tBackground: 'rgba(8, 135, 91, 0.1)', // Green 80 avec 10% opacity
   },
   // Error - Références Red
@@ -202,6 +203,7 @@ export const feedback = {
     hover: red[60], // #f23346
     active: red[80], // #bb0023
     background: red[10], // #fad1d8
+    text: red[100], // #6a0014
     tBackground: 'rgba(228, 0, 43, 0.1)', // Red 70 avec 10% opacity
   },
   // Warning - Références Yellow
@@ -210,6 +212,7 @@ export const feedback = {
     hover: yellow[40], // #ffd557
     active: yellow[60], // #ddab17
     background: yellow[10], // #fff9e5
+    text: yellow[100], // #554000
     tBackground: 'rgba(255, 201, 41, 0.1)', // Yellow 50 avec 10% opacity
   },
   // Info - Références Cool Grey
@@ -218,6 +221,7 @@ export const feedback = {
     hover: coolGrey[60], // #63728a
     active: coolGrey[80], // #3c4657
     background: coolGrey[10], // #eff1f4
+    text: coolGrey[100], // #14171d
     tBackground: 'rgba(80, 93, 116, 0.1)', // Cool Grey 70 avec 10% opacity
   },
 } as const;

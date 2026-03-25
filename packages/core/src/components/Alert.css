@@ -150,7 +150,7 @@
 
 .alert--error .alert__title,
 .alert--error .alert__description {
-  color: var(--feedback-error-default, #e4002b);
+  color: var(--feedback-error-text, #6a0014);
 }
 
 /* ── Variant: Warning ── */
@@ -161,7 +161,7 @@
 
 .alert--warning .alert__title,
 .alert--warning .alert__description {
-  color: var(--feedback-warning-default, #ffc929);
+  color: var(--feedback-warning-text, #554000);
 }
 
 /* ── Variant: Validated ── */
@@ -172,7 +172,7 @@
 
 .alert--validated .alert__title,
 .alert--validated .alert__description {
-  color: var(--feedback-success-default, #08875b);
+  color: var(--feedback-success-text, #005e3e);
 }
 
 /* ── Variant: Info ── */
@@ -182,7 +182,7 @@
 }
 
 .alert--info .alert__title {
-  color: var(--text-main, #14171d);
+  color: var(--feedback-info-text, #14171d);
 }
 
 .alert--info .alert__description {
