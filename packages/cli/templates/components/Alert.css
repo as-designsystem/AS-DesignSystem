@@ -181,7 +181,10 @@
   background-color: var(--background-secondary, #fafafa);
 }
 
-.alert--info .alert__title,
-.alert--info .alert__description {
+.alert--info .alert__title {
   color: var(--cool-grey-100, #14171d);
+}
+
+.alert--info .alert__description {
+  color: var(--text-secondary, #63728a);
 }
