@@ -8,7 +8,8 @@
   flex-direction: column;
   background-color: var(--background-main, var(--white, #ffffff));
   border-radius: var(--radius-xs, 3px);
-  box-shadow: var(--shadow-2, 0 0 5px 0 rgba(0, 0, 0, 0.15));
+  border: 1px solid var(--border-minimal, #e0e3e9);
+  box-shadow: var(--shadow-1, 0 0 3px 0 rgba(0, 0, 0, 0.10));
   overflow: hidden;
   /* Default height - can be overridden via style prop */
   height: 320px;
@@ -89,7 +90,7 @@
 /* Dark mode support */
 html.dark .chart-card {
   background-color: var(--background-main);
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-1);
 }
 
 html.dark .chart-card__header,

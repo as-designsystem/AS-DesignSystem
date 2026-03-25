@@ -10,7 +10,7 @@ export const list = new Command()
     logger.info('Available items:\n');
 
     // Components
-    const components = getRegistryByType('component');
+    const components = getRegistryByType('component').sort((a, b) => a.name.localeCompare(b.name));
     if (components.length > 0) {
       console.log(chalk.bold.cyan('Components:'));
       for (const comp of components) {
@@ -25,7 +25,7 @@ export const list = new Command()
     }
 
     // Composites
-    const composites = getRegistryByType('composite');
+    const composites = getRegistryByType('composite').sort((a, b) => a.name.localeCompare(b.name));
     if (composites.length > 0) {
       console.log(chalk.bold.cyan('Composites:'));
       for (const comp of composites) {
@@ -40,7 +40,7 @@ export const list = new Command()
     }
 
     // Tokens
-    const tokens = getRegistryByType('token');
+    const tokens = getRegistryByType('token').sort((a, b) => a.name.localeCompare(b.name));
     if (tokens.length > 0) {
       console.log(chalk.bold.cyan('Tokens:'));
       for (const token of tokens) {
@@ -55,7 +55,7 @@ export const list = new Command()
     }
 
     // Icons
-    const icons = getRegistryByType('icon');
+    const icons = getRegistryByType('icon').sort((a, b) => a.name.localeCompare(b.name));
     if (icons.length > 0) {
       console.log(chalk.bold.cyan('Icons:'));
       for (const icon of icons) {
@@ -70,7 +70,7 @@ export const list = new Command()
     }
 
     // Templates
-    const templates = getRegistryByType('template');
+    const templates = getRegistryByType('template').sort((a, b) => a.name.localeCompare(b.name));
     if (templates.length > 0) {
       console.log(chalk.bold.cyan('Templates:'));
       for (const template of templates) {
@@ -85,7 +85,7 @@ export const list = new Command()
     }
 
     // Assets
-    const assets = getRegistryByType('asset');
+    const assets = getRegistryByType('asset').sort((a, b) => a.name.localeCompare(b.name));
     if (assets.length > 0) {
       console.log(chalk.bold.cyan('Assets:'));
       for (const asset of assets) {
