@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (144 icons)
+      // SVG icon assets (143 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -160,7 +160,6 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/view_timeline.svg', target: 'assets/svg/icons/view_timeline.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/visibility.svg', target: 'assets/svg/icons/visibility.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/warning.svg', target: 'assets/svg/icons/warning.svg', type: 'component' },
-      { path: 'templates/assets/svg/icons/warning_amber.svg', target: 'assets/svg/icons/warning_amber.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/warning_outline.svg', target: 'assets/svg/icons/warning_outline.svg', type: 'component' },
     ],
     cssImports: [],
