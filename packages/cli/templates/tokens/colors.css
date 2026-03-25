@@ -225,8 +225,8 @@ html.dark {
   --border-white: #14171d;
 
   /* Shadow */
-  --shadow-1: 0 0 3px 0 rgba(255, 255, 255, 0.15);
-  --shadow-2: 0 0 5px 0 rgba(255, 255, 255, 0.20);
+  --shadow-1: 0 0 3px 0 rgba(0, 0, 0, 0.10);
+  --shadow-2: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 
   /* Feedback Success - Lighter greens */
   --feedback-success-default: #5ef7c4;

@@ -79,13 +79,13 @@ const shadowTokens: ShadowDef[] = [
     token: '1',
     cssVar: '--shadow-1',
     lightValue: '0 0 3px 0 rgba(0, 0, 0, 0.10)',
-    darkValue: '0 0 3px 0 rgba(255, 255, 255, 0.15)',
+    darkValue: '0 0 3px 0 rgba(0, 0, 0, 0.10)',
   },
   {
     token: '2',
     cssVar: '--shadow-2',
     lightValue: '0 0 5px 0 rgba(0, 0, 0, 0.15)',
-    darkValue: '0 0 5px 0 rgba(255, 255, 255, 0.20)',
+    darkValue: '0 0 5px 0 rgba(0, 0, 0, 0.15)',
   },
 ];
 
@@ -240,7 +240,7 @@ export default function Others() {
           className="label-regular-s"
           style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}
         >
-          Box-shadow tokens for elevation. Values adapt to light and dark themes.
+          Box-shadow tokens for elevation. Values are consistent across light and dark themes.
         </p>
 
         <div className="size-radius-table">

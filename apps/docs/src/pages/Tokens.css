@@ -468,7 +468,7 @@
   width: 40px;
   height: 40px;
   border-radius: 4px;
-  background-color: var(--background-main, #ffffff);
-  border: 1px solid var(--border-minimal, #e0e3e9);
+  background-color: var(--background-secondary, #fafafa);
+  border: none;
 }
 
