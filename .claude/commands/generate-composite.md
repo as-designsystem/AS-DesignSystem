@@ -76,7 +76,7 @@ Consider:
 ### 4. Register Composite
 
 - Export from `/packages/core/src/index.ts`
-- Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`
+- Add CSS to `compositeCssFiles` in `/packages/core/tsup.config.ts`
 - Add CSS export in `/packages/core/package.json`
 - Register in CLI `/packages/cli/src/registry/composites.ts`:
   - `name`: kebab-case (e.g., 'filter-panel')

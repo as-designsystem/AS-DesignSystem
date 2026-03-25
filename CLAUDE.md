@@ -136,7 +136,7 @@ export function ComponentName({ size = 'M', variant = 'Default', ...props }: Com
 export { ComponentName, type ComponentNameProps } from './components/ComponentName';
 ```
 
-**2. Add CSS to `/packages/core/tsup.config.ts`:**
+**2. Add CSS to `componentCssFiles` in `/packages/core/tsup.config.ts`:**
 ```typescript
 const componentCssFiles = ['Button.css', 'ComponentName.css', /* ... */];
 ```
@@ -213,7 +213,7 @@ Create in `/packages/core/src/composites/`:
 
 **1. Export from `/packages/core/src/index.ts`**
 
-**2. Add CSS to `tsup.config.ts` and `package.json`**
+**2. Add CSS to `compositeCssFiles` in `tsup.config.ts` and add export in `package.json`**
 
 **3. Register in `/packages/cli/src/registry/composites.ts`:**
 ```typescript
