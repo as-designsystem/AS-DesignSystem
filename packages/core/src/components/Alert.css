@@ -53,20 +53,18 @@
 
 .alert__title {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
+  line-height: 24px;
 }
 
 .alert__description {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.43;
-  letter-spacing: 0.17px;
+  line-height: 20px;
 }
 
 /* ── Action Bottom ── */

@@ -195,22 +195,13 @@ export default function AlertPage() {
               >
                 Variants
               </h2>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <Button
-                  label="Reset"
-                  leftIcon="refresh"
-                  size="S"
-                  variant="Ghost"
-                  onClick={resetAlerts}
-                />
-                <Button
-                  label="Code"
-                  leftIcon="code"
-                  size="S"
-                  variant="Outlined"
-                  onClick={() => setOpenModal('variants')}
-                />
-              </div>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('variants')}
+              />
             </div>
             <div className="example-container">
               <div className="alert-demo">
