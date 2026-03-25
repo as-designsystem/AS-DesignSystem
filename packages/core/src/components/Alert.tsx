@@ -73,10 +73,10 @@ const defaultIcons: Record<AlertVariant, string> = {
 };
 
 const iconColors: Record<AlertVariant, string> = {
-  Error: 'var(--feedback-error-text, #6a0014)',
-  Warning: 'var(--feedback-warning-text, #554000)',
-  Validated: 'var(--feedback-success-text, #005e3e)',
-  Info: 'var(--feedback-info-text, #14171d)',
+  Error: 'var(--feedback-error-default, #e4002b)',
+  Warning: 'var(--feedback-warning-default, #ffc929)',
+  Validated: 'var(--feedback-success-default, #08875b)',
+  Info: 'var(--feedback-info-default, #505d74)',
 };
 
 export function Alert({
