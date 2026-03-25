@@ -235,6 +235,7 @@ function SemanticColorGroup({
           const isTextColor = title === 'Text';
           const isPrimaryState = title === 'Primary' && (key === 'default' || key === 'hover' || key === 'active');
           const isFeedbackState = (title === 'Success' || title === 'Error' || title === 'Info') && (key === 'default' || key === 'hover' || key === 'active');
+          const isFeedbackText = (title === 'Success' || title === 'Error' || title === 'Warning' || title === 'Info') && key === 'text';
 
           // Corporate background is always dark in both modes
           const isAlwaysDark = title === 'Background' && key === 'corporate';
@@ -248,7 +249,7 @@ function SemanticColorGroup({
             textColor = '#fff'; // Always white on corporate
           } else if (isTextNegative) {
             textColor = 'var(--text-main)'; // Dark text on white swatch
-          } else if (isPrimaryState || isFeedbackState || isTextColor) {
+          } else if (isPrimaryState || isFeedbackState || isFeedbackText || isTextColor) {
             textColor = 'var(--background-main)'; // Flips with theme
           } else {
             textColor = 'var(--text-main)';
