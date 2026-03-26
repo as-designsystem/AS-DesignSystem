@@ -351,9 +351,10 @@ The CLI is distributed as a **private package** via GitHub Packages under the `@
 ### How it works
 
 - On push to `main`, if files in `packages/cli/` or `packages/core/` changed, GitHub Actions automatically publishes the CLI to GitHub Packages.
-- **Version bumping** is handled by local git hooks:
-  - **Pre-commit:** bumps patch version (`x.x.X+1`) when CLI/core files are staged
-  - **Pre-push:** bumps minor version and resets patch (`x.X+1.0`) when CLI version changed
+- **Version bumping** is handled by a local pre-push git hook:
+  - On push, if CLI/core files changed, automatically bumps patch version (`x.x.X+1`) and commits
+  - Skips if last commit is already a bump (prevents infinite loop)
+  - Hook is in `.git/hooks/pre-push` (not versioned, must be recreated on fresh clone)
 - The workflow file is at `.github/workflows/publish.yml`
 
 ### User onboarding
