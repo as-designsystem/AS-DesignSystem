@@ -3,10 +3,32 @@ import prompts from 'prompts';
 import fs from 'fs-extra';
 import path from 'path';
 import { execSync } from 'child_process';
+import { createRequire } from 'module';
 import { logger } from '../utils/logger';
 import { loadConfig, getResolvedPaths } from '../utils/config';
 import { resolveDependencies, getRegistryItem, getAllRegistryItems } from '../utils/registry';
 import type { RegistryItem, RegistryFile } from '../registry/schema';
+
+const require = createRequire(import.meta.url);
+const packageJson = require('../../package.json');
+
+/**
+ * Check if a newer version of the CLI is available on the registry
+ */
+async function checkForUpdate(): Promise<string | null> {
+  try {
+    const latest = execSync(
+      'npm view @as-designsystem/cli version --registry=https://npm.pkg.github.com 2>/dev/null',
+      { encoding: 'utf-8', timeout: 5000 }
+    ).trim();
+    if (latest && latest !== packageJson.version) {
+      return latest;
+    }
+  } catch {
+    // Silently ignore — network errors shouldn't block the command
+  }
+  return null;
+}
 
 /**
  * Detect package manager used in the project
@@ -213,6 +235,38 @@ export const update = new Command()
   .option('-y, --yes', 'Skip confirmation prompt')
   .action(async (componentNames: string[], options) => {
     const cwd = process.cwd();
+
+    // Check for newer CLI version
+    const latestVersion = await checkForUpdate();
+    if (latestVersion) {
+      logger.warn(`A newer version of the CLI is available: v${packageJson.version} → v${latestVersion}`);
+      logger.info(`Components will only be updated if the CLI itself is up to date.`);
+      logger.break();
+
+      const { shouldUpgrade } = await prompts({
+        type: 'confirm',
+        name: 'shouldUpgrade',
+        message: `Run update with the latest CLI (v${latestVersion})?`,
+        initial: true,
+      });
+
+      if (shouldUpgrade) {
+        const args = componentNames.length > 0 ? componentNames.join(' ') : '';
+        const yesFlag = options.yes ? ' -y' : '';
+        const command = `npx @as-designsystem/cli@${latestVersion} update ${args}${yesFlag}`.trim();
+        logger.info(`Running: ${command}`);
+        logger.break();
+        try {
+          execSync(command, { cwd, stdio: 'inherit' });
+        } catch {
+          process.exit(1);
+        }
+        return;
+      }
+
+      logger.info('Continuing with current version...');
+      logger.break();
+    }
 
     // Load config
     const config = await loadConfig(cwd);
