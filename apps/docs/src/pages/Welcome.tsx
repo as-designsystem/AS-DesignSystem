@@ -30,13 +30,13 @@ export default function Welcome() {
 
         <div className="welcome-quickstart">
           <div className="welcome-code-block">
-            <code>npx @as-design-system/cli init</code>
+            <code>npx @as-designsystem/cli init</code>
             <button
               className="copy-btn"
-              onClick={() => copyToClipboard('npx @as-design-system/cli init')}
+              onClick={() => copyToClipboard('npx @as-designsystem/cli init')}
               title="Copy to clipboard"
             >
-              {copiedCommand === 'npx @as-design-system/cli init' ? (
+              {copiedCommand === 'npx @as-designsystem/cli init' ? (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>

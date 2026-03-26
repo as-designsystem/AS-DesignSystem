@@ -1,5 +1,5 @@
 {
-  "name": "@as-design-system/core",
+  "name": "@as-designsystem/core",
   "version": "0.1.0",
   "description": "Composants React du design system AS",
   "main": "./dist/index.js",

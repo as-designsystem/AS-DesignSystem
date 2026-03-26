@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ProductBanner, Button, Tab } from '@as-design-system/core';
-import '@as-design-system/core/ProductBanner.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/ToolIcons.css';
+import { ProductBanner, Button, Tab } from '@as-designsystem/core';
+import '@as-designsystem/core/ProductBanner.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/ToolIcons.css';
 import CodeModal from '../components/CodeModal';
 import './ProductBanner.css';
 

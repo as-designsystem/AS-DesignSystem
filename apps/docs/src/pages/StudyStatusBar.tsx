@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { StudyStatusBar, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/StudyStatusBar.css';
-import '@as-design-system/core/Spinner.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
+import { StudyStatusBar, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/StudyStatusBar.css';
+import '@as-designsystem/core/Spinner.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
 import './StudyStatusBar.css';
 

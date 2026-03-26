@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { EmptyState, Button, Tab, Icon, emptyStateIllustrations, type EmptyStateIllustration } from '@as-design-system/core';
-import '@as-design-system/core/EmptyState.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Icon.css';
+import { EmptyState, Button, Tab, Icon, emptyStateIllustrations, type EmptyStateIllustration } from '@as-designsystem/core';
+import '@as-designsystem/core/EmptyState.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Icon.css';
 import CodeModal from '../components/CodeModal';
 
 const illustrationNames: EmptyStateIllustration[] = ['Box', 'Folder', 'Mail', 'Bell', 'Document', 'Image'];
@@ -12,9 +12,9 @@ export default function EmptyStatePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
   const [openModal, setOpenModal] = useState<string | null>(null);
 
-  const basicCode = `import { EmptyState, Button } from '@as-design-system/core';
-import '@as-design-system/core/EmptyState.css';
-import '@as-design-system/core/Button.css';
+  const basicCode = `import { EmptyState, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/EmptyState.css';
+import '@as-designsystem/core/Button.css';
 
 <EmptyState
   illustration="Box"  // 'Box' | 'Folder' | 'Mail' | 'Bell' | 'Document' | 'Image'
@@ -28,10 +28,10 @@ import '@as-design-system/core/Button.css';
   }
 />`;
 
-  const customIconCode = `import { EmptyState, Button, Icon } from '@as-design-system/core';
-import '@as-design-system/core/EmptyState.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Icon.css';
+  const customIconCode = `import { EmptyState, Button, Icon } from '@as-designsystem/core';
+import '@as-designsystem/core/EmptyState.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Icon.css';
 
 <EmptyState
   icon={<Icon name="search" size={80} />}

@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { PanelGroup, IconButton, Tab, Button, PanelSectionTitle, PanelButton } from '@as-design-system/core';
-import '@as-design-system/core/PanelGroup.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/PanelSectionTitle.css';
-import '@as-design-system/core/PanelButton.css';
-import '@as-design-system/core/Tooltip.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Spinner.css';
+import { PanelGroup, IconButton, Tab, Button, PanelSectionTitle, PanelButton } from '@as-designsystem/core';
+import '@as-designsystem/core/PanelGroup.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/PanelSectionTitle.css';
+import '@as-designsystem/core/PanelButton.css';
+import '@as-designsystem/core/Tooltip.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Spinner.css';
 import CodeModal from '../components/CodeModal';
 import './PanelGroup.css';
 

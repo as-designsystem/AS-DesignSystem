@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Modal, Button } from '@as-design-system/core';
-import '@as-design-system/core/Modal.css';
-import '@as-design-system/core/Button.css';
+import { Modal, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Modal.css';
+import '@as-designsystem/core/Button.css';
 import './CodeModal.css';
 
 export interface CodeSection {

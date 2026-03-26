@@ -1,11 +1,11 @@
 import { useState, createContext, useContext } from 'react';
 import './Tokens.css';
 import './Colors.css';
-import { colors, Tab, ButtonGroup } from '@as-design-system/core';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/ButtonGroup.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/colors.css';
+import { colors, Tab, ButtonGroup } from '@as-designsystem/core';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/ButtonGroup.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/colors.css';
 
 // Color format types
 type ColorFormat = 'hex' | 'rgb' | 'variable';

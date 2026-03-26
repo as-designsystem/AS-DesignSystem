@@ -7,15 +7,15 @@ import {
   IconButton,
   TextInput,
   type HomePageTab,
-} from '@as-design-system/core';
-import '@as-design-system/core/AppHeader.css';
-import '@as-design-system/core/ProductBanner.css';
-import '@as-design-system/core/HomePageActionBar.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/ToolIcons.css';
+} from '@as-designsystem/core';
+import '@as-designsystem/core/AppHeader.css';
+import '@as-designsystem/core/ProductBanner.css';
+import '@as-designsystem/core/HomePageActionBar.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/TextInput.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/ToolIcons.css';
 import './HomePageTemplate.css';
 
 /**

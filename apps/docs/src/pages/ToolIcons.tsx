@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ToolIcons, type ToolName } from '@as-design-system/core';
-import { Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/ToolIcons.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { ToolIcons, type ToolName } from '@as-designsystem/core';
+import { Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/ToolIcons.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './ToolIcons.css';
 

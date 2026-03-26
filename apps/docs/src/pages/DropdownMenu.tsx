@@ -13,12 +13,12 @@ import {
   Tab,
   Button,
   IconButton,
-} from '@as-design-system/core';
-import '@as-design-system/core/DropdownMenu.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+} from '@as-designsystem/core';
+import '@as-designsystem/core/DropdownMenu.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './DropdownMenu.css';
 

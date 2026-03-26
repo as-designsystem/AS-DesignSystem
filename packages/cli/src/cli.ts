@@ -5,7 +5,7 @@ import { list } from './commands/list';
 import { update } from './commands/update';
 
 const packageJson = {
-  name: '@as-design-system/cli',
+  name: '@as-designsystem/cli',
   version: '0.1.0',
   description: 'CLI tool to add AS Design System components to your project',
 };

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { Spinner, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/Spinner.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { Spinner, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Spinner.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './Spinner.css';
 

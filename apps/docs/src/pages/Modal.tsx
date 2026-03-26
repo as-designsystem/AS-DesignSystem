@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Modal, Button, Tab } from '@as-design-system/core';
-import '@as-design-system/core/Modal.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
+import { Modal, Button, Tab } from '@as-designsystem/core';
+import '@as-designsystem/core/Modal.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
 import './Modal.css';
 

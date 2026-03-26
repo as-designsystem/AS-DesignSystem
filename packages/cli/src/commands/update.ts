@@ -53,21 +53,21 @@ async function installPackages(
 function rewriteImports(content: string, config: any, filePath?: string): string {
   let rewritten = content;
 
-  // Rewrite @as-design-system/core → @/design-system/components
+  // Rewrite @as-designsystem/core → @/design-system/components
   rewritten = rewritten.replace(
-    /@as-design-system\/core/g,
+    /@as-designsystem\/core/g,
     config.aliases.components.replace('/components', '')
   );
 
-  // Rewrite @as-design-system/icons → @/design-system/icons
+  // Rewrite @as-designsystem/icons → @/design-system/icons
   rewritten = rewritten.replace(
-    /@as-design-system\/icons/g,
+    /@as-designsystem\/icons/g,
     config.aliases.icons
   );
 
-  // Rewrite @as-design-system/tokens → @/design-system/tokens
+  // Rewrite @as-designsystem/tokens → @/design-system/tokens
   rewritten = rewritten.replace(
-    /@as-design-system\/tokens/g,
+    /@as-designsystem\/tokens/g,
     config.aliases.tokens
   );
 

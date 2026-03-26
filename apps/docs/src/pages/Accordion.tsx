@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Accordion, Tab, Button, Checkbox, Select } from '@as-design-system/core';
-import '@as-design-system/core/Accordion.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Checkbox.css';
-import '@as-design-system/core/Select.css';
+import { Accordion, Tab, Button, Checkbox, Select } from '@as-designsystem/core';
+import '@as-designsystem/core/Accordion.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Checkbox.css';
+import '@as-designsystem/core/Select.css';
 import CodeModal from '../components/CodeModal';
 import './Accordion.css';
 

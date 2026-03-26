@@ -4,7 +4,7 @@
  */
 
 /* Tokens are exported from the package root */
-/* Users should import: @as-design-system/core/colors.css and @as-design-system/core/typography.css */
+/* Users should import: @as-designsystem/core/colors.css and @as-designsystem/core/typography.css */
 
 .tool-icon {
   display: inline-flex;

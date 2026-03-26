@@ -6,7 +6,7 @@
  *
  * Usage:
  *   import 'ag-grid-community/styles/ag-grid.css';
- *   import '@as-design-system/core/ag-grid-theme.css';
+ *   import '@as-designsystem/core/ag-grid-theme.css';
  *
  *   <AgGridReact className="as-ag-grid" ... />
  *   or for small size:

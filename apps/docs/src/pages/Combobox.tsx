@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Combobox, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/Combobox.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { Combobox, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Combobox.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 
 const countries = [
@@ -45,8 +45,8 @@ export default function ComboboxPage() {
   const [sizeM, setSizeM] = useState<string>('');
   const [sizeL, setSizeL] = useState<string>('');
 
-  const basicCode = `import { Combobox } from '@as-design-system/core';
-import '@as-design-system/core/Combobox.css';
+  const basicCode = `import { Combobox } from '@as-designsystem/core';
+import '@as-designsystem/core/Combobox.css';
 
 const countries = [
   { value: 'fr', label: 'France' },
@@ -63,8 +63,8 @@ const countries = [
   onValueChange={setCountry}
 />`;
 
-  const withIconCode = `import { Combobox } from '@as-design-system/core';
-import '@as-design-system/core/Combobox.css';
+  const withIconCode = `import { Combobox } from '@as-designsystem/core';
+import '@as-designsystem/core/Combobox.css';
 
 <Combobox
   label="Departure Airport"
@@ -76,7 +76,7 @@ import '@as-design-system/core/Combobox.css';
   leftIcon="AIR_airport"
 />`;
 
-  const sizesCode = `import { Combobox } from '@as-design-system/core';
+  const sizesCode = `import { Combobox } from '@as-designsystem/core';
 
 {/* Size XS */}
 <Combobox size="XS" label="Size XS" options={options} />
@@ -90,7 +90,7 @@ import '@as-design-system/core/Combobox.css';
 {/* Size L */}
 <Combobox size="L" label="Size L" options={options} />`;
 
-  const statesCode = `import { Combobox } from '@as-design-system/core';
+  const statesCode = `import { Combobox } from '@as-designsystem/core';
 
 {/* Default */}
 <Combobox state="Default" label="Default" options={options} />

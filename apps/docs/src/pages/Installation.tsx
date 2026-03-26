@@ -3,7 +3,7 @@ import { CodeBlock } from '../components/CodeBlock';
 
 const installSteps = `# 1. Initialize your project
 cd your-react-project
-npx @as-design-system/cli init
+npx @as-designsystem/cli init
 
 # 2. Add components
 asds add button icon-button

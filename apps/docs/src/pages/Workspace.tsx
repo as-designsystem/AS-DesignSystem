@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { Workspace, Tab, Button, StudyTableHeader, StudyRow } from '@as-design-system/core';
-import '@as-design-system/core/Workspace.css';
-import '@as-design-system/core/Avatar.css';
-import '@as-design-system/core/Spinner.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/StudyTableHeader.css';
-import '@as-design-system/core/StudyRow.css';
-import '@as-design-system/core/StudyStatus.css';
-import '@as-design-system/core/Checkbox.css';
-import '@as-design-system/core/IconButton.css';
+import { Workspace, Tab, Button, StudyTableHeader, StudyRow } from '@as-designsystem/core';
+import '@as-designsystem/core/Workspace.css';
+import '@as-designsystem/core/Avatar.css';
+import '@as-designsystem/core/Spinner.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/StudyTableHeader.css';
+import '@as-designsystem/core/StudyRow.css';
+import '@as-designsystem/core/StudyStatus.css';
+import '@as-designsystem/core/Checkbox.css';
+import '@as-designsystem/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
 import './Workspace.css';
 

@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { StudyRow, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/StudyRow.css';
-import '@as-design-system/core/StudyStatus.css';
-import '@as-design-system/core/Checkbox.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Spinner.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tooltip.css';
+import { StudyRow, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/StudyRow.css';
+import '@as-designsystem/core/StudyStatus.css';
+import '@as-designsystem/core/Checkbox.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Spinner.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tooltip.css';
 import CodeModal from '../components/CodeModal';
 import './StudyRow.css';
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { PanelButton } from '@as-design-system/core';
-import { Tab } from '@as-design-system/core';
-import { Button } from '@as-design-system/core';
-import '@as-design-system/core/PanelButton.css';
-import '@as-design-system/core/Tooltip.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { PanelButton } from '@as-designsystem/core';
+import { Tab } from '@as-designsystem/core';
+import { Button } from '@as-designsystem/core';
+import '@as-designsystem/core/PanelButton.css';
+import '@as-designsystem/core/Tooltip.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './PanelButton.css';
 

@@ -32,7 +32,7 @@ Templates typically:
 - Combine multiple composites (AppHeader, Sidebar, Modal, etc.)
 - Include page-level layout and structure
 - Provide a starting point that users customize for their needs
-- Are NOT part of `@as-design-system/core` - they're CLI-only
+- Are NOT part of `@as-designsystem/core` - they're CLI-only
 
 ## Workflow
 
@@ -163,7 +163,7 @@ Test the template:
 | ------------------ | ------------------------ | ------------------------------- |
 | Location           | `packages/core/src/`     | `packages/cli/templates/pages/` |
 | Exported from core | Yes                      | No                              |
-| User imports from  | `@as-design-system/core` | Local file                      |
+| User imports from  | `@as-designsystem/core` | Local file                      |
 | Purpose            | Reusable UI element      | Starting point for a page       |
 | User modifies      | Rarely                   | Always                          |
 

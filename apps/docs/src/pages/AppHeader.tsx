@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { AppHeader, IconButton, Button, Tab } from '@as-design-system/core';
-import '@as-design-system/core/AppHeader.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
+import { AppHeader, IconButton, Button, Tab } from '@as-designsystem/core';
+import '@as-designsystem/core/AppHeader.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
 import './AppHeader.css';
 

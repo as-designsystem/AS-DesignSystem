@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
-import { Tab, Button, NumberInput, Select } from '@as-design-system/core';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/NumberInput.css';
-import '@as-design-system/core/Select.css';
-import '@as-design-system/core/ag-grid-theme.css';
+import { Tab, Button, NumberInput, Select } from '@as-designsystem/core';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/NumberInput.css';
+import '@as-designsystem/core/Select.css';
+import '@as-designsystem/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 
 // Register AG-Grid modules
@@ -179,7 +179,7 @@ export default function AgGridTablePage() {
   ], []);
 
   const filterColFilterCode = `// Enable filters - the ASDS theme styles the filter popup automatically
-import '@as-design-system/core/ag-grid-theme.css';
+import '@as-designsystem/core/ag-grid-theme.css';
 
 const colDefs = [
   { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
@@ -199,13 +199,13 @@ const colDefs = [
   const installCode = `# Install AG-Grid
 npm install ag-grid-community ag-grid-react
 
-# The AS Design System theme is included in @as-design-system/core`;
+# The AS Design System theme is included in @as-designsystem/core`;
 
   const basicUsageCode = `import { useState, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
-import { NumberInput, Select } from '@as-design-system/core';
-import '@as-design-system/core/ag-grid-theme.css';
+import { NumberInput, Select } from '@as-designsystem/core';
+import '@as-designsystem/core/ag-grid-theme.css';
 
 // Register AG-Grid modules
 ModuleRegistry.registerModules([AllCommunityModule]);

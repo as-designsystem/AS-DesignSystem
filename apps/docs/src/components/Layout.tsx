@@ -1,10 +1,10 @@
 import { ReactNode, useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import { Icon, IconButton, TextInput, ScrollableContent } from '@as-design-system/core';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/ScrollableContent.css';
+import { Icon, IconButton, TextInput, ScrollableContent } from '@as-designsystem/core';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/TextInput.css';
+import '@as-designsystem/core/ScrollableContent.css';
 import './Layout.css';
 import CodeModal, { CodeSection } from './CodeModal';
 

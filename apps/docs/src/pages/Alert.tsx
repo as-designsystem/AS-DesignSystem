@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { Alert, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/Alert.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { Alert, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Alert.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './Alert.css';
 

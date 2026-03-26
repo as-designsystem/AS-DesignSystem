@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { HomePageActionBar, Button, Tab, TextInput } from '@as-design-system/core';
-import '@as-design-system/core/HomePageActionBar.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/TextInput.css';
+import { HomePageActionBar, Button, Tab, TextInput } from '@as-designsystem/core';
+import '@as-designsystem/core/HomePageActionBar.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/TextInput.css';
 import CodeModal from '../components/CodeModal';
 import './HomePageActionBar.css';
 

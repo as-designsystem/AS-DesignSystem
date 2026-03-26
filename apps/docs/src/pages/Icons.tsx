@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './Tokens.css';
 import './Icons.css';
-import { Icon, availableIcons, ButtonGroup, Modal, TextInput } from '@as-design-system/core';
-import '@as-design-system/core/ButtonGroup.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/Modal.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/TextInput.css';
+import { Icon, availableIcons, ButtonGroup, Modal, TextInput } from '@as-designsystem/core';
+import '@as-designsystem/core/ButtonGroup.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/Modal.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/TextInput.css';
 
 // List of available icons (automatically synced from Icon component)
 const iconNames = [...availableIcons];

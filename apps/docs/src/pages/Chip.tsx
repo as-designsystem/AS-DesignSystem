@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Chip, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/Chip.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { Chip, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Chip.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './Chip.css';
 

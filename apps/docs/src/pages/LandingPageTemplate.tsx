@@ -14,16 +14,16 @@ import {
   DropdownMenuSeparator,
   type ToolName,
   type PlatformName,
-} from '@as-design-system/core';
-import '@as-design-system/core/AppHeader.css';
-import '@as-design-system/core/ToolTile.css';
-import '@as-design-system/core/ToolIcons.css';
-import '@as-design-system/core/Button.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Chip.css';
-import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/Select.css';
-import '@as-design-system/core/DropdownMenu.css';
+} from '@as-designsystem/core';
+import '@as-designsystem/core/AppHeader.css';
+import '@as-designsystem/core/ToolTile.css';
+import '@as-designsystem/core/ToolIcons.css';
+import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Chip.css';
+import '@as-designsystem/core/TextInput.css';
+import '@as-designsystem/core/Select.css';
+import '@as-designsystem/core/DropdownMenu.css';
 import './LandingPageTemplate.css';
 
 // ---------------------------------------------------------------------------

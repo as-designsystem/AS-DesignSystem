@@ -1,5 +1,5 @@
 {
-  "name": "@as-design-system/cli",
+  "name": "@as-designsystem/cli",
   "version": "0.2.1",
   "description": "CLI tool to add AS Design System components to your project",
   "type": "module",
@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nomanocra/AS-DesignSystem.git"
+    "url": "https://github.com/as-designsystem/AS-DesignSystem.git"
   },
   "license": "MIT"
 }

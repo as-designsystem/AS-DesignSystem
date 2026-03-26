@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Calendar, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/Calendar.css';
-import '@as-design-system/core/TextInput.css';
-import '@as-design-system/core/IconButton.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tooltip.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { Calendar, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/Calendar.css';
+import '@as-designsystem/core/TextInput.css';
+import '@as-designsystem/core/IconButton.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tooltip.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './Calendar.css';
 

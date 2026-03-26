@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { ScrollableContent, Tab, Button } from '@as-design-system/core';
-import '@as-design-system/core/ScrollableContent.css';
-import '@as-design-system/core/Icon.css';
-import '@as-design-system/core/Tab.css';
-import '@as-design-system/core/Button.css';
+import { ScrollableContent, Tab, Button } from '@as-designsystem/core';
+import '@as-designsystem/core/ScrollableContent.css';
+import '@as-designsystem/core/Icon.css';
+import '@as-designsystem/core/Tab.css';
+import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
 import './ScrollableContent.css';
 

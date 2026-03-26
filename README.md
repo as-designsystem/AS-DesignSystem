@@ -16,7 +16,7 @@ as-design-system/
 
 ## Packages
 
-### `@as-design-system/core`
+### `@as-designsystem/core`
 
 Main package containing:
 
@@ -25,7 +25,7 @@ Main package containing:
 - **Design tokens**: Colors, typography
 - **51 SVG icons**: AS icons + Material Icons
 
-### `@as-design-system/cli`
+### `@as-designsystem/cli`
 
 CLI to quickly install components in your project.
 
@@ -116,7 +116,7 @@ Icons will automatically appear in the documentation!
 ### 1. Configurer l'accès (une seule fois)
 
 ```bash
-npm config set @as-design-system:registry https://npm.pkg.github.com && npm config set //npm.pkg.github.com/:_authToken VOTRE_TOKEN
+npm config set @as-designsystem:registry https://npm.pkg.github.com && npm config set //npm.pkg.github.com/:_authToken VOTRE_TOKEN
 ```
 
 > Le token est fourni par l'administrateur du design system.
@@ -125,7 +125,7 @@ npm config set @as-design-system:registry https://npm.pkg.github.com && npm conf
 
 ```bash
 cd your-react-project
-npx @as-design-system/cli init
+npx @as-designsystem/cli init
 asds add button icon text-input modal
 asds list
 ```
