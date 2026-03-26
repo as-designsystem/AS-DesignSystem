@@ -5,6 +5,7 @@ import '@as-designsystem/core/ToolIcons.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ToolIcons.css';
 
 export default function ToolIconsPage() {
@@ -79,9 +80,12 @@ const tools = [
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        ToolIcons
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          ToolIcons
+        </h1>
+        <InstallCommand componentName="tool-icons" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         The ToolIcons component displays AS product tool icons in light or dark mode with customizable sizes.
       </p>

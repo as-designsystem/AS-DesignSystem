@@ -5,6 +5,7 @@ import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Icon.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 
 const illustrationNames: EmptyStateIllustration[] = ['Box', 'Folder', 'Mail', 'Bell', 'Document', 'Image'];
 
@@ -44,12 +45,15 @@ import '@as-designsystem/core/Icon.css';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        EmptyState
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          EmptyState
+        </h1>
+        <InstallCommand componentName="empty-state" />
+      </div>
       <p
         className="label-regular-m"
         style={{

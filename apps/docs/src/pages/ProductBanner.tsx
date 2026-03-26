@@ -5,6 +5,7 @@ import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/ToolIcons.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ProductBanner.css';
 
 export default function ProductBannerPage() {
@@ -87,9 +88,12 @@ function Example() {
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        ProductBanner
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          ProductBanner
+        </h1>
+        <InstallCommand componentName="product-banner" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A banner component for displaying product/tool information with a dark overlay, icon, title, description, and action links.
       </p>

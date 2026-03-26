@@ -7,6 +7,7 @@ import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './TimePicker.css';
 
 export default function TimePickerPage() {
@@ -61,9 +62,12 @@ const [time, setTime] = useState('09:00');
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        TimePicker
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          TimePicker
+        </h1>
+        <InstallCommand componentName="time-picker" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         Time picker with a text input trigger and a scrollable hour/minute dropdown. Supports direct typing in HH:MM format and minute step intervals.
       </p>

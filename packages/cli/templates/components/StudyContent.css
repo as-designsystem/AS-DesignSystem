@@ -11,11 +11,13 @@
   isolation: isolate;
 }
 
-/* Scrollable variant — more spacious, scrolls vertically */
-.study-content--scrollable {
+/* Scrollable variant — inner content div carries padding and gap */
+.study-content__inner--scrollable {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   padding: 32px;
   gap: 24px;
-  overflow-y: auto;
 }
 
 /* Fixed variant — compact, children fill available space */

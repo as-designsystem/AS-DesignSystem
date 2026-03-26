@@ -7,6 +7,7 @@ import '@as-designsystem/core/Icon.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ToolTile.css';
 
 export default function ToolTilePage() {
@@ -74,12 +75,15 @@ export default function ToolTilePage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        ToolTile
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          ToolTile
+        </h1>
+        <InstallCommand componentName="tool-tile" />
+      </div>
       <p
         className="label-regular-m"
         style={{

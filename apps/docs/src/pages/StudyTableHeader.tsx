@@ -6,6 +6,7 @@ import '@as-designsystem/core/Icon.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './StudyTableHeader.css';
 
 export default function StudyTableHeaderPage() {
@@ -62,12 +63,15 @@ export default function StudyTableHeaderPage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        StudyTableHeader
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          StudyTableHeader
+        </h1>
+        <InstallCommand componentName="study-table-header" />
+      </div>
       <p
         className="label-regular-m"
         style={{

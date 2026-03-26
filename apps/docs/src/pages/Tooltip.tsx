@@ -13,6 +13,7 @@ import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Tooltip.css';
 
 export default function TooltipPage() {
@@ -72,12 +73,15 @@ import { IconButton } from '@/design-system/components/IconButton';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Tooltip
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Tooltip
+        </h1>
+        <InstallCommand componentName="tooltip" />
+      </div>
       <p
         className="label-regular-m"
         style={{

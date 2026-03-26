@@ -4,6 +4,7 @@ import '@as-designsystem/core/Checkbox.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Checkbox.css';
 
 export default function CheckboxPage() {
@@ -65,12 +66,15 @@ function MyComponent() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Checkbox
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Checkbox
+        </h1>
+        <InstallCommand componentName="checkbox" />
+      </div>
       <p
         className="label-regular-m"
         style={{

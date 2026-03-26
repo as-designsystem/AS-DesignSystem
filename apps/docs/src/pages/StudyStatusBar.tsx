@@ -5,6 +5,7 @@ import '@as-designsystem/core/Spinner.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './StudyStatusBar.css';
 
 export default function StudyStatusBarPage() {
@@ -66,12 +67,15 @@ import { Button } from '@/design-system/components/Button';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        StudyStatusBar
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          StudyStatusBar
+        </h1>
+        <InstallCommand componentName="study-status-bar" />
+      </div>
       <p
         className="label-regular-m"
         style={{

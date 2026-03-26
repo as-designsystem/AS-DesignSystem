@@ -192,7 +192,11 @@
 }
 
 .content > .scrollable-content-host > .scrollable-content > * {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 48px 64px 64px 64px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Template preview pages - wrapper with 16px margin around and full height */

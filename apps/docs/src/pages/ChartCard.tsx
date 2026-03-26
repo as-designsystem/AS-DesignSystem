@@ -7,6 +7,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Select.css';
 import '@as-designsystem/core/Icon.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ChartCard.css';
 
 export default function ChartCardPage() {
@@ -144,12 +145,15 @@ export default function ChartCardPage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        ChartCard
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          ChartCard
+        </h1>
+        <InstallCommand componentName="chart-card" />
+      </div>
       <p
         className="label-regular-m"
         style={{

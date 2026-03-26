@@ -5,6 +5,7 @@ import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/TextInput.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './HomePageActionBar.css';
 
 export default function HomePageActionBarPage() {
@@ -91,9 +92,12 @@ import { Button } from '@/design-system/components/Button';
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        HomePageActionBar
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          HomePageActionBar
+        </h1>
+        <InstallCommand componentName="home-page-action-bar" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A navigation bar with tabs on the left and fully customizable actions on the right. Pass any components as children (buttons, inputs, selects, etc.).
       </p>

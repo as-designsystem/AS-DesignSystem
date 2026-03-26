@@ -8,6 +8,7 @@ import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Calendar.css';
 
 export default function CalendarPage() {
@@ -106,6 +107,8 @@ const [date, setDate] = useState<Date>();
         Date and month picker with TextInput trigger and calendar dropdown.
         Supports date selection (pick a day) and month selection (pick month + year).
       </p>
+
+      <InstallCommand componentName="calendar" />
 
       {/* Main Tabs */}
       <div className="tabs-container">

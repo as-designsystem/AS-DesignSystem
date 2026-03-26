@@ -4,6 +4,7 @@ import '@as-designsystem/core/Avatar.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Avatar.css';
 
 export default function AvatarPage() {
@@ -54,12 +55,15 @@ export default function AvatarPage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Avatar
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Avatar
+        </h1>
+        <InstallCommand componentName="avatar" />
+      </div>
       <p
         className="label-regular-m"
         style={{

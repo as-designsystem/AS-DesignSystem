@@ -4,6 +4,7 @@ import '@as-designsystem/core/Toggle.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Toggle.css';
 
 export default function TogglePage() {
@@ -62,12 +63,15 @@ function MyComponent() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Toggle
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Toggle
+        </h1>
+        <InstallCommand componentName="toggle" />
+      </div>
       <p
         className="label-regular-m"
         style={{

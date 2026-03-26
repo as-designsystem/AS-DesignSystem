@@ -4,6 +4,7 @@ import '@as-designsystem/core/VButton.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './VButton.css';
 
 export default function VButtonPage() {
@@ -45,9 +46,12 @@ export default function VButtonPage() {
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        VButton
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          VButton
+        </h1>
+        <InstallCommand componentName="vbutton" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         Vertical button component with icon above label. Supports the same variants, sizes and states as Button but in a vertical layout.
       </p>

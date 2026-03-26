@@ -9,6 +9,7 @@ import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Spinner.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './PanelGroup.css';
 
 export default function PanelGroupPage() {
@@ -115,9 +116,12 @@ import { IconButton } from '@/design-system/components/IconButton';
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        PanelGroup
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          PanelGroup
+        </h1>
+        <InstallCommand componentName="panel-group" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A collapsible group header for dark corporate panels. Displays an arrow indicator, a label,
         and optional action buttons visible on hover.

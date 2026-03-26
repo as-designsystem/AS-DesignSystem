@@ -4,6 +4,7 @@ import '@as-designsystem/core/Modal.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Modal.css';
 
 export default function ModalPage() {
@@ -125,9 +126,12 @@ import { Button } from '@/design-system/components/Button';
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        Modal
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          Modal
+        </h1>
+        <InstallCommand componentName="modal" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A dialog component that displays content in a layer above the page with customizable header, content, and footer.
       </p>

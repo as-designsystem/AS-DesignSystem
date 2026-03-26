@@ -7,6 +7,7 @@ import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './PanelButton.css';
 
 export default function PanelButtonPage() {
@@ -69,9 +70,12 @@ export default function PanelButtonPage() {
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        PanelButton
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          PanelButton
+        </h1>
+        <InstallCommand componentName="panel-button" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         Navigation button for dark side panels. Supports expanded (with label) and collapsed (icon-only with tooltip) modes.
       </p>

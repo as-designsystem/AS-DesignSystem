@@ -21,6 +21,7 @@ import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Icon.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './AircraftSelector.css';
 
 // --- Mock tree data ---
@@ -449,12 +450,15 @@ const [perfSource, setPerfSource] = useState<'FMS' | 'BADA'>('FMS');
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        AircraftSelector
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          AircraftSelector
+        </h1>
+        <InstallCommand componentName="aircraft-selector" />
+      </div>
       <p
         className="label-regular-m"
         style={{

@@ -1,3 +1,4 @@
+import { ScrollableContent } from './ScrollableContent';
 import './StudyContent.css';
 
 export type StudyContentVariant = 'Scrollable' | 'Fixed';
@@ -14,7 +15,8 @@ export interface StudyContentProps {
  * A layout container for study page content. Provides consistent padding and gap
  * depending on the content type.
  *
- * - **Scrollable**: More padding (32px) and gap (24px), content scrolls vertically.
+ * - **Scrollable**: More padding (32px) and gap (24px), content scrolls vertically
+ *   with a hover-reveal scrollbar via ScrollableContent.
  *   Use for pages with stacked cards, forms, or charts.
  * - **Fixed**: Less padding (16px) and gap (8px), children fill available space.
  *   Use for tables, maps, or full-size charts.
@@ -36,15 +38,25 @@ export function StudyContent({
   children,
   className = '',
 }: StudyContentProps) {
-  const classes = [
-    'study-content',
-    `study-content--${variant.toLowerCase()}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const baseClasses = ['study-content', className].filter(Boolean).join(' ');
 
-  return <div className={classes}>{children}</div>;
+  if (variant === 'Scrollable') {
+    return (
+      <div className={baseClasses}>
+        <ScrollableContent>
+          <div className="study-content__inner--scrollable">
+            {children}
+          </div>
+        </ScrollableContent>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${baseClasses} study-content--fixed`}>
+      {children}
+    </div>
+  );
 }
 
 export default StudyContent;

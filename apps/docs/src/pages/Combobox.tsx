@@ -4,6 +4,7 @@ import '@as-designsystem/core/Combobox.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 
 const countries = [
   { value: 'fr', label: 'France' },
@@ -109,12 +110,15 @@ import '@as-designsystem/core/Combobox.css';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Combobox
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Combobox
+        </h1>
+        <InstallCommand componentName="combobox" />
+      </div>
       <p
         className="label-regular-m"
         style={{

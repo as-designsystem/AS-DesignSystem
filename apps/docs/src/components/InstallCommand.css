@@ -1,0 +1,34 @@
+.install-command {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: var(--background-inverse, #1a2233);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.install-command__code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-negative, #ffffff);
+  user-select: all;
+}
+
+.install-command__copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.install-command__copy:hover {
+  color: rgba(255, 255, 255, 0.9);
+}

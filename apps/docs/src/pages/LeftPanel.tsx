@@ -11,6 +11,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './LeftPanel.css';
 
 export default function LeftPanelPage() {
@@ -113,12 +114,15 @@ import { PanelButton } from '@/design-system/components/PanelButton';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        LeftPanel
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          LeftPanel
+        </h1>
+        <InstallCommand componentName="left-panel" />
+      </div>
       <p
         className="label-regular-m"
         style={{

@@ -10,6 +10,7 @@ import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tooltip.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './StudyRow.css';
 
 export default function StudyRowPage() {
@@ -99,12 +100,15 @@ export default function StudyRowPage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        StudyRow
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          StudyRow
+        </h1>
+        <InstallCommand componentName="study-row" />
+      </div>
       <p
         className="label-regular-m"
         style={{

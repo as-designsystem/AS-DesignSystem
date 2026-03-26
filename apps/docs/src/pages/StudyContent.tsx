@@ -4,6 +4,7 @@ import '@as-designsystem/core/StudyContent.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './StudyContent.css';
 
 export default function StudyContentPage() {
@@ -27,12 +28,15 @@ export default function StudyContentPage() {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        StudyContent
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          StudyContent
+        </h1>
+        <InstallCommand componentName="study-content" />
+      </div>
       <p
         className="label-regular-m"
         style={{

@@ -6,6 +6,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Tooltip.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ButtonGroup.css';
 
 export default function ButtonGroupPage() {
@@ -269,9 +270,12 @@ function Example() {
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        ButtonGroup
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          ButtonGroup
+        </h1>
+        <InstallCommand componentName="button-group" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-60, #63728a))' }}>
         A group of toggle buttons where one option can be selected at a time. Uses Button and IconButton components internally.
       </p>

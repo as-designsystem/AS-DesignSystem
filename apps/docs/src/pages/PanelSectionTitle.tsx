@@ -6,6 +6,7 @@ import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './PanelSectionTitle.css';
 
 export default function PanelSectionTitlePage() {
@@ -39,9 +40,12 @@ import { PanelButton } from '@/design-system/components/PanelButton';
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        PanelSectionTitle
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          PanelSectionTitle
+        </h1>
+        <InstallCommand componentName="panel-section-title" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         A section title label for dark corporate panels. Used to group panel content into named sections
         (e.g., "Inputs", "Results") with top spacing to separate from the previous section.

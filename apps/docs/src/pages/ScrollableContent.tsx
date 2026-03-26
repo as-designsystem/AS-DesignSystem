@@ -5,6 +5,7 @@ import '@as-designsystem/core/Icon.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './ScrollableContent.css';
 
 export default function ScrollableContentPage() {
@@ -42,12 +43,15 @@ const scrollToTop = () => {
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        ScrollableContent
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          ScrollableContent
+        </h1>
+        <InstallCommand componentName="scrollable-content" />
+      </div>
       <p
         className="label-regular-m"
         style={{

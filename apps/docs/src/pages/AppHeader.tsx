@@ -5,6 +5,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './AppHeader.css';
 
 export default function AppHeaderPage() {
@@ -67,9 +68,12 @@ import { Button } from '@/design-system/components/Button';
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        AppHeader
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          AppHeader
+        </h1>
+        <InstallCommand componentName="app-header" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         Application header component with Airbus logo, app name, and action buttons.
       </p>

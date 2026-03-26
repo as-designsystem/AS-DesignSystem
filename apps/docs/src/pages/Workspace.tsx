@@ -12,6 +12,7 @@ import '@as-designsystem/core/StudyStatus.css';
 import '@as-designsystem/core/Checkbox.css';
 import '@as-designsystem/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Workspace.css';
 
 export default function WorkspacePage() {
@@ -111,12 +112,15 @@ const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Workspace
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Workspace
+        </h1>
+        <InstallCommand componentName="workspace" />
+      </div>
       <p
         className="label-regular-m"
         style={{

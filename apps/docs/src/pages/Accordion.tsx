@@ -6,6 +6,7 @@ import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Checkbox.css';
 import '@as-designsystem/core/Select.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './Accordion.css';
 
 export default function AccordionPage() {
@@ -60,12 +61,15 @@ const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        Accordion
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          Accordion
+        </h1>
+        <InstallCommand componentName="accordion" />
+      </div>
       <p
         className="label-regular-m"
         style={{

@@ -20,6 +20,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './DropdownMenu.css';
 
 export default function DropdownMenuPage() {
@@ -137,12 +138,15 @@ const [showGuides, setShowGuides] = useState(true);
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        DropdownMenu
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          DropdownMenu
+        </h1>
+        <InstallCommand componentName="dropdown-menu" />
+      </div>
       <p
         className="label-regular-m"
         style={{

@@ -4,6 +4,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './IconButton.css';
 
 export default function IconButtonPage() {
@@ -34,9 +35,12 @@ export default function IconButtonPage() {
 
   return (
     <div className="component-page">
-      <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-        IconButton
-      </h1>
+      <div className="page-header">
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+          IconButton
+        </h1>
+        <InstallCommand componentName="icon-button" />
+      </div>
       <p className="label-regular-m" style={{ marginTop: '12px', marginBottom: '24px', color: 'var(--text-secondary, var(--cool-grey-70, #63728a))' }}>
         The IconButton component displays icon-only buttons with different sizes, states, and variants.
       </p>

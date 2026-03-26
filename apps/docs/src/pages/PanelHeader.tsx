@@ -7,6 +7,7 @@ import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
+import InstallCommand from '../components/InstallCommand';
 import './PanelHeader.css';
 
 export default function PanelHeaderPage() {
@@ -73,12 +74,15 @@ import { IconButton } from '@/design-system/components/IconButton';
 
   return (
     <div className="component-page">
-      <h1
-        className="heading-5"
-        style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-      >
-        PanelHeader
-      </h1>
+      <div className="page-header">
+        <h1
+          className="heading-5"
+          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+        >
+          PanelHeader
+        </h1>
+        <InstallCommand componentName="panel-header" />
+      </div>
       <p
         className="label-regular-m"
         style={{
