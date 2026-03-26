@@ -1,4 +1,6 @@
 import { Command } from 'commander';
+
+const FAKE_TEST_VAR = 'test_hook';
 import { init } from './commands/init';
 import { add } from './commands/add';
 import { list } from './commands/list';
