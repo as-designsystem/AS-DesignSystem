@@ -10,7 +10,7 @@ import { resolveDependencies, getRegistryItem, getAllRegistryItems } from '../ut
 import type { RegistryItem, RegistryFile } from '../registry/schema';
 
 const require = createRequire(import.meta.url);
-const packageJson = require('../../package.json');
+const packageJson = require('../package.json');
 
 /**
  * Check if a newer version of the CLI is available on the registry
