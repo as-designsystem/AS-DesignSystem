@@ -111,7 +111,26 @@ pnpm build
 
 Icons will automatically appear in the documentation!
 
-## Using the CLI
+## Installation (utilisateurs)
+
+### 1. Configurer l'accès (une seule fois)
+
+```bash
+npm config set @as-design-system:registry https://npm.pkg.github.com && npm config set //npm.pkg.github.com/:_authToken VOTRE_TOKEN
+```
+
+> Le token est fourni par l'administrateur du design system.
+
+### 2. Utiliser le CLI
+
+```bash
+cd your-react-project
+npx @as-design-system/cli init
+asds add button icon text-input modal
+asds list
+```
+
+## Using the CLI (développement local)
 
 ### In a New Project
 
