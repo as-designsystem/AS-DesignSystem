@@ -35,7 +35,7 @@ export default defineConfig({
   },
   onSuccess: () => {
     // Copy component CSS files to dist
-    const componentCssFiles = ['Alert.css', 'Icon.css', 'Button.css', 'VButton.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'Combobox.css', 'Checkbox.css', 'Toggle.css', 'TextInput.css', 'NumberInput.css', 'Tooltip.css', 'PanelStudyName.css', 'PanelButton.css', 'Spinner.css', 'PanelSectionTitle.css', 'PanelGroup.css', 'Avatar.css', 'Chip.css', 'StudyStatus.css', 'StudyRow.css', 'StudyTableHeader.css', 'DropdownMenu.css', 'StudyContent.css'];
+    const componentCssFiles = ['Alert.css', 'Icon.css', 'Button.css', 'VButton.css', 'ButtonGroup.css', 'IconButton.css', 'Tab.css', 'ToolIcons.css', 'Select.css', 'Combobox.css', 'Checkbox.css', 'Toggle.css', 'TextInput.css', 'NumberInput.css', 'Tooltip.css', 'PanelStudyName.css', 'PanelButton.css', 'Spinner.css', 'PanelSectionTitle.css', 'PanelGroup.css', 'Avatar.css', 'Chip.css', 'StudyStatus.css', 'StudyRow.css', 'StudyTableHeader.css', 'DropdownMenu.css', 'StudyContent.css', 'ScrollableContent.css'];
     componentCssFiles.forEach((file) => {
       const srcCss = join(process.cwd(), 'src', 'components', file);
       const distCss = join(process.cwd(), 'dist', file);

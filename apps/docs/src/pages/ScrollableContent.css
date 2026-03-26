@@ -1,0 +1,22 @@
+.scrollable-demo {
+  height: 240px;
+  border: 1px solid var(--border-default, #d4d9e1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.scrollable-demo__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable-demo__item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--text-main, #14171d);
+  border-bottom: 1px solid var(--border-minimal, #edf0f4);
+}
+
+.scrollable-demo__item:last-child {
+  border-bottom: none;
+}

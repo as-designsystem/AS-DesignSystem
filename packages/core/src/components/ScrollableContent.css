@@ -1,0 +1,83 @@
+/**
+ * ScrollableContent Component Styles
+ *
+ * Discrete hover-reveal scrollbar — consistent UX across browsers and OS.
+ * Uses display:contents on the host so the scrollable div inherits
+ * the parent's sizing context directly.
+ */
+
+/* Host wrapper — zero layout impact */
+.scrollable-content-host {
+  display: contents;
+}
+
+/* Inner scrollable area — fills the parent height so overflow kicks in */
+.scrollable-content {
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Reserve space for scrollbar on hover-capable devices to prevent layout shift */
+@media (hover: hover) {
+  .scrollable-content {
+    scrollbar-gutter: stable;
+  }
+}
+
+/* ── Webkit (Chrome, Safari, Edge) ── */
+
+.scrollable-content::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 99px;
+  border: 1px solid transparent;
+  border-right-width: 2px;
+  background-clip: padding-box;
+}
+
+/* Show scrollbar thumb on self-hover */
+.scrollable-content:hover::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--background-inverse, #1a1d24) 30%, transparent);
+  background-clip: padding-box;
+}
+
+.scrollable-content:hover::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--background-inverse, #1a1d24) 50%, transparent);
+  background-clip: padding-box;
+}
+
+/* Parent-hover pattern — more reliable in Chrome for bounded containers */
+.scrollable-content-host:hover > .scrollable-content::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--background-inverse, #1a1d24) 30%, transparent);
+  background-clip: padding-box;
+}
+
+.scrollable-content-host:hover > .scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--background-inverse, #1a1d24) 50%, transparent);
+  background-clip: padding-box;
+}
+
+.scrollable-content::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ── Firefox ── */
+
+@supports (-moz-appearance: none) {
+  .scrollable-content {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .scrollable-content:hover {
+    scrollbar-color: color-mix(in srgb, var(--background-inverse, #1a1d24) 30%, transparent) transparent;
+  }
+}

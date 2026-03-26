@@ -1,9 +1,10 @@
 import { ReactNode, useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import { Icon, IconButton, TextInput } from '@as-design-system/core';
+import { Icon, IconButton, TextInput, ScrollableContent } from '@as-design-system/core';
 import '@as-design-system/core/IconButton.css';
 import '@as-design-system/core/TextInput.css';
+import '@as-design-system/core/ScrollableContent.css';
 import './Layout.css';
 import CodeModal, { CodeSection } from './CodeModal';
 
@@ -116,6 +117,7 @@ const navSections: NavSectionData[] = [
       { label: 'IconButton', path: '/components/icon-button' },
       { label: 'Modal', path: '/composites/modal' },
       { label: 'NumberInput', path: '/components/number-input' },
+      { label: 'ScrollableContent', path: '/components/scrollable-content' },
       { label: 'Select', path: '/components/select' },
       { label: 'Spinner', path: '/components/spinner' },
       { label: 'Tab', path: '/components/tab' },
@@ -469,27 +471,29 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </div>
         <nav className="sidebar-nav">
-          {filteredSections.map((section) => (
-            <NavSection
-              key={section.title}
-              title={section.title}
-              icon={section.icon}
-              forceOpen={isSearching ? true : undefined}
-            >
-              {section.items.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`nav-link nav-link-sub ${location.pathname === item.path ? 'active' : ''}`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </NavSection>
-          ))}
-          {isSearching && filteredSections.length === 0 && (
-            <div className="search-no-results">No results found</div>
-          )}
+          <ScrollableContent>
+            {filteredSections.map((section) => (
+              <NavSection
+                key={section.title}
+                title={section.title}
+                icon={section.icon}
+                forceOpen={isSearching ? true : undefined}
+              >
+                {section.items.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`nav-link nav-link-sub ${location.pathname === item.path ? 'active' : ''}`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </NavSection>
+            ))}
+            {isSearching && filteredSections.length === 0 && (
+              <div className="search-no-results">No results found</div>
+            )}
+          </ScrollableContent>
         </nav>
       </aside>
       <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>
@@ -504,7 +508,9 @@ export default function Layout({ children }: LayoutProps) {
                 </div>
               </div>
               <div className="browser-chrome__content">
-                {children}
+                <ScrollableContent>
+                  {children}
+                </ScrollableContent>
               </div>
               <div className="template-floating-actions">
                 <span className="tooltip-wrapper" data-tooltip="View code">
@@ -535,7 +541,9 @@ export default function Layout({ children }: LayoutProps) {
             />
           </>
         ) : (
-          children
+          <ScrollableContent>
+            {children}
+          </ScrollableContent>
         )}
       </main>
     </div>

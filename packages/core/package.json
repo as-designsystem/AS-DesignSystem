@@ -57,6 +57,7 @@
     "./EmptyState.css": "./dist/EmptyState.css",
     "./ChartCard.css": "./dist/ChartCard.css",
     "./StudyContent.css": "./dist/StudyContent.css",
+    "./ScrollableContent.css": "./dist/ScrollableContent.css",
     "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
   },
   "scripts": {

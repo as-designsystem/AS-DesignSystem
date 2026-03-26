@@ -987,4 +987,26 @@ export const components: RegistryItem[] = [
     dependencies: [],
     cssImports: [],
   },
+  {
+    name: 'scrollable-content',
+    type: 'component',
+    displayName: 'ScrollableContent',
+    description: 'Scroll container with discrete hover-reveal scrollbar for consistent UX across browsers and OS',
+    files: [
+      {
+        path: 'templates/components/ScrollableContent.tsx',
+        target: 'components/ScrollableContent.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/ScrollableContent.css',
+        target: 'components/ScrollableContent.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    cssImports: [
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

@@ -53,6 +53,7 @@ import AlertPage from './pages/Alert';
 import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
 import StudyContentPage from './pages/StudyContent';
+import ScrollableContentPage from './pages/ScrollableContent';
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
               <Route path="/components/tooltip" element={<TooltipPage />} />
               <Route path="/components/panel-button" element={<PanelButtonPage />} />
               <Route path="/components/panel-study-name" element={<PanelStudyNamePage />} />
+              <Route path="/components/scrollable-content" element={<ScrollableContentPage />} />
               <Route path="/components/spinner" element={<SpinnerPage />} />
               <Route path="/components/panel-section-title" element={<PanelSectionTitlePage />} />
               <Route path="/components/panel-group" element={<PanelGroupPage />} />
