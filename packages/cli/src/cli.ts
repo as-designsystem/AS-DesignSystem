@@ -1,14 +1,12 @@
 import { Command } from 'commander';
+import { createRequire } from 'module';
 import { init } from './commands/init';
 import { add } from './commands/add';
 import { list } from './commands/list';
 import { update } from './commands/update';
 
-const packageJson = {
-  name: '@as-designsystem/cli',
-  version: '0.1.0',
-  description: 'CLI tool to add AS Design System components to your project',
-};
+const require = createRequire(import.meta.url);
+const packageJson = require('../package.json');
 
 export function createCLI() {
   const program = new Command()
