@@ -1,6 +1,6 @@
 {
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @as-designsystem/core build && pnpm --filter @as-designsystem/docs build",
+  "buildCommand": "pnpm --filter @as-designsystem/core build && cd apps/docs && npx vite build",
   "outputDirectory": "apps/docs/dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
