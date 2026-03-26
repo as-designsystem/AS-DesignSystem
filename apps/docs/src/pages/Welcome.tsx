@@ -167,31 +167,31 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* CLI Commands */}
+      {/* Quick CLI Commands */}
       <section>
-        <h2 className="welcome-section-title">CLI Commands</h2>
+        <h2 className="welcome-section-title">Quick CLI Commands</h2>
         <div className="welcome-commands">
           <div className="example-container">
             <div className="welcome-command">
-              <code className="welcome-command-code">asds init</code>
+              <code className="welcome-command-code">npx @as-designsystem/cli init</code>
               <span className="welcome-command-desc">Initialize the design system in your project</span>
             </div>
           </div>
           <div className="example-container">
             <div className="welcome-command">
-              <code className="welcome-command-code">asds add button</code>
+              <code className="welcome-command-code">npx @as-designsystem/cli add button</code>
               <span className="welcome-command-desc">Add a component to your project</span>
             </div>
           </div>
           <div className="example-container">
             <div className="welcome-command">
-              <code className="welcome-command-code">asds list</code>
+              <code className="welcome-command-code">npx @as-designsystem/cli list</code>
               <span className="welcome-command-desc">List all available components</span>
             </div>
           </div>
           <div className="example-container">
             <div className="welcome-command">
-              <code className="welcome-command-code">asds update</code>
+              <code className="welcome-command-code">npx @as-designsystem/cli update</code>
               <span className="welcome-command-desc">Update installed components to latest version</span>
             </div>
           </div>

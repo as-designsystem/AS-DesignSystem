@@ -5,9 +5,12 @@ const setupAccess = `# Configure private registry access (one-time setup)
 npm config set @as-designsystem:registry https://npm.pkg.github.com
 npm config set //npm.pkg.github.com/:_authToken YOUR_TOKEN`;
 
+const installGlobal = `# Install the CLI globally
+npm install -g @as-designsystem/cli`;
+
 const installSteps = `# 1. Initialize your project
 cd your-react-project
-npx @as-designsystem/cli init
+asds init
 
 # 2. Add components
 asds add button icon-button
@@ -50,7 +53,15 @@ export default function Installation() {
       </section>
 
       <section className="tokens-section">
-        <h2>2. Install and Use</h2>
+        <h2>2. Install the CLI</h2>
+        <CodeBlock code={installGlobal} language="bash" />
+        <p style={{ marginTop: '16px' }}>
+          This gives you access to the <code>asds</code> command globally. To update the CLI later, run the same command.
+        </p>
+      </section>
+
+      <section className="tokens-section">
+        <h2>3. Use the CLI</h2>
         <CodeBlock code={installSteps} language="bash" />
         <p style={{ marginTop: '24px' }}>The CLI will automatically:</p>
         <ul>
@@ -62,7 +73,7 @@ export default function Installation() {
       </section>
 
       <section className="tokens-section">
-        <h2>3. Project Structure</h2>
+        <h2>4. Project Structure</h2>
         <CodeBlock code={projectStructure} language="bash" />
       </section>
     </div>
