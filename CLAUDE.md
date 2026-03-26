@@ -340,6 +340,40 @@ asds add home-page     # Add a template
 
 ---
 
+## Publishing & Distribution
+
+The CLI is distributed as a **private package** via GitHub Packages under the `@as-designsystem` scope.
+
+**GitHub org:** `as-designsystem`
+**Package:** `@as-designsystem/cli`
+**Registry:** `https://npm.pkg.github.com`
+
+### How it works
+
+- On push to `main`, if files in `packages/cli/` or `packages/core/` changed, GitHub Actions automatically publishes the CLI to GitHub Packages.
+- **Version bumping** is handled by local git hooks:
+  - **Pre-commit:** bumps patch version (`x.x.X+1`) when CLI/core files are staged
+  - **Pre-push:** bumps minor version and resets patch (`x.X+1.0`) when CLI version changed
+- The workflow file is at `.github/workflows/publish.yml`
+
+### User onboarding
+
+Users configure their npm to access the private registry (one-time):
+```bash
+npm config set @as-designsystem:registry https://npm.pkg.github.com
+npm config set //npm.pkg.github.com/:_authToken TOKEN
+```
+
+Then use the CLI normally:
+```bash
+npx @as-designsystem/cli init
+asds add button
+```
+
+The access token (classic PAT with `read:packages` scope) is managed by the project admin and shared with users.
+
+---
+
 ## Build Commands
 
 ```bash
@@ -366,6 +400,8 @@ cd apps/docs && pnpm dev
 - **CSS hot reload:** Not available for core. Run `pnpm build` after CSS changes.
 - **Documentation:** Always use DS components (Tab, Button) in doc pages
 - **All text in English**
+- **Package scope:** `@as-designsystem` (matches GitHub org `as-designsystem`)
+- **Private distribution:** CLI published to GitHub Packages, not public npm
 
 ---
 
