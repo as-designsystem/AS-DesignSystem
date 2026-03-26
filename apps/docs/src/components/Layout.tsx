@@ -495,6 +495,7 @@ export default function Layout({ children }: LayoutProps) {
             )}
           </ScrollableContent>
         </nav>
+        <div className="sidebar-version">v{__DS_VERSION__}</div>
       </aside>
       <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>
         {isTemplatePreview ? (
