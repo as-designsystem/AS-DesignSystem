@@ -3,6 +3,9 @@ name: Publish CLI to GitHub Packages
 on:
   push:
     branches: [main]
+    paths:
+      - 'packages/cli/**'
+      - 'packages/core/**'
 
 jobs:
   publish:
