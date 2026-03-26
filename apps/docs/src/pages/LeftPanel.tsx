@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LeftPanel, PanelHeader, PanelButton, PanelGroup, PanelSectionTitle, IconButton, Tab, Button } from '@as-designsystem/core';
 import '@as-designsystem/core/LeftPanel.css';
+import '@as-designsystem/core/ScrollableContent.css';
 import '@as-designsystem/core/PanelHeader.css';
 import '@as-designsystem/core/PanelStudyName.css';
 import '@as-designsystem/core/PanelButton.css';

@@ -984,7 +984,7 @@ export const components: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: [],
+    dependencies: ['scrollable-content'],
     cssImports: [],
   },
   {

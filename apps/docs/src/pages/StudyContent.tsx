@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StudyContent, Tab, Button } from '@as-designsystem/core';
 import '@as-designsystem/core/StudyContent.css';
+import '@as-designsystem/core/ScrollableContent.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import CodeModal from '../components/CodeModal';

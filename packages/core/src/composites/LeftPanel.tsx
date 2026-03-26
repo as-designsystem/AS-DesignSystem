@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollableContent } from '../components/ScrollableContent';
 import './LeftPanel.css';
 
 export interface LeftPanelProps {
@@ -59,7 +60,11 @@ export function LeftPanel({
     <aside className={containerClasses}>
       {header && <div className="left-panel__header">{header}</div>}
 
-      <div className="left-panel__body">{children}</div>
+      <div className="left-panel__body">
+        <ScrollableContent>
+          <div className="left-panel__body-inner">{children}</div>
+        </ScrollableContent>
+      </div>
 
       {footer && <div className="left-panel__footer">{footer}</div>}
     </aside>

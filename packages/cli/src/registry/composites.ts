@@ -120,7 +120,7 @@ export const composites: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['panel-header', 'panel-button'],
+    dependencies: ['panel-header', 'panel-button', 'scrollable-content'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

@@ -26,10 +26,12 @@
 .left-panel__body {
   flex: 1;
   min-height: 0;
+  /* Force light scrollbar thumb on dark corporate background */
+  --background-inverse: #ffffff;
+}
+
+.left-panel__body-inner {
   padding: var(--spacing-m, 16px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-gutter: stable;
 }
 
 /* ============================================================================
