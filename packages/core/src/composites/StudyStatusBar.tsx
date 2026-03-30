@@ -23,6 +23,11 @@ export interface StudyStatusBarProps {
    */
   actions?: ReactNode;
   /**
+   * Optional custom icon name to override the default status icon.
+   * Has no effect when status is 'Computing' (always shows Spinner).
+   */
+  icon?: string;
+  /**
    * Spinner variant used when status is 'Computing'
    * @default 'arc'
    */
@@ -65,6 +70,7 @@ export function StudyStatusBar({
   title,
   description,
   actions,
+  icon,
   spinnerVariant = 'arc',
   spinnerValue,
   className = '',
@@ -82,7 +88,7 @@ export function StudyStatusBar({
         {status === 'Computing' ? (
           <Spinner variant={spinnerVariant} value={spinnerValue} size={24} color="var(--text-secondary, #63728a)" />
         ) : (
-          <Icon name={statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
+          <Icon name={icon || statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
         )}
       </div>
 

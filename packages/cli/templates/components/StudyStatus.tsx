@@ -14,6 +14,11 @@ export interface StudyStatusProps {
    */
   label?: string;
   /**
+   * Optional custom icon name to override the default state icon.
+   * Has no effect when state is 'Computing' (always shows Spinner).
+   */
+  icon?: string;
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -34,9 +39,17 @@ export interface StudyStatusProps {
  * <StudyStatus state="Warning" />
  * ```
  */
+const stateIconMap: Record<Exclude<StudyStatusState, 'Computing'>, { name: string; color: string }> = {
+  Computed: { name: 'check', color: 'var(--primary-default, #063b9e)' },
+  Failed: { name: 'close', color: 'var(--feedback-error-default, #e4002b)' },
+  Draft: { name: 'edit', color: 'var(--text-secondary, #63728a)' },
+  Warning: { name: 'warning', color: 'var(--feedback-warning-default, #ffc929)' },
+};
+
 export function StudyStatus({
   state,
   label,
+  icon,
   className = '',
 }: StudyStatusProps) {
   const displayLabel = label || state;
@@ -48,20 +61,11 @@ export function StudyStatus({
   ].filter(Boolean).join(' ');
 
   const renderIcon = () => {
-    switch (state) {
-      case 'Computed':
-        return <Icon name="check" size={16} color="var(--primary-default, #063b9e)" />;
-      case 'Computing':
-        return <Spinner size={16} variant="arc" color="var(--text-tertiary, #8e99ab)" />;
-      case 'Failed':
-        return <Icon name="close" size={16} color="var(--feedback-error-default, #e4002b)" />;
-      case 'Draft':
-        return <Icon name="edit" size={16} color="var(--text-secondary, #63728a)" />;
-      case 'Warning':
-        return <Icon name="warning" size={16} color="var(--feedback-warning-default, #ffc929)" />;
-      default:
-        return null;
+    if (state === 'Computing') {
+      return <Spinner size={16} variant="arc" color="var(--text-tertiary, #8e99ab)" />;
     }
+    const { name, color } = stateIconMap[state];
+    return <Icon name={icon || name} size={16} color={color} />;
   };
 
   return (

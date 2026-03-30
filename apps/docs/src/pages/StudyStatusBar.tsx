@@ -65,6 +65,17 @@ import { Button } from '@/design-system/components/Button';
   }
 />`;
 
+  const customIconCode = `import { StudyStatusBar } from '@/design-system/composites/StudyStatusBar';
+import { Button } from '@/design-system/components/Button';
+
+<StudyStatusBar
+  status="Ready"
+  icon="flight"
+  title="Flight plan ready"
+  description="All parameters are set."
+  actions={<Button label="COMPUTE STUDY" size="M" onClick={() => computeStudy()} />}
+/>`;
+
   return (
     <div className="component-page">
       <div className="page-header">
@@ -176,6 +187,40 @@ import { Button } from '@/design-system/components/Button';
               </div>
             </div>
           </section>
+
+          {/* Custom Icon */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Custom Icon
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('customIcon')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="study-status-bar-demo">
+                <StudyStatusBar
+                  status="Ready"
+                  icon="flight"
+                  title="Flight plan ready"
+                  description="All parameters are set."
+                  actions={<Button label="COMPUTE STUDY" size="M" onClick={() => console.log('Compute')} />}
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -228,6 +273,12 @@ import { Button } from '@/design-system/components/Button';
                   <td>Action elements displayed on the right (Button, IconButton, etc.)</td>
                 </tr>
                 <tr>
+                  <td><code>icon</code></td>
+                  <td><code>string</code></td>
+                  <td>-</td>
+                  <td>Custom icon name to override the default status icon. No effect on Computing status.</td>
+                </tr>
+                <tr>
                   <td><code>className</code></td>
                   <td><code>string</code></td>
                   <td><code>''</code></td>
@@ -245,6 +296,12 @@ import { Button } from '@/design-system/components/Button';
         onClose={() => setOpenModal(null)}
         title="StudyStatusBar — All Statuses"
         code={basicCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'customIcon'}
+        onClose={() => setOpenModal(null)}
+        title="StudyStatusBar — Custom Icon"
+        code={customIconCode}
       />
     </div>
   );

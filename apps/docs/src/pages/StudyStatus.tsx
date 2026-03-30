@@ -26,6 +26,13 @@ export default function StudyStatusPage() {
 <StudyStatus state="Computed" label="Terminé" />
 <StudyStatus state="Computing" label="En cours..." />`;
 
+  const customIconCode = `import { StudyStatus } from '@/design-system/components/StudyStatus';
+
+<StudyStatus state="Computed" icon="flight" />
+<StudyStatus state="Failed" icon="AIR_engine" />
+<StudyStatus state="Draft" icon="AIR_landing_gear" />
+<StudyStatus state="Warning" icon="AIR_tail" />`;
+
   return (
     <div className="component-page">
       <div className="page-header">
@@ -131,6 +138,37 @@ export default function StudyStatusPage() {
               </div>
             </div>
           </section>
+
+          {/* Custom Icons */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Custom Icons
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('customIcon')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="study-status-demo-grid">
+                <StudyStatus state="Computed" icon="flight" />
+                <StudyStatus state="Failed" icon="AIR_engine" />
+                <StudyStatus state="Draft" icon="AIR_landing_gear" />
+                <StudyStatus state="Warning" icon="AIR_tail" />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -170,6 +208,12 @@ export default function StudyStatusPage() {
                 <td>Optional custom label</td>
               </tr>
               <tr>
+                <td><code>icon</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>Custom icon name to override the default state icon. No effect on Computing state.</td>
+              </tr>
+              <tr>
                 <td><code>className</code></td>
                 <td><code>string</code></td>
                 <td><code>''</code></td>
@@ -192,6 +236,12 @@ export default function StudyStatusPage() {
         onClose={() => setOpenModal(null)}
         title="Custom Labels"
         code={customLabelCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'customIcon'}
+        onClose={() => setOpenModal(null)}
+        title="Custom Icons"
+        code={customIconCode}
       />
     </div>
   );
