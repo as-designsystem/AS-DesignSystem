@@ -41,7 +41,7 @@ export default function ChartCardPage() {
   }
 >
   <div className="chart-placeholder">
-    <Icon name="database" size={32} color="var(--cool-grey-70, #63728a)" />
+    <Icon name="broken_image" size={32} color="var(--cool-grey-70, #63728a)" />
     <span>Sorry, data can't be loaded</span>
     <Button
       label="Refresh"
@@ -282,7 +282,7 @@ export default function ChartCardPage() {
                 }
               >
                 <div className="chart-placeholder">
-                  <Icon name="database" size={32} color="var(--cool-grey-70, #63728a)" />
+                  <Icon name="broken_image" size={32} color="var(--cool-grey-70, #63728a)" />
                   <span>Sorry, data can't be loaded</span>
                   <Button
                     label="Refresh"
