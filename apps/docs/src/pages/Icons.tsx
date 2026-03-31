@@ -8,7 +8,7 @@ import '@as-designsystem/core/Modal.css';
 import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/TextInput.css';
 
-// List of available icons (automatically synced from Icon component)
+// List of available icons (synced from Icon component)
 const iconNames = [...availableIcons];
 
 // Available sizes (default is 24)
