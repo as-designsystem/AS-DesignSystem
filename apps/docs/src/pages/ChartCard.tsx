@@ -26,7 +26,30 @@ export default function ChartCardPage() {
   }
 >
   {/* Your chart, map, or table here */}
-  <div className="chart-placeholder">Chart Content</div>
+  <div className="chart-placeholder">Put your content here</div>
+</ChartCard>`;
+
+  const emptyStateCode = `import { ChartCard, IconButton, Button, Icon } from '@/design-system';
+
+<ChartCard
+  title="Chart Title"
+  actions={
+    <>
+      <IconButton icon="download" size="S" variant="Ghost" alt="Download" />
+      <IconButton icon="open_in_full" size="S" variant="Ghost" alt="Fullscreen" />
+    </>
+  }
+>
+  <div className="chart-placeholder">
+    <Icon name="database" size={32} color="var(--cool-grey-70, #63728a)" />
+    <span>Sorry, data can't be loaded</span>
+    <Button
+      label="Refresh"
+      leftIcon="refresh"
+      size="S"
+      variant="Outlined"
+    />
+  </div>
 </ChartCard>`;
 
   const withHeaderCenterCode = `import { ChartCard, IconButton, Select } from '@/design-system';
@@ -221,8 +244,52 @@ export default function ChartCardPage() {
                 }
               >
                 <div className="chart-placeholder">
-                  <Icon name="broken_image" size={32} color="var(--cool-grey-70, #63728a)" />
-                  <span>Sorry. No Data to display.</span>
+                  <span>Put your content here</span>
+                </div>
+              </ChartCard>
+            </div>
+          </section>
+
+          {/* Empty State */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Empty State
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('emptyState')}
+              />
+            </div>
+            <div className="chart-card-demo">
+              <ChartCard
+                title="Chart Title"
+                actions={
+                  <>
+                    <IconButton icon="download" size="S" variant="Ghost" alt="Download" />
+                    <IconButton icon="open_in_full" size="S" variant="Ghost" alt="Fullscreen" />
+                  </>
+                }
+              >
+                <div className="chart-placeholder">
+                  <Icon name="database" size={32} color="var(--cool-grey-70, #63728a)" />
+                  <span>Sorry, data can't be loaded</span>
+                  <Button
+                    label="Refresh"
+                    leftIcon="refresh"
+                    size="S"
+                    variant="Outlined"
+                  />
                 </div>
               </ChartCard>
             </div>
@@ -514,6 +581,12 @@ export default function ChartCardPage() {
         onClose={() => setOpenModal(null)}
         title="Basic ChartCard"
         sections={[{ title: 'ChartCard.tsx', language: 'tsx', code: basicCode }]}
+      />
+      <CodeModal
+        isOpen={openModal === 'emptyState'}
+        onClose={() => setOpenModal(null)}
+        title="ChartCard Empty State"
+        sections={[{ title: 'ChartCard.tsx', language: 'tsx', code: emptyStateCode }]}
       />
       <CodeModal
         isOpen={openModal === 'headerCenter'}
