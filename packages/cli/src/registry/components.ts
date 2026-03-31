@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (143 icons)
+      // SVG icon assets (144 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -131,6 +131,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/notifications.svg', target: 'assets/svg/icons/notifications.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/open_in_full.svg', target: 'assets/svg/icons/open_in_full.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/open_in_new.svg', target: 'assets/svg/icons/open_in_new.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/pause.svg', target: 'assets/svg/icons/pause.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/play.svg', target: 'assets/svg/icons/play.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/playlist_play.svg', target: 'assets/svg/icons/playlist_play.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/receipt_long.svg', target: 'assets/svg/icons/receipt_long.svg', type: 'component' },

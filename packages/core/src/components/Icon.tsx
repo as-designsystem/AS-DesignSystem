@@ -48,6 +48,7 @@ import buildIcon from '../assets/svg/icons/build.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
 import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
+import pauseIcon from '../assets/svg/icons/pause.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
 import checkCircleIcon from '../assets/svg/icons/check_circle.svg?raw';
@@ -258,6 +259,7 @@ const iconMap: Record<string, string> = {
   'notifications': notificationsIcon,
   'open_in_full': openInFullIcon,
   'open_in_new': openInNewIcon,
+  'pause': pauseIcon,
   'play': playIcon,
   'playlist_play': playlistPlayIcon,
   'receipt_long': receiptLongIcon,
@@ -405,6 +407,7 @@ export const availableIcons = [
   'notifications',
   'open_in_full',
   'open_in_new',
+  'pause',
   'play',
   'playlist_play',
   'receipt_long',
