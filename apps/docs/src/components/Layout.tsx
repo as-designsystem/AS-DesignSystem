@@ -15,6 +15,7 @@ interface LayoutProps {
 interface NavItem {
   label: string;
   path: string;
+  separator?: boolean;
 }
 
 interface NavSectionData {
@@ -92,7 +93,7 @@ const navSections: NavSectionData[] = [
     ],
   },
   {
-    title: 'Basics',
+    title: 'Basic Components',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" />
@@ -128,22 +129,7 @@ const navSections: NavSectionData[] = [
     ],
   },
   {
-    title: 'Data',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <line x1="3" y1="9" x2="21" y2="9" />
-        <line x1="3" y1="15" x2="21" y2="15" />
-        <line x1="9" y1="3" x2="9" y2="21" />
-        <line x1="15" y1="3" x2="15" y2="21" />
-      </svg>
-    ),
-    items: [
-      { label: 'AG-Grid Tables', path: '/components/ag-grid-table' },
-    ],
-  },
-  {
-    title: 'AS Generics',
+    title: 'AS Components',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -159,40 +145,35 @@ const navSections: NavSectionData[] = [
       { label: 'StudyStatusBar', path: '/composites/study-status-bar' },
       { label: 'ToolIcons', path: '/components/tool-icons' },
       { label: 'ToolTile', path: '/composites/tool-tile' },
-    ],
-  },
-  {
-    title: 'Home Components',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
-    items: [
+      { label: 'Home Page', path: '', separator: true },
       { label: 'HomePageActionBar', path: '/composites/home-page-action-bar' },
       { label: 'ProductBanner', path: '/composites/product-banner' },
       { label: 'StudyRow', path: '/components/study-row' },
       { label: 'StudyStatus', path: '/components/study-status' },
       { label: 'StudyTableHeader', path: '/components/study-table-header' },
       { label: 'Workspace', path: '/composites/workspace' },
-    ],
-  },
-  {
-    title: 'Panel Components',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <line x1="9" y1="3" x2="9" y2="21" />
-      </svg>
-    ),
-    items: [
+      { label: 'StudyPanel', path: '', separator: true },
       { label: 'LeftPanel', path: '/composites/left-panel' },
       { label: 'PanelButton', path: '/components/panel-button' },
       { label: 'PanelGroup', path: '/components/panel-group' },
       { label: 'PanelHeader', path: '/composites/panel-header' },
       { label: 'PanelSectionTitle', path: '/components/panel-section-title' },
       { label: 'PanelStudyName', path: '/components/panel-study-name' },
+    ],
+  },
+  {
+    title: 'Data Grid',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <line x1="3" y1="9" x2="21" y2="9" />
+        <line x1="3" y1="15" x2="21" y2="15" />
+        <line x1="9" y1="3" x2="9" y2="21" />
+        <line x1="15" y1="3" x2="15" y2="21" />
+      </svg>
+    ),
+    items: [
+      { label: 'AG-Grid Tables', path: '/components/ag-grid-table' },
     ],
   },
   {
@@ -428,6 +409,7 @@ export default function Layout({ children }: LayoutProps) {
         ...section,
         items: section.items.filter(
           (item) =>
+            item.separator ||
             item.label.toLowerCase().includes(query) ||
             section.title.toLowerCase().includes(query)
         ),
@@ -479,15 +461,21 @@ export default function Layout({ children }: LayoutProps) {
                 icon={section.icon}
                 forceOpen={isSearching ? true : undefined}
               >
-                {section.items.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`nav-link nav-link-sub ${location.pathname === item.path ? 'active' : ''}`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {section.items.map((item) =>
+                  item.separator ? (
+                    <div key={item.label} className="nav-subsection-title legend-bold">
+                      {item.label}
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`nav-link nav-link-sub ${location.pathname === item.path ? 'active' : ''}`}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                )}
               </NavSection>
             ))}
             {isSearching && filteredSections.length === 0 && (

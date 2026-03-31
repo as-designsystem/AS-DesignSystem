@@ -146,9 +146,18 @@
 }
 
 .nav-section-links.open {
-  max-height: 500px;
+  max-height: 1200px;
   opacity: 1;
   margin-top: 4px;
+}
+
+/* Subsection separator titles within a nav section */
+.nav-subsection-title {
+  padding: 12px 8px 4px 11px;
+  color: var(--text-tertiary, #b3bbc8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
 }
 
 .nav-link {
