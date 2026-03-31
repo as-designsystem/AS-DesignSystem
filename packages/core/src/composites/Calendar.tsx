@@ -62,10 +62,15 @@ export interface CalendarProps {
    */
   disabled?: boolean;
   /**
-   * Whether the input is read-only
+   * Whether the input is read-only (no typing, no calendar opening)
    * @default false
    */
   readOnly?: boolean;
+  /**
+   * Pick-only mode: input is read-only but the calendar icon still opens the picker
+   * @default false
+   */
+  pickOnly?: boolean;
   /**
    * Picker mode: 'date' for day selection, 'month' for month+year selection
    * @default 'date'
@@ -211,6 +216,7 @@ export function Calendar({
   placeholder,
   disabled = false,
   readOnly = false,
+  pickOnly = false,
   mode = 'date',
   value,
   onChange,
@@ -347,7 +353,7 @@ export function Calendar({
 
   // Manual input handlers
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (readOnly) return;
+    if (readOnly || pickOnly) return;
     const raw = e.target.value;
     setIsEditing(true);
     setInputText(raw);
@@ -508,18 +514,21 @@ export function Calendar({
     ? (mode === 'date' ? formatHeaderDate(value) : `${MONTH_NAMES_SHORT[value.getMonth()]} ${value.getFullYear()}`)
     : (mode === 'date' ? formatHeaderDate(headerFallback) : `${MONTH_NAMES_SHORT[headerFallback.getMonth()]} ${headerFallback.getFullYear()}`);
 
+  const isInputReadOnly = readOnly || pickOnly;
+  const canOpenPicker = !disabled && !readOnly;
+
   return (
-    <Popover.Root open={isOpen} onOpenChange={handleOpenChange}>
-      <div className={`calendar-container ${className}`}>
+    <Popover.Root open={isOpen} onOpenChange={(open) => { if (canOpenPicker) handleOpenChange(open); }}>
+      <div className={`calendar-container${readOnly ? ' calendar-container--readonly' : ''} ${className}`}>
         <Popover.Anchor asChild>
           <div
             className="calendar-trigger-wrapper"
             onClick={() => {
-              if (readOnly && !disabled) {
+              if (pickOnly && canOpenPicker) {
                 handleOpenChange(!isOpen);
               }
             }}
-            style={readOnly && !disabled ? { cursor: 'pointer' } : undefined}
+            style={pickOnly && canOpenPicker ? { cursor: 'pointer' } : undefined}
           >
             <TextInput
               label={label}
@@ -533,7 +542,7 @@ export function Calendar({
               infoText={infoText}
               placeholder={defaultPlaceholder}
               value={displayValue}
-              readOnly={readOnly}
+              readOnly={isInputReadOnly}
               disabled={disabled}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
@@ -542,7 +551,7 @@ export function Calendar({
               rightIconButton="event"
               onRightIconButtonClick={(e) => {
                 e.preventDefault();
-                if (!disabled) {
+                if (canOpenPicker) {
                   handleOpenChange(!isOpen);
                 }
               }}

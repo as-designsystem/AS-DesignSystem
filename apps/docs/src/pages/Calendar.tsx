@@ -62,7 +62,8 @@ const [date, setDate] = useState<Date>();
   const statesCode = `<Calendar label="Default" mode="date" />
 <Calendar label="Error" mode="date" state="Error" legend="Required" showLegend />
 <Calendar label="Valid" mode="date" state="Valid" legend="Confirmed" showLegend />
-<Calendar label="Disabled" mode="date" disabled />`;
+<Calendar label="Disabled" mode="date" disabled />
+<Calendar label="Read-only" mode="date" readOnly value={new Date(2026, 2, 31)} />`;
 
   const sizesCode = `<Calendar label="XS" mode="date" size="XS" />
 <Calendar label="S" mode="date" size="S" />
@@ -77,12 +78,20 @@ const [date, setDate] = useState<Date>();
   onChange={setDate}
 />
 
-// Read-only — only the calendar icon opens the picker
+// Pick-only — only the calendar icon opens the picker
+<Calendar
+  label="Pick only"
+  mode="date"
+  value={date}
+  onChange={setDate}
+  pickOnly
+/>
+
+// Read-only — no typing, no calendar opening
 <Calendar
   label="Read-only"
   mode="date"
   value={date}
-  onChange={setDate}
   readOnly
 />`;
 
@@ -205,7 +214,7 @@ const [date, setDate] = useState<Date>();
               }}
             >
               By default, the input is editable: type a date manually (dd/mm/yyyy) or use the calendar icon.
-              Set readOnly to restrict to calendar-only selection.
+              Set pickOnly to restrict to calendar-only selection, or readOnly to fully prevent interaction.
             </p>
             <div className="example-container">
               <div className="calendar-examples">
@@ -217,12 +226,18 @@ const [date, setDate] = useState<Date>();
                   placeholder="Type or pick"
                 />
                 <Calendar
-                  label="Read-only"
+                  label="Pick only"
                   mode="date"
                   value={readOnlyDate}
                   onChange={setReadOnlyDate}
-                  readOnly
+                  pickOnly
                   placeholder="Pick only"
+                />
+                <Calendar
+                  label="Read-only"
+                  mode="date"
+                  value={new Date(2026, 2, 31)}
+                  readOnly
                 />
               </div>
             </div>
@@ -343,6 +358,7 @@ const [date, setDate] = useState<Date>();
                 <Calendar label="Error" mode="date" state="Error" legend="Required field" showLegend />
                 <Calendar label="Valid" mode="date" state="Valid" legend="Date confirmed" showLegend />
                 <Calendar label="Disabled" mode="date" disabled />
+                <Calendar label="Read-only" mode="date" readOnly value={new Date(2026, 2, 31)} />
               </div>
             </div>
           </section>
@@ -474,7 +490,13 @@ const [date, setDate] = useState<Date>();
                   <td><code>readOnly</code></td>
                   <td><code>boolean</code></td>
                   <td><code>false</code></td>
-                  <td>When true, the user can only pick via the calendar icon (no manual typing)</td>
+                  <td>Fully read-only: no typing, no calendar opening</td>
+                </tr>
+                <tr>
+                  <td><code>pickOnly</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>false</code></td>
+                  <td>Input is read-only but the calendar icon still opens the picker</td>
                 </tr>
                 <tr>
                   <td><code>placeholder</code></td>

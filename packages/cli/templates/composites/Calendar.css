@@ -17,6 +17,12 @@
   width: 100%;
 }
 
+.calendar-container--readonly .text-input-icon-button {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
 /* ============================================================================
    POPOVER
    ============================================================================ */
