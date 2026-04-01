@@ -438,18 +438,6 @@ export default function Layout({ children }: LayoutProps) {
               onRightIconButtonClick={() => setSearchQuery('')}
               className="sidebar-search"
             />
-            <IconButton
-              icon={isDarkMode ? 'light_mode' : 'dark_mode'}
-              size="XS"
-              variant="Ghost"
-              onClick={() => {
-                const newMode = !isDarkMode;
-                setIsDarkMode(newMode);
-                document.documentElement.classList.toggle('dark', newMode);
-                localStorage.setItem('theme', newMode ? 'dark' : 'light');
-              }}
-              alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            />
           </div>
         </div>
         <nav className="sidebar-nav">
@@ -483,7 +471,21 @@ export default function Layout({ children }: LayoutProps) {
             )}
           </ScrollableContent>
         </nav>
-        <div className="sidebar-version">v{__DS_VERSION__}</div>
+        <div className="sidebar-version">
+          <span>v{__DS_VERSION__}</span>
+          <IconButton
+            icon={isDarkMode ? 'light_mode' : 'dark_mode'}
+            size="XS"
+            variant="Ghost"
+            onClick={() => {
+              const newMode = !isDarkMode;
+              setIsDarkMode(newMode);
+              document.documentElement.classList.toggle('dark', newMode);
+              localStorage.setItem('theme', newMode ? 'dark' : 'light');
+            }}
+            alt={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          />
+        </div>
       </aside>
       <main className={`content ${isTemplatePreview ? 'content--template-preview' : ''}`}>
         {isTemplatePreview ? (
