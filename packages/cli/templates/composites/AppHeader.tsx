@@ -97,7 +97,7 @@ export function AppHeader({
       {/* Right Section: Actions */}
       {actions && (
         <div className="app-header__right">
-          <div className="app-header__actions">{actions}</div>
+          <div className="app-header__actions dark">{actions}</div>
         </div>
       )}
     </header>

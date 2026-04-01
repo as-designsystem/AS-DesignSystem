@@ -64,20 +64,7 @@
    ============================================================================ */
 
 .panel-header__back-button.button--ghost {
-  color: var(--sea-blue-20, #cfddf8);
   align-self: flex-start;
-}
-
-.panel-header__back-button.button--ghost .button__label {
-  color: var(--sea-blue-20, #cfddf8);
-}
-
-.panel-header__back-button.button--ghost:not(:disabled):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.panel-header__back-button.button--ghost:not(:disabled):active {
-  background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* ============================================================================
@@ -126,18 +113,6 @@
   display: inline-flex;
 }
 
-/* Override IconButton ghost colors for dark panel context */
-.panel-header__icon-button.icon-button--ghost {
-  color: var(--sea-blue-20, #cfddf8);
-}
-
-.panel-header__icon-button.icon-button--ghost:not(:disabled):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.panel-header__icon-button.icon-button--ghost:not(:disabled):active {
-  background-color: rgba(255, 255, 255, 0.15);
-}
 
 /* ============================================================================
    TOOLTIP (shown on hover of action wrapper)

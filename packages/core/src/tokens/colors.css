@@ -198,7 +198,8 @@
    ============================================================================ 
 */
 
-html.dark {
+html.dark,
+.dark {
   /* Primary - Lighter blues for dark backgrounds */
   --primary-default: #cfddf8;
   --primary-hover: #b3cbf8;

@@ -123,7 +123,7 @@ export function PanelGroup({
         ) : null}
         <span className="panel-group__label">{label}</span>
       </button>
-      {actions && <span className="panel-group__actions">{actions}</span>}
+      {actions && <span className="panel-group__actions dark">{actions}</span>}
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { PanelSectionTitle, PanelButton, Tab, Button } from '@as-designsystem/core';
+import { PanelSectionTitle, PanelButton, Tab, Button, IconButton } from '@as-designsystem/core';
 import '@as-designsystem/core/PanelSectionTitle.css';
 import '@as-designsystem/core/PanelButton.css';
 import '@as-designsystem/core/Tooltip.css';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/IconButton.css';
 import CodeModal from '../components/CodeModal';
 import InstallCommand from '../components/InstallCommand';
 import './PanelSectionTitle.css';
@@ -25,16 +26,48 @@ export default function PanelSectionTitlePage() {
 <PanelSectionTitle label="Size S" size="S" />
 <PanelSectionTitle label="Size XS" size="XS" />`;
 
+  const actionsCode = `import { PanelSectionTitle } from '@/design-system/components/PanelSectionTitle';
+import { Button } from '@/design-system/components/Button';
+import { IconButton } from '@/design-system/components/IconButton';
+
+{/* With a Button action */}
+<PanelSectionTitle
+  label="Results"
+  actions={<Button label="Download" leftIcon="download" size="XS" variant="Outlined" />}
+/>
+
+{/* With an IconButton action */}
+<PanelSectionTitle
+  label="Options"
+  actions={<IconButton icon="settings" size="XS" variant="Ghost" />}
+/>
+
+{/* With multiple actions */}
+<PanelSectionTitle
+  label="Charts"
+  actions={
+    <>
+      <IconButton icon="refresh" size="XS" variant="Ghost" />
+      <Button label="Export" leftIcon="download" size="XS" variant="Outlined" />
+    </>
+  }
+/>`;
+
   const contextCode = `import { PanelSectionTitle } from '@/design-system/components/PanelSectionTitle';
 import { PanelButton } from '@/design-system/components/PanelButton';
+import { Button } from '@/design-system/components/Button';
 
 {/* First section - no top spacing */}
 <PanelSectionTitle label="Inputs" size="S" />
 <PanelButton label="Fleet" icon="AIR_fleet" variant="Selected" size="S" />
 <PanelButton label="Mission" icon="AIR_side" size="S" />
 
-{/* Second section - top spacing separates from above */}
-<PanelSectionTitle label="Results" size="S" />
+{/* Second section with action button */}
+<PanelSectionTitle
+  label="Results"
+  size="S"
+  actions={<Button label="Download" leftIcon="download" size="XS" variant="Outlined" />}
+/>
 <PanelButton label="Economics" icon="apps" size="S" />
 <PanelButton label="Charts" icon="info" size="S" />`;
 
@@ -128,6 +161,43 @@ import { PanelButton } from '@/design-system/components/PanelButton';
             </div>
           </section>
 
+          {/* Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('actions')}
+              />
+            </div>
+            <div className="example-container--dark">
+              <div className="panel-section-title-demo-area panel-section-title-demo-area--narrow">
+                <PanelSectionTitle
+                  label="Results"
+                  actions={<Button label="Download" leftIcon="download" size="XS" variant="Outlined" />}
+                />
+                <PanelSectionTitle
+                  label="Options"
+                  actions={<IconButton icon="settings" size="XS" variant="Ghost" />}
+                />
+                <PanelSectionTitle
+                  label="Charts"
+                  actions={
+                    <>
+                      <IconButton icon="refresh" size="XS" variant="Ghost" />
+                      <Button label="Export" leftIcon="download" size="XS" variant="Outlined" />
+                    </>
+                  }
+                />
+              </div>
+            </div>
+          </section>
+
           {/* In Context */}
           <section className="component-section">
             <div className="section-header">
@@ -147,7 +217,11 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                 <PanelSectionTitle label="Inputs" size="S" />
                 <PanelButton label="Fleet" icon="AIR_fleet" variant="Selected" size="S" />
                 <PanelButton label="Mission" icon="AIR_side" size="S" />
-                <PanelSectionTitle label="Results" size="S" />
+                <PanelSectionTitle
+                  label="Results"
+                  size="S"
+                  actions={<Button label="Download" leftIcon="download" size="XS" variant="Outlined" />}
+                />
                 <PanelButton label="Economics" icon="apps" size="S" />
                 <PanelButton label="Charts" icon="info" size="S" />
               </div>
@@ -186,6 +260,12 @@ import { PanelButton } from '@/design-system/components/PanelButton';
                   <td>Title size (M: 14px, S: 12px, XS: 10px)</td>
                 </tr>
                 <tr>
+                  <td><code>actions</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td><code>-</code></td>
+                  <td>Action elements (Button, IconButton) displayed on the right, auto-styled for dark mode</td>
+                </tr>
+                <tr>
                   <td><code>className</code></td>
                   <td><code>string</code></td>
                   <td><code>''</code></td>
@@ -209,6 +289,12 @@ import { PanelButton } from '@/design-system/components/PanelButton';
         onClose={() => setOpenModal(null)}
         title="PanelSectionTitle — Sizes"
         code={sizesCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'actions'}
+        onClose={() => setOpenModal(null)}
+        title="PanelSectionTitle — Actions"
+        code={actionsCode}
       />
       <CodeModal
         isOpen={openModal === 'context'}

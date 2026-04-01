@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '../components/Button';
-import { Icon } from '../components/Icon';
 import { PanelStudyName } from '../components/PanelStudyName';
 import { IconButton } from '../components/IconButton';
 import { SimpleTooltip } from '../components/Tooltip';
@@ -100,11 +99,11 @@ export function PanelHeader({
       </div>
 
       {/* Content */}
-      <div className="panel-header__content">
+      <div className="panel-header__content dark">
         {/* Back Home button */}
         <Button
           label="BACK HOME"
-          leftIconComponent={<Icon name="arrow_back" size={12} color="var(--sea-blue-20, #cfddf8)" />}
+          leftIcon="arrow_back"
           variant="Ghost"
           size="M"
           className="panel-header__back-button"
@@ -129,7 +128,6 @@ export function PanelHeader({
                     variant="Ghost"
                     onClick={onDuplicate}
                     alt="Duplicate Study"
-                    className="panel-header__icon-button"
                   />
                 </SimpleTooltip>
               )}

@@ -4,7 +4,9 @@
  */
 
 .panel-section-title {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
@@ -16,6 +18,26 @@
 /* First section title should not have top padding */
 .panel-section-title:first-child {
   padding-top: 0;
+}
+
+/* ============================================================================
+   LABEL
+   ============================================================================ */
+
+.panel-section-title__label {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================================================
+   ACTIONS
+   ============================================================================ */
+
+.panel-section-title__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 /* ============================================================================
@@ -36,3 +58,4 @@
   font-size: 10px;
   line-height: 16px;
 }
+

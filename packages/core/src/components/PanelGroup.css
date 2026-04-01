@@ -126,14 +126,3 @@
   display: flex;
 }
 
-.panel-group__actions .icon-button--ghost {
-  color: var(--sea-blue-20, #cfddf8);
-}
-
-.panel-group__actions .icon-button--ghost:not(:disabled):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.panel-group__actions .icon-button--ghost:not(:disabled):active {
-  background-color: rgba(255, 255, 255, 0.15);
-}

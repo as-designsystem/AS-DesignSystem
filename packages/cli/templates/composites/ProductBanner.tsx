@@ -98,7 +98,7 @@ export function ProductBanner({
       </div>
 
       {/* Content */}
-      <div className="product-banner__content">
+      <div className="product-banner__content dark">
         {/* Header with icon and title */}
         <div className="product-banner__header">
           <ToolIcons tool={tool} size={40} mode="dark" />
