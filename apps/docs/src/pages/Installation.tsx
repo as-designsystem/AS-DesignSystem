@@ -18,6 +18,12 @@ asds add button icon-button
 # 3. List available components
 asds list`;
 
+const updateCli = `# Update the CLI to the latest version
+npm install -g @as-designsystem/cli@latest
+
+# Then update components already installed in your project
+asds update`;
+
 const projectStructure = `your-project/
 ├── src/
 │   ├── design-system/
@@ -73,7 +79,13 @@ export default function Installation() {
       </section>
 
       <section className="tokens-section">
-        <h2>4. Project Structure</h2>
+        <h2>4. Update the CLI</h2>
+        <p>Updating the CLI does not update the components already installed in your project. After updating the CLI, run <code>asds update</code> to sync your project with the latest component versions.</p>
+        <CodeBlock code={updateCli} language="bash" />
+      </section>
+
+      <section className="tokens-section">
+        <h2>5. Project Structure</h2>
         <CodeBlock code={projectStructure} language="bash" />
       </section>
     </div>
