@@ -148,6 +148,7 @@ export function Combobox({
   const [isFiltering, setIsFiltering] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const blurTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Derived states
   const isDisabled = state === 'Disabled';
@@ -254,6 +255,10 @@ export function Combobox({
 
   const handleFocus = () => {
     if (!isDisabled && !isReadOnly) {
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+        blurTimeoutRef.current = null;
+      }
       setIsFiltering(false);
       setOpen(true);
     }
@@ -261,7 +266,8 @@ export function Combobox({
 
   const handleBlur = () => {
     // Small delay to allow click on option to register
-    setTimeout(() => {
+    blurTimeoutRef.current = setTimeout(() => {
+      blurTimeoutRef.current = null;
       setOpen(false);
       setIsFiltering(false);
       if (!allowCustomValue && inputValue) {
