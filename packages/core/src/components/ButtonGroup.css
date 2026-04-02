@@ -9,6 +9,7 @@
   background-color: var(--background-tertiary, #eff1f4);
   border-radius: var(--radius-xs, 3px);
   gap: 4px;
+  user-select: none;
 }
 
 /* Horizontal layout (default) - buttons fit content */

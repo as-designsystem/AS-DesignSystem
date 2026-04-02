@@ -19,6 +19,7 @@
   position: relative;
   color: var(--primary-default, var(--sea-blue-70, #063b9e));
   border-radius: 0;
+  user-select: none;
 }
 
 .tab:focus {
