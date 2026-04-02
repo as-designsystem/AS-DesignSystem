@@ -106,6 +106,8 @@ import listIcon from '../assets/svg/icons/list.svg?raw';
 import logoutIcon from '../assets/svg/icons/logout.svg?raw';
 import mapIcon from '../assets/svg/icons/map.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
+import menuCloseIcon from '../assets/svg/icons/menu_close.svg?raw';
+import menuOpenIcon from '../assets/svg/icons/menu_open.svg?raw';
 import monetizationOnIcon from '../assets/svg/icons/monetization_on.svg?raw';
 import moreHorizIcon from '../assets/svg/icons/more_horiz.svg?raw';
 import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
@@ -252,6 +254,8 @@ const iconMap: Record<string, string> = {
   'logout': logoutIcon,
   'map': mapIcon,
   'menu': menuIcon,
+  'menu_close': menuCloseIcon,
+  'menu_open': menuOpenIcon,
   'monetization_on': monetizationOnIcon,
   'more_horiz': moreHorizIcon,
   'navigate_before': navigateBeforeIcon,
@@ -400,6 +404,8 @@ export const availableIcons = [
   'logout',
   'map',
   'menu',
+  'menu_close',
+  'menu_open',
   'monetization_on',
   'more_horiz',
   'navigate_before',
