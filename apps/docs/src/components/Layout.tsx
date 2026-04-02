@@ -7,6 +7,7 @@ import '@as-designsystem/core/TextInput.css';
 import '@as-designsystem/core/ScrollableContent.css';
 import './Layout.css';
 import CodeModal, { CodeSection } from './CodeModal';
+import { version as dsVersion } from '../../../../packages/cli/package.json';
 
 interface LayoutProps {
   children: ReactNode;
@@ -472,7 +473,7 @@ export default function Layout({ children }: LayoutProps) {
           </ScrollableContent>
         </nav>
         <div className="sidebar-version">
-          <span>v{__DS_VERSION__}</span>
+          <span>v{dsVersion}</span>
           <IconButton
             icon={isDarkMode ? 'light_mode' : 'dark_mode'}
             size="XS"
