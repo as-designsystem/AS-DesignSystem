@@ -84,6 +84,8 @@ import eventIcon from '../assets/svg/icons/event.svg?raw';
 import eventNoteIcon from '../assets/svg/icons/event_note.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterAltIcon from '../assets/svg/icons/filter_alt.svg?raw';
+import filterCloseIcon from '../assets/svg/icons/filter_close.svg?raw';
+import filterOpenIcon from '../assets/svg/icons/filter_open.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import flightIcon from '../assets/svg/icons/flight.svg?raw';
 import flightClassIcon from '../assets/svg/icons/flight_class.svg?raw';
@@ -232,6 +234,8 @@ const iconMap: Record<string, string> = {
   'event_note': eventNoteIcon,
   'filter': filterIcon,
   'filter_alt': filterAltIcon,
+  'filter_close': filterCloseIcon,
+  'filter_open': filterOpenIcon,
   'filter_row': filterRowIcon,
   'flight': flightIcon,
   'flight_class': flightClassIcon,
@@ -382,6 +386,8 @@ export const availableIcons = [
   'event_note',
   'filter',
   'filter_alt',
+  'filter_close',
+  'filter_open',
   'filter_row',
   'flight',
   'flight_class',
