@@ -103,20 +103,18 @@
 
 .icons-modal-copy-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--background-main);
-  border: 1px solid var(--border-moderate);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8px;
+  background: var(--background-tertiary);
+  padding: 4px;
   border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 12px;
-  color: var(--text-main);
-  cursor: pointer;
-  transition: all 0.2s;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.icons-modal-copy-button:hover {
-  background: var(--background-secondary);
+.icons-modal-code-block:hover .icons-modal-copy-button {
+  opacity: 1;
 }
 
 .icons-modal-section-title {

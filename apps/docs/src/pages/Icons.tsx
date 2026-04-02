@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Tokens.css';
 import './Icons.css';
-import { Icon, availableIcons, ButtonGroup, Modal, TextInput } from '@as-designsystem/core';
+import { Button, Icon, IconButton, availableIcons, ButtonGroup, Modal, TextInput } from '@as-designsystem/core';
 import '@as-designsystem/core/ButtonGroup.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Modal.css';
@@ -47,6 +47,19 @@ export default function Icons() {
   const filteredIcons = iconNames.filter((iconName) =>
     iconName.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const downloadSvg = (iconName: string) => {
+    const iconEl = document.querySelector(`.icon-${iconName} svg`);
+    if (!iconEl) return;
+    const svgContent = iconEl.outerHTML;
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${iconName}.svg`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   // Generate code string based on selected settings, omitting default values
   const generateIconCode = (iconName: string) => {
@@ -169,12 +182,15 @@ export default function Icons() {
             {/* Code Example */}
             <div className="icons-modal-section-title">Code</div>
             <div className="icons-modal-code-block">
-              <button
-                className="icons-modal-copy-button"
-                onClick={() => copyToClipboard(generateIconCode(selectedIcon))}
-              >
-                {copiedCode === generateIconCode(selectedIcon) ? '✓ Copied!' : 'Copy'}
-              </button>
+              <div className="icons-modal-copy-button">
+                <IconButton
+                  icon={copiedCode === generateIconCode(selectedIcon) ? 'check' : 'content_copy'}
+                  size="S"
+                  variant="Ghost"
+                  onClick={() => copyToClipboard(generateIconCode(selectedIcon))}
+                  alt="Copy code"
+                />
+              </div>
               <pre>
                 <code>{generateIconCode(selectedIcon)}</code>
               </pre>
@@ -183,21 +199,35 @@ export default function Icons() {
             {/* In Button */}
             <div className="icons-modal-section-title">Used in Button Component</div>
             <div className="icons-modal-code-block">
-              <button
-                className="icons-modal-copy-button"
-                onClick={() =>
-                  copyToClipboard(
-                    `<Button variant="primary" size="M" leftIcon="${selectedIcon}">\n  Click me\n</Button>`
-                  )
-                }
-              >
-                {copiedCode === `<Button variant="primary" size="M" leftIcon="${selectedIcon}">\n  Click me\n</Button>` ? '✓ Copied!' : 'Copy'}
-              </button>
+              <div className="icons-modal-copy-button">
+                <IconButton
+                  icon={copiedCode === `<Button variant="primary" size="M" leftIcon="${selectedIcon}">\n  Click me\n</Button>` ? 'check' : 'content_copy'}
+                  size="S"
+                  variant="Ghost"
+                  onClick={() =>
+                    copyToClipboard(
+                      `<Button variant="primary" size="M" leftIcon="${selectedIcon}">\n  Click me\n</Button>`
+                    )
+                  }
+                  alt="Copy code"
+                />
+              </div>
               <pre>
                 <code>{`<Button variant="primary" size="M" leftIcon="${selectedIcon}">
   Click me
 </Button>`}</code>
               </pre>
+            </div>
+
+            {/* Download SVG */}
+            <div style={{ marginTop: '24px', display: 'flex', justifyContent: 'center' }}>
+              <Button
+                label="Download SVG"
+                variant="Outlined"
+                size="M"
+                leftIcon="download"
+                onClick={() => downloadSvg(selectedIcon)}
+              />
             </div>
           </div>
         )}
