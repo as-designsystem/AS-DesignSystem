@@ -147,6 +147,8 @@ import viewTimelineIcon from '../assets/svg/icons/view_timeline.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
 import warningOutlineIcon from '../assets/svg/icons/warning_outline.svg?raw';
+import zoomInIcon from '../assets/svg/icons/zoom_in.svg?raw';
+import zoomOutIcon from '../assets/svg/icons/zoom_out.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -298,6 +300,8 @@ const iconMap: Record<string, string> = {
   'visibility': visibilityIcon,
   'warning': warningIcon,
   'warning_outline': warningOutlineIcon,
+  'zoom_in': zoomInIcon,
+  'zoom_out': zoomOutIcon,
 };
 
 export const availableIcons = [
@@ -450,6 +454,8 @@ export const availableIcons = [
   'visibility',
   'warning',
   'warning_outline',
+  'zoom_in',
+  'zoom_out',
 ] as const;
 
 export type IconName = typeof availableIcons[number];
