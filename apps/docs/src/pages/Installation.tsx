@@ -2,8 +2,8 @@ import './Tokens.css';
 import { CodeBlock } from '../components/CodeBlock';
 
 const setupAccess = `# Configure private registry access (one-time setup)
-npm config set @as-designsystem:registry https://npm.pkg.github.com
-npm config set //npm.pkg.github.com/:_authToken YOUR_TOKEN`;
+npm config set @as-designsystem:registry https://npm.pkg.github.com --location=project
+npm config set //npm.pkg.github.com/:_authToken YOUR_TOKEN --location=project`;
 
 const installGlobal = `# Install the CLI globally
 npm install -g @as-designsystem/cli`;
