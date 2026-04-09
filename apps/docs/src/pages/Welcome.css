@@ -41,45 +41,114 @@
   max-width: 600px;
 }
 
-/* Quick Start Section */
-.welcome-quickstart {
+/* Section Description */
+.welcome-section-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary, #63728a);
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+/* Installation Method Cards */
+.welcome-install-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.welcome-install-card {
+  position: relative;
   display: flex;
-  gap: 12px;
-  margin-top: 32px;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid var(--border-minimal, #e0e3e9);
+  border-radius: 12px;
+  background-color: var(--background-main, #ffffff);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
 }
 
-.welcome-code-block {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  background-color: var(--cool-grey-100);
-  border-radius: 8px;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 14px;
-  color: var(--white);
-  flex: 1;
-  max-width: 400px;
+.welcome-install-card:hover {
+  border-color: var(--primary-default, #063b9e);
+  box-shadow: 0 4px 16px rgba(6, 59, 158, 0.08);
 }
 
-.welcome-code-block code {
-  flex: 1;
+.welcome-install-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  background-color: var(--primary-default, #063b9e);
+  color: var(--text-negative, #ffffff);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 100px;
+  letter-spacing: 0.02em;
 }
 
-.welcome-code-block .copy-btn {
-  background: none;
-  border: none;
-  color: var(--text-tertiary);
-  cursor: pointer;
-  padding: 4px;
+.welcome-install-card__icon {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s;
+  background-color: var(--t-background, rgba(6, 59, 158, 0.04));
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: var(--primary-default, #063b9e);
 }
 
-.welcome-code-block .copy-btn:hover {
+.welcome-install-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-corporate, #00205b);
+  margin-bottom: 8px;
+}
+
+.welcome-install-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary, #63728a);
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.welcome-install-card__desc code {
+  background-color: var(--background-tertiary, #eff1f4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text-main, #14171d);
+}
+
+.welcome-install-card__code {
+  padding: 10px 14px;
+  background-color: var(--cool-grey-100, #2b2d30);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.welcome-install-card__code code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 13px;
   color: var(--white, #ffffff);
+}
+
+.welcome-install-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-default, #063b9e);
+  transition: gap 0.2s ease;
+}
+
+.welcome-install-card:hover .welcome-install-card__link {
+  gap: 8px;
 }
 
 /* Features Grid */
@@ -159,36 +228,12 @@
   margin-bottom: 24px;
 }
 
-/* Commands List */
-.welcome-commands {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.welcome-command {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.welcome-command-code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 14px;
-  color: var(--text-main, #14171d);
-  background-color: var(--background-secondary, #fafafa);
-  padding: 6px 12px;
-  border-radius: 4px;
-  min-width: 200px;
-}
-
-.welcome-command-desc {
-  font-size: 14px;
-  color: var(--text-secondary, #63728a);
-}
-
 @media (max-width: 768px) {
   .welcome-features {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-install-methods {
     grid-template-columns: 1fr;
   }
 

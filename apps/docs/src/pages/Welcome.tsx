@@ -1,15 +1,7 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Welcome.css';
 
 export default function Welcome() {
-  const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedCommand(text);
-    setTimeout(() => setCopiedCommand(null), 2000);
-  };
-
   return (
     <div className="welcome-page">
       {/* Hero Section */}
@@ -24,50 +16,86 @@ export default function Welcome() {
           Build beautiful apps<br />with full control
         </h1>
         <p className="welcome-subtitle">
-          A comprehensive design system for React. Copy components directly into your project
-          and customize them freely. No runtime dependencies.
+          A React design system for Airline Sciences, compatible with Airbus design guidelines.
+          Install ready-to-use components directly into your project via CLI.
         </p>
-
-        <div className="welcome-quickstart">
-          <div className="welcome-code-block">
-            <code>npx @as-designsystem/cli init</code>
-            <button
-              className="copy-btn"
-              onClick={() => copyToClipboard('npx @as-designsystem/cli init')}
-              title="Copy to clipboard"
-            >
-              {copiedCommand === 'npx @as-designsystem/cli init' ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
       </section>
 
       {/* Stats */}
       <section className="welcome-stats">
         <div className="welcome-stat">
-          <div className="welcome-stat-value">6</div>
+          <div className="welcome-stat-value">28</div>
           <div className="welcome-stat-label">Components</div>
         </div>
         <div className="welcome-stat">
-          <div className="welcome-stat-value">40+</div>
+          <div className="welcome-stat-value">15</div>
+          <div className="welcome-stat-label">Composites</div>
+        </div>
+        <div className="welcome-stat">
+          <div className="welcome-stat-value">150+</div>
           <div className="welcome-stat-label">Icons</div>
         </div>
         <div className="welcome-stat">
-          <div className="welcome-stat-value">20+</div>
+          <div className="welcome-stat-value">22</div>
           <div className="welcome-stat-label">Tool Icons</div>
         </div>
         <div className="welcome-stat">
           <div className="welcome-stat-value">100%</div>
           <div className="welcome-stat-label">TypeScript</div>
+        </div>
+      </section>
+
+      {/* Installation Methods */}
+      <section style={{ marginBottom: '48px' }}>
+        <h2 className="welcome-section-title">Get Started</h2>
+        <p className="welcome-section-desc">
+          Choose the installation method that best fits your workflow. Both require a one-time registry configuration with your access token.
+        </p>
+        <div className="welcome-install-methods">
+          <Link to="/getting-started/local-installation" className="welcome-install-card">
+            <div className="welcome-install-card__badge">Recommended</div>
+            <div className="welcome-install-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+              </svg>
+            </div>
+            <h3 className="welcome-install-card__title">Local Installation</h3>
+            <p className="welcome-install-card__desc">
+              Install per-project using <code>npx</code>. No global setup needed. Ideal for teams where each project manages its own dependencies.
+            </p>
+            <div className="welcome-install-card__code">
+              <code>npx @as-designsystem/cli init</code>
+            </div>
+            <span className="welcome-install-card__link">
+              Get started
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </span>
+          </Link>
+
+          <Link to="/getting-started/global-installation" className="welcome-install-card">
+            <div className="welcome-install-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+            <h3 className="welcome-install-card__title">Global Installation</h3>
+            <p className="welcome-install-card__desc">
+              Install the CLI globally on your machine. Use the <code>asds</code> command directly from any project without <code>npx</code>.
+            </p>
+            <div className="welcome-install-card__code">
+              <code>asds init</code>
+            </div>
+            <span className="welcome-install-card__link">
+              Get started
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
 
@@ -162,37 +190,6 @@ export default function Welcome() {
               <p className="welcome-feature-desc">
                 Install only what you need. Each component is independent and self-contained.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick CLI Commands */}
-      <section>
-        <h2 className="welcome-section-title">Quick CLI Commands</h2>
-        <div className="welcome-commands">
-          <div className="example-container">
-            <div className="welcome-command">
-              <code className="welcome-command-code">npx @as-designsystem/cli init</code>
-              <span className="welcome-command-desc">Initialize the design system in your project</span>
-            </div>
-          </div>
-          <div className="example-container">
-            <div className="welcome-command">
-              <code className="welcome-command-code">npx @as-designsystem/cli add button</code>
-              <span className="welcome-command-desc">Add a component to your project</span>
-            </div>
-          </div>
-          <div className="example-container">
-            <div className="welcome-command">
-              <code className="welcome-command-code">npx @as-designsystem/cli list</code>
-              <span className="welcome-command-desc">List all available components</span>
-            </div>
-          </div>
-          <div className="example-container">
-            <div className="welcome-command">
-              <code className="welcome-command-code">npx @as-designsystem/cli update</code>
-              <span className="welcome-command-desc">Update installed components to latest version</span>
             </div>
           </div>
         </div>

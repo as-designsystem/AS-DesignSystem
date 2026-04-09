@@ -70,7 +70,8 @@ const navSections: NavSectionData[] = [
     ),
     items: [
       { label: 'Welcome', path: '/getting-started/welcome' },
-      { label: 'Installation', path: '/getting-started/installation' },
+      { label: 'Local Installation', path: '/getting-started/local-installation' },
+      { label: 'Global Installation', path: '/getting-started/global-installation' },
       { label: 'How to Use', path: '/getting-started/how-to-use' },
       { label: 'Supported Platforms', path: '/getting-started/supported-platforms' },
     ],

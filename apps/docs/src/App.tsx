@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Welcome from './pages/Welcome';
-import Installation from './pages/Installation';
+import LocalInstallation from './pages/LocalInstallation';
+import GlobalInstallation from './pages/GlobalInstallation';
 import HowToUse from './pages/HowToUse';
 import SupportedPlatforms from './pages/SupportedPlatforms';
 import Button from './pages/Button';
@@ -69,7 +70,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/getting-started/welcome" replace />} />
               <Route path="/getting-started/welcome" element={<Welcome />} />
-              <Route path="/getting-started/installation" element={<Installation />} />
+              <Route path="/getting-started/local-installation" element={<LocalInstallation />} />
+              <Route path="/getting-started/global-installation" element={<GlobalInstallation />} />
               <Route path="/getting-started/how-to-use" element={<HowToUse />} />
               <Route path="/getting-started/supported-platforms" element={<SupportedPlatforms />} />
               <Route path="/tokens/text-styles" element={<TextStyles />} />
