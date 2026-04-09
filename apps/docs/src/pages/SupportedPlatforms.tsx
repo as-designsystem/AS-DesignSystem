@@ -1,4 +1,6 @@
 import './SupportedPlatforms.css';
+import { Icon } from '@as-designsystem/core';
+import '@as-designsystem/core/Icon.css';
 
 // Framework icons as SVG components
 const NextjsIcon = () => (
@@ -118,10 +120,7 @@ export default function SupportedPlatforms() {
           <div className="example-container">
             <div className="requirement-card">
               <div className="requirement-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 6v6l4 2"/>
-                </svg>
+                <Icon name="schedule" size={16} />
               </div>
               <div className="requirement-content">
                 <div className="requirement-title">React</div>
@@ -133,10 +132,7 @@ export default function SupportedPlatforms() {
           <div className="example-container">
             <div className="requirement-card">
               <div className="requirement-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
+                <Icon name="code" size={16} />
               </div>
               <div className="requirement-content">
                 <div className="requirement-title">TypeScript</div>
@@ -171,33 +167,25 @@ export default function SupportedPlatforms() {
         <div className="browsers-grid">
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Chrome / Edge</span>
           </div>
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Firefox</span>
           </div>
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Safari</span>
           </div>
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Mobile Browsers</span>
           </div>
@@ -205,11 +193,7 @@ export default function SupportedPlatforms() {
 
         <div className="info-box">
           <span className="info-box-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
+            <Icon name="info" size={16} />
           </span>
           <span className="info-box-text">
             Internet Explorer is not supported. CSS custom properties (variables) are used extensively throughout the design system.
@@ -226,25 +210,19 @@ export default function SupportedPlatforms() {
         <div className="browsers-grid">
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">macOS</span>
           </div>
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Linux</span>
           </div>
           <div className="browser-item">
             <span className="browser-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+              <Icon name="check" size={16} />
             </span>
             <span className="browser-name">Windows</span>
           </div>

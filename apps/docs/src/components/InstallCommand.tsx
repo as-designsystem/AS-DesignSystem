@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Icon } from '@as-designsystem/core';
+import '@as-designsystem/core/Icon.css';
 import './InstallCommand.css';
 
 interface InstallCommandProps {
@@ -20,14 +22,9 @@ export default function InstallCommand({ componentName }: InstallCommandProps) {
       <code className="install-command__code">{command}</code>
       <button className="install-command__copy" onClick={handleCopy} aria-label="Copy command">
         {copied ? (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
+          <Icon name="check" size={16} />
         ) : (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-          </svg>
+          <Icon name="content_copy" size={16} />
         )}
       </button>
     </div>

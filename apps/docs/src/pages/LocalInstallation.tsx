@@ -1,4 +1,6 @@
 import './Installation.css';
+import { Icon } from '@as-designsystem/core';
+import '@as-designsystem/core/Icon.css';
 import { CodeBlock } from '../components/CodeBlock';
 
 const configureAccess = `# Configure private registry access (one-time setup per project)
@@ -69,11 +71,7 @@ export default function LocalInstallation() {
         </p>
         <CodeBlock code={configureAccess} language="bash" />
         <div className="install-note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
-          </svg>
+          <Icon name="info" size={16} />
           <span>Replace <code>YOUR_TOKEN</code> with the access token provided by your team administrator. This creates a <code>.npmrc</code> file in your project.</span>
         </div>
       </section>
@@ -115,11 +113,7 @@ export default function LocalInstallation() {
         </p>
         <CodeBlock code={updateComponents} language="bash" />
         <div className="install-note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
-          </svg>
+          <Icon name="info" size={16} />
           <span>Since you're using <code>npx</code>, it will always fetch the latest version of the CLI automatically.</span>
         </div>
       </section>
