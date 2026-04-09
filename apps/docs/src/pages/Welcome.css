@@ -159,14 +159,7 @@
   margin-bottom: 48px;
 }
 
-.welcome-feature {
-  transition: all 0.2s ease;
-}
-
-.welcome-feature:hover {
-  border-color: var(--border-moderate, #ced5dd);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
+.welcome-feature {}
 
 .welcome-feature-icon {
   width: 40px;
