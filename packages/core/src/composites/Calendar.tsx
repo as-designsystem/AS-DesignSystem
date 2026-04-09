@@ -268,7 +268,7 @@ export function Calendar({
     if (currentView === 'years' && yearListRef.current) {
       const selectedYearEl = yearListRef.current.querySelector('.calendar-year--selected');
       if (selectedYearEl) {
-        selectedYearEl.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        selectedYearEl.scrollIntoView({ block: 'center', behavior: 'instant' });
       }
     }
   }, [currentView]);
