@@ -103,11 +103,20 @@
 }
 
 .calendar-nav-label {
+  all: unset;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: var(--text-main, #14171d);
+}
+
+.calendar-nav-label--clickable {
+  cursor: pointer;
+}
+
+.calendar-nav-label--clickable:hover {
+  color: var(--primary-hover, #255fcc);
 }
 
 /* ============================================================================

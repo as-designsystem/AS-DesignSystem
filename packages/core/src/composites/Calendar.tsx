@@ -596,9 +596,14 @@ export function Calendar({
                     aria-label="Previous month"
                     tabIndex={-1}
                   />
-                  <span className="calendar-nav-label">
+                  <button
+                    type="button"
+                    className="calendar-nav-label calendar-nav-label--clickable"
+                    onClick={() => setCurrentView('months')}
+                    tabIndex={-1}
+                  >
                     {MONTH_NAMES[displayMonth]} {displayYear}
-                  </span>
+                  </button>
                   <IconButton
                     icon="navigate_next"
                     size="XS"
@@ -638,9 +643,14 @@ export function Calendar({
                     aria-label="Previous year"
                     tabIndex={-1}
                   />
-                  <span className="calendar-nav-label">
+                  <button
+                    type="button"
+                    className="calendar-nav-label calendar-nav-label--clickable"
+                    onClick={handleYearClick}
+                    tabIndex={-1}
+                  >
                     {displayYear}
-                  </span>
+                  </button>
                   <IconButton
                     icon="navigate_next"
                     size="XS"

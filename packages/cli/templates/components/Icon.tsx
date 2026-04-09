@@ -84,6 +84,8 @@ import eventIcon from '../assets/svg/icons/event.svg?raw';
 import eventNoteIcon from '../assets/svg/icons/event_note.svg?raw';
 import filterIcon from '../assets/svg/icons/filter.svg?raw';
 import filterAltIcon from '../assets/svg/icons/filter_alt.svg?raw';
+import filterCloseIcon from '../assets/svg/icons/filter_close.svg?raw';
+import filterOpenIcon from '../assets/svg/icons/filter_open.svg?raw';
 import filterRowIcon from '../assets/svg/icons/filter_row.svg?raw';
 import flightIcon from '../assets/svg/icons/flight.svg?raw';
 import flightClassIcon from '../assets/svg/icons/flight_class.svg?raw';
@@ -106,6 +108,8 @@ import listIcon from '../assets/svg/icons/list.svg?raw';
 import logoutIcon from '../assets/svg/icons/logout.svg?raw';
 import mapIcon from '../assets/svg/icons/map.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
+import menuCloseIcon from '../assets/svg/icons/menu_close.svg?raw';
+import menuOpenIcon from '../assets/svg/icons/menu_open.svg?raw';
 import monetizationOnIcon from '../assets/svg/icons/monetization_on.svg?raw';
 import moreHorizIcon from '../assets/svg/icons/more_horiz.svg?raw';
 import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
@@ -143,6 +147,8 @@ import viewTimelineIcon from '../assets/svg/icons/view_timeline.svg?raw';
 import visibilityIcon from '../assets/svg/icons/visibility.svg?raw';
 import warningIcon from '../assets/svg/icons/warning.svg?raw';
 import warningOutlineIcon from '../assets/svg/icons/warning_outline.svg?raw';
+import zoomInIcon from '../assets/svg/icons/zoom_in.svg?raw';
+import zoomOutIcon from '../assets/svg/icons/zoom_out.svg?raw';
 
 // Build iconMap from imported icons
 const iconMap: Record<string, string> = {
@@ -230,6 +236,8 @@ const iconMap: Record<string, string> = {
   'event_note': eventNoteIcon,
   'filter': filterIcon,
   'filter_alt': filterAltIcon,
+  'filter_close': filterCloseIcon,
+  'filter_open': filterOpenIcon,
   'filter_row': filterRowIcon,
   'flight': flightIcon,
   'flight_class': flightClassIcon,
@@ -252,6 +260,8 @@ const iconMap: Record<string, string> = {
   'logout': logoutIcon,
   'map': mapIcon,
   'menu': menuIcon,
+  'menu_close': menuCloseIcon,
+  'menu_open': menuOpenIcon,
   'monetization_on': monetizationOnIcon,
   'more_horiz': moreHorizIcon,
   'navigate_before': navigateBeforeIcon,
@@ -290,6 +300,8 @@ const iconMap: Record<string, string> = {
   'visibility': visibilityIcon,
   'warning': warningIcon,
   'warning_outline': warningOutlineIcon,
+  'zoom_in': zoomInIcon,
+  'zoom_out': zoomOutIcon,
 };
 
 export const availableIcons = [
@@ -378,6 +390,8 @@ export const availableIcons = [
   'event_note',
   'filter',
   'filter_alt',
+  'filter_close',
+  'filter_open',
   'filter_row',
   'flight',
   'flight_class',
@@ -400,6 +414,8 @@ export const availableIcons = [
   'logout',
   'map',
   'menu',
+  'menu_close',
+  'menu_open',
   'monetization_on',
   'more_horiz',
   'navigate_before',
@@ -438,6 +454,8 @@ export const availableIcons = [
   'visibility',
   'warning',
   'warning_outline',
+  'zoom_in',
+  'zoom_out',
 ] as const;
 
 export type IconName = typeof availableIcons[number];

@@ -11,6 +11,7 @@
   position: relative;
   isolation: isolate;
   width: 100%;
+  user-select: none;
 }
 
 /* ── Loader ── */
