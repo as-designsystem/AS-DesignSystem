@@ -2,6 +2,7 @@
 .numberinput-variants-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 48px;
   align-items: flex-start;
 }

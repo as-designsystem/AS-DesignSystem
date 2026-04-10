@@ -18,6 +18,15 @@
   box-sizing: border-box;
 }
 
+.number-input-container--label-left {
+  flex-direction: row;
+  align-items: center;
+}
+
+.number-input-container--label-left .number-input-label-container {
+  flex-shrink: 0;
+}
+
 /* ============================================================================
    LABEL
    ============================================================================ */

@@ -174,14 +174,28 @@ import '@as-designsystem/core/Combobox.css';
                 onClick={() => setOpenModal('basic')}
               />
             </div>
-            <div className="example-container" style={{ maxWidth: '320px' }}>
-              <Combobox
-                label="Country"
-                placeholder="Search country..."
-                options={countries}
-                value={country}
-                onValueChange={setCountry}
-              />
+            <div className="example-container">
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end' }}>
+                <div style={{ width: '300px' }}>
+                  <Combobox
+                    label="Country"
+                    placeholder="Search country..."
+                    options={countries}
+                    value={country}
+                    onValueChange={setCountry}
+                  />
+                </div>
+                <div style={{ width: '300px' }}>
+                  <Combobox
+                    label="Country"
+                    placeholder="Search country..."
+                    options={countries}
+                    value={country}
+                    onValueChange={setCountry}
+                    labelPosition="left"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 

@@ -15,6 +15,15 @@
   box-sizing: border-box;
 }
 
+.combobox-container--label-left {
+  flex-direction: row;
+  align-items: center;
+}
+
+.combobox-container--label-left .combobox-label-container {
+  flex-shrink: 0;
+}
+
 /* ============================================================================
    LABEL
    ============================================================================ */

@@ -110,18 +110,30 @@ const [time, setTime] = useState('09:00');
               />
             </div>
             <div className="example-container">
-              <div className="time-picker-examples">
-                <TimePicker
-                  label="Start time"
-                  value={basicTime}
-                  onChange={setBasicTime}
-                />
-                <TimePicker
-                  label="End time"
-                  value={basicTime}
-                  onChange={setBasicTime}
-                  placeholder="--:--"
-                />
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end' }}>
+                <div style={{ width: '250px' }}>
+                  <TimePicker
+                    label="Start time"
+                    value={basicTime}
+                    onChange={setBasicTime}
+                  />
+                </div>
+                <div style={{ width: '250px' }}>
+                  <TimePicker
+                    label="End time"
+                    value={basicTime}
+                    onChange={setBasicTime}
+                    placeholder="--:--"
+                  />
+                </div>
+                <div style={{ width: '250px' }}>
+                  <TimePicker
+                    label="Start time"
+                    value={basicTime}
+                    onChange={setBasicTime}
+                    labelPosition="left"
+                  />
+                </div>
               </div>
             </div>
           </section>

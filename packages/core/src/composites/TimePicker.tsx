@@ -84,6 +84,11 @@ export interface TimePickerProps {
    */
   onOpenChange?: (open: boolean) => void;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -142,6 +147,7 @@ export function TimePicker({
   step = 1,
   open: controlledOpen,
   onOpenChange,
+  labelPosition = 'top',
   className = '',
 }: TimePickerProps) {
   const isControlled = controlledOpen !== undefined;
@@ -252,6 +258,7 @@ export function TimePicker({
               showOptional={showOptional}
               showInfo={showInfo}
               infoText={infoText}
+              labelPosition={labelPosition}
               placeholder={placeholder}
               value={displayValue}
               disabled={disabled}

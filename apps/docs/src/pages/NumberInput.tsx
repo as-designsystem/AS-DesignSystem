@@ -141,6 +141,41 @@ export default function NumberInputPage() {
       {/* Examples Tab */}
       {activeTab === 'examples' && (
         <>
+          {/* Basic */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Basic
+              </h2>
+            </div>
+            <div className="example-container">
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end' }}>
+                <div style={{ width: '300px' }}>
+                  <NumberInput
+                    label="Quantity"
+                    value={0}
+                    onChange={() => {}}
+                  />
+                </div>
+                <div style={{ width: '300px' }}>
+                  <NumberInput
+                    label="Quantity"
+                    value={0}
+                    onChange={() => {}}
+                    labelPosition="left"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Variants */}
           <section className="component-section">
             <div className="section-header">
@@ -420,67 +455,6 @@ export default function NumberInputPage() {
             </div>
           </section>
 
-          {/* Controlled Input Example */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Controlled Input
-              </h2>
-            </div>
-            <div className="example-container">
-              <div className="numberinput-dual-columns">
-                <div className="numberinput-column">
-                  <span className="variant-label">Default</span>
-                  <NumberInput
-                    label="Quantity"
-                    value={quantity}
-                    min={0}
-                    max={99}
-                    onChange={setQuantity}
-                  />
-                  <NumberInput
-                    label="Temperature"
-                    value={temperature}
-                    step={5}
-                    min={-40}
-                    max={50}
-                    onChange={setTemperature}
-                    legend={`Current: ${temperature}°C`}
-                    showLegend
-                  />
-                </div>
-                <div className="numberinput-column">
-                  <span className="variant-label">Stepper</span>
-                  <NumberInput
-                    label="Quantity"
-                    value={quantityStepper}
-                    variant="Stepper"
-                    min={0}
-                    max={99}
-                    onChange={setQuantityStepper}
-                  />
-                  <NumberInput
-                    label="Temperature"
-                    value={temperatureStepper}
-                    variant="Stepper"
-                    step={5}
-                    min={-40}
-                    max={50}
-                    onChange={setTemperatureStepper}
-                    legend={`Current: ${temperatureStepper}°C`}
-                    showLegend
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
         </>
       )}
 

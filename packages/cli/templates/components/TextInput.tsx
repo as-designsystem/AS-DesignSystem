@@ -83,6 +83,11 @@ export interface TextInputProps
    */
   onRightIconButtonClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -126,6 +131,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       onRightIconButtonClick,
       disabled = false,
       readOnly = false,
+      labelPosition = 'top',
       className = '',
       ...inputProps
     },
@@ -165,6 +171,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       isError && 'text-input-container--error',
       isValid && 'text-input-container--valid',
       isReadOnly && 'text-input-container--read-only',
+      labelPosition === 'left' && 'text-input-container--label-left',
       className,
     ]
       .filter(Boolean)

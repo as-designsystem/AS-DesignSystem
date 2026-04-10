@@ -89,6 +89,11 @@ export interface NumberInputProps
    */
   onChange?: (value: number) => void;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -133,6 +138,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       onChange,
       disabled = false,
       readOnly = false,
+      labelPosition = 'top',
       className = '',
       onFocus: onFocusProp,
       onBlur: onBlurProp,
@@ -211,6 +217,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       isError && 'number-input-container--error',
       isValid && 'number-input-container--valid',
       isReadOnly && 'number-input-container--read-only',
+      labelPosition === 'left' && 'number-input-container--label-left',
       className,
     ]
       .filter(Boolean)

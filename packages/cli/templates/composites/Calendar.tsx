@@ -106,6 +106,11 @@ export interface CalendarProps {
    */
   onOpenChange?: (open: boolean) => void;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -225,6 +230,7 @@ export function Calendar({
   defaultDate,
   open: controlledOpen,
   onOpenChange,
+  labelPosition = 'top',
   className = '',
 }: CalendarProps) {
   // Popover state
@@ -540,6 +546,7 @@ export function Calendar({
               showOptional={showOptional}
               showInfo={showInfo}
               infoText={infoText}
+              labelPosition={labelPosition}
               placeholder={defaultPlaceholder}
               value={displayValue}
               readOnly={isInputReadOnly}

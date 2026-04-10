@@ -97,6 +97,41 @@ export default function TextInputPage() {
       {/* Examples Tab */}
       {activeTab === 'examples' && (
         <>
+          {/* Basic */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Basic
+              </h2>
+            </div>
+            <div className="example-container">
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end' }}>
+                <div style={{ width: '300px' }}>
+                  <TextInput
+                    label="Label"
+                    placeholder="Enter text..."
+                    size="M"
+                  />
+                </div>
+                <div style={{ width: '300px' }}>
+                  <TextInput
+                    label="Label"
+                    placeholder="Enter text..."
+                    size="M"
+                    labelPosition="left"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Sizes */}
           <section className="component-section">
             <div className="section-header">

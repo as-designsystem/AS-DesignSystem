@@ -83,6 +83,11 @@ export interface SelectProps {
    */
   onValueChange?: (value: string) => void;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Classe CSS additionnelle
    */
   className?: string;
@@ -128,6 +133,7 @@ export function Select({
   options = [],
   value,
   onValueChange,
+  labelPosition = 'top',
   className = '',
   popupContainer,
 }: SelectProps) {
@@ -185,6 +191,7 @@ export function Select({
     'select-container',
     `select-container--${size.toLowerCase()}`,
     `select-container--${state.toLowerCase()}`,
+    labelPosition === 'left' && 'select-container--label-left',
     className,
   ]
     .filter(Boolean)

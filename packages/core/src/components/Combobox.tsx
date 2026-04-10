@@ -98,6 +98,11 @@ export interface ComboboxProps {
    */
   allowCustomValue?: boolean;
   /**
+   * Position of the label relative to the input
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
+  /**
    * Additional CSS class
    */
   className?: string;
@@ -140,6 +145,7 @@ export function Combobox({
   onInputChange,
   emptyText = 'No results found',
   allowCustomValue = false,
+  labelPosition = 'top',
   className = '',
 }: ComboboxProps) {
   const [open, setOpen] = useState(false);
@@ -288,6 +294,7 @@ export function Combobox({
     isError && 'combobox-container--error',
     isValid && 'combobox-container--valid',
     isReadOnly && 'combobox-container--read-only',
+    labelPosition === 'left' && 'combobox-container--label-left',
     className,
   ]
     .filter(Boolean)
