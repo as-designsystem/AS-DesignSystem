@@ -104,6 +104,7 @@ const [date, setDate] = useState<Date>();
         >
           Calendar
         </h1>
+        <InstallCommand componentName="calendar" />
       </div>
       <p
         className="label-regular-m"
@@ -116,8 +117,6 @@ const [date, setDate] = useState<Date>();
         Date and month picker with TextInput trigger and calendar dropdown.
         Supports date selection (pick a day) and month selection (pick month + year).
       </p>
-
-      <InstallCommand componentName="calendar" />
 
       {/* Main Tabs */}
       <div className="tabs-container">
