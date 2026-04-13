@@ -79,7 +79,7 @@
 .combobox-input-wrapper:focus-within,
 .combobox-input-wrapper--open {
   box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
-  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
+  background-color: var(--background-tertiary, #eff1f4);
 }
 
 .combobox-input-wrapper--disabled {
