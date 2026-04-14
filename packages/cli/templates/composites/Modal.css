@@ -53,6 +53,13 @@
   padding: 0;
 }
 
+.modal__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
 .modal__close-button {
   flex-shrink: 0;
 }

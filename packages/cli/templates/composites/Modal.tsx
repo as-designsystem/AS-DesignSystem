@@ -35,6 +35,10 @@ export interface ModalProps {
    */
   closeOnEscape?: boolean;
   /**
+   * Action elements (Button, IconButton) displayed in the header, to the left of the close button
+   */
+  actions?: React.ReactNode;
+  /**
    * Additional class name for the modal container.
    * Use this to customize the modal size (width, height).
    */
@@ -72,6 +76,7 @@ export function Modal({
   footer,
   closeOnOverlayClick = true,
   closeOnEscape = true,
+  actions,
   className = '',
 }: ModalProps) {
   // Handle Escape key press
@@ -123,14 +128,17 @@ export function Modal({
           <h2 id="modal-title" className="modal__title">
             {title}
           </h2>
-          <IconButton
-            icon="close"
-            size="S"
-            variant="Ghost"
-            onClick={onClose}
-            alt="Close modal"
-            className="modal__close-button"
-          />
+          <div className="modal__header-actions">
+            {actions}
+            <IconButton
+              icon="close"
+              size="S"
+              variant="Ghost"
+              onClick={onClose}
+              alt="Close modal"
+              className="modal__close-button"
+            />
+          </div>
         </div>
 
         {/* Content */}

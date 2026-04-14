@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Modal, Button, Tab } from '@as-designsystem/core';
+import { Modal, Button, IconButton, Tab } from '@as-designsystem/core';
 import '@as-designsystem/core/Modal.css';
 import '@as-designsystem/core/Button.css';
+import '@as-designsystem/core/IconButton.css';
 import '@as-designsystem/core/Tab.css';
 import CodeModal from '../components/CodeModal';
 import InstallCommand from '../components/InstallCommand';
@@ -16,6 +17,7 @@ export default function ModalPage() {
   const [fullscreenModalOpen, setFullscreenModalOpen] = useState(false);
   const [hugContentModalOpen, setHugContentModalOpen] = useState(false);
   const [noFooterModalOpen, setNoFooterModalOpen] = useState(false);
+  const [actionsModalOpen, setActionsModalOpen] = useState(false);
 
   const basicCode = `import { useState } from 'react';
 import { Modal } from '@/design-system/composites/Modal';
@@ -95,6 +97,27 @@ import './my-styles.css';
   width: fit-content;
   min-width: 280px;
 }`;
+
+  const actionsCode = `import { Modal } from '@/design-system/composites/Modal';
+import { IconButton } from '@/design-system/components/IconButton';
+import { Button } from '@/design-system/components/Button';
+
+<Modal
+  isOpen={isOpen}
+  onClose={() => setIsOpen(false)}
+  title="Preview"
+  actions={
+    <>
+      <IconButton icon="insert_photo" size="S" variant="Ghost" onClick={handlePhoto} />
+      <IconButton icon="fullscreen" size="S" variant="Ghost" onClick={handleFullscreen} />
+    </>
+  }
+  footer={
+    <Button variant="Default" label="CLOSE" onClick={() => setIsOpen(false)} />
+  }
+>
+  <p>Modal with header actions next to the close button.</p>
+</Modal>`;
 
   const customFooterCode = `import { Modal } from '@/design-system/composites/Modal';
 import { Button } from '@/design-system/components/Button';
@@ -217,6 +240,32 @@ import { Button } from '@/design-system/components/Button';
             </div>
           </section>
 
+          {/* Header Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
+                Header Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('actions')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="modal-examples">
+                <Button
+                  label="Modal with Actions"
+                  variant="Outlined"
+                  size="M"
+                  onClick={() => setActionsModalOpen(true)}
+                />
+              </div>
+            </div>
+          </section>
+
           {/* Custom Footer */}
           <section className="component-section">
             <div className="section-header">
@@ -323,6 +372,29 @@ import { Button } from '@/design-system/components/Button';
           </Modal>
 
           <Modal
+            isOpen={actionsModalOpen}
+            onClose={() => setActionsModalOpen(false)}
+            title="Preview"
+            actions={
+              <>
+                <IconButton icon="insert_photo" size="S" variant="Ghost" onClick={() => {}} alt="Photo" />
+                <IconButton icon="fullscreen" size="S" variant="Ghost" onClick={() => {}} alt="Fullscreen" />
+              </>
+            }
+            footer={
+              <Button
+                variant="Default"
+                label="CLOSE"
+                onClick={() => setActionsModalOpen(false)}
+              />
+            }
+          >
+            <p className="label-regular-m" style={{ color: 'var(--text-main, #14171d)' }}>
+              This modal has action buttons in the header, next to the close button.
+            </p>
+          </Modal>
+
+          <Modal
             isOpen={noFooterModalOpen}
             onClose={() => setNoFooterModalOpen(false)}
             title="Information"
@@ -385,6 +457,12 @@ import { Button } from '@/design-system/components/Button';
                   <td><code>ReactNode</code></td>
                   <td><code>undefined</code></td>
                   <td>Custom footer content (buttons, etc.)</td>
+                </tr>
+                <tr>
+                  <td><code>actions</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td><code>undefined</code></td>
+                  <td>Action elements (Button, IconButton) displayed in the header, to the left of the close button</td>
                 </tr>
                 <tr>
                   <td><code>closeOnOverlayClick</code></td>
@@ -457,6 +535,12 @@ import { Button } from '@/design-system/components/Button';
         onClose={() => setOpenModal(null)}
         title="Custom Sizes Implementation"
         code={customSizeCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'actions'}
+        onClose={() => setOpenModal(null)}
+        title="Header Actions Implementation"
+        code={actionsCode}
       />
       <CodeModal
         isOpen={openModal === 'customFooter'}
