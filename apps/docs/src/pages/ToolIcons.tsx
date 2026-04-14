@@ -36,6 +36,7 @@ export default function ToolIconsPage() {
     'weight-builder',
     'cabin-crew',
     'airsense',
+    'cabinviz',
   ];
 
   const lightCode = `import { ToolIcons } from '@/design-system/components/ToolIcons';
@@ -47,7 +48,8 @@ const tools = [
   'network-tam', 'aoa', 'missionlite', 'lopaexplorer',
   'airline-simulator', 'navdb-editor', 'economicslite',
   'atmosphere', 'ac-config', 'fellofly',
-  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense'
+  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense',
+  'cabinviz'
 ];
 
 {tools.map(tool => (
@@ -63,7 +65,8 @@ const tools = [
   'network-tam', 'aoa', 'missionlite', 'lopaexplorer',
   'airline-simulator', 'navdb-editor', 'economicslite',
   'atmosphere', 'ac-config', 'fellofly',
-  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense'
+  'airline-business-planner', 'weight-builder', 'cabin-crew', 'airsense',
+  'cabinviz'
 ];
 
 {tools.map(tool => (
@@ -221,7 +224,7 @@ const tools = [
                   <td><code>tool</code></td>
                   <td><code>ToolName</code></td>
                   <td><code>'trajopt'</code></td>
-                  <td>Tool name to display (see list of 21 available tools)</td>
+                  <td>Tool name to display (see list of available tools)</td>
                 </tr>
                 <tr>
                   <td><code>mode</code></td>
