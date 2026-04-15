@@ -105,6 +105,18 @@ export interface EmptyStateProps {
  * />
  * ```
  */
+const titleClasses: Record<EmptyStateSize, string> = {
+  M: 'heading-5',
+  S: 'label-bold-l',
+  XS: 'label-bold-s',
+};
+
+const descriptionClasses: Record<EmptyStateSize, string> = {
+  M: 'label-regular-m',
+  S: 'label-regular-s',
+  XS: 'label-regular-xs',
+};
+
 export function EmptyState({
   size = 'M',
   illustration,
@@ -128,9 +140,9 @@ export function EmptyState({
       {displayIcon && <div className="empty-state__icon">{displayIcon}</div>}
 
       <div className="empty-state__content">
-        <h5 className="empty-state__title">{title}</h5>
+        <h5 className={`empty-state__title ${titleClasses[size]}`}>{title}</h5>
         {description && (
-          <p className="empty-state__description">{description}</p>
+          <p className={`empty-state__description ${descriptionClasses[size]}`}>{description}</p>
         )}
       </div>
 

@@ -68,9 +68,6 @@
 
 .workspace__title {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: normal;
   color: var(--text-main, #14171d);
   text-align: left;
   white-space: nowrap;
@@ -96,9 +93,6 @@
   border-radius: var(--radius-xs, 3px);
   background-color: var(--background-tertiary, #eff1f4);
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1;
   color: var(--text-secondary, #63728a);
   white-space: nowrap;
 }
@@ -109,8 +103,6 @@
 
 .workspace__computing-text {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
   color: var(--text-secondary, #63728a);
   white-space: nowrap;
 }
@@ -138,16 +130,12 @@
 
 .workspace__last-modified-label {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
   color: var(--text-tertiary, #b3bbc8);
   white-space: nowrap;
 }
 
 .workspace__last-modified-date {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
   color: var(--text-secondary, #63728a);
   white-space: nowrap;
 }

@@ -44,10 +44,6 @@
 /* Title - Uses label-bold-l token styles */
 .modal__title {
   flex: 1;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 32px;
   color: var(--text-corporate, var(--sea-blue-90, #00205b));
   margin: 0;
   padding: 0;

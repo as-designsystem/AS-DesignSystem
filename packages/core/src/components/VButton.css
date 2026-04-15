@@ -13,8 +13,6 @@
   justify-content: center;
   border: none;
   border-radius: var(--radius-xs, 3px);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
@@ -37,36 +35,26 @@
 .vbutton--xs {
   padding: 4px 8px;
   gap: 4px;
-  font-size: 11px;
-  line-height: 14px;
 }
 
 .vbutton--s {
   padding: 8px 12px;
   gap: 8px;
-  font-size: 12px;
-  line-height: 16px;
 }
 
 .vbutton--m {
   padding: 12px 16px;
   gap: 8px;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .vbutton--l {
   padding: 12px 16px;
   gap: 8px;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .vbutton--xl {
   padding: 12px 16px;
   gap: 8px;
-  font-size: 18px;
-  line-height: 32px;
 }
 
 /* ============================================================================

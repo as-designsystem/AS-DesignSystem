@@ -94,8 +94,8 @@ export function StudyStatusBar({
 
       {/* Content */}
       <div className="study-status-bar__content">
-        <span className="study-status-bar__title">{title}</span>
-        <span className="study-status-bar__description">{description}</span>
+        <span className="study-status-bar__title label-bold-s">{title}</span>
+        <span className="study-status-bar__description label-regular-s">{description}</span>
       </div>
 
       {/* Actions */}

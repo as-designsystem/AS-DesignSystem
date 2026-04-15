@@ -47,7 +47,7 @@ function NavSection({ title, children, defaultOpen = false, icon, forceOpen }: N
       >
         <div className="nav-section-title-wrapper">
           {icon && <span className="nav-section-icon">{icon}</span>}
-          <h2 className="nav-section-title legend-bold">{title}</h2>
+          <h2 className="nav-section-title legend-bold-m">{title}</h2>
         </div>
         <span className={`nav-section-chevron ${open ? 'open' : ''}`}>
           <Icon name="keyboard_arrow_down" size={16} color="var(--text-secondary, #63728a)" />
@@ -454,7 +454,7 @@ export default function Layout({ children }: LayoutProps) {
               >
                 {section.items.map((item) =>
                   item.separator ? (
-                    <div key={item.label} className="nav-subsection-title legend-bold">
+                    <div key={item.label} className="nav-subsection-title legend-bold-m">
                       {item.label}
                     </div>
                   ) : (

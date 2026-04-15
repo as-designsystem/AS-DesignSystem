@@ -240,10 +240,10 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         {/* Label */}
         {showLabel && label && (
           <div className="number-input-label-container">
-            <label className="number-input-label">
+            <label className="number-input-label label-bold-s">
               {label}
               {showOptional && (
-                <span className="number-input-optional"> (Optional)</span>
+                <span className="number-input-optional label-regular-s"> (Optional)</span>
               )}
             </label>
             {showInfo && infoText ? (
@@ -342,7 +342,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
 
         {/* Legend */}
         {showLegend && legend && (
-          <span className="number-input-legend" id={`${label}-legend`}>
+          <span className="number-input-legend label-regular-xs" id={`${label}-legend`}>
             {legend}
           </span>
         )}

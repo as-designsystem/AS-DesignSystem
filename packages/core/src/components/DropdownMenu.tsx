@@ -146,7 +146,7 @@ export function DropdownMenuItem({
           <Icon name={icon} size={16} color={destructive ? 'var(--feedback-error-default, #e4002b)' : undefined} />
         </span>
       )}
-      <span className="dropdown-menu-item__label">{children}</span>
+      <span className="dropdown-menu-item__label label-regular-s">{children}</span>
     </DropdownMenuPrimitive.Item>
   );
 }
@@ -199,7 +199,7 @@ export function DropdownMenuCheckboxItem({
           size={16}
         />
       </span>
-      <span className="dropdown-menu-checkbox-item__label">{children}</span>
+      <span className="dropdown-menu-checkbox-item__label label-regular-s">{children}</span>
     </DropdownMenuPrimitive.CheckboxItem>
   );
 }
@@ -218,7 +218,7 @@ export function DropdownMenuLabel({
   className = '',
 }: DropdownMenuLabelProps) {
   return (
-    <DropdownMenuPrimitive.Label className={`dropdown-menu-label ${className}`}>
+    <DropdownMenuPrimitive.Label className={`dropdown-menu-label label-medium-xs ${className}`}>
       {children}
     </DropdownMenuPrimitive.Label>
   );

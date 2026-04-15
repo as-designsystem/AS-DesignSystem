@@ -57,18 +57,10 @@
 }
 
 .study-status-bar__title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
 }
 
 .study-status-bar__description {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-secondary, #63728a);
 }
 

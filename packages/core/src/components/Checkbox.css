@@ -109,10 +109,6 @@
    ============================================================================ */
 
 .checkbox-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
   cursor: pointer;
   user-select: none;
@@ -124,23 +120,4 @@
 
 .checkbox-container--read-only .checkbox-label {
   cursor: default;
-}
-
-/* ============================================================================
-   SIZE VARIATIONS FOR LABEL
-   ============================================================================ */
-
-.checkbox-container--s .checkbox-label {
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.checkbox-container--m .checkbox-label {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.checkbox-container--l .checkbox-label {
-  font-size: 16px;
-  line-height: 24px;
 }

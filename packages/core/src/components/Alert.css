@@ -54,18 +54,10 @@
 
 .alert__title {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .alert__description {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 /* ── Action Bottom ── */
@@ -86,10 +78,6 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-r3, 3px);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
   color: var(--primary-default, #063b9e);
   cursor: pointer;
   text-decoration: none;
@@ -120,10 +108,6 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-r3, 3px);
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
   color: var(--primary-default, #063b9e);
   cursor: pointer;
   text-decoration: none;

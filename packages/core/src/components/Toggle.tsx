@@ -118,7 +118,7 @@ export function Toggle({
       </Switch.Root>
 
       {showLabel && label && (
-        <label htmlFor={toggleId} className="toggle__label">{label}</label>
+        <label htmlFor={toggleId} className="toggle__label label-regular-s">{label}</label>
       )}
     </div>
   );

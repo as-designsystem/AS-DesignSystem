@@ -7,8 +7,6 @@
   align-items: center;
   border-radius: 1000px;
   background-color: var(--background-tertiary, #eff1f4);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
   color: var(--primary-default, #063b9e);
   box-sizing: border-box;
   transition: background-color 0.15s ease;
@@ -28,40 +26,30 @@
   height: 20px;
   padding: 0 8px;
   gap: 4px;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .chip--s {
   height: 24px;
   padding: 0 8px;
   gap: 4px;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .chip--m {
   height: 32px;
   padding: 0 12px;
   gap: 8px;
-  font-size: 18px;
-  line-height: 32px;
 }
 
 .chip--l {
   height: 40px;
   padding: 0 16px;
   gap: 8px;
-  font-size: 20px;
-  line-height: 32px;
 }
 
 .chip--xl {
   height: 48px;
   padding: 0 20px;
   gap: 8px;
-  font-size: 24px;
-  line-height: 32px;
 }
 
 /* ============================================================================

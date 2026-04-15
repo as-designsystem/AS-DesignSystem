@@ -419,7 +419,7 @@ export function Calendar({
         <button
           key={day}
           type="button"
-          className={dayClasses}
+          className={`${dayClasses} label-regular-s`}
           onClick={() => !isDisabled && handleDaySelect(day)}
           disabled={isDisabled}
           tabIndex={-1}
@@ -461,7 +461,7 @@ export function Calendar({
           <button
             key={monthIndex}
             type="button"
-            className={monthClasses}
+            className={`${monthClasses} label-regular-s`}
             onClick={() => !isDisabled && handleMonthSelect(monthIndex)}
             disabled={isDisabled}
             tabIndex={-1}
@@ -502,7 +502,7 @@ export function Calendar({
         <button
           key={year}
           type="button"
-          className={yearClasses}
+          className={`${yearClasses} label-regular-s`}
           onClick={() => handleYearSelect(year)}
           tabIndex={-1}
         >
@@ -578,13 +578,13 @@ export function Calendar({
             <div className="calendar-header">
               <button
                 type="button"
-                className="calendar-header-year"
+                className="calendar-header-year legend-regular-m"
                 onClick={handleYearClick}
                 tabIndex={-1}
               >
                 {headerYear}
               </button>
-              <div className="calendar-header-date">
+              <div className="calendar-header-date heading-5">
                 {headerDate}
               </div>
             </div>
@@ -605,7 +605,7 @@ export function Calendar({
                   />
                   <button
                     type="button"
-                    className="calendar-nav-label calendar-nav-label--clickable"
+                    className="calendar-nav-label calendar-nav-label--clickable label-regular-s"
                     onClick={() => setCurrentView('months')}
                     tabIndex={-1}
                   >
@@ -625,7 +625,7 @@ export function Calendar({
                 {/* Day headers */}
                 <div className="calendar-day-headers">
                   {DAY_NAMES.map((day) => (
-                    <span key={day} className="calendar-day-header">{day}</span>
+                    <span key={day} className="calendar-day-header legend-regular-m">{day}</span>
                   ))}
                 </div>
 
@@ -652,7 +652,7 @@ export function Calendar({
                   />
                   <button
                     type="button"
-                    className="calendar-nav-label calendar-nav-label--clickable"
+                    className="calendar-nav-label calendar-nav-label--clickable label-regular-s"
                     onClick={handleYearClick}
                     tabIndex={-1}
                   >

@@ -12,8 +12,6 @@
   justify-content: center;
   border: none;
   background: transparent;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
   cursor: pointer;
   box-sizing: border-box;
   position: relative;
@@ -39,44 +37,31 @@
   height: 32px;
   padding: 0 16px;
   gap: 4px;
-  font-size: 12px;
-  line-height: 16px;
 }
 
 .tab--m {
   height: 40px;
   padding: 0 16px;
   gap: 4px;
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .tab--l {
   height: 48px;
   padding: 0 16px;
   gap: 8px;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .tab--xl {
   height: 56px;
   padding: 0 16px;
   gap: 12px;
-  font-size: 18px;
-  line-height: 32px;
 }
 
 /* ============================================================================
    STATUS: Default vs Active
    ============================================================================ */
 
-.tab--default {
-  font-weight: 400;
-}
-
 .tab--active {
-  font-weight: 700;
   color: var(--primary-default, var(--sea-blue-70, #063b9e));
 }
 

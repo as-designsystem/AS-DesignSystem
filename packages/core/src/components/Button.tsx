@@ -70,7 +70,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
 }, ref) => {
   // L'état Disabled écrase la prop disabled
   const isDisabled = state === 'Disabled' || disabled;
-  
+
   // Tailles d'icônes selon la taille du bouton
   const iconSizes: Record<ButtonSize, number> = {
     XS: 12,
@@ -79,15 +79,27 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
     L: 20,
     XL: 24,
   };
-  
+
   const iconSize = iconSizes[size];
-  
+
+  // Typography classes based on size
+  const typographyClasses: Record<ButtonSize, string> = {
+    XS: 'label-bold-xs',
+    S: 'label-bold-xs',
+    M: 'label-bold-s',
+    L: 'label-bold-m',
+    XL: 'label-bold-l',
+  };
+
+  const typographyClass = typographyClasses[size];
+
   // Classes CSS
   const buttonClasses = [
     'button',
     `button--${size.toLowerCase()}`,
     `button--${state.toLowerCase()}`,
     `button--${variant.toLowerCase()}`,
+    typographyClass,
     className,
   ]
     .filter(Boolean)

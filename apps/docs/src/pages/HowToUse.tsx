@@ -36,7 +36,7 @@ const textStylesCode = `function MyComponent() {
     <div>
       <h1 className="heading-1">Main Title</h1>
       <p className="body-large">This is body text</p>
-      <span className="legend-bold">Legend text</span>
+      <span className="legend-bold-m">Legend text</span>
     </div>
   );
 }`;

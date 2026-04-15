@@ -105,7 +105,7 @@ export function StudyTableHeader({
 
       {/* Status column */}
       {showStatusColumn && (
-        <div className="study-table-header__cell study-table-header__cell--status">
+        <div className="study-table-header__cell study-table-header__cell--status label-regular-xs">
           Status
         </div>
       )}
@@ -119,7 +119,7 @@ export function StudyTableHeader({
         return (
           <div
             key={column.key}
-            className={`study-table-header__cell study-table-header__cell--${column.align || 'left'}`}
+            className={`study-table-header__cell study-table-header__cell--${column.align || 'left'} label-regular-xs`}
             style={style}
           >
             {column.label}

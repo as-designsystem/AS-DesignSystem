@@ -67,11 +67,12 @@
   gap: 24px;
 }
 
+/* ============================================================================
+   TITLE
+   ============================================================================ */
+
 .product-banner__title {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 40px;
   color: var(--text-main);
   margin: 0;
 }
@@ -82,9 +83,6 @@
 
 .product-banner__description {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
   color: var(--text-main);
   max-width: 900px;
   margin: 0;
@@ -120,9 +118,6 @@
 
 .product-banner__link-label {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
   text-transform: uppercase;
 }
 

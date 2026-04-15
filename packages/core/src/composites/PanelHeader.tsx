@@ -112,7 +112,7 @@ export function PanelHeader({
 
         {/* Study Info section */}
         <div className="panel-header__study-info">
-          <span className="panel-header__legend">{workspaceName}</span>
+          <span className="panel-header__legend label-regular-xs">{workspaceName}</span>
           <div className="panel-header__study-row">
             <PanelStudyName
               name={studyName}

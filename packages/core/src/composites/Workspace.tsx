@@ -139,23 +139,23 @@ export function Workspace({
           />
         )}
         <div className="workspace__title-block">
-          <span className="workspace__title">{title}</span>
+          <span className="workspace__title label-regular-xs">{title}</span>
           <div className="workspace__title-row">
             {studyCount !== undefined && (
-              <span className="workspace__study-chip">
+              <span className="workspace__study-chip legend-medium-m">
                 {studyCount} {studyCount === 1 ? 'Study' : 'Studies'}
               </span>
             )}
             {isComputing && computingText && (
-              <span className="workspace__computing-text">{computingText}</span>
+              <span className="workspace__computing-text legend-regular-m">{computingText}</span>
             )}
           </div>
         </div>
         <span className="workspace__spacer" />
         {lastModified && (
           <div className="workspace__last-modified">
-            <span className="workspace__last-modified-label">Last Modification</span>
-            <span className="workspace__last-modified-date">{lastModified}</span>
+            <span className="workspace__last-modified-label legend-regular-m">Last Modification</span>
+            <span className="workspace__last-modified-date label-medium-xs">{lastModified}</span>
           </div>
         )}
         {users && users.length > 0 && (

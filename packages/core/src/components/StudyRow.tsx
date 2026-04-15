@@ -161,7 +161,7 @@ export function StudyRow({
         return (
           <div
             key={column.key}
-            className={`study-row__cell study-row__cell--${column.align || 'left'}`}
+            className={`study-row__cell study-row__cell--${column.align || 'left'} legend-regular-l`}
             style={style}
           >
             {column.value}

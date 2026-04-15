@@ -56,9 +56,6 @@
 .calendar-header-year {
   all: unset;
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
   color: var(--text-moderate, #919cb0);
   cursor: pointer;
 }
@@ -69,9 +66,6 @@
 
 .calendar-header-date {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 40px;
   color: var(--text-negative, #ffffff);
 }
 
@@ -105,9 +99,6 @@
 .calendar-nav-label {
   all: unset;
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
 }
 
@@ -136,9 +127,6 @@
 
 .calendar-day-header {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
   color: var(--text-moderate, #919cb0);
   flex-shrink: 0;
   width: 40px;
@@ -171,9 +159,6 @@
   height: 40px;
   border-radius: var(--radius-xs, 3px);
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-strong, #63728a);
   cursor: pointer;
   box-sizing: border-box;
@@ -187,6 +172,7 @@
 .calendar-day--selected {
   background-color: var(--primary-default, #063b9e);
   color: var(--text-negative, #ffffff);
+  font-weight: 700;
 }
 
 .calendar-day--disabled {
@@ -228,9 +214,6 @@
   height: 40px;
   border-radius: var(--radius-xs, 3px);
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-strong, #63728a);
   cursor: pointer;
   box-sizing: border-box;
@@ -271,9 +254,6 @@
 .calendar-year {
   all: unset;
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
   cursor: pointer;
   flex-shrink: 0;
@@ -285,8 +265,5 @@
 }
 
 .calendar-year--selected {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
   color: var(--primary-default, #063b9e);
 }

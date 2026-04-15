@@ -138,7 +138,7 @@ export function PanelButton({
 
       {/* Label (only in open mode) */}
       {panelOpen && (
-        <span className="panel-button__label">{label}</span>
+        <span className={`panel-button__label label-medium-${size === 'M' ? 'm' : size === 'S' ? 's' : 'xs'}`}>{label}</span>
       )}
 
       {/* Error chip (expanded mode) */}

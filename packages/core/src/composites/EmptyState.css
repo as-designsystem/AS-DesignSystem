@@ -35,7 +35,6 @@
 .empty-state__title {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
   color: var(--text-main, #14171d);
 }
 
@@ -43,7 +42,6 @@
 .empty-state__description {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
   color: var(--text-secondary, #63728a);
 }
 
@@ -70,16 +68,6 @@
   gap: var(--gap-s, 8px);
 }
 
-.empty-state--m .empty-state__title {
-  font-size: 24px;
-  line-height: 32px;
-}
-
-.empty-state--m .empty-state__description {
-  font-size: 16px;
-  line-height: 24px;
-}
-
 .empty-state--m .empty-state__actions {
   gap: var(--gap-xs, 8px);
 }
@@ -99,16 +87,6 @@
   gap: var(--gap-xs, 4px);
 }
 
-.empty-state--s .empty-state__title {
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.empty-state--s .empty-state__description {
-  font-size: 14px;
-  line-height: 20px;
-}
-
 .empty-state--s .empty-state__actions {
   gap: var(--gap-xs, 8px);
 }
@@ -126,16 +104,6 @@
 
 .empty-state--xs .empty-state__content {
   gap: 2px;
-}
-
-.empty-state--xs .empty-state__title {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.empty-state--xs .empty-state__description {
-  font-size: 12px;
-  line-height: 16px;
 }
 
 .empty-state--xs .empty-state__actions {

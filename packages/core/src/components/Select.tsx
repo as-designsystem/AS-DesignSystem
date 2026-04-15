@@ -211,9 +211,9 @@ export function Select({
       {/* Label */}
       {showLabel && label && (
         <div className="select-label-container">
-          <label className="select-label">
+          <label className="select-label label-bold-s">
             {label}
-            {showOptional && <span className="select-optional"> (Optional)</span>}
+            {showOptional && <span className="select-optional label-regular-s"> (Optional)</span>}
           </label>
           {showInfo && infoText ? (
             <SimpleTooltip label={infoText} delayDuration={0}>
@@ -273,7 +273,7 @@ export function Select({
 
       {/* Legend */}
       {showLegend && legend && (
-        <span className="select-legend">{legend}</span>
+        <span className="select-legend label-regular-xs">{legend}</span>
       )}
     </div>
   );

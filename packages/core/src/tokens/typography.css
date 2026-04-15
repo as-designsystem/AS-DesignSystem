@@ -12,84 +12,84 @@
   font-family: 'Inter', sans-serif;
   font-size: 56px;
   font-weight: 700;
-  line-height: 80px;
+  line-height: normal;
 }
 
 .subheading-1 {
   font-family: 'Inter', sans-serif;
   font-size: 56px;
   font-weight: 300;
-  line-height: 80px;
+  line-height: normal;
 }
 
 .heading-2 {
   font-family: 'Inter', sans-serif;
   font-size: 48px;
   font-weight: 700;
-  line-height: 72px;
+  line-height: normal;
 }
 
 .subheading-2 {
   font-family: 'Inter', sans-serif;
   font-size: 48px;
   font-weight: 300;
-  line-height: 72px;
+  line-height: normal;
 }
 
 .heading-3 {
   font-family: 'Inter', sans-serif;
   font-size: 36px;
   font-weight: 700;
-  line-height: 56px;
+  line-height: normal;
 }
 
 .subheading-3 {
   font-family: 'Inter', sans-serif;
   font-size: 36px;
   font-weight: 300;
-  line-height: 56px;
+  line-height: normal;
 }
 
 .heading-4 {
   font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  line-height: 48px;
+  line-height: normal;
 }
 
 .subheading-4 {
   font-family: 'Inter', sans-serif;
   font-size: 32px;
   font-weight: 300;
-  line-height: 48px;
+  line-height: normal;
 }
 
 .heading-5 {
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: normal;
 }
 
 .subheading-5 {
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 300;
-  line-height: 40px;
+  line-height: normal;
 }
 
 .heading-6 {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  line-height: 32px;
+  line-height: normal;
 }
 
 .subheading-6 {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 300;
-  line-height: 32px;
+  line-height: normal;
 }
 
 /* Labels - Large */
@@ -97,28 +97,28 @@
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 32px;
+  line-height: normal;
 }
 
 .label-medium-l {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 500;
-  line-height: 32px;
+  line-height: normal;
 }
 
 .label-regular-l {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: normal;
 }
 
 .label-light-l {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 300;
-  line-height: 32px;
+  line-height: normal;
 }
 
 /* Labels - Medium */
@@ -126,28 +126,28 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  line-height: 24px;
+  line-height: normal;
 }
 
 .label-medium-m {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: normal;
 }
 
 .label-regular-m {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: normal;
 }
 
 .label-light-m {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 300;
-  line-height: 24px;
+  line-height: normal;
 }
 
 /* Labels - Small */
@@ -155,28 +155,28 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-medium-s {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-regular-s {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-light-s {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  line-height: 20px;
+  line-height: normal;
 }
 
 /* Labels - Extra Small */
@@ -184,43 +184,115 @@
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-medium-xs {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-regular-xs {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .label-light-xs {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 300;
-  line-height: 20px;
+  line-height: normal;
 }
 
-/* Legends */
-.legend-bold {
+/* Legends - Large */
+.legend-bold-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.legend-medium-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.legend-regular-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.legend-light-l {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: normal;
+}
+
+/* Legends - Medium */
+.legend-bold-m {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: normal;
 }
 
-.legend-medium {
+.legend-medium-m {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: normal;
+}
+
+.legend-regular-m {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.legend-light-m {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: normal;
+}
+
+/* Legends - Small */
+.legend-bold-s {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.legend-medium-s {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.legend-regular-s {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.legend-light-s {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: normal;
 }
 
 /* System (Monospace) */
@@ -228,26 +300,26 @@
   font-family: 'Roboto Mono', monospace;
   font-size: 18px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: normal;
 }
 
 .system-m {
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: normal;
 }
 
 .system-s {
   font-family: 'Roboto Mono', monospace;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: normal;
 }
 
 .system-xs {
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: normal;
 }

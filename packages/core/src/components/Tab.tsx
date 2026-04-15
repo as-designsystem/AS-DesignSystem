@@ -91,6 +91,16 @@ export function Tab({
 
   const iconSize = iconSizeMap[size];
 
+  // Typography classes based on size and active status
+  const typographyClasses: Record<TabSize, { default: string; active: string }> = {
+    S: { default: 'label-regular-xs', active: 'label-bold-xs' },
+    M: { default: 'label-regular-s', active: 'label-bold-s' },
+    L: { default: 'label-regular-m', active: 'label-bold-m' },
+    XL: { default: 'label-regular-l', active: 'label-bold-l' },
+  };
+
+  const typographyClass = status === 'Active' ? typographyClasses[size].active : typographyClasses[size].default;
+
   // Build CSS classes
   const tabClasses = [
     'tab',
@@ -98,6 +108,7 @@ export function Tab({
     `tab--${status.toLowerCase()}`,
     `tab--${state.toLowerCase()}`,
     `tab--${variant.toLowerCase()}`,
+    typographyClass,
     className,
   ]
     .filter(Boolean)

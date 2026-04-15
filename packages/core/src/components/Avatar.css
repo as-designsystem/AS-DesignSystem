@@ -9,7 +9,6 @@
   border-radius: 50%;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
   line-height: 1;
   flex-shrink: 0;
   user-select: none;
@@ -88,6 +87,5 @@
 .avatar-stack__overflow {
   background-color: var(--cool-grey-30, #ced5dd);
   color: var(--text-corporate, #00205b);
-  font-weight: 700;
   box-shadow: 0 0 0 2px var(--background-main, #ffffff);
 }

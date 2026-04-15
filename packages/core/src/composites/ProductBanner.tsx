@@ -102,11 +102,11 @@ export function ProductBanner({
         {/* Header with icon and title */}
         <div className="product-banner__header">
           <ToolIcons tool={tool} size={40} mode="dark" />
-          <h2 className="product-banner__title">{productName}</h2>
+          <h2 className="product-banner__title heading-6">{productName}</h2>
         </div>
 
         {/* Description */}
-        <p className="product-banner__description">{productDescription}</p>
+        <p className="product-banner__description legend-regular-l">{productDescription}</p>
 
         {/* Links */}
         {links.length > 0 && (
@@ -118,7 +118,7 @@ export function ProductBanner({
                 className="product-banner__link"
                 onClick={link.onClick}
               >
-                <span className="product-banner__link-label">{link.label}</span>
+                <span className="product-banner__link-label label-bold-xs">{link.label}</span>
                 {link.icon && (
                   <Icon
                     name={link.icon}
