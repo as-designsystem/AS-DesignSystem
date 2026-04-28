@@ -53,10 +53,6 @@
    ============================================================================ */
 
 .toggle__label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-main, #14171d);
   cursor: pointer;
   user-select: none;

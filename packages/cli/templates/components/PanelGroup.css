@@ -83,7 +83,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: 700;
 }
 
 /* Open: white label */
@@ -94,22 +93,6 @@
 /* Closed: muted label */
 .panel-group--closed .panel-group__label {
   color: var(--cool-grey-40, #b3bbc8);
-}
-
-/* Size-specific label typography */
-.panel-group--m .panel-group__label {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.panel-group--s .panel-group__label {
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.panel-group--xs .panel-group__label {
-  font-size: 11px;
-  line-height: 16px;
 }
 
 /* ============================================================================

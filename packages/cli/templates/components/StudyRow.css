@@ -51,9 +51,6 @@
   align-items: center;
   padding: 8px 12px;
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
   color: var(--text-main, #14171d);
   white-space: nowrap;
   overflow: hidden;

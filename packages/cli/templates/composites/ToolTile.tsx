@@ -115,7 +115,7 @@ export function ToolTile({
       <div className="tool-tile__header">
         <ToolIcons tool={tool} size={40} />
         <div className="tool-tile__title-column">
-          <span className="tool-tile__title">{title}</span>
+          <span className="tool-tile__title label-bold-s">{title}</span>
           {platforms.length > 0 && (
             <div className="tool-tile__platforms">
               {platforms.map((platform) => (
@@ -146,7 +146,7 @@ export function ToolTile({
 
       {/* Description */}
       {description && (
-        <div className="tool-tile__description">
+        <div className="tool-tile__description label-regular-xs">
           <span className="tool-tile__description-text">{description}</span>
         </div>
       )}

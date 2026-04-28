@@ -87,7 +87,7 @@ export function ChartCard({
     <div className={cardClasses} style={style}>
       {/* Header */}
       <div className="chart-card__header">
-        <div className="chart-card__title">{title}</div>
+        <div className="chart-card__title label-medium-s">{title}</div>
         {headerCenter && <div className="chart-card__header-center">{headerCenter}</div>}
         {actions && <div className="chart-card__actions">{actions}</div>}
       </div>

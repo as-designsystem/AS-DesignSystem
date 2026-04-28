@@ -1,7 +1,7 @@
 import { Checkbox } from './Checkbox';
 import { StudyStatus, StudyStatusState } from './StudyStatus';
 import { IconButton } from './IconButton';
-import { Tooltip, TooltipTrigger, TooltipContent } from './Tooltip';
+import { Tooltip, TooltipTrigger, TooltipContent, type TooltipSide, type TooltipAlign } from './Tooltip';
 import './StudyRow.css';
 
 export interface StudyRowColumn {
@@ -27,6 +27,18 @@ export interface StudyRowProps {
    * Custom tooltip content for the status. When provided, the status is wrapped in a Tooltip.
    */
   statusTooltip?: React.ReactNode;
+  /**
+   * Side of the status indicator where the status tooltip appears.
+   * Has no effect if `statusTooltip` is not provided.
+   * @default 'right'
+   */
+  statusTooltipSide?: TooltipSide;
+  /**
+   * Alignment of the status tooltip relative to the status indicator.
+   * Has no effect if `statusTooltip` is not provided.
+   * @default 'center'
+   */
+  statusTooltipAlign?: TooltipAlign;
   /**
    * Column data
    */
@@ -87,6 +99,8 @@ export function StudyRow({
   status,
   statusLabel,
   statusTooltip,
+  statusTooltipSide = 'right',
+  statusTooltipAlign = 'center',
   columns,
   selectable = false,
   selected = false,
@@ -143,7 +157,7 @@ export function StudyRow({
                 <StudyStatus state={status} label={statusLabel} />
               </div>
             </TooltipTrigger>
-            <TooltipContent side="right" align="center">
+            <TooltipContent side={statusTooltipSide} align={statusTooltipAlign}>
               {statusTooltip}
             </TooltipContent>
           </Tooltip>

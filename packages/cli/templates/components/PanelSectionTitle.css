@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -38,24 +37,5 @@
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
-}
-
-/* ============================================================================
-   SIZES
-   ============================================================================ */
-
-.panel-section-title--m {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.panel-section-title--s {
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.panel-section-title--xs {
-  font-size: 10px;
-  line-height: 16px;
 }
 

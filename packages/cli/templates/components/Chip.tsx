@@ -97,12 +97,24 @@ export function Chip({
   const iconSize = iconSizes[size];
   const removeIconSize = removeIconSizes[size];
 
+  // Typography classes based on size
+  const typographyClasses: Record<ChipSize, string> = {
+    XS: 'label-medium-s',
+    S: 'label-medium-m',
+    M: 'label-medium-l',
+    L: 'label-medium-l',
+    XL: 'label-medium-l',
+  };
+
+  const typographyClass = typographyClasses[size];
+
   const chipClasses = [
     'chip',
     `chip--${size.toLowerCase()}`,
     `chip--${type.toLowerCase()}`,
     active ? 'chip--active' : '',
     disabled ? 'chip--disabled' : '',
+    typographyClass,
     className,
   ]
     .filter(Boolean)

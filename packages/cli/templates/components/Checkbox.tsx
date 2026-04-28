@@ -111,6 +111,13 @@ export function Checkbox({
 
   const iconSize = iconSizes[size];
 
+  // Typography classes based on size
+  const typographyClasses: Record<CheckboxSize, string> = {
+    S: 'label-regular-xs',
+    M: 'label-regular-s',
+    L: 'label-regular-m',
+  };
+
   // CSS classes
   const containerClasses = [
     'checkbox-container',
@@ -151,7 +158,7 @@ export function Checkbox({
       </CheckboxPrimitive.Root>
 
       {showLabel && label && (
-        <label htmlFor={checkboxId} className="checkbox-label">{label}</label>
+        <label htmlFor={checkboxId} className={`checkbox-label ${typographyClasses[size]}`}>{label}</label>
       )}
     </div>
   );

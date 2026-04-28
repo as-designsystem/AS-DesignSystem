@@ -89,8 +89,8 @@ export function AppHeader({
         )}
         <div className="app-header__separator" />
         <div className="app-header__titles">
-          <span className="app-header__app-name">{appName}</span>
-          <span className="app-header__app-subtitle">By Airline Sciences</span>
+          <span className="app-header__app-name label-regular-s">{appName}</span>
+          <span className="app-header__app-subtitle legend-regular-m">By Airline Sciences</span>
         </div>
       </div>
 

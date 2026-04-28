@@ -55,6 +55,12 @@ export interface AccordionProps {
  * </Accordion>
  * ```
  */
+const titleClasses: Record<AccordionSize, string> = {
+  S: 'label-bold-xs',
+  M: 'label-bold-s',
+  L: 'label-bold-m',
+};
+
 export function Accordion({
   title,
   children,
@@ -91,7 +97,7 @@ export function Accordion({
         onClick={handleToggle}
         aria-expanded={isOpen}
       >
-        <span className="accordion__title">{title}</span>
+        <span className={`accordion__title ${titleClasses[size]}`}>{title}</span>
         <Icon
           name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           size={iconSize}

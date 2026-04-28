@@ -317,9 +317,9 @@ export function Combobox({
       {/* Label */}
       {showLabel && label && (
         <div className="combobox-label-container">
-          <label className="combobox-label">
+          <label className="combobox-label label-bold-s">
             {label}
-            {showOptional && <span className="combobox-optional"> (Optional)</span>}
+            {showOptional && <span className="combobox-optional label-regular-s"> (Optional)</span>}
           </label>
           {showInfo && infoText ? (
             <SimpleTooltip label={infoText} delayDuration={0}>
@@ -425,7 +425,7 @@ export function Combobox({
 
       {/* Legend */}
       {showLegend && legend && (
-        <span className="combobox-legend">{legend}</span>
+        <span className="combobox-legend label-regular-xs">{legend}</span>
       )}
     </div>
   );

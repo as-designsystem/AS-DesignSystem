@@ -79,9 +79,6 @@
 
 .panel-header__legend {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
   color: var(--cool-grey-50, #919cb0);
   padding-left: 8px;
 }

@@ -64,9 +64,6 @@
 
 .app-header__app-name {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
   color: var(--white);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -75,9 +72,6 @@
 
 .app-header__app-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 16px;
   color: var(--white);
   overflow: hidden;
   text-overflow: ellipsis;

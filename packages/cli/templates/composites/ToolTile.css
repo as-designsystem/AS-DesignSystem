@@ -45,9 +45,6 @@
 
 .tool-tile__title {
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
   color: var(--text-corporate, #00205b);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -96,9 +93,6 @@
 /* Description */
 .tool-tile__description {
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
   color: var(--text-secondary, #63728a);
   margin: 0;
   height: 32px;

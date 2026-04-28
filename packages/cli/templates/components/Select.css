@@ -38,15 +38,10 @@
 }
 
 .select-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 20px;
   color: var(--text-secondary, #63728a);
 }
 
 .select-optional {
-  font-weight: 400;
   color: var(--text-secondary, #63728a);
 }
 
@@ -294,10 +289,6 @@
    ============================================================================ */
 
 .select-legend {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
   color: var(--text-secondary, #63728a);
 }
 

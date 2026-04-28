@@ -93,11 +93,23 @@ export const VButton = React.forwardRef<HTMLButtonElement, VButtonProps>(({
 
   const resolvedIconSize = iconSize ?? defaultIconSizes[size];
 
+  // Typography classes based on size
+  const typographyClasses: Record<VButtonSize, string> = {
+    XS: 'legend-bold-m',
+    S: 'label-bold-xs',
+    M: 'label-bold-s',
+    L: 'label-bold-m',
+    XL: 'label-bold-l',
+  };
+
+  const typographyClass = typographyClasses[size];
+
   const buttonClasses = [
     'vbutton',
     `vbutton--${size.toLowerCase()}`,
     `vbutton--${state.toLowerCase()}`,
     `vbutton--${variant.toLowerCase()}`,
+    typographyClass,
     className,
   ]
     .filter(Boolean)

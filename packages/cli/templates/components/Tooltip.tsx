@@ -89,7 +89,7 @@ export function TooltipContent({
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
-        className={`tooltip-content ${className}`}
+        className={`tooltip-content label-regular-s ${className}`}
         side={side}
         align={align}
         sideOffset={sideOffset}
@@ -155,7 +155,7 @@ export function SimpleTooltip({
           <span style={{ display: 'inline-flex' }}>{children}</span>
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
-          <TooltipPrimitive.Content className="tooltip-content" side={side} sideOffset={4}>
+          <TooltipPrimitive.Content className="tooltip-content label-regular-s" side={side} sideOffset={4}>
             {label}
             {arrow && <TooltipPrimitive.Arrow className="tooltip-arrow" />}
           </TooltipPrimitive.Content>

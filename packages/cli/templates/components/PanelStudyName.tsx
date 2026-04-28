@@ -66,7 +66,7 @@ export function PanelStudyName({ name, lines = 1, onClick, className = '' }: Pan
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <span ref={labelRef} className="panel-study-name__label" style={labelStyle}>{name}</span>
+      <span ref={labelRef} className="panel-study-name__label label-bold-m" style={labelStyle}>{name}</span>
       <Icon name="edit" size={16} color="var(--white, #ffffff)" className="panel-study-name__icon" />
       {showTooltip && (
         <span className="panel-study-name__tooltip" role="tooltip">{name}</span>

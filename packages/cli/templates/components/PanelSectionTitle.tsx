@@ -39,6 +39,12 @@ export interface PanelSectionTitleProps {
  * <PanelSectionTitle label="Results" actions={<Button label="Download" leftIcon="download" size="XS" />} />
  * ```
  */
+const labelClasses: Record<PanelSectionTitleSize, string> = {
+  M: 'label-medium-s',
+  S: 'label-medium-xs',
+  XS: 'legend-medium-s',
+};
+
 export function PanelSectionTitle({
   label,
   size = 'S',
@@ -47,7 +53,6 @@ export function PanelSectionTitle({
 }: PanelSectionTitleProps) {
   const classes = [
     'panel-section-title',
-    `panel-section-title--${size.toLowerCase()}`,
     className,
   ]
     .filter(Boolean)
@@ -55,7 +60,7 @@ export function PanelSectionTitle({
 
   return (
     <div className={classes}>
-      <span className="panel-section-title__label">{label}</span>
+      <span className={`panel-section-title__label ${labelClasses[size]}`}>{label}</span>
       {actions && <div className="panel-section-title__actions dark">{actions}</div>}
     </div>
   );

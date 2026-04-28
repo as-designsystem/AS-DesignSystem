@@ -194,10 +194,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         {/* Label */}
         {showLabel && label && (
           <div className="text-input-label-container">
-            <label className="text-input-label">
+            <label className="text-input-label label-bold-s">
               {label}
               {showOptional && (
-                <span className="text-input-optional"> (Optional)</span>
+                <span className="text-input-optional label-regular-s"> (Optional)</span>
               )}
             </label>
             {showInfo && infoText ? (
@@ -277,7 +277,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
         {/* Legend */}
         {showLegend && legend && (
-          <span className="text-input-legend" id={`${label}-legend`}>
+          <span className="text-input-legend label-regular-xs" id={`${label}-legend`}>
             {legend}
           </span>
         )}

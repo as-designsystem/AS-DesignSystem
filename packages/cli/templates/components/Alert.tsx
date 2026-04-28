@@ -158,15 +158,15 @@ export function Alert({
       </div>
 
       <div className="alert__content">
-        <p className="alert__title">{title}</p>
-        {description && <p className="alert__description">{description}</p>}
+        <p className="alert__title label-bold-m">{title}</p>
+        {description && <p className="alert__description label-regular-s">{description}</p>}
         {actionBottom && (
           <div className="alert__action-bottom">{actionBottom}</div>
         )}
       </div>
 
       {actionRight && (
-        <div className="alert__action-right">{actionRight}</div>
+        <div className="alert__action-right label-bold-xs">{actionRight}</div>
       )}
 
       {showCloseButton && (

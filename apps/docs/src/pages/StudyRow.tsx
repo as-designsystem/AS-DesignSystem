@@ -98,6 +98,36 @@ export default function StudyRowPage() {
   ]}
 />`;
 
+  const tooltipPositionCode = `import { StudyRow } from '@/design-system/components/StudyRow';
+
+// Default position: side="right", align="center"
+<StudyRow
+  status="Draft"
+  statusLabel="2 Draft"
+  statusTooltip={<div>Tooltip on the right (default)</div>}
+  columns={[{ key: 'name', value: 'Default position' }]}
+/>
+
+// Tooltip below the status, left-aligned with it
+<StudyRow
+  status="Computed"
+  statusLabel="3 Computed"
+  statusTooltip={<div>Tooltip below, start-aligned</div>}
+  statusTooltipSide="bottom"
+  statusTooltipAlign="start"
+  columns={[{ key: 'name', value: 'Bottom + start' }]}
+/>
+
+// Tooltip above the status, end-aligned
+<StudyRow
+  status="Warning"
+  statusLabel="1 Warning"
+  statusTooltip={<div>Tooltip above, end-aligned</div>}
+  statusTooltipSide="top"
+  statusTooltipAlign="end"
+  columns={[{ key: 'name', value: 'Top + end' }]}
+/>`;
+
   return (
     <div className="component-page">
       <div className="page-header">
@@ -432,6 +462,104 @@ export default function StudyRowPage() {
               </div>
             </div>
           </section>
+
+          {/* Status Tooltip Position */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Status Tooltip Position
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('tooltipPosition')}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginBottom: '16px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Use <code>statusTooltipSide</code> (<code>'top' | 'right' | 'bottom' | 'left'</code>) and <code>statusTooltipAlign</code> (<code>'start' | 'center' | 'end'</code>) to control where the tooltip appears. Defaults to <code>side="right"</code> and <code>align="center"</code>. Hover the status to see each placement.
+            </p>
+            <div className="example-container">
+              <div className="study-row-demo">
+                <StudyRow
+                  status="Draft"
+                  statusLabel="2 Draft"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Draft</div>
+                      <div>Network Optimization — Draft</div>
+                    </div>
+                  }
+                  columns={[
+                    { key: 'name', value: 'Default (right + center)' },
+                    { key: 'description', value: 'No position props' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computed"
+                  statusLabel="3 Computed"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Computed</div>
+                      <div>Network Optimization — Computed</div>
+                      <div>Maintenance Planning — Computed</div>
+                    </div>
+                  }
+                  statusTooltipSide="bottom"
+                  statusTooltipAlign="start"
+                  columns={[
+                    { key: 'name', value: 'Bottom + start' },
+                    { key: 'description', value: 'side="bottom" align="start"' },
+                  ]}
+                />
+                <StudyRow
+                  status="Warning"
+                  statusLabel="1 Warning"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Warning</div>
+                    </div>
+                  }
+                  statusTooltipSide="top"
+                  statusTooltipAlign="end"
+                  columns={[
+                    { key: 'name', value: 'Top + end' },
+                    { key: 'description', value: 'side="top" align="end"' },
+                  ]}
+                />
+                <StudyRow
+                  status="Computing"
+                  statusLabel="2 Computing"
+                  statusTooltip={
+                    <div>
+                      <div>Flight Analysis — Computing</div>
+                      <div>Network Optimization — Computing</div>
+                    </div>
+                  }
+                  statusTooltipSide="bottom"
+                  statusTooltipAlign="center"
+                  columns={[
+                    { key: 'name', value: 'Bottom + center' },
+                    { key: 'description', value: 'side="bottom" align="center"' },
+                  ]}
+                />
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -475,6 +603,18 @@ export default function StudyRowPage() {
                 <td><code>React.ReactNode</code></td>
                 <td>-</td>
                 <td>Custom tooltip content. When provided, the status is wrapped in a Tooltip.</td>
+              </tr>
+              <tr>
+                <td><code>statusTooltipSide</code></td>
+                <td><code>'top' | 'right' | 'bottom' | 'left'</code></td>
+                <td><code>'right'</code></td>
+                <td>Side of the status indicator where the tooltip appears. Ignored if <code>statusTooltip</code> is not provided.</td>
+              </tr>
+              <tr>
+                <td><code>statusTooltipAlign</code></td>
+                <td><code>'start' | 'center' | 'end'</code></td>
+                <td><code>'center'</code></td>
+                <td>Alignment of the tooltip relative to the status indicator. Ignored if <code>statusTooltip</code> is not provided.</td>
               </tr>
               <tr>
                 <td><code>columns</code></td>
@@ -612,6 +752,12 @@ export default function StudyRowPage() {
         onClose={() => setOpenModal(null)}
         title="Status Label & Tooltip"
         code={statusTooltipCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'tooltipPosition'}
+        onClose={() => setOpenModal(null)}
+        title="Status Tooltip Position"
+        code={tooltipPositionCode}
       />
     </div>
   );

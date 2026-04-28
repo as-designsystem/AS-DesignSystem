@@ -125,7 +125,7 @@ export function Modal({
       >
         {/* Header */}
         <div className="modal__header">
-          <h2 id="modal-title" className="modal__title">
+          <h2 id="modal-title" className="modal__title label-bold-l">
             {title}
           </h2>
           <div className="modal__header-actions">

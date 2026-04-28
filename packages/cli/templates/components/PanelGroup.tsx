@@ -55,6 +55,12 @@ const labelIconSizes: Record<PanelGroupSize, number> = {
   XS: 12,
 };
 
+const labelClasses: Record<PanelGroupSize, string> = {
+  M: 'label-bold-s',
+  S: 'label-bold-xs',
+  XS: 'legend-bold-m',
+};
+
 /**
  * PanelGroup Component
  *
@@ -121,7 +127,7 @@ export function PanelGroup({
             color={open ? '#ffffff' : 'var(--cool-grey-40, #b3bbc8)'}
           />
         ) : null}
-        <span className="panel-group__label">{label}</span>
+        <span className={`panel-group__label ${labelClasses[size]}`}>{label}</span>
       </button>
       {actions && <span className="panel-group__actions dark">{actions}</span>}
     </div>

@@ -73,7 +73,7 @@ export function StudyStatus({
       <span className="study-status__icon">
         {renderIcon()}
       </span>
-      <span className="study-status__label">{displayLabel}</span>
+      <span className="study-status__label legend-regular-m">{displayLabel}</span>
     </div>
   );
 }
