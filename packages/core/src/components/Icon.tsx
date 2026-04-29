@@ -46,13 +46,13 @@ import barChartIcon from '../assets/svg/icons/bar_chart.svg?raw';
 import brokenImageIcon from '../assets/svg/icons/broken_image.svg?raw';
 import buildIcon from '../assets/svg/icons/build.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
+import callMergeIcon from '../assets/svg/icons/call_merge.svg?raw';
 import callSplitIcon from '../assets/svg/icons/call_split.svg?raw';
 import cancelIcon from '../assets/svg/icons/cancel.svg?raw';
-import pauseIcon from '../assets/svg/icons/pause.svg?raw';
 import checkIcon from '../assets/svg/icons/check.svg?raw';
 import checkBoxIcon from '../assets/svg/icons/check_box.svg?raw';
-import checkCircleIcon from '../assets/svg/icons/check_circle.svg?raw';
 import checkBoxOutlineBlankIcon from '../assets/svg/icons/check_box_outline_blank.svg?raw';
+import checkCircleIcon from '../assets/svg/icons/check_circle.svg?raw';
 import checklistIcon from '../assets/svg/icons/checklist.svg?raw';
 import closeIcon from '../assets/svg/icons/close.svg?raw';
 import codeIcon from '../assets/svg/icons/code.svg?raw';
@@ -117,6 +117,7 @@ import navigateNextIcon from '../assets/svg/icons/navigate_next.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import openInFullIcon from '../assets/svg/icons/open_in_full.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
+import pauseIcon from '../assets/svg/icons/pause.svg?raw';
 import playIcon from '../assets/svg/icons/play.svg?raw';
 import playlistPlayIcon from '../assets/svg/icons/playlist_play.svg?raw';
 import receiptLongIcon from '../assets/svg/icons/receipt_long.svg?raw';
@@ -199,6 +200,7 @@ const iconMap: Record<string, string> = {
   'broken_image': brokenImageIcon,
   'build': buildIcon,
   'calendar_month': calendarMonthIcon,
+  'call_merge': callMergeIcon,
   'call_split': callSplitIcon,
   'cancel': cancelIcon,
   'check': checkIcon,
@@ -305,7 +307,6 @@ const iconMap: Record<string, string> = {
 };
 
 export const availableIcons = [
-  'blank',
   '123',
   'AIR_AC_twin_engine',
   'AIR_APU',
@@ -353,6 +354,7 @@ export const availableIcons = [
   'broken_image',
   'build',
   'calendar_month',
+  'call_merge',
   'call_split',
   'cancel',
   'check',
