@@ -105,6 +105,7 @@ import keyboardArrowUpIcon from '../assets/svg/icons/keyboard_arrow_up.svg?raw';
 import leaderboardIcon from '../assets/svg/icons/leaderboard.svg?raw';
 import lightModeIcon from '../assets/svg/icons/light_mode.svg?raw';
 import listIcon from '../assets/svg/icons/list.svg?raw';
+import lockIcon from '../assets/svg/icons/lock.svg?raw';
 import logoutIcon from '../assets/svg/icons/logout.svg?raw';
 import mapIcon from '../assets/svg/icons/map.svg?raw';
 import menuIcon from '../assets/svg/icons/menu.svg?raw';
@@ -260,6 +261,7 @@ const iconMap: Record<string, string> = {
   'leaderboard': leaderboardIcon,
   'light_mode': lightModeIcon,
   'list': listIcon,
+  'lock': lockIcon,
   'logout': logoutIcon,
   'map': mapIcon,
   'menu': menuIcon,
@@ -415,6 +417,7 @@ export const availableIcons = [
   'leaderboard',
   'light_mode',
   'list',
+  'lock',
   'logout',
   'map',
   'menu',
