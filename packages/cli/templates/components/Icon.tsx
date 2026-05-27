@@ -119,6 +119,7 @@ import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
 import navigateNextIcon from '../assets/svg/icons/navigate_next.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
 import oilBarrelIcon from '../assets/svg/icons/oil_barrel.svg?raw';
+import oilBarrelOutlineIcon from '../assets/svg/icons/oil_barrel_outline.svg?raw';
 import openInFullIcon from '../assets/svg/icons/open_in_full.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import pauseIcon from '../assets/svg/icons/pause.svg?raw';
@@ -278,6 +279,7 @@ const iconMap: Record<string, string> = {
   'navigate_next': navigateNextIcon,
   'notifications': notificationsIcon,
   'oil_barrel': oilBarrelIcon,
+  'oil_barrel_outline': oilBarrelOutlineIcon,
   'open_in_full': openInFullIcon,
   'open_in_new': openInNewIcon,
   'pause': pauseIcon,
@@ -437,6 +439,7 @@ export const availableIcons = [
   'navigate_next',
   'notifications',
   'oil_barrel',
+  'oil_barrel_outline',
   'open_in_full',
   'open_in_new',
   'pause',
