@@ -1,6 +1,8 @@
-# Claude AI Instructions for AS Design System
+# AI Agent Instructions for AS Design System
 
-This file contains instructions for Claude AI (or any AI assistant) to properly implement new components, composites, and templates in the AS Design System.
+This file contains instructions for any AI assistant (Claude Code, Codex, etc.) to properly implement new components, composites, and templates in the AS Design System.
+
+> **Single source of truth:** `AGENTS.md` is a symlink to this file. Edit only `CLAUDE.md`.
 
 ---
 
@@ -325,6 +327,31 @@ background-color: var(--background-main, #ffffff);
   background-color: var(--primary-hover);
 }
 ```
+
+---
+
+## Icon Convention
+
+**Single source of truth for icon variants.** Icons live in `packages/core/src/assets/svg/icons/`. To add one: drop the SVG in that dir, then run `pnpm generate-icons` in `packages/core` (regenerates `Icon.tsx` imports + map), then build core + CLI (e.g. `/bucp`). Note: `pnpm build` alone does **not** regenerate the icon map.
+
+**Default: Material Icons _classic Filled_** — viewBox `0 0 24 24`.
+
+**Never use:**
+- Material **Symbols** (viewBox `0 -960 960 960`) — different weight/proportions, breaks visual consistency.
+- The **Rounded** variant.
+
+**Outlined variant** is allowed **only** as part of an explicit Filled + Outline pair. Naming convention:
+- Base name = Filled: `warning.svg`
+- `_outline` suffix = classic Outlined: `warning_outline.svg` (also `error_outline.svg`, `help_outline.svg`)
+- The outlined variant must be **classic Outlined (square corners), never Rounded**.
+
+**Where to fetch SVGs** (classic Material Icons):
+- Filled: `https://cdn.jsdelivr.net/npm/@material-icons/svg/svg/{name}/baseline.svg`
+- Outlined: `https://cdn.jsdelivr.net/npm/@material-icons/svg/svg/{name}/outline.svg`
+
+Normalize fetched SVGs to `viewBox="0 0 24 24"` with `fill="currentColor"` (see `lock.svg`).
+
+> If `{name}/baseline.svg` returns HTTP 404 on the CDN, that icon exists only in Material Symbols (not classic) — flag it rather than silently substituting a Symbols version. (The CDN does carry many newer icons in classic form, e.g. `oil_barrel`, `more_time`, `tag`.)
 
 ---
 
