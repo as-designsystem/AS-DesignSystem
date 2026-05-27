@@ -114,9 +114,11 @@ import menuCloseIcon from '../assets/svg/icons/menu_close.svg?raw';
 import menuOpenIcon from '../assets/svg/icons/menu_open.svg?raw';
 import monetizationOnIcon from '../assets/svg/icons/monetization_on.svg?raw';
 import moreHorizIcon from '../assets/svg/icons/more_horiz.svg?raw';
+import moreTimeIcon from '../assets/svg/icons/more_time.svg?raw';
 import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
 import navigateNextIcon from '../assets/svg/icons/navigate_next.svg?raw';
 import notificationsIcon from '../assets/svg/icons/notifications.svg?raw';
+import oilBarrelIcon from '../assets/svg/icons/oil_barrel.svg?raw';
 import openInFullIcon from '../assets/svg/icons/open_in_full.svg?raw';
 import openInNewIcon from '../assets/svg/icons/open_in_new.svg?raw';
 import pauseIcon from '../assets/svg/icons/pause.svg?raw';
@@ -139,6 +141,7 @@ import starIcon from '../assets/svg/icons/star.svg?raw';
 import starBorderIcon from '../assets/svg/icons/star_border.svg?raw';
 import systemUpdateAltIcon from '../assets/svg/icons/system_update_alt.svg?raw';
 import tableChartIcon from '../assets/svg/icons/table_chart.svg?raw';
+import tagIcon from '../assets/svg/icons/tag.svg?raw';
 import tileLargeIcon from '../assets/svg/icons/tile_large.svg?raw';
 import tileMediumIcon from '../assets/svg/icons/tile_medium.svg?raw';
 import tileSmallIcon from '../assets/svg/icons/tile_small.svg?raw';
@@ -270,9 +273,11 @@ const iconMap: Record<string, string> = {
   'menu_open': menuOpenIcon,
   'monetization_on': monetizationOnIcon,
   'more_horiz': moreHorizIcon,
+  'more_time': moreTimeIcon,
   'navigate_before': navigateBeforeIcon,
   'navigate_next': navigateNextIcon,
   'notifications': notificationsIcon,
+  'oil_barrel': oilBarrelIcon,
   'open_in_full': openInFullIcon,
   'open_in_new': openInNewIcon,
   'pause': pauseIcon,
@@ -295,6 +300,7 @@ const iconMap: Record<string, string> = {
   'star_border': starBorderIcon,
   'system_update_alt': systemUpdateAltIcon,
   'table_chart': tableChartIcon,
+  'tag': tagIcon,
   'tile_large': tileLargeIcon,
   'tile_medium': tileMediumIcon,
   'tile_small': tileSmallIcon,
@@ -426,9 +432,11 @@ export const availableIcons = [
   'menu_open',
   'monetization_on',
   'more_horiz',
+  'more_time',
   'navigate_before',
   'navigate_next',
   'notifications',
+  'oil_barrel',
   'open_in_full',
   'open_in_new',
   'pause',
@@ -451,6 +459,7 @@ export const availableIcons = [
   'star_border',
   'system_update_alt',
   'table_chart',
+  'tag',
   'tile_large',
   'tile_medium',
   'tile_small',

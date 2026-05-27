@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (153 icons)
+      // SVG icon assets (156 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -133,9 +133,11 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/menu_open.svg', target: 'assets/svg/icons/menu_open.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/monetization_on.svg', target: 'assets/svg/icons/monetization_on.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/more_horiz.svg', target: 'assets/svg/icons/more_horiz.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/more_time.svg', target: 'assets/svg/icons/more_time.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/navigate_before.svg', target: 'assets/svg/icons/navigate_before.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/navigate_next.svg', target: 'assets/svg/icons/navigate_next.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/notifications.svg', target: 'assets/svg/icons/notifications.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/oil_barrel.svg', target: 'assets/svg/icons/oil_barrel.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/open_in_full.svg', target: 'assets/svg/icons/open_in_full.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/open_in_new.svg', target: 'assets/svg/icons/open_in_new.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/pause.svg', target: 'assets/svg/icons/pause.svg', type: 'component' },
@@ -158,6 +160,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/star_border.svg', target: 'assets/svg/icons/star_border.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/system_update_alt.svg', target: 'assets/svg/icons/system_update_alt.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/table_chart.svg', target: 'assets/svg/icons/table_chart.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/tag.svg', target: 'assets/svg/icons/tag.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/tile_large.svg', target: 'assets/svg/icons/tile_large.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/tile_medium.svg', target: 'assets/svg/icons/tile_medium.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/tile_small.svg', target: 'assets/svg/icons/tile_small.svg', type: 'component' },
