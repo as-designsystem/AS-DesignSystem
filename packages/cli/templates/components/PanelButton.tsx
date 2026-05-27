@@ -146,14 +146,14 @@ export function PanelButton({
         errorTooltip ? (
           <SimpleTooltip label={errorTooltip} side="bottom" delayDuration={0}>
             <span className="panel-button__badge-wrapper">
-              <span className={`panel-button__error-chip ${size === 'XS' ? 'legend-medium-m' : 'label-medium-s'}`}>
+              <span className={`panel-button__error-chip ${size === 'XS' ? 'legend-bold-m' : 'label-bold-s'}`}>
                 {errorCount}
               </span>
             </span>
           </SimpleTooltip>
         ) : (
           <span className="panel-button__badge-wrapper">
-            <span className={`panel-button__error-chip ${size === 'XS' ? 'legend-medium-m' : 'label-medium-s'}`}>
+            <span className={`panel-button__error-chip ${size === 'XS' ? 'legend-bold-m' : 'label-bold-s'}`}>
               {errorCount}
             </span>
           </span>
