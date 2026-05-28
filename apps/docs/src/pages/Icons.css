@@ -5,9 +5,8 @@
 .icons-controls {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
-  margin-bottom: 24px;
 }
 
 .icons-controls .icon-search-input {

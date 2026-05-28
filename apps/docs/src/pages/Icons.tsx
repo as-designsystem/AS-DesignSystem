@@ -110,6 +110,12 @@ export default function Icons() {
             rightIconButton="close"
             onRightIconButtonClick={() => setSearchQuery('')}
             className="icon-search-input"
+            showLegend
+            legend={
+              filteredIcons.length === 0
+                ? 'No icons match'
+                : `${filteredIcons.length} icon${filteredIcons.length === 1 ? '' : 's'} ${searchQuery ? 'match' : 'available'}`
+            }
           />
 
           {/* Size Selector */}
