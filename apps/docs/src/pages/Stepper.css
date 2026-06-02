@@ -1,0 +1,17 @@
+.stepper-demo {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stepper-demo--column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.stepper-demo__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

@@ -55,6 +55,8 @@ import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
 import StudyContentPage from './pages/StudyContent';
 import ScrollableContentPage from './pages/ScrollableContent';
+import StepperPage from './pages/Stepper';
+import StepperGroupPage from './pages/StepperGroup';
 
 function App() {
   return (
@@ -118,6 +120,8 @@ function App() {
               <Route path="/composites/time-picker" element={<TimePickerPage />} />
               <Route path="/composites/aircraft-selector" element={<AircraftSelectorPage />} />
               <Route path="/composites/chart-card" element={<ChartCardPage />} />
+              <Route path="/components/stepper" element={<StepperPage />} />
+              <Route path="/composites/stepper-group" element={<StepperGroupPage />} />
               <Route path="/components/study-content" element={<StudyContentPage />} />
               <Route path="/components/study-status" element={<StudyStatusPage />} />
               <Route path="/components/study-row" element={<StudyRowPage />} />

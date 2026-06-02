@@ -58,7 +58,9 @@
     "./ChartCard.css": "./dist/ChartCard.css",
     "./StudyContent.css": "./dist/StudyContent.css",
     "./ScrollableContent.css": "./dist/ScrollableContent.css",
-    "./ag-grid-theme.css": "./dist/ag-grid-theme.css"
+    "./ag-grid-theme.css": "./dist/ag-grid-theme.css",
+    "./Stepper.css": "./dist/Stepper.css",
+    "./StepperGroup.css": "./dist/StepperGroup.css"
   },
   "scripts": {
     "build": "tsup",

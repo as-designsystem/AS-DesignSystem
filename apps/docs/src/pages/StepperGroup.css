@@ -1,0 +1,11 @@
+.stepper-group-demo {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.stepper-group-demo--column {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}

@@ -37,6 +37,7 @@ export { StudyRow, type StudyRowProps, type StudyRowColumn } from './components/
 export { StudyTableHeader, type StudyTableHeaderProps, type StudyTableHeaderColumn } from './components/StudyTableHeader';
 export { StudyContent, type StudyContentProps, type StudyContentVariant } from './components/StudyContent';
 export { ScrollableContent, type ScrollableContentProps } from './components/ScrollableContent';
+export { Stepper, type StepperProps, type StepperSize, type StepperState, type StepperContent } from './components/Stepper';
 export {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -76,6 +77,7 @@ export { TimePicker, type TimePickerProps } from './composites/TimePicker';
 export { AircraftSelector, type AircraftSelectorProps, type AircraftSource, type AircraftTreeNode, type AircraftNodeType, type AircraftSummary, type AircraftConfigData, type AircraftWeights, type AircraftCabin, type AircraftCG, type AircraftPerformanceData, type PerformanceSource, type AircraftDeteriorationPerPhase } from './composites/AircraftSelector';
 export { EmptyState, emptyStateIllustrations, type EmptyStateProps, type EmptyStateIllustration, type EmptyStateSize } from './composites/EmptyState';
 export { ChartCard, type ChartCardProps } from './composites/ChartCard';
+export { StepperGroup, type StepperGroupProps, type StepperGroupStep } from './composites/StepperGroup';
 
 // Tokens
 export * from './tokens/colors';

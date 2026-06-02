@@ -373,4 +373,27 @@ export const composites: RegistryItem[] = [
       '@/design-system/tokens/radius.css',
     ],
   },
+  {
+    name: 'stepper-group',
+    type: 'composite',
+    displayName: 'StepperGroup',
+    description: 'Horizontal multi-step progress indicator that chains Stepper dots with connector lines and a current-step highlight',
+    files: [
+      {
+        path: 'templates/composites/StepperGroup.tsx',
+        target: 'composites/StepperGroup.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/StepperGroup.css',
+        target: 'composites/StepperGroup.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['stepper'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];

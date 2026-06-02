@@ -1,0 +1,141 @@
+/**
+ * Stepper Component Styles
+ * Tokens are exported from the package root.
+ * Users should import: @as-designsystem/core/colors.css and typography.css
+ */
+
+.stepper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  color: var(--primary-active, #002d80);
+}
+
+/* When rendered as a button (interactive) */
+button.stepper {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button.stepper:focus {
+  outline: none;
+}
+
+button.stepper:focus-visible {
+  outline: 2px solid var(--primary-active, #002d80);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   SIZES (container width)
+   ============================================================================ */
+
+.stepper--xs { width: 91px; }
+.stepper--s  { width: 120px; }
+.stepper--m  { width: 144px; }
+.stepper--l  { width: 176px; }
+.stepper--xl { width: 208px; }
+
+/* ============================================================================
+   STATES
+   ============================================================================ */
+
+.stepper--hover,
+.stepper--interactive:not(:disabled):hover {
+  background-color: var(--primary-t-hover, rgba(0, 45, 128, 0.1));
+}
+
+.stepper--disabled,
+.stepper:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ============================================================================
+   LINE (dashes + dot)
+   ============================================================================ */
+
+.stepper__line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Connector dash */
+.stepper__dash {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 3px;
+  background-color: var(--primary-active, #002d80);
+}
+
+/* Hidden dash keeps space so the dot stays centered */
+.stepper__dash--hidden {
+  visibility: hidden;
+}
+
+/* ============================================================================
+   DOT
+   ============================================================================ */
+
+.stepper__dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Dot sizes */
+.stepper__dot--xs { width: 11px; height: 11px; }
+.stepper__dot--s  { width: 24px; height: 24px; padding: 4px; }
+.stepper__dot--m  { width: 32px; height: 32px; padding: 8px; }
+.stepper__dot--l  { width: 48px; height: 48px; padding: 12px; }
+.stepper__dot--xl { width: 64px; height: 64px; padding: 16px; }
+
+/* Filled vs outlined dot */
+.stepper__dot--filled {
+  background-color: var(--primary-active, #002d80);
+}
+
+.stepper__dot--outlined {
+  background-color: var(--surface-interaction-default, #ffffff);
+  border: 1px solid var(--primary-active, #002d80);
+}
+
+/* ============================================================================
+   DOT CONTENT (number / icon color)
+   ============================================================================ */
+
+.stepper__value {
+  color: var(--primary-active, #002d80);
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.stepper__dot--filled .stepper__value {
+  color: var(--text-negative, #ffffff);
+}
+
+/* ============================================================================
+   LABEL
+   ============================================================================ */
+
+.stepper__label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: var(--primary-active, #002d80);
+  word-break: break-word;
+}

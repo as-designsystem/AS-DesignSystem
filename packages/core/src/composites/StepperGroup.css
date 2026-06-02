@@ -1,0 +1,15 @@
+/**
+ * StepperGroup Composite Styles
+ */
+
+.stepper-group {
+  display: inline-flex;
+  align-items: flex-start;
+  /* Use a tiny negative gap so adjacent Stepper containers butt up cleanly */
+  gap: 0;
+}
+
+.stepper-group__item {
+  display: flex;
+  flex: 0 0 auto;
+}

@@ -1720,4 +1720,27 @@ export const components: RegistryItem[] = [
       '@/design-system/tokens/colors.css',
     ],
   },
+  {
+    name: 'stepper',
+    type: 'component',
+    displayName: 'Stepper',
+    description: 'Single step indicator with connector lines, a filled/outlined dot containing an icon or number, and an optional label',
+    files: [
+      {
+        path: 'templates/components/Stepper.tsx',
+        target: 'components/Stepper.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Stepper.css',
+        target: 'components/Stepper.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
 ];
