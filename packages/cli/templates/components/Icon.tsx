@@ -683,6 +683,7 @@ import sensorDoorIcon from '../assets/svg/icons/sensor_door.svg?raw';
 import sensorWindowIcon from '../assets/svg/icons/sensor_window.svg?raw';
 import settingsIcon from '../assets/svg/icons/settings.svg?raw';
 import settingsApplicationsIcon from '../assets/svg/icons/settings_applications.svg?raw';
+import settingsSlowMotionIcon from '../assets/svg/icons/settings_slow_motion.svg?raw';
 import shareIcon from '../assets/svg/icons/share.svg?raw';
 import shoppingBagIcon from '../assets/svg/icons/shopping_bag.svg?raw';
 import shoppingBasketIcon from '../assets/svg/icons/shopping_basket.svg?raw';
@@ -1540,6 +1541,7 @@ const iconMap: Record<string, string> = {
   'sensor_window': sensorWindowIcon,
   'settings': settingsIcon,
   'settings_applications': settingsApplicationsIcon,
+  'settings_slow_motion': settingsSlowMotionIcon,
   'share': shareIcon,
   'shopping_bag': shoppingBagIcon,
   'shopping_basket': shoppingBasketIcon,
@@ -2397,6 +2399,7 @@ export const availableIcons = [
   'sensor_window',
   'settings',
   'settings_applications',
+  'settings_slow_motion',
   'share',
   'shopping_bag',
   'shopping_basket',
