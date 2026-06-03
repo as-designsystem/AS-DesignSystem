@@ -5,4 +5,6 @@
 
 export const radius = {
   xs: '3px',
+  s: '6px',
+  m: '12px',
 } as const;
