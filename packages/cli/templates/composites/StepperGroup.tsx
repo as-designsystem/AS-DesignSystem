@@ -14,15 +14,26 @@ export interface StepperGroupStep {
    */
   label: string;
   /**
-   * Icon name when the group renders content as 'Icon'.
+   * Overrides the group-level `content` for this step only.
+   * Use this to mix icon-based and number-based dots inside the same group.
+   */
+  content?: StepperContent;
+  /**
+   * Icon name when this step renders as 'Icon'.
    * Falls back to the group-level default ('settings').
    */
   iconName?: string;
   /**
-   * Value rendered inside the dot when the group renders content as 'Number'.
+   * Value rendered inside the dot when this step renders as 'Number'.
    * Defaults to the 1-based step index.
    */
   value?: string | number;
+  /**
+   * Forces the filled (true) or outlined (false) state for this step,
+   * overriding the default derivation from `currentStep`. Use it to mark
+   * an arbitrary step as done/current without changing `currentStep`.
+   */
+  current?: boolean;
   /**
    * Disables only this step: it cannot be clicked and is rendered greyed out.
    * Combined (OR) with the group-level `disabled`.
@@ -49,7 +60,8 @@ export interface StepperGroupProps {
    */
   size?: StepperSize;
   /**
-   * Whether dots show icons or numbers
+   * Default content (icons or numbers) applied to every step. Can be
+   * overridden per step via `step.content`.
    * @default 'Icon'
    */
   content?: StepperContent;
@@ -120,10 +132,11 @@ export function StepperGroup({
       {steps.map((step, index) => {
         const isFirst = index === 0;
         const isLast = index === steps.length - 1;
-        const isFilled = index <= currentStep;
+        const isFilled = step.current ?? (index <= currentStep);
         const value = step.value ?? index + 1;
         const isDisabled = disabled || step.disabled === true;
         const state: StepperState = isDisabled ? 'Disabled' : 'Default';
+        const stepContent: StepperContent = step.content ?? content;
         const handleClick = onStepClick && !isDisabled ? () => onStepClick(index) : undefined;
 
         return (
@@ -132,7 +145,7 @@ export function StepperGroup({
               label={step.label}
               size={size}
               state={state}
-              content={content}
+              content={stepContent}
               iconName={step.iconName}
               value={value}
               current={isFilled}
