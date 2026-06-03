@@ -63,6 +63,16 @@ const radiusTokens: RadiusDef[] = [
     cssVar: '--radius-xs',
     value: '3px',
   },
+  {
+    token: 'S',
+    cssVar: '--radius-s',
+    value: '6px',
+  },
+  {
+    token: 'M',
+    cssVar: '--radius-m',
+    value: '12px',
+  },
 ];
 
 // --- Shadow tokens ---
