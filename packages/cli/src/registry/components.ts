@@ -1217,8 +1217,19 @@ export const components: RegistryItem[] = [
         target: 'components/Select.css',
         type: 'style',
       },
+      // Shared field label (internal dependency, not listed separately)
+      {
+        path: 'templates/components/FieldLabel.tsx',
+        target: 'components/FieldLabel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/FieldLabel.css',
+        target: 'components/FieldLabel.css',
+        type: 'style',
+      },
     ],
-    dependencies: ['icon'],
+    dependencies: ['icon', 'icon-button', 'tooltip'],
     externalDependencies: {
       '@radix-ui/react-select': '^2.1.2',
     },
@@ -1244,8 +1255,19 @@ export const components: RegistryItem[] = [
         target: 'components/Combobox.css',
         type: 'style',
       },
+      // Shared field label (internal dependency, not listed separately)
+      {
+        path: 'templates/components/FieldLabel.tsx',
+        target: 'components/FieldLabel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/FieldLabel.css',
+        target: 'components/FieldLabel.css',
+        type: 'style',
+      },
     ],
-    dependencies: ['icon', 'tooltip'],
+    dependencies: ['icon', 'icon-button', 'tooltip'],
     externalDependencies: {
       '@radix-ui/react-popover': '^1.1.4',
     },
@@ -1348,8 +1370,19 @@ export const components: RegistryItem[] = [
         target: 'components/TextInput.css',
         type: 'style',
       },
+      // Shared field label (internal dependency, not listed separately)
+      {
+        path: 'templates/components/FieldLabel.tsx',
+        target: 'components/FieldLabel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/FieldLabel.css',
+        target: 'components/FieldLabel.css',
+        type: 'style',
+      },
     ],
-    dependencies: ['icon'],
+    dependencies: ['icon', 'icon-button', 'tooltip'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
@@ -1372,8 +1405,19 @@ export const components: RegistryItem[] = [
         target: 'components/NumberInput.css',
         type: 'style',
       },
+      // Shared field label (internal dependency, not listed separately)
+      {
+        path: 'templates/components/FieldLabel.tsx',
+        target: 'components/FieldLabel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/FieldLabel.css',
+        target: 'components/FieldLabel.css',
+        type: 'style',
+      },
     ],
-    dependencies: ['icon', 'icon-button'],
+    dependencies: ['icon', 'icon-button', 'tooltip'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',

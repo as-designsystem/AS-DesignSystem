@@ -77,6 +77,18 @@ import '@as-designsystem/core/Combobox.css';
   leftIcon="AIR_airport"
 />`;
 
+  const actionsCode = `import { Combobox } from '@as-designsystem/core';
+import '@as-designsystem/core/Combobox.css';
+
+<Combobox
+  label="Alternate"
+  placeholder="ex: LFBR"
+  options={airports}
+  actions={[
+    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
+  ]}
+/>`;
+
   const sizesCode = `import { Combobox } from '@as-designsystem/core';
 
 {/* Size XS */}
@@ -229,6 +241,41 @@ import '@as-designsystem/core/Combobox.css';
                 onValueChange={setAirport}
                 showLeftIcon
                 leftIcon="AIR_airport"
+              />
+            </div>
+          </section>
+
+          {/* With Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                With Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('actions')}
+              />
+            </div>
+            <div className="example-container" style={{ maxWidth: '320px' }}>
+              <Combobox
+                label="Alternate"
+                placeholder="ex: LFBR"
+                options={airports}
+                value={airport}
+                onValueChange={setAirport}
+                actions={[
+                  { icon: 'tune', tooltip: 'Suggestion settings' },
+                ]}
               />
             </div>
           </section>
@@ -570,6 +617,12 @@ import '@as-designsystem/core/Combobox.css';
         onClose={() => setOpenModal(null)}
         title="Combobox with Icon"
         code={withIconCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'actions'}
+        onClose={() => setOpenModal(null)}
+        title="Combobox with Actions"
+        code={actionsCode}
       />
       <CodeModal
         isOpen={openModal === 'sizes'}

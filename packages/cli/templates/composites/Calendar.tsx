@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { TextInput, type TextInputSize, type TextInputState } from '../components/TextInput';
 import { IconButton } from '../components/IconButton';
+import type { FieldAction } from '../components/FieldLabel';
 import './Calendar.css';
 
 export type CalendarMode = 'date' | 'month';
@@ -52,6 +53,10 @@ export interface CalendarProps {
    * Tooltip text for the info icon
    */
   infoText?: string;
+  /**
+   * Ghost action icons aligned to the right edge of the label row
+   */
+  actions?: FieldAction[];
   /**
    * Placeholder text
    */
@@ -218,6 +223,7 @@ export function Calendar({
   showOptional = false,
   showInfo = false,
   infoText = '',
+  actions,
   placeholder,
   disabled = false,
   readOnly = false,
@@ -546,6 +552,7 @@ export function Calendar({
               showOptional={showOptional}
               showInfo={showInfo}
               infoText={infoText}
+              actions={actions}
               labelPosition={labelPosition}
               placeholder={defaultPlaceholder}
               value={displayValue}

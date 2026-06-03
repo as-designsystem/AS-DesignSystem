@@ -13,6 +13,7 @@ export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, ty
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
 export { TextInput, type TextInputProps, type TextInputSize, type TextInputState } from './components/TextInput';
 export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState, type NumberInputVariant } from './components/NumberInput';
+export { FieldLabel, type FieldLabelProps, type FieldAction, type FieldLabelClassPrefix, type WithFieldLabel } from './components/FieldLabel';
 export {
   Tooltip,
   TooltipTrigger,

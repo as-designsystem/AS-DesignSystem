@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { TextInput, type TextInputSize, type TextInputState } from '../components/TextInput';
+import type { FieldAction } from '../components/FieldLabel';
 import './TimePicker.css';
 
 export interface TimePickerProps {
@@ -47,6 +48,10 @@ export interface TimePickerProps {
    * Tooltip text for the info icon
    */
   infoText?: string;
+  /**
+   * Ghost action icons aligned to the right edge of the label row
+   */
+  actions?: FieldAction[];
   /**
    * Placeholder text
    * @default '--:--'
@@ -139,6 +144,7 @@ export function TimePicker({
   showOptional = false,
   showInfo = false,
   infoText = '',
+  actions,
   placeholder = '--:--',
   disabled = false,
   readOnly = false,
@@ -258,6 +264,7 @@ export function TimePicker({
               showOptional={showOptional}
               showInfo={showInfo}
               infoText={infoText}
+              actions={actions}
               labelPosition={labelPosition}
               placeholder={placeholder}
               value={displayValue}

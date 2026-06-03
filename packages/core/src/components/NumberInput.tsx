@@ -1,8 +1,7 @@
 // @ts-ignore - React import needed for JSX in non-TypeScript projects
 import React, { forwardRef } from 'react';
-import { Icon } from './Icon';
 import { IconButton } from './IconButton';
-import { SimpleTooltip } from './Tooltip';
+import { FieldLabel, type FieldAction } from './FieldLabel';
 import './NumberInput.css';
 
 export type NumberInputSize = 'XS' | 'S' | 'M' | 'L';
@@ -57,6 +56,10 @@ export interface NumberInputProps
    * Tooltip text for the info icon
    */
   infoText?: string;
+  /**
+   * Ghost action icons aligned to the right edge of the label row
+   */
+  actions?: FieldAction[];
   /**
    * Text displayed before the value (e.g. "$", "€")
    * Shown at rest, hidden on focus for easier editing
@@ -129,6 +132,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       showOptional = false,
       showInfo = false,
       infoText = '',
+      actions,
       prefix,
       suffix,
       value,
@@ -238,27 +242,17 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     return (
       <div className={containerClasses}>
         {/* Label */}
-        {showLabel && label && (
-          <div className="number-input-label-container">
-            <label className="number-input-label label-bold-s">
-              {label}
-              {showOptional && (
-                <span className="number-input-optional label-regular-s"> (Optional)</span>
-              )}
-            </label>
-            {showInfo && infoText ? (
-              <SimpleTooltip label={infoText} delayDuration={0}>
-                <span className="number-input-info-icon">
-                  <Icon name="info" size={16} />
-                </span>
-              </SimpleTooltip>
-            ) : showInfo ? (
-              <span className="number-input-info-icon">
-                <Icon name="info" size={16} />
-              </span>
-            ) : null}
-          </div>
-        )}
+        <FieldLabel
+          classPrefix="number-input"
+          label={label}
+          htmlFor={inputProps.id}
+          showLabel={showLabel}
+          showOptional={showOptional}
+          showInfo={showInfo}
+          infoText={infoText}
+          actions={actions}
+          disabled={isDisabled}
+        />
 
         {/* Input wrapper */}
         <div className={inputWrapperClasses}>

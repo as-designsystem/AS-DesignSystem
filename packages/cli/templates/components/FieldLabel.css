@@ -1,0 +1,20 @@
+/**
+ * FieldLabel Component Styles
+ *
+ * Styles ONLY the new right-aligned `actions` slot. The label / (Optional) /
+ * info-icon classes remain defined in each input's own CSS file so that the
+ * default rendering (no actions) is byte-for-byte unchanged.
+ *
+ * `margin-left: auto` pins the actions to the right edge of the field within
+ * the existing `*-label-container` flex row, with or without a left cluster.
+ */
+
+.text-input-label-actions,
+.combobox-label-actions,
+.select-label-actions,
+.number-input-label-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}

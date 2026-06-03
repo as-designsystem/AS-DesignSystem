@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { Icon } from './Icon';
-import { SimpleTooltip } from './Tooltip';
+import { FieldLabel, type FieldAction } from './FieldLabel';
 import './Combobox.css';
 
 export type ComboboxSize = 'XS' | 'S' | 'M' | 'L';
@@ -61,6 +61,10 @@ export interface ComboboxProps {
    * Tooltip text for the info icon
    */
   infoText?: string;
+  /**
+   * Ghost action icons aligned to the right edge of the label row
+   */
+  actions?: FieldAction[];
   /**
    * Show the left icon
    * @default false
@@ -137,6 +141,7 @@ export function Combobox({
   showOptional = false,
   showInfo = false,
   infoText = '',
+  actions,
   showLeftIcon = false,
   leftIcon = 'search',
   options = [],
@@ -315,25 +320,16 @@ export function Combobox({
   return (
     <div className={containerClasses}>
       {/* Label */}
-      {showLabel && label && (
-        <div className="combobox-label-container">
-          <label className="combobox-label label-bold-s">
-            {label}
-            {showOptional && <span className="combobox-optional label-regular-s"> (Optional)</span>}
-          </label>
-          {showInfo && infoText ? (
-            <SimpleTooltip label={infoText} delayDuration={0}>
-              <span className="combobox-info-icon">
-                <Icon name="info" size={16} />
-              </span>
-            </SimpleTooltip>
-          ) : showInfo ? (
-            <span className="combobox-info-icon">
-              <Icon name="info" size={16} />
-            </span>
-          ) : null}
-        </div>
-      )}
+      <FieldLabel
+        classPrefix="combobox"
+        label={label}
+        showLabel={showLabel}
+        showOptional={showOptional}
+        showInfo={showInfo}
+        infoText={infoText}
+        actions={actions}
+        disabled={isDisabled}
+      />
 
       {/* Combobox */}
       <Popover.Root open={open} modal={false}>

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Icon } from './Icon';
-import { SimpleTooltip } from './Tooltip';
+import { FieldLabel, type FieldAction } from './FieldLabel';
 import './Select.css';
 
 export type SelectSize = 'XS' | 'S' | 'M' | 'L';
@@ -61,6 +61,10 @@ export interface SelectProps {
    * Texte d'information affiché dans le tooltip
    */
   infoText?: string;
+  /**
+   * Ghost action icons aligned to the right edge of the label row
+   */
+  actions?: FieldAction[];
   /**
    * Afficher l'icône à gauche du select
    * @default false
@@ -128,6 +132,7 @@ export function Select({
   showOptional = false,
   showInfo = false,
   infoText = '',
+  actions,
   showLeftIcon = false,
   leftIcon = 'AIR_fleet',
   options = [],
@@ -209,25 +214,16 @@ export function Select({
   return (
     <div className={containerClasses}>
       {/* Label */}
-      {showLabel && label && (
-        <div className="select-label-container">
-          <label className="select-label label-bold-s">
-            {label}
-            {showOptional && <span className="select-optional label-regular-s"> (Optional)</span>}
-          </label>
-          {showInfo && infoText ? (
-            <SimpleTooltip label={infoText} delayDuration={0}>
-              <span className="select-info-icon">
-                <Icon name="info" size={16} />
-              </span>
-            </SimpleTooltip>
-          ) : showInfo ? (
-            <span className="select-info-icon">
-              <Icon name="info" size={16} />
-            </span>
-          ) : null}
-        </div>
-      )}
+      <FieldLabel
+        classPrefix="select"
+        label={label}
+        showLabel={showLabel}
+        showOptional={showOptional}
+        showInfo={showInfo}
+        infoText={infoText}
+        actions={actions}
+        disabled={isDisabled}
+      />
 
       {/* Select */}
       <SelectPrimitive.Root

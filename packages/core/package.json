@@ -25,6 +25,7 @@
     "./Toggle.css": "./dist/Toggle.css",
     "./TextInput.css": "./dist/TextInput.css",
     "./NumberInput.css": "./dist/NumberInput.css",
+    "./FieldLabel.css": "./dist/FieldLabel.css",
     "./Tooltip.css": "./dist/Tooltip.css",
     "./Modal.css": "./dist/Modal.css",
     "./AppHeader.css": "./dist/AppHeader.css",
