@@ -87,9 +87,10 @@ export interface StepperGroupProps {
  *
  * Renders a horizontal sequence of `<Stepper>` indicators. Each step before
  * and at `currentStep` is filled (done/current); steps after are outlined
- * (upcoming). Individual steps can be disabled via `step.disabled`. The first
- * step hides its left connector and the last step hides its right connector
- * so the line spans only between dots.
+ * (upcoming). Only the step at `currentStep` renders its label in bold; the
+ * others use a regular weight. Individual steps can be disabled via
+ * `step.disabled`. The first step hides its left connector and the last step
+ * hides its right connector so the line spans only between dots.
  *
  * @example
  * ```tsx
@@ -137,6 +138,7 @@ export function StepperGroup({
         const isDisabled = disabled || step.disabled === true;
         const state: StepperState = isDisabled ? 'Disabled' : 'Default';
         const stepContent: StepperContent = step.content ?? content;
+        const isCurrent = index === currentStep;
         const handleClick = onStepClick && !isDisabled ? () => onStepClick(index) : undefined;
 
         return (
@@ -149,6 +151,7 @@ export function StepperGroup({
               iconName={step.iconName}
               value={value}
               current={isFilled}
+              labelStrong={isCurrent}
               showLeftDash={!isFirst}
               showRightDash={!isLast}
               onClick={handleClick}

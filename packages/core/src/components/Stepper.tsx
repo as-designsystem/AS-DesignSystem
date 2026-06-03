@@ -58,6 +58,12 @@ export interface StepperProps {
    */
   showLabel?: boolean;
   /**
+   * Render the label in bold (used to emphasize the current/active step).
+   * When false, the label uses a regular weight.
+   * @default true
+   */
+  labelStrong?: boolean;
+  /**
    * Click handler. When provided, the stepper renders as a button and the
    * Hover background also reacts to mouse hover.
    */
@@ -85,12 +91,22 @@ const valueTypographyClass: Record<StepperSize, string> = {
   XL: 'label-bold-l', // 18px
 };
 
+// Bold label, used for the current/active step
 const labelTypographyClass: Record<StepperSize, string> = {
   XS: 'label-bold-s',
   S: 'label-bold-s',
   M: 'label-bold-s',
   L: 'label-bold-s',
   XL: 'label-bold-m',
+};
+
+// Regular label, used for non-current steps
+const labelRegularTypographyClass: Record<StepperSize, string> = {
+  XS: 'label-regular-s',
+  S: 'label-regular-s',
+  M: 'label-regular-s',
+  L: 'label-regular-s',
+  XL: 'label-regular-m',
 };
 
 /**
@@ -118,6 +134,7 @@ export function Stepper({
   showLeftDash = true,
   showRightDash = true,
   showLabel = true,
+  labelStrong = true,
   onClick,
   className = '',
 }: StepperProps) {
@@ -171,7 +188,11 @@ export function Stepper({
         <span className={dashRightClasses} />
       </div>
       {showLabel && label && (
-        <span className={`stepper__label ${labelTypographyClass[size]}`}>
+        <span
+          className={`stepper__label ${
+            labelStrong ? labelTypographyClass[size] : labelRegularTypographyClass[size]
+          }`}
+        >
           {label}
         </span>
       )}
