@@ -23,6 +23,12 @@ export interface StepperGroupStep {
    * Defaults to the 1-based step index.
    */
   value?: string | number;
+  /**
+   * Disables only this step: it cannot be clicked and is rendered greyed out.
+   * Combined (OR) with the group-level `disabled`.
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 export interface StepperGroupProps {
@@ -54,7 +60,8 @@ export interface StepperGroupProps {
   disabled?: boolean;
   /**
    * Called with the step index when a step is clicked. Steps become
-   * interactive (button + hover background) only when this is provided.
+   * interactive (button + hover background) only when this is provided
+   * and the step is not disabled.
    */
   onStepClick?: (index: number) => void;
   /**
@@ -68,8 +75,9 @@ export interface StepperGroupProps {
  *
  * Renders a horizontal sequence of `<Stepper>` indicators. Each step before
  * and at `currentStep` is filled (done/current); steps after are outlined
- * (upcoming). The first step hides its left connector and the last step
- * hides its right connector so the line spans only between dots.
+ * (upcoming). Individual steps can be disabled via `step.disabled`. The first
+ * step hides its left connector and the last step hides its right connector
+ * so the line spans only between dots.
  *
  * @example
  * ```tsx
@@ -114,8 +122,9 @@ export function StepperGroup({
         const isLast = index === steps.length - 1;
         const isFilled = index <= currentStep;
         const value = step.value ?? index + 1;
-        const state: StepperState = disabled ? 'Disabled' : 'Default';
-        const handleClick = onStepClick && !disabled ? () => onStepClick(index) : undefined;
+        const isDisabled = disabled || step.disabled === true;
+        const state: StepperState = isDisabled ? 'Disabled' : 'Default';
+        const handleClick = onStepClick && !isDisabled ? () => onStepClick(index) : undefined;
 
         return (
           <div key={index} role="listitem" className="stepper-group__item">
