@@ -51,6 +51,17 @@ export default function TextInputPage() {
 // With right icon button (clickable)
 <TextInput label="Search" placeholder="Search..." showRightIconButton rightIconButton="close" onRightIconButtonClick={() => console.log('Clear!')} />`;
 
+  const actionsCode = `import { TextInput } from '@as-designsystem/core';
+import '@as-designsystem/core/TextInput.css';
+
+<TextInput
+  label="Alternate"
+  placeholder="ex: LFBR"
+  actions={[
+    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
+  ]}
+/>`;
+
   return (
     <div className="component-page">
       <div className="page-header">
@@ -300,6 +311,38 @@ export default function TextInputPage() {
             </div>
           </section>
 
+          {/* With Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                With Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('actions')}
+              />
+            </div>
+            <div className="example-container" style={{ maxWidth: '320px' }}>
+              <TextInput
+                label="Alternate"
+                placeholder="ex: LFBR"
+                actions={[
+                  { icon: 'tune', tooltip: 'Suggestion settings' },
+                ]}
+              />
+            </div>
+          </section>
+
           {/* Controlled Input Example */}
           <section className="component-section">
             <div className="section-header">
@@ -485,6 +528,16 @@ export default function TextInputPage() {
                 </tr>
                 <tr>
                   <td>
+                    <code>actions</code>
+                  </td>
+                  <td>
+                    <code>FieldAction[]</code>
+                  </td>
+                  <td>-</td>
+                  <td>Ghost icon buttons aligned to the right edge of the label row</td>
+                </tr>
+                <tr>
+                  <td>
                     <code>showLeftIcon</code>
                   </td>
                   <td>
@@ -649,6 +702,12 @@ export default function TextInputPage() {
         onClose={() => setOpenModal(null)}
         title="Options Implementation"
         code={optionsCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'actions'}
+        onClose={() => setOpenModal(null)}
+        title="TextInput with Actions"
+        code={actionsCode}
       />
     </div>
   );

@@ -95,6 +95,17 @@ export default function NumberInputPage() {
 // With min/max constraints
 <NumberInput label="Min/Max" value={5} min={0} max={10} onChange={(v) => console.log(v)} />`;
 
+  const actionsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
+
+<NumberInput
+  label="Alternate"
+  value={5}
+  actions={[
+    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
+  ]}
+  onChange={(v) => console.log(v)}
+/>`;
+
   return (
     <div className="component-page">
       <div className="page-header">
@@ -172,6 +183,41 @@ export default function NumberInputPage() {
                     labelPosition="left"
                   />
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* With Actions */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                With Actions
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('actions')}
+              />
+            </div>
+            <div className="example-container">
+              <div style={{ width: '300px' }}>
+                <NumberInput
+                  label="Alternate"
+                  value={5}
+                  actions={[
+                    { icon: 'tune', tooltip: 'Suggestion settings' },
+                  ]}
+                  onChange={() => {}}
+                />
               </div>
             </div>
           </section>
@@ -585,6 +631,12 @@ export default function NumberInputPage() {
                   <td>Tooltip text for info icon</td>
                 </tr>
                 <tr>
+                  <td><code>actions</code></td>
+                  <td><code>FieldAction[]</code></td>
+                  <td><code>-</code></td>
+                  <td>Ghost icon buttons aligned to the right edge of the label row</td>
+                </tr>
+                <tr>
                   <td><code>disabled</code></td>
                   <td><code>boolean</code></td>
                   <td><code>false</code></td>
@@ -632,6 +684,12 @@ export default function NumberInputPage() {
         onClose={() => setOpenModal(null)}
         title="Options Implementation"
         code={optionsCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'actions'}
+        onClose={() => setOpenModal(null)}
+        title="NumberInput with Actions"
+        code={actionsCode}
       />
     </div>
   );

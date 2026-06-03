@@ -6,6 +6,9 @@
 /* Tokens are exported from the package root */
 /* Users should import: @as-designsystem/core/colors.css and @as-designsystem/core/typography.css */
 
+/* Shared label-actions slot (right-aligned Ghost action icons) */
+@import './FieldLabel.css';
+
 /* ============================================================================
    CONTAINER
    ============================================================================ */

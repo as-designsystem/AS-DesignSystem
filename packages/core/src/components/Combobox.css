@@ -3,6 +3,9 @@
  * Based on TextInput and Select styling
  */
 
+/* Shared label-actions slot (right-aligned Ghost action icons) */
+@import './FieldLabel.css';
+
 /* ============================================================================
    CONTAINER
    ============================================================================ */

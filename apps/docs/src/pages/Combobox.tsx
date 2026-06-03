@@ -518,6 +518,12 @@ import '@as-designsystem/core/Combobox.css';
                     <td style={{ padding: '12px 8px' }}>Show the label</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
+                    <td style={{ padding: '12px 8px' }}><code>actions</code></td>
+                    <td style={{ padding: '12px 8px' }}><code>FieldAction[]</code></td>
+                    <td style={{ padding: '12px 8px' }}>-</td>
+                    <td style={{ padding: '12px 8px' }}>Ghost icon buttons aligned to the right edge of the label row</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
                     <td style={{ padding: '12px 8px' }}><code>legend</code></td>
                     <td style={{ padding: '12px 8px' }}><code>string</code></td>
                     <td style={{ padding: '12px 8px' }}>'Legend'</td>
