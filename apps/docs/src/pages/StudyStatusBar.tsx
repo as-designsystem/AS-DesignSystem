@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StudyStatusBar, Tab, Button } from '@as-designsystem/core';
+import { StudyStatusBar, Tab, Button, Icon } from '@as-designsystem/core';
 import '@as-designsystem/core/StudyStatusBar.css';
 import '@as-designsystem/core/Spinner.css';
 import '@as-designsystem/core/Button.css';
@@ -75,6 +75,25 @@ import { Button } from '@/design-system/components/Button';
   description="All parameters are set."
   actions={<Button label="COMPUTE STUDY" size="M" onClick={() => computeStudy()} />}
 />`;
+
+  const customContentCode = `import { StudyStatusBar } from '@/design-system/composites/StudyStatusBar';
+import { Button, Icon } from '@/design-system/components';
+
+{/* showStatusIcon=false: the custom children carry their own icons */}
+<StudyStatusBar
+  status="Ready"
+  showStatusIcon={false}
+  actions={<Button label="RECOMPUTE PERFORMANCE" size="M" />}
+>
+  <span className="status-item">
+    <Icon name="check" size={20} color="var(--primary-default)" />
+    500/537 Flights succeeded
+  </span>
+  <span className="status-item">
+    <Icon name="close" size={20} color="var(--feedback-error-default)" />
+    37 Flights failed
+  </span>
+</StudyStatusBar>`;
 
   return (
     <div className="component-page">
@@ -221,6 +240,47 @@ import { Button } from '@/design-system/components/Button';
               </div>
             </div>
           </section>
+
+          {/* Custom Content */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Custom Content
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('customContent')}
+              />
+            </div>
+            <div className="example-container">
+              <div className="study-status-bar-demo">
+                <StudyStatusBar
+                  status="Ready"
+                  showStatusIcon={false}
+                  actions={<Button label="RECOMPUTE PERFORMANCE" size="M" onClick={() => console.log('Recompute')} />}
+                >
+                  <span className="status-item label-regular-s">
+                    <Icon name="check" size={20} color="var(--primary-default, #063b9e)" />
+                    500/537 Flights succeeded
+                  </span>
+                  <span className="status-item label-regular-s">
+                    <Icon name="close" size={20} color="var(--feedback-error-default, #e4002b)" />
+                    37 Flights failed
+                  </span>
+                </StudyStatusBar>
+              </div>
+            </div>
+          </section>
         </>
       )}
 
@@ -258,13 +318,25 @@ import { Button } from '@/design-system/components/Button';
                   <td><code>title</code></td>
                   <td><code>string</code></td>
                   <td>-</td>
-                  <td>Title text displayed in the bar (required)</td>
+                  <td>Title text displayed in the bar. Ignored when <code>children</code> is provided.</td>
                 </tr>
                 <tr>
                   <td><code>description</code></td>
                   <td><code>string</code></td>
                   <td>-</td>
-                  <td>Description text displayed below the title (required)</td>
+                  <td>Description text displayed below the title. Ignored when <code>children</code> is provided.</td>
+                </tr>
+                <tr>
+                  <td><code>children</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>-</td>
+                  <td>Free-form content that replaces the default title/description block.</td>
+                </tr>
+                <tr>
+                  <td><code>showStatusIcon</code></td>
+                  <td><code>boolean</code></td>
+                  <td><code>true</code></td>
+                  <td>Whether to display the default status icon. Set to <code>false</code> when custom content carries its own icons.</td>
                 </tr>
                 <tr>
                   <td><code>actions</code></td>
@@ -302,6 +374,12 @@ import { Button } from '@/design-system/components/Button';
         onClose={() => setOpenModal(null)}
         title="StudyStatusBar — Custom Icon"
         code={customIconCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'customContent'}
+        onClose={() => setOpenModal(null)}
+        title="StudyStatusBar — Custom Content"
+        code={customContentCode}
       />
     </div>
   );

@@ -56,6 +56,13 @@
   min-width: 0;
 }
 
+/* Custom content (children) — inline row by default */
+.study-status-bar__content--custom {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-m, 16px);
+}
+
 .study-status-bar__title {
   color: var(--text-main, #14171d);
 }

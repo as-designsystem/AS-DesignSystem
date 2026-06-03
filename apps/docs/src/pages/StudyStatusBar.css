@@ -7,3 +7,12 @@
   flex-direction: column;
   gap: 16px;
 }
+
+/* Inline status items used in the Custom Content example */
+.study-status-bar-demo .status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-main, #14171d);
+  white-space: nowrap;
+}

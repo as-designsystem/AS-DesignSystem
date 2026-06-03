@@ -7,17 +7,31 @@ export type StudyStatusBarStatus = 'Ready' | 'NotReady' | 'Computing' | 'Modifie
 
 export interface StudyStatusBarProps {
   /**
-   * Current status of the study
+   * Current status of the study. Always drives the colored left border.
    */
   status: StudyStatusBarStatus;
   /**
-   * Title text displayed in the bar
+   * Title text displayed in the bar.
+   * Optional: ignored when `children` is provided.
    */
-  title: string;
+  title?: string;
   /**
-   * Description text displayed below the title
+   * Description text displayed below the title.
+   * Optional: ignored when `children` is provided.
    */
-  description: string;
+  description?: string;
+  /**
+   * Free-form content that replaces the default title/description block.
+   * Use it to compose custom layouts (e.g. several inline status items,
+   * each with its own icon and color) while keeping the bar chrome.
+   */
+  children?: ReactNode;
+  /**
+   * Whether to display the default status icon (or Spinner when Computing).
+   * Set to `false` when the custom `children` carry their own icons.
+   * @default true
+   */
+  showStatusIcon?: boolean;
   /**
    * Action elements displayed on the right side (Button, IconButton, etc.)
    */
@@ -64,11 +78,23 @@ const statusIconMap: Record<Exclude<StudyStatusBarStatus, 'Computing'>, { name: 
  *   actions={<Button label="COMPUTE STUDY" size="M" onClick={() => computeStudy()} />}
  * />
  * ```
+ *
+ * @example Custom content with its own icons
+ * ```tsx
+ * <StudyStatusBar status="Ready" showStatusIcon={false} actions={<Button label="RECOMPUTE" />}>
+ *   <div className="status-items">
+ *     <span><Icon name="check" color="var(--primary-default)" /> 500/537 succeeded</span>
+ *     <span><Icon name="close" color="var(--feedback-error-default)" /> 37 failed</span>
+ *   </div>
+ * </StudyStatusBar>
+ * ```
  */
 export function StudyStatusBar({
   status,
   title,
   description,
+  children,
+  showStatusIcon = true,
   actions,
   icon,
   spinnerVariant = 'arc',
@@ -84,19 +110,27 @@ export function StudyStatusBar({
   return (
     <div className={containerClasses} role="status">
       {/* Status icon */}
-      <div className="study-status-bar__icon">
-        {status === 'Computing' ? (
-          <Spinner variant={spinnerVariant} value={spinnerValue} size={24} color="var(--text-secondary, #63728a)" />
-        ) : (
-          <Icon name={icon || statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
-        )}
-      </div>
+      {showStatusIcon && (
+        <div className="study-status-bar__icon">
+          {status === 'Computing' ? (
+            <Spinner variant={spinnerVariant} value={spinnerValue} size={24} color="var(--text-secondary, #63728a)" />
+          ) : (
+            <Icon name={icon || statusIconMap[status].name} size={24} color={statusIconMap[status].color} />
+          )}
+        </div>
+      )}
 
       {/* Content */}
-      <div className="study-status-bar__content">
-        <span className="study-status-bar__title label-bold-s">{title}</span>
-        <span className="study-status-bar__description label-regular-s">{description}</span>
-      </div>
+      {children ? (
+        <div className="study-status-bar__content study-status-bar__content--custom">
+          {children}
+        </div>
+      ) : (
+        <div className="study-status-bar__content">
+          {title && <span className="study-status-bar__title label-bold-s">{title}</span>}
+          {description && <span className="study-status-bar__description label-regular-s">{description}</span>}
+        </div>
+      )}
 
       {/* Actions */}
       {actions && (
