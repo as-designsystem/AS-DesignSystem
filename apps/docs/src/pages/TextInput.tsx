@@ -52,7 +52,8 @@ export default function TextInputPage() {
 <TextInput label="Search" placeholder="Search..." showRightIconButton rightIconButton="close" onRightIconButtonClick={() => console.log('Clear!')} />
 
 // With actions
-<TextInput label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
+<TextInput label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+<TextInput label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   return (
     <div className="component-page">
@@ -238,6 +239,43 @@ export default function TextInputPage() {
             </div>
           </section>
 
+          {/* Controlled Input Example */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Controlled Input
+              </h2>
+            </div>
+            <div className="example-container">
+              <div className="textinput-examples">
+              <TextInput
+                label="Controlled input"
+                placeholder="Type something..."
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+              <div
+                style={{
+                  padding: '16px',
+                  background: 'var(--background-tertiary)',
+                  borderRadius: '4px',
+                }}
+              >
+                <p className="label-regular-s" style={{ margin: 0 }}>
+                  Current value: <strong>{inputValue || '(empty)'}</strong>
+                </p>
+              </div>
+              </div>
+            </div>
+          </section>
+
           {/* Other Options */}
           <section className="component-section">
             <div className="section-header">
@@ -304,43 +342,16 @@ export default function TextInputPage() {
                 placeholder="ex: LFBR"
                 actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
               />
-              </div>
-            </div>
-          </section>
-
-          {/* Controlled Input Example */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Controlled Input
-              </h2>
-            </div>
-            <div className="example-container">
-              <div className="textinput-examples">
               <TextInput
-                label="Controlled input"
-                placeholder="Type something..."
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                label="All combined"
+                placeholder="ex: LFBR"
+                showOptional
+                legend="Max 10 items"
+                showLegend
+                showInfo
+                infoText="Tooltip text"
+                actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
               />
-              <div
-                style={{
-                  padding: '16px',
-                  background: 'var(--background-tertiary)',
-                  borderRadius: '4px',
-                }}
-              >
-                <p className="label-regular-s" style={{ margin: 0 }}>
-                  Current value: <strong>{inputValue || '(empty)'}</strong>
-                </p>
-              </div>
               </div>
             </div>
           </section>

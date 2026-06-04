@@ -85,7 +85,9 @@ import '@as-designsystem/core/Combobox.css';
 
 <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
 
-<Combobox label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />`;
+<Combobox label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />
+
+<Combobox label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />`;
 
   const sizesCode = `import { Combobox } from '@as-designsystem/core';
 
@@ -243,41 +245,6 @@ import '@as-designsystem/core/Combobox.css';
             </div>
           </section>
 
-          {/* Other Options */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Other Options
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('options')}
-              />
-            </div>
-            <div className="example-container">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
-                <Combobox label="Optional" showOptional options={countries} />
-                <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
-                <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
-                <Combobox
-                  label="With actions"
-                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
-                  options={countries}
-                />
-              </div>
-            </div>
-          </section>
-
           {/* Sizes */}
           <section className="component-section">
             <div className="section-header">
@@ -406,6 +373,51 @@ import '@as-designsystem/core/Combobox.css';
                 options={countries}
                 value="fr"
               />
+            </div>
+          </section>
+
+          {/* Other Options */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Other Options
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('options')}
+              />
+            </div>
+            <div className="example-container">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
+                <Combobox label="Optional" showOptional options={countries} />
+                <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
+                <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
+                <Combobox
+                  label="With actions"
+                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
+                  options={countries}
+                />
+                <Combobox
+                  label="All combined"
+                  showOptional
+                  legend="Max 10 items"
+                  showLegend
+                  showInfo
+                  infoText="Tooltip text"
+                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
+                  options={countries}
+                />
+              </div>
             </div>
           </section>
         </>

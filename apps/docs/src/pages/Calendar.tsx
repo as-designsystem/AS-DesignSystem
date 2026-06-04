@@ -75,7 +75,8 @@ const [date, setDate] = useState<Date>();
 <Calendar label="Optional" showOptional />
 <Calendar label="With legend" legend="Max 10 items" showLegend />
 <Calendar label="With info" showInfo infoText="Tooltip text" />
-<Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
+<Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+<Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   const inputModeCode = `// Editable (default) — type dd/mm/yyyy or use the calendar icon
 <Calendar
@@ -183,37 +184,6 @@ const [date, setDate] = useState<Date>();
                     labelPosition="left"
                   />
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Other Options */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                Other Options
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('options')}
-              />
-            </div>
-            <div className="example-container">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
-                <Calendar label="Optional" showOptional />
-                <Calendar label="With legend" legend="Max 10 items" showLegend />
-                <Calendar label="With info" showInfo infoText="Tooltip text" />
-                <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>
@@ -466,6 +436,38 @@ const [date, setDate] = useState<Date>();
                 <Calendar label="S" mode="date" size="S" />
                 <Calendar label="M" mode="date" size="M" />
                 <Calendar label="L" mode="date" size="L" />
+              </div>
+            </div>
+          </section>
+
+          {/* Other Options */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Other Options
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('options')}
+              />
+            </div>
+            <div className="example-container">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
+                <Calendar label="Optional" showOptional />
+                <Calendar label="With legend" legend="Max 10 items" showLegend />
+                <Calendar label="With info" showInfo infoText="Tooltip text" />
+                <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+                <Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>

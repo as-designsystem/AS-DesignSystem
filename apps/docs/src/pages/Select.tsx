@@ -66,7 +66,8 @@ const options = [
 <Select label="Country" options={options} showInfo infoText="Select your country of residence" />
 
 // With actions
-<Select label="With actions" options={options} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
+<Select label="With actions" options={options} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+<Select label="All combined" options={options} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   return (
     <div className="component-page">
@@ -229,6 +230,7 @@ const options = [
                 <Select label="With left icon" options={countryOptions} showLeftIcon leftIcon="AIR_engine" />
                 <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" />
                 <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+                <Select label="All combined" options={countryOptions} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>
