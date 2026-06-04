@@ -76,7 +76,7 @@ const [date, setDate] = useState<Date>();
 <Calendar label="With legend" legend="Max 10 items" showLegend />
 <Calendar label="With info" showInfo infoText="Tooltip text" />
 <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
-<Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
+<Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />`;
 
   const inputModeCode = `// Editable (default) — type dd/mm/yyyy or use the calendar icon
 <Calendar
@@ -462,12 +462,23 @@ const [date, setDate] = useState<Date>();
               />
             </div>
             <div className="example-container">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
-                <Calendar label="Optional" showOptional />
-                <Calendar label="With legend" legend="Max 10 items" showLegend />
-                <Calendar label="With info" showInfo infoText="Tooltip text" />
-                <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
-                <Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                  <Calendar label="Optional" showOptional />
+                  <Calendar label="With legend" legend="Max 10 items" showLegend />
+                  <Calendar label="With info" showInfo infoText="Tooltip text" />
+                  <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+                  <Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                  <Calendar label="Optional" showOptional labelPosition="left" />
+                  <Calendar label="With legend" legend="Max 10 items" showLegend labelPosition="left" />
+                  <Calendar label="With info" showInfo infoText="Tooltip text" labelPosition="left" />
+                  <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" />
+                  <Calendar label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" />
+                </div>
               </div>
             </div>
           </section>

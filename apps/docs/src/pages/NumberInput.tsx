@@ -99,7 +99,7 @@ export default function NumberInputPage() {
 <NumberInput label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
 
 // All label props combined
-<NumberInput label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
+<NumberInput label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />`;
 
   return (
     <div className="component-page">
@@ -442,24 +442,22 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div className="numberinput-dual-columns">
-                <div className="numberinput-column">
-                  <span className="variant-label">Default</span>
-                  <NumberInput label="Optional" value={0} showOptional onChange={() => {}} />
+              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                  <NumberInput label="Optional" value={5} showOptional onChange={() => {}} />
                   <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={() => {}} />
                   <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={() => {}} />
-                  <NumberInput label="Min/Max (0-10)" value={5} min={0} max={10} onChange={() => {}} />
                   <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
-                  <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
+                  <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} onChange={() => {}} />
                 </div>
-                <div className="numberinput-column">
-                  <span className="variant-label">Stepper</span>
-                  <NumberInput label="Optional" value={0} variant="Stepper" showOptional onChange={() => {}} />
-                  <NumberInput label="With legend" value={1} variant="Stepper" legend="Max 10 items" showLegend onChange={() => {}} />
-                  <NumberInput label="With info" value={1} variant="Stepper" showInfo infoText="Tooltip text" onChange={() => {}} />
-                  <NumberInput label="Min/Max (0-10)" value={5} variant="Stepper" min={0} max={10} onChange={() => {}} />
-                  <NumberInput label="With actions" value={5} variant="Stepper" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
-                  <NumberInput label="All combined" value={5} variant="Stepper" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                  <NumberInput label="Optional" value={5} showOptional labelPosition="left" onChange={() => {}} />
+                  <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend labelPosition="left" onChange={() => {}} />
+                  <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" labelPosition="left" onChange={() => {}} />
+                  <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" onChange={() => {}} />
+                  <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" onChange={() => {}} />
                 </div>
               </div>
             </div>

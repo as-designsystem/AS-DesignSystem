@@ -87,7 +87,7 @@ import '@as-designsystem/core/Combobox.css';
 
 <Combobox label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />
 
-<Combobox label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />`;
+<Combobox label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} options={countries} />`;
 
   const sizesCode = `import { Combobox } from '@as-designsystem/core';
 
@@ -398,25 +398,59 @@ import '@as-designsystem/core/Combobox.css';
               />
             </div>
             <div className="example-container">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
-                <Combobox label="Optional" showOptional options={countries} />
-                <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
-                <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
-                <Combobox
-                  label="With actions"
-                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
-                  options={countries}
-                />
-                <Combobox
-                  label="All combined"
-                  showOptional
-                  legend="Max 10 items"
-                  showLegend
-                  showInfo
-                  infoText="Tooltip text"
-                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
-                  options={countries}
-                />
+              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                  <Combobox label="Optional" showOptional options={countries} />
+                  <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
+                  <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
+                  <Combobox
+                    label="With actions"
+                    actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
+                    options={countries}
+                  />
+                  <Combobox
+                    label="All combined"
+                    showOptional
+                    legend="Max 10 items"
+                    showLegend
+                    showInfo
+                    infoText="Tooltip text"
+                    actions={[
+                      { icon: 'tune', tooltip: 'Suggestion settings' },
+                      { icon: 'edit', tooltip: 'Edit' },
+                      { icon: 'swap_horiz', tooltip: 'Swap' },
+                    ]}
+                    options={countries}
+                  />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                  <Combobox label="Optional" showOptional options={countries} labelPosition="left" />
+                  <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} labelPosition="left" />
+                  <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} labelPosition="left" />
+                  <Combobox
+                    label="With actions"
+                    actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
+                    options={countries}
+                    labelPosition="left"
+                  />
+                  <Combobox
+                    label="All combined"
+                    showOptional
+                    legend="Max 10 items"
+                    showLegend
+                    showInfo
+                    infoText="Tooltip text"
+                    actions={[
+                      { icon: 'tune', tooltip: 'Suggestion settings' },
+                      { icon: 'edit', tooltip: 'Edit' },
+                      { icon: 'swap_horiz', tooltip: 'Swap' },
+                    ]}
+                    options={countries}
+                    labelPosition="left"
+                  />
+                </div>
               </div>
             </div>
           </section>
