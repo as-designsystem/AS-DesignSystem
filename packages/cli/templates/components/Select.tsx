@@ -223,6 +223,7 @@ export function Select({
         infoText={infoText}
         actions={actions}
         disabled={isDisabled}
+        labelPosition={labelPosition}
       />
 
       {/* Select */}

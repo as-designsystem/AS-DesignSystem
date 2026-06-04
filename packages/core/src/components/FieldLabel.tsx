@@ -81,6 +81,13 @@ export interface FieldLabelProps {
    * Note: the label text itself is never greyed (preserves current rendering).
    */
   disabled?: boolean;
+  /**
+   * Label position of the parent field.
+   * In 'left' (horizontal) mode the actions are rendered as a separate sibling
+   * so they can be placed AFTER the input; in 'top' they sit on the label row.
+   * @default 'top'
+   */
+  labelPosition?: 'top' | 'left';
 }
 
 /**
@@ -117,6 +124,7 @@ export function FieldLabel({
   infoText = '',
   actions,
   disabled = false,
+  labelPosition = 'top',
 }: FieldLabelProps) {
   const showLeft = showLabel && !!label;
   const hasActions = !!actions && actions.length > 0;
@@ -124,55 +132,72 @@ export function FieldLabel({
   // Nothing to render: identical to the previous `showLabel && label` gate.
   if (!showLeft && !hasActions) return null;
 
+  const actionsEl = hasActions ? (
+    <div className={`${classPrefix}-label-actions`}>
+      {actions!.map((action, index) => {
+        const ariaLabel = action['aria-label'] ?? action.tooltip ?? action.icon;
+        const button = (
+          <IconButton
+            icon={action.icon}
+            size="XS"
+            variant="Ghost"
+            onClick={action.onClick}
+            disabled={disabled || action.disabled}
+            alt={ariaLabel}
+          />
+        );
+
+        return action.tooltip ? (
+          <SimpleTooltip key={index} label={action.tooltip} delayDuration={0}>
+            {button}
+          </SimpleTooltip>
+        ) : (
+          <React.Fragment key={index}>{button}</React.Fragment>
+        );
+      })}
+    </div>
+  ) : null;
+
+  const labelCluster = showLeft ? (
+    <>
+      <label className={`${classPrefix}-label label-bold-s`} htmlFor={htmlFor}>
+        {label}
+        {showOptional && (
+          <span className={`${classPrefix}-optional label-regular-s`}> (Optional)</span>
+        )}
+      </label>
+      {showInfo && infoText ? (
+        <SimpleTooltip label={infoText} delayDuration={0}>
+          <span className={`${classPrefix}-info-icon`}>
+            <Icon name="info" size={16} />
+          </span>
+        </SimpleTooltip>
+      ) : showInfo ? (
+        <span className={`${classPrefix}-info-icon`}>
+          <Icon name="info" size={16} />
+        </span>
+      ) : null}
+    </>
+  ) : null;
+
+  // Horizontal (label-left): render the actions as a SEPARATE sibling so the
+  // grid can place them AFTER the input (label-container = col 1, actions = col 3).
+  if (labelPosition === 'left') {
+    return (
+      <>
+        {showLeft && (
+          <div className={`${classPrefix}-label-container`}>{labelCluster}</div>
+        )}
+        {actionsEl}
+      </>
+    );
+  }
+
+  // Vertical (label-top): label and actions share the label row (actions right).
   return (
     <div className={`${classPrefix}-label-container`}>
-      {showLeft && (
-        <>
-          <label className={`${classPrefix}-label label-bold-s`} htmlFor={htmlFor}>
-            {label}
-            {showOptional && (
-              <span className={`${classPrefix}-optional label-regular-s`}> (Optional)</span>
-            )}
-          </label>
-          {showInfo && infoText ? (
-            <SimpleTooltip label={infoText} delayDuration={0}>
-              <span className={`${classPrefix}-info-icon`}>
-                <Icon name="info" size={16} />
-              </span>
-            </SimpleTooltip>
-          ) : showInfo ? (
-            <span className={`${classPrefix}-info-icon`}>
-              <Icon name="info" size={16} />
-            </span>
-          ) : null}
-        </>
-      )}
-
-      {hasActions && (
-        <div className={`${classPrefix}-label-actions`}>
-          {actions!.map((action, index) => {
-            const ariaLabel = action['aria-label'] ?? action.tooltip ?? action.icon;
-            const button = (
-              <IconButton
-                icon={action.icon}
-                size="XS"
-                variant="Ghost"
-                onClick={action.onClick}
-                disabled={disabled || action.disabled}
-                alt={ariaLabel}
-              />
-            );
-
-            return action.tooltip ? (
-              <SimpleTooltip key={index} label={action.tooltip} delayDuration={0}>
-                {button}
-              </SimpleTooltip>
-            ) : (
-              <React.Fragment key={index}>{button}</React.Fragment>
-            );
-          })}
-        </div>
-      )}
+      {labelCluster}
+      {actionsEl}
     </div>
   );
 }

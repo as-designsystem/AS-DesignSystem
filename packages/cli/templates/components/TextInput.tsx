@@ -207,6 +207,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           infoText={infoText}
           actions={actions}
           disabled={isDisabled}
+          labelPosition={labelPosition}
         />
 
         {/* Input wrapper */}

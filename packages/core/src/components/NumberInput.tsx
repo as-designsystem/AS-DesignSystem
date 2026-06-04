@@ -252,6 +252,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
           infoText={infoText}
           actions={actions}
           disabled={isDisabled}
+          labelPosition={labelPosition}
         />
 
         {/* Input wrapper */}

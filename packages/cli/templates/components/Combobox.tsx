@@ -329,6 +329,7 @@ export function Combobox({
         infoText={infoText}
         actions={actions}
         disabled={isDisabled}
+        labelPosition={labelPosition}
       />
 
       {/* Combobox */}
