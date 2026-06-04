@@ -1,8 +1,9 @@
 // @ts-ignore - React import needed for JSX in non-TypeScript projects
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { TextInput, type TextInputSize, type TextInputState } from '../components/TextInput';
 import type { FieldAction } from '../components/FieldLabel';
+import { TimeColumns } from './TimeColumns';
 import './TimePicker.css';
 
 export interface TimePickerProps {
@@ -163,39 +164,14 @@ export function TimePicker({
   const [inputText, setInputText] = useState('');
   const [isEditing, setIsEditing] = useState(false);
 
-  const hourListRef = useRef<HTMLDivElement>(null);
-  const minuteListRef = useRef<HTMLDivElement>(null);
-
   const parsedValue = value ? parseTime(value) : null;
   const currentHours = parsedValue?.hours ?? -1;
   const currentMinutes = parsedValue?.minutes ?? -1;
-
-  const hours = Array.from({ length: 24 }, (_, i) => i);
-  const minutes = Array.from({ length: Math.ceil(60 / step) }, (_, i) => i * step);
 
   const handleOpenChange = (newOpen: boolean) => {
     if (!isControlled) setInternalOpen(newOpen);
     onOpenChange?.(newOpen);
   };
-
-  // Scroll selected items into center when popover opens
-  useEffect(() => {
-    if (!isOpen) return;
-    setTimeout(() => {
-      if (hourListRef.current) {
-        const selected = hourListRef.current.querySelector('.time-picker-item--selected');
-        if (selected) {
-          selected.scrollIntoView({ block: 'center', behavior: 'instant' });
-        }
-      }
-      if (minuteListRef.current) {
-        const selected = minuteListRef.current.querySelector('.time-picker-item--selected');
-        if (selected) {
-          selected.scrollIntoView({ block: 'center', behavior: 'instant' });
-        }
-      }
-    }, 0);
-  }, [isOpen]);
 
   const handleHourSelect = (h: number) => {
     const m = currentMinutes >= 0 ? currentMinutes : 0;
@@ -287,43 +263,14 @@ export function TimePicker({
             align="start"
             onOpenAutoFocus={(e) => e.preventDefault()}
           >
-            <div className="time-picker-columns">
-              {/* Hours column */}
-              <div className="time-picker-column" ref={hourListRef}>
-                {hours.map((h) => (
-                  <button
-                    key={h}
-                    type="button"
-                    tabIndex={-1}
-                    className={[
-                      'time-picker-item',
-                      h === currentHours && 'time-picker-item--selected',
-                    ].filter(Boolean).join(' ')}
-                    onClick={() => handleHourSelect(h)}
-                  >
-                    {pad(h)}
-                  </button>
-                ))}
-              </div>
-
-              {/* Minutes column */}
-              <div className="time-picker-column" ref={minuteListRef}>
-                {minutes.map((m) => (
-                  <button
-                    key={m}
-                    type="button"
-                    tabIndex={-1}
-                    className={[
-                      'time-picker-item',
-                      m === currentMinutes && 'time-picker-item--selected',
-                    ].filter(Boolean).join(' ')}
-                    onClick={() => handleMinuteSelect(m)}
-                  >
-                    {pad(m)}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <TimeColumns
+              hours={currentHours}
+              minutes={currentMinutes}
+              step={step}
+              onHourSelect={handleHourSelect}
+              onMinuteSelect={handleMinuteSelect}
+              scrollSignal={isOpen}
+            />
           </Popover.Content>
         </Popover.Portal>
       </div>

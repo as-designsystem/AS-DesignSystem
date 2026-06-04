@@ -1,0 +1,143 @@
+/**
+ * DateTimePicker Composite Styles
+ *
+ * Layout-only: the calendar grid reuses Calendar.css and the time columns reuse
+ * TimePicker.css. This file styles the unified popover shell (header, two-pane
+ * body, footer) using ASDS semantic tokens.
+ */
+
+/* ============================================================================
+   CONTAINER
+   ============================================================================ */
+
+.date-time-picker-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-time-picker-trigger-wrapper {
+  width: 100%;
+}
+
+/* ============================================================================
+   POPOVER
+   ============================================================================ */
+
+.date-time-picker-popover {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-main, #ffffff);
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  z-index: 1000;
+  overflow: hidden;
+  /* Fixed total width (calendar 320px + time 105px) so the popup never resizes
+     between the day / month / year views. */
+  width: 425px;
+}
+
+/* ============================================================================
+   HEADER (year + long selected date)
+   ============================================================================ */
+
+.date-time-picker-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  background-color: var(--primary-active, #002d80);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.date-time-picker-header-year {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-moderate, #919cb0);
+}
+
+.date-time-picker-header-date {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-negative, #ffffff);
+}
+
+/* ============================================================================
+   BODY (calendar grid + time columns)
+   ============================================================================ */
+
+.date-time-picker-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.date-time-picker-calendar {
+  display: flex;
+  flex-direction: column;
+  /* `stretch` (not flex-start) so the inner calendar body fills the pane width,
+     letting the month grid's flex:1 cells spread evenly like in Calendar. */
+  align-items: stretch;
+  /* Grows to fill the remaining width: 320px beside the time columns (day view),
+     or the full 425px when the time columns are hidden (month / year view). */
+  flex: 1 1 auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.date-time-picker-time {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-moderate, #ced5dd);
+  align-self: stretch;
+  flex: 0 0 105px;
+  width: 105px;
+  box-sizing: border-box;
+}
+
+/* Month / year view: drop the time columns entirely; the calendar grid then
+   grows to the full popup width, so there is no empty strip on the right. */
+.date-time-picker-time--hidden {
+  display: none;
+}
+
+.date-time-picker-time-headers {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.date-time-picker-time-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 32px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-moderate, #919cb0);
+  border-bottom: 1px solid var(--border-moderate, #ced5dd);
+}
+
+/* The time columns fill the remaining height beside the calendar grid. */
+.date-time-picker-time .time-picker-columns {
+  flex: 1;
+  min-height: 0;
+}
+
+.date-time-picker-time .time-picker-column {
+  max-height: 268px;
+}
+
+/* ============================================================================
+   FOOTER (Cancel / OK)
+   ============================================================================ */
+
+.date-time-picker-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-moderate, #ced5dd);
+  box-sizing: border-box;
+}

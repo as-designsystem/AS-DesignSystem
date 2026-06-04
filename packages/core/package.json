@@ -54,6 +54,7 @@
     "./DropdownMenu.css": "./dist/DropdownMenu.css",
     "./Calendar.css": "./dist/Calendar.css",
     "./TimePicker.css": "./dist/TimePicker.css",
+    "./DateTimePicker.css": "./dist/DateTimePicker.css",
     "./AircraftSelector.css": "./dist/AircraftSelector.css",
     "./EmptyState.css": "./dist/EmptyState.css",
     "./ChartCard.css": "./dist/ChartCard.css",

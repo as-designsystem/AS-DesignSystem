@@ -44,6 +44,7 @@ import HomePageTemplate from './pages/HomePageTemplate';
 import LandingPageTemplate from './pages/LandingPageTemplate';
 import CalendarPage from './pages/Calendar';
 import TimePickerPage from './pages/TimePicker';
+import DateTimePickerPage from './pages/DateTimePicker';
 import AircraftSelectorPage from './pages/AircraftSelector';
 import TextStyles from './pages/TextStyles';
 import Colors from './pages/Colors';
@@ -118,6 +119,7 @@ function App() {
               <Route path="/composites/tool-tile" element={<ToolTilePage />} />
               <Route path="/composites/calendar" element={<CalendarPage />} />
               <Route path="/composites/time-picker" element={<TimePickerPage />} />
+              <Route path="/composites/date-time-picker" element={<DateTimePickerPage />} />
               <Route path="/composites/aircraft-selector" element={<AircraftSelectorPage />} />
               <Route path="/composites/chart-card" element={<ChartCardPage />} />
               <Route path="/components/stepper" element={<StepperPage />} />

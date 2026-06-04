@@ -265,6 +265,11 @@ export const composites: RegistryItem[] = [
         target: 'composites/Calendar.css',
         type: 'style',
       },
+      {
+        path: 'templates/composites/CalendarGrid.tsx',
+        target: 'composites/CalendarGrid.tsx',
+        type: 'component',
+      },
     ],
     dependencies: ['text-input', 'icon', 'icon-button'],
     externalDependencies: {
@@ -292,8 +297,40 @@ export const composites: RegistryItem[] = [
         target: 'composites/TimePicker.css',
         type: 'style',
       },
+      {
+        path: 'templates/composites/TimeColumns.tsx',
+        target: 'composites/TimeColumns.tsx',
+        type: 'component',
+      },
     ],
     dependencies: ['text-input', 'icon'],
+    externalDependencies: {
+      '@radix-ui/react-popover': '^1.1.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
+    name: 'date-time-picker',
+    type: 'composite',
+    displayName: 'DateTimePicker',
+    description: 'Unified date + time picker combining a calendar grid and time columns in a single popover with draft + OK/Cancel',
+    files: [
+      {
+        path: 'templates/composites/DateTimePicker.tsx',
+        target: 'composites/DateTimePicker.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/composites/DateTimePicker.css',
+        target: 'composites/DateTimePicker.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['calendar', 'time-picker', 'text-input', 'button', 'icon', 'icon-button'],
     externalDependencies: {
       '@radix-ui/react-popover': '^1.1.4',
     },

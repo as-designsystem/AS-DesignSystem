@@ -74,7 +74,10 @@ export { Accordion, type AccordionProps, type AccordionSize } from './composites
 export { Workspace, type WorkspaceProps, type WorkspaceUser } from './composites/Workspace';
 export { ToolTile, type ToolTileProps, type PlatformName } from './composites/ToolTile';
 export { Calendar, type CalendarProps, type CalendarMode } from './composites/Calendar';
+export { CalendarGrid, type CalendarGridProps, type CalendarGridMode } from './composites/CalendarGrid';
 export { TimePicker, type TimePickerProps } from './composites/TimePicker';
+export { TimeColumns, type TimeColumnsProps } from './composites/TimeColumns';
+export { DateTimePicker, type DateTimePickerProps, type DateTimePickerSize, type DateTimePickerState } from './composites/DateTimePicker';
 export { AircraftSelector, type AircraftSelectorProps, type AircraftSource, type AircraftTreeNode, type AircraftNodeType, type AircraftSummary, type AircraftConfigData, type AircraftWeights, type AircraftCabin, type AircraftCG, type AircraftPerformanceData, type PerformanceSource, type AircraftDeteriorationPerPhase } from './composites/AircraftSelector';
 export { EmptyState, emptyStateIllustrations, type EmptyStateProps, type EmptyStateIllustration, type EmptyStateSize } from './composites/EmptyState';
 export { ChartCard, type ChartCardProps } from './composites/ChartCard';
