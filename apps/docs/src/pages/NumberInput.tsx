@@ -289,23 +289,19 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div className="numberinput-dual-columns">
-                <div className="numberinput-column">
-                  <span className="variant-label">Default</span>
-                  <NumberInput label="Default" value={5} state="Default" onChange={() => {}} />
-                  <NumberInput label="Error" value={0} state="Error" legend="Error message" showLegend onChange={() => {}} />
-                  <NumberInput label="Valid" value={10} state="Valid" legend="Valid" showLegend onChange={() => {}} />
-                  <NumberInput label="Disabled" value={3} disabled />
-                  <NumberInput label="Read-only" value={42} readOnly />
-                </div>
-                <div className="numberinput-column">
-                  <span className="variant-label">Stepper</span>
-                  <NumberInput label="Default" value={5} variant="Stepper" state="Default" onChange={() => {}} />
-                  <NumberInput label="Error" value={0} variant="Stepper" state="Error" legend="Error message" showLegend onChange={() => {}} />
-                  <NumberInput label="Valid" value={10} variant="Stepper" state="Valid" legend="Valid" showLegend onChange={() => {}} />
-                  <NumberInput label="Disabled" value={3} variant="Stepper" disabled />
-                  <NumberInput label="Read-only" value={42} variant="Stepper" readOnly />
-                </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                <NumberInput label="Default" value={5} state="Default" onChange={() => {}} />
+                <NumberInput label="Default" value={5} state="Default" labelPosition="left" onChange={() => {}} />
+                <NumberInput label="Error" value={0} state="Error" legend="Error message" showLegend onChange={() => {}} />
+                <NumberInput label="Error" value={0} state="Error" legend="Error message" showLegend labelPosition="left" onChange={() => {}} />
+                <NumberInput label="Valid" value={10} state="Valid" legend="Valid" showLegend onChange={() => {}} />
+                <NumberInput label="Valid" value={10} state="Valid" legend="Valid" showLegend labelPosition="left" onChange={() => {}} />
+                <NumberInput label="Disabled" value={3} disabled />
+                <NumberInput label="Disabled" value={3} labelPosition="left" disabled />
+                <NumberInput label="Read-only" value={42} readOnly />
+                <NumberInput label="Read-only" value={42} labelPosition="left" readOnly />
               </div>
             </div>
           </section>
@@ -442,23 +438,19 @@ export default function NumberInputPage() {
               />
             </div>
             <div className="example-container">
-              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
-                  <NumberInput label="Optional" value={5} showOptional onChange={() => {}} />
-                  <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={() => {}} />
-                  <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={() => {}} />
-                  <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
-                  <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} onChange={() => {}} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
-                  <NumberInput label="Optional" value={5} showOptional labelPosition="left" onChange={() => {}} />
-                  <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend labelPosition="left" onChange={() => {}} />
-                  <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" labelPosition="left" onChange={() => {}} />
-                  <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" onChange={() => {}} />
-                  <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" onChange={() => {}} />
-                </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                <NumberInput label="Optional" value={5} showOptional onChange={() => {}} />
+                <NumberInput label="Optional" value={5} showOptional labelPosition="left" onChange={() => {}} />
+                <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={() => {}} />
+                <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend labelPosition="left" onChange={() => {}} />
+                <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={() => {}} />
+                <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" labelPosition="left" onChange={() => {}} />
+                <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
+                <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" onChange={() => {}} />
+                <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} onChange={() => {}} />
+                <NumberInput label="All combined" value={5} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" onChange={() => {}} />
               </div>
             </div>
           </section>

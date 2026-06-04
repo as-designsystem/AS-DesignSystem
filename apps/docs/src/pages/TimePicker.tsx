@@ -193,12 +193,19 @@ const [time, setTime] = useState('09:00');
               />
             </div>
             <div className="example-container">
-              <div className="time-picker-examples">
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
                 <TimePicker label="Default" value={stateTime} onChange={setStateTime} />
+                <TimePicker label="Default" value={stateTime} onChange={setStateTime} labelPosition="left" />
                 <TimePicker label="Error" state="Error" legend="Required field" showLegend />
+                <TimePicker label="Error" state="Error" legend="Required field" showLegend labelPosition="left" />
                 <TimePicker label="Valid" state="Valid" value="14:30" legend="Time confirmed" showLegend />
+                <TimePicker label="Valid" state="Valid" value="14:30" legend="Time confirmed" showLegend labelPosition="left" />
                 <TimePicker label="Disabled" disabled value="08:00" />
+                <TimePicker label="Disabled" disabled value="08:00" labelPosition="left" />
                 <TimePicker label="Read-only" readOnly value="14:30" />
+                <TimePicker label="Read-only" readOnly value="14:30" labelPosition="left" />
               </div>
             </div>
           </section>
@@ -242,23 +249,19 @@ const [time, setTime] = useState('09:00');
               />
             </div>
             <div className="example-container">
-              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
-                  <TimePicker label="Optional" showOptional />
-                  <TimePicker label="With legend" legend="Max 10 items" showLegend />
-                  <TimePicker label="With info" showInfo infoText="Tooltip text" />
-                  <TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
-                  <TimePicker label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
-                  <TimePicker label="Optional" showOptional labelPosition="left" />
-                  <TimePicker label="With legend" legend="Max 10 items" showLegend labelPosition="left" />
-                  <TimePicker label="With info" showInfo infoText="Tooltip text" labelPosition="left" />
-                  <TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" />
-                  <TimePicker label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" />
-                </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                <TimePicker label="Optional" showOptional />
+                <TimePicker label="Optional" showOptional labelPosition="left" />
+                <TimePicker label="With legend" legend="Max 10 items" showLegend />
+                <TimePicker label="With legend" legend="Max 10 items" showLegend labelPosition="left" />
+                <TimePicker label="With info" showInfo infoText="Tooltip text" />
+                <TimePicker label="With info" showInfo infoText="Tooltip text" labelPosition="left" />
+                <TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+                <TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" />
+                <TimePicker label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />
+                <TimePicker label="All combined" showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" />
               </div>
             </div>
           </section>

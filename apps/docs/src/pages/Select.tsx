@@ -192,12 +192,19 @@ const options = [
               />
             </div>
             <div className="example-container">
-              <div className="select-examples">
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
                 <Select label="Default" options={countryOptions} state="Default" />
+                <Select label="Default" options={countryOptions} state="Default" labelPosition="left" />
                 <Select label="Error" options={countryOptions} state="Error" legend="This field is required" showLegend />
+                <Select label="Error" options={countryOptions} state="Error" legend="This field is required" showLegend labelPosition="left" />
                 <Select label="Valid" options={countryOptions} state="Valid" legend="Selection confirmed" showLegend />
+                <Select label="Valid" options={countryOptions} state="Valid" legend="Selection confirmed" showLegend labelPosition="left" />
                 <Select label="Disabled" options={countryOptions} state="Disabled" />
+                <Select label="Disabled" options={countryOptions} state="Disabled" labelPosition="left" />
                 <Select label="Read-only" options={countryOptions} state="Read-only" value="fr" />
+                <Select label="Read-only" options={countryOptions} state="Read-only" value="fr" labelPosition="left" />
               </div>
             </div>
           </section>
@@ -224,25 +231,19 @@ const options = [
               />
             </div>
             <div className="example-container">
-              <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 300px', maxWidth: '340px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
-                  <Select label="With optional" options={countryOptions} showOptional />
-                  <Select label="With legend" options={countryOptions} legend="Select your country" showLegend />
-                  <Select label="With left icon" options={countryOptions} showLeftIcon leftIcon="AIR_engine" />
-                  <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" />
-                  <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
-                  <Select label="All combined" options={countryOptions} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: '1 1 340px', maxWidth: '440px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
-                  <Select label="With optional" options={countryOptions} showOptional labelPosition="left" />
-                  <Select label="With legend" options={countryOptions} legend="Select your country" showLegend labelPosition="left" />
-                  <Select label="With left icon" options={countryOptions} showLeftIcon leftIcon="AIR_engine" labelPosition="left" />
-                  <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" labelPosition="left" />
-                  <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" />
-                  <Select label="All combined" options={countryOptions} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" />
-                </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', columnGap: '48px', rowGap: '28px', alignItems: 'start' }}>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Vertical</span>
+                <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--text-secondary, #63728a)' }}>Horizontal</span>
+                <Select label="With optional" options={countryOptions} showOptional />
+                <Select label="With optional" options={countryOptions} showOptional labelPosition="left" />
+                <Select label="With legend" options={countryOptions} legend="Select your country" showLegend />
+                <Select label="With legend" options={countryOptions} legend="Select your country" showLegend labelPosition="left" />
+                <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" />
+                <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" labelPosition="left" />
+                <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
+                <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} labelPosition="left" />
+                <Select label="All combined" options={countryOptions} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} />
+                <Select label="All combined" options={countryOptions} showOptional legend="Max 10 items" showLegend showInfo infoText="Tooltip text" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }, { icon: 'edit', tooltip: 'Edit' }, { icon: 'swap_horiz', tooltip: 'Swap' }]} labelPosition="left" />
               </div>
             </div>
           </section>
