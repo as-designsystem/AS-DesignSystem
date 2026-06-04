@@ -63,23 +63,10 @@ const options = [
 <Select label="Country" options={options} showLeftIcon leftIcon="AIR_engine" />
 
 // With info icon and tooltip
-<Select label="Country" options={options} showInfo infoText="Select your country of residence" />`;
+<Select label="Country" options={options} showInfo infoText="Select your country of residence" />
 
-  const actionsCode = `import { Select } from '@/design-system/components/Select';
-
-const options = [
-  { value: 'fr', label: 'France' },
-  { value: 'us', label: 'United States' },
-];
-
-<Select
-  label="Alternate"
-  placeholder="ex: LFBR"
-  options={options}
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-/>`;
+// With actions
+<Select label="With actions" options={options} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   return (
     <div className="component-page">
@@ -147,39 +134,6 @@ const options = [
                 <div style={{ width: '300px' }}>
                   <Select label="Country" options={countryOptions} size="M" value={selectValue} onValueChange={setSelectValue} labelPosition="left" />
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* With Actions */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                With Actions
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('actions')}
-              />
-            </div>
-            <div className="example-container">
-              <div style={{ width: '300px' }}>
-                <Select
-                  label="Alternate"
-                  placeholder="ex: LFBR"
-                  options={countryOptions}
-                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
-                />
               </div>
             </div>
           </section>
@@ -274,6 +228,7 @@ const options = [
                 <Select label="With legend" options={countryOptions} legend="Select your country" showLegend />
                 <Select label="With left icon" options={countryOptions} showLeftIcon leftIcon="AIR_engine" />
                 <Select label="With info tooltip" options={countryOptions} showInfo infoText="Select your country of residence" />
+                <Select label="With actions" options={countryOptions} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>
@@ -408,7 +363,6 @@ const options = [
       <CodeModal isOpen={openModal === 'sizes'} onClose={() => setOpenModal(null)} title="Sizes" code={sizesCode} />
       <CodeModal isOpen={openModal === 'states'} onClose={() => setOpenModal(null)} title="States" code={statesCode} />
       <CodeModal isOpen={openModal === 'options'} onClose={() => setOpenModal(null)} title="Other Options" code={optionsCode} />
-      <CodeModal isOpen={openModal === 'actions'} onClose={() => setOpenModal(null)} title="Select with Actions" code={actionsCode} />
     </div>
   );
 }

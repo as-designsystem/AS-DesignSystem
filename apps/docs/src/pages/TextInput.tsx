@@ -49,18 +49,10 @@ export default function TextInputPage() {
 <TextInput label="API Key" placeholder="Enter your API key" showInfo infoText="Find your API key in settings" />
 
 // With right icon button (clickable)
-<TextInput label="Search" placeholder="Search..." showRightIconButton rightIconButton="close" onRightIconButtonClick={() => console.log('Clear!')} />`;
+<TextInput label="Search" placeholder="Search..." showRightIconButton rightIconButton="close" onRightIconButtonClick={() => console.log('Clear!')} />
 
-  const actionsCode = `import { TextInput } from '@as-designsystem/core';
-import '@as-designsystem/core/TextInput.css';
-
-<TextInput
-  label="Alternate"
-  placeholder="ex: LFBR"
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-/>`;
+// With actions
+<TextInput label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   return (
     <div className="component-page">
@@ -307,39 +299,12 @@ import '@as-designsystem/core/TextInput.css';
                 rightIconButton="close"
                 onRightIconButtonClick={() => alert('Clear clicked!')}
               />
-              </div>
-            </div>
-          </section>
-
-          {/* With Actions */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                With Actions
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('actions')}
-              />
-            </div>
-            <div className="example-container" style={{ maxWidth: '320px' }}>
               <TextInput
-                label="Alternate"
+                label="With actions"
                 placeholder="ex: LFBR"
-                actions={[
-                  { icon: 'tune', tooltip: 'Suggestion settings' },
-                ]}
+                actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
               />
+              </div>
             </div>
           </section>
 
@@ -702,12 +667,6 @@ import '@as-designsystem/core/TextInput.css';
         onClose={() => setOpenModal(null)}
         title="Options Implementation"
         code={optionsCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'actions'}
-        onClose={() => setOpenModal(null)}
-        title="TextInput with Actions"
-        code={actionsCode}
       />
     </div>
   );

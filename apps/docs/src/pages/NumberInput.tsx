@@ -93,18 +93,10 @@ export default function NumberInputPage() {
 <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={(v) => console.log(v)} />
 
 // With min/max constraints
-<NumberInput label="Min/Max" value={5} min={0} max={10} onChange={(v) => console.log(v)} />`;
+<NumberInput label="Min/Max" value={5} min={0} max={10} onChange={(v) => console.log(v)} />
 
-  const actionsCode = `import { NumberInput } from '@/design-system/components/NumberInput';
-
-<NumberInput
-  label="Alternate"
-  value={5}
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-  onChange={(v) => console.log(v)}
-/>`;
+// With actions
+<NumberInput label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   return (
     <div className="component-page">
@@ -183,41 +175,6 @@ export default function NumberInputPage() {
                     labelPosition="left"
                   />
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* With Actions */}
-          <section className="component-section">
-            <div className="section-header">
-              <h2
-                className="heading-6"
-                style={{
-                  marginTop: '32px',
-                  marginBottom: '16px',
-                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-                }}
-              >
-                With Actions
-              </h2>
-              <Button
-                label="Code"
-                leftIcon="code"
-                size="S"
-                variant="Outlined"
-                onClick={() => setOpenModal('actions')}
-              />
-            </div>
-            <div className="example-container">
-              <div style={{ width: '300px' }}>
-                <NumberInput
-                  label="Alternate"
-                  value={5}
-                  actions={[
-                    { icon: 'tune', tooltip: 'Suggestion settings' },
-                  ]}
-                  onChange={() => {}}
-                />
               </div>
             </div>
           </section>
@@ -489,6 +446,7 @@ export default function NumberInputPage() {
                   <NumberInput label="With legend" value={1} legend="Max 10 items" showLegend onChange={() => {}} />
                   <NumberInput label="With info" value={1} showInfo infoText="Tooltip text" onChange={() => {}} />
                   <NumberInput label="Min/Max (0-10)" value={5} min={0} max={10} onChange={() => {}} />
+                  <NumberInput label="With actions" value={5} actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
                 </div>
                 <div className="numberinput-column">
                   <span className="variant-label">Stepper</span>
@@ -496,6 +454,7 @@ export default function NumberInputPage() {
                   <NumberInput label="With legend" value={1} variant="Stepper" legend="Max 10 items" showLegend onChange={() => {}} />
                   <NumberInput label="With info" value={1} variant="Stepper" showInfo infoText="Tooltip text" onChange={() => {}} />
                   <NumberInput label="Min/Max (0-10)" value={5} variant="Stepper" min={0} max={10} onChange={() => {}} />
+                  <NumberInput label="With actions" value={5} variant="Stepper" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} onChange={() => {}} />
                 </div>
               </div>
             </div>
@@ -684,12 +643,6 @@ export default function NumberInputPage() {
         onClose={() => setOpenModal(null)}
         title="Options Implementation"
         code={optionsCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'actions'}
-        onClose={() => setOpenModal(null)}
-        title="NumberInput with Actions"
-        code={actionsCode}
       />
     </div>
   );

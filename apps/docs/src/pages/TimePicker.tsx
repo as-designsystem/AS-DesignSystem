@@ -29,17 +29,12 @@ const [time, setTime] = useState('');
   onChange={setTime}
 />`;
 
-  const actionsCode = `import { TimePicker } from '@/design-system/composites/TimePicker';
-import '@/design-system/composites/TimePicker.css';
+  const optionsCode = `import { TimePicker } from '@as-designsystem/core';
 
-<TimePicker
-  label="Alternate"
-  value={time}
-  onChange={setTime}
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-/>`;
+<TimePicker label="Optional" showOptional />
+<TimePicker label="With legend" legend="Max 10 items" showLegend />
+<TimePicker label="With info" showInfo infoText="Tooltip text" />
+<TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   const stepCode = `import { TimePicker } from '@/design-system/composites/TimePicker';
 
@@ -150,30 +145,26 @@ const [time, setTime] = useState('09:00');
             </div>
           </section>
 
-          {/* With Actions */}
+          {/* Other Options */}
           <section className="component-section">
             <div className="section-header">
               <h2 className="heading-6" style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
-                With Actions
+                Other Options
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('actions')}
+                onClick={() => setOpenModal('options')}
               />
             </div>
             <div className="example-container">
-              <div style={{ width: '250px' }}>
-                <TimePicker
-                  label="Alternate"
-                  value={basicTime}
-                  onChange={setBasicTime}
-                  actions={[
-                    { icon: 'tune', tooltip: 'Suggestion settings' },
-                  ]}
-                />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
+                <TimePicker label="Optional" showOptional />
+                <TimePicker label="With legend" legend="Max 10 items" showLegend />
+                <TimePicker label="With info" showInfo infoText="Tooltip text" />
+                <TimePicker label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>
@@ -406,10 +397,10 @@ const [time, setTime] = useState('09:00');
         code={basicCode}
       />
       <CodeModal
-        isOpen={openModal === 'actions'}
+        isOpen={openModal === 'options'}
         onClose={() => setOpenModal(null)}
-        title="TimePicker with Actions"
-        code={actionsCode}
+        title="Other Options"
+        code={optionsCode}
       />
       <CodeModal
         isOpen={openModal === 'step'}

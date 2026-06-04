@@ -20,7 +20,6 @@ export default function CalendarPage() {
   const [dateWithMin, setDateWithMin] = useState<Date | undefined>(undefined);
   const [editableDate, setEditableDate] = useState<Date | undefined>(undefined);
   const [readOnlyDate, setReadOnlyDate] = useState<Date | undefined>(undefined);
-  const [actionsDate, setActionsDate] = useState<Date | undefined>(undefined);
 
   // Code examples
   const datePickerCode = `import { Calendar } from '@/design-system/composites/Calendar';
@@ -71,19 +70,12 @@ const [date, setDate] = useState<Date>();
 <Calendar label="M" mode="date" size="M" />
 <Calendar label="L" mode="date" size="L" />`;
 
-  const actionsCode = `import { Calendar } from '@/design-system/composites/Calendar';
+  const optionsCode = `import { Calendar } from '@as-designsystem/core';
 
-const [date, setDate] = useState<Date>();
-
-<Calendar
-  label="Alternate"
-  mode="date"
-  value={date}
-  onChange={setDate}
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-/>`;
+<Calendar label="Optional" showOptional />
+<Calendar label="With legend" legend="Max 10 items" showLegend />
+<Calendar label="With info" showInfo infoText="Tooltip text" />
+<Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />`;
 
   const inputModeCode = `// Editable (default) — type dd/mm/yyyy or use the calendar icon
 <Calendar
@@ -195,7 +187,7 @@ const [date, setDate] = useState<Date>();
             </div>
           </section>
 
-          {/* With Actions */}
+          {/* Other Options */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -206,35 +198,22 @@ const [date, setDate] = useState<Date>();
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                With Actions
+                Other Options
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('actions')}
+                onClick={() => setOpenModal('options')}
               />
             </div>
-            <p
-              className="label-regular-m"
-              style={{
-                marginBottom: '16px',
-                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
-              }}
-            >
-              Add Ghost icon buttons aligned to the right edge of the label row.
-            </p>
             <div className="example-container">
-              <div style={{ width: '300px' }}>
-                <Calendar
-                  label="Alternate"
-                  mode="date"
-                  value={actionsDate}
-                  onChange={setActionsDate}
-                  placeholder="Pick a date"
-                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
-                />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
+                <Calendar label="Optional" showOptional />
+                <Calendar label="With legend" legend="Max 10 items" showLegend />
+                <Calendar label="With info" showInfo infoText="Tooltip text" />
+                <Calendar label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} />
               </div>
             </div>
           </section>
@@ -657,10 +636,10 @@ const [date, setDate] = useState<Date>();
         code={inputModeCode}
       />
       <CodeModal
-        isOpen={openModal === 'actions'}
+        isOpen={openModal === 'options'}
         onClose={() => setOpenModal(null)}
-        title="Calendar with Actions"
-        code={actionsCode}
+        title="Other Options"
+        code={optionsCode}
       />
       <CodeModal
         isOpen={openModal === 'datePicker'}

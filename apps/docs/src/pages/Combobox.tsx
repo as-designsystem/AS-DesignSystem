@@ -77,17 +77,15 @@ import '@as-designsystem/core/Combobox.css';
   leftIcon="AIR_airport"
 />`;
 
-  const actionsCode = `import { Combobox } from '@as-designsystem/core';
-import '@as-designsystem/core/Combobox.css';
+  const optionsCode = `import { Combobox } from '@as-designsystem/core';
 
-<Combobox
-  label="Alternate"
-  placeholder="ex: LFBR"
-  options={airports}
-  actions={[
-    { icon: 'tune', tooltip: 'Suggestion settings', onClick: openSettings },
-  ]}
-/>`;
+<Combobox label="Optional" showOptional options={countries} />
+
+<Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
+
+<Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
+
+<Combobox label="With actions" actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]} options={countries} />`;
 
   const sizesCode = `import { Combobox } from '@as-designsystem/core';
 
@@ -245,7 +243,7 @@ import '@as-designsystem/core/Combobox.css';
             </div>
           </section>
 
-          {/* With Actions */}
+          {/* Other Options */}
           <section className="component-section">
             <div className="section-header">
               <h2
@@ -256,27 +254,27 @@ import '@as-designsystem/core/Combobox.css';
                   color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
                 }}
               >
-                With Actions
+                Other Options
               </h2>
               <Button
                 label="Code"
                 leftIcon="code"
                 size="S"
                 variant="Outlined"
-                onClick={() => setOpenModal('actions')}
+                onClick={() => setOpenModal('options')}
               />
             </div>
-            <div className="example-container" style={{ maxWidth: '320px' }}>
-              <Combobox
-                label="Alternate"
-                placeholder="ex: LFBR"
-                options={airports}
-                value={airport}
-                onValueChange={setAirport}
-                actions={[
-                  { icon: 'tune', tooltip: 'Suggestion settings' },
-                ]}
-              />
+            <div className="example-container">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '320px' }}>
+                <Combobox label="Optional" showOptional options={countries} />
+                <Combobox label="With legend" legend="Max 10 items" showLegend options={countries} />
+                <Combobox label="With info" showInfo infoText="Tooltip text" options={countries} />
+                <Combobox
+                  label="With actions"
+                  actions={[{ icon: 'tune', tooltip: 'Suggestion settings' }]}
+                  options={countries}
+                />
+              </div>
             </div>
           </section>
 
@@ -625,10 +623,10 @@ import '@as-designsystem/core/Combobox.css';
         code={withIconCode}
       />
       <CodeModal
-        isOpen={openModal === 'actions'}
+        isOpen={openModal === 'options'}
         onClose={() => setOpenModal(null)}
-        title="Combobox with Actions"
-        code={actionsCode}
+        title="Other Options"
+        code={optionsCode}
       />
       <CodeModal
         isOpen={openModal === 'sizes'}
