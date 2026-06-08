@@ -15,6 +15,7 @@ import Select from './pages/Select';
 import Checkbox from './pages/Checkbox';
 import ComboboxPage from './pages/Combobox';
 import Toggle from './pages/Toggle';
+import SliderPage from './pages/Slider';
 import TextInput from './pages/TextInput';
 import NumberInput from './pages/NumberInput';
 import TooltipPage from './pages/Tooltip';
@@ -93,6 +94,7 @@ function App() {
               <Route path="/components/checkbox" element={<Checkbox />} />
               <Route path="/components/combobox" element={<ComboboxPage />} />
               <Route path="/components/toggle" element={<Toggle />} />
+              <Route path="/components/slider" element={<SliderPage />} />
               <Route path="/components/text-input" element={<TextInput />} />
               <Route path="/components/number-input" element={<NumberInput />} />
               <Route path="/components/tooltip" element={<TooltipPage />} />

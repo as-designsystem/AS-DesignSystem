@@ -124,6 +124,7 @@ const navSections: NavSectionData[] = [
       { label: 'NumberInput', path: '/components/number-input' },
       { label: 'ScrollableContent', path: '/components/scrollable-content' },
       { label: 'Select', path: '/components/select' },
+      { label: 'Slider', path: '/components/slider' },
       { label: 'Spinner', path: '/components/spinner' },
       { label: 'Stepper', path: '/components/stepper' },
       { label: 'StepperGroup', path: '/composites/stepper-group' },

@@ -11,6 +11,7 @@ export { Select, type SelectProps, type SelectSize, type SelectState, type Selec
 export { Combobox, type ComboboxProps, type ComboboxSize, type ComboboxState, type ComboboxOption } from './components/Combobox';
 export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, type CheckboxStatus } from './components/Checkbox';
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
+export { Slider, type SliderProps, type SliderSize } from './components/Slider';
 export { TextInput, type TextInputProps, type TextInputSize, type TextInputState } from './components/TextInput';
 export { NumberInput, type NumberInputProps, type NumberInputSize, type NumberInputState, type NumberInputVariant } from './components/NumberInput';
 export { FieldLabel, type FieldLabelProps, type FieldAction, type FieldLabelClassPrefix, type WithFieldLabel } from './components/FieldLabel';

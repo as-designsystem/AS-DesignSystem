@@ -1355,6 +1355,32 @@ export const components: RegistryItem[] = [
     ],
   },
   {
+    name: 'slider',
+    type: 'component',
+    displayName: 'Slider',
+    description: 'Accessible range slider with sizes, label and step marks, based on Radix UI Slider',
+    files: [
+      {
+        path: 'templates/components/Slider.tsx',
+        target: 'components/Slider.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Slider.css',
+        target: 'components/Slider.css',
+        type: 'style',
+      },
+    ],
+    dependencies: [],
+    externalDependencies: {
+      '@radix-ui/react-slider': '^1.2.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+    ],
+  },
+  {
     name: 'text-input',
     type: 'component',
     displayName: 'TextInput',
