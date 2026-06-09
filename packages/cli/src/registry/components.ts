@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (855 icons)
+      // SVG icon assets (856 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -127,6 +127,7 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/bluetooth.svg', target: 'assets/svg/icons/bluetooth.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/bluetooth_disabled.svg', target: 'assets/svg/icons/bluetooth_disabled.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/bluetooth_searching.svg', target: 'assets/svg/icons/bluetooth_searching.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/bolt.svg', target: 'assets/svg/icons/bolt.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/bookmark.svg', target: 'assets/svg/icons/bookmark.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/bookmark_border.svg', target: 'assets/svg/icons/bookmark_border.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/bookmarks.svg', target: 'assets/svg/icons/bookmarks.svg', type: 'component' },

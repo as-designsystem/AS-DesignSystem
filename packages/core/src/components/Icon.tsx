@@ -108,6 +108,7 @@ import blockIcon from '../assets/svg/icons/block.svg?raw';
 import bluetoothIcon from '../assets/svg/icons/bluetooth.svg?raw';
 import bluetoothDisabledIcon from '../assets/svg/icons/bluetooth_disabled.svg?raw';
 import bluetoothSearchingIcon from '../assets/svg/icons/bluetooth_searching.svg?raw';
+import boltIcon from '../assets/svg/icons/bolt.svg?raw';
 import bookmarkIcon from '../assets/svg/icons/bookmark.svg?raw';
 import bookmarkBorderIcon from '../assets/svg/icons/bookmark_border.svg?raw';
 import bookmarksIcon from '../assets/svg/icons/bookmarks.svg?raw';
@@ -966,6 +967,7 @@ const iconMap: Record<string, string> = {
   'bluetooth': bluetoothIcon,
   'bluetooth_disabled': bluetoothDisabledIcon,
   'bluetooth_searching': bluetoothSearchingIcon,
+  'bolt': boltIcon,
   'bookmark': bookmarkIcon,
   'bookmark_border': bookmarkBorderIcon,
   'bookmarks': bookmarksIcon,
@@ -1824,6 +1826,7 @@ export const availableIcons = [
   'bluetooth',
   'bluetooth_disabled',
   'bluetooth_searching',
+  'bolt',
   'bookmark',
   'bookmark_border',
   'bookmarks',
