@@ -6,12 +6,15 @@ import type { IconName } from './Icon';
 import { SimpleTooltip } from './Tooltip';
 
 export type ButtonGroupLayout = 'horizontal' | 'vertical';
-export type ButtonGroupSize = 'S' | 'M' | 'L' | 'XL';
+export type ButtonGroupSize = 'XS' | 'S' | 'M' | 'L' | 'XL';
 export type ButtonGroupVariant = 'Default' | 'Outlined';
 
 // Map ButtonGroup size to internal Button size (one level smaller)
-// Used only for Default variant to ensure ButtonGroup height matches Button height of the same size
+// Used only for Default variant to ensure ButtonGroup height matches Button height of the same size.
+// XS is a special case: there is no smaller Button size, so it reuses XS buttons whose height is
+// trimmed by 2px in CSS to leave room for the 2px container outline (see ButtonGroup.css).
 const sizeToButtonSize: Record<ButtonGroupSize, ButtonSize> = {
+  XS: 'XS',
   S: 'XS',
   M: 'S',
   L: 'M',
@@ -59,7 +62,7 @@ export interface ButtonGroupProps {
    */
   layout?: ButtonGroupLayout;
   /**
-   * Size of the ButtonGroup (S, M, L, XL)
+   * Size of the ButtonGroup (XS, S, M, L, XL)
    * @default 'M'
    */
   size?: ButtonGroupSize;
@@ -118,6 +121,7 @@ export function ButtonGroup({
   const containerClasses = [
     'button-group',
     `button-group--${layout}`,
+    `button-group--${size.toLowerCase()}`,
     isOutlined ? 'button-group--outlined' : '',
     disabled ? 'button-group--disabled' : '',
     className,

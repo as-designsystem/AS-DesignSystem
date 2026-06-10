@@ -20,6 +20,7 @@ export default function ButtonGroupPage() {
   const [verticalValue, setVerticalValue] = useState('option1');
   const [verticalIconValue, setVerticalIconValue] = useState('add');
   const [verticalIconLabelValue, setVerticalIconLabelValue] = useState('add');
+  const [sizeXsValue, setSizeXsValue] = useState('option1');
   const [sizeSValue, setSizeSValue] = useState('option1');
   const [sizeMValue, setSizeMValue] = useState('option1');
   const [sizeLValue, setSizeLValue] = useState('option1');
@@ -135,6 +136,13 @@ function Example() {
           { value: 'option1', label: 'Option 1' },
           { value: 'option2', label: 'Option 2' },
         ]}
+        value={value}
+        onChange={setValue}
+        size="XS"
+      />
+
+      <ButtonGroup
+        options={[...]}
         value={value}
         onChange={setValue}
         size="S"
@@ -445,6 +453,18 @@ function Example() {
             <div className="example-container">
               <div className="button-group-examples">
                 <div className="button-group-example-row">
+                  <span className="example-label">XS:</span>
+                  <ButtonGroup
+                    options={[
+                      { value: 'option1', label: 'Option 1' },
+                      { value: 'option2', label: 'Option 2' },
+                    ]}
+                    value={sizeXsValue}
+                    onChange={setSizeXsValue}
+                    size="XS"
+                  />
+                </div>
+                <div className="button-group-example-row">
                   <span className="example-label">S:</span>
                   <ButtonGroup
                     options={[
@@ -697,7 +717,7 @@ function Example() {
                 </tr>
                 <tr>
                   <td><code>size</code></td>
-                  <td><code>'S' | 'M' | 'L' | 'XL'</code></td>
+                  <td><code>'XS' | 'S' | 'M' | 'L' | 'XL'</code></td>
                   <td><code>'M'</code></td>
                   <td>Size of the ButtonGroup (matches Button height of same size)</td>
                 </tr>
