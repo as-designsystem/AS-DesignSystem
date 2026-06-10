@@ -45,22 +45,22 @@
 /* ============================================================================
    SIZE: XS (Default variant only)
    There is no Button size smaller than XS, so the XS group reuses XS buttons
-   (24px) trimmed by 2px (22px) and a 1px container outline on each side,
+   (24px) trimmed to 20px with a 2px container outline on each side,
    keeping the classic XS height of 24px.
    ============================================================================ */
 
 .button-group--xs:not(.button-group--outlined) {
-  padding: 1px;
+  padding: 2px;
 }
 
 .button-group--xs:not(.button-group--outlined) .button-group__item {
-  height: 22px;
-  min-height: 22px;
+  height: 20px;
+  min-height: 20px;
 }
 
 .button-group--xs:not(.button-group--outlined) .button-group__item--icon-only {
-  height: 22px;
-  min-height: 22px;
+  height: 20px;
+  min-height: 20px;
 }
 
 /* ============================================================================
