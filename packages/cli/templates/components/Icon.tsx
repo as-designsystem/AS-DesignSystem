@@ -90,6 +90,7 @@ import attachEmailIcon from '../assets/svg/icons/attach_email.svg?raw';
 import attachFileIcon from '../assets/svg/icons/attach_file.svg?raw';
 import attachMoneyIcon from '../assets/svg/icons/attach_money.svg?raw';
 import attachmentIcon from '../assets/svg/icons/attachment.svg?raw';
+import autoFixHighIcon from '../assets/svg/icons/auto_fix_high.svg?raw';
 import autorenewIcon from '../assets/svg/icons/autorenew.svg?raw';
 import avTimerIcon from '../assets/svg/icons/av_timer.svg?raw';
 import backspaceIcon from '../assets/svg/icons/backspace.svg?raw';
@@ -949,6 +950,7 @@ const iconMap: Record<string, string> = {
   'attach_file': attachFileIcon,
   'attach_money': attachMoneyIcon,
   'attachment': attachmentIcon,
+  'auto_fix_high': autoFixHighIcon,
   'autorenew': autorenewIcon,
   'av_timer': avTimerIcon,
   'backspace': backspaceIcon,
@@ -1808,6 +1810,7 @@ export const availableIcons = [
   'attach_file',
   'attach_money',
   'attachment',
+  'auto_fix_high',
   'autorenew',
   'av_timer',
   'backspace',
