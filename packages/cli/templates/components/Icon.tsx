@@ -410,6 +410,7 @@ import heightIcon from '../assets/svg/icons/height.svg?raw';
 import helpIcon from '../assets/svg/icons/help.svg?raw';
 import helpCenterIcon from '../assets/svg/icons/help_center.svg?raw';
 import helpOutlineIcon from '../assets/svg/icons/help_outline.svg?raw';
+import hexagonIcon from '../assets/svg/icons/hexagon.svg?raw';
 import historyIcon from '../assets/svg/icons/history.svg?raw';
 import holidayVillageIcon from '../assets/svg/icons/holiday_village.svg?raw';
 import homeIcon from '../assets/svg/icons/home.svg?raw';
@@ -1270,6 +1271,7 @@ const iconMap: Record<string, string> = {
   'help': helpIcon,
   'help_center': helpCenterIcon,
   'help_outline': helpOutlineIcon,
+  'hexagon': hexagonIcon,
   'history': historyIcon,
   'holiday_village': holidayVillageIcon,
   'home': homeIcon,
@@ -2130,6 +2132,7 @@ export const availableIcons = [
   'help',
   'help_center',
   'help_outline',
+  'hexagon',
   'history',
   'holiday_village',
   'home',
