@@ -127,35 +127,39 @@
   line-height: 1.3;
 }
 
-/* Checkbox column - centered checkbox */
+/*
+ * Checkbox column alignment (header select-all + row checkboxes).
+ *
+ * Goal: the header select-all checkbox and every row checkbox share the exact
+ * same X (the cell's padding-left), deterministically.
+ *
+ * Why NOT `margin: 0 auto`: it relies on the surrounding wrapper being
+ * shrink-wrapped. ag-grid does not guarantee that — on row virtualization /
+ * refresh it sometimes renders `.ag-cell-wrapper` (and the header
+ * `.ag-header-cell-comp-wrapper`) at full width. When that happens the auto
+ * margins CENTER the checkbox inside the column, shifting it right of the
+ * header. Because it depends on render timing, the misalignment looks random.
+ *
+ * Fix: never center. Force both wrappers to shrink-wrap and left-align, and
+ * pin the checkboxes to margin 0. Scoped via :has() (supported on all targets).
+ */
 .as-ag-grid .ag-header-select-all,
 .as-ag-grid .ag-selection-checkbox {
   padding: 0 !important;
-  margin: 0 auto !important;
-}
-
-/*
- * Header select-all alignment fix.
- * Row checkboxes are NOT centered: their `.ag-cell-wrapper` is shrink-wrapped,
- * so `margin: 0 auto` above is a no-op and the checkbox sits at the cell's
- * padding-left. The header select-all instead has a sibling
- * `.ag-header-cell-comp-wrapper` (width: 100%) that, combined with `margin: 0
- * auto`, pushes it off by a sub-pixel and misaligns it with the rows.
- * Collapse that wrapper, drop the auto margin and left-align the select-all so
- * it lands at the exact same X (cell padding-left) as the row checkboxes, in
- * both default and --small sizes. Scoped via :has() (supported on all targets).
- */
-.as-ag-grid .ag-header-cell:has(.ag-header-select-all) {
-  justify-content: flex-start;
-}
-
-.as-ag-grid .ag-header-cell:has(.ag-header-select-all) .ag-header-select-all {
   margin: 0 !important;
 }
 
-.as-ag-grid .ag-header-cell:has(.ag-header-select-all) .ag-header-cell-comp-wrapper {
+.as-ag-grid .ag-header-cell:has(.ag-header-select-all),
+.as-ag-grid .ag-cell:has(.ag-selection-checkbox) {
+  justify-content: flex-start;
+}
+
+.as-ag-grid .ag-header-cell:has(.ag-header-select-all) .ag-header-cell-comp-wrapper,
+.as-ag-grid .ag-cell:has(.ag-selection-checkbox) .ag-cell-wrapper {
   flex: 0 0 auto;
   width: auto;
+  margin: 0;
+  justify-content: flex-start;
 }
 
 /* Sort icons */
