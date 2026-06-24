@@ -24,12 +24,11 @@
   border: none;
   cursor: pointer;
   color: var(--text-negative, #ffffff);
-  opacity: 0.5;
   padding: 2px;
   border-radius: 4px;
-  transition: opacity 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .install-command__copy:hover {
-  opacity: 0.9;
+  background-color: rgba(128, 128, 128, 0.25);
 }
