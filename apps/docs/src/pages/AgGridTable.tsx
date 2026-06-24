@@ -1,12 +1,21 @@
 import { useState, useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams, ColDef } from 'ag-grid-community';
-import { Tab, Button, NumberInput, Select, Checkbox } from '@as-designsystem/core';
+import {
+  Tab,
+  Button,
+  NumberInput,
+  Select,
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuCheckboxItem,
+} from '@as-designsystem/core';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/NumberInput.css';
 import '@as-designsystem/core/Select.css';
-import '@as-designsystem/core/Checkbox.css';
+import '@as-designsystem/core/DropdownMenu.css';
 import '@as-designsystem/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 
@@ -382,8 +391,10 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
   columnDefs={colDefs}
 />`;
 
-  const scrollableCode = `import { Checkbox } from '@as-designsystem/core';
-import '@as-designsystem/core/Checkbox.css';
+  const scrollableCode = `import {
+  DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem, Button,
+} from '@as-designsystem/core';
+import '@as-designsystem/core/DropdownMenu.css';
 
 // A wide table scrolls horizontally; many rows scroll vertically.
 // Give the grid a fixed height and let the columns overflow its width.
@@ -419,13 +430,20 @@ const toggleColumn = (field, visible) => {
 };
 
 <>
-  {/* Show/hide controls */}
-  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-    <Checkbox label="Manufacturer" size="S"
-      checked={visibleCols.manufacturer}
-      onCheckedChange={(c) => toggleColumn('manufacturer', c === true)} />
-    {/* ...one Checkbox per toggleable column */}
-  </div>
+  {/* Show/hide controls in a dropdown */}
+  <DropdownMenu>
+    <DropdownMenuTrigger>
+      <Button label="Columns" leftIcon="view_column" rightIcon="expand_more" size="S" variant="Outlined" />
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="start">
+      <DropdownMenuCheckboxItem
+        checked={visibleCols.manufacturer}
+        onCheckedChange={(checked) => toggleColumn('manufacturer', checked)}>
+        Manufacturer
+      </DropdownMenuCheckboxItem>
+      {/* ...one DropdownMenuCheckboxItem per toggleable column */}
+    </DropdownMenuContent>
+  </DropdownMenu>
 
   {/* Fixed-height wrapper => the grid body scrolls instead of growing */}
   <div style={{ height: 320 }}>
@@ -662,16 +680,23 @@ const toggleColumn = (field, visible) => {
               className="example-container"
               style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
             >
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-                {toggleableColumns.map((col) => (
-                  <Checkbox
-                    key={col.field}
-                    label={col.label}
-                    size="S"
-                    checked={visibleCols[col.field]}
-                    onCheckedChange={(c) => toggleColumn(col.field, c === true)}
-                  />
-                ))}
+              <div style={{ display: 'flex' }}>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Button label="Columns" leftIcon="view_column" rightIcon="expand_more" size="S" variant="Outlined" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start">
+                    {toggleableColumns.map((col) => (
+                      <DropdownMenuCheckboxItem
+                        key={col.field}
+                        checked={visibleCols[col.field]}
+                        onCheckedChange={(checked) => toggleColumn(col.field, checked)}
+                      >
+                        {col.label}
+                      </DropdownMenuCheckboxItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
               <div style={{ height: 320 }}>
                 <AgGridReact
@@ -694,9 +719,9 @@ const toggleColumn = (field, visible) => {
               }}
             >
               Give the grid a fixed height so the body scrolls vertically, and let the columns
-              overflow the container width to scroll horizontally. Toggle the checkboxes above to
-              show or hide columns via the grid API (<code>setColumnsVisible</code>) &mdash; the
-              Columns tool panel itself is an AG-Grid enterprise feature.
+              overflow the container width to scroll horizontally. Use the <code>Columns</code>
+              dropdown to show or hide columns via the grid API (<code>setColumnsVisible</code>)
+              &mdash; the built-in Columns tool panel is an AG-Grid enterprise feature.
             </p>
           </section>
 
