@@ -23,12 +23,13 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-negative, #ffffff);
+  opacity: 0.5;
   padding: 2px;
   border-radius: 4px;
-  transition: color 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 
 .install-command__copy:hover {
-  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
 }

@@ -22,9 +22,9 @@ export default function InstallCommand({ componentName }: InstallCommandProps) {
       <code className="install-command__code">{command}</code>
       <button className="install-command__copy" onClick={handleCopy} aria-label="Copy command">
         {copied ? (
-          <Icon name="check" size={16} />
+          <Icon name="check" size={16} color="currentColor" />
         ) : (
-          <Icon name="content_copy" size={16} />
+          <Icon name="content_copy" size={16} color="currentColor" />
         )}
       </button>
     </div>
