@@ -134,6 +134,26 @@
   margin: 0 auto !important;
 }
 
+/*
+ * Header select-all alignment fix.
+ * In a checkbox column the header renders the select-all checkbox next to a
+ * sibling `.ag-header-cell-comp-wrapper` (width: 100%) that consumes all the
+ * free space, so `margin: 0 auto` above can no longer center the checkbox and
+ * it sticks to the left — misaligned with the centered row checkboxes.
+ * Collapsing the (empty) comp-wrapper frees the space back so both the
+ * margin:auto and justify-content recenter the select-all the same way the
+ * rows are centered, keeping the same X. Scoped via :has() to the select-all
+ * header cell only (supported across all target browsers).
+ */
+.as-ag-grid .ag-header-cell:has(.ag-header-select-all) {
+  justify-content: center;
+}
+
+.as-ag-grid .ag-header-cell:has(.ag-header-select-all) .ag-header-cell-comp-wrapper {
+  flex: 0 0 auto;
+  width: auto;
+}
+
 /* Sort icons */
 .as-ag-grid .ag-header-icon {
   color: var(--ag-header-foreground-color);
