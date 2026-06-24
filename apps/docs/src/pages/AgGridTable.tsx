@@ -1,11 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams, ColDef } from 'ag-grid-community';
-import { Tab, Button, NumberInput, Select } from '@as-designsystem/core';
+import { Tab, Button, NumberInput, Select, Checkbox } from '@as-designsystem/core';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/NumberInput.css';
 import '@as-designsystem/core/Select.css';
+import '@as-designsystem/core/Checkbox.css';
 import '@as-designsystem/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 
@@ -131,6 +132,31 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
 export default function AgGridTablePage() {
   const [activeTab, setActiveTab] = useState<'examples' | 'usage'>('examples');
   const [openModal, setOpenModal] = useState<string | null>(null);
+
+  // Column visibility for the scrollable example (community-friendly: driven
+  // through the grid API since the Columns tool panel is an enterprise feature)
+  const scrollableGridRef = useRef<AgGridReact>(null);
+  const toggleableColumns = useMemo(
+    () => [
+      { field: 'manufacturer', label: 'Manufacturer' },
+      { field: 'firstFlight', label: 'First Flight' },
+      { field: 'engines', label: 'Engines' },
+      { field: 'wingspan', label: 'Wingspan' },
+      { field: 'length', label: 'Length' },
+      { field: 'range', label: 'Range' },
+      { field: 'capacity', label: 'Capacity' },
+      { field: 'mtow', label: 'MTOW' },
+      { field: 'cruiseSpeed', label: 'Cruise' },
+    ],
+    []
+  );
+  const [visibleCols, setVisibleCols] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(toggleableColumns.map((c) => [c.field, true]))
+  );
+  const toggleColumn = (field: string, visible: boolean) => {
+    setVisibleCols((prev) => ({ ...prev, [field]: visible }));
+    scrollableGridRef.current?.api?.setColumnsVisible([field], visible);
+  };
 
   // Sample data
   const rowData = useMemo<RowData[]>(() => [
@@ -356,7 +382,10 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
   columnDefs={colDefs}
 />`;
 
-  const scrollableCode = `// A wide table scrolls horizontally; many rows scroll vertically.
+  const scrollableCode = `import { Checkbox } from '@as-designsystem/core';
+import '@as-designsystem/core/Checkbox.css';
+
+// A wide table scrolls horizontally; many rows scroll vertically.
 // Give the grid a fixed height and let the columns overflow its width.
 const colDefs = [
   {
@@ -379,16 +408,37 @@ const colDefs = [
   { field: 'cruiseSpeed', headerName: 'Cruise (km/h)', width: 150 },
 ];
 
-// Fixed-height wrapper => the grid body scrolls instead of growing
-<div style={{ height: 320 }}>
-  <AgGridReact
-    className="as-ag-grid"
-    rowData={rowData}        // 20+ rows -> vertical scroll
-    columnDefs={colDefs}     // total width > container -> horizontal scroll
-    rowSelection="multiple"
-    suppressRowClickSelection={true}
-  />
-</div>`;
+// Column visibility: the Columns tool panel is enterprise-only, so in the
+// community edition drive visibility through the grid API.
+const gridRef = useRef(null);
+const [visibleCols, setVisibleCols] = useState({ manufacturer: true, range: true /* ... */ });
+
+const toggleColumn = (field, visible) => {
+  setVisibleCols((prev) => ({ ...prev, [field]: visible }));
+  gridRef.current?.api?.setColumnsVisible([field], visible);
+};
+
+<>
+  {/* Show/hide controls */}
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+    <Checkbox label="Manufacturer" size="S"
+      checked={visibleCols.manufacturer}
+      onCheckedChange={(c) => toggleColumn('manufacturer', c === true)} />
+    {/* ...one Checkbox per toggleable column */}
+  </div>
+
+  {/* Fixed-height wrapper => the grid body scrolls instead of growing */}
+  <div style={{ height: 320 }}>
+    <AgGridReact
+      ref={gridRef}
+      className="as-ag-grid"
+      rowData={rowData}        // 20+ rows -> vertical scroll
+      columnDefs={colDefs}     // total width > container -> horizontal scroll
+      rowSelection="multiple"
+      suppressRowClickSelection={true}
+    />
+  </div>
+</>`;
 
   const cssVariablesCode = `/* Available CSS variables for customization */
 
@@ -608,16 +658,33 @@ const colDefs = [
                 onClick={() => setOpenModal('scrollable')}
               />
             </div>
-            <div className="example-container" style={{ height: 320 }}>
-              <AgGridReact
-                className="as-ag-grid"
-                rowData={scrollRowData}
-                columnDefs={scrollableColDefs}
-                defaultColDef={{ filter: true }}
-                rowSelection="multiple"
-                suppressRowClickSelection={true}
-                cellSelection={false}
-              />
+            <div
+              className="example-container"
+              style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+            >
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                {toggleableColumns.map((col) => (
+                  <Checkbox
+                    key={col.field}
+                    label={col.label}
+                    size="S"
+                    checked={visibleCols[col.field]}
+                    onCheckedChange={(c) => toggleColumn(col.field, c === true)}
+                  />
+                ))}
+              </div>
+              <div style={{ height: 320 }}>
+                <AgGridReact
+                  ref={scrollableGridRef}
+                  className="as-ag-grid"
+                  rowData={scrollRowData}
+                  columnDefs={scrollableColDefs}
+                  defaultColDef={{ filter: true }}
+                  rowSelection="multiple"
+                  suppressRowClickSelection={true}
+                  cellSelection={false}
+                />
+              </div>
             </div>
             <p
               className="label-regular-s"
@@ -627,8 +694,9 @@ const colDefs = [
               }}
             >
               Give the grid a fixed height so the body scrolls vertically, and let the columns
-              overflow the container width to scroll horizontally. The checkbox column keeps a
-              locked width (<code>suppressSizeToFit</code>) so it never resizes.
+              overflow the container width to scroll horizontally. Toggle the checkboxes above to
+              show or hide columns via the grid API (<code>setColumnsVisible</code>) &mdash; the
+              Columns tool panel itself is an AG-Grid enterprise feature.
             </p>
           </section>
 
