@@ -34,28 +34,28 @@
    ============================================================================ */
 
 .icon-button--xs {
-  width: 24px;
-  height: 24px;
+  width: var(--size-xs, 24px);
+  height: var(--size-xs, 24px);
 }
 
 .icon-button--s {
-  width: 32px;
-  height: 32px;
+  width: var(--size-s, 32px);
+  height: var(--size-s, 32px);
 }
 
 .icon-button--m {
-  width: 40px;
-  height: 40px;
+  width: var(--size-m, 40px);
+  height: var(--size-m, 40px);
 }
 
 .icon-button--l {
-  width: 48px;
-  height: 48px;
+  width: var(--size-l, 48px);
+  height: var(--size-l, 48px);
 }
 
 .icon-button--xl {
-  width: 56px;
-  height: 56px;
+  width: var(--size-xl, 56px);
+  height: var(--size-xl, 56px);
 }
 
 /* ============================================================================

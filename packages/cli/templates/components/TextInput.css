@@ -101,25 +101,25 @@
    ============================================================================ */
 
 .text-input-wrapper--xs {
-  height: 24px;
+  height: var(--size-xs, 24px);
   padding: 0 8px;
   gap: 8px;
 }
 
 .text-input-wrapper--s {
-  height: 32px;
+  height: var(--size-s, 32px);
   padding: 0 8px;
   gap: 8px;
 }
 
 .text-input-wrapper--m {
-  height: 40px;
+  height: var(--size-m, 40px);
   padding: 0 12px;
   gap: 12px;
 }
 
 .text-input-wrapper--l {
-  height: 48px;
+  height: var(--size-l, 48px);
   padding: 0 16px;
   gap: 12px;
 }

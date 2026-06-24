@@ -15,7 +15,7 @@ const sizeTokens: SizeDef[] = [
     token: '2XS',
     cssVar: '--size-2xs',
     value: '20px',
-    components: ['Chip (XS)'],
+    components: ['ButtonGroup (XS)', 'Chip (XS)'],
   },
   {
     token: 'XS',
@@ -27,13 +27,13 @@ const sizeTokens: SizeDef[] = [
     token: 'S',
     cssVar: '--size-s',
     value: '32px',
-    components: ['Button', 'IconButton', 'TextInput', 'NumberInput', 'Select', 'Tab', 'Toggle', 'Checkbox', 'Chip (M)'],
+    components: ['Button', 'IconButton', 'TextInput', 'NumberInput', 'Select', 'Tab', 'Chip (M)'],
   },
   {
     token: 'M',
     cssVar: '--size-m',
     value: '40px',
-    components: ['Button', 'IconButton', 'TextInput', 'NumberInput', 'Select', 'Tab', 'Toggle', 'Checkbox', 'Chip (L)'],
+    components: ['Button', 'IconButton', 'TextInput', 'NumberInput', 'Select', 'Tab', 'Chip (L)'],
   },
   {
     token: 'L',

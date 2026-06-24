@@ -129,28 +129,28 @@
    ============================================================================ */
 
 .select-trigger--xs {
-  height: 24px;
+  height: var(--size-xs, 24px);
   font-size: 12px;
   padding: 0 8px;
   gap: 4px;
 }
 
 .select-trigger--s {
-  height: 32px;
+  height: var(--size-s, 32px);
   font-size: 14px;
   padding: 0 12px;
   gap: 8px;
 }
 
 .select-trigger--m {
-  height: 40px;
+  height: var(--size-m, 40px);
   font-size: 14px;
   padding: 0 12px;
   gap: 8px;
 }
 
 .select-trigger--l {
-  height: 48px;
+  height: var(--size-l, 48px);
   font-size: 16px;
   padding: 0 16px;
   gap: 8px;

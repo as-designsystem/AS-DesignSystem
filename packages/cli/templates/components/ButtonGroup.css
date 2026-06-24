@@ -54,13 +54,13 @@
 }
 
 .button-group--xs:not(.button-group--outlined) .button-group__item {
-  height: 20px;
-  min-height: 20px;
+  height: var(--size-2xs, 20px);
+  min-height: var(--size-2xs, 20px);
 }
 
 .button-group--xs:not(.button-group--outlined) .button-group__item--icon-only {
-  height: 20px;
-  min-height: 20px;
+  height: var(--size-2xs, 20px);
+  min-height: var(--size-2xs, 20px);
 }
 
 /* ============================================================================

@@ -33,31 +33,31 @@
    ============================================================================ */
 
 .button--xs {
-  height: 24px;
+  height: var(--size-xs, 24px);
   padding: 4px 8px;
   gap: 4px;
 }
 
 .button--s {
-  height: 32px;
+  height: var(--size-s, 32px);
   padding: 8px 12px;
   gap: 8px;
 }
 
 .button--m {
-  height: 40px;
+  height: var(--size-m, 40px);
   padding: 12px 16px;
   gap: 8px;
 }
 
 .button--l {
-  height: 48px;
+  height: var(--size-l, 48px);
   padding: 12px 16px;
   gap: 8px;
 }
 
 .button--xl {
-  height: 56px;
+  height: var(--size-xl, 56px);
   padding: 12px 16px;
   gap: 8px;
 }

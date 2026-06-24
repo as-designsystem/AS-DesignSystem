@@ -23,31 +23,31 @@
    ============================================================================ */
 
 .chip--xs {
-  height: 20px;
+  height: var(--size-2xs, 20px);
   padding: 0 8px;
   gap: 4px;
 }
 
 .chip--s {
-  height: 24px;
+  height: var(--size-xs, 24px);
   padding: 0 8px;
   gap: 4px;
 }
 
 .chip--m {
-  height: 32px;
+  height: var(--size-s, 32px);
   padding: 0 12px;
   gap: 8px;
 }
 
 .chip--l {
-  height: 40px;
+  height: var(--size-m, 40px);
   padding: 0 16px;
   gap: 8px;
 }
 
 .chip--xl {
-  height: 48px;
+  height: var(--size-l, 48px);
   padding: 0 20px;
   gap: 8px;
 }

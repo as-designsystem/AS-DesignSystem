@@ -101,19 +101,19 @@
    ============================================================================ */
 
 .number-input-wrapper--xs {
-  height: 24px;
+  height: var(--size-xs, 24px);
 }
 
 .number-input-wrapper--s {
-  height: 32px;
+  height: var(--size-s, 32px);
 }
 
 .number-input-wrapper--m {
-  height: 40px;
+  height: var(--size-m, 40px);
 }
 
 .number-input-wrapper--l {
-  height: 48px;
+  height: var(--size-l, 48px);
 }
 
 /* Smaller gap between label and input for XS/S sizes (per Figma) */

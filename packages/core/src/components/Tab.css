@@ -34,25 +34,25 @@
    ============================================================================ */
 
 .tab--s {
-  height: 32px;
+  height: var(--size-s, 32px);
   padding: 0 16px;
   gap: 4px;
 }
 
 .tab--m {
-  height: 40px;
+  height: var(--size-m, 40px);
   padding: 0 16px;
   gap: 4px;
 }
 
 .tab--l {
-  height: 48px;
+  height: var(--size-l, 48px);
   padding: 0 16px;
   gap: 8px;
 }
 
 .tab--xl {
-  height: 56px;
+  height: var(--size-xl, 56px);
   padding: 0 16px;
   gap: 12px;
 }
