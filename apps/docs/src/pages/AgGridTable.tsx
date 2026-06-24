@@ -181,8 +181,8 @@ export default function AgGridTablePage() {
 
   // Column definitions for the scrollable table (wide + many rows)
   const scrollableColDefs = useMemo<ColDef[]>(() => [
-    { headerCheckboxSelection: true, checkboxSelection: true, pinned: 'left' as const, width: 50, minWidth: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
-    { field: 'aircraft', headerName: 'Aircraft', pinned: 'left' as const, width: 160 },
+    { headerCheckboxSelection: true, checkboxSelection: true, width: 50, minWidth: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
+    { field: 'aircraft', headerName: 'Aircraft', width: 160 },
     { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
     { field: 'firstFlight', headerName: 'First Flight', width: 140 },
     { field: 'engines', headerName: 'Engines', width: 130 },
@@ -358,19 +358,16 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
 
   const scrollableCode = `// A wide table scrolls horizontally; many rows scroll vertically.
 // Give the grid a fixed height and let the columns overflow its width.
-// Pin the checkbox column (with a locked width) so it stays in view while
-// the rest of the columns scroll horizontally.
 const colDefs = [
   {
     headerCheckboxSelection: true,
     checkboxSelection: true,
-    pinned: 'left',
     width: 50, minWidth: 50, maxWidth: 50, // locked width
     suppressSizeToFit: true,               // excluded from sizeColumnsToFit()
     resizable: false,
     filter: false,
   },
-  { field: 'aircraft', headerName: 'Aircraft', pinned: 'left', width: 160 },
+  { field: 'aircraft', headerName: 'Aircraft', width: 160 },
   { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
   { field: 'firstFlight', headerName: 'First Flight', width: 140 },
   { field: 'engines', headerName: 'Engines', width: 130 },
@@ -630,9 +627,8 @@ const colDefs = [
               }}
             >
               Give the grid a fixed height so the body scrolls vertically, and let the columns
-              overflow the container width to scroll horizontally. The checkbox column is pinned
-              left with a locked width (<code>suppressSizeToFit</code>) so it stays put while the
-              rest scrolls.
+              overflow the container width to scroll horizontally. The checkbox column keeps a
+              locked width (<code>suppressSizeToFit</code>) so it never resizes.
             </p>
           </section>
 
