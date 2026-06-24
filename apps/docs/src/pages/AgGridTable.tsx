@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { AllCommunityModule, ModuleRegistry, ICellRendererParams } from 'ag-grid-community';
+import { AllCommunityModule, ModuleRegistry, ICellRendererParams, ColDef } from 'ag-grid-community';
 import { Tab, Button, NumberInput, Select } from '@as-designsystem/core';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
@@ -142,6 +142,25 @@ export default function AgGridTablePage() {
     { aircraft: 'B777-300ER', manufacturer: 'Boeing', range: 13650, capacity: 396, status: 'maintenance' },
   ], []);
 
+  // Larger dataset with extra columns for the scrollable example
+  const scrollRowData = useMemo(
+    () =>
+      Array.from({ length: 20 }, (_, i) => {
+        const base = rowData[i % rowData.length];
+        return {
+          ...base,
+          id: i + 1,
+          firstFlight: 1990 + ((i * 2) % 30),
+          engines: i % 2 === 0 ? 2 : 4,
+          wingspan: 30 + ((i * 3) % 30),
+          length: 35 + ((i * 4) % 40),
+          mtow: 70000 + i * 5000,
+          cruiseSpeed: 800 + ((i * 7) % 120),
+        };
+      }),
+    [rowData]
+  );
+
   // Column definitions for default table (size S components)
   const defaultColDefs = useMemo(() => [
     { headerCheckboxSelection: true, checkboxSelection: true, width: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
@@ -158,6 +177,21 @@ export default function AgGridTablePage() {
     { field: 'range', headerName: 'Range (km)', width: 150 },
     { field: 'capacity', headerName: 'Capacity', width: 150 },
     { field: 'status', headerName: 'Status', width: 150 },
+  ], []);
+
+  // Column definitions for the scrollable table (wide + many rows)
+  const scrollableColDefs = useMemo<ColDef[]>(() => [
+    { headerCheckboxSelection: true, checkboxSelection: true, pinned: 'left' as const, width: 50, minWidth: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
+    { field: 'aircraft', headerName: 'Aircraft', pinned: 'left' as const, width: 160 },
+    { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
+    { field: 'firstFlight', headerName: 'First Flight', width: 140 },
+    { field: 'engines', headerName: 'Engines', width: 130 },
+    { field: 'wingspan', headerName: 'Wingspan (m)', width: 150 },
+    { field: 'length', headerName: 'Length (m)', width: 150 },
+    { field: 'range', headerName: 'Range (km)', width: 150 },
+    { field: 'capacity', headerName: 'Capacity', width: 140 },
+    { field: 'mtow', headerName: 'MTOW (kg)', width: 150 },
+    { field: 'cruiseSpeed', headerName: 'Cruise (km/h)', width: 150 },
   ], []);
 
   // Column definitions for small table (size XS components)
@@ -321,6 +355,43 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
   rowData={rowData}
   columnDefs={colDefs}
 />`;
+
+  const scrollableCode = `// A wide table scrolls horizontally; many rows scroll vertically.
+// Give the grid a fixed height and let the columns overflow its width.
+// Pin the checkbox column (with a locked width) so it stays in view while
+// the rest of the columns scroll horizontally.
+const colDefs = [
+  {
+    headerCheckboxSelection: true,
+    checkboxSelection: true,
+    pinned: 'left',
+    width: 50, minWidth: 50, maxWidth: 50, // locked width
+    suppressSizeToFit: true,               // excluded from sizeColumnsToFit()
+    resizable: false,
+    filter: false,
+  },
+  { field: 'aircraft', headerName: 'Aircraft', pinned: 'left', width: 160 },
+  { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
+  { field: 'firstFlight', headerName: 'First Flight', width: 140 },
+  { field: 'engines', headerName: 'Engines', width: 130 },
+  { field: 'wingspan', headerName: 'Wingspan (m)', width: 150 },
+  { field: 'length', headerName: 'Length (m)', width: 150 },
+  { field: 'range', headerName: 'Range (km)', width: 150 },
+  { field: 'capacity', headerName: 'Capacity', width: 140 },
+  { field: 'mtow', headerName: 'MTOW (kg)', width: 150 },
+  { field: 'cruiseSpeed', headerName: 'Cruise (km/h)', width: 150 },
+];
+
+// Fixed-height wrapper => the grid body scrolls instead of growing
+<div style={{ height: 320 }}>
+  <AgGridReact
+    className="as-ag-grid"
+    rowData={rowData}        // 20+ rows -> vertical scroll
+    columnDefs={colDefs}     // total width > container -> horizontal scroll
+    rowSelection="multiple"
+    suppressRowClickSelection={true}
+  />
+</div>`;
 
   const cssVariablesCode = `/* Available CSS variables for customization */
 
@@ -519,6 +590,52 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
             </p>
           </section>
 
+          {/* Scrollable Table */}
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Scrollable Table
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('scrollable')}
+              />
+            </div>
+            <div className="example-container" style={{ height: 320 }}>
+              <AgGridReact
+                className="as-ag-grid"
+                rowData={scrollRowData}
+                columnDefs={scrollableColDefs}
+                defaultColDef={{ filter: true }}
+                rowSelection="multiple"
+                suppressRowClickSelection={true}
+                cellSelection={false}
+              />
+            </div>
+            <p
+              className="label-regular-s"
+              style={{
+                marginTop: '12px',
+                color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
+              }}
+            >
+              Give the grid a fixed height so the body scrolls vertically, and let the columns
+              overflow the container width to scroll horizontally. The checkbox column is pinned
+              left with a locked width (<code>suppressSizeToFit</code>) so it stays put while the
+              rest scrolls.
+            </p>
+          </section>
+
           {/* Column Filters */}
           <section className="component-section">
             <div className="section-header">
@@ -712,6 +829,12 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
         onClose={() => setOpenModal(null)}
         title="Pinned Columns"
         code={pinnedCode}
+      />
+      <CodeModal
+        isOpen={openModal === 'scrollable'}
+        onClose={() => setOpenModal(null)}
+        title="Scrollable Table"
+        code={scrollableCode}
       />
       <CodeModal
         isOpen={openModal === 'variables'}
