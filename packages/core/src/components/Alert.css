@@ -61,6 +61,7 @@
 }
 
 /* ── Action Bottom ── */
+/* Layout only: actions are DS components (Button / IconButton) and keep their own styles */
 
 .alert__action-bottom {
   display: flex;
@@ -68,55 +69,14 @@
   gap: 4px;
 }
 
-.alert__action-bottom button,
-.alert__action-bottom a {
-  background: none;
-  border: none;
-  padding: 4px 8px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-r3, 3px);
-  color: var(--primary-default, #063b9e);
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.alert__action-bottom button:hover,
-.alert__action-bottom a:hover {
-  background-color: rgba(6, 59, 158, 0.08);
-}
-
 /* ── Action Right ── */
+/* Layout only: actions are DS components (Button / IconButton) and keep their own styles */
 
 .alert__action-right {
   display: flex;
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
-}
-
-.alert__action-right button,
-.alert__action-right a {
-  background: none;
-  border: none;
-  padding: 4px 8px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-r3, 3px);
-  color: var(--primary-default, #063b9e);
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.alert__action-right button:hover,
-.alert__action-right a:hover {
-  background-color: rgba(6, 59, 158, 0.08);
 }
 
 /* ── Close ── */

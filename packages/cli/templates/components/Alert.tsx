@@ -43,11 +43,13 @@ export interface AlertProps {
    */
   onLoaderComplete?: () => void;
   /**
-   * Action element rendered below the description
+   * Action element rendered below the description.
+   * Use a design system Button (`<Button variant="Ghost" size="XS" />`).
    */
   actionBottom?: React.ReactNode;
   /**
-   * Action element rendered on the right side
+   * Action element rendered on the right side.
+   * Use a design system Button (`<Button variant="Ghost" size="XS" />`).
    */
   actionRight?: React.ReactNode;
   /**
@@ -166,7 +168,7 @@ export function Alert({
       </div>
 
       {actionRight && (
-        <div className="alert__action-right label-bold-xs">{actionRight}</div>
+        <div className="alert__action-right">{actionRight}</div>
       )}
 
       {showCloseButton && (

@@ -112,13 +112,16 @@ export default function AlertPage() {
 />`;
 
   const actionsCode = `import { Alert } from '@/design-system/components/Alert';
+import { Button } from '@/design-system/components/Button';
 
 {/* Action bottom */}
 <Alert
   variant="Warning"
   title="Session expiring"
   description="Your session will expire in 5 minutes."
-  actionBottom={<button onClick={() => {}}>EXTEND SESSION</button>}
+  actionBottom={
+    <Button label="EXTEND SESSION" size="XS" variant="Ghost" onClick={() => {}} />
+  }
   onClose={() => {}}
 />
 
@@ -127,7 +130,7 @@ export default function AlertPage() {
   variant="Info"
   title="New version available"
   description="A new version of the application is available."
-  actionRight={<button onClick={() => {}}>UPDATE</button>}
+  actionRight={<Button label="UPDATE" size="XS" variant="Ghost" onClick={() => {}} />}
   onClose={() => {}}
 />`;
 
@@ -357,7 +360,9 @@ export default function AlertPage() {
                     variant="Warning"
                     title="Session expiring"
                     description="Your session will expire in 5 minutes."
-                    actionBottom={<button>EXTEND SESSION</button>}
+                    actionBottom={
+                      <Button label="EXTEND SESSION" size="XS" variant="Ghost" />
+                    }
                     onClose={() =>
                       setVisibleAlerts((prev) => ({ ...prev, actionBottom: false }))
                     }
@@ -368,7 +373,7 @@ export default function AlertPage() {
                     variant="Info"
                     title="New version available"
                     description="A new version of the application is available."
-                    actionRight={<button>UPDATE</button>}
+                    actionRight={<Button label="UPDATE" size="XS" variant="Ghost" />}
                     onClose={() =>
                       setVisibleAlerts((prev) => ({ ...prev, actionRight: false }))
                     }
@@ -477,13 +482,13 @@ export default function AlertPage() {
                   <td><code>actionBottom</code></td>
                   <td><code>ReactNode</code></td>
                   <td>-</td>
-                  <td>Action element rendered below the description</td>
+                  <td>Action element rendered below the description (use a Ghost <code>Button</code>)</td>
                 </tr>
                 <tr>
                   <td><code>actionRight</code></td>
                   <td><code>ReactNode</code></td>
                   <td>-</td>
-                  <td>Action element rendered on the right side</td>
+                  <td>Action element rendered on the right side (use a Ghost <code>Button</code>)</td>
                 </tr>
                 <tr>
                   <td><code>showCloseButton</code></td>

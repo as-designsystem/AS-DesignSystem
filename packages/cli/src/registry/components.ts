@@ -1756,7 +1756,7 @@ export const components: RegistryItem[] = [
         type: 'style',
       },
     ],
-    dependencies: ['icon', 'icon-button'],
+    dependencies: ['icon', 'icon-button', 'button'],
     cssImports: [
       '@/design-system/tokens/typography.css',
       '@/design-system/tokens/colors.css',
