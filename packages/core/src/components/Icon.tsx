@@ -20,10 +20,12 @@ import airArrivalIcon from '../assets/svg/icons/AIR_arrival.svg?raw';
 import airDepartureIcon from '../assets/svg/icons/AIR_departure.svg?raw';
 import airEngineIcon from '../assets/svg/icons/AIR_engine.svg?raw';
 import airFleetIcon from '../assets/svg/icons/AIR_fleet.svg?raw';
+import airFollowIcon from '../assets/svg/icons/AIR_follow.svg?raw';
 import airGroundInIcon from '../assets/svg/icons/AIR_ground_In.svg?raw';
 import airGroundOutIcon from '../assets/svg/icons/AIR_ground_out.svg?raw';
 import airLandingGearIcon from '../assets/svg/icons/AIR_landing_gear.svg?raw';
 import airLifeVestIcon from '../assets/svg/icons/AIR_life_vest.svg?raw';
+import airNetFuelIcon from '../assets/svg/icons/AIR_net_fuel.svg?raw';
 import airSideIcon from '../assets/svg/icons/AIR_side.svg?raw';
 import airSpinnerIcon from '../assets/svg/icons/AIR_spinner.svg?raw';
 import airTailIcon from '../assets/svg/icons/AIR_tail.svg?raw';
@@ -889,10 +891,12 @@ const iconMap: Record<string, string> = {
   'AIR_departure': airDepartureIcon,
   'AIR_engine': airEngineIcon,
   'AIR_fleet': airFleetIcon,
+  'AIR_follow': airFollowIcon,
   'AIR_ground_In': airGroundInIcon,
   'AIR_ground_out': airGroundOutIcon,
   'AIR_landing_gear': airLandingGearIcon,
   'AIR_life_vest': airLifeVestIcon,
+  'AIR_net_fuel': airNetFuelIcon,
   'AIR_side': airSideIcon,
   'AIR_spinner': airSpinnerIcon,
   'AIR_tail': airTailIcon,
@@ -1758,10 +1762,12 @@ export const availableIcons = [
   'AIR_departure',
   'AIR_engine',
   'AIR_fleet',
+  'AIR_follow',
   'AIR_ground_In',
   'AIR_ground_out',
   'AIR_landing_gear',
   'AIR_life_vest',
+  'AIR_net_fuel',
   'AIR_side',
   'AIR_spinner',
   'AIR_tail',

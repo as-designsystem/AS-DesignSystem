@@ -17,7 +17,7 @@ export const components: RegistryItem[] = [
         target: 'components/Icon.css',
         type: 'style',
       },
-      // SVG icon assets (866 icons)
+      // SVG icon assets (868 icons)
       { path: 'templates/assets/svg/icons/123.svg', target: 'assets/svg/icons/123.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_AC_twin_engine.svg', target: 'assets/svg/icons/AIR_AC_twin_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_APU.svg', target: 'assets/svg/icons/AIR_APU.svg', type: 'component' },
@@ -39,10 +39,12 @@ export const components: RegistryItem[] = [
       { path: 'templates/assets/svg/icons/AIR_departure.svg', target: 'assets/svg/icons/AIR_departure.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_engine.svg', target: 'assets/svg/icons/AIR_engine.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_fleet.svg', target: 'assets/svg/icons/AIR_fleet.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/AIR_follow.svg', target: 'assets/svg/icons/AIR_follow.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_ground_In.svg', target: 'assets/svg/icons/AIR_ground_In.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_ground_out.svg', target: 'assets/svg/icons/AIR_ground_out.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_landing_gear.svg', target: 'assets/svg/icons/AIR_landing_gear.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_life_vest.svg', target: 'assets/svg/icons/AIR_life_vest.svg', type: 'component' },
+      { path: 'templates/assets/svg/icons/AIR_net_fuel.svg', target: 'assets/svg/icons/AIR_net_fuel.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_side.svg', target: 'assets/svg/icons/AIR_side.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_spinner.svg', target: 'assets/svg/icons/AIR_spinner.svg', type: 'component' },
       { path: 'templates/assets/svg/icons/AIR_tail.svg', target: 'assets/svg/icons/AIR_tail.svg', type: 'component' },
