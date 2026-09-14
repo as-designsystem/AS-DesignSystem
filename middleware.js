@@ -9,7 +9,16 @@ async function createToken(password) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-function getPasswordPage(error = false) {
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getPasswordPage(error = false, redirectTo = '/') {
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -70,6 +79,7 @@ function getPasswordPage(error = false) {
     <p>Entrez le mot de passe pour accéder à la documentation.</p>
     ${error ? '<div class="error">Mot de passe incorrect.</div>' : ''}
     <form method="POST" action="/api/login">
+      <input type="hidden" name="redirect" value="${escapeHtml(redirectTo)}" />
       <input type="password" name="password" placeholder="Mot de passe" autofocus required />
       <button type="submit">Accéder</button>
     </form>
@@ -102,7 +112,13 @@ export default async function middleware(request) {
 
   const error = url.searchParams.get('error') === '1';
 
-  return new Response(getPasswordPage(error), {
+  // Preserve the originally requested URL so the user lands back on it after login
+  const params = new URLSearchParams(url.search);
+  params.delete('error');
+  const query = params.toString();
+  const redirectTo = url.pathname + (query ? `?${query}` : '');
+
+  return new Response(getPasswordPage(error, redirectTo), {
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
 }
