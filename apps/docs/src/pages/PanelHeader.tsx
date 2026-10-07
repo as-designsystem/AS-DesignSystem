@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PanelHeader, Tab, Button, IconButton } from '@as-designsystem/core';
+import { PanelHeader, Tab, Button, IconButton, Icon } from '@as-designsystem/core';
 import '@as-designsystem/core/PanelHeader.css';
 import '@as-designsystem/core/PanelStudyName.css';
 import '@as-designsystem/core/Button.css';
@@ -36,6 +36,15 @@ export default function PanelHeaderPage() {
 <PanelHeader
   workspaceIcon="folder"
   workspaceName="Fleet Operations"
+  studyName="My Study"
+  onBackHome={() => navigate('/')}
+/>
+
+{/* With extra info pinned to the right of the label row */}
+<PanelHeader
+  workspaceIcon="folder"
+  workspaceName="Fleet Operations"
+  workspaceInfo={<><Icon name="lock" size={14} color="currentColor" />Private</>}
   studyName="My Study"
   onBackHome={() => navigate('/')}
 />`;
@@ -199,7 +208,8 @@ import { IconButton } from '@/design-system/components/IconButton';
             >
               Use <code>workspaceName</code> to set the label above the study name, and the optional{' '}
               <code>workspaceIcon</code> to prefix it with an icon (e.g. <code>folder</code> to
-              indicate a workspace).
+              indicate a workspace). <code>workspaceInfo</code> pins extra content to the right end
+              of that row (e.g. the study visibility).
             </p>
             <div className="panel-header-demo-grid">
               <div className="example-container">
@@ -223,6 +233,21 @@ import { IconButton } from '@/design-system/components/IconButton';
                   <PanelHeader
                     workspaceIcon="folder"
                     workspaceName="Fleet Operations"
+                    studyName="My Study"
+                    onBackHome={() => console.log('Back home')}
+                    onDuplicate={() => console.log('Duplicate')}
+                  />
+                </div>
+              </div>
+              <div className="example-container">
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                  With workspace info
+                </p>
+                <div className="panel-header-demo">
+                  <PanelHeader
+                    workspaceIcon="folder"
+                    workspaceName="Fleet Operations"
+                    workspaceInfo={<><Icon name="lock" size={14} color="currentColor" />Private</>}
                     studyName="My Study"
                     onBackHome={() => console.log('Back home')}
                     onDuplicate={() => console.log('Duplicate')}
@@ -433,6 +458,12 @@ import { IconButton } from '@/design-system/components/IconButton';
                   <td><code>IconName</code></td>
                   <td>-</td>
                   <td>Optional decorative icon displayed on the left of the workspace label</td>
+                </tr>
+                <tr>
+                  <td><code>workspaceInfo</code></td>
+                  <td><code>ReactNode</code></td>
+                  <td>-</td>
+                  <td>Optional content pinned to the right end of the workspace label row (e.g. the study visibility)</td>
                 </tr>
                 <tr>
                   <td><code>studyName</code></td>

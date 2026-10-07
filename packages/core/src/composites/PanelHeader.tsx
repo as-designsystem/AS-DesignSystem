@@ -18,6 +18,11 @@ export interface PanelHeaderProps {
    */
   workspaceIcon?: IconName;
   /**
+   * Optional content pinned to the right end of the workspace label row
+   * (e.g. the study visibility: an icon and a short text)
+   */
+  workspaceInfo?: React.ReactNode;
+  /**
    * Study name displayed in the header
    */
   studyName: string;
@@ -81,6 +86,7 @@ export interface PanelHeaderProps {
 export function PanelHeader({
   workspaceName = 'Workspace Name',
   workspaceIcon,
+  workspaceInfo,
   studyName,
   studyNameLines = 1,
   onStudyNameClick,
@@ -121,17 +127,22 @@ export function PanelHeader({
 
         {/* Study Info section */}
         <div className="panel-header__study-info">
-          <span className="panel-header__legend label-regular-xs">
-            {workspaceIcon && (
-              <Icon
-                name={workspaceIcon}
-                size={14}
-                color="currentColor"
-                className="panel-header__legend-icon"
-              />
+          <div className="panel-header__legend-row">
+            <span className="panel-header__legend label-regular-xs">
+              {workspaceIcon && (
+                <Icon
+                  name={workspaceIcon}
+                  size={14}
+                  color="currentColor"
+                  className="panel-header__legend-icon"
+                />
+              )}
+              {workspaceName}
+            </span>
+            {workspaceInfo && (
+              <span className="panel-header__workspace-info label-regular-xs">{workspaceInfo}</span>
             )}
-            {workspaceName}
-          </span>
+          </div>
           <div className="panel-header__study-row">
             <PanelStudyName
               name={studyName}

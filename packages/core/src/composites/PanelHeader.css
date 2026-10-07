@@ -77,7 +77,15 @@
   gap: 4px;
 }
 
+.panel-header__legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .panel-header__legend {
+  flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -87,6 +95,15 @@
 
 .panel-header__legend-icon {
   flex-shrink: 0;
+}
+
+.panel-header__workspace-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  color: var(--cool-grey-50, #919cb0);
+  padding-right: 8px;
 }
 
 .panel-header__study-row {
