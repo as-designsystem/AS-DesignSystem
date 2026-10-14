@@ -94,6 +94,15 @@ export function formatCurrency(
     .join('');
 }
 
+/** Amount per unit, e.g. yield $0.12/RPK, CASK $0.08/ASK, cost $1,250/FH */
+export function formatRate(
+  value: number,
+  per: StandardUnit | BusinessUnit,
+  options: CurrencyOptions = {}
+): string {
+  return `${formatCurrency(value, options)}/${unitLabel(per)}`;
+}
+
 export function formatUnit(value: number, unit: StandardUnit, decimals = 0): string {
   return getFormatter({ style: 'unit', unit, ...fixed(decimals) }).format(value);
 }

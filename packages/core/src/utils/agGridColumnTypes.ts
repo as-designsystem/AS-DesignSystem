@@ -5,7 +5,7 @@
  *
  * Usage: <AgGridReact columnTypes={agGridColumnTypes} ... />
  */
-import { formatNumber, formatCurrency, unitLabel } from './numberFormat';
+import { formatNumber, formatCurrency, formatRate, unitLabel } from './numberFormat';
 
 // Minimal AG-Grid shapes, so this file needs no ag-grid import
 interface ColumnContext {
@@ -52,5 +52,13 @@ export const agGridColumnTypes: Record<string, ColumnType> = {
     ...numeric,
     valueFormatter: (p) =>
       formatCurrency(p.value, { scale: 'k', decimals: 1, ...p.colDef.context, accounting: true }),
+  },
+
+  // Amount per unit (yield, RASK, CASK…), the full rate in every cell: "$0.12/RPK".
+  // context: { per: 'rpk' | 'ask' | 'flightHours' | …, currency?: string, decimals?: number }
+  rate: {
+    ...numeric,
+    valueFormatter: (p) =>
+      formatRate(p.value, p.colDef.context.per, { decimals: 2, ...p.colDef.context }),
   },
 };

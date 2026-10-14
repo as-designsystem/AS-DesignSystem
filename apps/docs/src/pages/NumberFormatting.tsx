@@ -8,6 +8,7 @@ import {
   formatCurrency,
   formatUnit,
   formatBusinessUnit,
+  formatRate,
   agGridColumnTypes,
   BUSINESS_UNITS,
   type BusinessUnit,
@@ -239,6 +240,10 @@ export default function NumberFormattingPage() {
             the next.
           </li>
           <li>Negatives use a minus sign, or parentheses with <code>accounting: true</code>.</li>
+          <li>
+            Amounts per unit (yield, RASK, CASK, cost per FH): <code>formatRate</code>, the
+            amount formatted by Intl followed by <code>/</code> and the unit label.
+          </li>
         </Rule>
         <div className="example-container">
           <div className="number-formatting__samples">
@@ -246,6 +251,8 @@ export default function NumberFormattingPage() {
             <Sample call="formatCurrency(842300, { scale: 'k', decimals: 1 })" output={formatCurrency(842300, { scale: 'k', decimals: 1 })} />
             <Sample call="formatCurrency(2310000, { scale: 'M', decimals: 2 })" output={formatCurrency(2310000, { scale: 'M', decimals: 2 })} />
             <Sample call="formatCurrency(-45210, { accounting: true })" output={formatCurrency(-45210, { accounting: true })} />
+            <Sample call="formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })" output={formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })} />
+            <Sample call="formatRate(1250, 'flightHours', { currency: 'USD' })" output={formatRate(1250, 'flightHours', { currency: 'USD' })} />
           </div>
         </div>
       </section>
