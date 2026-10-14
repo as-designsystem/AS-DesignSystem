@@ -357,6 +357,8 @@ export const add = new Command()
       const shouldCopyFile = (file: RegistryFile) => {
         // If TypeScript is enabled, copy all files
         if (config.typescript) return true;
+        // Utils are code the app imports: always copy (Vite compiles .ts in JS projects)
+        if (file.type === 'util') return true;
         // If TypeScript is disabled, skip ONLY pure .ts files (like colors.ts, typography.ts)
         // Keep .tsx files (components) because Vite/Babel can compile them in JS projects
         // Keep .d.ts files
@@ -481,6 +483,17 @@ export const add = new Command()
         for (const comp of installedComposites) {
           const compositeName = comp.displayName || comp.name;
           logger.info(`  import { ${compositeName} } from '${config.aliases.composites}/${compositeName}';`);
+        }
+      }
+
+      const installedUtils = toInstall.filter(
+        (i) => i.type === 'util' && installedItems.has(i.name)
+      );
+      if (installedUtils.length > 0) {
+        logger.info('Import utils in your code:');
+        for (const util of installedUtils) {
+          const fileName = path.basename(util.files[0].target, '.ts');
+          logger.info(`  import { ... } from '${config.aliases.designSystem}/utils/${fileName}';`);
         }
       }
 

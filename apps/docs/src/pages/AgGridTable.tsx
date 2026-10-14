@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ICellRendererParams, ColDef } from 'ag-grid-community';
 import {
@@ -10,6 +11,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuCheckboxItem,
+  agGridColumnTypes,
 } from '@as-designsystem/core';
 import '@as-designsystem/core/Tab.css';
 import '@as-designsystem/core/Button.css';
@@ -207,10 +209,10 @@ export default function AgGridTablePage() {
 
   // Column definitions for pinned columns table
   const pinnedColDefs = useMemo(() => [
-    { field: 'aircraft', headerName: 'Aircraft', pinned: 'left' as const, width: 150 },
+    { field: 'aircraft', headerName: 'Aircraft', type: 'text', pinned: 'left' as const, width: 150 },
     { field: 'manufacturer', headerName: 'Manufacturer', width: 150 },
-    { field: 'range', headerName: 'Range (km)', width: 150 },
-    { field: 'capacity', headerName: 'Capacity', width: 150 },
+    { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, width: 150 },
+    { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, width: 150 },
     { field: 'status', headerName: 'Status', width: 150 },
   ], []);
 
@@ -219,14 +221,14 @@ export default function AgGridTablePage() {
     { headerCheckboxSelection: true, checkboxSelection: true, width: 50, minWidth: 50, maxWidth: 50, suppressSizeToFit: true, resizable: false, filter: false },
     { field: 'aircraft', headerName: 'Aircraft', width: 160 },
     { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
-    { field: 'firstFlight', headerName: 'First Flight', width: 140 },
-    { field: 'engines', headerName: 'Engines', width: 130 },
-    { field: 'wingspan', headerName: 'Wingspan (m)', width: 150 },
-    { field: 'length', headerName: 'Length (m)', width: 150 },
-    { field: 'range', headerName: 'Range (km)', width: 150 },
-    { field: 'capacity', headerName: 'Capacity', width: 140 },
-    { field: 'mtow', headerName: 'MTOW (kg)', width: 150 },
-    { field: 'cruiseSpeed', headerName: 'Cruise (km/h)', width: 150 },
+    { field: 'firstFlight', headerName: 'First Flight', type: 'text', width: 140 },
+    { field: 'engines', headerName: 'Engines', type: 'number', width: 130 },
+    { field: 'wingspan', headerName: 'Wingspan', type: 'unit', context: { unit: 'meter' }, width: 150 },
+    { field: 'length', headerName: 'Length', type: 'unit', context: { unit: 'meter' }, width: 150 },
+    { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, width: 150 },
+    { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, width: 140 },
+    { field: 'mtow', headerName: 'MTOW', type: 'unit', context: { unit: 'kilogram' }, width: 150 },
+    { field: 'cruiseSpeed', headerName: 'Cruise', type: 'unit', context: { unit: 'kilometer-per-hour' }, width: 150 },
   ], []);
 
   // Column definitions for small table (size XS components)
@@ -242,8 +244,8 @@ export default function AgGridTablePage() {
   const filterColDefs = useMemo(() => [
     { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
     { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-    { field: 'range', headerName: 'Range (km)', flex: 1 },
-    { field: 'capacity', headerName: 'Capacity', flex: 1 },
+    { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, flex: 1 },
+    { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, flex: 1 },
     { field: 'status', headerName: 'Status', flex: 1 },
   ], []);
 
@@ -253,14 +255,15 @@ import '@as-designsystem/core/ag-grid-theme.css';
 const colDefs = [
   { field: 'aircraft', headerName: 'Aircraft', flex: 1 },
   { field: 'manufacturer', headerName: 'Manufacturer', flex: 1 },
-  { field: 'range', headerName: 'Range (km)', flex: 1, filter: 'agNumberColumnFilter' },
-  { field: 'capacity', headerName: 'Capacity', flex: 1 },
+  { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, flex: 1, filter: 'agNumberColumnFilter' },
+  { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, flex: 1 },
   { field: 'status', headerName: 'Status', flex: 1 },
 ];
 
 <AgGridReact
   className="as-ag-grid"
   rowData={rowData}
+  columnTypes={agGridColumnTypes} // asds add ag-grid-column-types — see Number Formatting
   columnDefs={colDefs}
   defaultColDef={{ filter: true }}
 />`;
@@ -378,16 +381,17 @@ const SelectCellRendererXS = (props: ICellRendererParams) => {
 />`;
 
   const pinnedCode = `const colDefs = [
-  { field: 'aircraft', headerName: 'Aircraft', pinned: 'left', width: 150 },
+  { field: 'aircraft', headerName: 'Aircraft', type: 'text', pinned: 'left', width: 150 },
   { field: 'manufacturer', headerName: 'Manufacturer', width: 150 },
-  { field: 'range', headerName: 'Range (km)', width: 150 },
-  { field: 'capacity', headerName: 'Capacity', width: 150 },
+  { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, width: 150 },
+  { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, width: 150 },
   { field: 'status', headerName: 'Status', width: 150 },
 ];
 
 <AgGridReact
   className="as-ag-grid"
   rowData={rowData}
+  columnTypes={agGridColumnTypes} // asds add ag-grid-column-types — see Number Formatting
   columnDefs={colDefs}
 />`;
 
@@ -409,14 +413,14 @@ const colDefs = [
   },
   { field: 'aircraft', headerName: 'Aircraft', width: 160 },
   { field: 'manufacturer', headerName: 'Manufacturer', width: 160 },
-  { field: 'firstFlight', headerName: 'First Flight', width: 140 },
-  { field: 'engines', headerName: 'Engines', width: 130 },
-  { field: 'wingspan', headerName: 'Wingspan (m)', width: 150 },
-  { field: 'length', headerName: 'Length (m)', width: 150 },
-  { field: 'range', headerName: 'Range (km)', width: 150 },
-  { field: 'capacity', headerName: 'Capacity', width: 140 },
-  { field: 'mtow', headerName: 'MTOW (kg)', width: 150 },
-  { field: 'cruiseSpeed', headerName: 'Cruise (km/h)', width: 150 },
+  { field: 'firstFlight', headerName: 'First Flight', type: 'text', width: 140 },
+  { field: 'engines', headerName: 'Engines', type: 'number', width: 130 },
+  { field: 'wingspan', headerName: 'Wingspan', type: 'unit', context: { unit: 'meter' }, width: 150 },
+  { field: 'length', headerName: 'Length', type: 'unit', context: { unit: 'meter' }, width: 150 },
+  { field: 'range', headerName: 'Range', type: 'unit', context: { unit: 'kilometer' }, width: 150 },
+  { field: 'capacity', headerName: 'Capacity', type: 'unit', context: { unit: 'pax' }, width: 140 },
+  { field: 'mtow', headerName: 'MTOW', type: 'unit', context: { unit: 'kilogram' }, width: 150 },
+  { field: 'cruiseSpeed', headerName: 'Cruise', type: 'unit', context: { unit: 'kilometer-per-hour' }, width: 150 },
 ];
 
 // Column visibility: the Columns tool panel is enterprise-only, so in the
@@ -451,6 +455,7 @@ const toggleColumn = (field, visible) => {
       ref={gridRef}
       className="as-ag-grid"
       rowData={rowData}        // 20+ rows -> vertical scroll
+      columnTypes={agGridColumnTypes} // asds add ag-grid-column-types — see Number Formatting
       columnDefs={colDefs}     // total width > container -> horizontal scroll
       rowSelection="multiple"
       suppressRowClickSelection={true}
@@ -504,6 +509,8 @@ const toggleColumn = (field, visible) => {
       >
         For complex data tables, we recommend using AG-Grid with our custom theme.
         The AS Design System provides a CSS file that styles AG-Grid to match our design language.
+        Right-aligned columns get tabular figures; see{' '}
+        <Link to="/tokens/number-formatting">Number Formatting</Link> for column types.
       </p>
 
       {/* Tabs */}
@@ -639,6 +646,7 @@ const toggleColumn = (field, visible) => {
               <AgGridReact
                 className="as-ag-grid"
                 rowData={rowData}
+                columnTypes={agGridColumnTypes}
                 columnDefs={pinnedColDefs}
                 defaultColDef={{ filter: true }}
                 cellSelection={false}
@@ -703,7 +711,8 @@ const toggleColumn = (field, visible) => {
                   ref={scrollableGridRef}
                   className="as-ag-grid"
                   rowData={scrollRowData}
-                  columnDefs={scrollableColDefs}
+                  columnTypes={agGridColumnTypes}
+                columnDefs={scrollableColDefs}
                   defaultColDef={{ filter: true }}
                   rowSelection="multiple"
                   suppressRowClickSelection={true}
@@ -750,6 +759,7 @@ const toggleColumn = (field, visible) => {
               <AgGridReact
                 className="as-ag-grid"
                 rowData={rowData}
+                columnTypes={agGridColumnTypes}
                 columnDefs={filterColDefs}
                 defaultColDef={{ filter: true }}
                 cellSelection={false}

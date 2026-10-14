@@ -1,0 +1,56 @@
+/**
+ * agGridColumnTypes.ts — AG-Grid column types built on numberFormat.ts.
+ * A column only declares its type (plus options in `context`);
+ * the type owns format, alignment and header unit.
+ *
+ * Usage: <AgGridReact columnTypes={agGridColumnTypes} ... />
+ */
+import { formatNumber, formatCurrency, unitLabel } from './numberFormat';
+
+// Minimal AG-Grid shapes, so this file needs no ag-grid import
+interface ColumnContext {
+  colDef?: { headerName?: string; context?: any } | null;
+}
+interface CellParams {
+  value: any;
+  colDef: { context?: any };
+}
+interface ColumnType {
+  headerClass?: string;
+  cellClass?: string;
+  headerValueGetter?: (params: ColumnContext) => string;
+  valueFormatter?: (params: CellParams) => string;
+}
+
+// Same classes as AG-Grid's built-in rightAligned type; ag-grid-theme.css adds tabular-nums
+const numeric: ColumnType = {
+  headerClass: 'ag-right-aligned-header',
+  cellClass: 'ag-right-aligned-cell',
+};
+
+export const agGridColumnTypes: Record<string, ColumnType> = {
+  // Left-aligned (AG-Grid default)
+  text: {},
+
+  // context: { decimals?: number }
+  number: {
+    ...numeric,
+    valueFormatter: (p) => formatNumber(p.value, p.colDef.context?.decimals),
+  },
+
+  // Unit goes up in the header: "Range (km)", cells show the number only.
+  // context: { unit: 'kilometer' | 'percent' | 'pax' | …, decimals?: number }
+  unit: {
+    ...numeric,
+    headerValueGetter: (p) => `${p.colDef?.headerName} (${unitLabel(p.colDef?.context.unit)})`,
+    valueFormatter: (p) => formatNumber(p.value, p.colDef.context?.decimals),
+  },
+
+  // Currency stays in every cell, one scale + decimals per column, negatives in parentheses.
+  // context: { currency?: string, scale?: 'none' | 'k' | 'M', decimals?: number }
+  currency: {
+    ...numeric,
+    valueFormatter: (p) =>
+      formatCurrency(p.value, { scale: 'k', decimals: 1, ...p.colDef.context, accounting: true }),
+  },
+};

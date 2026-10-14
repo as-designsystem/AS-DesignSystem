@@ -52,6 +52,7 @@ import Colors from './pages/Colors';
 import Icons from './pages/Icons';
 import Others from './pages/Others';
 import AgGridTablePage from './pages/AgGridTable';
+import NumberFormattingPage from './pages/NumberFormatting';
 import AlertPage from './pages/Alert';
 import EmptyStatePage from './pages/EmptyState';
 import ChartCardPage from './pages/ChartCard';
@@ -82,6 +83,7 @@ function App() {
               <Route path="/tokens/colors" element={<Colors />} />
               <Route path="/tokens/icons" element={<Icons />} />
               <Route path="/tokens/others" element={<Others />} />
+              <Route path="/tokens/number-formatting" element={<NumberFormattingPage />} />
               <Route path="/components" element={<Navigate to="/components/button" replace />} />
               <Route path="/components/alert" element={<AlertPage />} />
               <Route path="/components/button" element={<Button />} />

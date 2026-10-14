@@ -54,6 +54,21 @@ export const list = new Command()
       console.log('');
     }
 
+    // Utils
+    const utils = getRegistryByType('util').sort((a, b) => a.name.localeCompare(b.name));
+    if (utils.length > 0) {
+      console.log(chalk.bold.cyan('Utils:'));
+      for (const util of utils) {
+        const displayName = util.displayName || util.name;
+        const description = util.description || '';
+        console.log(`  ${chalk.green(util.name.padEnd(15))} ${displayName}`);
+        if (description) {
+          console.log(`  ${' '.repeat(15)} ${chalk.gray(description)}`);
+        }
+      }
+      console.log('');
+    }
+
     // Icons
     const icons = getRegistryByType('icon').sort((a, b) => a.name.localeCompare(b.name));
     if (icons.length > 0) {

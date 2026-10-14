@@ -273,6 +273,14 @@
   padding-left: 16px;
 }
 
+/* Numeric columns (AG-Grid rightAligned / numericColumn types).
+ * .ag-cell is a flex container, so AG-Grid's own text-align: right has no
+ * effect here. Tabular figures keep digits aligned from row to row. */
+.as-ag-grid .ag-right-aligned-cell {
+  justify-content: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
 .as-ag-grid .ag-cell,
 .as-ag-grid .ag-cell-focus,
 .as-ag-grid .ag-cell:focus,

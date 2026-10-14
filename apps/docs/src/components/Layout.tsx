@@ -78,7 +78,7 @@ const navSections: NavSectionData[] = [
     ],
   },
   {
-    title: 'Tokens',
+    title: 'Guidelines & Assets',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor" />
@@ -91,6 +91,7 @@ const navSections: NavSectionData[] = [
     items: [
       { label: 'Colors', path: '/tokens/colors' },
       { label: 'Icons', path: '/tokens/icons' },
+      { label: 'Number Formatting', path: '/tokens/number-formatting' },
       { label: 'Text Styles', path: '/tokens/text-styles' },
       { label: 'Others', path: '/tokens/others' },
     ],

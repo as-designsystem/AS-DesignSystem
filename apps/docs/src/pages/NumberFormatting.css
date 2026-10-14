@@ -1,0 +1,98 @@
+.component-page {
+  max-width: 100%;
+}
+
+.component-section {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.number-formatting code:not(pre code):not(.install-command__code) {
+  background-color: var(--background-tertiary, #eff1f4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* Rule list under each section title */
+.number-formatting__rules {
+  max-width: 760px;
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--text-secondary, #63728a);
+  line-height: 1.8;
+}
+
+/* Formatter API: Function | Built on | Output */
+.number-formatting__api {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px 24px;
+  align-items: center;
+  color: var(--text-main, #333d47);
+}
+
+.number-formatting__api-row {
+  display: contents;
+}
+
+.number-formatting__dont {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--feedback-error-default, #e4002b);
+}
+
+.number-formatting__value {
+  color: var(--text-main, #333d47);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* Two columns of samples */
+.number-formatting__compare {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.number-formatting__samples {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.number-formatting__group {
+  color: var(--text-main, #333d47);
+}
+
+/* call → output */
+.number-formatting__sample {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.number-formatting__output {
+  color: var(--text-main, #333d47);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.number-formatting__output::before {
+  content: '→';
+  margin-right: 12px;
+  color: var(--text-tertiary, #b3bbc8);
+}

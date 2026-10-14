@@ -211,7 +211,8 @@ async function detectInstalledComponents(
     // Check if the main component file exists (TSX for components, CSS for tokens)
     const mainFile = item.files.find(f =>
       (f.type === 'component' && f.target.endsWith('.tsx')) ||
-      (item.type === 'token' && f.type === 'style' && f.target.endsWith('.css'))
+      (item.type === 'token' && f.type === 'style' && f.target.endsWith('.css')) ||
+      (item.type === 'util' && f.type === 'util')
     );
     if (mainFile) {
       // Templates use their own targetPath, everything else uses designSystemPath
@@ -349,6 +350,7 @@ export const update = new Command()
 
       const shouldCopyFile = (file: RegistryFile) => {
         if (config.typescript) return true;
+        if (file.type === 'util') return true;
         if (file.path.endsWith('.d.ts')) return true;
         if (file.path.endsWith('.tsx')) return true;
         return !file.path.endsWith('.ts');

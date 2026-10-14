@@ -88,6 +88,19 @@ try {
     console.warn('   ⚠️  Tokens source not found');
   }
 
+  // Sync utils
+  console.log('🛠️  Syncing utils...');
+  const utilsSource = path.join(CORE_SRC, 'utils');
+  const utilsTarget = path.join(CLI_TEMPLATES, 'utils');
+
+  if (fs.existsSync(utilsSource)) {
+    fs.copySync(utilsSource, utilsTarget, { overwrite: true });
+    const utilFiles = fs.readdirSync(utilsTarget).filter(f => !f.startsWith('.'));
+    console.log(`   ✅ ${utilFiles.length} files synced`);
+  } else {
+    console.warn('   ⚠️  Utils source not found');
+  }
+
   // Update registry with SVG icons
   console.log('📝 Updating registry...');
   const registryPath = path.resolve(__dirname, '../src/registry/components.ts');

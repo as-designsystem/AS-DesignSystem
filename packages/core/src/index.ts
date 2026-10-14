@@ -84,6 +84,10 @@ export { EmptyState, emptyStateIllustrations, type EmptyStateProps, type EmptySt
 export { ChartCard, type ChartCardProps } from './composites/ChartCard';
 export { StepperGroup, type StepperGroupProps, type StepperGroupStep } from './composites/StepperGroup';
 
+// Utils
+export * from './utils/numberFormat';
+export { agGridColumnTypes } from './utils/agGridColumnTypes';
+
 // Tokens
 export * from './tokens/colors';
 export * from './tokens/typography';

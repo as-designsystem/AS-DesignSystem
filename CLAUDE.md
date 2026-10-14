@@ -14,6 +14,7 @@ packages/
 │   └── src/
 │       ├── components/      # Atomic components (.tsx + .css)
 │       ├── composites/      # Complex container components (.tsx + .css)
+│       ├── utils/           # Non-visual helpers (.ts), e.g. numberFormat
 │       ├── tokens/          # Design tokens (colors, typography, radius)
 │       └── assets/          # SVG icons, PNG tool icons, backgrounds
 │
@@ -25,11 +26,13 @@ packages/
 │   │   │   ├── composites.ts
 │   │   │   ├── templates.ts
 │   │   │   ├── tokens.ts
+│   │   │   ├── utils.ts
 │   │   │   └── schema.ts
 │   │   └── utils/
 │   └── templates/           # Synced from core + page templates
 │       ├── components/
 │       ├── composites/
+│       ├── utils/
 │       ├── tokens/
 │       ├── assets/
 │       └── pages/           # Page templates (CLI-only)
@@ -49,6 +52,7 @@ packages/
 |------|----------|---------|---------------|
 | **Component** | `core/src/components/` | Atomic UI element (Button, Icon, Input) | Rarely |
 | **Composite** | `core/src/composites/` | Complex container combining components (Modal, AppHeader) | Rarely |
+| **Util** | `core/src/utils/` | Non-visual helper (numberFormat, agGridColumnTypes) | Rarely |
 | **Template** | `cli/templates/pages/` | Complete page layout, starting point | Always |
 
 ---
@@ -365,6 +369,7 @@ asds init              # Initialize DS in project
 asds list              # List all available items
 asds add button        # Add a component
 asds add modal         # Add a composite
+asds add number-format # Add a util
 asds add home-page     # Add a template
 ```
 
@@ -452,6 +457,13 @@ cd apps/docs && pnpm dev
 - [ ] Add CSS to `tsup.config.ts` and `package.json`
 - [ ] Register in `cli/src/registry/composites.ts`
 - [ ] Create doc page, add route and nav link
+- [ ] Build and test
+
+### Util
+- [ ] Create `.ts` in `core/src/utils/` (no npm dependency; use relative imports)
+- [ ] Export from `index.ts`
+- [ ] Register in `cli/src/registry/utils.ts` (`type: 'util'`, file `type: 'util'`)
+- [ ] Document it on the relevant doc page with `<InstallCommand />`
 - [ ] Build and test
 
 ### Template
