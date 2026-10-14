@@ -13,17 +13,33 @@ export const LOCALE: string | undefined =
 export type Scale = 'none' | 'k' | 'M';
 const SCALE_FACTOR: Record<Scale, number> = { none: 1, k: 1e3, M: 1e6 };
 
-/** Standard units, formatted by Intl (style: 'unit'). */
-export type StandardUnit =
-  | 'kilogram' | 'liter' | 'meter' | 'kilometer' | 'kilometer-per-hour' | 'hour' | 'percent';
+/** Any unit Intl knows (style: 'unit'): 'minute', 'kilogram', 'percent'… Intl rejects unknown ones. */
+export type StandardUnit = string;
 
 /** Business units unknown to Intl: label only, the number is still formatted by Intl. */
 export const BUSINESS_UNITS = {
   pax: 'pax',
-  tonnes: 't',
+  seats: 'seats',
   nauticalMiles: 'NM',
+  knots: 'kt',
+  flightLevel: 'FL',
+  mach: 'Mach',
+  tonnes: 't',
+  flightHours: 'FH',
+  blockHours: 'BH',
+  flightCycles: 'FC',
+  engineCycles: 'cycles',
+  ask: 'ASK',
+  rpk: 'RPK',
+  aircraft: 'A/C',
 } as const;
 export type BusinessUnit = keyof typeof BUSINESS_UNITS;
+
+/** Labels written before the number: FL350 (no space), Mach 0.78 */
+const PREFIX_UNITS: Partial<Record<BusinessUnit, { spaced: boolean }>> = {
+  flightLevel: { spaced: false },
+  mach: { spaced: true },
+};
 
 const formatters = new Map<string, Intl.NumberFormat>();
 function getFormatter(options: Intl.NumberFormatOptions): Intl.NumberFormat {
@@ -88,7 +104,11 @@ export function formatBusinessUnit(value: number, unit: BusinessUnit, decimals =
     getFormatter({ style: 'unit', unit: 'kilogram' })
       .formatToParts(1)
       .find((p) => p.type === 'literal')?.value ?? '\u00A0';
-  return `${formatNumber(value, decimals)}${separator}${BUSINESS_UNITS[unit]}`;
+  const number = formatNumber(value, decimals);
+  const label = BUSINESS_UNITS[unit];
+  const prefix = PREFIX_UNITS[unit];
+  if (prefix) return `${label}${prefix.spaced ? separator : ''}${number}`;
+  return `${number}${separator}${label}`;
 }
 
 /** Unit label alone, for a table header: "km", "%", "pax"… */

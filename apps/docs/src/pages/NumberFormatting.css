@@ -96,3 +96,24 @@
   margin-right: 12px;
   color: var(--text-tertiary, #b3bbc8);
 }
+
+/* Standard units reference table */
+.number-formatting__units {
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+  color: var(--text-main, #333d47);
+}
+
+.number-formatting__units th,
+.number-formatting__units td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-minimal, #eff1f4);
+}
+
+.number-formatting__units th:not(:first-child),
+.number-formatting__units td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

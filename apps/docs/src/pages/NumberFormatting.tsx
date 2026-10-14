@@ -9,6 +9,8 @@ import {
   formatUnit,
   formatBusinessUnit,
   agGridColumnTypes,
+  BUSINESS_UNITS,
+  type BusinessUnit,
 } from '@as-designsystem/core';
 import '@as-designsystem/core/Button.css';
 import '@as-designsystem/core/Icon.css';
@@ -45,6 +47,24 @@ const formatterApi = [
     output: formatBusinessUnit(186, 'pax'),
   },
 ];
+
+// Reference table: common units rendered by Intl in both languages side by side.
+// formatUnit accepts any unit Intl knows; this is not a restriction.
+const COMMON_UNITS = [
+  'second', 'minute', 'hour', 'day', 'week', 'month', 'year',
+  'gram', 'kilogram', 'milliliter', 'liter',
+  'millimeter', 'centimeter', 'meter', 'kilometer', 'foot', 'mile', 'kilometer-per-hour',
+  'percent', 'celsius',
+];
+// One sample value per business unit, for the reference table
+const BUSINESS_SAMPLES: Record<BusinessUnit, [value: number, decimals?: number]> = {
+  pax: [186], seats: [180], nauticalMiles: [3200], knots: [250], flightLevel: [350],
+  mach: [0.78, 2], tonnes: [12.4, 1], flightHours: [1250], blockHours: [3400],
+  flightCycles: [820], engineCycles: [15000], ask: [4500000], rpk: [3900000], aircraft: [12],
+};
+
+const unitIn = (locale: string, unit: string) =>
+  new Intl.NumberFormat(locale, { style: 'unit', unit }).format(2);
 
 const tableColDefs: ColDef[] = [
   { field: 'route', headerName: 'Route', type: 'text', flex: 1 },
@@ -175,6 +195,11 @@ export default function NumberFormattingPage() {
             Never <code>toFixed()</code>, string concatenation or a hardcoded symbol: separators,
             symbols and their position depend on the locale.
           </li>
+          <li>
+            <code>Intl</code> is the formatting standard built into every browser. It applies the
+            Unicode CLDR conventions of each language, the same ones Google, Apple and Microsoft
+            use. ASDS follows them as they are, without overriding them.
+          </li>
           <li>The locale is the browser's (<code>LOCALE</code> constant).</li>
         </Rule>
         <div className="example-container">
@@ -229,12 +254,15 @@ export default function NumberFormattingPage() {
       <section className="component-section">
         <Rule title="3. Units" onCode={() => setOpenModal('units')}>
           <li>
-            Standard units (kg, L, km, h, %): <code>formatUnit</code>, Intl style{' '}
-            <code>unit</code>.
+            Standard units: <code>formatUnit</code>, Intl style <code>unit</code>. It accepts
+            any unit Intl knows (about 45); the most common ones are listed below. Abbreviations
+            come from Intl (e.g. <code>hr</code> in English, <code>h</code> in French).
           </li>
           <li>
-            Business units (pax, t, NM…): <code>formatBusinessUnit</code>, a number
-            formatted by Intl plus a label from the <code>BUSINESS_UNITS</code> constant.
+            Business units (pax, NM, FH…): <code>formatBusinessUnit</code>, a number
+            formatted by Intl plus a label from the <code>BUSINESS_UNITS</code> constant (full
+            list below). FL and Mach are written before the number: <code>FL350</code>,{' '}
+            <code>Mach 0.78</code>.
           </li>
         </Rule>
         <div className="example-container">
@@ -254,6 +282,46 @@ export default function NumberFormattingPage() {
               <Sample call="formatBusinessUnit(3200, 'nauticalMiles')" output={formatBusinessUnit(3200, 'nauticalMiles')} />
             </div>
           </div>
+        </div>
+        <div className="example-container" style={{ marginTop: 16 }}>
+          <table className="number-formatting__units label-regular-s">
+            <thead>
+              <tr className="label-bold-s">
+                <th>Standard unit</th>
+                <th>English</th>
+                <th>French</th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMMON_UNITS.map((unit) => (
+                <tr key={unit}>
+                  <td><code>{unit}</code></td>
+                  <td>{unitIn('en-US', unit)}</td>
+                  <td>{unitIn('fr-FR', unit)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="example-container" style={{ marginTop: 16 }}>
+          <table className="number-formatting__units label-regular-s">
+            <thead>
+              <tr className="label-bold-s">
+                <th>Business unit</th>
+                <th>Label</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(Object.keys(BUSINESS_UNITS) as BusinessUnit[]).map((unit) => (
+                <tr key={unit}>
+                  <td><code>{unit}</code></td>
+                  <td>{BUSINESS_UNITS[unit]}</td>
+                  <td>{formatBusinessUnit(BUSINESS_SAMPLES[unit][0], unit, BUSINESS_SAMPLES[unit][1])}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
