@@ -83,7 +83,12 @@ export function formatUnit(value: number, unit: StandardUnit, decimals = 0): str
 }
 
 export function formatBusinessUnit(value: number, unit: BusinessUnit, decimals = 0): string {
-  return `${formatNumber(value, decimals)} ${BUSINESS_UNITS[unit]}`;
+  // Same separator Intl puts before a standard unit for this locale
+  const separator =
+    getFormatter({ style: 'unit', unit: 'kilogram' })
+      .formatToParts(1)
+      .find((p) => p.type === 'literal')?.value ?? '\u00A0';
+  return `${formatNumber(value, decimals)}${separator}${BUSINESS_UNITS[unit]}`;
 }
 
 /** Unit label alone, for a table header: "km", "%", "pax"… */
