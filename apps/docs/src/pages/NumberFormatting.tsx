@@ -233,7 +233,7 @@ export default function NumberFormattingPage() {
             <code>unit</code>.
           </li>
           <li>
-            Business units (pax, movements, t, NM…): <code>formatBusinessUnit</code>, a number
+            Business units (pax, t, NM…): <code>formatBusinessUnit</code>, a number
             formatted by Intl plus a label from the <code>BUSINESS_UNITS</code> constant.
           </li>
         </Rule>
@@ -250,7 +250,6 @@ export default function NumberFormattingPage() {
             <div className="number-formatting__samples">
               <span className="number-formatting__group label-bold-s">Business</span>
               <Sample call="formatBusinessUnit(186, 'pax')" output={formatBusinessUnit(186, 'pax')} />
-              <Sample call="formatBusinessUnit(1240, 'movements')" output={formatBusinessUnit(1240, 'movements')} />
               <Sample call="formatBusinessUnit(12.4, 'tonnes', 1)" output={formatBusinessUnit(12.4, 'tonnes', 1)} />
               <Sample call="formatBusinessUnit(3200, 'nauticalMiles')" output={formatBusinessUnit(3200, 'nauticalMiles')} />
             </div>

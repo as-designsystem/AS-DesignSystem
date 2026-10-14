@@ -20,10 +20,9 @@ export type StandardUnit =
 /** Business units unknown to Intl: label only, the number is still formatted by Intl. */
 export const BUSINESS_UNITS = {
   pax: 'pax',
-  movements: { one: 'movement', other: 'movements' },
   tonnes: 't',
   nauticalMiles: 'NM',
-} satisfies Record<string, string | { one: string; other: string }>;
+} as const;
 export type BusinessUnit = keyof typeof BUSINESS_UNITS;
 
 const formatters = new Map<string, Intl.NumberFormat>();
@@ -84,20 +83,12 @@ export function formatUnit(value: number, unit: StandardUnit, decimals = 0): str
 }
 
 export function formatBusinessUnit(value: number, unit: BusinessUnit, decimals = 0): string {
-  const label = BUSINESS_UNITS[unit];
-  const text =
-    typeof label === 'string'
-      ? label
-      : new Intl.PluralRules(LOCALE).select(value) === 'one' ? label.one : label.other;
-  return `${formatNumber(value, decimals)} ${text}`;
+  return `${formatNumber(value, decimals)} ${BUSINESS_UNITS[unit]}`;
 }
 
 /** Unit label alone, for a table header: "km", "%", "pax"… */
 export function unitLabel(unit: StandardUnit | BusinessUnit): string {
-  if (unit in BUSINESS_UNITS) {
-    const label = BUSINESS_UNITS[unit as BusinessUnit];
-    return typeof label === 'string' ? label : label.other;
-  }
+  if (unit in BUSINESS_UNITS) return BUSINESS_UNITS[unit as BusinessUnit];
   const parts = getFormatter({ style: 'unit', unit }).formatToParts(2);
   return parts.find((p) => p.type === 'unit')?.value ?? unit;
 }
