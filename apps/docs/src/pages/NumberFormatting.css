@@ -3,7 +3,7 @@
 }
 
 .component-section {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .section-header {
@@ -15,105 +15,91 @@
 
 .number-formatting code:not(pre code):not(.install-command__code) {
   background-color: var(--background-tertiary, #eff1f4);
-  padding: 2px 6px;
+  padding: 1px 6px;
   border-radius: 4px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
-  font-size: 13px;
+  font-size: 12px;
   overflow-wrap: anywhere;
 }
 
-/* Rule list under each section title */
-.number-formatting__rules {
-  max-width: 760px;
-  margin: 0 0 16px;
-  padding-left: 20px;
+.number-formatting__intro {
+  max-width: 820px;
+  margin: 12px 0 8px;
   color: var(--text-secondary, #63728a);
-  line-height: 1.8;
 }
 
-/* Formatter API: Function | Built on | Output */
-.number-formatting__api {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 12px 24px;
-  align-items: center;
-  color: var(--text-main, #333d47);
-}
-
-.number-formatting__api-row {
-  display: contents;
-}
-
-.number-formatting__dont {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--feedback-error-default, #e4002b);
-}
-
-.number-formatting__value {
-  color: var(--text-main, #333d47);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-  text-align: right;
-}
-
-/* Two columns of samples */
-.number-formatting__compare {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.number-formatting__samples {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.number-formatting__group {
-  color: var(--text-main, #333d47);
-}
-
-/* call → output */
-.number-formatting__sample {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 12px;
-}
-
-.number-formatting__output {
-  color: var(--text-main, #333d47);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.number-formatting__output::before {
-  content: '→';
-  margin-right: 12px;
-  color: var(--text-tertiary, #b3bbc8);
-}
-
-/* Standard units reference table */
-.number-formatting__units {
+/* Shared table style */
+.nf-table {
   width: 100%;
-  max-width: 640px;
   border-collapse: collapse;
   color: var(--text-main, #333d47);
 }
 
-.number-formatting__units th,
-.number-formatting__units td {
-  padding: 8px 12px;
+.nf-table th {
+  padding: 0 12px 10px;
   text-align: left;
+  color: var(--text-secondary, #63728a);
+  border-bottom: 1px solid var(--border-default, #e0e3e9);
+}
+
+.nf-table td {
+  padding: 10px 12px;
+  vertical-align: top;
   border-bottom: 1px solid var(--border-minimal, #eff1f4);
 }
 
-.number-formatting__units th:not(:first-child),
-.number-formatting__units td:not(:first-child) {
-  text-align: right;
+.nf-table tr:last-child td {
+  border-bottom: none;
+}
+
+.nf-table--compact td {
+  padding: 6px 12px;
+}
+
+.nf-table__detail {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-secondary, #63728a);
+}
+
+.nf-table__value {
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
+}
+
+.nf-table__value--do {
+  color: var(--feedback-success-text, #0b7a4b);
+}
+
+.nf-table__value--dont {
+  color: var(--feedback-error-text, #b3102b);
+  text-decoration: line-through;
+}
+
+.nf-right {
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.nf-note {
+  margin: 12px 0 0;
+  color: var(--text-secondary, #63728a);
+}
+
+/* Units: two reference lists side by side */
+.nf-units {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.nf-units__title {
+  margin: 0;
+  color: var(--text-corporate, #00205b);
+}
+
+.nf-units .nf-note {
+  margin: 4px 0 12px;
 }

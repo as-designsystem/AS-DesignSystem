@@ -1,20 +1,19 @@
-import { useState, ReactNode } from 'react';
+import { useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, ColDef } from 'ag-grid-community';
 import {
   Button,
-  Icon,
   formatNumber,
   formatCurrency,
   formatUnit,
   formatBusinessUnit,
   formatRate,
+  unitLabel,
   agGridColumnTypes,
   BUSINESS_UNITS,
   type BusinessUnit,
 } from '@as-designsystem/core';
 import '@as-designsystem/core/Button.css';
-import '@as-designsystem/core/Icon.css';
 import '@as-designsystem/core/ag-grid-theme.css';
 import CodeModal from '../components/CodeModal';
 import InstallCommand from '../components/InstallCommand';
@@ -24,48 +23,105 @@ import './NumberFormatting.css';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
-// --- Live example data ---
+// --- Rules: one line each, a correct output (live) and what to avoid ---
 
-const formatterApi = [
+const rules: { rule: string; detail: string; good: string; bad: string }[] = [
   {
-    call: 'formatNumber(1234567)',
-    intl: 'new Intl.NumberFormat(locale)',
-    output: formatNumber(1234567),
+    rule: 'One formatter',
+    detail: 'Every number goes through numberFormat. Never toFixed() or a hardcoded symbol.',
+    good: formatCurrency(1234.5, { decimals: 2 }),
+    bad: '1234.50 €',
   },
   {
-    call: 'formatCurrency(1234.5, { decimals: 2 })',
-    intl: "new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' })",
-    output: formatCurrency(1234.5, { decimals: 2 }),
+    rule: 'Currency always shown',
+    detail: 'Every amount shows its currency, placed by the locale.',
+    good: formatCurrency(1235),
+    bad: '1,235',
   },
   {
-    call: "formatUnit(1234.5, 'kilogram', 1)",
-    intl: "new Intl.NumberFormat(locale, { style: 'unit', unit: 'kilogram' })",
-    output: formatUnit(1234.5, 'kilogram', 1),
+    rule: 'One scale per column',
+    detail: 'Pick k or M once, same decimals on every row. Never compact notation.',
+    good: `${formatCurrency(842300, { scale: 'k', decimals: 1 })} · ${formatCurrency(2310000, { scale: 'k', decimals: 1 })}`,
+    bad: '€842K · €2.3M',
   },
   {
-    call: "formatBusinessUnit(186, 'pax')",
-    intl: 'new Intl.NumberFormat(locale) + BUSINESS_UNITS.pax',
-    output: formatBusinessUnit(186, 'pax'),
+    rule: 'Negative amounts',
+    detail: 'Minus sign by default, parentheses in financial tables.',
+    good: `${formatCurrency(-45210, { scale: 'k', decimals: 1 })} · ${formatCurrency(-45210, { scale: 'k', decimals: 1, accounting: true })}`,
+    bad: '45.2k- · −45 210',
+  },
+  {
+    rule: 'Units',
+    detail: 'Standard units as Intl writes them; business units from BUSINESS_UNITS only.',
+    good: `${formatUnit(5, 'minute')} · ${formatBusinessUnit(186, 'pax')}`,
+    bad: '5 m · 186 PAX',
+  },
+  {
+    rule: 'Rates',
+    detail: 'Amount per unit, written amount/unit (yield, RASK, CASK, cost per FH).',
+    good: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }),
+    bad: '0.12 $/pax km',
+  },
+  {
+    rule: 'Tables',
+    detail: 'Text left, numbers right (tabular-nums). Unit in the header, currency in each cell.',
+    good: `Distance (${unitLabel('kilometer')}) → ${formatNumber(5837)}`,
+    bad: 'Distance → 5837 km',
   },
 ];
 
-// Reference table: common units rendered by Intl in both languages side by side.
-// formatUnit accepts any unit Intl knows; this is not a restriction.
+// --- Functions ---
+
+const api: { fn: string; use: string; call: string; output: string }[] = [
+  { fn: 'formatNumber', use: 'Plain number', call: 'formatNumber(1234567)', output: formatNumber(1234567) },
+  { fn: 'formatCurrency', use: 'Amount', call: "formatCurrency(842300, { scale: 'k', decimals: 1 })", output: formatCurrency(842300, { scale: 'k', decimals: 1 }) },
+  { fn: 'formatRate', use: 'Amount per unit', call: "formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })", output: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }) },
+  { fn: 'formatUnit', use: 'Standard unit', call: "formatUnit(2.5, 'hour', 1)", output: formatUnit(2.5, 'hour', 1) },
+  { fn: 'formatBusinessUnit', use: 'Business unit', call: "formatBusinessUnit(350, 'flightLevel')", output: formatBusinessUnit(350, 'flightLevel') },
+  { fn: 'unitLabel', use: 'Unit alone (headers)', call: "unitLabel('kilometer')", output: unitLabel('kilometer') },
+];
+
+// --- Units reference ---
+
+// A selection: formatUnit accepts any unit Intl knows (about 45)
 const COMMON_UNITS = [
   'second', 'minute', 'hour', 'day', 'week', 'month', 'year',
   'gram', 'kilogram', 'milliliter', 'liter',
   'millimeter', 'centimeter', 'meter', 'kilometer', 'foot', 'mile', 'kilometer-per-hour',
   'percent', 'celsius',
 ];
-// One sample value per business unit, for the reference table
+
+// Reference only: shows both languages side by side, whatever the browser's
+const unitIn = (locale: string, unit: string) =>
+  new Intl.NumberFormat(locale, { style: 'unit', unit }).format(2);
+
 const BUSINESS_SAMPLES: Record<BusinessUnit, [value: number, decimals?: number]> = {
   pax: [186], seats: [180], nauticalMiles: [3200], knots: [250], flightLevel: [350],
   mach: [0.78, 2], tonnes: [12.4, 1], flightHours: [1250], blockHours: [3400],
   flightCycles: [820], engineCycles: [15000], ask: [4500000], rpk: [3900000], aircraft: [12],
 };
 
-const unitIn = (locale: string, unit: string) =>
-  new Intl.NumberFormat(locale, { style: 'unit', unit }).format(2);
+// --- Rates (amount per unit) ---
+
+const rates: { metric: string; means: string; call: string; output: string }[] = [
+  { metric: 'Yield', means: 'Revenue per passenger-km', call: "formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })", output: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }) },
+  { metric: 'RASK', means: 'Revenue per available seat-km', call: "formatRate(0.095, 'ask', { currency: 'USD', decimals: 3 })", output: formatRate(0.095, 'ask', { currency: 'USD', decimals: 3 }) },
+  { metric: 'CASK', means: 'Cost per available seat-km', call: "formatRate(0.084, 'ask', { currency: 'USD', decimals: 3 })", output: formatRate(0.084, 'ask', { currency: 'USD', decimals: 3 }) },
+  { metric: 'Cost per flight hour', means: 'Maintenance or operating cost per FH', call: "formatRate(1250, 'flightHours', { currency: 'USD' })", output: formatRate(1250, 'flightHours', { currency: 'USD' }) },
+  { metric: 'Cost per block hour', means: 'Crew or operating cost per BH', call: "formatRate(3200, 'blockHours', { currency: 'USD' })", output: formatRate(3200, 'blockHours', { currency: 'USD' }) },
+  { metric: 'Revenue per passenger', means: 'Average revenue per pax', call: "formatRate(185, 'pax', { currency: 'USD' })", output: formatRate(185, 'pax', { currency: 'USD' }) },
+  { metric: 'Fuel price', means: 'Price per kilogram of fuel', call: "formatRate(0.85, 'kilogram', { currency: 'USD', decimals: 2 })", output: formatRate(0.85, 'kilogram', { currency: 'USD', decimals: 2 }) },
+];
+
+// --- Tables ---
+
+const columnTypes: { type: string; shows: string; context: string }[] = [
+  { type: 'text', shows: 'Left-aligned text', context: '—' },
+  { type: 'number', shows: formatNumber(1234567), context: '{ decimals? }' },
+  { type: 'unit', shows: `Header "Distance (km)", cells ${formatNumber(5837)}`, context: "{ unit, decimals? }" },
+  { type: 'currency', shows: `${formatCurrency(381200, { scale: 'k', decimals: 1 })} · ${formatCurrency(-32080, { scale: 'k', decimals: 1 })}`, context: '{ currency?, scale?, decimals?, accounting? }' },
+  { type: 'rate', shows: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }), context: '{ per, currency?, decimals? }' },
+];
 
 const tableColDefs: ColDef[] = [
   { field: 'route', headerName: 'Route', type: 'text', flex: 1 },
@@ -85,24 +141,22 @@ const tableRows = [
 
 // --- Code snippets ---
 
-const currencyCode = `import { formatCurrency } from '@/design-system/utils/numberFormat';
+const usageCode = `// asds add number-format
+import {
+  formatNumber, formatCurrency, formatRate, formatUnit, formatBusinessUnit, unitLabel,
+} from '@/design-system/utils/numberFormat';
 
-formatCurrency(1234.5);                                // "${formatCurrency(1234.5)}"
-formatCurrency(842300, { scale: 'k', decimals: 1 });   // "${formatCurrency(842300, { scale: 'k', decimals: 1 })}"
-formatCurrency(2310000, { scale: 'M', decimals: 2 });  // "${formatCurrency(2310000, { scale: 'M', decimals: 2 })}"
-formatCurrency(-45210, { accounting: true });          // "${formatCurrency(-45210, { accounting: true })}"`;
+formatNumber(1234567);                                     // "${formatNumber(1234567)}"
+formatCurrency(1234.5, { decimals: 2 });                   // "${formatCurrency(1234.5, { decimals: 2 })}"
+formatCurrency(842300, { scale: 'k', decimals: 1 });       // "${formatCurrency(842300, { scale: 'k', decimals: 1 })}"
+formatCurrency(-45210, { scale: 'k', decimals: 1, accounting: true }); // "${formatCurrency(-45210, { scale: 'k', decimals: 1, accounting: true })}"
+formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }); // "${formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })}"
+formatUnit(5, 'minute');                                   // "${formatUnit(5, 'minute')}"
+formatBusinessUnit(186, 'pax');                            // "${formatBusinessUnit(186, 'pax')}"
+unitLabel('kilometer');                                    // "${unitLabel('kilometer')}"
 
-const unitsCode = `import { formatUnit, formatBusinessUnit } from '@/design-system/utils/numberFormat';
-
-// Standard units: Intl style 'unit'
-formatUnit(1234.5, 'kilogram', 1);  // "${formatUnit(1234.5, 'kilogram', 1)}"
-formatUnit(87.3, 'percent', 1);     // "${formatUnit(87.3, 'percent', 1)}"
-
-// Business units: Intl number + label from BUSINESS_UNITS
-formatBusinessUnit(186, 'pax');            // "${formatBusinessUnit(186, 'pax')}"
-formatBusinessUnit(3200, 'nauticalMiles'); // "${formatBusinessUnit(3200, 'nauticalMiles')}"
-
-// A new business unit is added to BUSINESS_UNITS — never inlined`;
+// Currency options: { currency = 'EUR', scale = 'none' | 'k' | 'M', decimals = 0, accounting = false }
+// Locale: the browser's language (LOCALE constant in numberFormat.ts)`;
 
 const tableCode = `// asds add ag-grid-column-types
 import { AgGridReact } from 'ag-grid-react';
@@ -115,7 +169,7 @@ const colDefs: ColDef[] = [
   { field: 'flights', headerName: 'Flights', type: 'number' },
   { field: 'loadFactor', headerName: 'Load factor', type: 'unit', context: { unit: 'percent', decimals: 1 } },
   { field: 'revenue', headerName: 'Revenue', type: 'currency' },
-  { field: 'margin', headerName: 'Margin', type: 'currency' },
+  { field: 'yield', headerName: 'Yield', type: 'rate', context: { per: 'rpk', currency: 'USD' } },
 ];
 
 <AgGridReact
@@ -127,32 +181,16 @@ const colDefs: ColDef[] = [
 
 // --- Page building blocks ---
 
-function Rule({ title, onCode, children }: { title: string; onCode: () => void; children: ReactNode }) {
+function SectionTitle({ title, onCode }: { title: string; onCode?: () => void }) {
   return (
-    <>
-      <div className="section-header">
-        <h2
-          className="heading-6"
-          style={{
-            marginTop: '32px',
-            marginBottom: '16px',
-            color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
-          }}
-        >
-          {title}
-        </h2>
-        <Button label="Code" leftIcon="code" size="S" variant="Outlined" onClick={onCode} />
-      </div>
-      <ul className="number-formatting__rules label-regular-s">{children}</ul>
-    </>
-  );
-}
-
-function Sample({ call, output }: { call: string; output: string }) {
-  return (
-    <div className="number-formatting__sample">
-      <code>{call}</code>
-      <span className="number-formatting__output label-medium-s">{output}</span>
+    <div className="section-header">
+      <h2
+        className="heading-6"
+        style={{ marginTop: '32px', marginBottom: '16px', color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
+      >
+        {title}
+      </h2>
+      {onCode && <Button label="Code" leftIcon="code" size="S" variant="Outlined" onClick={onCode} />}
     </div>
   );
 }
@@ -163,168 +201,38 @@ export default function NumberFormattingPage() {
   return (
     <div className="component-page number-formatting">
       <div className="page-header">
-        <h1
-          className="heading-5"
-          style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}
-        >
+        <h1 className="heading-5" style={{ color: 'var(--text-corporate, var(--sea-blue-90, #00205b))' }}>
           Number Formatting
         </h1>
         <InstallCommand componentName="number-format" />
       </div>
-      <p
-        className="label-regular-m"
-        style={{
-          marginTop: '12px',
-          marginBottom: '24px',
-          color: 'var(--text-secondary, var(--cool-grey-70, #63728a))',
-        }}
-      >
-        How ASDS apps display numbers, currencies and units. Install the{' '}
-        <code>number-format</code> util, then format every number with its functions. Every
-        value on this page is produced by it.
+      <p className="number-formatting__intro label-regular-m">
+        Every number is formatted by <code>numberFormat</code>, built on the browser's{' '}
+        <code>Intl.NumberFormat</code> standard: separators, symbols and abbreviations follow the
+        user's language automatically. Outputs below are shown in your browser's language.
       </p>
 
-      {/* 1. Formatter */}
+      {/* Rules */}
       <section className="component-section">
-        <Rule title="1. One formatter" onCode={() => setOpenModal('formatter')}>
-          <li>
-            Every number is turned into text by <code>numberFormat.ts</code> (
-            <code>asds add number-format</code>). Each of its functions wraps{' '}
-            <code>Intl.NumberFormat</code>.
-          </li>
-          <li>
-            Never <code>toFixed()</code>, string concatenation or a hardcoded symbol: separators,
-            symbols and their position depend on the locale.
-          </li>
-          <li>
-            <code>Intl</code> is the formatting standard built into every browser. It applies the
-            Unicode CLDR conventions of each language, the same ones Google, Apple and Microsoft
-            use. ASDS follows them as they are, without overriding them.
-          </li>
-          <li>The locale is the browser's (<code>LOCALE</code> constant).</li>
-        </Rule>
+        <SectionTitle title="Rules" />
         <div className="example-container">
-          <div className="number-formatting__api label-regular-s">
-            <span className="label-bold-s">Function</span>
-            <span className="label-bold-s">Built on</span>
-            <span className="label-bold-s">Output</span>
-            {formatterApi.map((row) => (
-              <div key={row.call} className="number-formatting__api-row">
-                <code>{row.call}</code>
-                <code>{row.intl}</code>
-                <span className="number-formatting__value label-medium-s">{row.output}</span>
-              </div>
-            ))}
-            <div className="number-formatting__api-row">
-              <code>{"(1234.5).toFixed(2) + ' €'"}</code>
-              <span className="number-formatting__dont label-bold-s">
-                <Icon name="cancel" size={16} color="var(--feedback-error-default, #e4002b)" />
-                Don't — ignores the locale
-              </span>
-              <span className="number-formatting__value label-medium-s">{(1234.5).toFixed(2) + ' €'}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Currencies */}
-      <section className="component-section">
-        <Rule title="2. Currencies" onCode={() => setOpenModal('currency')}>
-          <li>
-            Use <code>formatCurrency</code> (Intl style <code>currency</code>): the symbol is
-            always shown, placed by the locale.
-          </li>
-          <li>
-            For large amounts, set the scale explicitly (<code>scale: 'k'</code> or{' '}
-            <code>'M'</code>). Never Intl's compact notation: it changes scale from one value to
-            the next.
-          </li>
-          <li>Negatives use a minus sign, or parentheses with <code>accounting: true</code>.</li>
-          <li>
-            Amounts per unit (yield, RASK, CASK, cost per FH): <code>formatRate</code>, the
-            amount formatted by Intl followed by <code>/</code> and the unit label.
-          </li>
-        </Rule>
-        <div className="example-container">
-          <div className="number-formatting__samples">
-            <Sample call="formatCurrency(1234.5)" output={formatCurrency(1234.5)} />
-            <Sample call="formatCurrency(842300, { scale: 'k', decimals: 1 })" output={formatCurrency(842300, { scale: 'k', decimals: 1 })} />
-            <Sample call="formatCurrency(2310000, { scale: 'M', decimals: 2 })" output={formatCurrency(2310000, { scale: 'M', decimals: 2 })} />
-            <Sample call="formatCurrency(-45210, { accounting: true })" output={formatCurrency(-45210, { accounting: true })} />
-            <Sample call="formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })" output={formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })} />
-            <Sample call="formatRate(1250, 'flightHours', { currency: 'USD' })" output={formatRate(1250, 'flightHours', { currency: 'USD' })} />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Units */}
-      <section className="component-section">
-        <Rule title="3. Units" onCode={() => setOpenModal('units')}>
-          <li>
-            Standard units: <code>formatUnit</code>, Intl style <code>unit</code>. It accepts
-            any unit Intl knows (about 45); the most common ones are listed below. Abbreviations
-            come from Intl (e.g. <code>hr</code> in English, <code>h</code> in French).
-          </li>
-          <li>
-            Business units (pax, NM, FH…): <code>formatBusinessUnit</code>, a number
-            formatted by Intl plus a label from the <code>BUSINESS_UNITS</code> constant (full
-            list below). FL and Mach are written before the number: <code>FL350</code>,{' '}
-            <code>Mach 0.78</code>.
-          </li>
-        </Rule>
-        <div className="example-container">
-          <div className="number-formatting__compare">
-            <div className="number-formatting__samples">
-              <span className="number-formatting__group label-bold-s">Standard</span>
-              <Sample call="formatUnit(1234.5, 'kilogram', 1)" output={formatUnit(1234.5, 'kilogram', 1)} />
-              <Sample call="formatUnit(12, 'liter')" output={formatUnit(12, 'liter')} />
-              <Sample call="formatUnit(850, 'kilometer')" output={formatUnit(850, 'kilometer')} />
-              <Sample call="formatUnit(2.5, 'hour', 1)" output={formatUnit(2.5, 'hour', 1)} />
-              <Sample call="formatUnit(87.3, 'percent', 1)" output={formatUnit(87.3, 'percent', 1)} />
-            </div>
-            <div className="number-formatting__samples">
-              <span className="number-formatting__group label-bold-s">Business</span>
-              <Sample call="formatBusinessUnit(186, 'pax')" output={formatBusinessUnit(186, 'pax')} />
-              <Sample call="formatBusinessUnit(12.4, 'tonnes', 1)" output={formatBusinessUnit(12.4, 'tonnes', 1)} />
-              <Sample call="formatBusinessUnit(3200, 'nauticalMiles')" output={formatBusinessUnit(3200, 'nauticalMiles')} />
-            </div>
-          </div>
-        </div>
-        <div className="example-container" style={{ marginTop: 16 }}>
-          <table className="number-formatting__units label-regular-s">
+          <table className="nf-table label-regular-s">
             <thead>
               <tr className="label-bold-s">
-                <th>Standard unit</th>
-                <th>English</th>
-                <th>French</th>
+                <th>Rule</th>
+                <th>Do</th>
+                <th>Don't</th>
               </tr>
             </thead>
             <tbody>
-              {COMMON_UNITS.map((unit) => (
-                <tr key={unit}>
-                  <td><code>{unit}</code></td>
-                  <td>{unitIn('en-US', unit)}</td>
-                  <td>{unitIn('fr-FR', unit)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="example-container" style={{ marginTop: 16 }}>
-          <table className="number-formatting__units label-regular-s">
-            <thead>
-              <tr className="label-bold-s">
-                <th>Business unit</th>
-                <th>Label</th>
-                <th>Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(Object.keys(BUSINESS_UNITS) as BusinessUnit[]).map((unit) => (
-                <tr key={unit}>
-                  <td><code>{unit}</code></td>
-                  <td>{BUSINESS_UNITS[unit]}</td>
-                  <td>{formatBusinessUnit(BUSINESS_SAMPLES[unit][0], unit, BUSINESS_SAMPLES[unit][1])}</td>
+              {rules.map((r) => (
+                <tr key={r.rule}>
+                  <td>
+                    <span className="label-bold-s">{r.rule}</span>
+                    <span className="nf-table__detail">{r.detail}</span>
+                  </td>
+                  <td className="nf-table__value nf-table__value--do">{r.good}</td>
+                  <td className="nf-table__value nf-table__value--dont">{r.bad}</td>
                 </tr>
               ))}
             </tbody>
@@ -332,24 +240,157 @@ export default function NumberFormattingPage() {
         </div>
       </section>
 
-      {/* 4. Tables */}
+      {/* Functions */}
       <section className="component-section">
-        <Rule title="4. Tables" onCode={() => setOpenModal('table')}>
-          <li>
-            AG-Grid tables use <code>agGridColumnTypes</code> (
-            <code>asds add ag-grid-column-types</code>). The column type (<code>text</code>,{' '}
-            <code>number</code>, <code>unit</code>, <code>currency</code>) sets format and
-            alignment. Columns only declare a type.
-          </li>
-          <li>Text is left-aligned. Numbers are right-aligned with <code>tabular-nums</code>.</li>
-          <li>Units go up in the header (Distance (km)); cells show the number only.</li>
-          <li>
-            Currencies stay in every cell, with one scale and one decimal count per column, and
-            negatives in parentheses.
-          </li>
-        </Rule>
+        <SectionTitle title="Functions" onCode={() => setOpenModal('api')} />
+        <div className="example-container">
+          <table className="nf-table label-regular-s">
+            <thead>
+              <tr className="label-bold-s">
+                <th>Use for</th>
+                <th>Call</th>
+                <th>Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              {api.map((a) => (
+                <tr key={a.fn}>
+                  <td>{a.use}</td>
+                  <td><code>{a.call}</code></td>
+                  <td className="nf-table__value">{a.output}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="nf-note label-regular-s">
+            Currency options: <code>currency</code> (default <code>'EUR'</code>), <code>scale</code>{' '}
+            (<code>'k'</code>, <code>'M'</code>), <code>decimals</code>, <code>accounting</code>{' '}
+            (parentheses for negatives).
+          </p>
+        </div>
+      </section>
+
+      {/* Units */}
+      <section className="component-section">
+        <SectionTitle title="Units" />
+        <div className="nf-units">
+          <div className="example-container">
+            <h3 className="label-bold-m nf-units__title">Standard units</h3>
+            <p className="nf-note label-regular-s">
+              <code>formatUnit</code> accepts any unit Intl knows (about 45). Common ones, written
+              by Intl:
+            </p>
+            <table className="nf-table nf-table--compact label-regular-s">
+              <thead>
+                <tr className="label-bold-s">
+                  <th>Unit</th>
+                  <th className="nf-right">English (US)</th>
+                  <th className="nf-right">French (FR)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMMON_UNITS.map((unit) => (
+                  <tr key={unit}>
+                    <td><code>{unit}</code></td>
+                    <td className="nf-right">{unitIn('en-US', unit)}</td>
+                    <td className="nf-right">{unitIn('fr-FR', unit)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="example-container">
+            <h3 className="label-bold-m nf-units__title">Business units</h3>
+            <p className="nf-note label-regular-s">
+              Units Intl doesn't know, defined in <code>BUSINESS_UNITS</code>. Add new ones there,
+              never in a screen.
+            </p>
+            <table className="nf-table nf-table--compact label-regular-s">
+              <thead>
+                <tr className="label-bold-s">
+                  <th>Key</th>
+                  <th>Label</th>
+                  <th className="nf-right">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(Object.keys(BUSINESS_UNITS) as BusinessUnit[]).map((unit) => (
+                  <tr key={unit}>
+                    <td><code>{unit}</code></td>
+                    <td>{BUSINESS_UNITS[unit]}</td>
+                    <td className="nf-right">
+                      {formatBusinessUnit(BUSINESS_SAMPLES[unit][0], unit, BUSINESS_SAMPLES[unit][1])}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Rates */}
+      <section className="component-section">
+        <SectionTitle title="Rates" />
+        <div className="example-container">
+          <p className="nf-note label-regular-s" style={{ margin: '0 0 12px' }}>
+            An amount per unit is written <b>amount/unit</b> with <code>formatRate</code>: the
+            amount follows the currency rules, the unit comes from the unit lists above.
+          </p>
+          <table className="nf-table label-regular-s">
+            <thead>
+              <tr className="label-bold-s">
+                <th>Metric</th>
+                <th>Call</th>
+                <th className="nf-right">Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rates.map((r) => (
+                <tr key={r.metric}>
+                  <td>
+                    <span className="label-bold-s">{r.metric}</span>
+                    <span className="nf-table__detail">{r.means}</span>
+                  </td>
+                  <td><code>{r.call}</code></td>
+                  <td className="nf-table__value nf-right">{r.output}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Tables */}
+      <section className="component-section">
+        <SectionTitle title="Tables" onCode={() => setOpenModal('table')} />
+        <div className="example-container">
+          <p className="nf-note label-regular-s" style={{ margin: '0 0 12px' }}>
+            With AG-Grid, install <code>asds add ag-grid-column-types</code>. Each column only
+            declares a <code>type</code>; the type sets format, alignment and header unit. Add{' '}
+            <code>accounting: true</code> to a currency column only in financial tables.
+          </p>
+          <table className="nf-table label-regular-s">
+            <thead>
+              <tr className="label-bold-s">
+                <th>Type</th>
+                <th>Shows</th>
+                <th>Options (context)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {columnTypes.map((c) => (
+                <tr key={c.type}>
+                  <td><code>{c.type}</code></td>
+                  <td className="nf-table__value">{c.shows}</td>
+                  <td><code>{c.context}</code></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         {/* position: relative contains the grid's absolute elements (autoHeight layout) */}
-        <div className="example-container" style={{ position: 'relative' }}>
+        <div className="example-container" style={{ position: 'relative', marginTop: 16 }}>
           <AgGridReact
             className="as-ag-grid"
             columnTypes={agGridColumnTypes}
@@ -362,22 +403,13 @@ export default function NumberFormattingPage() {
       </section>
 
       <CodeModal
-        isOpen={openModal === 'formatter'}
+        isOpen={openModal === 'api'}
         onClose={() => setOpenModal(null)}
-        title="numberFormat.ts"
-        sections={[{ title: 'numberFormat.ts', language: 'typescript', code: numberFormatSource }]}
-      />
-      <CodeModal
-        isOpen={openModal === 'currency'}
-        onClose={() => setOpenModal(null)}
-        title="Currencies"
-        code={currencyCode}
-      />
-      <CodeModal
-        isOpen={openModal === 'units'}
-        onClose={() => setOpenModal(null)}
-        title="Units"
-        code={unitsCode}
+        title="numberFormat"
+        sections={[
+          { title: 'Usage', language: 'typescript', code: usageCode },
+          { title: 'numberFormat.ts', language: 'typescript', code: numberFormatSource },
+        ]}
       />
       <CodeModal
         isOpen={openModal === 'table'}

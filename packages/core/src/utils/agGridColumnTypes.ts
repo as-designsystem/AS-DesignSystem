@@ -46,12 +46,13 @@ export const agGridColumnTypes: Record<string, ColumnType> = {
     valueFormatter: (p) => formatNumber(p.value, p.colDef.context?.decimals),
   },
 
-  // Currency stays in every cell, one scale + decimals per column, negatives in parentheses.
-  // context: { currency?: string, scale?: 'none' | 'k' | 'M', decimals?: number }
+  // Currency stays in every cell, one scale + decimals per column, minus sign for negatives.
+  // context: { currency?: string, scale?: 'none' | 'k' | 'M', decimals?: number,
+  //            accounting?: boolean } — accounting: parentheses, for financial tables only
   currency: {
     ...numeric,
     valueFormatter: (p) =>
-      formatCurrency(p.value, { scale: 'k', decimals: 1, ...p.colDef.context, accounting: true }),
+      formatCurrency(p.value, { scale: 'k', decimals: 1, ...p.colDef.context }),
   },
 
   // Amount per unit (yield, RASK, CASK…), the full rate in every cell: "$0.12/RPK".
