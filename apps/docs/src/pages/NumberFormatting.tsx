@@ -9,6 +9,8 @@ import {
   formatBusinessUnit,
   formatRate,
   unitLabel,
+  currencyLabel,
+  rateLabel,
   agGridColumnTypes,
   BUSINESS_UNITS,
   type BusinessUnit,
@@ -34,7 +36,7 @@ const rules: { rule: string; detail: string; good: string; bad: string }[] = [
   },
   {
     rule: 'Currency always shown',
-    detail: 'Every amount shows its currency, placed by the locale.',
+    detail: 'In tables, every amount shows its currency, placed by the locale.',
     good: formatCurrency(1235),
     bad: '1,235',
   },
@@ -63,6 +65,12 @@ const rules: { rule: string; detail: string; good: string; bad: string }[] = [
     bad: '0.12 $/pax km',
   },
   {
+    rule: 'Charts',
+    detail: 'Currency behaves like a unit: up in the axis title with its scale, ticks show the number only. Tooltips keep the currency.',
+    good: `Revenue (${currencyLabel({ currency: 'USD', scale: 'M' })}) → ${formatNumber(220)}`,
+    bad: 'Revenue → $220M on every tick',
+  },
+  {
     rule: 'Tables',
     detail: 'Text left, numbers right (tabular-nums). Unit in the header, currency in each cell.',
     good: `Distance (${unitLabel('kilometer')}) → ${formatNumber(5837)}`,
@@ -80,6 +88,8 @@ const api: { fn: string; use: string; call: string; output: string }[] = [
   { fn: 'formatBusinessUnit', use: 'Business unit', call: "formatBusinessUnit(350, 'flightLevel')", output: formatBusinessUnit(350, 'flightLevel') },
   { fn: 'formatBusinessUnit', use: 'Large quantity', call: "formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' })", output: formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' }) },
   { fn: 'unitLabel', use: 'Unit alone (headers)', call: "unitLabel('kilometer')", output: unitLabel('kilometer') },
+  { fn: 'currencyLabel', use: 'Currency alone (chart axis titles)', call: "currencyLabel({ currency: 'USD', scale: 'M' })", output: currencyLabel({ currency: 'USD', scale: 'M' }) },
+  { fn: 'rateLabel', use: 'Rate alone (chart axis titles)', call: "rateLabel('rpk', { currency: 'USD' })", output: rateLabel('rpk', { currency: 'USD' }) },
 ];
 
 // --- Units reference ---
@@ -145,6 +155,7 @@ const tableRows = [
 const usageCode = `// asds add number-format
 import {
   formatNumber, formatCurrency, formatRate, formatUnit, formatBusinessUnit, unitLabel,
+  currencyLabel, rateLabel,
 } from '@/design-system/utils/numberFormat';
 
 formatNumber(1234567);                                     // "${formatNumber(1234567)}"
@@ -157,6 +168,8 @@ formatBusinessUnit(186, 'pax');                            // "${formatBusinessU
 formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' }); // "${formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' })}"
 formatNumber(21000, 1, { scale: 'k' });                    // "${formatNumber(21000, 1, { scale: 'k' })}"
 unitLabel('kilometer');                                    // "${unitLabel('kilometer')}"
+currencyLabel({ currency: 'USD', scale: 'M' });            // "${currencyLabel({ currency: 'USD', scale: 'M' })}"
+rateLabel('rpk', { currency: 'USD' });                     // "${rateLabel('rpk', { currency: 'USD' })}"
 
 // Currency options: { currency = 'EUR', scale = 'none' | 'k' | 'M', decimals = 0, accounting = false }
 // formatNumber, formatUnit, formatBusinessUnit: (value, …, decimals = 0, { scale = 'none' | 'k' | 'M' })

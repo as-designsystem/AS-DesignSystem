@@ -157,6 +157,26 @@ export function formatBusinessUnit(
   return `${number}${separator}${label}`;
 }
 
+/**
+ * Currency label alone, for a chart axis title: "Revenue ($M)" / "Revenue (M$US)".
+ * Charts put the currency up in the axis title like a unit; tables keep it in every cell.
+ */
+export function currencyLabel({ currency = 'EUR', scale = 'none' }: Pick<CurrencyOptions, 'currency' | 'scale'> = {}): string {
+  const parts = getFormatter({ style: 'currency', currency, ...fixed(0) }).formatToParts(1);
+  const symbol = parts.find((p) => p.type === 'currency')?.value ?? currency;
+  if (scale === 'none') return symbol;
+  const symbolFirst = parts.findIndex((p) => p.type === 'currency') < parts.findIndex((p) => p.type === 'integer');
+  return symbolFirst ? `${symbol}${scale}` : `${scale}${symbol}`;
+}
+
+/** Rate label alone, for a chart axis title: "$/RPK", "k$US/FH" */
+export function rateLabel(
+  per: StandardUnit | BusinessUnit,
+  options: Pick<CurrencyOptions, 'currency' | 'scale'> = {}
+): string {
+  return `${currencyLabel(options)}/${unitLabel(per)}`;
+}
+
 /** Unit label alone, for a table header: "km", "%", "pax"… */
 export function unitLabel(unit: StandardUnit | BusinessUnit): string {
   if (unit in BUSINESS_UNITS) return BUSINESS_UNITS[unit as BusinessUnit];
