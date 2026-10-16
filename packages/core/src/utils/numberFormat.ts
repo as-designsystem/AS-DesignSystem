@@ -11,7 +11,7 @@ export const LOCALE: string | undefined =
   typeof navigator !== 'undefined' ? navigator.language : undefined;
 
 export type Scale = 'none' | 'k' | 'M';
-const SCALE_FACTOR: Record<Scale, number> = { none: 1, k: 1e3, M: 1e6 };
+export const SCALE_FACTOR: Record<Scale, number> = { none: 1, k: 1e3, M: 1e6 };
 
 /** Any unit Intl knows (style: 'unit'): 'minute', 'kilogram', 'percent'… Intl rejects unknown ones. */
 export type StandardUnit = string;
@@ -53,8 +53,23 @@ const fixed = (decimals: number) => ({
   maximumFractionDigits: decimals,
 });
 
-export function formatNumber(value: number, decimals = 0): string {
-  return getFormatter(fixed(decimals)).format(value);
+export interface ScaleOptions {
+  /** Same scale for every value of a column, axis or KPI group */
+  scale?: Scale;
+}
+
+/** Separator the locale puts between a number and its scale: "4.3M" / "4,3 M" */
+function scaleSeparator(): string {
+  return (
+    getFormatter({ notation: 'compact' })
+      .formatToParts(1e6)
+      .find((p) => p.type === 'literal')?.value ?? ''
+  );
+}
+
+export function formatNumber(value: number, decimals = 0, { scale = 'none' }: ScaleOptions = {}): string {
+  const number = getFormatter(fixed(decimals)).format(value / SCALE_FACTOR[scale]);
+  return scale === 'none' ? number : `${number}${scaleSeparator()}${scale}`;
 }
 
 export interface CurrencyOptions {
@@ -103,17 +118,39 @@ export function formatRate(
   return `${formatCurrency(value, options)}/${unitLabel(per)}`;
 }
 
-export function formatUnit(value: number, unit: StandardUnit, decimals = 0): string {
-  return getFormatter({ style: 'unit', unit, ...fixed(decimals) }).format(value);
+export function formatUnit(
+  value: number,
+  unit: StandardUnit,
+  decimals = 0,
+  { scale = 'none' }: ScaleOptions = {}
+): string {
+  const parts = getFormatter({ style: 'unit', unit, ...fixed(decimals) }).formatToParts(
+    value / SCALE_FACTOR[scale]
+  );
+  if (scale === 'none') return parts.map((p) => p.value).join('');
+
+  // Attach the scale to the number, before the unit: "12.4k kg" / "12,4 k kg"
+  let lastDigit = -1;
+  parts.forEach((p, i) => {
+    if (p.type === 'integer' || p.type === 'fraction') lastDigit = i;
+  });
+  return parts
+    .map((p, i) => (i === lastDigit ? `${p.value}${scaleSeparator()}${scale}` : p.value))
+    .join('');
 }
 
-export function formatBusinessUnit(value: number, unit: BusinessUnit, decimals = 0): string {
+export function formatBusinessUnit(
+  value: number,
+  unit: BusinessUnit,
+  decimals = 0,
+  options: ScaleOptions = {}
+): string {
   // Same separator Intl puts before a standard unit for this locale
   const separator =
     getFormatter({ style: 'unit', unit: 'kilogram' })
       .formatToParts(1)
       .find((p) => p.type === 'literal')?.value ?? '\u00A0';
-  const number = formatNumber(value, decimals);
+  const number = formatNumber(value, decimals, options);
   const label = BUSINESS_UNITS[unit];
   const prefix = PREFIX_UNITS[unit];
   if (prefix) return `${label}${prefix.spaced ? separator : ''}${number}`;

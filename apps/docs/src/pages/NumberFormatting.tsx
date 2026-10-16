@@ -40,7 +40,7 @@ const rules: { rule: string; detail: string; good: string; bad: string }[] = [
   },
   {
     rule: 'One scale per column',
-    detail: 'Pick k or M once, same decimals on every row. Never compact notation.',
+    detail: 'Pick k or M once, same decimals on every row, for amounts, numbers and units alike. Never compact notation.',
     good: `${formatCurrency(842300, { scale: 'k', decimals: 1 })} · ${formatCurrency(2310000, { scale: 'k', decimals: 1 })}`,
     bad: '€842K · €2.3M',
   },
@@ -78,6 +78,7 @@ const api: { fn: string; use: string; call: string; output: string }[] = [
   { fn: 'formatRate', use: 'Amount per unit', call: "formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })", output: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }) },
   { fn: 'formatUnit', use: 'Standard unit', call: "formatUnit(2.5, 'hour', 1)", output: formatUnit(2.5, 'hour', 1) },
   { fn: 'formatBusinessUnit', use: 'Business unit', call: "formatBusinessUnit(350, 'flightLevel')", output: formatBusinessUnit(350, 'flightLevel') },
+  { fn: 'formatBusinessUnit', use: 'Large quantity', call: "formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' })", output: formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' }) },
   { fn: 'unitLabel', use: 'Unit alone (headers)', call: "unitLabel('kilometer')", output: unitLabel('kilometer') },
 ];
 
@@ -117,8 +118,8 @@ const rates: { metric: string; means: string; call: string; output: string }[] =
 
 const columnTypes: { type: string; shows: string; context: string }[] = [
   { type: 'text', shows: 'Left-aligned text', context: '—' },
-  { type: 'number', shows: formatNumber(1234567), context: '{ decimals? }' },
-  { type: 'unit', shows: `Header "Distance (km)", cells ${formatNumber(5837)}`, context: "{ unit, decimals? }" },
+  { type: 'number', shows: formatNumber(1234567), context: '{ decimals?, scale? }' },
+  { type: 'unit', shows: `Header "Distance (km)", cells ${formatNumber(5837)}`, context: "{ unit, decimals?, scale? }" },
   { type: 'currency', shows: `${formatCurrency(381200, { scale: 'k', decimals: 1 })} · ${formatCurrency(-32080, { scale: 'k', decimals: 1 })}`, context: '{ currency?, scale?, decimals?, accounting? }' },
   { type: 'rate', shows: formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }), context: '{ per, currency?, decimals? }' },
 ];
@@ -153,9 +154,12 @@ formatCurrency(-45210, { scale: 'k', decimals: 1, accounting: true }); // "${for
 formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 }); // "${formatRate(0.12, 'rpk', { currency: 'USD', decimals: 2 })}"
 formatUnit(5, 'minute');                                   // "${formatUnit(5, 'minute')}"
 formatBusinessUnit(186, 'pax');                            // "${formatBusinessUnit(186, 'pax')}"
+formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' }); // "${formatBusinessUnit(4300000, 'flightHours', 1, { scale: 'M' })}"
+formatNumber(21000, 1, { scale: 'k' });                    // "${formatNumber(21000, 1, { scale: 'k' })}"
 unitLabel('kilometer');                                    // "${unitLabel('kilometer')}"
 
 // Currency options: { currency = 'EUR', scale = 'none' | 'k' | 'M', decimals = 0, accounting = false }
+// formatNumber, formatUnit, formatBusinessUnit: (value, …, decimals = 0, { scale = 'none' | 'k' | 'M' })
 // Locale: the browser's language (LOCALE constant in numberFormat.ts)`;
 
 const tableCode = `// asds add ag-grid-column-types
@@ -265,7 +269,8 @@ export default function NumberFormattingPage() {
           <p className="nf-note label-regular-s">
             Currency options: <code>currency</code> (default <code>'EUR'</code>), <code>scale</code>{' '}
             (<code>'k'</code>, <code>'M'</code>), <code>decimals</code>, <code>accounting</code>{' '}
-            (parentheses for negatives).
+            (parentheses for negatives). <code>formatNumber</code>, <code>formatUnit</code> and{' '}
+            <code>formatBusinessUnit</code> take the same <code>scale</code> as a last argument.
           </p>
         </div>
       </section>

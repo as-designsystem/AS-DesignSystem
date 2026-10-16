@@ -5,7 +5,7 @@
  *
  * Usage: <AgGridReact columnTypes={agGridColumnTypes} ... />
  */
-import { formatNumber, formatCurrency, formatRate, unitLabel } from './numberFormat';
+import { SCALE_FACTOR, formatNumber, formatCurrency, formatRate, unitLabel, type Scale } from './numberFormat';
 
 // Minimal AG-Grid shapes, so this file needs no ag-grid import
 interface ColumnContext {
@@ -32,18 +32,25 @@ export const agGridColumnTypes: Record<string, ColumnType> = {
   // Left-aligned (AG-Grid default)
   text: {},
 
-  // context: { decimals?: number }
+  // context: { decimals?: number, scale?: 'none' | 'k' | 'M' }
   number: {
     ...numeric,
-    valueFormatter: (p) => formatNumber(p.value, p.colDef.context?.decimals),
+    valueFormatter: (p) =>
+      formatNumber(p.value, p.colDef.context?.decimals, { scale: p.colDef.context?.scale }),
   },
 
   // Unit goes up in the header: "Range (km)", cells show the number only.
-  // context: { unit: 'kilometer' | 'percent' | 'pax' | …, decimals?: number }
+  // A scale goes up with it: "Flight hours (M FH)".
+  // context: { unit: 'kilometer' | 'percent' | 'pax' | …, decimals?: number, scale?: 'none' | 'k' | 'M' }
   unit: {
     ...numeric,
-    headerValueGetter: (p) => `${p.colDef?.headerName} (${unitLabel(p.colDef?.context.unit)})`,
-    valueFormatter: (p) => formatNumber(p.value, p.colDef.context?.decimals),
+    headerValueGetter: (p) => {
+      const scale = p.colDef?.context.scale;
+      const prefix = scale && scale !== 'none' ? `${scale} ` : '';
+      return `${p.colDef?.headerName} (${prefix}${unitLabel(p.colDef?.context.unit)})`;
+    },
+    valueFormatter: (p) =>
+      formatNumber(p.value / SCALE_FACTOR[(p.colDef.context?.scale ?? 'none') as Scale], p.colDef.context?.decimals),
   },
 
   // Currency stays in every cell, one scale + decimals per column, minus sign for negatives.
