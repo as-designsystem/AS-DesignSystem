@@ -93,13 +93,13 @@ export interface MultiSelectProps {
    */
   onValueChange?: (value: string[]) => void;
   /**
-   * Show the "Select all" row at the top of the dropdown
+   * Show the "All" row at the top of the dropdown (selects or clears every option)
    * @default true
    */
   showSelectAll?: boolean;
   /**
-   * Label of the "Select all" row
-   * @default 'Select all'
+   * Label of the "All" row
+   * @default 'All'
    */
   selectAllLabel?: string;
   /**
@@ -127,7 +127,7 @@ const ICON_SIZES: Record<MultiSelectSize, number> = { XS: 12, S: 12, M: 16, L: 2
  *
  * Multiple selection field: the selected options are shown as removable chips
  * inside the field (as many as fit on one line, then a "+X" counter). The
- * dropdown lists every option with a checkbox, an optional "Select all" row and
+ * dropdown lists every option with a checkbox, an optional "All" row and
  * optional groups. A field with no option at all is disabled.
  *
  * @example
@@ -160,7 +160,7 @@ export function MultiSelect({
   value,
   onValueChange,
   showSelectAll = true,
-  selectAllLabel = 'Select all',
+  selectAllLabel = 'All',
   emptyGroupText = 'No option',
   labelPosition = 'top',
   className = '',

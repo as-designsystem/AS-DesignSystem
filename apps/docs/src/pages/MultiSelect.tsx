@@ -96,7 +96,7 @@ const runways = [
       >
         A multiple selection field. Selected options are shown as removable chips inside the field —
         as many as fit on one line, then a "+X" counter. The dropdown lists every option with a
-        checkbox, a "Select all" row and optional groups.
+        checkbox, an "All" row (selects or clears every option) and optional groups.
       </p>
 
       {/* Tabs */}
@@ -394,13 +394,13 @@ const runways = [
                     <td style={{ padding: '12px 8px' }}><code>showSelectAll</code></td>
                     <td style={{ padding: '12px 8px' }}><code>boolean</code></td>
                     <td style={{ padding: '12px 8px' }}>true</td>
-                    <td style={{ padding: '12px 8px' }}>Show the "Select all" row (checked, empty or indeterminate)</td>
+                    <td style={{ padding: '12px 8px' }}>Show the "All" row (checked, empty or indeterminate)</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
                     <td style={{ padding: '12px 8px' }}><code>selectAllLabel</code></td>
                     <td style={{ padding: '12px 8px' }}><code>string</code></td>
-                    <td style={{ padding: '12px 8px' }}>'Select all'</td>
-                    <td style={{ padding: '12px 8px' }}>Label of the "Select all" row</td>
+                    <td style={{ padding: '12px 8px' }}>'All'</td>
+                    <td style={{ padding: '12px 8px' }}>Label of the "All" row</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
                     <td style={{ padding: '12px 8px' }}><code>size</code></td>
