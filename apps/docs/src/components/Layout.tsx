@@ -122,6 +122,7 @@ const navSections: NavSectionData[] = [
       { label: 'EmptyState', path: '/components/empty-state' },
       { label: 'IconButton', path: '/components/icon-button' },
       { label: 'Modal', path: '/composites/modal' },
+      { label: 'MultiSelect', path: '/components/multi-select' },
       { label: 'NumberInput', path: '/components/number-input' },
       { label: 'ScrollableContent', path: '/components/scrollable-content' },
       { label: 'Select', path: '/components/select' },

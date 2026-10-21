@@ -1291,6 +1291,44 @@ export const components: RegistryItem[] = [
     ],
   },
   {
+    name: 'multi-select',
+    type: 'component',
+    displayName: 'MultiSelect',
+    description: 'Multiple selection field with chips inside the input, select all and grouped options, based on Radix UI Popover',
+    files: [
+      {
+        path: 'templates/components/MultiSelect.tsx',
+        target: 'components/MultiSelect.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/MultiSelect.css',
+        target: 'components/MultiSelect.css',
+        type: 'style',
+      },
+      // Shared field label (internal dependency, not listed separately)
+      {
+        path: 'templates/components/FieldLabel.tsx',
+        target: 'components/FieldLabel.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/FieldLabel.css',
+        target: 'components/FieldLabel.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon', 'icon-button', 'tooltip', 'chip', 'checkbox', 'scrollable-content'],
+    externalDependencies: {
+      '@radix-ui/react-popover': '^1.1.4',
+    },
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'button-group',
     type: 'component',
     displayName: 'ButtonGroup',

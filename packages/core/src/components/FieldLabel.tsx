@@ -36,7 +36,7 @@ export interface FieldAction {
  * Class prefix used to preserve the exact, per-input label class names.
  * This is a contract: existing products rely on these class names.
  */
-export type FieldLabelClassPrefix = 'text-input' | 'combobox' | 'select' | 'number-input';
+export type FieldLabelClassPrefix = 'text-input' | 'combobox' | 'select' | 'number-input' | 'multi-select';
 
 export interface FieldLabelProps {
   /**

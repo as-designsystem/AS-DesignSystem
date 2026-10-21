@@ -9,6 +9,7 @@ export { Tab, type TabProps, type TabSize, type TabStatus, type TabState, type T
 export { ToolIcons, type ToolIconsProps, type ToolName, type ToolIconMode } from './components/ToolIcons';
 export { Select, type SelectProps, type SelectSize, type SelectState, type SelectOption } from './components/Select';
 export { Combobox, type ComboboxProps, type ComboboxSize, type ComboboxState, type ComboboxOption } from './components/Combobox';
+export { MultiSelect, type MultiSelectProps, type MultiSelectSize, type MultiSelectState, type MultiSelectOption, type MultiSelectGroup } from './components/MultiSelect';
 export { Checkbox, type CheckboxProps, type CheckboxSize, type CheckboxState, type CheckboxStatus } from './components/Checkbox';
 export { Toggle, type ToggleProps, type ToggleSize, type ToggleState } from './components/Toggle';
 export { Slider, type SliderProps, type SliderSize } from './components/Slider';

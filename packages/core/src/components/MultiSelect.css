@@ -1,0 +1,282 @@
+/**
+ * MultiSelect Component Styles
+ * Field styling matches Combobox / Select (same sizes, states and label row)
+ */
+
+/* Shared label-actions slot (right-aligned Ghost action icons) */
+@import './FieldLabel.css';
+
+/* ============================================================================
+   CONTAINER
+   ============================================================================ */
+
+.multi-select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.multi-select-container--label-left {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 4px;
+}
+
+.multi-select-container--label-left .multi-select-label-container {
+  flex-shrink: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Actions sit AFTER the field (column 3), not between label and field */
+.multi-select-container--label-left .multi-select-label-actions {
+  grid-column: 3;
+  grid-row: 1;
+  margin-left: 0;
+}
+
+/* Legend sits under the field (column 2), not to its right */
+.multi-select-container--label-left .multi-select-legend {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ============================================================================
+   LABEL
+   ============================================================================ */
+
+.multi-select-label-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.multi-select-label {
+  color: var(--text-secondary, #63728a);
+}
+
+.multi-select-optional {
+  color: var(--text-secondary, #63728a);
+}
+
+.multi-select-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-default, #063b9e);
+  cursor: pointer;
+}
+
+/* ============================================================================
+   TRIGGER (the field)
+   ============================================================================ */
+
+.multi-select-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  border-radius: var(--radius-xs, 3px) var(--radius-xs, 3px) 0 0;
+  background-color: var(--background-secondary, #fafafa);
+  box-shadow: inset 0 -1px 0 0 var(--border-default, #919cb0);
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+.multi-select-trigger:focus-visible {
+  outline: none;
+}
+
+.multi-select-trigger:hover {
+  background-color: var(--background-tertiary, #eff1f4);
+}
+
+.multi-select-trigger:focus-within,
+.multi-select-trigger--open {
+  box-shadow: inset 0 -1px 0 0 var(--primary-default, #063b9e);
+  background-color: var(--background-tertiary, #eff1f4);
+}
+
+.multi-select-trigger--disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.multi-select-trigger--read-only {
+  background-color: transparent;
+  box-shadow: inset 0 -1px 0 0 var(--border-minimal, #eff1f4);
+  cursor: default;
+}
+
+.multi-select-trigger--read-only:hover {
+  background-color: transparent;
+}
+
+/* Sizes */
+.multi-select-trigger--xs {
+  height: 24px;
+  padding: 0 8px;
+  gap: 4px;
+}
+
+.multi-select-trigger--s {
+  height: 32px;
+  padding: 0 12px;
+}
+
+.multi-select-trigger--m {
+  height: 40px;
+  padding: 0 12px;
+}
+
+.multi-select-trigger--l {
+  height: 48px;
+  padding: 0 16px;
+}
+
+/* States */
+.multi-select-trigger--error,
+.multi-select-trigger--error:focus-within {
+  box-shadow: inset 0 -1px 0 0 var(--feedback-error-default, #e4002b);
+}
+
+.multi-select-trigger--valid,
+.multi-select-trigger--valid:focus-within {
+  box-shadow: inset 0 -1px 0 0 var(--feedback-success-default, #08875b);
+}
+
+/* ============================================================================
+   CHIPS (one line only — the chips that don't fit collapse into "+X")
+   ============================================================================ */
+
+.multi-select-chips {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.multi-select-chips > .chip {
+  flex-shrink: 0;
+}
+
+/* Invisible copy of every chip, used to measure how many fit */
+.multi-select-measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  display: flex;
+  gap: 4px;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.multi-select-placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--text-secondary, #63728a);
+}
+
+.multi-select-trigger--xs .multi-select-placeholder {
+  font-size: 12px;
+}
+
+.multi-select-trigger--s .multi-select-placeholder,
+.multi-select-trigger--m .multi-select-placeholder {
+  font-size: 14px;
+}
+
+.multi-select-trigger--l .multi-select-placeholder {
+  font-size: 16px;
+}
+
+/* ============================================================================
+   ICONS
+   ============================================================================ */
+
+.multi-select-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.multi-select-icon--chevron {
+  transition: transform 0.2s ease;
+}
+
+.multi-select-trigger--open .multi-select-icon--chevron {
+  transform: rotate(180deg);
+}
+
+/* ============================================================================
+   DROPDOWN
+   ============================================================================ */
+
+.multi-select-content {
+  min-width: var(--radix-popover-trigger-width);
+  background-color: var(--background-main, #ffffff);
+  border-radius: var(--radius-xs, 3px);
+  box-shadow: var(--shadow-2, 0 0 5px 0 rgba(0, 0, 0, 0.15));
+  z-index: 1000;
+}
+
+.multi-select-list {
+  max-height: 280px;
+  padding: 4px 0;
+}
+
+.multi-select-option {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.multi-select-option:hover {
+  background-color: var(--background-tertiary, #eff1f4);
+}
+
+.multi-select-option--all {
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border-minimal, #e0e3e9);
+}
+
+.multi-select-group {
+  display: block;
+  padding: 8px 12px 4px;
+  color: var(--text-secondary, #63728a);
+}
+
+.multi-select-group-empty {
+  display: block;
+  padding: 6px 12px;
+  color: var(--text-tertiary, #919cb0);
+}
+
+/* ============================================================================
+   LEGEND
+   ============================================================================ */
+
+.multi-select-legend {
+  color: var(--text-secondary, #63728a);
+}
+
+.multi-select-container--error .multi-select-legend {
+  color: var(--feedback-error-default, #e4002b);
+}
+
+.multi-select-container--valid .multi-select-legend {
+  color: var(--feedback-success-default, #08875b);
+}

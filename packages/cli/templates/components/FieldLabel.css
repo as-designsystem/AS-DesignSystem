@@ -12,7 +12,8 @@
 .text-input-label-actions,
 .combobox-label-actions,
 .select-label-actions,
-.number-input-label-actions {
+.number-input-label-actions,
+.multi-select-label-actions {
   display: inline-flex;
   align-items: center;
   gap: 2px;
