@@ -329,6 +329,12 @@ import { IconButton } from '@/design-system/components/IconButton';
                   <td><code>true</code></td>
                   <td>Whether to show arrow</td>
                 </tr>
+                <tr>
+                  <td><code>className</code></td>
+                  <td><code>string</code></td>
+                  <td>—</td>
+                  <td>Extra class on the tooltip content — <code>tooltip-content--wrap</code> wraps long text at 280px (used by the field info icons)</td>
+                </tr>
               </tbody>
             </table>
           </div>

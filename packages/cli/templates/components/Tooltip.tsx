@@ -129,6 +129,11 @@ export interface SimpleTooltipProps {
    * @default true
    */
   arrow?: boolean;
+  /**
+   * Additional CSS class on the tooltip content
+   * (e.g. `tooltip-content--wrap` for long text)
+   */
+  className?: string;
 }
 
 /**
@@ -147,6 +152,7 @@ export function SimpleTooltip({
   side = 'top',
   delayDuration = 0,
   arrow = true,
+  className = '',
 }: SimpleTooltipProps) {
   return (
     <TooltipPrimitive.Provider delayDuration={delayDuration} skipDelayDuration={0}>
@@ -155,7 +161,7 @@ export function SimpleTooltip({
           <span style={{ display: 'inline-flex' }}>{children}</span>
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
-          <TooltipPrimitive.Content className="tooltip-content label-regular-s" side={side} sideOffset={4}>
+          <TooltipPrimitive.Content className={`tooltip-content label-regular-s ${className}`} side={side} sideOffset={4}>
             {label}
             {arrow && <TooltipPrimitive.Arrow className="tooltip-arrow" />}
           </TooltipPrimitive.Content>

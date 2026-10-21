@@ -167,7 +167,7 @@ export function FieldLabel({
         )}
       </label>
       {showInfo && infoText ? (
-        <SimpleTooltip label={infoText} delayDuration={0}>
+        <SimpleTooltip label={infoText} delayDuration={0} className="tooltip-content--wrap">
           <span className={`${classPrefix}-info-icon`}>
             <Icon name="info" size={16} />
           </span>
