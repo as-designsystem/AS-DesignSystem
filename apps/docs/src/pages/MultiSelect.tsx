@@ -24,6 +24,7 @@ export default function MultiSelectPage() {
 
   const [basic, setBasic] = useState<string[]>(runways.map((r) => r.value));
   const [sids, setSids] = useState<string[]>([]);
+  const [exclusive, setExclusive] = useState<string[]>([]);
   const [sizeXS, setSizeXS] = useState<string[]>(['08L', '26R']);
   const [sizeS, setSizeS] = useState<string[]>(['08L', '26R']);
   const [sizeM, setSizeM] = useState<string[]>(['08L', '26R']);
@@ -56,6 +57,15 @@ const runways = [
   emptyGroupText="No SID for this runway"
   value={sids}
   onValueChange={setSids}
+/>`;
+
+  const exclusiveCode = `// An empty value means "All" — the field is never empty
+<MultiSelect
+  label="Runways"
+  exclusiveAll
+  options={runways}
+  value={runways}
+  onValueChange={setRunways}
 />`;
 
   const sizesCode = `<MultiSelect size="XS" label="Size XS" options={options} value={value} onValueChange={setValue} />
@@ -181,6 +191,34 @@ const runways = [
                 value={sids}
                 onValueChange={setSids}
               />
+            </div>
+          </section>
+          <section className="component-section">
+            <div className="section-header">
+              <h2
+                className="heading-6"
+                style={{
+                  marginTop: '32px',
+                  marginBottom: '16px',
+                  color: 'var(--text-corporate, var(--sea-blue-90, #00205b))',
+                }}
+              >
+                Exclusive All
+              </h2>
+              <Button
+                label="Code"
+                leftIcon="code"
+                size="S"
+                variant="Outlined"
+                onClick={() => setOpenModal('exclusive')}
+              />
+            </div>
+            <p className="label-regular-s" style={{ marginBottom: '16px', color: 'var(--text-secondary, #63728a)' }}>
+              With <code>exclusiveAll</code>, "All" is a choice of its own: an empty value means All (the default),
+              picking an option replaces All, picking All clears the options and removing the last option goes back to All.
+            </p>
+            <div className="example-container" style={{ maxWidth: '320px' }}>
+              <MultiSelect label="Runways" exclusiveAll options={runways} value={exclusive} onValueChange={setExclusive} />
             </div>
           </section>
           <section className="component-section">
@@ -397,6 +435,12 @@ const runways = [
                     <td style={{ padding: '12px 8px' }}>Show the "All" row (checked, empty or indeterminate)</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
+                    <td style={{ padding: '12px 8px' }}><code>exclusiveAll</code></td>
+                    <td style={{ padding: '12px 8px' }}><code>boolean</code></td>
+                    <td style={{ padding: '12px 8px' }}>false</td>
+                    <td style={{ padding: '12px 8px' }}>"All" becomes an exclusive choice: an empty value means All and the field is never empty</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid var(--border-minimal)' }}>
                     <td style={{ padding: '12px 8px' }}><code>selectAllLabel</code></td>
                     <td style={{ padding: '12px 8px' }}><code>string</code></td>
                     <td style={{ padding: '12px 8px' }}>'All'</td>
@@ -484,6 +528,7 @@ const runways = [
       {/* Modals */}
       <CodeModal isOpen={openModal === 'basic'} onClose={() => setOpenModal(null)} title="Basic MultiSelect" code={basicCode} />
       <CodeModal isOpen={openModal === 'grouped'} onClose={() => setOpenModal(null)} title="Grouped Options" code={groupedCode} />
+      <CodeModal isOpen={openModal === 'exclusive'} onClose={() => setOpenModal(null)} title="Exclusive All" code={exclusiveCode} />
       <CodeModal isOpen={openModal === 'sizes'} onClose={() => setOpenModal(null)} title="MultiSelect Sizes" code={sizesCode} />
       <CodeModal isOpen={openModal === 'states'} onClose={() => setOpenModal(null)} title="MultiSelect States" code={statesCode} />
       <CodeModal isOpen={openModal === 'options'} onClose={() => setOpenModal(null)} title="Other Options" code={optionsCode} />

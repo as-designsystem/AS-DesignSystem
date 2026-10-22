@@ -103,6 +103,14 @@ export interface MultiSelectProps {
    */
   selectAllLabel?: string;
   /**
+   * Make "All" an exclusive choice instead of a select / clear-all shortcut:
+   * an empty `value` means "All" (shown as an "All" chip, the default),
+   * picking an option replaces "All", picking "All" clears the options, and
+   * clearing the last option goes back to "All". The field is never empty.
+   * @default false
+   */
+  exclusiveAll?: boolean;
+  /**
    * Text shown under a group that has no option
    * @default 'No option'
    */
@@ -161,6 +169,7 @@ export function MultiSelect({
   onValueChange,
   showSelectAll = true,
   selectAllLabel = 'All',
+  exclusiveAll = false,
   emptyGroupText = 'No option',
   labelPosition = 'top',
   className = '',
@@ -182,8 +191,11 @@ export function MultiSelect({
 
   const selected = new Set(value);
   const selectedCount = allOptions.filter((o) => selected.has(o.value)).length;
-  const allState: boolean | 'indeterminate' =
-    selectedCount === 0 ? false : selectedCount === allOptions.length ? true : 'indeterminate';
+  // Exclusive mode: an empty selection stands for "All".
+  const isAll = exclusiveAll && value.length === 0;
+  const allState: boolean | 'indeterminate' = exclusiveAll
+    ? isAll
+    : selectedCount === 0 ? false : selectedCount === allOptions.length ? true : 'indeterminate';
 
   // Keep the selection in option order, whatever the click order.
   const commit = (next: Set<string>) =>
@@ -194,7 +206,13 @@ export function MultiSelect({
     else next.delete(v);
     commit(next);
   };
-  const toggleAll = () => onValueChange?.(allState === true ? [] : allOptions.map((o) => o.value));
+  const toggleAll = () => {
+    if (exclusiveAll) {
+      if (!isAll) onValueChange?.([]);
+    } else {
+      onValueChange?.(allState === true ? [] : allOptions.map((o) => o.value));
+    }
+  };
   // The whole row is the hit area: clicks outside the checkbox / its label toggle too.
   const onRow = (e: React.MouseEvent, fn: () => void) => {
     if (!(e.target as Element).closest('button, label')) fn();
@@ -294,7 +312,9 @@ export function MultiSelect({
             }}
           >
             <div className="multi-select-chips" ref={chipsRef}>
-              {value.length === 0 ? (
+              {isAll ? (
+                <Chip label={selectAllLabel} size={chipSize} type="ReadOnly" />
+              ) : value.length === 0 ? (
                 <span className="multi-select-placeholder">{placeholder}</span>
               ) : (
                 <>
