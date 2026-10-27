@@ -442,9 +442,9 @@ import { Button } from '@/design-system/components/Button';
                 </tr>
                 <tr>
                   <td><code>title</code></td>
-                  <td><code>string</code></td>
+                  <td><code>ReactNode</code></td>
                   <td><code>-</code></td>
-                  <td>Title displayed in the modal header (required)</td>
+                  <td>Title displayed in the modal header (required) — a string, or a node such as an inline-editable name</td>
                 </tr>
                 <tr>
                   <td><code>children</code></td>

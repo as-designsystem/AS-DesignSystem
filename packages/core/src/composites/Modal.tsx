@@ -12,9 +12,9 @@ export interface ModalProps {
    */
   onClose: () => void;
   /**
-   * Title displayed in the modal header
+   * Title displayed in the modal header — a string, or a node such as an inline-editable name
    */
-  title: string;
+  title: React.ReactNode;
   /**
    * Content to display inside the modal
    */
