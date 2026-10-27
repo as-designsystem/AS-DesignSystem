@@ -1,0 +1,76 @@
+/**
+ * Breadcrumb Component Styles
+ */
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.breadcrumb__link,
+.breadcrumb__ancestor,
+.breadcrumb__current {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.breadcrumb__link {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 500;
+  color: var(--primary-default, #063b9e);
+  cursor: pointer;
+}
+
+.breadcrumb__link:hover {
+  color: var(--primary-hover, #255fcc);
+  text-decoration: underline;
+}
+
+.breadcrumb__link:focus-visible {
+  outline: 2px solid var(--primary-default, #063b9e);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs, 2px);
+}
+
+.breadcrumb__ancestor {
+  font-weight: 500;
+  color: var(--text-secondary, #63728a);
+}
+
+.breadcrumb__current {
+  font-weight: 700;
+  color: var(--text-corporate, #00205b);
+}
+
+.breadcrumb__separator {
+  display: inline-flex;
+  color: var(--text-tertiary, #9aa5b8);
+}
+
+/* Sizes */
+.breadcrumb--s .breadcrumb__list {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.breadcrumb--m .breadcrumb__list {
+  font-size: 20px;
+  line-height: 28px;
+}

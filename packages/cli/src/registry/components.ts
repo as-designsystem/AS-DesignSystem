@@ -1329,6 +1329,30 @@ export const components: RegistryItem[] = [
     ],
   },
   {
+    name: 'breadcrumb',
+    type: 'component',
+    displayName: 'Breadcrumb',
+    description: 'Navigation trail from a root page to the current page',
+    files: [
+      {
+        path: 'templates/components/Breadcrumb.tsx',
+        target: 'components/Breadcrumb.tsx',
+        type: 'component',
+      },
+      {
+        path: 'templates/components/Breadcrumb.css',
+        target: 'components/Breadcrumb.css',
+        type: 'style',
+      },
+    ],
+    dependencies: ['icon'],
+    cssImports: [
+      '@/design-system/tokens/typography.css',
+      '@/design-system/tokens/colors.css',
+      '@/design-system/tokens/radius.css',
+    ],
+  },
+  {
     name: 'button-group',
     type: 'component',
     displayName: 'ButtonGroup',

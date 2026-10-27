@@ -3,6 +3,7 @@ export { Alert, type AlertProps, type AlertVariant } from './components/Alert';
 export { Icon, type IconProps, availableIcons, type IconName } from './components/Icon';
 export { Button, type ButtonProps, type ButtonSize, type ButtonState, type ButtonVariant } from './components/Button';
 export { VButton, type VButtonProps, type VButtonSize, type VButtonState, type VButtonVariant } from './components/VButton';
+export { Breadcrumb, type BreadcrumbProps, type BreadcrumbItem, type BreadcrumbSize } from './components/Breadcrumb';
 export { ButtonGroup, type ButtonGroupProps, type ButtonGroupOption, type ButtonGroupLayout, type ButtonGroupSize } from './components/ButtonGroup';
 export { IconButton, type IconButtonProps, type IconButtonSize, type IconButtonState, type IconButtonVariant } from './components/IconButton';
 export { Tab, type TabProps, type TabSize, type TabStatus, type TabState, type TabVariant } from './components/Tab';

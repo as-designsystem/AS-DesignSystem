@@ -110,6 +110,7 @@ const navSections: NavSectionData[] = [
       { label: 'Accordion', path: '/composites/accordion' },
       { label: 'Alert', path: '/components/alert' },
       { label: 'Avatar', path: '/components/avatar' },
+      { label: 'Breadcrumb', path: '/components/breadcrumb' },
       { label: 'Button', path: '/components/button' },
       { label: 'ButtonGroup', path: '/components/button-group' },
       { label: 'VButton', path: '/components/vbutton' },
