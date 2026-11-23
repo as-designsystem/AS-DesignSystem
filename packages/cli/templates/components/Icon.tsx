@@ -146,6 +146,7 @@ import buildCircleIcon from '../assets/svg/icons/build_circle.svg?raw';
 import businessIcon from '../assets/svg/icons/business.svg?raw';
 import businessCenterIcon from '../assets/svg/icons/business_center.svg?raw';
 import cabinIcon from '../assets/svg/icons/cabin.svg?raw';
+import cableIcon from '../assets/svg/icons/cable.svg?raw';
 import cachedIcon from '../assets/svg/icons/cached.svg?raw';
 import calculateIcon from '../assets/svg/icons/calculate.svg?raw';
 import calendarMonthIcon from '../assets/svg/icons/calendar_month.svg?raw';
@@ -191,6 +192,7 @@ import codeIcon from '../assets/svg/icons/code.svg?raw';
 import codeOffIcon from '../assets/svg/icons/code_off.svg?raw';
 import colorLensIcon from '../assets/svg/icons/color_lens.svg?raw';
 import colorizeIcon from '../assets/svg/icons/colorize.svg?raw';
+import compareIcon from '../assets/svg/icons/compare.svg?raw';
 import computerIcon from '../assets/svg/icons/computer.svg?raw';
 import constructionIcon from '../assets/svg/icons/construction.svg?raw';
 import contactMailIcon from '../assets/svg/icons/contact_mail.svg?raw';
@@ -555,6 +557,7 @@ import navigateBeforeIcon from '../assets/svg/icons/navigate_before.svg?raw';
 import navigateNextIcon from '../assets/svg/icons/navigate_next.svg?raw';
 import navigationIcon from '../assets/svg/icons/navigation.svg?raw';
 import nearMeIcon from '../assets/svg/icons/near_me.svg?raw';
+import networkNodeIcon from '../assets/svg/icons/network_node.svg?raw';
 import nextWeekIcon from '../assets/svg/icons/next_week.svg?raw';
 import nfcIcon from '../assets/svg/icons/nfc.svg?raw';
 import northIcon from '../assets/svg/icons/north.svg?raw';
@@ -862,6 +865,7 @@ import wifiTetheringIcon from '../assets/svg/icons/wifi_tethering.svg?raw';
 import windowIcon from '../assets/svg/icons/window.svg?raw';
 import workIcon from '../assets/svg/icons/work.svg?raw';
 import workOutlineIcon from '../assets/svg/icons/work_outline.svg?raw';
+import workspacePremiumIcon from '../assets/svg/icons/workspace_premium.svg?raw';
 import wrapTextIcon from '../assets/svg/icons/wrap_text.svg?raw';
 import zoomInIcon from '../assets/svg/icons/zoom_in.svg?raw';
 import zoomInMapIcon from '../assets/svg/icons/zoom_in_map.svg?raw';
@@ -1017,6 +1021,7 @@ const iconMap: Record<string, string> = {
   'business': businessIcon,
   'business_center': businessCenterIcon,
   'cabin': cabinIcon,
+  'cable': cableIcon,
   'cached': cachedIcon,
   'calculate': calculateIcon,
   'calendar_month': calendarMonthIcon,
@@ -1062,6 +1067,7 @@ const iconMap: Record<string, string> = {
   'code_off': codeOffIcon,
   'color_lens': colorLensIcon,
   'colorize': colorizeIcon,
+  'compare': compareIcon,
   'computer': computerIcon,
   'construction': constructionIcon,
   'contact_mail': contactMailIcon,
@@ -1426,6 +1432,7 @@ const iconMap: Record<string, string> = {
   'navigate_next': navigateNextIcon,
   'navigation': navigationIcon,
   'near_me': nearMeIcon,
+  'network_node': networkNodeIcon,
   'next_week': nextWeekIcon,
   'nfc': nfcIcon,
   'north': northIcon,
@@ -1733,6 +1740,7 @@ const iconMap: Record<string, string> = {
   'window': windowIcon,
   'work': workIcon,
   'work_outline': workOutlineIcon,
+  'workspace_premium': workspacePremiumIcon,
   'wrap_text': wrapTextIcon,
   'zoom_in': zoomInIcon,
   'zoom_in_map': zoomInMapIcon,
@@ -1888,6 +1896,7 @@ export const availableIcons = [
   'business',
   'business_center',
   'cabin',
+  'cable',
   'cached',
   'calculate',
   'calendar_month',
@@ -1933,6 +1942,7 @@ export const availableIcons = [
   'code_off',
   'color_lens',
   'colorize',
+  'compare',
   'computer',
   'construction',
   'contact_mail',
@@ -2297,6 +2307,7 @@ export const availableIcons = [
   'navigate_next',
   'navigation',
   'near_me',
+  'network_node',
   'next_week',
   'nfc',
   'north',
@@ -2604,6 +2615,7 @@ export const availableIcons = [
   'window',
   'work',
   'work_outline',
+  'workspace_premium',
   'wrap_text',
   'zoom_in',
   'zoom_in_map',
